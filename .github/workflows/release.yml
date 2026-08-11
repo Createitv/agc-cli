@@ -10,6 +10,10 @@ permissions:
   contents: write
   packages: write
 
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -26,6 +30,14 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Check package publisher token
+        run: |
+          if [ -z "${TAP_GITHUB_TOKEN}" ]; then
+            echo "TAP_GITHUB_TOKEN is required for Homebrew, Scoop, and Winget publishing." >&2
+            exit 1
+          fi
+        env:
+          TAP_GITHUB_TOKEN: ${{ secrets.TAP_GITHUB_TOKEN }}
       - uses: goreleaser/goreleaser-action@v7
         with:
           distribution: goreleaser
@@ -34,3 +46,23 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TAP_GITHUB_TOKEN: ${{ secrets.TAP_GITHUB_TOKEN }}
+      - name: Publish install commands
+        run: |
+          {
+            echo "## Install commands"
+            echo
+            echo "macOS:"
+            echo '```bash'
+            echo "brew install agccli"
+            echo '```'
+            echo
+            echo "Windows:"
+            echo '```powershell'
+            echo "scoop bucket add createitv https://github.com/Createitv/scoop-bucket; scoop install agc-cli; agc version"
+            echo '```'
+            echo
+            echo "Winget after Microsoft approval:"
+            echo '```powershell'
+            echo "winget install --id Createitv.AgcCli -e"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
