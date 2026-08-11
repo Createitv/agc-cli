@@ -48,8 +48,8 @@ brews:
 
 dockers:
   - image_templates:
-      - ghcr.io/Createitv/agc-cli:{{ .Version }}-amd64
-      - ghcr.io/Createitv/agc-cli:latest-amd64
+      - ghcr.io/createitv/agc-cli:{{ .Version }}-amd64
+      - ghcr.io/createitv/agc-cli:latest-amd64
     dockerfile: Dockerfile
     use: buildx
     goos: linux
@@ -57,8 +57,8 @@ dockers:
     build_flag_templates:
       - --platform=linux/amd64
   - image_templates:
-      - ghcr.io/Createitv/agc-cli:{{ .Version }}-arm64
-      - ghcr.io/Createitv/agc-cli:latest-arm64
+      - ghcr.io/createitv/agc-cli:{{ .Version }}-arm64
+      - ghcr.io/createitv/agc-cli:latest-arm64
     dockerfile: Dockerfile
     use: buildx
     goos: linux
@@ -67,11 +67,11 @@ dockers:
       - --platform=linux/arm64
 
 docker_manifests:
-  - name_template: ghcr.io/Createitv/agc-cli:{{ .Version }}
+  - name_template: ghcr.io/createitv/agc-cli:{{ .Version }}
     image_templates:
-      - ghcr.io/Createitv/agc-cli:{{ .Version }}-amd64
-      - ghcr.io/Createitv/agc-cli:{{ .Version }}-arm64
-  - name_template: ghcr.io/Createitv/agc-cli:latest
+      - ghcr.io/createitv/agc-cli:{{ .Version }}-amd64
+      - ghcr.io/createitv/agc-cli:{{ .Version }}-arm64
+  - name_template: ghcr.io/createitv/agc-cli:latest
     image_templates:
-      - ghcr.io/Createitv/agc-cli:latest-amd64
-      - ghcr.io/Createitv/agc-cli:latest-arm64
+      - ghcr.io/createitv/agc-cli:latest-amd64
+      - ghcr.io/createitv/agc-cli:latest-arm64
