@@ -1,0 +1,77 @@
+version: 2
+
+project_name: agc-cli
+
+builds:
+  - id: agc
+    main: ./cmd/agc
+    binary: agc
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - darwin
+      - linux
+      - windows
+    goarch:
+      - amd64
+      - arm64
+    ignore:
+      - goos: windows
+        goarch: arm64
+    ldflags:
+      - -s -w
+      - -X github.com/your-org/agc-cli/cmd/agc/command.version={{.Version}}
+      - -X github.com/your-org/agc-cli/cmd/agc/command.commit={{.Commit}}
+      - -X github.com/your-org/agc-cli/cmd/agc/command.buildDate={{.Date}}
+
+archives:
+  - formats: [tar.gz]
+    format_overrides:
+      - goos: windows
+        formats: [zip]
+    files:
+      - README.md
+      - LICENSE
+
+checksum:
+  name_template: checksums.txt
+
+brews:
+  - name: agc-cli
+    repository:
+      owner: your-org
+      name: homebrew-tap
+    homepage: https://github.com/your-org/agc-cli
+    description: AppGallery Connect command center
+    license: MIT
+
+dockers:
+  - image_templates:
+      - ghcr.io/your-org/agc-cli:{{ .Version }}-amd64
+      - ghcr.io/your-org/agc-cli:latest-amd64
+    dockerfile: Dockerfile
+    use: buildx
+    goos: linux
+    goarch: amd64
+    build_flag_templates:
+      - --platform=linux/amd64
+  - image_templates:
+      - ghcr.io/your-org/agc-cli:{{ .Version }}-arm64
+      - ghcr.io/your-org/agc-cli:latest-arm64
+    dockerfile: Dockerfile
+    use: buildx
+    goos: linux
+    goarch: arm64
+    build_flag_templates:
+      - --platform=linux/arm64
+
+docker_manifests:
+  - name_template: ghcr.io/your-org/agc-cli:{{ .Version }}
+    image_templates:
+      - ghcr.io/your-org/agc-cli:{{ .Version }}-amd64
+      - ghcr.io/your-org/agc-cli:{{ .Version }}-arm64
+  - name_template: ghcr.io/your-org/agc-cli:latest
+    image_templates:
+      - ghcr.io/your-org/agc-cli:latest-amd64
+      - ghcr.io/your-org/agc-cli:latest-arm64
+

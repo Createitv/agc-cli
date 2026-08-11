@@ -1,0 +1,17 @@
+.DS_Store
+.env
+.env.*
+!.env.example
+
+bin/
+dist/
+coverage.out
+coverage.html
+
+node_modules/
+apps/web/dist/
+apps/web/.vite/
+
+.agc/
+*.log
+

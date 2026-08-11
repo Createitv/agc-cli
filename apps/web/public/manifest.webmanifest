@@ -1,0 +1,12 @@
+{
+  "name": "agc CLI",
+  "short_name": "agc CLI",
+  "description": "AppGallery Connect from one command surface.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#080809",
+  "theme_color": "#080809",
+  "icons": [
+    { "src": "/agc-mark.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

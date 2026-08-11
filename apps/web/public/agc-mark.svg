@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="agc CLI mark">
+  <rect width="64" height="64" rx="18" fill="#080809"/>
+  <path d="M15 43V22l17-10 17 10v20L32 52 15 43Z" fill="#F04444"/>
+  <path d="m23 38 9-16 9 16h-6l-3-6-3 6h-6Z" fill="#fff"/>
+</svg>
