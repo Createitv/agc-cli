@@ -1,0 +1,60 @@
+name: Chocolatey
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Release version without the leading v
+        required: true
+        default: "0.1.0"
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: windows-latest
+    env:
+      CHOCOLATEY_API_KEY: ${{ secrets.CHOCOLATEY_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Resolve version
+        id: version
+        shell: pwsh
+        run: |
+          $version = "${{ github.event.inputs.version }}"
+          if (-not $version) {
+            $version = "${{ github.event.release.tag_name }}".TrimStart("v")
+          }
+          "version=$version" >> $env:GITHUB_OUTPUT
+      - name: Prepare Chocolatey package
+        shell: pwsh
+        run: |
+          $version = "${{ steps.version.outputs.version }}"
+          $checksumUrl = "https://github.com/Createitv/agc-cli/releases/download/v$version/checksums.txt"
+          $checksums = Invoke-RestMethod -Uri $checksumUrl
+          $checksum = ($checksums -split "`n" | Where-Object { $_ -match "agc-cli_$version" -and $_ -match "windows_amd64.zip" } | ForEach-Object { ($_ -split "\s+")[0] })[0]
+          if (-not $checksum) { throw "Could not resolve Windows amd64 checksum for $version" }
+
+          New-Item -ItemType Directory -Force dist/chocolatey | Out-Null
+          Copy-Item -Recurse packaging/chocolatey/* dist/chocolatey/
+
+          $nuspec = "dist/chocolatey/agc-cli.nuspec"
+          (Get-Content $nuspec) -replace "<version>0.0.0</version>", "<version>$version</version>" -replace "https://github.com/Createitv/agc-cli/releases", "https://github.com/Createitv/agc-cli/releases/tag/v$version" | Set-Content $nuspec -Encoding UTF8
+
+          $install = "dist/chocolatey/tools/chocolateyInstall.ps1"
+          (Get-Content $install) -replace "v0.0.0/agc-cli_0.0.0_windows_amd64.zip", "v$version/agc-cli_$version`_windows_amd64.zip" -replace "0000000000000000000000000000000000000000000000000000000000000000", $checksum | Set-Content $install -Encoding UTF8
+      - name: Pack
+        shell: pwsh
+        run: choco pack dist/chocolatey/agc-cli.nuspec --outputdirectory dist
+      - name: Upload package artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: chocolatey-package
+          path: dist/*.nupkg
+      - name: Publish to Chocolatey
+        if: ${{ env.CHOCOLATEY_API_KEY != '' }}
+        shell: pwsh
+        run: choco push "dist/agc-cli.${{ steps.version.outputs.version }}.nupkg" --source https://push.chocolatey.org/ --api-key "$env:CHOCOLATEY_API_KEY"

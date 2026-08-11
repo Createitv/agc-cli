@@ -53,7 +53,7 @@ jobs:
             echo
             echo "macOS:"
             echo '```bash'
-            echo "brew install agccli"
+            echo "brew tap createitv/tap && brew install agc-cli && agc version"
             echo '```'
             echo
             echo "Windows:"

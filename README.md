@@ -17,7 +17,7 @@ AppGallery Connect Command Center.
 ### 快速开始
 
 ```bash
-brew install agccli
+brew tap createitv/tap && brew install agc-cli && agc version
 
 agc auth login \
   --service-account-file ~/.agc/service-account.json \
@@ -73,11 +73,10 @@ agc publishing app-info-query \
 #### Homebrew 推荐
 
 ```bash
-brew install agccli
-agc version
+brew tap createitv/tap && brew install agc-cli && agc version
 ```
 
-如果本机 Homebrew 还没有索引 Createitv tap，请先运行一次 `brew tap createitv/tap`，然后重新执行 `brew install agccli`。
+这条命令会添加 Createitv tap、安装发布版 formula，并验证 `agc` 已进入 PATH。
 
 #### Scoop 推荐 Windows
 
@@ -383,7 +382,7 @@ GitHub Actions：
 GoReleaser 发布内容：
 
 - GitHub Release 二进制包和 `checksums.txt`
-- Homebrew formula：`createitv/tap/agccli`
+- Homebrew formula：`createitv/tap/agc-cli`
 - Scoop manifest：`createitv/scoop-bucket/agc-cli`
 - Winget manifest PR：`Createitv.AgcCli`
 - GHCR 镜像：`ghcr.io/createitv/agc-cli`
@@ -421,7 +420,7 @@ CI 覆盖率门槛是 `80%`。当前测试覆盖 CLI 命令、接口注册表、
 ### Quick Start
 
 ```bash
-brew install agccli
+brew tap createitv/tap && brew install agc-cli && agc version
 
 agc auth login \
   --service-account-file ~/.agc/service-account.json \
@@ -477,11 +476,10 @@ The project currently registers `156` interface entries: `153` Huawei official A
 #### Homebrew recommended
 
 ```bash
-brew install agccli
-agc version
+brew tap createitv/tap && brew install agc-cli && agc version
 ```
 
-If Homebrew has not indexed the Createitv tap locally yet, run `brew tap createitv/tap` once and then run `brew install agccli` again.
+This command adds the Createitv tap, installs the released formula, and verifies that `agc` is on PATH.
 
 #### Scoop recommended for Windows
 
@@ -787,7 +785,7 @@ GitHub Actions:
 GoReleaser publishes:
 
 - GitHub Release archives and `checksums.txt`
-- Homebrew formula: `createitv/tap/agccli`
+- Homebrew formula: `createitv/tap/agc-cli`
 - Scoop manifest: `createitv/scoop-bucket/agc-cli`
 - Winget manifest PR: `Createitv.AgcCli`
 - GHCR image: `ghcr.io/createitv/agc-cli`

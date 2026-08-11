@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>agc-cli</id>
+    <version>0.0.0</version>
+    <packageSourceUrl>https://github.com/Createitv/agc-cli</packageSourceUrl>
+    <owners>Createitv</owners>
+    <title>agc CLI</title>
+    <authors>Createitv</authors>
+    <projectUrl>https://agccli.app/</projectUrl>
+    <iconUrl>https://agccli.app/agc-mark.svg</iconUrl>
+    <licenseUrl>https://github.com/Createitv/agc-cli/blob/main/LICENSE</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <projectSourceUrl>https://github.com/Createitv/agc-cli</projectSourceUrl>
+    <docsUrl>https://github.com/Createitv/agc-cli/blob/main/README.md</docsUrl>
+    <bugTrackerUrl>https://github.com/Createitv/agc-cli/issues</bugTrackerUrl>
+    <tags>appgallery-connect agc huawei harmonyos cli golang</tags>
+    <summary>AppGallery Connect CLI command center</summary>
+    <description>agc CLI is a Go command-line tool for AppGallery Connect automation. It helps developers bind project profiles, inspect API calls with dry-run output, invoke supported AppGallery Connect endpoints, export reports, manage uploads, and run a local REST command center for CI or agent workflows.</description>
+    <releaseNotes>https://github.com/Createitv/agc-cli/releases</releaseNotes>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>

@@ -38,7 +38,7 @@ describe('App', () => {
     fireEvent.click(screen.getByRole('button', { name: '安装' }));
 
     expect(screen.getByRole('dialog', { name: '像普通 CLI 工具一样安装 agc。' })).toBeInTheDocument();
-    expect(screen.getAllByText(/brew install agccli/).length).toBeGreaterThan(1);
+    expect(screen.getAllByText(/brew install agc-cli/).length).toBeGreaterThan(1);
     expect(screen.getAllByText(/scoop install agc-cli/).length).toBeGreaterThan(0);
     expect(document.documentElement).toHaveAttribute('lang', 'zh-CN');
   });

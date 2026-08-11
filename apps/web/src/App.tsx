@@ -35,7 +35,7 @@ type Capability = {
 };
 
 const installCommands: Record<InstallPlatform, string> = {
-  macos: 'brew install agccli',
+  macos: 'brew tap createitv/tap && brew install agc-cli && agc version',
   windows: 'if (!(Get-Command scoop -ErrorAction SilentlyContinue)) { Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force; irm get.scoop.sh | iex }; scoop bucket add createitv https://github.com/Createitv/scoop-bucket; scoop install agc-cli; agc version',
 };
 
@@ -144,12 +144,12 @@ const translations = {
     installGuide: {
       eyebrow: 'Install agc CLI',
       title: 'Use the package manager for your system.',
-      body: 'macOS installs through Homebrew with brew install agccli. If Homebrew has not indexed the Createitv tap yet, run brew tap createitv/tap once. Windows installs through Scoop from the Createitv bucket.',
+      body: 'macOS installs through the Createitv Homebrew tap with brew tap createitv/tap && brew install agc-cli. Windows installs through Scoop from the Createitv bucket.',
       macos: 'macOS Homebrew command',
       windows: 'Windows Scoop command',
       copyMac: 'Copy macOS install command',
       copyWindows: 'Copy Windows install command',
-      requirements: ['Short Homebrew formula name: agccli', 'Versioned GitHub Release binary', 'Winget PR submitted for Microsoft review'],
+      requirements: ['Homebrew formula: agc-cli', 'Versioned GitHub Release binary', 'Winget PR submitted for Microsoft review'],
     },
     console: {
       eyebrow: 'Local command center',
@@ -163,13 +163,13 @@ const translations = {
       button: 'Install',
       eyebrow: 'Package manager install',
       title: 'Install agc as a normal CLI tool.',
-      body: 'Copy one command. macOS uses the short Homebrew formula agccli, while Windows uses Scoop and the Createitv bucket.',
+      body: 'Copy one command. macOS uses the Createitv Homebrew tap, while Windows uses Scoop and the Createitv bucket.',
       unix: 'macOS',
       windows: 'Windows',
       terminal: 'PACKAGE MANAGER / STABLE',
       copy: 'Copy command',
       copied: 'Copied',
-      note: 'Homebrew installs agccli from the Createitv tap after the tap is indexed locally. Scoop installs the versioned GitHub Release build.',
+      note: 'Homebrew installs agc-cli from the Createitv tap. Scoop installs the versioned GitHub Release build.',
       source: 'Release checksum tracked',
       destination: 'Installed on PATH',
       close: 'Close install window',
@@ -244,12 +244,12 @@ const translations = {
     installGuide: {
       eyebrow: '安装 agc CLI',
       title: '用系统包管理器安装。',
-      body: 'macOS 通过 brew install agccli 安装。若本机 Homebrew 还没有索引 Createitv tap，先运行一次 brew tap createitv/tap。Windows 通过 Scoop 和 Createitv bucket 安装。',
+      body: 'macOS 通过 Createitv Homebrew tap 安装：brew tap createitv/tap && brew install agc-cli。Windows 通过 Scoop 和 Createitv bucket 安装。',
       macos: 'macOS Homebrew 命令',
       windows: 'Windows Scoop 命令',
       copyMac: '复制 macOS 安装命令',
       copyWindows: '复制 Windows 安装命令',
-      requirements: ['短 Homebrew formula 名：agccli', '正式 GitHub Release 二进制', 'Winget PR 已提交等待 Microsoft 审核'],
+      requirements: ['Homebrew formula：agc-cli', '正式 GitHub Release 二进制', 'Winget PR 已提交等待 Microsoft 审核'],
     },
     console: {
       eyebrow: '本地命令中心',
@@ -263,13 +263,13 @@ const translations = {
       button: '安装',
       eyebrow: '包管理器安装',
       title: '像普通 CLI 工具一样安装 agc。',
-      body: '复制一条命令即可。macOS 使用短 Homebrew formula agccli，Windows 使用 Scoop 和 Createitv bucket。',
+      body: '复制一条命令即可。macOS 使用 Createitv Homebrew tap，Windows 使用 Scoop 和 Createitv bucket。',
       unix: 'macOS',
       windows: 'Windows',
       terminal: '包管理器 / 稳定版',
       copy: '复制命令',
       copied: '已复制',
-      note: '本机 Homebrew 索引到 Createitv tap 后即可直接安装 agccli。Scoop 安装的是带版本信息的 GitHub Release 构建。',
+      note: 'Homebrew 通过 Createitv tap 安装 agc-cli。Scoop 安装的是带版本信息的 GitHub Release 构建。',
       source: 'Release checksum 可追踪',
       destination: '安装到 PATH',
       close: '关闭安装窗口',

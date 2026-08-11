@@ -11,10 +11,10 @@ These commands install the versioned GitHub Release build instead of compiling f
 ### macOS with Homebrew
 
 ```bash
-brew install agccli
+brew tap createitv/tap && brew install agc-cli && agc version
 ```
 
-If Homebrew has not indexed the Createitv tap on your machine yet, run `brew tap createitv/tap` once and then run `brew install agccli` again.
+The command adds the Createitv tap, installs the released formula, and verifies that `agc` is on PATH.
 
 ### Windows with Scoop
 

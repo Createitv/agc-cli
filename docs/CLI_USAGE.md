@@ -11,11 +11,10 @@
 macOS 推荐 Homebrew：
 
 ```bash
-brew install agccli
-agc version
+brew tap createitv/tap && brew install agc-cli && agc version
 ```
 
-如果本机 Homebrew 尚未索引 Createitv tap，请先运行一次 `brew tap createitv/tap`，再执行 `brew install agccli`。
+这条命令会添加 Createitv tap、安装发布版 formula，并验证 `agc` 已进入 PATH。
 
 Windows 推荐 Scoop：
 

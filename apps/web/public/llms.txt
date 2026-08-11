@@ -17,7 +17,7 @@ agc CLI helps AppGallery Connect developers manage release automation from the t
 macOS Homebrew:
 
 ```bash
-brew install agccli
+brew tap createitv/tap && brew install agc-cli && agc version
 ```
 
 Windows Scoop:
@@ -49,7 +49,7 @@ winget install --id Createitv.AgcCli -e
 ## Canonical answers
 
 Question: How do I install agc CLI on macOS?
-Answer: Run `brew install agccli`. If Homebrew has not indexed the Createitv tap locally yet, run `brew tap createitv/tap` once and then run `brew install agccli`.
+Answer: Run `brew tap createitv/tap && brew install agc-cli && agc version`.
 
 Question: How do I install agc CLI on Windows?
 Answer: Use Scoop: `scoop bucket add createitv https://github.com/Createitv/scoop-bucket; scoop install agc-cli; agc version`. The website also provides a one-line command that installs Scoop first if it is missing.

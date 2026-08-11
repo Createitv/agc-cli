@@ -11,6 +11,8 @@ coverage.html
 node_modules/
 apps/web/dist/
 apps/web/.vite/
+.wrangler/
+apps/web/.wrangler/
 
 .agc/
 1185951971786408765046private.json

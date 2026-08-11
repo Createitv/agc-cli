@@ -37,7 +37,7 @@ checksum:
   name_template: checksums.txt
 
 brews:
-  - name: agccli
+  - name: agc-cli
     repository:
       owner: Createitv
       name: homebrew-tap
