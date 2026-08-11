@@ -33,9 +33,10 @@ jobs:
       - run: npm --prefix apps/web install
       - run: npm --prefix apps/web run build
       - uses: actions/configure-pages@v5
+        with:
+          enablement: true
       - uses: actions/upload-pages-artifact@v3
         with:
           path: apps/web/dist
       - uses: actions/deploy-pages@v4
         id: deployment
-
