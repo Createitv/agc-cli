@@ -37,8 +37,8 @@ describe('App', () => {
     expect(screen.getByText(/让每一次发布沿着/)).toBeInTheDocument();
     fireEvent.click(screen.getByRole('button', { name: '安装' }));
 
-    expect(screen.getByRole('dialog', { name: '把 agc 安装到命令行。' })).toBeInTheDocument();
-    expect(screen.getByText('curl -fsSL https://createitv.github.io/agc-cli/install.sh | sh')).toBeInTheDocument();
+    expect(screen.getByRole('dialog', { name: '把 agc 放进 shell 的 PATH。' })).toBeInTheDocument();
+    expect(screen.getByText(/go install github\.com\/Createitv\/agc-cli\/cmd\/agc@latest/)).toBeInTheDocument();
     expect(document.documentElement).toHaveAttribute('lang', 'zh-CN');
   });
 });

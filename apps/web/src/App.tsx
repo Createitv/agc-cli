@@ -7,13 +7,11 @@ import {
   Clipboard,
   Cloud,
   Code2,
-  Download,
   FileJson2,
   Fingerprint,
   Globe2,
   KeyRound,
   Layers3,
-  MonitorDown,
   PackageCheck,
   RadioTower,
   Rocket,
@@ -38,8 +36,8 @@ type Capability = {
 };
 
 const installCommands: Record<InstallPlatform, string> = {
-  unix: 'curl -fsSL https://createitv.github.io/agc-cli/install.sh | sh',
-  windows: 'irm https://createitv.github.io/agc-cli/install.ps1 | iex',
+  unix: 'mkdir -p "$HOME/.local/bin" && GOBIN="$HOME/.local/bin" go install github.com/Createitv/agc-cli/cmd/agc@latest && export PATH="$HOME/.local/bin:$PATH" && agc version',
+  windows: '$p="$env:LOCALAPPDATA\\Programs\\agc\\bin"; New-Item -ItemType Directory -Force $p; $env:GOBIN=$p; go install github.com/Createitv/agc-cli/cmd/agc@latest; $env:Path="$p;$env:Path"; agc version',
 };
 
 const fallbackCapabilities: Capability[] = [
@@ -154,17 +152,17 @@ const translations = {
     footer: { tagline: 'AppGallery Connect, from one command surface.', license: 'MIT licensed', stack: 'Go + React', cloud: 'Built for Cloudflare' },
     install: {
       button: 'Install',
-      eyebrow: 'Direct install · v0.1.0',
-      title: 'Put agc on your command line.',
-      body: 'Choose your platform, copy one command, and the installer will fetch the matching binary and verify its SHA-256 checksum.',
+      eyebrow: 'Go environment install',
+      title: 'Put agc in your shell path.',
+      body: 'Copy one command. It builds agc through Go, writes the binary into a user-level bin directory, and updates PATH for the current terminal session.',
       unix: 'macOS / Linux',
       windows: 'Windows',
-      terminal: 'INSTALL CHANNEL / STABLE',
+      terminal: 'GO INSTALL / PATH READY',
       copy: 'Copy command',
       copied: 'Copied',
-      note: 'macOS supports Apple silicon and Intel. Linux supports x64 and ARM64. Windows supports x64.',
-      checksum: 'SHA-256 verified',
-      destination: 'User-writable install path',
+      note: 'Requires Go 1.22 or later. For future terminal sessions, keep ~/.local/bin or the Windows agc bin directory in your shell PATH.',
+      source: 'Built from module source',
+      destination: 'Installed through GOBIN',
       close: 'Close install window',
     },
   },
@@ -244,17 +242,17 @@ const translations = {
     footer: { tagline: '用一套命令管理 AppGallery Connect。', license: 'MIT 开源协议', stack: 'Go + React', cloud: '部署于 Cloudflare' },
     install: {
       button: '安装',
-      eyebrow: '直接安装 · v0.1.0',
-      title: '把 agc 安装到命令行。',
-      body: '选择平台并复制一条命令。安装器会下载对应架构的可执行文件，并验证 SHA-256 校验值。',
+      eyebrow: 'Go 环境安装',
+      title: '把 agc 放进 shell 的 PATH。',
+      body: '复制一条命令即可。它会通过 Go 构建 agc，把二进制写入用户级 bin 目录，并为当前终端会话更新 PATH。',
       unix: 'macOS / Linux',
       windows: 'Windows',
-      terminal: '安装通道 / 稳定版',
+      terminal: 'GO INSTALL / PATH 就绪',
       copy: '复制命令',
       copied: '已复制',
-      note: 'macOS 支持 Apple 芯片和 Intel，Linux 支持 x64 与 ARM64，Windows 支持 x64。',
-      checksum: 'SHA-256 校验',
-      destination: '用户可写安装目录',
+      note: '需要 Go 1.22 或更高版本。若希望新终端也能直接使用，请把 ~/.local/bin 或 Windows agc bin 目录保留在 shell PATH 中。',
+      source: '从模块源码构建',
+      destination: '通过 GOBIN 安装',
       close: '关闭安装窗口',
     },
   },
@@ -412,7 +410,7 @@ export function App() {
             )}
           </div>
           <button ref={installTriggerRef} className="navInstall" type="button" onClick={() => setInstallOpen(true)}>
-            <Download size={16} />
+            <Terminal size={16} />
             <span>{text.nav.install}</span>
           </button>
         </div>
@@ -621,7 +619,7 @@ export function App() {
               </button>
             </div>
             <div className="installDialogBody">
-              <div className="installGlyph" aria-hidden="true"><MonitorDown size={24} /></div>
+              <div className="installGlyph" aria-hidden="true"><PackageCheck size={24} /></div>
               <p className="eyebrow">{text.install.eyebrow}</p>
               <h2 id="install-title">{text.install.title}</h2>
               <p className="installLead">{text.install.body}</p>
@@ -646,8 +644,8 @@ export function App() {
 
               <p className="installNote">{text.install.note}</p>
               <div className="installAssurances">
-                <span><ShieldCheck size={15} /> {text.install.checksum}</span>
-                <span><Download size={15} /> {text.install.destination}</span>
+                <span><ShieldCheck size={15} /> {text.install.source}</span>
+                <span><PackageCheck size={15} /> {text.install.destination}</span>
               </div>
             </div>
           </section>

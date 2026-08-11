@@ -6,7 +6,26 @@
 
 AppGallery Connect, from your terminal. `agc-cli` is a Go command center for Huawei AppGallery Connect automation across CLI, CI, local REST, and a web Command Center.
 
-## Install from source
+## Install
+
+Use Go to install `agc` into a user-level bin directory and add that directory to the current shell `PATH`:
+
+```bash
+mkdir -p "$HOME/.local/bin" && \
+GOBIN="$HOME/.local/bin" go install github.com/Createitv/agc-cli/cmd/agc@latest && \
+export PATH="$HOME/.local/bin:$PATH" && \
+agc version
+```
+
+Windows PowerShell:
+
+```powershell
+$p="$env:LOCALAPPDATA\Programs\agc\bin"; New-Item -ItemType Directory -Force $p; $env:GOBIN=$p; go install github.com/Createitv/agc-cli/cmd/agc@latest; $env:Path="$p;$env:Path"; agc version
+```
+
+Requires Go 1.22 or later. Add the same bin directory to your shell profile if you want `agc` available in new terminal sessions.
+
+## Build locally
 
 ```bash
 make build
@@ -16,8 +35,6 @@ install -m 0755 bin/agc /usr/local/bin/agc
 ```bash
 agc version
 ```
-
-Release archives, Homebrew, and container publishing are configured but require a real repository owner and release target before use.
 
 ## Quick Start
 

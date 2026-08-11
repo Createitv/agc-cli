@@ -4,9 +4,28 @@
 
 > 当前边界：接口注册表、请求构建、鉴权、dry-run、通用调用器和本地 REST 路由已经可用。正式写入生产数据前，仍应以华为 AppGallery Connect 官方接口文档核对字段、权限和业务前置条件。CLI 默认启用 dry-run，只有显式传入 `--dry-run=false` 才会发送请求。
 
-## 1. 从源码安装
+## 1. 安装到命令行环境
 
 环境要求：Go 1.22 或更高版本；Web Command Center 另需 Node.js 20 或更高版本。
+
+macOS / Linux 推荐直接安装到用户级 bin 目录，并把该目录加入当前 shell 的 `PATH`：
+
+```bash
+mkdir -p "$HOME/.local/bin" && \
+GOBIN="$HOME/.local/bin" go install github.com/Createitv/agc-cli/cmd/agc@latest && \
+export PATH="$HOME/.local/bin:$PATH" && \
+agc version
+```
+
+Windows PowerShell：
+
+```powershell
+$p="$env:LOCALAPPDATA\Programs\agc\bin"; New-Item -ItemType Directory -Force $p; $env:GOBIN=$p; go install github.com/Createitv/agc-cli/cmd/agc@latest; $env:Path="$p;$env:Path"; agc version
+```
+
+若希望新开的终端也能直接使用 `agc`，请把上面的 bin 目录写入 shell profile 或用户级 `Path`。
+
+从当前仓库本地构建：
 
 ```bash
 make build
