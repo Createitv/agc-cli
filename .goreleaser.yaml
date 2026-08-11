@@ -20,9 +20,9 @@ builds:
         goarch: arm64
     ldflags:
       - -s -w
-      - -X github.com/your-org/agc-cli/cmd/agc/command.version={{.Version}}
-      - -X github.com/your-org/agc-cli/cmd/agc/command.commit={{.Commit}}
-      - -X github.com/your-org/agc-cli/cmd/agc/command.buildDate={{.Date}}
+      - -X github.com/Createitv/agc-cli/cmd/agc/command.version={{.Version}}
+      - -X github.com/Createitv/agc-cli/cmd/agc/command.commit={{.Commit}}
+      - -X github.com/Createitv/agc-cli/cmd/agc/command.buildDate={{.Date}}
 
 archives:
   - formats: [tar.gz]
@@ -39,16 +39,17 @@ checksum:
 brews:
   - name: agc-cli
     repository:
-      owner: your-org
+      owner: Createitv
       name: homebrew-tap
-    homepage: https://github.com/your-org/agc-cli
+      token: "{{ .Env.TAP_GITHUB_TOKEN }}"
+    homepage: https://github.com/Createitv/agc-cli
     description: AppGallery Connect command center
     license: MIT
 
 dockers:
   - image_templates:
-      - ghcr.io/your-org/agc-cli:{{ .Version }}-amd64
-      - ghcr.io/your-org/agc-cli:latest-amd64
+      - ghcr.io/Createitv/agc-cli:{{ .Version }}-amd64
+      - ghcr.io/Createitv/agc-cli:latest-amd64
     dockerfile: Dockerfile
     use: buildx
     goos: linux
@@ -56,8 +57,8 @@ dockers:
     build_flag_templates:
       - --platform=linux/amd64
   - image_templates:
-      - ghcr.io/your-org/agc-cli:{{ .Version }}-arm64
-      - ghcr.io/your-org/agc-cli:latest-arm64
+      - ghcr.io/Createitv/agc-cli:{{ .Version }}-arm64
+      - ghcr.io/Createitv/agc-cli:latest-arm64
     dockerfile: Dockerfile
     use: buildx
     goos: linux
@@ -66,12 +67,11 @@ dockers:
       - --platform=linux/arm64
 
 docker_manifests:
-  - name_template: ghcr.io/your-org/agc-cli:{{ .Version }}
+  - name_template: ghcr.io/Createitv/agc-cli:{{ .Version }}
     image_templates:
-      - ghcr.io/your-org/agc-cli:{{ .Version }}-amd64
-      - ghcr.io/your-org/agc-cli:{{ .Version }}-arm64
-  - name_template: ghcr.io/your-org/agc-cli:latest
+      - ghcr.io/Createitv/agc-cli:{{ .Version }}-amd64
+      - ghcr.io/Createitv/agc-cli:{{ .Version }}-arm64
+  - name_template: ghcr.io/Createitv/agc-cli:latest
     image_templates:
-      - ghcr.io/your-org/agc-cli:latest-amd64
-      - ghcr.io/your-org/agc-cli:latest-arm64
-
+      - ghcr.io/Createitv/agc-cli:latest-amd64
+      - ghcr.io/Createitv/agc-cli:latest-arm64

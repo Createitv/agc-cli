@@ -9,12 +9,12 @@ import (
 	"strings"
 	"time"
 
+	"github.com/Createitv/agc-cli/pkg/agcapi"
+	"github.com/Createitv/agc-cli/pkg/domain"
+	"github.com/Createitv/agc-cli/pkg/output"
+	"github.com/Createitv/agc-cli/pkg/project"
+	"github.com/Createitv/agc-cli/pkg/server"
 	"github.com/spf13/cobra"
-	"github.com/your-org/agc-cli/pkg/agcapi"
-	"github.com/your-org/agc-cli/pkg/domain"
-	"github.com/your-org/agc-cli/pkg/output"
-	"github.com/your-org/agc-cli/pkg/project"
-	"github.com/your-org/agc-cli/pkg/server"
 )
 
 var (

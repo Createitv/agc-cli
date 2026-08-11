@@ -16,9 +16,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/your-org/agc-cli/pkg/agcapi"
-	"github.com/your-org/agc-cli/pkg/domain"
-	"github.com/your-org/agc-cli/pkg/project"
+	"github.com/Createitv/agc-cli/pkg/agcapi"
+	"github.com/Createitv/agc-cli/pkg/domain"
+	"github.com/Createitv/agc-cli/pkg/project"
 )
 
 func execute(args ...string) (string, error) {

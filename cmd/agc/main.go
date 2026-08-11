@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/your-org/agc-cli/cmd/agc/command"
+	"github.com/Createitv/agc-cli/cmd/agc/command"
 )
 
 func main() {

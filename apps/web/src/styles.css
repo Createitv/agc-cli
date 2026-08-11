@@ -70,19 +70,97 @@ main { min-height: 100vh; overflow: hidden; }
 .navlinks { display: flex; align-items: center; gap: 28px; color: var(--muted); font-size: 13px; }
 .navlinks a { transition: color 180ms ease; }
 .navlinks a:hover { color: var(--paper); }
-.navCta {
+.navActions { display: flex; align-items: center; gap: 9px; }
+.languagePicker { position: relative; }
+.languageButton, .navInstall {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 9px 13px;
-  border: 1px solid var(--line-strong);
-  border-radius: 7px;
+  min-height: 40px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.languageButton {
+  padding: 0 11px;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  background: var(--panel);
+  font-family: var(--mono);
+  font-size: 10px;
+  transition: color 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+.languageButton:hover, .languageButton[aria-expanded='true'] {
   color: var(--paper);
+  border-color: var(--line-strong);
+  background: var(--panel-raised);
+}
+.languageButton svg:last-child { color: var(--quiet); transition: transform 180ms ease; }
+.languageButton[aria-expanded='true'] svg:last-child { transform: rotate(180deg); }
+.navInstall {
+  padding: 0 16px;
+  border: 1px solid var(--red);
+  color: white;
+  background: var(--red);
   font-family: var(--mono);
   font-size: 11px;
-  transition: border-color 180ms ease, background 180ms ease;
+  font-weight: 600;
+  box-shadow: 0 0 28px rgba(240, 68, 68, 0.18);
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
 }
-.navCta:hover { border-color: var(--red); background: var(--red-soft); }
+.navInstall:hover {
+  transform: translateY(-1px);
+  background: #ff5151;
+  box-shadow: 0 10px 30px rgba(240, 68, 68, 0.25);
+}
+.languageMenu {
+  width: 190px;
+  padding: 6px;
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  z-index: 50;
+  background: rgba(17, 17, 20, 0.98);
+  border: 1px solid var(--line-strong);
+  border-radius: 10px;
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.46);
+  animation: menu-in 160ms ease-out both;
+}
+.languageMenu::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  top: -5px;
+  right: 27px;
+  background: var(--panel);
+  border-top: 1px solid var(--line-strong);
+  border-left: 1px solid var(--line-strong);
+  transform: rotate(45deg);
+}
+.languageMenu button {
+  width: 100%;
+  min-height: 43px;
+  padding: 0 10px;
+  display: grid;
+  grid-template-columns: 24px 1fr 16px;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+.languageMenu button:hover, .languageMenu button[aria-checked='true'] { color: white; background: var(--red-soft); }
+.languageMenu button > span { color: var(--red); font-family: var(--mono); font-size: 9px; }
+.languageMenu button > b { font-size: 11px; font-weight: 600; }
+.languageMenu button > svg { color: var(--green); }
+
+@keyframes menu-in {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
 .hero {
   min-height: 790px;
@@ -281,6 +359,150 @@ footer { max-width: var(--max); min-height: 160px; margin: 0 auto; padding: 38px
 .footerBrand small { margin-top: 4px; color: var(--quiet); font-size: 10px; }
 .footerMeta { display: flex; gap: 18px; color: var(--quiet); font-family: var(--mono); font-size: 9px; text-transform: uppercase; letter-spacing: 0.06em; }
 
+.installBackdrop {
+  padding: 24px;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  background: rgba(3, 3, 5, 0.78);
+  backdrop-filter: blur(14px) saturate(120%);
+  animation: backdrop-in 180ms ease-out both;
+}
+.installDialog {
+  width: min(760px, 100%);
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  border: 1px solid var(--line-strong);
+  border-radius: 15px;
+  background:
+    radial-gradient(circle at 78% 12%, rgba(240, 68, 68, 0.13), transparent 32%),
+    #0e0e11;
+  box-shadow: 0 40px 140px rgba(0, 0, 0, 0.72), 0 0 100px rgba(240, 68, 68, 0.08);
+  animation: dialog-in 220ms cubic-bezier(.2,.8,.2,1) both;
+}
+.installDialogHeader {
+  min-height: 52px;
+  padding: 0 15px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  color: var(--quiet);
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+}
+.installDialogHeader > button {
+  width: 32px;
+  height: 32px;
+  justify-self: end;
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: rgba(255,255,255,0.025);
+  cursor: pointer;
+}
+.installDialogHeader > button:hover { color: white; border-color: var(--line-strong); background: var(--red-soft); }
+.installDialogBody { padding: 46px 52px 48px; position: relative; }
+.installGlyph {
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  top: 44px;
+  right: 52px;
+  display: grid;
+  place-items: center;
+  color: var(--red);
+  border: 1px solid rgba(240, 68, 68, 0.25);
+  border-radius: 12px 3px 12px 3px;
+  background: var(--red-soft);
+}
+.installDialogBody h2 {
+  max-width: 560px;
+  margin: 0;
+  font-size: clamp(36px, 6vw, 58px);
+  line-height: 1;
+  letter-spacing: -0.055em;
+}
+.installLead { max-width: 610px; margin: 20px 0 0; color: var(--muted); font-size: 14px; line-height: 1.7; }
+.platformTabs {
+  width: fit-content;
+  margin-top: 30px;
+  padding: 4px;
+  display: flex;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #09090b;
+}
+.platformTabs button {
+  min-height: 34px;
+  padding: 0 13px;
+  color: var(--quiet);
+  border: 0;
+  border-radius: 5px;
+  background: transparent;
+  font-family: var(--mono);
+  font-size: 9px;
+  cursor: pointer;
+}
+.platformTabs button[aria-selected='true'] { color: white; background: var(--panel-raised); box-shadow: inset 0 0 0 1px var(--line); }
+.installTerminal {
+  min-height: 86px;
+  margin-top: 15px;
+  padding: 17px 17px 17px 21px;
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid rgba(240, 68, 68, 0.32);
+  border-radius: 10px;
+  background: #08080a;
+  box-shadow: inset 0 0 40px rgba(240, 68, 68, 0.025);
+}
+.installPrompt { color: var(--red); font-family: var(--mono); font-size: 18px; }
+.installTerminal code { color: #e4dfdb; font-size: 12px; line-height: 1.6; overflow-wrap: anywhere; }
+.installTerminal button {
+  min-height: 38px;
+  padding: 0 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: white;
+  border: 1px solid rgba(240, 68, 68, 0.42);
+  border-radius: 7px;
+  background: var(--red-soft);
+  font-family: var(--mono);
+  font-size: 9px;
+  cursor: pointer;
+}
+.installTerminal button:hover { background: rgba(240, 68, 68, 0.22); }
+.installNote { margin: 18px 0 0; color: var(--quiet); font-size: 11px; line-height: 1.65; }
+.installAssurances {
+  margin-top: 22px;
+  padding-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  border-top: 1px solid var(--line);
+  color: var(--green);
+  font-family: var(--mono);
+  font-size: 9px;
+}
+.installAssurances span { display: inline-flex; align-items: center; gap: 7px; }
+
+@keyframes backdrop-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes dialog-in {
+  from { opacity: 0; transform: translateY(14px) scale(0.985); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
 @media (max-width: 1050px) {
   .navlinks { display: none; }
   .hero { grid-template-columns: 1fr; padding-top: 140px; }
@@ -295,8 +517,9 @@ footer { max-width: var(--max); min-height: 160px; margin: 0 auto; padding: 38px
 
 @media (max-width: 760px) {
   .topbar { height: 64px; }
-  .navCta { font-size: 0; }
-  .navCta svg { width: 17px; height: 17px; }
+  .navActions { gap: 6px; }
+  .languageButton { min-height: 36px; padding: 0 9px; }
+  .navInstall { min-height: 36px; padding: 0 11px; }
   .hero { min-height: auto; padding: 124px 20px 74px; gap: 54px; }
   .hero h1 { font-size: clamp(45px, 14vw, 66px); }
   .lede { font-size: 15px; }
@@ -326,9 +549,23 @@ footer { max-width: var(--max); min-height: 160px; margin: 0 auto; padding: 38px
   .consoleMap small { grid-column: 2; }
   footer { align-items: flex-start; flex-direction: column; }
   .footerMeta { flex-wrap: wrap; }
+  .installBackdrop { padding: 12px; }
+  .installDialog { max-height: calc(100vh - 24px); }
+  .installDialogBody { padding: 40px 24px 32px; }
+  .installGlyph { top: 38px; right: 24px; width: 42px; height: 42px; }
+  .installDialogBody h2 { max-width: calc(100% - 50px); }
+  .installTerminal { grid-template-columns: 20px 1fr; }
+  .installTerminal button { grid-column: 1 / -1; justify-content: center; }
 }
 
 @media (max-width: 480px) {
+  .topbar { padding: 0 14px; }
+  .brand { gap: 8px; }
+  .brandMark { width: 31px; height: 31px; }
+  .languageButton svg:last-child { display: none; }
+  .navInstall svg { display: none; }
+  .languageMenu { right: -74px; }
+  .languageMenu::before { right: 99px; }
   .workflowGrid { grid-template-columns: 1fr; }
   .workflowCard { border-right: 0; border-bottom: 1px solid var(--line); }
   .workflowCard:last-child { border-bottom: 0; }
@@ -336,6 +573,10 @@ footer { max-width: var(--max); min-height: 160px; margin: 0 auto; padding: 38px
   .primary, .secondary { justify-content: center; }
   .deckHeader { grid-template-columns: 1fr 1fr; }
   .deckHeader > span:nth-child(2) { display: none; }
+  .installDialogHeader { grid-template-columns: 1fr 1fr; }
+  .installDialogHeader > span:nth-child(2) { display: none; }
+  .platformTabs { width: 100%; }
+  .platformTabs button { flex: 1; }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -11,7 +11,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/your-org/agc-cli/pkg/domain"
+	"github.com/Createitv/agc-cli/pkg/domain"
 )
 
 type InvokeRequest struct {

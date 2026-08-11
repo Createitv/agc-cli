@@ -16,7 +16,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/your-org/agc-cli/pkg/domain"
+	"github.com/Createitv/agc-cli/pkg/domain"
 )
 
 func TestBuildEndpointURLReplacesParams(t *testing.T) {

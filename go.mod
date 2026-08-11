@@ -1,4 +1,4 @@
-module github.com/your-org/agc-cli
+module github.com/Createitv/agc-cli
 
 go 1.22
 
