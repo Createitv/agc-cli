@@ -13,7 +13,6 @@ import {
   KeyRound,
   Layers3,
   PackageCheck,
-  RadioTower,
   Rocket,
   ShieldCheck,
   Terminal,
@@ -23,7 +22,7 @@ import {
 import { useEffect, useMemo, useRef, useState } from 'react';
 
 type Language = 'en' | 'zh';
-type InstallPlatform = 'unix' | 'windows';
+type InstallPlatform = 'macos' | 'windows';
 
 type Capability = {
   id: string;
@@ -36,8 +35,8 @@ type Capability = {
 };
 
 const installCommands: Record<InstallPlatform, string> = {
-  unix: 'mkdir -p "$HOME/.local/bin" && GOBIN="$HOME/.local/bin" go install github.com/Createitv/agc-cli/cmd/agc@latest && export PATH="$HOME/.local/bin:$PATH" && agc version',
-  windows: '$p="$env:LOCALAPPDATA\\Programs\\agc\\bin"; New-Item -ItemType Directory -Force $p; $env:GOBIN=$p; go install github.com/Createitv/agc-cli/cmd/agc@latest; $env:Path="$p;$env:Path"; agc version',
+  macos: 'brew install agccli',
+  windows: 'if (!(Get-Command scoop -ErrorAction SilentlyContinue)) { Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force; irm get.scoop.sh | iex }; scoop bucket add createitv https://github.com/Createitv/scoop-bucket; scoop install agc-cli; agc version',
 };
 
 const fallbackCapabilities: Capability[] = [
@@ -78,7 +77,7 @@ const capabilityTranslations: Record<Language, Record<string, { name: string; de
 const translations = {
   en: {
     documentTitle: 'agc CLI — AppGallery Connect from one command surface',
-    nav: { workflow: 'Workflow', profiles: 'Profiles', registry: 'API registry', quickstart: 'Quick start', language: 'Language', install: 'Install' },
+    nav: { installGuide: 'Install', workflow: 'Workflow', profiles: 'Profiles', registry: 'API registry', quickstart: 'Quick start', language: 'Language', install: 'Install' },
     hero: {
       kicker: 'AppGallery Connect, mapped for the terminal',
       titleLead: 'Move every release through',
@@ -142,6 +141,16 @@ const translations = {
       ],
       copyStep: 'Copy step command',
     },
+    installGuide: {
+      eyebrow: 'Install agc CLI',
+      title: 'Use the package manager for your system.',
+      body: 'macOS installs through Homebrew with brew install agccli. If Homebrew has not indexed the Createitv tap yet, run brew tap createitv/tap once. Windows installs through Scoop from the Createitv bucket.',
+      macos: 'macOS Homebrew command',
+      windows: 'Windows Scoop command',
+      copyMac: 'Copy macOS install command',
+      copyWindows: 'Copy Windows install command',
+      requirements: ['Short Homebrew formula name: agccli', 'Versioned GitHub Release binary', 'Winget PR submitted for Microsoft review'],
+    },
     console: {
       eyebrow: 'Local command center',
       title: 'The browser is a window into the same registry.',
@@ -152,23 +161,23 @@ const translations = {
     footer: { tagline: 'AppGallery Connect, from one command surface.', license: 'MIT licensed', stack: 'Go + React', cloud: 'Built for Cloudflare' },
     install: {
       button: 'Install',
-      eyebrow: 'Go environment install',
-      title: 'Put agc in your shell path.',
-      body: 'Copy one command. It builds agc through Go, writes the binary into a user-level bin directory, and updates PATH for the current terminal session.',
-      unix: 'macOS / Linux',
+      eyebrow: 'Package manager install',
+      title: 'Install agc as a normal CLI tool.',
+      body: 'Copy one command. macOS uses the short Homebrew formula agccli, while Windows uses Scoop and the Createitv bucket.',
+      unix: 'macOS',
       windows: 'Windows',
-      terminal: 'GO INSTALL / PATH READY',
+      terminal: 'PACKAGE MANAGER / STABLE',
       copy: 'Copy command',
       copied: 'Copied',
-      note: 'Requires Go 1.22 or later. For future terminal sessions, keep ~/.local/bin or the Windows agc bin directory in your shell PATH.',
-      source: 'Built from module source',
-      destination: 'Installed through GOBIN',
+      note: 'Homebrew installs agccli from the Createitv tap after the tap is indexed locally. Scoop installs the versioned GitHub Release build.',
+      source: 'Release checksum tracked',
+      destination: 'Installed on PATH',
       close: 'Close install window',
     },
   },
   zh: {
     documentTitle: 'agc CLI — 用一套命令管理 AppGallery Connect',
-    nav: { workflow: '发布流程', profiles: '凭据 Profile', registry: '接口注册表', quickstart: '快速开始', language: '语言', install: '安装' },
+    nav: { installGuide: '安装', workflow: '发布流程', profiles: '凭据 Profile', registry: '接口注册表', quickstart: '快速开始', language: '语言', install: '安装' },
     hero: {
       kicker: '为终端而生的 AppGallery Connect 控制面',
       titleLead: '让每一次发布沿着',
@@ -232,6 +241,16 @@ const translations = {
       ],
       copyStep: '复制步骤命令',
     },
+    installGuide: {
+      eyebrow: '安装 agc CLI',
+      title: '用系统包管理器安装。',
+      body: 'macOS 通过 brew install agccli 安装。若本机 Homebrew 还没有索引 Createitv tap，先运行一次 brew tap createitv/tap。Windows 通过 Scoop 和 Createitv bucket 安装。',
+      macos: 'macOS Homebrew 命令',
+      windows: 'Windows Scoop 命令',
+      copyMac: '复制 macOS 安装命令',
+      copyWindows: '复制 Windows 安装命令',
+      requirements: ['短 Homebrew formula 名：agccli', '正式 GitHub Release 二进制', 'Winget PR 已提交等待 Microsoft 审核'],
+    },
     console: {
       eyebrow: '本地命令中心',
       title: '浏览器看到的，就是 CLI 使用的同一份注册表。',
@@ -242,17 +261,17 @@ const translations = {
     footer: { tagline: '用一套命令管理 AppGallery Connect。', license: 'MIT 开源协议', stack: 'Go + React', cloud: '部署于 Cloudflare' },
     install: {
       button: '安装',
-      eyebrow: 'Go 环境安装',
-      title: '把 agc 放进 shell 的 PATH。',
-      body: '复制一条命令即可。它会通过 Go 构建 agc，把二进制写入用户级 bin 目录，并为当前终端会话更新 PATH。',
-      unix: 'macOS / Linux',
+      eyebrow: '包管理器安装',
+      title: '像普通 CLI 工具一样安装 agc。',
+      body: '复制一条命令即可。macOS 使用短 Homebrew formula agccli，Windows 使用 Scoop 和 Createitv bucket。',
+      unix: 'macOS',
       windows: 'Windows',
-      terminal: 'GO INSTALL / PATH 就绪',
+      terminal: '包管理器 / 稳定版',
       copy: '复制命令',
       copied: '已复制',
-      note: '需要 Go 1.22 或更高版本。若希望新终端也能直接使用，请把 ~/.local/bin 或 Windows agc bin 目录保留在 shell PATH 中。',
-      source: '从模块源码构建',
-      destination: '通过 GOBIN 安装',
+      note: '本机 Homebrew 索引到 Createitv tap 后即可直接安装 agccli。Scoop 安装的是带版本信息的 GitHub Release 构建。',
+      source: 'Release checksum 可追踪',
+      destination: '安装到 PATH',
       close: '关闭安装窗口',
     },
   },
@@ -275,7 +294,7 @@ export function App() {
   const [language, setLanguage] = useState<Language>(initialLanguage);
   const [languageOpen, setLanguageOpen] = useState(false);
   const [installOpen, setInstallOpen] = useState(false);
-  const [installPlatform, setInstallPlatform] = useState<InstallPlatform>('unix');
+  const [installPlatform, setInstallPlatform] = useState<InstallPlatform>('macos');
   const [capabilities, setCapabilities] = useState<Capability[]>(fallbackCapabilities);
   const [endpointCount, setEndpointCount] = useState(156);
   const [mode, setMode] = useState<'demo' | 'live'>('demo');
@@ -375,10 +394,11 @@ export function App() {
     <main>
       <nav className="topbar" aria-label={language === 'zh' ? '主导航' : 'Primary navigation'}>
         <a className="brand" href="#top" aria-label="agc-cli home">
-          <span className="brandMark" aria-hidden="true"><RadioTower size={18} /></span>
+          <span className="brandMark" aria-hidden="true"><img src="/agc-app-icon-192.png" alt="" /></span>
           <span>agc<span className="brandSuffix">cli</span></span>
         </a>
         <div className="navlinks">
+          <a href="#install">{text.nav.installGuide}</a>
           <a href="#workflow">{text.nav.workflow}</a>
           <a href="#profiles">{text.nav.profiles}</a>
           <a href="#registry">{text.nav.registry}</a>
@@ -464,6 +484,39 @@ export function App() {
           const Icon = principleIcons[index];
           return <div key={title}><Icon /><span><b>{title}</b>{body}</span></div>;
         })}
+      </section>
+
+      <section className="section installGuideSection" id="install">
+        <div className="sectionIntro installGuideIntro">
+          <p className="eyebrow">{text.installGuide.eyebrow}</p>
+          <h2>{text.installGuide.title}</h2>
+          <p>{text.installGuide.body}</p>
+        </div>
+        <div className="installGuideGrid">
+          <article className="installGuideCard">
+            <div className="installGuideCardHeader"><Terminal size={18} /> {text.installGuide.macos}</div>
+            <div className="commandBox installGuideCommand">
+              <code><span>$</span> {installCommands.macos}</code>
+              <button onClick={() => copyCommand('install-macos', installCommands.macos)} aria-label={text.installGuide.copyMac}>
+                {copied === 'install-macos' ? <Check size={16} /> : <Clipboard size={16} />}
+              </button>
+            </div>
+          </article>
+          <article className="installGuideCard">
+            <div className="installGuideCardHeader"><Terminal size={18} /> {text.installGuide.windows}</div>
+            <div className="commandBox installGuideCommand">
+              <code><span>PS&gt;</span> {installCommands.windows}</code>
+              <button onClick={() => copyCommand('install-windows', installCommands.windows)} aria-label={text.installGuide.copyWindows}>
+                {copied === 'install-windows' ? <Check size={16} /> : <Clipboard size={16} />}
+              </button>
+            </div>
+          </article>
+        </div>
+        <div className="installRequirements" aria-label={language === 'zh' ? '安装要求' : 'Install requirements'}>
+          {text.installGuide.requirements.map((requirement) => (
+            <span key={requirement}><ShieldCheck size={14} /> {requirement}</span>
+          ))}
+        </div>
       </section>
 
       <section className="section workflowSection" id="workflow">
@@ -602,7 +655,7 @@ export function App() {
 
       <footer>
         <div className="footerBrand">
-          <span className="brandMark"><RadioTower size={18} /></span>
+          <span className="brandMark" aria-hidden="true"><img src="/agc-app-icon-192.png" alt="" /></span>
           <span><b>agccli.app</b><small>{text.footer.tagline}</small></span>
         </div>
         <div className="footerMeta"><span>{text.footer.license}</span><span>{text.footer.stack}</span><span>{text.footer.cloud}</span></div>
@@ -625,7 +678,7 @@ export function App() {
               <p className="installLead">{text.install.body}</p>
 
               <div className="platformTabs" role="tablist" aria-label={language === 'zh' ? '安装平台' : 'Install platform'}>
-                <button type="button" role="tab" aria-selected={installPlatform === 'unix'} onClick={() => setInstallPlatform('unix')}>
+                <button type="button" role="tab" aria-selected={installPlatform === 'macos'} onClick={() => setInstallPlatform('macos')}>
                   {text.install.unix}
                 </button>
                 <button type="button" role="tab" aria-selected={installPlatform === 'windows'} onClick={() => setInstallPlatform('windows')}>

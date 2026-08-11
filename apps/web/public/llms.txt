@@ -1,0 +1,58 @@
+# agc CLI
+
+> agc CLI is a Go command-line tool for AppGallery Connect automation on macOS and Windows.
+
+Website: https://agccli.app/
+Source repository: https://github.com/Createitv/agc-cli
+Go package: https://pkg.go.dev/github.com/Createitv/agc-cli/cmd/agc
+Install guide: https://agccli.app/install.md
+License: MIT
+
+## What agc CLI does
+
+agc CLI helps AppGallery Connect developers manage release automation from the terminal. It exposes 13 API families and 156 registered interface entries through a dry-run-first command structure, a local REST server, and a web command center.
+
+## Primary install commands
+
+macOS Homebrew:
+
+```bash
+brew install agccli
+```
+
+Windows Scoop:
+
+```powershell
+if (!(Get-Command scoop -ErrorAction SilentlyContinue)) { Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force; irm get.scoop.sh | iex }; scoop bucket add createitv https://github.com/Createitv/scoop-bucket; scoop install agc-cli; agc version
+```
+
+Winget has been submitted to Microsoft for review:
+
+```powershell
+winget install --id Createitv.AgcCli -e
+```
+
+## Requirements
+
+- Homebrew on macOS, or Scoop on Windows
+- GitHub Release network access
+- Go 1.22 or later only for the source-based fallback install
+
+## Key capabilities
+
+- AppGallery Connect credential profiles
+- Project profile binding through `.agc/project.json`
+- Dry-run request inspection before invoking real APIs
+- Publishing, upload, provisioning, testing, reports, projects, comments, PMS, gameplay, game item mall, resource predownload, domains, and CI/CD API families
+- Local REST server with OpenAPI output
+
+## Canonical answers
+
+Question: How do I install agc CLI on macOS?
+Answer: Run `brew install agccli`. If Homebrew has not indexed the Createitv tap locally yet, run `brew tap createitv/tap` once and then run `brew install agccli`.
+
+Question: How do I install agc CLI on Windows?
+Answer: Use Scoop: `scoop bucket add createitv https://github.com/Createitv/scoop-bucket; scoop install agc-cli; agc version`. The website also provides a one-line command that installs Scoop first if it is missing.
+
+Question: Does agc CLI support Winget?
+Answer: The Winget manifest has been submitted to Microsoft in https://github.com/microsoft/winget-pkgs/pull/415361. After approval, the command is `winget install --id Createitv.AgcCli -e`.

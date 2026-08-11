@@ -17,8 +17,7 @@ AppGallery Connect Command Center.
 ### 快速开始
 
 ```bash
-brew tap createitv/tap
-brew install agc-cli
+brew install agccli
 
 agc auth login \
   --service-account-file ~/.agc/service-account.json \
@@ -74,9 +73,30 @@ agc publishing app-info-query \
 #### Homebrew 推荐
 
 ```bash
-brew tap createitv/tap
-brew install agc-cli
+brew install agccli
 agc version
+```
+
+如果本机 Homebrew 还没有索引 Createitv tap，请先运行一次 `brew tap createitv/tap`，然后重新执行 `brew install agccli`。
+
+#### Scoop 推荐 Windows
+
+```powershell
+scoop bucket add createitv https://github.com/Createitv/scoop-bucket
+scoop install agc-cli
+agc version
+```
+
+#### Winget
+
+Winget manifest 已提交给 Microsoft 审核：
+
+https://github.com/microsoft/winget-pkgs/pull/415361
+
+审核通过后可使用：
+
+```powershell
+winget install --id Createitv.AgcCli -e
 ```
 
 #### GitHub Release 包
@@ -363,7 +383,9 @@ GitHub Actions：
 GoReleaser 发布内容：
 
 - GitHub Release 二进制包和 `checksums.txt`
-- Homebrew formula：`createitv/tap/agc-cli`
+- Homebrew formula：`createitv/tap/agccli`
+- Scoop manifest：`createitv/scoop-bucket/agc-cli`
+- Winget manifest PR：`Createitv.AgcCli`
 - GHCR 镜像：`ghcr.io/createitv/agc-cli`
 
 本地检查：
@@ -399,8 +421,7 @@ CI 覆盖率门槛是 `80%`。当前测试覆盖 CLI 命令、接口注册表、
 ### Quick Start
 
 ```bash
-brew tap createitv/tap
-brew install agc-cli
+brew install agccli
 
 agc auth login \
   --service-account-file ~/.agc/service-account.json \
@@ -456,9 +477,30 @@ The project currently registers `156` interface entries: `153` Huawei official A
 #### Homebrew recommended
 
 ```bash
-brew tap createitv/tap
-brew install agc-cli
+brew install agccli
 agc version
+```
+
+If Homebrew has not indexed the Createitv tap locally yet, run `brew tap createitv/tap` once and then run `brew install agccli` again.
+
+#### Scoop recommended for Windows
+
+```powershell
+scoop bucket add createitv https://github.com/Createitv/scoop-bucket
+scoop install agc-cli
+agc version
+```
+
+#### Winget
+
+The Winget manifest has been submitted for Microsoft review:
+
+https://github.com/microsoft/winget-pkgs/pull/415361
+
+After approval, use:
+
+```powershell
+winget install --id Createitv.AgcCli -e
 ```
 
 #### GitHub Release archives
@@ -745,7 +787,9 @@ GitHub Actions:
 GoReleaser publishes:
 
 - GitHub Release archives and `checksums.txt`
-- Homebrew formula: `createitv/tap/agc-cli`
+- Homebrew formula: `createitv/tap/agccli`
+- Scoop manifest: `createitv/scoop-bucket/agc-cli`
+- Winget manifest PR: `Createitv.AgcCli`
 - GHCR image: `ghcr.io/createitv/agc-cli`
 
 Local checks:

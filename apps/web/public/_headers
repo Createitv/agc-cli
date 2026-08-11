@@ -7,3 +7,11 @@
 
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
+
+/install.md
+  Cache-Control: public, max-age=300
+  Content-Type: text/markdown; charset=utf-8
+
+/llms.txt
+  Cache-Control: public, max-age=300
+  Content-Type: text/plain; charset=utf-8

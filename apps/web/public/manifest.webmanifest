@@ -1,12 +1,13 @@
 {
   "name": "agc CLI",
   "short_name": "agc CLI",
-  "description": "AppGallery Connect from one command surface.",
+  "description": "Install agc CLI with Homebrew or Scoop and automate AppGallery Connect releases.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#080809",
   "theme_color": "#080809",
   "icons": [
-    { "src": "/agc-mark.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+    { "src": "/agc-app-icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/agc-app-icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
   ]
 }

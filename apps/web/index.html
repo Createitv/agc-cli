@@ -3,32 +3,102 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>agc CLI — AppGallery Connect from one command surface</title>
-    <meta name="description" content="Discover, dry-run, and invoke AppGallery Connect APIs from a Go CLI, local REST server, and web command center." />
-    <meta name="keywords" content="AppGallery Connect CLI, HarmonyOS CLI, AGC automation, Huawei developer tools, app release automation" />
+    <title>agc CLI — AppGallery Connect CLI for Homebrew, Scoop, and Winget</title>
+    <meta name="description" content="Install agc CLI with brew install agccli on macOS or Scoop on Windows, then automate AppGallery Connect releases, dry-runs, profiles, reports, uploads, and local REST workflows." />
+    <meta name="keywords" content="AppGallery Connect CLI, AGC CLI, Huawei AppGallery Connect automation, HarmonyOS CLI, Homebrew CLI, brew install agccli, Scoop CLI, Winget package, Windows PowerShell install, app release automation" />
     <meta name="robots" content="index, follow" />
+    <meta name="author" content="Createitv" />
     <meta name="theme-color" content="#080809" />
     <link rel="canonical" href="https://agccli.app/" />
-    <link rel="icon" type="image/svg+xml" href="/agc-mark.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="alternate" type="text/markdown" href="https://agccli.app/install.md" title="agc CLI install guide" />
+    <link rel="alternate" type="text/plain" href="https://agccli.app/llms.txt" title="agc CLI context for AI assistants" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://agccli.app/" />
-    <meta property="og:title" content="agc CLI — AppGallery Connect from one command surface" />
-    <meta property="og:description" content="A dry-run-first command center for AppGallery Connect APIs, CI, and coding agents." />
+    <meta property="og:title" content="agc CLI — AppGallery Connect CLI for Homebrew, Scoop, and Winget" />
+    <meta property="og:description" content="Install with brew install agccli on macOS or Scoop on Windows, bind AppGallery Connect profiles, dry-run API calls, and automate release workflows." />
     <meta property="og:site_name" content="agc CLI" />
+    <meta property="og:image" content="https://agccli.app/agc-app-icon.png" />
+    <meta property="og:image:width" content="1024" />
+    <meta property="og:image:height" content="1024" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="agc CLI — AppGallery Connect from one command surface" />
-    <meta name="twitter:description" content="A dry-run-first command center for AppGallery Connect APIs, CI, and coding agents." />
+    <meta name="twitter:title" content="agc CLI — AppGallery Connect CLI for Homebrew, Scoop, and Winget" />
+    <meta name="twitter:description" content="Install with brew install agccli or Scoop and automate AppGallery Connect from a dry-run-first CLI." />
+    <meta name="twitter:image" content="https://agccli.app/agc-app-icon.png" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
         "name": "agc CLI",
         "url": "https://agccli.app/",
-        "description": "Discover, dry-run, and invoke AppGallery Connect APIs from a Go CLI, local REST server, and web command center.",
+        "description": "Install agc CLI with brew install agccli on macOS or Scoop on Windows, then automate AppGallery Connect releases, dry-runs, profiles, reports, uploads, and local REST workflows.",
         "applicationCategory": "DeveloperApplication",
         "operatingSystem": "macOS, Linux, Windows",
+        "softwareVersion": "0.1.0",
+        "programmingLanguage": "Go",
+        "codeRepository": "https://github.com/Createitv/agc-cli",
+        "downloadUrl": "https://github.com/Createitv/agc-cli/releases/tag/v0.1.0",
+        "installUrl": "https://agccli.app/install.md",
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "Install agc CLI on macOS or Windows",
+        "description": "Install agc CLI from Homebrew on macOS or Scoop on Windows and make it available on PATH.",
+        "totalTime": "PT2M",
+        "tool": [
+          { "@type": "HowToTool", "name": "Homebrew or Scoop" },
+          { "@type": "HowToTool", "name": "Terminal or Windows PowerShell" }
+        ],
+        "step": [
+          {
+            "@type": "HowToStep",
+            "name": "Install on macOS with Homebrew",
+            "text": "Run: brew install agccli"
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Install on Windows with Scoop",
+            "text": "Run in PowerShell: if (!(Get-Command scoop -ErrorAction SilentlyContinue)) { Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force; irm get.scoop.sh | iex }; scoop bucket add createitv https://github.com/Createitv/scoop-bucket; scoop install agc-cli; agc version"
+          }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do I install agc CLI on macOS?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Run brew install agccli. If Homebrew has not indexed the Createitv tap on your machine yet, run brew tap createitv/tap once, then run brew install agccli."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I install agc CLI on Windows?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Open PowerShell and run the Windows command on agccli.app. It installs Scoop if needed, adds the Createitv bucket, installs agc-cli, and runs agc version."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does agc CLI support Winget?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Winget support has been submitted to the Microsoft winget-pkgs repository for review. Until the PR is approved, Windows users can install agc CLI through Scoop."
+            }
+          }
+        ]
       }
     </script>
   </head>

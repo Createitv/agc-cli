@@ -37,7 +37,7 @@ checksum:
   name_template: checksums.txt
 
 brews:
-  - name: agc-cli
+  - name: agccli
     repository:
       owner: Createitv
       name: homebrew-tap
@@ -45,6 +45,59 @@ brews:
     homepage: https://github.com/Createitv/agc-cli
     description: AppGallery Connect command center
     license: MIT
+
+scoops:
+  - name: agc-cli
+    repository:
+      owner: Createitv
+      name: scoop-bucket
+      branch: main
+      token: "{{ .Env.TAP_GITHUB_TOKEN }}"
+    homepage: https://agccli.app/
+    description: AppGallery Connect CLI command center
+    license: MIT
+    commit_author:
+      name: createitv-bot
+      email: bot@createitv.com
+
+winget:
+  - name: agc-cli
+    publisher: Createitv
+    package_identifier: Createitv.AgcCli
+    package_name: agc CLI
+    default_locale: en-US
+    publisher_url: https://github.com/Createitv
+    publisher_support_url: https://github.com/Createitv/agc-cli/issues/new
+    homepage: https://agccli.app/
+    license: MIT
+    license_url: https://github.com/Createitv/agc-cli/blob/main/LICENSE
+    copyright: Copyright Createitv
+    short_description: AppGallery Connect CLI command center
+    description: agc CLI is a Go command-line tool for AppGallery Connect automation, release dry-runs, profile binding, uploads, reports, local REST workflows, and CI usage.
+    tags:
+      - appgallery-connect
+      - agc
+      - huawei
+      - harmonyos
+      - cli
+      - golang
+    release_notes_url: https://github.com/Createitv/agc-cli/releases/tag/{{ .Tag }}
+    installation_notes: Run agc version after install to verify the command is available.
+    repository:
+      owner: Createitv
+      name: winget-pkgs
+      branch: agc-cli-{{ .Version }}
+      token: "{{ .Env.TAP_GITHUB_TOKEN }}"
+      pull_request:
+        enabled: true
+        draft: false
+        base:
+          owner: microsoft
+          name: winget-pkgs
+          branch: master
+    commit_author:
+      name: createitv-bot
+      email: bot@createitv.com
 
 dockers:
   - image_templates:

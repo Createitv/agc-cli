@@ -6,9 +6,32 @@
 
 ## 1. 安装到命令行环境
 
-环境要求：Go 1.22 或更高版本；Web Command Center 另需 Node.js 20 或更高版本。
+环境要求：Homebrew 或 Go 1.22 及更高版本；Web Command Center 另需 Node.js 20 或更高版本。
 
-macOS / Linux 推荐直接安装到用户级 bin 目录，并把该目录加入当前 shell 的 `PATH`：
+macOS 推荐 Homebrew：
+
+```bash
+brew install agccli
+agc version
+```
+
+如果本机 Homebrew 尚未索引 Createitv tap，请先运行一次 `brew tap createitv/tap`，再执行 `brew install agccli`。
+
+Windows 推荐 Scoop：
+
+```powershell
+scoop bucket add createitv https://github.com/Createitv/scoop-bucket
+scoop install agc-cli
+agc version
+```
+
+Winget manifest 已提交给 Microsoft 审核。审核通过后可使用：
+
+```powershell
+winget install --id Createitv.AgcCli -e
+```
+
+没有包管理器时，可以使用 Go install fallback。macOS / Linux：
 
 ```bash
 mkdir -p "$HOME/.local/bin" && \
@@ -23,7 +46,7 @@ Windows PowerShell：
 $p="$env:LOCALAPPDATA\Programs\agc\bin"; New-Item -ItemType Directory -Force $p; $env:GOBIN=$p; go install github.com/Createitv/agc-cli/cmd/agc@latest; $env:Path="$p;$env:Path"; agc version
 ```
 
-若希望新开的终端也能直接使用 `agc`，请把上面的 bin 目录写入 shell profile 或用户级 `Path`。
+注意：Go install 不经过 GoReleaser 注入版本信息，`agc version` 可能显示 `dev`。Homebrew、Scoop、GitHub Release 包会显示发布版本。
 
 从当前仓库本地构建：
 
