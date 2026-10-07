@@ -23,6 +23,12 @@ type Endpoint struct {
 }
 
 type Parameter struct {
+	AllowEmpty  bool   `json:"allowEmpty,omitempty"`
+	MinItems    int    `json:"minItems,omitempty"`
+	MaxItems    int    `json:"maxItems,omitempty"`
+	ItemsType   string `json:"itemsType,omitempty"`
+	Type        string `json:"type,omitempty"`
+	Format      string `json:"format,omitempty"`
 	Name        string `json:"name"`
 	In          string `json:"in"`
 	Required    bool   `json:"required"`
@@ -30,7 +36,13 @@ type Parameter struct {
 }
 
 func endpoint(familyID, id, name, description, method, path string, requiredParams []string) Endpoint {
-	parameters := inferParameters(method, path, requiredParams)
+	parameters := verifiedParameters(familyID, id, inferParameters(method, path, requiredParams))
+	requiredParams = nil
+	for _, parameter := range parameters {
+		if parameter.Required {
+			requiredParams = append(requiredParams, parameter.Name)
+		}
+	}
 	return Endpoint{
 		ID:             id,
 		FamilyID:       familyID,
@@ -84,9 +96,6 @@ func inferParameters(method, path string, requiredParams []string) []Parameter {
 }
 
 func inferBody(method string, parameters []Parameter) string {
-	if !methodNeedsBody(method) {
-		return ""
-	}
 	fields := []string{}
 	for _, parameter := range parameters {
 		if parameter.In == "body" || parameter.In == "file" {
@@ -94,6 +103,9 @@ func inferBody(method string, parameters []Parameter) string {
 		}
 	}
 	if len(fields) == 0 {
+		if !methodNeedsBody(method) {
+			return ""
+		}
 		return "json"
 	}
 	return strings.Join(fields, ",")
