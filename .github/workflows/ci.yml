@@ -26,7 +26,7 @@ jobs:
         with:
           python-version: '3.12'
       - run: make check-docs
-      - run: python3 -m unittest discover -s scripts -p 'test_ci_report.py'
+      - run: python3 -m unittest discover -s scripts -p 'test_*.py'
 
   test:
     name: Test (${{ matrix.os }}, Go ${{ matrix.go }})

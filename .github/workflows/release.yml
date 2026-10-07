@@ -15,13 +15,35 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  publisher-access:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Require a version tag
+        env:
+          RELEASE_REF: ${{ github.ref }}
+        run: |
+          case "$RELEASE_REF" in
+            refs/tags/v*) ;;
+            *) echo 'Run Release on a v* tag, or push a new version tag.' >&2; exit 1 ;;
+          esac
+      - name: Verify package repository permissions
+        env:
+          GH_TOKEN: ${{ secrets.TAP_GITHUB_TOKEN }}
+        run: python3 scripts/verify-package-publish.py --check-access
+
   validation:
     uses: ./.github/workflows/ci.yml
     permissions:
       contents: read
 
   release:
-    needs: validation
+    needs: [validation, publisher-access]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -47,11 +69,17 @@ jobs:
       - uses: goreleaser/goreleaser-action@v7
         with:
           distribution: goreleaser
-          version: "~> v2"
+          version: v2.17.1
           args: release --clean
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TAP_GITHUB_TOKEN: ${{ secrets.TAP_GITHUB_TOKEN }}
+      - name: Verify published Homebrew and Scoop manifests
+        if: ${{ !contains(github.ref_name, '-') }}
+        env:
+          GH_TOKEN: ${{ secrets.TAP_GITHUB_TOKEN }}
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: python3 scripts/verify-package-publish.py --tag "$RELEASE_TAG"
       - name: Download validation evidence
         uses: actions/download-artifact@v4
         with:

@@ -38,9 +38,15 @@ checksum:
 
 brews:
   - name: agc-cli
+    directory: .
+    install: |
+      bin.install "agc"
+    test: |
+      system "#{bin}/agc", "version"
     repository:
       owner: Createitv
       name: homebrew-tap
+      branch: master
       token: "{{ .Env.TAP_GITHUB_TOKEN }}"
     homepage: https://github.com/Createitv/agc-cli
     description: AppGallery Connect command center
