@@ -19,6 +19,8 @@ class PublicationReadbackTest(unittest.TestCase):
 
     def test_matching_release_is_accepted(self):
         publisher.verify(self.formula, self.manifest, 'v1.2.3', self.checksums)
+        self.manifest['architecture']['64bit']['bin'] = ['agc.exe']
+        publisher.verify(self.formula, self.manifest, 'v1.2.3', self.checksums)
 
     def test_stale_package_version_is_rejected(self):
         with self.assertRaisesRegex(ValueError, 'Homebrew formula version'):
