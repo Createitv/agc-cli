@@ -1,8 +1,8 @@
 # 云端测试与 Codex 工作流程
 
-推送任意分支、创建或更新 PR、进入合并队列都会运行 GitHub Actions CI。也可以从 Actions 手动运行。检查包括文档、报告生成器、Go vet、Linux/macOS/Windows 的 Go 测试及 race 检测、80% 总覆盖率门槛，以及 Web 测试与构建。
+推送任意分支、创建或更新 PR、进入合并队列都会运行 GitHub Actions CI。也可以从 Actions 手动运行。检查包括文档、报告生成器、Go vet、Linux/macOS/Windows 的稳定版 Go 测试及 race 检测、Linux 的最低 Go 1.22 兼容检查、80% 总覆盖率门槛，以及 Web 测试与构建。
 
-每个操作系统上传 `test-report-<os>-<commit SHA>`，保存 30 天，包含 JUnit、JSON、Markdown、原始 Go 测试事件和覆盖率。Actions Summary 显示提交、测试结果及覆盖率。报告绑定提交，不提交生成文件到源码仓库。PR 的 Checks 显示结果；失败时查看该次运行的日志和 artifact。
+每个操作系统上传 `test-report-<os>-go-<version>-<commit SHA>`，保存 30 天，包含 JUnit、JSON、Markdown、原始 Go 测试事件和覆盖率。Actions Summary 显示提交、测试结果及覆盖率。报告绑定提交，不提交生成文件到源码仓库。PR 的 Checks 显示结果；失败时查看该次运行的日志和 artifact。
 
 Release 调用相同 CI，全部通过后才执行发布。发布时将三平台报告和提交信息打包为 validation-reports.zip，附加到对应 GitHub Release，便于长期追溯。
 
