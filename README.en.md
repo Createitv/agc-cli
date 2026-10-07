@@ -62,7 +62,7 @@ JSON is the default; add `--output table` or `--output markdown` for people. `ag
 | **Games & Resources** | Inspect game callback contracts and resource predownload endpoints → `agc gameplay` / `agc game-items` / `agc resources` |
 | **REST & Web** | Browse the registry, preview/invoke local REST requests, export OpenAPI → [local usage](docs/CLI_USAGE.en.md#web-rest-and-openapi) |
 
-The registry contains 13 API families and 156 entries with generic request construction/invocation. Follow each endpoint's Huawei `sourceUrl` for fields, permissions, and prerequisites. Upload orchestration and local Hvigor execution are not yet implemented.
+The registry contains 13 API families and 159 entries with generic request construction/invocation. Follow each endpoint's Huawei `sourceUrl` for fields, permissions, and prerequisites. Upload orchestration and local Hvigor execution are not yet implemented.
 
 All guides: [docs index](docs/README.md). Every command and flag: `agc --help` or `agc <family> <endpoint> --help`. Run `agc endpoints --pretty` for definitions and official references.
 

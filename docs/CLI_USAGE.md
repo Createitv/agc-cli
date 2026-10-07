@@ -57,7 +57,7 @@ agc publishing app-info-query --invoke --query appId=YOUR_APP_ID --query lang=zh
 
 ## 功能与当前状态
 
-当前注册 **156 个接口条目**：153 个华为官方接口/回调、2 个上传 URL handoff 操作、1 个本地 Hvigor bridge 条目。注册表示可以发现接口并构建通用请求，不表示每个接口都已通过生产验证。
+当前注册 **159 个接口条目**：156 个华为官方接口/回调、2 个上传 URL handoff 操作、1 个本地 Hvigor bridge 条目。注册表示可以发现接口并构建通用请求，不表示每个接口都已通过生产验证。
 
 | 你要做什么 | 命令入口 | 注册条目 |
 | --- | --- | ---: |
