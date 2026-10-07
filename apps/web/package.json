@@ -1,11 +1,13 @@
 {
   "name": "agc-cli-web",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "scripts": {
+    "registry:generate": "node scripts/export-registry.mjs",
+    "check:seo": "node scripts/check-seo.mjs",
     "dev": "vite --host 127.0.0.1",
-    "build": "tsc && vite build",
+    "build": "tsc && vite build && node scripts/prerender.mjs",
     "test": "vitest --environment jsdom",
     "deploy:cloudflare": "npm run build && npx wrangler@latest deploy --config wrangler.jsonc"
   },

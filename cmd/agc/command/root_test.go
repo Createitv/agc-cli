@@ -182,7 +182,17 @@ func TestEveryRegisteredEndpointCanDryRun(t *testing.T) {
 			case "header":
 				args = append(args, "--header", parameter.Name+"=sample")
 			case "body", "file":
-				args = append(args, "--field", parameter.Name+"=sample")
+				value := "sample"
+				if parameter.Type == "integer" || parameter.Type == "number" {
+					value = "1"
+				}
+				if parameter.Type == "array" {
+					value = `["fixture"]`
+				}
+				if parameter.Type == "object" {
+					value = `{"key":"fixture"}`
+				}
+				args = append(args, "--field", parameter.Name+"="+value)
 			}
 		}
 		out, err := execute(args...)

@@ -87,6 +87,7 @@ jobs:
           cache-dependency-path: apps/web/package-lock.json
       - run: npm --prefix apps/web ci
       - run: make web-test web-build
+      - run: npm --prefix apps/web run check:seo
 
   required:
     name: Required checks

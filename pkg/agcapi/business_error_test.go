@@ -18,6 +18,7 @@ func TestInvokeEndpointBusinessErrors(t *testing.T) {
 		{"PMS", `{"error":{"errorCode":"123","errorMsg":"PMS denied"}}`, "123", "PMS denied"},
 		{"flat", `{"code":123,"message":"denied"}`, "123", "denied"},
 		{"mixed envelopes", `{"ret":{"code":0},"error":{"errorCode":123,"errorMsg":"denied"}}`, "123", "denied"},
+		{"business subcode", `{"rtnCode":0,"businessCode":100,"rtnDesc":"invitation already active"}`, "100", "invitation already active"},
 	} {
 		t.Run(tc.name, func(t *testing.T) {
 			server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) { w.Write([]byte(tc.body)) }))

@@ -57,7 +57,7 @@ If the endpoint requires a `client_id` header, add `--header client_id=YOUR_CLIE
 
 ## Features and implementation status
 
-The registry contains **156 entries**: 153 Huawei official endpoints/callbacks, two upload URL handoff operations, and one local Hvigor bridge entry. Registration means discovery and generic request construction are available; it does not mean every endpoint has been verified in production.
+The registry contains **159 entries**: 156 Huawei official endpoints/callbacks, two upload URL handoff operations, and one local Hvigor bridge entry. Registration means discovery and generic request construction are available; it does not mean every endpoint has been verified in production.
 
 | Task | Command | Entries |
 | --- | --- | ---: |

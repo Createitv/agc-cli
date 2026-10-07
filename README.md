@@ -62,7 +62,7 @@ agc publishing app-info-query --invoke --query appId=YOUR_APP_ID --query lang=zh
 | **游戏与资源包** | 查看游戏回调协议和资源包预下载接口 → `agc gameplay` / `agc game-items` / `agc resources` |
 | **REST 与 Web** | 浏览接口注册表，预览和调用本地 REST，导出 OpenAPI → [本地使用](docs/CLI_USAGE.md#webrest-与-openapi) |
 
-注册表包含 13 个 API 家族、156 个条目，支持通用请求构建与调用；各接口的字段、权限和前置条件以其 `sourceUrl` 华为文档为准。上传编排和本地 Hvigor 构建执行器尚未完成。
+注册表包含 13 个 API 家族、159 个条目，支持通用请求构建与调用；各接口的字段、权限和前置条件以其 `sourceUrl` 华为文档为准。上传编排和本地 Hvigor 构建执行器尚未完成。
 
 所有文档见[文档索引](docs/README.md)。所有命令与参数用 `agc --help`、`agc <家族> <接口> --help` 查看；`agc endpoints --pretty` 列出接口定义和官方参考链接。
 

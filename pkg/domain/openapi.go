@@ -152,9 +152,46 @@ func invokeRequestSchemaProperties(endpoint Endpoint) map[string]any {
 		}
 	}
 	if methodNeedsBody(endpoint.Method) {
-		properties["body"] = map[string]any{
+		bodySchema := map[string]any{
 			"description": "Raw JSON request body for " + endpoint.Method + " " + endpoint.Path + ".",
 		}
+		fields := map[string]any{}
+		required := []string{}
+		for _, parameter := range endpoint.Parameters {
+			if parameter.In != "body" {
+				continue
+			}
+			field := map[string]any{"description": parameter.Description}
+			if parameter.Type != "" {
+				field["type"] = parameter.Type
+			}
+			if parameter.Format != "" {
+				field["format"] = parameter.Format
+			}
+			if parameter.Type == "array" {
+				if parameter.ItemsType != "" {
+					field["items"] = map[string]string{"type": parameter.ItemsType}
+				}
+				if parameter.MinItems > 0 {
+					field["minItems"] = parameter.MinItems
+				}
+				if parameter.MaxItems > 0 {
+					field["maxItems"] = parameter.MaxItems
+				}
+			}
+			fields[parameter.Name] = field
+			if parameter.Required {
+				required = append(required, parameter.Name)
+			}
+		}
+		if len(fields) > 0 {
+			bodySchema["type"] = "object"
+			bodySchema["properties"] = fields
+			if len(required) > 0 {
+				bodySchema["required"] = required
+			}
+		}
+		properties["body"] = bodySchema
 	}
 	return properties
 }
