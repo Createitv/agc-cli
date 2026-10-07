@@ -1,823 +1,310 @@
 # agc-cli
 
-[![Website](https://img.shields.io/badge/website-createitv.github.io%2Fagc--cli-f04444)](https://createitv.github.io/agc-cli/)
+[![Website](https://img.shields.io/badge/website-agccli.app-f04444)](https://agccli.app/)
 [![Release](https://img.shields.io/github/v/release/Createitv/agc-cli?label=release)](https://github.com/Createitv/agc-cli/releases)
-[![Coverage](https://img.shields.io/badge/coverage-80%25%20gate-brightgreen)](#testing--coverage)
+[![CI](https://github.com/Createitv/agc-cli/actions/workflows/ci.yml/badge.svg)](https://github.com/Createitv/agc-cli/actions/workflows/ci.yml)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
-AppGallery Connect Command Center.
+**简体中文** · [English](README.en.md)
 
-`agc-cli` is a Go CLI for Huawei AppGallery Connect. It lets you discover, dry-run, and invoke AppGallery Connect APIs from the terminal, CI, local REST API, or a web command center. It outputs structured JSON by default so humans, scripts, and AI agents can follow the same release workflow.
+**在终端管理华为 AppGallery Connect。**
 
-- [中文文档](#中文)
-- [English](#english)
+`agc-cli` 是用 Go 编写的开源命令行工具，安装后的命令名为 `agc`。你可以查询应用信息、构建发布请求、调用 AppGallery Connect API，也可以通过本地 REST API 和 Web Command Center 浏览接口。默认输出 JSON，适合开发者、CI 脚本和 AI Agent 使用。
 
-## 中文
+[官网](https://agccli.app/) · [下载安装包](https://github.com/Createitv/agc-cli/releases) · [使用指南](docs/CLI_USAGE.md) · [反馈问题](https://github.com/Createitv/agc-cli/issues)
 
-### 快速开始
+## 快速开始
+
+先准备 AppGallery Connect 中的应用 ID，以及 Service Account JSON 或 API Client 凭据。应用 ID 可从 [AppGallery Connect 控制台](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 的应用信息中查找。
+
+### 1. 安装
+
+macOS（需要已安装 Homebrew）：
 
 ```bash
-brew tap createitv/tap && brew install agc-cli && agc version
+brew tap createitv/tap
+brew install agc-cli
+agc version
+```
 
-agc auth login \
-  --service-account-file ~/.agc/service-account.json \
-  --name production
+Windows 和 Linux 用户见[安装与升级](#安装与升级)。使用发布版安装包不需要 Go 或 Node.js。
 
+### 2. 保存凭据
+
+将你的 Service Account JSON 放在本机固定位置，然后运行：
+
+```bash
+agc auth login --service-account-file ~/.agc/service-account.json --name production
 agc auth check
-
-agc init \
-  --app-id <app-id> \
-  --project-id <project-id> \
-  --package-name com.example.app \
-  --default-profile production
-
-agc publishing app-info-query \
-  --invoke \
-  --query appId=<app-id> \
-  --query lang=zh-CN
 ```
 
-`agc init` 会把项目上下文写入 `.agc/project.json`。之后同一个仓库里的命令可以自动解析 app、project、package 和默认 profile，不需要每次重复传入。
+`auth check` 显示当前本地凭据配置；它不验证华为服务器是否接受该凭据。其他登录方式见[鉴权与多账号](#鉴权与多账号)。
 
-### 功能概览
+### 3. 绑定项目
 
-| 分类 | 能做什么 |
-| --- | --- |
-| Publishing API | 查询和更新应用信息、软件包信息、语言描述、GMS 属性、提交发布、撤回或更新上架时间 |
-| Upload Management API | 处理应用包、图标、截图、视频、PDF、OBB 等上传入口和上传回调 |
-| Provisioning API | 管理 HarmonyOS 证书、Profile、ACL 权限、测试设备和指纹 |
-| Domain Management API | 查询、预校验、下载和更新元服务域名配置 |
-| Testing API | 管理测试版本、测试包、测试用户、用户组、邀请码、反馈和公开测试链接 |
-| Reports API | 请求和下载 AppGallery Connect 报表，支持 CSV、Excel 等返回形式 |
-| Project Management API | 查询团队、项目、应用摘要、SDK 配置文件、服务开关和证书指纹 |
-| Comments API | 获取评论、评分、评论详情，并回复或删除回复 |
-| PMS API | 管理商品、订阅、促销、价格、语言展示和审核资料 |
-| 在玩服务 | 处理游戏联运资源同步和 AppGallery 游戏回调 |
-| 游戏道具商城 | 处理角色查询和订单回调 |
-| 资源包预下载 | 管理资源包版本、文件上传、确认上传和发布 |
-| CI/CD 平台 | 通过同一个命令面桥接本地 Hvigor 构建 |
-| AI Agents | JSON envelope、`_links` 和 `affordances` 帮助 agent 发现下一步命令 |
-| Web Command Center | 浏览器界面读取同一份接口注册表，可接入本地 REST 数据 |
-
-当前注册 `156` 个接口条目：`153` 个华为官方 AppGallery Connect Reference 接口/回调、`2` 个上传 URL handoff 操作、`1` 个本地 Hvigor bridge。
-
-### 环境要求
-
-- Go 1.22 或更高版本
-- Node.js 20 或更高版本，仅在开发 Web Command Center 时需要
-- AppGallery Connect Service Account JSON，或 API Client ID/Key
-- 对写入类 API 拥有相应 AppGallery Connect 权限
-
-### 安装
-
-#### Homebrew 推荐
+在你的应用项目目录运行，替换示例 ID：
 
 ```bash
-brew tap createitv/tap && brew install agc-cli && agc version
+agc init --app-id YOUR_APP_ID --default-profile production
 ```
 
-这条命令会添加 Createitv tap、安装发布版 formula，并验证 `agc` 已进入 PATH。
+配置写入 `.agc/project.json`。后续命令自动选择该项目绑定的凭据 profile；**当前仍需在接口参数中显式提供 appId、projectId 或包名**。
 
-#### Scoop 推荐 Windows
+### 4. 查询第一个应用
+
+先预览请求，不连接华为服务器：
+
+```bash
+agc publishing app-info-query --invoke --query appId=YOUR_APP_ID --query lang=zh-CN --pretty
+```
+
+输出中的 `data.dryRun` 为 `true`，并显示 HTTP 方法和目标 URL。确认后发送真实查询：
+
+```bash
+agc publishing app-info-query --invoke --query appId=YOUR_APP_ID --query lang=zh-CN --dry-run=false --pretty
+```
+
+若所用接口要求 `client_id` 请求头，追加 `--header client_id=YOUR_CLIENT_ID`；CLI 当前不会自动填充这个请求头。
+
+## 功能与当前状态
+
+当前注册 **156 个接口条目**：153 个华为官方接口/回调、2 个上传 URL handoff 操作、1 个本地 Hvigor bridge 条目。注册表示可以发现接口并构建通用请求，不表示每个接口都已通过生产验证。
+
+| 你要做什么 | 命令入口 | 注册条目 |
+| --- | --- | ---: |
+| 查询/更新应用资料、多语言描述，构建提交审核请求 | `agc publishing` | 14 |
+| 查看上传地址、分片上传和确认上传接口 | `agc upload` | 6 |
+| 管理鸿蒙证书、Provisioning Profile、设备和指纹 | `agc provisioning` | 17 |
+| 查询和更新元服务域名配置 | `agc domains` | 5 |
+| 管理测试版本、测试用户、群组和反馈 | `agc testing` | 27 |
+| 请求下载、销售等报表 | `agc reports` | 12 |
+| 查询团队、项目、应用和 SDK 配置 | `agc projects` | 8 |
+| 查询评分、评论并管理回复 | `agc comments` | 8 |
+| 管理商品、订阅、价格和促销 | `agc pms` | 40 |
+| 查看在玩服务、游戏道具商城回调协议 | `agc gameplay` / `agc game-items` | 8 / 2 |
+| 查看资源包预下载接口 | `agc resources` | 8 |
+| 查看本地 Hvigor 构建接口定义 | `agc cicd` | 1 |
+
+目前可用的是接口发现、凭据选择、请求构建、通用 HTTP 调用、本地 REST 与 OpenAPI。文件上传尚未封装为完整的二进制/multipart 上传流程；Hvigor 条目也尚未接入本地构建执行器。
+
+## 按任务查找文档
+
+| 任务 | 从这里开始 |
+| --- | --- |
+| 安装、登录、第一次查询 | [快速开始](#快速开始) |
+| 多账号、项目配置、环境变量 | [鉴权与多账号](#鉴权与多账号) |
+| 上传与提交审核 | [应用发布流程](#应用发布流程) |
+| 查看所有命令、参数和官方文档地址 | [命令发现与请求参数](#命令发现与请求参数) |
+| 用脚本或 AI Agent 操作 | [JSON 与 Agent 支持](#json-与-agent-支持) |
+| 使用浏览器界面或本地 API | [Web、REST 与 OpenAPI](#webrest-与-openapi) |
+| 解决常见问题 | [常见问题](#常见问题) |
+| 开发、测试和工具自身发布 | [参与开发](#参与开发) |
+
+[CLI 使用指南](docs/CLI_USAGE.md) 包含更多操作示例；[实现计划](docs/AGC_CLI_FULL_PLAN.md) 介绍架构与规划，实际能力以当前代码和本 README 的状态说明为准。
+
+## 安装与升级
+
+### macOS：Homebrew
+
+```bash
+brew tap createitv/tap
+brew install agc-cli
+# 升级已安装版本
+brew update
+brew upgrade agc-cli
+```
+
+### Windows：Scoop
+
+需要已安装 Scoop，在 PowerShell 中运行：
 
 ```powershell
 scoop bucket add createitv https://github.com/Createitv/scoop-bucket
 scoop install agc-cli
 agc version
+# 升级已安装版本
+scoop update agc-cli
 ```
 
-#### Winget
+Winget 发布记录见 [manifest PR](https://github.com/microsoft/winget-pkgs/pull/415361)。使用前可运行 `winget search --id Createitv.AgcCli -e` 确认可用性。
 
-Winget manifest 已提交给 Microsoft 审核：
+### macOS / Linux / Windows：Release 安装包
 
-https://github.com/microsoft/winget-pkgs/pull/415361
+在 [Releases](https://github.com/Createitv/agc-cli/releases) 选择与你的系统和架构匹配的文件，按该版本的 `checksums.txt` 校验后解压，将 `agc`（Windows 为 `agc.exe`）放到 PATH 中，再运行 `agc version`。升级时用新版本替换旧二进制。
 
-审核通过后可使用：
+发布配置包含 macOS/Linux 的 amd64、arm64 和 Windows amd64。具体资产以发布页为准。
 
-```powershell
-winget install --id Createitv.AgcCli -e
-```
+### 使用 Go 安装
 
-#### GitHub Release 包
-
-发布页包含 macOS、Linux、Windows 的二进制包和 `checksums.txt`：
-
-https://github.com/Createitv/agc-cli/releases/tag/v0.1.0
-
-#### Go install
-
-macOS / Linux：
+需要 Go 1.22 或更高版本：
 
 ```bash
-mkdir -p "$HOME/.local/bin" && \
-GOBIN="$HOME/.local/bin" go install github.com/Createitv/agc-cli/cmd/agc@latest && \
-export PATH="$HOME/.local/bin:$PATH" && \
-agc version
+go install github.com/Createitv/agc-cli/cmd/agc@latest
 ```
 
-Windows PowerShell：
+将 Go 的二进制安装目录加入 PATH（默认通常为 `$(go env GOPATH)/bin`）。这种安装方式的 `agc version` 可能显示 `dev`，发布版安装包通过 GoReleaser 注入版本信息。
 
-```powershell
-$p="$env:LOCALAPPDATA\Programs\agc\bin"; New-Item -ItemType Directory -Force $p; $env:GOBIN=$p; go install github.com/Createitv/agc-cli/cmd/agc@latest; $env:Path="$p;$env:Path"; agc version
-```
+## 鉴权与多账号
 
-注意：`go install` 不经过 GoReleaser 注入版本信息，`agc version` 可能显示 `dev`。正式 Release 包和 Homebrew 安装会显示发布版本。
+Service Account 文件应包含 `key_id`、`private_key`、`sub_account`。CLI 使用该文件签署 PS256 JWT；登录时保存文件路径，因此文件需要留在本机。
 
-#### 从源码构建
+也可以保存 API Client 凭据（下列变量由你预先设置）：
 
 ```bash
-git clone https://github.com/Createitv/agc-cli.git
-cd agc-cli
-make build
-install -m 0755 bin/agc /usr/local/bin/agc
-agc version
+agc auth login --client-id "$AGC_CLIENT_ID" --client-key "$AGC_CLIENT_KEY" --name staging
+agc --profile staging auth check
 ```
 
-### 鉴权
+这两个变量只是 shell 传参示例；CLI 不会自动读取 `AGC_CLIENT_ID` / `AGC_CLIENT_KEY`。
 
-#### 持久化登录 推荐
-
-Service Account：
+凭据选择顺序：`--profile` → 项目 `.agc/project.json` 中的 `profile` → 全局 active 账号（或唯一账号）。每次登录会将该账号设为 active。临时切换账号或指定其他项目：
 
 ```bash
-agc auth login \
-  --service-account-file ~/.agc/service-account.json \
-  --name production
+agc --profile staging publishing endpoints
+agc --project ../another-app auth check
 ```
 
-API Client：
+`agc init` 还接受 `--project-id` 和 `--package-name`，用于保存项目上下文。
+
+| 环境变量 | 用途 |
+| --- | --- |
+| `AGC_ACCESS_TOKEN` | 接口调用的 Bearer token，优先级低于 `--token`，高于凭据 profile |
+| `AGC_CREDENTIALS_PATH` | 覆盖默认凭据文件 `~/.agc/credentials.json`；低于 `--credentials-path` |
+
+`agc auth token` 输出令牌。当前 `auth login`、`auth list`、`auth check` 在 API Client 模式下可能输出 `clientKey`；这些输出不应直接上传到 Issue 或公开 CI 日志。凭据文件、Service Account 私钥和访问令牌应保存在本机或 CI secret store 中。
+
+## 命令发现与请求参数
+
+无需登录即可查看接口定义：
 
 ```bash
-agc auth login \
-  --client-id <client-id> \
-  --client-key <client-key> \
-  --name production
-```
-
-常用命令：
-
-```bash
-agc auth list
-agc auth check
-agc auth token
-```
-
-凭据保存在 `~/.agc/credentials.json`。项目文件 `.agc/project.json` 只保存 app/project/package/profile 上下文，不保存 client key 或私钥。
-
-#### Profile 解析顺序
-
-```text
---profile 显式参数
-  -> .agc/project.json 里的默认 profile
-  -> ~/.agc/credentials.json 里的激活或默认账号
-```
-
-### 项目初始化
-
-```bash
-agc init \
-  --app-id <app-id> \
-  --project-id <project-id> \
-  --package-name com.example.app \
-  --default-profile production
-```
-
-示例 `.agc/project.json`：
-
-```json
-{
-  "appId": "123456789",
-  "projectId": "987654321",
-  "packageName": "com.example.app",
-  "profile": "production"
-}
-```
-
-### 命令参考
-
-#### 全局发现
-
-```bash
+agc --help
 agc capabilities --output table
-agc endpoints --pretty
-agc openapi --pretty
-agc docs publishing
-```
-
-#### API 家族
-
-| API 家族 | 命令 | 接口数 |
-| --- | --- | ---: |
-| Publishing API | `agc publishing` | 14 |
-| Upload Management API | `agc upload` | 6 |
-| Provisioning API | `agc provisioning` | 17 |
-| Domain Management API | `agc domains` | 5 |
-| Testing API | `agc testing` | 27 |
-| Reports API | `agc reports` | 12 |
-| Project Management API | `agc projects` | 8 |
-| Comments API | `agc comments` | 8 |
-| PMS API | `agc pms` | 40 |
-| 在玩服务 | `agc gameplay` | 8 |
-| 游戏道具商城 | `agc game-items` | 2 |
-| 资源包预下载 | `agc resources` | 8 |
-| CI/CD 平台 | `agc cicd` | 1 |
-
-#### Publishing 示例
-
-```bash
 agc publishing endpoints --output table
-
-agc publishing app-info-query \
-  --invoke \
-  --query appId=<app-id> \
-  --query lang=zh-CN
-
-agc publishing add-packageurl \
-  --invoke \
-  --field appId=<app-id> \
-  --field packageUrl=https://example.com/app.app
-
-agc publishing app-submit \
-  --invoke \
-  --field appId=<app-id> \
-  --field releaseType=1 \
-  --dry-run=false
+agc publishing app-info-query --pretty
+agc publishing app-info-query --help
+agc endpoints --pretty
 ```
 
-#### Reports 示例
+接口定义的 `sourceUrl` 指向对应的华为官方参考文档，例如[查询应用信息](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-query-0000001158365045)。完整映射见 [endpoint_catalog.go](pkg/domain/endpoint_catalog.go)。
+
+| 调用方式 | 行为 |
+| --- | --- |
+| 不加 `--invoke` | 只显示接口定义 |
+| `--invoke` | 构建请求，默认 dry-run；输出方法、URL 和 `dryRun` |
+| `--invoke --dry-run=false` | 发送真实请求，包括 GET 查询 |
+
+| 参数 | 用途 |
+| --- | --- |
+| `--param key=value` | 路径参数，可重复 |
+| `--query key=value` | 查询参数，可重复 |
+| `--header key=value` | HTTP 请求头，可重复 |
+| `--field key=value` | JSON 字段，可重复；值按字符串编码 |
+| `--body request.json` | 读取完整请求体文件；优先于 `--field` |
+| `--token TOKEN` | 显式提供 Bearer token |
+| `--out response.json` | 将原始响应体保存到文件，不转换文件格式 |
+| `--timeout 120s` | 调整请求超时，默认 60 秒 |
+
+包含数组、对象、数字或布尔值的请求请使用 `--body`。dry-run 不展示完整 headers/body，也不校验全部华为业务字段；发送前需要自行核对请求文件、权限和官方协议。
+
+## 应用发布流程
+
+发布通常涉及：**查询应用 → 上传文件 → 更新应用文件信息 → 完善资料 → 提交审核 → 查询远程状态**。
+
+当前 CLI 暴露各步骤的接口，尚未提供自动串联这些步骤的一键发布命令。先查看定义：
 
 ```bash
-agc reports endpoints --output table
-
-agc reports appdownloadexport \
-  --invoke \
-  --param appId=<app-id> \
-  --query from=2026-08-01 \
-  --query to=2026-08-11 \
-  --out downloads.csv \
-  --dry-run=false
+agc upload endpoints --output table
+agc publishing app-file-info --pretty
+agc publishing app-info-update --pretty
+agc publishing language-info-update --pretty
+agc publishing app-submit --pretty
 ```
 
-#### 回调 URL 示例
-
-部分官方文档是开发者服务接收 AppGallery 回调的接口。`agc` 把它们注册为 `inbound-callback`，调用时需要传入 `callbackUrl`：
+上传二进制文件或 multipart 内容目前需使用符合华为协议的外部上传工具；`--body` 不能替代完整文件上传流程。准备好符合对应官方文档的 JSON 文件后，可以先构建更新/提交请求：
 
 ```bash
-agc game-items propapi-order \
-  --invoke \
-  --param callbackUrl=https://callback.example.com/order \
-  --dry-run
+agc publishing app-file-info --invoke --body app-file-info.json --pretty
+agc publishing app-info-update --invoke --body app-info.json --pretty
+agc publishing app-submit --invoke --body submission.json --pretty
 ```
 
-### dry-run 与真实调用
+上述命令默认不发送请求。确认上传结果、文件关联和资料完整后，再为要执行的步骤增加 `--dry-run=false`，并补齐所需请求头。
 
-接口命令默认 `--dry-run=true`。默认情况下，CLI 只构建请求并输出 method、URL、headers、body，不会发给 AppGallery Connect。
+提交接口返回成功后，仍需查询 AppGallery Connect 远程状态。请求成功、审核通过和正式上架是不同阶段。
 
-```bash
-agc publishing app-info-query \
-  --invoke \
-  --query appId=123 \
-  --query lang=zh-CN \
-  --dry-run
-```
+## JSON 与 Agent 支持
 
-确认无误后再显式发送：
-
-```bash
-agc publishing app-info-query \
-  --invoke \
-  --query appId=123 \
-  --query lang=zh-CN \
-  --dry-run=false
-```
-
-通用参数：
-
-```bash
---param key=value   # path 参数
---query key=value   # query 参数
---header key=value  # HTTP header
---field key=value   # JSON body 字段
---body body.json    # 原始 JSON body
---token <token>     # Bearer token；默认读取 AGC_ACCESS_TOKEN 或当前 profile
---out file          # 保存原始响应 body
-```
-
-### JSON 输出与 Agent 支持
-
-`agc` 默认输出 JSON envelope，并在响应里保留 `_links` 和 `affordances`。脚本或 agent 可以先发现能力，再选择下一条合法命令，而不需要提前硬编码完整命令树。
+默认 JSON 输出方便接入 `jq`、脚本和 AI Agent；人工浏览可用 `--output table` 或 `--output markdown`。
 
 ```bash
 agc capabilities --pretty
 agc publishing app-info-query --pretty
 ```
 
-每个接口条目包含：
+接口定义中的 `_links` 提供本地 REST 路由，`affordances` 提供后续命令模板。Agent 可先读取定义和 `sourceUrl`，补齐参数后预览请求。模板并不表示业务前置条件已经满足。
 
-- `id`
-- `familyId`
-- `method`
-- `path`
-- `command`
-- `sourceUrl`
-- `officialSlug`
-- `direction`
-- `_links`
-- `affordances`
+## Web、REST 与 OpenAPI
 
-### 本地 REST 与 OpenAPI
-
-启动本地服务：
+[agccli.app](https://agccli.app/) 可浏览静态接口参考。要读取本地 REST 数据，在源码仓库启动服务和 Web 开发服务器：
 
 ```bash
 agc web-server --addr :8421
+# 另一个终端；需要 Node.js 20+
+npm --prefix apps/web ci
+npm --prefix apps/web run dev
 ```
 
-常用路由：
+打开 Vite 输出的本地地址。它会将 `/api` 代理到 `127.0.0.1:8421`；没有本地 API 时页面显示参考数据。
 
 ```bash
 curl http://localhost:8421/api/v1/capabilities
 curl http://localhost:8421/api/v1/endpoints
 curl http://localhost:8421/api/v1/openapi.json
+agc openapi --pretty
 ```
 
-每个接口都有 REST 调用路由：
+预览 REST 调用：
 
 ```bash
-curl -X POST http://localhost:8421/api/v1/publishing/endpoints/app-info-query/invoke \
-  -H 'Content-Type: application/json' \
-  -d '{
-    "baseUrl": "https://connect-api.cloud.huawei.com",
-    "query": {"appId": "123", "lang": "zh-CN"},
-    "headers": {"client_id": "<client-id>"},
-    "dryRun": true
-  }'
+curl -X POST http://localhost:8421/api/v1/publishing/endpoints/app-info-query/invoke   -H 'Content-Type: application/json'   -d '{"query":{"appId":"YOUR_APP_ID","lang":"zh-CN"},"dryRun":true}'
 ```
 
-REST 调用同样默认 dry-run。只有传入 `"dryRun": false` 并提供 token 时才会发送真实请求。
+REST 调用默认 dry-run；真实调用需设置 `"dryRun": false`，在请求 JSON 的 `token` 字段提供令牌，以及所需的 `headers`。REST 调用器当前不会自动读取 CLI 保存的凭据 profile。
 
-### Web Command Center
+## 常见问题
 
-线上文档站：
-
-https://createitv.github.io/agc-cli/
-
-本地开发：
-
-```bash
-npm --prefix apps/web install
-npm --prefix apps/web run dev
-```
-
-如果同时启动 `agc web-server --addr :8421`，Web Command Center 会读取本地 REST 数据；否则使用内置参考数据。
-
-### CI/CD 与发布
-
-GitHub Actions：
-
-- `CI`：`go vet`、Go tests、覆盖率检查、Web tests、Web build
-- `Pages`：部署 Web Command Center 到 GitHub Pages
-- `Release`：tag `v*` 触发 GoReleaser
-
-GoReleaser 发布内容：
-
-- GitHub Release 二进制包和 `checksums.txt`
-- Homebrew formula：`createitv/tap/agc-cli`
-- Scoop manifest：`createitv/scoop-bucket/agc-cli`
-- Winget manifest PR：`Createitv.AgcCli`
-- GHCR 镜像：`ghcr.io/createitv/agc-cli`
-
-本地检查：
-
-```bash
-make ci
-TAP_GITHUB_TOKEN=dummy make release-snapshot
-make release-snapshot-docker # 需要 Docker
-```
-
-### 测试与覆盖率
-
-```bash
-make test
-make coverage
-make coverage-check
-make ci
-```
-
-CI 覆盖率门槛是 `80%`。当前测试覆盖 CLI 命令、接口注册表、dry-run 请求构建、REST 路由、OpenAPI 导出、Web 渲染和发布配置 smoke check。
-
-### 安全边界
-
-- 不保存华为账号密码、浏览器 cookie 或验证码会话
-- Service Account 使用 `key_id`、`private_key`、`sub_account` 生成官方 PS256 JWT bearer token
-- API Client 使用 `/api/oauth2/v1/token`
-- `.agc/project.json` 可以提交到项目仓库；密钥应放在 `~/.agc/credentials.json` 或 CI secret store
-- 默认 dry-run，写入类 API 必须显式 `--dry-run=false`
-- 接口字段、权限、业务前置条件仍应以华为官方文档为准
-
-## English
-
-### Quick Start
-
-```bash
-brew tap createitv/tap && brew install agc-cli && agc version
-
-agc auth login \
-  --service-account-file ~/.agc/service-account.json \
-  --name production
-
-agc auth check
-
-agc init \
-  --app-id <app-id> \
-  --project-id <project-id> \
-  --package-name com.example.app \
-  --default-profile production
-
-agc publishing app-info-query \
-  --invoke \
-  --query appId=<app-id> \
-  --query lang=en-US
-```
-
-`agc init` writes project context to `.agc/project.json`. Later commands in the same repository can resolve the app, project, package name, and default profile automatically.
-
-### Features
-
-| Category | What you can do |
+| 问题 | 处理方式 |
 | --- | --- |
-| Publishing API | Query and update app information, package state, localized descriptions, GMS settings, submissions, and release timing |
-| Upload Management API | Handle package, icon, screenshot, video, PDF, and OBB upload entry points |
-| Provisioning API | Manage HarmonyOS certificates, profiles, ACL permissions, test devices, and fingerprints |
-| Domain Management API | Query, pre-check, download, and update atomic service domain configuration |
-| Testing API | Manage test versions, packages, testers, groups, invitation codes, feedback, and public test links |
-| Reports API | Request and download AppGallery Connect reports as CSV or Excel files |
-| Project Management API | Query teams, projects, app summaries, SDK configs, services, and certificate fingerprints |
-| Comments API | Fetch review lists, ratings, details, and create or delete replies |
-| PMS API | Manage products, subscriptions, promotions, prices, display languages, and review assets |
-| Game Playing Service | Handle game resource synchronization and AppGallery game callbacks |
-| Game Item Mall | Handle role query and order callbacks |
-| Resource Package Predownload | Manage resource package versions, file upload, upload confirmation, and release |
-| CI/CD Platform | Bridge local Hvigor builds into the same command surface |
-| AI Agents | JSON envelopes, `_links`, and `affordances` help agents choose the next legal command |
-| Web Command Center | Browser UI backed by the same endpoint registry and optional local REST data |
+| `agc: command not found` | 检查安装目录是否在 PATH 中，重新打开终端，再运行 `agc version` |
+| 只输出 URL，没有查询结果 | 检查是否包含 `--invoke --dry-run=false` |
+| `credential profile ... not found` | 检查本地 profile 名称，用 `--profile` 覆盖或修改项目配置 |
+| `auth check` 成功，真实请求仍失败 | 它只检查本地配置；核对密钥文件、账号权限、项目归属和接口请求头 |
+| 运行 init 后仍要填写 appId | 当前只自动选择 profile，应用参数仍需显式传入 |
+| 下载文件不是 CSV/Excel | `--out` 保存原始响应；部分报表接口返回下载地址，需要另外下载 |
+| Web 显示 reference mode | 启动本地 API 与 Vite 开发服务器，并访问 Vite 地址 |
 
-The project currently registers `156` interface entries: `153` Huawei official AppGallery Connect Reference endpoints/callbacks, `2` upload URL handoff operations, and `1` local Hvigor bridge.
+反馈问题时附上 `agc version`、系统/架构、脱敏后的命令、错误信息和预期结果。请在 [GitHub Issues](https://github.com/Createitv/agc-cli/issues) 提交，不要附上密钥或访问令牌。
 
-### Requirements
+## 参与开发
 
-- Go 1.22 or later
-- Node.js 20 or later, only for Web Command Center development
-- AppGallery Connect Service Account JSON, or API Client ID/Key
-- AppGallery Connect permissions for the APIs you invoke
-
-### Installation
-
-#### Homebrew recommended
-
-```bash
-brew tap createitv/tap && brew install agc-cli && agc version
-```
-
-This command adds the Createitv tap, installs the released formula, and verifies that `agc` is on PATH.
-
-#### Scoop recommended for Windows
-
-```powershell
-scoop bucket add createitv https://github.com/Createitv/scoop-bucket
-scoop install agc-cli
-agc version
-```
-
-#### Winget
-
-The Winget manifest has been submitted for Microsoft review:
-
-https://github.com/microsoft/winget-pkgs/pull/415361
-
-After approval, use:
-
-```powershell
-winget install --id Createitv.AgcCli -e
-```
-
-#### GitHub Release archives
-
-Release assets include macOS, Linux, Windows binaries and `checksums.txt`:
-
-https://github.com/Createitv/agc-cli/releases/tag/v0.1.0
-
-#### Go install
-
-macOS / Linux:
-
-```bash
-mkdir -p "$HOME/.local/bin" && \
-GOBIN="$HOME/.local/bin" go install github.com/Createitv/agc-cli/cmd/agc@latest && \
-export PATH="$HOME/.local/bin:$PATH" && \
-agc version
-```
-
-Windows PowerShell:
-
-```powershell
-$p="$env:LOCALAPPDATA\Programs\agc\bin"; New-Item -ItemType Directory -Force $p; $env:GOBIN=$p; go install github.com/Createitv/agc-cli/cmd/agc@latest; $env:Path="$p;$env:Path"; agc version
-```
-
-Note: `go install` does not run through GoReleaser ldflags, so `agc version` may show `dev`. Release archives and Homebrew builds contain the release version.
-
-#### Build from source
+需要 Go 1.22+；Web 开发还需要 Node.js 20+。从源码构建：
 
 ```bash
 git clone https://github.com/Createitv/agc-cli.git
 cd agc-cli
 make build
-install -m 0755 bin/agc /usr/local/bin/agc
-agc version
-```
-
-### Authentication
-
-#### Persistent login recommended
-
-Service Account:
-
-```bash
-agc auth login \
-  --service-account-file ~/.agc/service-account.json \
-  --name production
-```
-
-API Client:
-
-```bash
-agc auth login \
-  --client-id <client-id> \
-  --client-key <client-key> \
-  --name production
-```
-
-Common commands:
-
-```bash
-agc auth list
-agc auth check
-agc auth token
-```
-
-Credentials are saved to `~/.agc/credentials.json`. Project context in `.agc/project.json` does not store client keys or private keys.
-
-#### Profile resolution
-
-```text
---profile explicit override
-  -> default profile in .agc/project.json
-  -> active/default account in ~/.agc/credentials.json
-```
-
-### Project Init
-
-```bash
-agc init \
-  --app-id <app-id> \
-  --project-id <project-id> \
-  --package-name com.example.app \
-  --default-profile production
-```
-
-Example `.agc/project.json`:
-
-```json
-{
-  "appId": "123456789",
-  "projectId": "987654321",
-  "packageName": "com.example.app",
-  "profile": "production"
-}
-```
-
-### Command Reference
-
-#### Discovery
-
-```bash
-agc capabilities --output table
-agc endpoints --pretty
-agc openapi --pretty
-agc docs publishing
-```
-
-#### API families
-
-| API family | Command | Interfaces |
-| --- | --- | ---: |
-| Publishing API | `agc publishing` | 14 |
-| Upload Management API | `agc upload` | 6 |
-| Provisioning API | `agc provisioning` | 17 |
-| Domain Management API | `agc domains` | 5 |
-| Testing API | `agc testing` | 27 |
-| Reports API | `agc reports` | 12 |
-| Project Management API | `agc projects` | 8 |
-| Comments API | `agc comments` | 8 |
-| PMS API | `agc pms` | 40 |
-| Game Playing Service | `agc gameplay` | 8 |
-| Game Item Mall | `agc game-items` | 2 |
-| Resource Package Predownload | `agc resources` | 8 |
-| CI/CD Platform | `agc cicd` | 1 |
-
-#### Publishing examples
-
-```bash
-agc publishing endpoints --output table
-
-agc publishing app-info-query \
-  --invoke \
-  --query appId=<app-id> \
-  --query lang=en-US
-
-agc publishing add-packageurl \
-  --invoke \
-  --field appId=<app-id> \
-  --field packageUrl=https://example.com/app.app
-
-agc publishing app-submit \
-  --invoke \
-  --field appId=<app-id> \
-  --field releaseType=1 \
-  --dry-run=false
-```
-
-#### Reports example
-
-```bash
-agc reports endpoints --output table
-
-agc reports appdownloadexport \
-  --invoke \
-  --param appId=<app-id> \
-  --query from=2026-08-01 \
-  --query to=2026-08-11 \
-  --out downloads.csv \
-  --dry-run=false
-```
-
-#### Callback URL example
-
-Some official reference entries describe callbacks implemented by the developer service. `agc` registers them as `inbound-callback`, and you provide the callback URL explicitly:
-
-```bash
-agc game-items propapi-order \
-  --invoke \
-  --param callbackUrl=https://callback.example.com/order \
-  --dry-run
-```
-
-### dry-run and real requests
-
-Endpoint commands default to `--dry-run=true`. The CLI builds and prints the request but does not send it to AppGallery Connect.
-
-```bash
-agc publishing app-info-query \
-  --invoke \
-  --query appId=123 \
-  --query lang=en-US \
-  --dry-run
-```
-
-Send the real request only after inspection:
-
-```bash
-agc publishing app-info-query \
-  --invoke \
-  --query appId=123 \
-  --query lang=en-US \
-  --dry-run=false
-```
-
-Common endpoint flags:
-
-```bash
---param key=value   # path parameter
---query key=value   # query parameter
---header key=value  # HTTP header
---field key=value   # JSON body field
---body body.json    # raw JSON body
---token <token>     # bearer token; defaults to AGC_ACCESS_TOKEN or active profile
---out file          # write raw response body
-```
-
-### JSON Output and Agent Support
-
-`agc` returns JSON envelopes by default and includes `_links` and `affordances`. Scripts and agents can discover capabilities first, then choose the next legal command without hard-coding the command tree.
-
-```bash
-agc capabilities --pretty
-agc publishing app-info-query --pretty
-```
-
-Each endpoint entry includes:
-
-- `id`
-- `familyId`
-- `method`
-- `path`
-- `command`
-- `sourceUrl`
-- `officialSlug`
-- `direction`
-- `_links`
-- `affordances`
-
-### Local REST and OpenAPI
-
-Start the local server:
-
-```bash
-agc web-server --addr :8421
-```
-
-Routes:
-
-```bash
-curl http://localhost:8421/api/v1/capabilities
-curl http://localhost:8421/api/v1/endpoints
-curl http://localhost:8421/api/v1/openapi.json
-```
-
-Every registered endpoint also has an invocation route:
-
-```bash
-curl -X POST http://localhost:8421/api/v1/publishing/endpoints/app-info-query/invoke \
-  -H 'Content-Type: application/json' \
-  -d '{
-    "baseUrl": "https://connect-api.cloud.huawei.com",
-    "query": {"appId": "123", "lang": "en-US"},
-    "headers": {"client_id": "<client-id>"},
-    "dryRun": true
-  }'
-```
-
-REST invocation defaults to dry-run. Set `"dryRun": false` and provide a token only when you want the local server to send the request.
-
-### Web Command Center
-
-Production docs:
-
-https://createitv.github.io/agc-cli/
-
-Local development:
-
-```bash
-npm --prefix apps/web install
-npm --prefix apps/web run dev
-```
-
-Start `agc web-server --addr :8421` for live local REST data. Without the server, the web app remains useful as a static reference.
-
-### CI/CD and Release
-
-GitHub Actions:
-
-- `CI`: `go vet`, Go tests, coverage gate, Web tests, Web build
-- `Pages`: deploys the Web Command Center to GitHub Pages
-- `Release`: tags named `v*` trigger GoReleaser
-
-GoReleaser publishes:
-
-- GitHub Release archives and `checksums.txt`
-- Homebrew formula: `createitv/tap/agc-cli`
-- Scoop manifest: `createitv/scoop-bucket/agc-cli`
-- Winget manifest PR: `Createitv.AgcCli`
-- GHCR image: `ghcr.io/createitv/agc-cli`
-
-Local checks:
-
-```bash
-make ci
-TAP_GITHUB_TOKEN=dummy make release-snapshot
-make release-snapshot-docker # requires Docker
-```
-
-### Testing & Coverage
-
-```bash
-make test
-make coverage
-make coverage-check
+./bin/agc version
+npm --prefix apps/web ci
 make ci
 ```
 
-The CI gate requires at least `80%` Go test coverage. Current tests cover CLI commands, endpoint registry behavior, dry-run request building, REST routes, OpenAPI export, Web rendering, and release configuration smoke checks.
+`make ci` 执行 Go vet、Go 测试、80% 覆盖率门槛、Web 测试和 Web 构建。单独运行可用 `make test`、`make coverage-check`、`make web-test` 和 `make web-build`。
 
-### Security
+主要目录：`cmd/agc/command`（CLI）、`pkg/agcapi`（鉴权与 HTTP）、`pkg/domain`（接口注册表）、`pkg/server`（本地 REST）、`apps/web`（网站）。欢迎通过 [Pull Request](https://github.com/Createitv/agc-cli/pulls) 改进命令、文档和测试。
 
-- Do not store Huawei account passwords, browser cookies, or captcha-backed sessions in this CLI
-- Service Account credentials generate the official PS256 JWT bearer token from `key_id`, `private_key`, and `sub_account`
-- API Client credentials call `/api/oauth2/v1/token`
-- `.agc/project.json` is project context only; put secrets in `~/.agc/credentials.json` or CI secret storage
-- dry-run is the default; mutating requests require explicit `--dry-run=false`
-- Always verify request fields, permissions, and business prerequisites against Huawei official documentation before production writes
+工具自身的发布配置见 [.goreleaser.yaml](.goreleaser.yaml) 和 [Release workflow](.github/workflows/release.yml)：`v*` tag 触发发布，配置包含 Release 安装包与校验文件、Homebrew、Scoop、Winget manifest PR 和 GHCR 镜像。Homebrew/Scoop/Winget 发布需要 `TAP_GITHUB_TOKEN`。实际发布结果以 Actions 和 Release 页面为准。
 
-## License
+## 许可证
 
-MIT
+[MIT](LICENSE)
