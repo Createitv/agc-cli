@@ -17,3 +17,8 @@ apps/web/.wrangler/
 .agc/
 1185951971786408765046private.json
 *.log
+
+__pycache__/
+*.pyc
+generatedtestReports/
+.gstack/

@@ -21,6 +21,26 @@ import (
 	"github.com/Createitv/agc-cli/pkg/project"
 )
 
+// Tests must never inherit a developer's real local credentials.
+func TestMain(m *testing.M) {
+	for _, name := range []string{"AGC_PROFILE", "AGC_CLIENT_ID", "AGC_CLIENT_KEY", "AGC_CLIENT_SECRET", "AGC_SERVICE_ACCOUNT_FILE", "AGC_CREDENTIALS_PATH", "AGC_ACCESS_TOKEN", "AGC_SERVER_TOKEN"} {
+		if err := os.Unsetenv(name); err != nil {
+			os.Exit(1)
+		}
+	}
+	dir, err := os.MkdirTemp("", "agc-command-tests-*")
+	if err != nil {
+		os.Exit(1)
+	}
+	if err := os.Setenv("AGC_CREDENTIALS_PATH", filepath.Join(dir, "credentials.json")); err != nil {
+		os.RemoveAll(dir)
+		os.Exit(1)
+	}
+	code := m.Run()
+	os.RemoveAll(dir)
+	os.Exit(code)
+}
+
 func execute(args ...string) (string, error) {
 	cmd := NewRootCommand()
 	var buf bytes.Buffer
@@ -451,7 +471,7 @@ func TestWebServerCommandCanShutdownFromContext(t *testing.T) {
 	ctx, cancel := context.WithCancel(context.Background())
 	done := make(chan error, 1)
 	go func() {
-		_, err := executeWithContext(ctx, "web-server", "--addr", ":0")
+		_, err := executeWithContext(ctx, "web-server", "--addr", "127.0.0.1:0")
 		done <- err
 	}()
 	time.Sleep(50 * time.Millisecond)
@@ -491,4 +511,380 @@ func writeServiceAccountFile(t *testing.T) string {
 		t.Fatal(err)
 	}
 	return path
+}
+
+func TestAuthCommandsDoNotExposeClientKey(t *testing.T) {
+	path := filepath.Join(t.TempDir(), "credentials.json")
+	for _, args := range [][]string{
+		{"auth", "login", "--client-id", "test-client", "--client-key", "test-secret", "--credentials-path", path},
+		{"auth", "list", "--credentials-path", path},
+		{"auth", "check", "--credentials-path", path},
+	} {
+		out, err := execute(args...)
+		if err != nil {
+			t.Fatal(err)
+		}
+		if strings.Contains(out, "test-secret") || strings.Contains(out, "clientKey") {
+			t.Fatal("credential output exposes client key")
+		}
+	}
+	store, err := agcapi.LoadCredentials(path)
+	if err != nil || store.Accounts[0].ClientKey != "test-secret" {
+		t.Fatal("persisted key was lost")
+	}
+}
+
+func TestEndpointDefaultsContextAndClientID(t *testing.T) {
+	t.Setenv("AGC_ACCESS_TOKEN", "")
+	dir := t.TempDir()
+	path := filepath.Join(dir, "credentials.json")
+	if err := project.Save(dir, project.Config{AppID: "app-default"}); err != nil {
+		t.Fatal(err)
+	}
+	if err := agcapi.SaveCredential(path, agcapi.Credential{Name: "default", Mode: "api-client", ClientID: "client-default", ClientKey: "test-key"}); err != nil {
+		t.Fatal(err)
+	}
+	srv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if strings.HasSuffix(r.URL.Path, "/token") {
+			w.Write([]byte(`{"access_token":"test-token"}`))
+			return
+		}
+		if r.URL.Query().Get("appId") != "app-default" || r.Header.Get("client_id") != "client-default" {
+			t.Error("missing automatic app or client context")
+		}
+		w.Write([]byte(`{}`))
+	}))
+	defer srv.Close()
+	_, err := execute("--project", dir, "publishing", "app-info-query", "--invoke", "--dry-run=false", "--query", "lang=en-US", "--credentials-path", path, "--base-url", srv.URL)
+	if err != nil {
+		t.Fatal(err)
+	}
+}
+
+func TestAuthRemoteCheckValidatesReadRequest(t *testing.T) {
+	dir := t.TempDir()
+	if err := project.Save(dir, project.Config{AppID: "test-app"}); err != nil {
+		t.Fatal(err)
+	}
+	path := filepath.Join(dir, "credentials.json")
+	if err := agcapi.SaveCredential(path, agcapi.Credential{Name: "default", Mode: "api-client", ClientID: "test-client", ClientKey: "test-key"}); err != nil {
+		t.Fatal(err)
+	}
+	calls := 0
+	srv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		calls++
+		if strings.HasSuffix(r.URL.Path, "/token") {
+			w.Write([]byte(`{"access_token":"test-token"}`))
+			return
+		}
+		if r.URL.Path != "/api/publish/v2/app-info" || r.URL.Query().Get("appId") != "test-app" {
+			t.Error("API client remote verification did not use app read")
+		}
+		if r.Header.Get("Authorization") != "Bearer test-token" || r.Header.Get("client_id") != "test-client" {
+			t.Error("missing authentication")
+		}
+		w.Write([]byte(`{"projects":[]}`))
+	}))
+	defer srv.Close()
+	out, err := execute("auth", "check", "--remote", "--base-url", srv.URL, "--credentials-path", path, "--project", dir)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if calls != 2 || !strings.Contains(out, `"remoteVerified":true`) || strings.Contains(out, "test-token") || strings.Contains(out, "test-key") {
+		t.Fatal("remote verification missing or exposes secret")
+	}
+}
+
+func TestBodyFileDoesNotBypassRequiredFields(t *testing.T) {
+	path := filepath.Join(t.TempDir(), "body.json")
+	if err := os.WriteFile(path, []byte(`{}`), 0600); err != nil {
+		t.Fatal(err)
+	}
+	cmd := endpointCommand(&options{project: t.TempDir(), output: "json", timeout: time.Second}, domain.Endpoint{ID: "test-body", Method: "POST", Path: "/test", Parameters: []domain.Parameter{{Name: "required", In: "body", Required: true}}})
+	cmd.SetArgs([]string{"--invoke", "--body", path})
+	var buf bytes.Buffer
+	cmd.SetOut(&buf)
+	cmd.SetErr(&buf)
+	err := cmd.Execute()
+	if err == nil {
+		t.Fatal("empty body bypassed required fields")
+	}
+}
+
+func TestEndpointExplicitContextAndHeaderWin(t *testing.T) {
+	t.Setenv("AGC_ACCESS_TOKEN", "")
+	dir := t.TempDir()
+	path := filepath.Join(dir, "credentials.json")
+	if err := project.Save(dir, project.Config{AppID: "app-default"}); err != nil {
+		t.Fatal(err)
+	}
+	if err := agcapi.SaveCredential(path, agcapi.Credential{Name: "default", Mode: "api-client", ClientID: "client-default", ClientKey: "test-key"}); err != nil {
+		t.Fatal(err)
+	}
+	srv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if strings.HasSuffix(r.URL.Path, "/token") {
+			w.Write([]byte(`{"access_token":"test-token"}`))
+			return
+		}
+		if r.URL.Query().Get("appId") != "app-explicit" || r.Header.Get("client_id") != "client-explicit" {
+			t.Error("explicit context was overwritten")
+		}
+		w.Write([]byte(`{}`))
+	}))
+	defer srv.Close()
+	_, err := execute("--project", dir, "publishing", "app-info-query", "--invoke", "--dry-run=false", "--query", "lang=en-US", "--query", "appId=app-explicit", "--header", "CLIENT_ID=client-explicit", "--credentials-path", path, "--base-url", srv.URL)
+	if err != nil {
+		t.Fatal(err)
+	}
+}
+
+func TestProjectContextSupportsAppIDAndHeader(t *testing.T) {
+	dir := t.TempDir()
+	if err := project.Save(dir, project.Config{AppID: "configured-app"}); err != nil {
+		t.Fatal(err)
+	}
+	for _, parameter := range []domain.Parameter{{Name: "appID", In: "query", Required: true}, {Name: "appId", In: "header", Required: true}} {
+		cmd := endpointCommand(&options{project: dir, output: "json", timeout: time.Second}, domain.Endpoint{ID: "context", Method: "GET", Path: "/context", Parameters: []domain.Parameter{parameter}})
+		var buf bytes.Buffer
+		cmd.SetOut(&buf)
+		cmd.SetErr(&buf)
+		cmd.SetArgs([]string{"--invoke"})
+		if err := cmd.Execute(); err != nil {
+			t.Fatal(err)
+		}
+	}
+}
+
+func TestAPIClientRemoteCheckWithoutAppOnlyVerifiesToken(t *testing.T) {
+	dir := t.TempDir()
+	path := filepath.Join(dir, "credentials.json")
+	if err := agcapi.SaveCredential(path, agcapi.Credential{Name: "default", Mode: "api-client", ClientID: "test-client", ClientKey: "test-key"}); err != nil {
+		t.Fatal(err)
+	}
+	calls := 0
+	srv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		calls++
+		if !strings.HasSuffix(r.URL.Path, "/token") {
+			t.Error("API client attempted unsupported project read")
+		}
+		w.Write([]byte(`{"access_token":"test-token"}`))
+	}))
+	defer srv.Close()
+	out, err := execute("auth", "check", "--remote", "--base-url", srv.URL, "--credentials-path", path, "--project", dir)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if calls != 1 || !strings.Contains(out, `"tokenVerified":true`) || !strings.Contains(out, `"readVerified":false`) {
+		t.Fatal("token-only verification state incorrect")
+	}
+}
+
+func TestProjectHeaderExplicitOverrideIsCaseInsensitive(t *testing.T) {
+	dir := t.TempDir()
+	if err := project.Save(dir, project.Config{AppID: "configured-app"}); err != nil {
+		t.Fatal(err)
+	}
+	srv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if r.Header.Get("appId") != "explicit-app" {
+			t.Error("explicit header overwritten")
+		}
+		w.Write([]byte(`{}`))
+	}))
+	defer srv.Close()
+	cmd := endpointCommand(&options{project: dir, output: "json", timeout: time.Second}, domain.Endpoint{ID: "context", Method: "GET", Path: "/context", Parameters: []domain.Parameter{{Name: "appId", In: "header", Required: true}}})
+	var buf bytes.Buffer
+	cmd.SetOut(&buf)
+	cmd.SetErr(&buf)
+	cmd.SetArgs([]string{"--invoke", "--dry-run=false", "--token", "test-token", "--header", "APPID=explicit-app", "--base-url", srv.URL})
+	if err := cmd.Execute(); err != nil {
+		t.Fatal(err)
+	}
+}
+
+func TestWebServerRejectsExternalBindingWithoutToken(t *testing.T) {
+	t.Setenv("AGC_SERVER_TOKEN", "")
+	for _, addr := range []string{":8421", "0.0.0.0:8421", "[::]:8421", "192.0.2.1:8421"} {
+		_, err := execute("web-server", "--addr", addr)
+		if err == nil || !strings.Contains(err.Error(), "AGC_SERVER_TOKEN") {
+			t.Fatalf("external bind was not rejected: %s", addr)
+		}
+	}
+}
+
+func TestLoopbackListenAddresses(t *testing.T) {
+	for _, addr := range []string{"127.0.0.1:8421", "127.0.1.2:8421", "localhost:8421", "[::1]:8421"} {
+		if !loopbackListenAddress(addr) {
+			t.Fatalf("loopback address rejected: %s", addr)
+		}
+	}
+	for _, addr := range []string{":8421", "0.0.0.0:8421", "[::]:8421", "localhost.example:8421", "invalid"} {
+		if loopbackListenAddress(addr) {
+			t.Fatalf("external or invalid address accepted: %s", addr)
+		}
+	}
+}
+
+func TestExplicitAuthenticationHeadersDoNotRequireProfile(t *testing.T) {
+	for _, envToken := range []string{"", "environment-token"} {
+		for _, header := range []string{"AUTHORIZATION=Custom test-auth", "OAUTH2TOKEN=test-oauth"} {
+			t.Run(strings.Split(header, "=")[0], func(t *testing.T) {
+				t.Setenv("AGC_ACCESS_TOKEN", envToken)
+				srv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+					if strings.HasPrefix(header, "AUTHORIZATION") && r.Header.Get("Authorization") != "Custom test-auth" {
+						t.Error("explicit authorization overwritten")
+					}
+					if strings.HasPrefix(header, "OAUTH2TOKEN") && (r.Header.Get("oauth2Token") != "test-oauth" || r.Header.Get("Authorization") != "") {
+						t.Error("environment bearer injected into OAuth request")
+					}
+					w.Write([]byte(`{}`))
+				}))
+				defer srv.Close()
+				dir := t.TempDir()
+				cmd := endpointCommand(&options{project: dir, output: "json", timeout: time.Second}, domain.Endpoint{ID: "explicit-auth", Method: "GET", Path: "/test"})
+				var buf bytes.Buffer
+				cmd.SetOut(&buf)
+				cmd.SetErr(&buf)
+				cmd.SetArgs([]string{"--invoke", "--dry-run=false", "--header", header, "--credentials-path", filepath.Join(dir, "missing.json"), "--base-url", srv.URL})
+				if err := cmd.Execute(); err != nil {
+					t.Fatal(err)
+				}
+			})
+		}
+	}
+}
+
+func TestAuthLoginImportsAPIClientFileWithoutActivating(t *testing.T) {
+	for _, content := range []string{`{"client_id":"import-id","client_secret":"import-secret"}`, `{"clientId":"import-id","clientKey":"import-secret"}`} {
+		dir := t.TempDir()
+		path := filepath.Join(dir, "credentials.json")
+		file := filepath.Join(dir, "client.json")
+		if err := agcapi.SaveCredential(path, agcapi.Credential{Name: "service", Mode: "service-account", ServiceAccountFile: "service.json"}); err != nil {
+			t.Fatal(err)
+		}
+		if err := os.WriteFile(file, []byte(content), 0600); err != nil {
+			t.Fatal(err)
+		}
+		out, err := execute("auth", "login", "--api-client-file", file, "--credentials-path", path, "--name", "imported", "--activate=false")
+		if err != nil {
+			t.Fatal(err)
+		}
+		if strings.Contains(out, "import-secret") {
+			t.Fatal("secret exposed")
+		}
+		store, err := agcapi.LoadCredentials(path)
+		if err != nil {
+			t.Fatal(err)
+		}
+		active, ok := agcapi.ActiveCredential(store)
+		if !ok || active.Name != "service" {
+			t.Fatal("active profile changed")
+		}
+		imported, ok := agcapi.CredentialByName(store, "imported")
+		if !ok || imported.ClientKey != "import-secret" || imported.ClientID != "import-id" {
+			t.Fatal("import lost credential")
+		}
+	}
+}
+
+func TestAuthLoginRejectsInvalidOrMixedAPIClientFile(t *testing.T) {
+	for _, content := range []string{`{"client_id":"id","client_secret":"secret","clientKey":"different-secret"}`, `{"client_id":"id","client_secret":"secret","clientId":"other"}`, `{"client_id":"id"}`, `{"client_secret":"secret"`, `[]`, `null`} {
+		dir := t.TempDir()
+		file := filepath.Join(dir, "client.json")
+		if err := os.WriteFile(file, []byte(content), 0600); err != nil {
+			t.Fatal(err)
+		}
+		out, err := execute("auth", "login", "--api-client-file", file, "--credentials-path", filepath.Join(dir, "credentials.json"))
+		if err == nil {
+			t.Fatal("invalid file accepted")
+		}
+		if strings.Contains(out, "different-secret") {
+			t.Fatal("secret reflected in error")
+		}
+	}
+	dir := t.TempDir()
+	file := filepath.Join(dir, "client.json")
+	if err := os.WriteFile(file, []byte(`{"client_id":"id","client_secret":"secret"}`), 0600); err != nil {
+		t.Fatal(err)
+	}
+	for _, flag := range []string{"--client-id", "--client-key", "--service-account-file"} {
+		_, err := execute("auth", "login", "--api-client-file", file, flag, "explicit", "--credentials-path", filepath.Join(dir, "credentials.json"))
+		if err == nil {
+			t.Fatal("mixed options accepted")
+		}
+	}
+}
+
+func clearCredentialEnvironment(t *testing.T) {
+	t.Helper()
+	for _, name := range []string{"AGC_PROFILE", "AGC_CLIENT_ID", "AGC_CLIENT_KEY", "AGC_CLIENT_SECRET", "AGC_SERVICE_ACCOUNT_FILE"} {
+		t.Setenv(name, "")
+	}
+}
+
+func TestCredentialEnvironmentFallback(t *testing.T) {
+	clearCredentialEnvironment(t)
+	opts := &options{project: t.TempDir()}
+	t.Setenv("AGC_CLIENT_ID", "environment-id")
+	t.Setenv("AGC_CLIENT_SECRET", "environment-secret")
+	credential, ok, err := resolveCredential(opts, agcapi.CredentialStore{})
+	if err != nil || !ok || credential.Mode != "api-client" || credential.ClientID != "environment-id" || credential.ClientKey != "environment-secret" {
+		t.Fatal("API client environment fallback failed")
+	}
+	t.Setenv("AGC_CLIENT_ID", "")
+	t.Setenv("AGC_CLIENT_SECRET", "")
+	t.Setenv("AGC_SERVICE_ACCOUNT_FILE", "environment-service.json")
+	credential, ok, err = resolveCredential(opts, agcapi.CredentialStore{})
+	if err != nil || !ok || credential.Mode != "service-account" || credential.ServiceAccountFile != "environment-service.json" {
+		t.Fatal("service account fallback failed")
+	}
+}
+
+func TestCredentialEnvironmentRejectsIncompleteOrConflictingPair(t *testing.T) {
+	for _, values := range []map[string]string{{"AGC_CLIENT_ID": "id"}, {"AGC_CLIENT_KEY": "test-secret"}, {"AGC_CLIENT_ID": "id", "AGC_CLIENT_KEY": "test-secret", "AGC_CLIENT_SECRET": "other-secret"}} {
+		clearCredentialEnvironment(t)
+		for name, value := range values {
+			t.Setenv(name, value)
+		}
+		_, _, err := resolveCredential(&options{project: t.TempDir()}, agcapi.CredentialStore{})
+		if err == nil {
+			t.Fatal("invalid credential environment accepted")
+		}
+		if strings.Contains(err.Error(), "test-secret") || strings.Contains(err.Error(), "other-secret") {
+			t.Fatal("secret reflected in error")
+		}
+	}
+}
+
+func TestCredentialProfilePriorityWithEnvironment(t *testing.T) {
+	clearCredentialEnvironment(t)
+	dir := t.TempDir()
+	opts := &options{project: dir}
+	store := agcapi.CredentialStore{Accounts: []agcapi.Credential{{Name: "active", Mode: "service-account", Active: true}, {Name: "environment"}, {Name: "project"}, {Name: "explicit"}}}
+	t.Setenv("AGC_CLIENT_ID", "id")
+	t.Setenv("AGC_CLIENT_KEY", "secret")
+	credential, _, err := resolveCredential(opts, store)
+	if err != nil || credential.Name != "active" {
+		t.Fatal("environment replaced active credential")
+	}
+	t.Setenv("AGC_PROFILE", "environment")
+	credential, _, err = resolveCredential(opts, store)
+	if err != nil || credential.Name != "environment" {
+		t.Fatal("environment profile not selected")
+	}
+	if err := project.Save(dir, project.Config{AppID: "app", Profile: "project"}); err != nil {
+		t.Fatal(err)
+	}
+	credential, _, err = resolveCredential(opts, store)
+	if err != nil || credential.Name != "project" {
+		t.Fatal("environment replaced project profile")
+	}
+	opts.profile = "explicit"
+	credential, _, err = resolveCredential(opts, store)
+	if err != nil || credential.Name != "explicit" {
+		t.Fatal("explicit profile not prioritized")
+	}
+	opts.profile = "missing"
+	if _, _, err := resolveCredential(opts, store); err == nil {
+		t.Fatal("missing explicit profile fell back")
+	}
 }

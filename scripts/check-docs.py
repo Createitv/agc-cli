@@ -91,7 +91,7 @@ def main() -> int:
     if args.files:
         files = [Path(name).resolve() for name in args.files]
     else:
-        patterns = ("README*.md", "CONTRIBUTING.md", "CHANGELOG.md", "docs/README.md", "docs/CLI_USAGE*.md", "docs/AGC_CLI_FULL_PLAN.md", "docs/features/**/*.md", ".github/pull_request_template.md")
+        patterns = ("README*.md", "CONTRIBUTING.md", "CHANGELOG.md", "docs/README.md", "docs/CLOUD_TESTING.md", "AGENTS.md", "docs/CLI_USAGE*.md", "docs/AGC_CLI_FULL_PLAN.md", "docs/features/**/*.md", ".github/pull_request_template.md")
         files = sorted({file for pattern in patterns for file in ROOT.glob(pattern)})
     errors = check(files)
     for error in errors:

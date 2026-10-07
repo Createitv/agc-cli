@@ -23,6 +23,8 @@ type Endpoint struct {
 }
 
 type Parameter struct {
+	Type        string `json:"type,omitempty"`
+	Format      string `json:"format,omitempty"`
 	Name        string `json:"name"`
 	In          string `json:"in"`
 	Required    bool   `json:"required"`
@@ -30,7 +32,13 @@ type Parameter struct {
 }
 
 func endpoint(familyID, id, name, description, method, path string, requiredParams []string) Endpoint {
-	parameters := inferParameters(method, path, requiredParams)
+	parameters := verifiedParameters(familyID, id, inferParameters(method, path, requiredParams))
+	requiredParams = nil
+	for _, parameter := range parameters {
+		if parameter.Required {
+			requiredParams = append(requiredParams, parameter.Name)
+		}
+	}
 	return Endpoint{
 		ID:             id,
 		FamilyID:       familyID,
