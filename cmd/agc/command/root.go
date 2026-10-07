@@ -532,11 +532,14 @@ func endpointCommand(opts *options, endpoint domain.Endpoint) *cobra.Command {
 				}
 			} else {
 				if len(fieldMap) > 0 {
-					body, err = json.Marshal(fieldMap)
+					body, err = agcapi.MarshalEndpointFields(endpoint, fieldMap)
 					if err != nil {
 						return err
 					}
 				}
+			}
+			if err := agcapi.ValidateEndpointBody(endpoint, body); err != nil {
+				return err
 			}
 			explicitAuthHeader := hasHeaderValue(headerMap, "Authorization") || hasHeaderValue(headerMap, "oauth2Token")
 			if token == "" && !explicitAuthHeader {

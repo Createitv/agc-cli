@@ -4,13 +4,23 @@ COVERAGE_MIN ?= 80
 
 GORELEASER ?= go run github.com/goreleaser/goreleaser/v2@v2.17.1
 
-.PHONY: check-docs build test coverage coverage-check lint ci web-install web-test web-build release-snapshot release-snapshot-docker
+.PHONY: check-docs build test test-scripts test-api-transport coverage coverage-check lint ci web-install web-test web-build release-snapshot release-snapshot-docker
 
 build:
 	$(GO) build -o bin/agc ./cmd/agc
 
 test:
 	$(GO) test ./...
+
+# 离线测试：不读取真实华为授权，不调用华为服务器。
+test-scripts:
+	python3 scripts/test_ci_report.py
+	python3 scripts/test_api_suite.py
+	python3 scripts/test_live_lifecycle.py
+
+# 每个注册接口验证真实本地 HTTP 收发，8 路并发。
+test-api-transport:
+	$(GO) test ./cmd/agc/command -run TestEveryEndpointHTTPTransport -count=1 -parallel=8
 
 coverage:
 	$(GO) test ./... -coverprofile=coverage.out
@@ -35,7 +45,7 @@ web-build:
 check-docs:
 	python3 scripts/check-docs.py
 
-ci: check-docs lint coverage-check web-test web-build
+ci: check-docs test-scripts lint coverage-check web-test web-build
 
 release-snapshot:
 	$(GORELEASER) release --snapshot --clean --skip=docker

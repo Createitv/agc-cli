@@ -1,0 +1,5836 @@
+[
+  {
+    "id": "app-create",
+    "familyId": "publishing",
+    "name": "创建APP ID",
+    "description": "创建 HarmonyOS 应用或元服务，用于建立与现有业务应用隔离的测试资源。",
+    "method": "POST",
+    "path": "/api/publish/v3/app",
+    "command": "agc publishing app-create",
+    "requiredParams": [
+      "appName",
+      "parentType",
+      "installationFree"
+    ],
+    "parameters": [
+      {
+        "type": "string",
+        "name": "projectId",
+        "in": "query",
+        "required": false,
+        "description": "可选项目 ID；省略时创建专用同名项目"
+      },
+      {
+        "type": "string",
+        "name": "appName",
+        "in": "body",
+        "required": true,
+        "description": "应用名称，最长 64 字符"
+      },
+      {
+        "type": "string",
+        "name": "packageName",
+        "in": "body",
+        "required": false,
+        "description": "HarmonyOS 应用必填且包名唯一；元服务由系统生成"
+      },
+      {
+        "type": "integer",
+        "name": "parentType",
+        "in": "body",
+        "required": true,
+        "description": "13：应用；2：游戏"
+      },
+      {
+        "type": "integer",
+        "name": "installationFree",
+        "in": "body",
+        "required": true,
+        "description": "0：HarmonyOS 应用；1：元服务"
+      }
+    ],
+    "body": "appName,packageName,parentType,installationFree",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-provision-api-create-appid-0000002526543939",
+    "officialSlug": "agc-help-provision-api-create-appid-0000002526543939",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/publishing/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/publishing/endpoints/app-create",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc publishing app-create --invoke --body body.json",
+      "show": "agc publishing app-create --pretty"
+    }
+  },
+  {
+    "id": "app-info-query-v3",
+    "familyId": "publishing",
+    "name": "查询HarmonyOS应用信息",
+    "description": "查询 HarmonyOS 应用和元服务的资料；releaseType=6 时必须提供专用测试版本 ID。",
+    "method": "GET",
+    "path": "/api/publish/v3/app-info",
+    "command": "agc publishing app-info-query-v3",
+    "requiredParams": [
+      "appId"
+    ],
+    "parameters": [
+      {
+        "type": "string",
+        "name": "appId",
+        "in": "query",
+        "required": true,
+        "description": "应用 ID"
+      },
+      {
+        "type": "string",
+        "name": "lang",
+        "in": "query",
+        "required": false,
+        "description": "可选语言；不传则返回全部语言"
+      },
+      {
+        "type": "integer",
+        "name": "releaseType",
+        "in": "query",
+        "required": false,
+        "description": "1：商用版本；6：HarmonyOS 测试版本"
+      },
+      {
+        "type": "string",
+        "name": "versionId",
+        "in": "query",
+        "required": false,
+        "description": "releaseType=6 时必填的测试版本 ID"
+      }
+    ],
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-appinfo-query-0000002236041422",
+    "officialSlug": "agc-help-publish-api-appinfo-query-0000002236041422",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/publishing/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/publishing/endpoints/app-info-query-v3",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc publishing app-info-query-v3 --invoke",
+      "show": "agc publishing app-info-query-v3 --pretty"
+    }
+  },
+  {
+    "id": "app-version-list",
+    "familyId": "publishing",
+    "name": "查询应用所有版本类型的版本列表",
+    "description": "查询 HarmonyOS 应用或元服务的商用版本和测试版本，读回版本 ID 与状态。",
+    "method": "POST",
+    "path": "/api/publish/v3/version/brief-info/list",
+    "command": "agc publishing app-version-list",
+    "requiredParams": [
+      "appId"
+    ],
+    "parameters": [
+      {
+        "name": "appId",
+        "in": "header",
+        "required": true,
+        "description": "Huawei application ID"
+      },
+      {
+        "type": "string",
+        "name": "packageName",
+        "in": "body",
+        "required": false,
+        "description": "应用包名；CLI 已要求 appId 请求头"
+      },
+      {
+        "type": "string",
+        "name": "state",
+        "in": "body",
+        "required": false,
+        "description": "可选版本状态，多个状态以逗号分隔"
+      }
+    ],
+    "body": "packageName,state",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-query-brief-info-list-0000002236201254",
+    "officialSlug": "agc-help-publish-api-query-brief-info-list-0000002236201254",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/publishing/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/publishing/endpoints/app-version-list",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc publishing app-version-list --invoke --body body.json",
+      "show": "agc publishing app-version-list --pretty"
+    }
+  },
+  {
+    "id": "add-packageurl",
+    "familyId": "publishing",
+    "name": "通过下载方式提交软件包",
+    "description": "如果您将软件包保存在自己的服务器上，可以直接调用本接口将软件包提交到AppGallery Connect服务器。",
+    "method": "POST",
+    "path": "/api/publish/v2/app-package-file/by-url",
+    "command": "agc publishing add-packageurl",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-add-packageurl-0000001158245065",
+    "officialSlug": "agcapi-add-packageurl-0000001158245065",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/publishing/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/publishing/endpoints/add-packageurl",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc publishing add-packageurl --invoke --body body.json",
+      "show": "agc publishing add-packageurl --pretty"
+    }
+  },
+  {
+    "id": "app-file-info",
+    "familyId": "publishing",
+    "name": "更新应用文件信息",
+    "description": "图片、视频、APK、RPK、AAB等文件上传完成后，通过该接口刷新应用文件信息。",
+    "method": "PUT",
+    "path": "/api/publish/v2/app-file-info",
+    "command": "agc publishing app-file-info",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-file-info-0000001111685202",
+    "officialSlug": "agcapi-app-file-info-0000001111685202",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/publishing/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/publishing/endpoints/app-file-info",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc publishing app-file-info --invoke --body body.json",
+      "show": "agc publishing app-file-info --pretty"
+    }
+  },
+  {
+    "id": "app-info-query",
+    "familyId": "publishing",
+    "name": "查询应用信息",
+    "description": "此接口用于根据指定语言和应用ID查询应用的详细信息。",
+    "method": "GET",
+    "path": "/api/publish/v2/app-info",
+    "command": "agc publishing app-info-query",
+    "requiredParams": [
+      "appId"
+    ],
+    "parameters": [
+      {
+        "name": "appId",
+        "in": "query",
+        "required": true,
+        "description": "Huawei application ID"
+      },
+      {
+        "name": "lang",
+        "in": "query",
+        "required": false,
+        "description": "Application information language"
+      }
+    ],
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-query-0000001158365045",
+    "officialSlug": "agcapi-app-info-query-0000001158365045",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/publishing/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/publishing/endpoints/app-info-query",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc publishing app-info-query --invoke",
+      "show": "agc publishing app-info-query --pretty"
+    }
+  },
+  {
+    "id": "app-info-update",
+    "familyId": "publishing",
+    "name": "更新应用基本信息",
+    "description": "此接口用于更新指定应用的应用详情。",
+    "method": "PUT",
+    "path": "/api/publish/v2/app-info",
+    "command": "agc publishing app-info-update",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198",
+    "officialSlug": "agcapi-app-info-update-0000001111685198",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/publishing/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/publishing/endpoints/app-info-update",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc publishing app-info-update --invoke --body body.json",
+      "show": "agc publishing app-info-update --pretty"
+    }
+  },
+  {
+    "id": "app-submit",
+    "familyId": "publishing",
+    "name": "提交发布",
+    "description": "此接口用于提交应用审核，调用本接口前必须保证应用信息已补充完整，应用软件包已经上传。",
+    "method": "POST",
+    "path": "/api/publish/v2/app-submit",
+    "command": "agc publishing app-submit",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-submit-0000001158245061",
+    "officialSlug": "agcapi-app-submit-0000001158245061",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/publishing/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/publishing/endpoints/app-submit",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc publishing app-submit --invoke --body body.json",
+      "show": "agc publishing app-submit --pretty"
+    }
+  },
+  {
+    "id": "app-submit-with-file",
+    "familyId": "publishing",
+    "name": "通过下载方式提交发布",
+    "description": "如果您将软件包保存在自己的服务器上，可以直接调用本接口提交应用审核，并传入软件包的下载地址。",
+    "method": "POST",
+    "path": "/api/publish/v2/app-submit-with-file",
+    "command": "agc publishing app-submit-with-file",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-submit-with-file-0000001111845092",
+    "officialSlug": "agcapi-app-submit-with-file-0000001111845092",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/publishing/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/publishing/endpoints/app-submit-with-file",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc publishing app-submit-with-file --invoke --body body.json",
+      "show": "agc publishing app-submit-with-file --pretty"
+    }
+  },
+  {
+    "id": "appid-list",
+    "familyId": "publishing",
+    "name": "查询应用包名对应的appid",
+    "description": "此接口用于根据应用包名查询对应的应用ID，支持一次查询多个应用包名。",
+    "method": "GET",
+    "path": "/api/publish/v2/appid-list",
+    "command": "agc publishing appid-list",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-appid-list-0000001111845086",
+    "officialSlug": "agcapi-appid-list-0000001111845086",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/publishing/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/publishing/endpoints/appid-list",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc publishing appid-list --invoke",
+      "show": "agc publishing appid-list --pretty"
+    }
+  },
+  {
+    "id": "gms",
+    "familyId": "publishing",
+    "name": "设置应用GMS依赖属性",
+    "description": "此接口用于向AGC上报应用是否依赖GMS。",
+    "method": "PUT",
+    "path": "/api/publish/v2/properties/gms",
+    "command": "agc publishing gms",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-gms-0000001111845094",
+    "officialSlug": "agcapi-gms-0000001111845094",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/publishing/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/publishing/endpoints/gms",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc publishing gms --invoke --body body.json",
+      "show": "agc publishing gms --pretty"
+    }
+  },
+  {
+    "id": "language-info-delete",
+    "familyId": "publishing",
+    "name": "删除语言描述信息",
+    "description": "此接口用于删除指定应用不需要的语言描述信息，默认语言不支持删除。",
+    "method": "DELETE",
+    "path": "/api/publish/v2/app-language-info",
+    "command": "agc publishing language-info-delete",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-language-info-delete-0000001111845088",
+    "officialSlug": "agcapi-language-info-delete-0000001111845088",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/publishing/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/publishing/endpoints/language-info-delete",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc publishing language-info-delete --invoke",
+      "show": "agc publishing language-info-delete --pretty"
+    }
+  },
+  {
+    "id": "language-info-update",
+    "familyId": "publishing",
+    "name": "更新语言描述信息",
+    "description": "此接口用于更新指定应用的语言描述信息，如果当前没有语言描述信息则新增。",
+    "method": "PUT",
+    "path": "/api/publish/v2/app-language-info",
+    "command": "agc publishing language-info-update",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-language-info-update-0000001158245057",
+    "officialSlug": "agcapi-language-info-update-0000001158245057",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/publishing/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/publishing/endpoints/language-info-update",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc publishing language-info-update --invoke --body body.json",
+      "show": "agc publishing language-info-update --pretty"
+    }
+  },
+  {
+    "id": "obbfile-package-list",
+    "familyId": "publishing",
+    "name": "查询软件包列表",
+    "description": "此接口用于查询应用当前关联的软件包列表信息。",
+    "method": "GET",
+    "path": "/api/publish/v2/package-list",
+    "command": "agc publishing obbfile-package-list",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obbfile-package-list-0000001111685210",
+    "officialSlug": "agcapi-obbfile-package-list-0000001111685210",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/publishing/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/publishing/endpoints/obbfile-package-list",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc publishing obbfile-package-list --invoke",
+      "show": "agc publishing obbfile-package-list --pretty"
+    }
+  },
+  {
+    "id": "phased-release",
+    "familyId": "publishing",
+    "name": "更新分阶段发布",
+    "description": "此接口用于将分阶段发布修改为全网发布，或者更新分阶段发布的设置。",
+    "method": "PUT",
+    "path": "/api/publish/v2/phased-release",
+    "command": "agc publishing phased-release",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-phased-release-0000001111685204",
+    "officialSlug": "agcapi-phased-release-0000001111685204",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/publishing/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/publishing/endpoints/phased-release",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc publishing phased-release --invoke --body body.json",
+      "show": "agc publishing phased-release --pretty"
+    }
+  },
+  {
+    "id": "query-aabfile",
+    "familyId": "publishing",
+    "name": "查询软件包编译状态",
+    "description": "此接口用于查询软件包的编译状态。",
+    "method": "GET",
+    "path": "/api/publish/v2/package/compile/status",
+    "command": "agc publishing query-aabfile",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-query-aabfile-0000001111685206",
+    "officialSlug": "agcapi-query-aabfile-0000001111685206",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/publishing/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/publishing/endpoints/query-aabfile",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc publishing query-aabfile --invoke",
+      "show": "agc publishing query-aabfile --pretty"
+    }
+  },
+  {
+    "id": "update-releasetime",
+    "familyId": "publishing",
+    "name": "更新版本上架时间",
+    "description": "此接口用于设置版本的上架时间。",
+    "method": "PUT",
+    "path": "/api/publish/v2/on-shelf-time",
+    "command": "agc publishing update-releasetime",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-update-releasetime-0000001158365053",
+    "officialSlug": "agcapi-update-releasetime-0000001158365053",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/publishing/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/publishing/endpoints/update-releasetime",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc publishing update-releasetime --invoke --body body.json",
+      "show": "agc publishing update-releasetime --pretty"
+    }
+  },
+  {
+    "id": "obbfile-compose",
+    "familyId": "upload",
+    "name": "合并分片",
+    "description": "此接口用于将已经上传成功后的分片合并为一个文件。",
+    "method": "POST",
+    "path": "/api/publish/v2/upload/multipart/compose",
+    "command": "agc upload obbfile-compose",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obbfile-compose-0000001111845098",
+    "officialSlug": "agcapi-obbfile-compose-0000001111845098",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/upload/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/upload/endpoints/obbfile-compose",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc upload obbfile-compose --invoke --body body.json",
+      "show": "agc upload obbfile-compose --pretty"
+    }
+  },
+  {
+    "id": "obbfile-init",
+    "familyId": "upload",
+    "name": "分片上传初始化",
+    "description": "此接口用于分片信息初始化，在获取分片文件上传地址前调用。",
+    "method": "POST",
+    "path": "/api/publish/v2/upload/multipart/init",
+    "command": "agc upload obbfile-init",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obbfile-init-0000001158365055",
+    "officialSlug": "agcapi-obbfile-init-0000001158365055",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/upload/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/upload/endpoints/obbfile-init",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc upload obbfile-init --invoke --body body.json",
+      "show": "agc upload obbfile-init --pretty"
+    }
+  },
+  {
+    "id": "obbfile-upload",
+    "familyId": "upload",
+    "name": "上传分片实体",
+    "description": "将单个分片上传到获取分片上传地址接口返回的上传地址。",
+    "method": "PUT",
+    "path": "{uploadUrl}",
+    "command": "agc upload obbfile-upload",
+    "requiredParams": [
+      "uploadUrl"
+    ],
+    "parameters": [
+      {
+        "name": "uploadUrl",
+        "in": "path",
+        "required": true,
+        "description": "uploadUrl parameter"
+      }
+    ],
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obbfile-upload-0000001158245067",
+    "officialSlug": "agcapi-obbfile-upload-0000001158245067",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/upload/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/upload/endpoints/obbfile-upload",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc upload obbfile-upload --invoke --body body.json",
+      "show": "agc upload obbfile-upload --pretty"
+    }
+  },
+  {
+    "id": "obbfile-uploadurl",
+    "familyId": "upload",
+    "name": "获取分片上传地址",
+    "description": "此接口用于获取文件所有分片的上传地址，调用此接口前必须先调用 分片上传初始化 接口完成分片初始化。",
+    "method": "POST",
+    "path": "/api/publish/v2/upload/multipart/parts",
+    "command": "agc upload obbfile-uploadurl",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obbfile-uploadurl-0000001111685208",
+    "officialSlug": "agcapi-obbfile-uploadurl-0000001111685208",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/upload/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/upload/endpoints/obbfile-uploadurl",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc upload obbfile-uploadurl --invoke --body body.json",
+      "show": "agc upload obbfile-uploadurl --pretty"
+    }
+  },
+  {
+    "id": "upload-file-new",
+    "familyId": "upload",
+    "name": "上传文件",
+    "description": "将文件上传到获取文件上传地址接口返回的上传地址。",
+    "method": "PUT",
+    "path": "{uploadUrl}",
+    "command": "agc upload upload-file-new",
+    "requiredParams": [
+      "uploadUrl"
+    ],
+    "parameters": [
+      {
+        "name": "uploadUrl",
+        "in": "path",
+        "required": true,
+        "description": "uploadUrl parameter"
+      }
+    ],
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-upload-file-new-0000001111845090",
+    "officialSlug": "agcapi-upload-file-new-0000001111845090",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/upload/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/upload/endpoints/upload-file-new",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc upload upload-file-new --invoke --body body.json",
+      "show": "agc upload upload-file-new --pretty"
+    }
+  },
+  {
+    "id": "upload-url-new",
+    "familyId": "upload",
+    "name": "获取文件上传地址",
+    "description": "上传文件至AppGallery Connect前需要先调用此接口获取上传地址，包括图片、视频、PDF等文件。",
+    "method": "GET",
+    "path": "/api/publish/v2/upload-url/for-obs",
+    "command": "agc upload upload-url-new",
+    "requiredParams": [
+      "contentLength"
+    ],
+    "parameters": [
+      {
+        "name": "contentLength",
+        "in": "query",
+        "required": true,
+        "description": "Upload file length in bytes"
+      },
+      {
+        "name": "appId",
+        "in": "query",
+        "required": false,
+        "description": "Huawei application ID"
+      },
+      {
+        "name": "suffix",
+        "in": "query",
+        "required": false,
+        "description": "Upload file suffix"
+      },
+      {
+        "name": "fileName",
+        "in": "query",
+        "required": false,
+        "description": "Upload file name"
+      }
+    ],
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-upload-url-new-0000001111685200",
+    "officialSlug": "agcapi-upload-url-new-0000001111685200",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/upload/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/upload/endpoints/upload-url-new",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc upload upload-url-new --invoke",
+      "show": "agc upload upload-url-new --pretty"
+    }
+  },
+  {
+    "id": "provision-api-add-device",
+    "familyId": "provisioning",
+    "name": "批量添加设备",
+    "description": "此接口用于批量添加调试/测试设备。",
+    "method": "POST",
+    "path": "/api/publish/v2/device",
+    "command": "agc provisioning provision-api-add-device",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-add-device-0000002236041498",
+    "officialSlug": "agc-help-provision-api-add-device-0000002236041498",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/provisioning/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/provisioning/endpoints/provision-api-add-device",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc provisioning provision-api-add-device --invoke --body body.json",
+      "show": "agc provisioning provision-api-add-device --pretty"
+    }
+  },
+  {
+    "id": "provision-api-add-fingerprints",
+    "familyId": "provisioning",
+    "name": "新增证书指纹",
+    "description": "此接口用于新增证书指纹。",
+    "method": "POST",
+    "path": "/api/provision/v1/fingerprints",
+    "command": "agc provisioning provision-api-add-fingerprints",
+    "requiredParams": [
+      "appId",
+      "fingerprintList"
+    ],
+    "parameters": [
+      {
+        "name": "appId",
+        "in": "header",
+        "required": true,
+        "description": "Huawei application ID"
+      },
+      {
+        "minItems": 1,
+        "maxItems": 50,
+        "itemsType": "string",
+        "type": "array",
+        "name": "fingerprintList",
+        "in": "body",
+        "required": true,
+        "description": "SHA-256 证书指纹列表；只修改专用应用的测试指纹"
+      }
+    ],
+    "body": "fingerprintList",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-add-fingerprints-0000002431201480",
+    "officialSlug": "agc-help-provision-api-add-fingerprints-0000002431201480",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/provisioning/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/provisioning/endpoints/provision-api-add-fingerprints",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc provisioning provision-api-add-fingerprints --invoke --body body.json",
+      "show": "agc provisioning provision-api-add-fingerprints --pretty"
+    }
+  },
+  {
+    "id": "provision-api-apply-cent",
+    "familyId": "provisioning",
+    "name": "申请证书",
+    "description": "此接口用于申请二进制证书、In-house发布证书、调试证书或发布证书。",
+    "method": "POST",
+    "path": "/api/publish/v3/cert",
+    "command": "agc provisioning provision-api-apply-cent",
+    "requiredParams": [
+      "csr",
+      "certName",
+      "certType"
+    ],
+    "parameters": [
+      {
+        "type": "string",
+        "name": "csr",
+        "in": "body",
+        "required": true,
+        "description": "公钥 CSR；私钥不得上传"
+      },
+      {
+        "type": "string",
+        "name": "certName",
+        "in": "body",
+        "required": true,
+        "description": "专用证书名称"
+      },
+      {
+        "type": "integer",
+        "name": "certType",
+        "in": "body",
+        "required": true,
+        "description": "1：调试；2：发布；3：In-house；4：受限二进制证书"
+      }
+    ],
+    "body": "csr,certName,certType",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-apply-cent-0000002236201302",
+    "officialSlug": "agc-help-provision-api-apply-cent-0000002236201302",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/provisioning/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/provisioning/endpoints/provision-api-apply-cent",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc provisioning provision-api-apply-cent --invoke --body body.json",
+      "show": "agc provisioning provision-api-apply-cent --pretty"
+    }
+  },
+  {
+    "id": "provision-api-apply-provision",
+    "familyId": "provisioning",
+    "name": "申请Profile",
+    "description": "此接口用于申请指定设备发布Profile、In-house发布Profile、调试Profile或发布Profile。",
+    "method": "POST",
+    "path": "/api/publish/v3/provision",
+    "command": "agc provisioning provision-api-apply-provision",
+    "requiredParams": [
+      "provisionName",
+      "provisionType",
+      "certId",
+      "appId"
+    ],
+    "parameters": [
+      {
+        "type": "string",
+        "name": "provisionName",
+        "in": "body",
+        "required": true,
+        "description": "专用 Profile 名称"
+      },
+      {
+        "type": "integer",
+        "name": "provisionType",
+        "in": "body",
+        "required": true,
+        "description": "1：调试；2：发布；3：In-house；6：指定设备"
+      },
+      {
+        "type": "string",
+        "name": "certId",
+        "in": "body",
+        "required": true,
+        "description": "本次生成的专用证书 ID"
+      },
+      {
+        "type": "string",
+        "name": "appId",
+        "in": "body",
+        "required": true,
+        "description": "专用测试应用 ID"
+      },
+      {
+        "type": "array",
+        "name": "deviceIdList",
+        "in": "body",
+        "required": false,
+        "description": "真实设备 ID 列表，最多 4000 项"
+      },
+      {
+        "type": "array",
+        "name": "aclPermissionList",
+        "in": "body",
+        "required": false,
+        "description": "已获审批的 ACL 列表，最多 1000 项"
+      }
+    ],
+    "body": "provisionName,provisionType,certId,appId,deviceIdList,aclPermissionList",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-apply-provision-0000002271000689",
+    "officialSlug": "agc-help-provision-api-apply-provision-0000002271000689",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/provisioning/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/provisioning/endpoints/provision-api-apply-provision",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc provisioning provision-api-apply-provision --invoke --body body.json",
+      "show": "agc provisioning provision-api-apply-provision --pretty"
+    }
+  },
+  {
+    "id": "provision-api-applyacl",
+    "familyId": "provisioning",
+    "name": "申请受限ACL权限",
+    "description": "此接口用于申请受限ACL权限。",
+    "method": "POST",
+    "path": "/api/provision/v1/user/permission/apply",
+    "command": "agc provisioning provision-api-applyacl",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-applyacl-0000002502198721",
+    "officialSlug": "agc-help-provision-api-applyacl-0000002502198721",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/provisioning/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/provisioning/endpoints/provision-api-applyacl",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc provisioning provision-api-applyacl --invoke --body body.json",
+      "show": "agc provisioning provision-api-applyacl --pretty"
+    }
+  },
+  {
+    "id": "provision-api-delete-cent",
+    "familyId": "provisioning",
+    "name": "删除证书",
+    "description": "此接口用于删除创建的证书。",
+    "method": "POST",
+    "path": "/api/publish/v2/cert/delete",
+    "command": "agc provisioning provision-api-delete-cent",
+    "requiredParams": [
+      "certIds"
+    ],
+    "parameters": [
+      {
+        "minItems": 1,
+        "maxItems": 100,
+        "itemsType": "string",
+        "type": "array",
+        "name": "certIds",
+        "in": "body",
+        "required": true,
+        "description": "待删除的本次运行专用证书 ID 列表"
+      }
+    ],
+    "body": "certIds",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-delete-cent-0000002271000685",
+    "officialSlug": "agc-help-provision-api-delete-cent-0000002271000685",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/provisioning/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/provisioning/endpoints/provision-api-delete-cent",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc provisioning provision-api-delete-cent --invoke --body body.json",
+      "show": "agc provisioning provision-api-delete-cent --pretty"
+    }
+  },
+  {
+    "id": "provision-api-delete-device",
+    "familyId": "provisioning",
+    "name": "删除设备",
+    "description": "此接口用于删除已添加的设备。",
+    "method": "POST",
+    "path": "/api/publish/v2/device/delete",
+    "command": "agc provisioning provision-api-delete-device",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-delete-device-0000002271160633",
+    "officialSlug": "agc-help-provision-api-delete-device-0000002271160633",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/provisioning/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/provisioning/endpoints/provision-api-delete-device",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc provisioning provision-api-delete-device --invoke --body body.json",
+      "show": "agc provisioning provision-api-delete-device --pretty"
+    }
+  },
+  {
+    "id": "provision-api-delete-fingerprints",
+    "familyId": "provisioning",
+    "name": "删除证书指纹",
+    "description": "此接口用于删除证书指纹。",
+    "method": "DELETE",
+    "path": "/api/provision/v1/fingerprints",
+    "command": "agc provisioning provision-api-delete-fingerprints",
+    "requiredParams": [
+      "appId",
+      "fingerprintList"
+    ],
+    "parameters": [
+      {
+        "name": "appId",
+        "in": "header",
+        "required": true,
+        "description": "Huawei application ID"
+      },
+      {
+        "minItems": 1,
+        "maxItems": 50,
+        "itemsType": "string",
+        "type": "array",
+        "name": "fingerprintList",
+        "in": "body",
+        "required": true,
+        "description": "SHA-256 证书指纹列表；只修改专用应用的测试指纹"
+      }
+    ],
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-delete-fingerprints-0000002464839925",
+    "officialSlug": "agc-help-provision-api-delete-fingerprints-0000002464839925",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/provisioning/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/provisioning/endpoints/provision-api-delete-fingerprints",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc provisioning provision-api-delete-fingerprints --invoke",
+      "show": "agc provisioning provision-api-delete-fingerprints --pretty"
+    }
+  },
+  {
+    "id": "provision-api-delete-provision",
+    "familyId": "provisioning",
+    "name": "删除Profile",
+    "description": "此接口用于删除申请的Profile。",
+    "method": "DELETE",
+    "path": "/api/publish/v2/provision",
+    "command": "agc provisioning provision-api-delete-provision",
+    "requiredParams": [
+      "id"
+    ],
+    "parameters": [
+      {
+        "type": "string",
+        "name": "id",
+        "in": "query",
+        "required": true,
+        "description": "本次创建并登记的专用 Profile ID"
+      }
+    ],
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-delete-provision-0000002236201310",
+    "officialSlug": "agc-help-provision-api-delete-provision-0000002236201310",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/provisioning/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/provisioning/endpoints/provision-api-delete-provision",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc provisioning provision-api-delete-provision --invoke",
+      "show": "agc provisioning provision-api-delete-provision --pretty"
+    }
+  },
+  {
+    "id": "provision-api-eligible-acl",
+    "familyId": "provisioning",
+    "name": "查询可申请的ACL权限列表",
+    "description": "此接口用于查询指定APP ID下所有可申请的ACL权限列表。",
+    "method": "POST",
+    "path": "/api/provision/v1/user/permission/apply/list",
+    "command": "agc provisioning provision-api-eligible-acl",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-eligible-acl-0000002554975044",
+    "officialSlug": "agc-help-provision-api-eligible-acl-0000002554975044",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/provisioning/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/provisioning/endpoints/provision-api-eligible-acl",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc provisioning provision-api-eligible-acl --invoke --body body.json",
+      "show": "agc provisioning provision-api-eligible-acl --pretty"
+    }
+  },
+  {
+    "id": "provision-api-get-fingerprints",
+    "familyId": "provisioning",
+    "name": "查询证书指纹",
+    "description": "此接口用于查询已创建的证书指纹。",
+    "method": "GET",
+    "path": "/api/provision/v1/fingerprints",
+    "command": "agc provisioning provision-api-get-fingerprints",
+    "requiredParams": [
+      "appId"
+    ],
+    "parameters": [
+      {
+        "name": "appId",
+        "in": "header",
+        "required": true,
+        "description": "Huawei application ID"
+      }
+    ],
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-get-fingerprints-0000002431361316",
+    "officialSlug": "agc-help-provision-api-get-fingerprints-0000002431361316",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/provisioning/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/provisioning/endpoints/provision-api-get-fingerprints",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc provisioning provision-api-get-fingerprints --invoke",
+      "show": "agc provisioning provision-api-get-fingerprints --pretty"
+    }
+  },
+  {
+    "id": "provision-api-getacl",
+    "familyId": "provisioning",
+    "name": "查询已申请的受限ACL权限",
+    "description": "此接口用于查询申请的受限ACL权限信息。",
+    "method": "GET",
+    "path": "/api/provision/v1/user/permission",
+    "command": "agc provisioning provision-api-getacl",
+    "requiredParams": [
+      "appId"
+    ],
+    "parameters": [
+      {
+        "name": "appId",
+        "in": "header",
+        "required": true,
+        "description": "Huawei application ID"
+      }
+    ],
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-getacl-0000002465770113",
+    "officialSlug": "agc-help-provision-api-getacl-0000002465770113",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/provisioning/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/provisioning/endpoints/provision-api-getacl",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc provisioning provision-api-getacl --invoke",
+      "show": "agc provisioning provision-api-getacl --pretty"
+    }
+  },
+  {
+    "id": "provision-api-getaclapplystatus",
+    "familyId": "provisioning",
+    "name": "查询受限ACL权限的申请状态",
+    "description": "此接口用于查询受限ACL权限的申请状态，包含“申请中”和“审核通过”。",
+    "method": "GET",
+    "path": "/api/provision/v1/user/permission/apply/status",
+    "command": "agc provisioning provision-api-getaclapplystatus",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-getaclapplystatus-0000002469246150",
+    "officialSlug": "agc-help-provision-api-getaclapplystatus-0000002469246150",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/provisioning/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/provisioning/endpoints/provision-api-getaclapplystatus",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc provisioning provision-api-getaclapplystatus --invoke",
+      "show": "agc provisioning provision-api-getaclapplystatus --pretty"
+    }
+  },
+  {
+    "id": "provision-api-query-cent",
+    "familyId": "provisioning",
+    "name": "查询证书",
+    "description": "此接口用于查询创建的证书。",
+    "method": "POST",
+    "path": "/api/publish/v3/cert/list",
+    "command": "agc provisioning provision-api-query-cent",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-query-cent-0000002271160629",
+    "officialSlug": "agc-help-provision-api-query-cent-0000002271160629",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/provisioning/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/provisioning/endpoints/provision-api-query-cent",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc provisioning provision-api-query-cent --invoke --body body.json",
+      "show": "agc provisioning provision-api-query-cent --pretty"
+    }
+  },
+  {
+    "id": "provision-api-query-device",
+    "familyId": "provisioning",
+    "name": "查询设备列表",
+    "description": "此接口用于查询当前设备的信息。",
+    "method": "GET",
+    "path": "/api/publish/v2/device/list",
+    "command": "agc provisioning provision-api-query-device",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-query-device-0000002236201306",
+    "officialSlug": "agc-help-provision-api-query-device-0000002236201306",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/provisioning/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/provisioning/endpoints/provision-api-query-device",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc provisioning provision-api-query-device --invoke",
+      "show": "agc provisioning provision-api-query-device --pretty"
+    }
+  },
+  {
+    "id": "provision-api-query-provision",
+    "familyId": "provisioning",
+    "name": "查询Profile列表",
+    "description": "此接口用于查询申请的Profile。",
+    "method": "GET",
+    "path": "/api/publish/v3/provision/list",
+    "command": "agc provisioning provision-api-query-provision",
+    "requiredParams": [
+      "appId"
+    ],
+    "parameters": [
+      {
+        "name": "appId",
+        "in": "header",
+        "required": true,
+        "description": "Huawei application ID"
+      }
+    ],
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-query-provision-0000002236041506",
+    "officialSlug": "agc-help-provision-api-query-provision-0000002236041506",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/provisioning/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/provisioning/endpoints/provision-api-query-provision",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc provisioning provision-api-query-provision --invoke",
+      "show": "agc provisioning provision-api-query-provision --pretty"
+    }
+  },
+  {
+    "id": "provision-api-update-provision",
+    "familyId": "provisioning",
+    "name": "修改Profile绑定的设备",
+    "description": "此接口用于修改调试Profile绑定的调试设备，或者修改指定设备发布Profile绑定的测试设备。",
+    "method": "PUT",
+    "path": "/api/publish/v3/provision",
+    "command": "agc provisioning provision-api-update-provision",
+    "requiredParams": [
+      "provisionId",
+      "deviceIdList"
+    ],
+    "parameters": [
+      {
+        "type": "string",
+        "name": "provisionId",
+        "in": "body",
+        "required": true,
+        "description": "本次创建的专用调试 Profile ID"
+      },
+      {
+        "minItems": 1,
+        "maxItems": 4000,
+        "itemsType": "string",
+        "type": "array",
+        "name": "deviceIdList",
+        "in": "body",
+        "required": true,
+        "description": "更新后的真实设备 ID 列表；真实接口不接受空列表"
+      }
+    ],
+    "body": "provisionId,deviceIdList",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-update-provision-0000002469198766",
+    "officialSlug": "agc-help-provision-api-update-provision-0000002469198766",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/provisioning/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/provisioning/endpoints/provision-api-update-provision",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc provisioning provision-api-update-provision --invoke --body body.json",
+      "show": "agc provisioning provision-api-update-provision --pretty"
+    }
+  },
+  {
+    "id": "domain-api-download-domain-config",
+    "familyId": "domains",
+    "name": "下载域名配置文件",
+    "description": "此接口用于以文件流的形式进行直接下载域名配置文件。",
+    "method": "GET",
+    "path": "/api/dms/domain-manage/v1/app/domain/verify-file",
+    "command": "agc domains domain-api-download-domain-config",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-domain-api-download-domain-config-0000002271160653",
+    "officialSlug": "agc-help-domain-api-download-domain-config-0000002271160653",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/domains/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/domains/endpoints/domain-api-download-domain-config",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc domains domain-api-download-domain-config --invoke",
+      "show": "agc domains domain-api-download-domain-config --pretty"
+    }
+  },
+  {
+    "id": "domain-api-get-domain",
+    "familyId": "domains",
+    "name": "查询元服务的域名配置信息",
+    "description": "此接口用于查询元服务的域名配置信息。",
+    "method": "GET",
+    "path": "/api/dms/domain-manage/v1/app/domain",
+    "command": "agc domains domain-api-get-domain",
+    "requiredParams": [
+      "appId",
+      "category"
+    ],
+    "parameters": [
+      {
+        "name": "appId",
+        "in": "header",
+        "required": true,
+        "description": "Huawei application ID"
+      },
+      {
+        "name": "category",
+        "in": "query",
+        "required": true,
+        "description": "Domain category"
+      }
+    ],
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-domain-api-get-domain-0000002271000701",
+    "officialSlug": "agc-help-domain-api-get-domain-0000002271000701",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/domains/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/domains/endpoints/domain-api-get-domain",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc domains domain-api-get-domain --invoke",
+      "show": "agc domains domain-api-get-domain --pretty"
+    }
+  },
+  {
+    "id": "domain-api-get-domain-config",
+    "familyId": "domains",
+    "name": "查询域名修改次数/配置上限",
+    "description": "此接口用于查询域名修改次数、配置上限等信息。",
+    "method": "GET",
+    "path": "/api/dms/domain-manage/v1/app/domain/config",
+    "command": "agc domains domain-api-get-domain-config",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-domain-api-get-domain-config-0000002236201326",
+    "officialSlug": "agc-help-domain-api-get-domain-config-0000002236201326",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/domains/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/domains/endpoints/domain-api-get-domain-config",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc domains domain-api-get-domain-config --invoke",
+      "show": "agc domains domain-api-get-domain-config --pretty"
+    }
+  },
+  {
+    "id": "domain-api-post-domain",
+    "familyId": "domains",
+    "name": "新增/更新元服务的域名配置信息",
+    "description": "此接口用于新增/更新元服务的域名配置信息。",
+    "method": "POST",
+    "path": "/api/dms/domain-manage/v1/app/domain",
+    "command": "agc domains domain-api-post-domain",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-domain-api-post-domain-0000002236041522",
+    "officialSlug": "agc-help-domain-api-post-domain-0000002236041522",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/domains/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/domains/endpoints/domain-api-post-domain",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc domains domain-api-post-domain --invoke --body body.json",
+      "show": "agc domains domain-api-post-domain --pretty"
+    }
+  },
+  {
+    "id": "domain-api-precheck",
+    "familyId": "domains",
+    "name": "预检查业务域名配置",
+    "description": "此接口用于对业务域名配置进行预检查。",
+    "method": "POST",
+    "path": "/api/dms/domain-manage/v1/app/domain/pre-check",
+    "command": "agc domains domain-api-precheck",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-domain-api-precheck-0000002295134522",
+    "officialSlug": "agc-help-domain-api-precheck-0000002295134522",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/domains/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/domains/endpoints/domain-api-precheck",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc domains domain-api-precheck --invoke --body body.json",
+      "show": "agc domains domain-api-precheck --pretty"
+    }
+  },
+  {
+    "id": "test-api-add-invite-code",
+    "familyId": "testing",
+    "name": "生成邀请码",
+    "description": "此接口用于邀请测试生成邀请码。",
+    "method": "POST",
+    "path": "/api/app-test/v1/invitation-code",
+    "command": "agc testing test-api-add-invite-code",
+    "requiredParams": [
+      "appId",
+      "groupId",
+      "invitationCodeValidDays",
+      "invitationCodeInviteLimit"
+    ],
+    "parameters": [
+      {
+        "name": "appId",
+        "in": "header",
+        "required": true,
+        "description": "Huawei application ID"
+      },
+      {
+        "type": "string",
+        "name": "groupId",
+        "in": "body",
+        "required": true,
+        "description": "测试群组 ID"
+      },
+      {
+        "type": "integer",
+        "name": "invitationCodeValidDays",
+        "in": "body",
+        "required": true,
+        "description": "有效期天数；官方正文要求 30 天"
+      },
+      {
+        "type": "integer",
+        "name": "invitationCodeInviteLimit",
+        "in": "body",
+        "required": true,
+        "description": "可邀请人数上限，不超过 10000"
+      }
+    ],
+    "body": "groupId,invitationCodeValidDays,invitationCodeInviteLimit",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-invite-code-0000002236201342",
+    "officialSlug": "agc-help-test-api-add-invite-code-0000002236201342",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/testing/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/testing/endpoints/test-api-add-invite-code",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc testing test-api-add-invite-code --invoke --body body.json",
+      "show": "agc testing test-api-add-invite-code --pretty"
+    }
+  },
+  {
+    "id": "test-api-add-test-group",
+    "familyId": "testing",
+    "name": "新增测试群组",
+    "description": "此接口用于邀请测试创建内外部测试群组。",
+    "method": "POST",
+    "path": "/api/app-test/v1/test-group",
+    "command": "agc testing test-api-add-test-group",
+    "requiredParams": [
+      "appId",
+      "groupName"
+    ],
+    "parameters": [
+      {
+        "name": "appId",
+        "in": "header",
+        "required": true,
+        "description": "Huawei application ID"
+      },
+      {
+        "type": "string",
+        "name": "groupName",
+        "in": "body",
+        "required": true,
+        "description": "群组名称，最长 50 个字符"
+      },
+      {
+        "type": "integer",
+        "name": "groupType",
+        "in": "body",
+        "required": false,
+        "description": "0：外部群组；1：内部群组（需要 AppTest）"
+      }
+    ],
+    "body": "groupName,groupType",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-test-group-0000002271160661",
+    "officialSlug": "agc-help-test-api-add-test-group-0000002271160661",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/testing/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/testing/endpoints/test-api-add-test-group",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc testing test-api-add-test-group --invoke --body body.json",
+      "show": "agc testing test-api-add-test-group --pretty"
+    }
+  },
+  {
+    "id": "test-api-add-test-group-user",
+    "familyId": "testing",
+    "name": "新增测试群组成员",
+    "description": "此接口用于邀请测试新增测试群组成员。",
+    "method": "POST",
+    "path": "/api/publish/v2/test/user",
+    "command": "agc testing test-api-add-test-group-user",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-test-group-user-0000002236201338",
+    "officialSlug": "agc-help-test-api-add-test-group-user-0000002236201338",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/testing/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/testing/endpoints/test-api-add-test-group-user",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc testing test-api-add-test-group-user --invoke --body body.json",
+      "show": "agc testing test-api-add-test-group-user --pretty"
+    }
+  },
+  {
+    "id": "test-api-add-test-package",
+    "familyId": "testing",
+    "name": "添加软件包",
+    "description": "此接口用于测试版本上传软件包。",
+    "method": "POST",
+    "path": "/api/publish/v2/test/version/pkg",
+    "command": "agc testing test-api-add-test-package",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-test-package-0000002236201330",
+    "officialSlug": "agc-help-test-api-add-test-package-0000002236201330",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/testing/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/testing/endpoints/test-api-add-test-package",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc testing test-api-add-test-package --invoke --body body.json",
+      "show": "agc testing test-api-add-test-package --pretty"
+    }
+  },
+  {
+    "id": "test-api-add-test-version",
+    "familyId": "testing",
+    "name": "新建测试版本",
+    "description": "此接口用于创建HarmonyOS应用/元服务的测试版本。",
+    "method": "POST",
+    "path": "/api/publish/v2/test/app/version",
+    "command": "agc testing test-api-add-test-version",
+    "requiredParams": [
+      "appId",
+      "releaseType",
+      "testType",
+      "testDesc"
+    ],
+    "parameters": [
+      {
+        "type": "string",
+        "name": "appId",
+        "in": "query",
+        "required": true,
+        "description": "应用 ID"
+      },
+      {
+        "type": "integer",
+        "name": "releaseType",
+        "in": "body",
+        "required": true,
+        "description": "HarmonyOS 测试发布方式，默认 6"
+      },
+      {
+        "type": "integer",
+        "name": "testType",
+        "in": "body",
+        "required": true,
+        "description": "3：邀请测试；4：公开测试"
+      },
+      {
+        "type": "string",
+        "name": "testDesc",
+        "in": "body",
+        "required": true,
+        "description": "测试版本描述，最长 50 字符"
+      },
+      {
+        "type": "integer",
+        "name": "onshelfSelfDetect",
+        "in": "body",
+        "required": false,
+        "description": "0：不进行正式上架自检；1：进行自检"
+      }
+    ],
+    "body": "releaseType,testType,testDesc,onshelfSelfDetect",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-test-version-0000002236041526",
+    "officialSlug": "agc-help-test-api-add-test-version-0000002236041526",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/testing/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/testing/endpoints/test-api-add-test-version",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc testing test-api-add-test-version --invoke --body body.json",
+      "show": "agc testing test-api-add-test-version --pretty"
+    }
+  },
+  {
+    "id": "test-api-create-open-test-link",
+    "familyId": "testing",
+    "name": "创建公开链接",
+    "description": "此接口用于创建群组级公开测试链接。",
+    "method": "POST",
+    "path": "/api/app-test/v1/test-group/public-link",
+    "command": "agc testing test-api-create-open-test-link",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-create-open-test-link-0000002665117715",
+    "officialSlug": "agc-help-test-api-create-open-test-link-0000002665117715",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/testing/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/testing/endpoints/test-api-create-open-test-link",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc testing test-api-create-open-test-link --invoke --body body.json",
+      "show": "agc testing test-api-create-open-test-link --pretty"
+    }
+  },
+  {
+    "id": "test-api-delete-feedback",
+    "familyId": "testing",
+    "name": "删除测试问题反馈",
+    "description": "此接口用于删除测试问题反馈。",
+    "method": "DELETE",
+    "path": "/api/app-test/v1/mgmt/tester-feedback",
+    "command": "agc testing test-api-delete-feedback",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-delete-feedback-0000002634718668",
+    "officialSlug": "agc-help-test-api-delete-feedback-0000002634718668",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/testing/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/testing/endpoints/test-api-delete-feedback",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc testing test-api-delete-feedback --invoke",
+      "show": "agc testing test-api-delete-feedback --pretty"
+    }
+  },
+  {
+    "id": "test-api-delete-invite-code",
+    "familyId": "testing",
+    "name": "删除邀请码",
+    "description": "此接口用于邀请测试删除邀请码。",
+    "method": "DELETE",
+    "path": "/api/app-test/v1/invitation-code",
+    "command": "agc testing test-api-delete-invite-code",
+    "requiredParams": [
+      "appId",
+      "invitationCodeId"
+    ],
+    "parameters": [
+      {
+        "name": "appId",
+        "in": "header",
+        "required": true,
+        "description": "Huawei application ID"
+      },
+      {
+        "type": "string",
+        "name": "invitationCodeId",
+        "in": "query",
+        "required": true,
+        "description": "要删除的邀请码 ID；AppTest 邀请测试不支持此接口"
+      }
+    ],
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-delete-invite-code-0000002634878570",
+    "officialSlug": "agc-help-test-api-delete-invite-code-0000002634878570",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/testing/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/testing/endpoints/test-api-delete-invite-code",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc testing test-api-delete-invite-code --invoke",
+      "show": "agc testing test-api-delete-invite-code --pretty"
+    }
+  },
+  {
+    "id": "test-api-delete-test-group",
+    "familyId": "testing",
+    "name": "删除测试群组",
+    "description": "此接口用于邀请测试删除测试群组。",
+    "method": "DELETE",
+    "path": "/api/app-test/v1/publish-api/test-group",
+    "command": "agc testing test-api-delete-test-group",
+    "requiredParams": [
+      "appId",
+      "groupId"
+    ],
+    "parameters": [
+      {
+        "name": "appId",
+        "in": "header",
+        "required": true,
+        "description": "Huawei application ID"
+      },
+      {
+        "type": "string",
+        "name": "groupId",
+        "in": "query",
+        "required": true,
+        "description": "待删除的专用群组 ID"
+      }
+    ],
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-delete-test-group-0000002236041534",
+    "officialSlug": "agc-help-test-api-delete-test-group-0000002236041534",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/testing/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/testing/endpoints/test-api-delete-test-group",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc testing test-api-delete-test-group --invoke",
+      "show": "agc testing test-api-delete-test-group --pretty"
+    }
+  },
+  {
+    "id": "test-api-delete-test-group-user",
+    "familyId": "testing",
+    "name": "删除测试群组成员",
+    "description": "此接口用于邀请测试删除测试群组中的成员。",
+    "method": "DELETE",
+    "path": "/api/publish/v2/test/user",
+    "command": "agc testing test-api-delete-test-group-user",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-delete-test-group-user-0000002271000721",
+    "officialSlug": "agc-help-test-api-delete-test-group-user-0000002271000721",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/testing/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/testing/endpoints/test-api-delete-test-group-user",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc testing test-api-delete-test-group-user --invoke",
+      "show": "agc testing test-api-delete-test-group-user --pretty"
+    }
+  },
+  {
+    "id": "test-api-delete-test-version",
+    "familyId": "testing",
+    "name": "删除测试版本",
+    "description": "此接口用于删除测试版本。",
+    "method": "DELETE",
+    "path": "/api/publish/v2/test/app/version",
+    "command": "agc testing test-api-delete-test-version",
+    "requiredParams": [
+      "appId",
+      "versionId"
+    ],
+    "parameters": [
+      {
+        "type": "string",
+        "name": "appId",
+        "in": "query",
+        "required": true,
+        "description": "应用 ID"
+      },
+      {
+        "type": "string",
+        "name": "versionId",
+        "in": "query",
+        "required": true,
+        "description": "本次创建的测试草稿版本 ID"
+      }
+    ],
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-delete-test-version-0000002236201346",
+    "officialSlug": "agc-help-test-api-delete-test-version-0000002236201346",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/testing/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/testing/endpoints/test-api-delete-test-version",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc testing test-api-delete-test-version --invoke",
+      "show": "agc testing test-api-delete-test-version --pretty"
+    }
+  },
+  {
+    "id": "test-api-edit-open-test-link",
+    "familyId": "testing",
+    "name": "修改公开链接",
+    "description": "此接口用于编辑群组级公开测试链接。",
+    "method": "PUT",
+    "path": "/api/app-test/v1/test-group/public-link",
+    "command": "agc testing test-api-edit-open-test-link",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-edit-open-test-link-0000002634718666",
+    "officialSlug": "agc-help-test-api-edit-open-test-link-0000002634718666",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/testing/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/testing/endpoints/test-api-edit-open-test-link",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc testing test-api-edit-open-test-link --invoke --body body.json",
+      "show": "agc testing test-api-edit-open-test-link --pretty"
+    }
+  },
+  {
+    "id": "test-api-edit-test-group",
+    "familyId": "testing",
+    "name": "修改测试群组",
+    "description": "此接口用于邀请测试修改测试群组。",
+    "method": "PUT",
+    "path": "/api/app-test/v2/test-group",
+    "command": "agc testing test-api-edit-test-group",
+    "requiredParams": [
+      "appId",
+      "groupId",
+      "groupName"
+    ],
+    "parameters": [
+      {
+        "name": "appId",
+        "in": "header",
+        "required": true,
+        "description": "Huawei application ID"
+      },
+      {
+        "type": "string",
+        "name": "groupId",
+        "in": "body",
+        "required": true,
+        "description": "专用测试群组 ID"
+      },
+      {
+        "type": "string",
+        "name": "groupName",
+        "in": "body",
+        "required": true,
+        "description": "群组名称，最长 50 个字符"
+      }
+    ],
+    "body": "groupId,groupName",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-edit-test-group-0000002634718664",
+    "officialSlug": "agc-help-test-api-edit-test-group-0000002634718664",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/testing/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/testing/endpoints/test-api-edit-test-group",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc testing test-api-edit-test-group --invoke --body body.json",
+      "show": "agc testing test-api-edit-test-group --pretty"
+    }
+  },
+  {
+    "id": "test-api-get-detect-task",
+    "familyId": "testing",
+    "name": "查询上架自检报告信息",
+    "description": "此接口用于查询邀请测试进行上架自检的报告信息。",
+    "method": "GET",
+    "path": "/api/publish/v2/test/app/version/detect-report",
+    "command": "agc testing test-api-get-detect-task",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-get-detect-task-0000002525033189",
+    "officialSlug": "agc-help-test-api-get-detect-task-0000002525033189",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/testing/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/testing/endpoints/test-api-get-detect-task",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc testing test-api-get-detect-task --invoke",
+      "show": "agc testing test-api-get-detect-task --pretty"
+    }
+  },
+  {
+    "id": "test-api-get-invite-code",
+    "familyId": "testing",
+    "name": "查询测试群组邀请码",
+    "description": "此接口用于邀请测试查询测试群组邀请码信息。",
+    "method": "GET",
+    "path": "/api/app-test/v1/test-group/invitation-code",
+    "command": "agc testing test-api-get-invite-code",
+    "requiredParams": [
+      "appId",
+      "groupId"
+    ],
+    "parameters": [
+      {
+        "name": "appId",
+        "in": "header",
+        "required": true,
+        "description": "Huawei application ID"
+      },
+      {
+        "type": "string",
+        "name": "groupId",
+        "in": "query",
+        "required": true,
+        "description": "测试群组 ID"
+      }
+    ],
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-get-invite-code-0000002271160669",
+    "officialSlug": "agc-help-test-api-get-invite-code-0000002271160669",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/testing/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/testing/endpoints/test-api-get-invite-code",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc testing test-api-get-invite-code --invoke",
+      "show": "agc testing test-api-get-invite-code --pretty"
+    }
+  },
+  {
+    "id": "test-api-get-test-grouplist",
+    "familyId": "testing",
+    "name": "查询测试群组列表",
+    "description": "此接口用于邀请测试查询已创建的内外部测试群组列表。",
+    "method": "GET",
+    "path": "/api/app-test/v1/test-group/list",
+    "command": "agc testing test-api-get-test-grouplist",
+    "requiredParams": [
+      "appId"
+    ],
+    "parameters": [
+      {
+        "name": "appId",
+        "in": "header",
+        "required": true,
+        "description": "Huawei application ID"
+      }
+    ],
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-get-test-grouplist-0000002271000717",
+    "officialSlug": "agc-help-test-api-get-test-grouplist-0000002271000717",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/testing/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/testing/endpoints/test-api-get-test-grouplist",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc testing test-api-get-test-grouplist --invoke",
+      "show": "agc testing test-api-get-test-grouplist --pretty"
+    }
+  },
+  {
+    "id": "test-api-modify-test-version",
+    "familyId": "testing",
+    "name": "更新测试版本",
+    "description": "此接口用于更新已创建的测试版本。",
+    "method": "PUT",
+    "path": "/api/publish/v2/test/app/version",
+    "command": "agc testing test-api-modify-test-version",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-modify-test-version-0000002271160657",
+    "officialSlug": "agc-help-test-api-modify-test-version-0000002271160657",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/testing/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/testing/endpoints/test-api-modify-test-version",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc testing test-api-modify-test-version --invoke --body body.json",
+      "show": "agc testing test-api-modify-test-version --pretty"
+    }
+  },
+  {
+    "id": "test-api-post-test-notify",
+    "familyId": "testing",
+    "name": "发送邀请测试通知",
+    "description": "此接口用于给内外部群组的测试用户发送邀请测试的通知。",
+    "method": "POST",
+    "path": "/api/publish/v1/test/user/action/notify",
+    "command": "agc testing test-api-post-test-notify",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-post-test-notify-0000002236041538",
+    "officialSlug": "agc-help-test-api-post-test-notify-0000002236041538",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/testing/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/testing/endpoints/test-api-post-test-notify",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc testing test-api-post-test-notify --invoke --body body.json",
+      "show": "agc testing test-api-post-test-notify --pretty"
+    }
+  },
+  {
+    "id": "test-api-query-feedback",
+    "familyId": "testing",
+    "name": "查询测试问题反馈",
+    "description": "此接口用于查询测试问题反馈列表。",
+    "method": "POST",
+    "path": "/api/app-test/v1/mgmt/tester-feedback/action/query",
+    "command": "agc testing test-api-query-feedback",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-query-feedback-0000002665117717",
+    "officialSlug": "agc-help-test-api-query-feedback-0000002665117717",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/testing/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/testing/endpoints/test-api-query-feedback",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc testing test-api-query-feedback --invoke --body body.json",
+      "show": "agc testing test-api-query-feedback --pretty"
+    }
+  },
+  {
+    "id": "test-api-query-feedback-dimension",
+    "familyId": "testing",
+    "name": "查询测试问题反馈维度",
+    "description": "此接口用于查询测试反馈维度。",
+    "method": "POST",
+    "path": "/api/app-test/v1/mgmt/tester-feedback-dimension/action/query",
+    "command": "agc testing test-api-query-feedback-dimension",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-query-feedback-dimension-0000002634878572",
+    "officialSlug": "agc-help-test-api-query-feedback-dimension-0000002634878572",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/testing/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/testing/endpoints/test-api-query-feedback-dimension",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc testing test-api-query-feedback-dimension --invoke --body body.json",
+      "show": "agc testing test-api-query-feedback-dimension --pretty"
+    }
+  },
+  {
+    "id": "test-api-query-open-test-link",
+    "familyId": "testing",
+    "name": "查询公开链接",
+    "description": "此接口用于查询群组级公开测试链接。",
+    "method": "GET",
+    "path": "/api/app-test/v1/test-group/public-link",
+    "command": "agc testing test-api-query-open-test-link",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-query-open-test-link-0000002664997775",
+    "officialSlug": "agc-help-test-api-query-open-test-link-0000002664997775",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/testing/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/testing/endpoints/test-api-query-open-test-link",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc testing test-api-query-open-test-link --invoke",
+      "show": "agc testing test-api-query-open-test-link --pretty"
+    }
+  },
+  {
+    "id": "test-api-query-test-user",
+    "familyId": "testing",
+    "name": "查询测试群组成员",
+    "description": "此接口用于查询测试群组成员。",
+    "method": "GET",
+    "path": "/api/app-test/v1/test-user",
+    "command": "agc testing test-api-query-test-user",
+    "requiredParams": [
+      "appId",
+      "groupId"
+    ],
+    "parameters": [
+      {
+        "name": "appId",
+        "in": "header",
+        "required": true,
+        "description": "Huawei application ID"
+      },
+      {
+        "name": "groupId",
+        "in": "header",
+        "required": true,
+        "description": "Test group ID"
+      }
+    ],
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-query-test-user-0000002664997773",
+    "officialSlug": "agc-help-test-api-query-test-user-0000002664997773",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/testing/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/testing/endpoints/test-api-query-test-user",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc testing test-api-query-test-user --invoke",
+      "show": "agc testing test-api-query-test-user --pretty"
+    }
+  },
+  {
+    "id": "test-api-release-test-version",
+    "familyId": "testing",
+    "name": "更新测试生效版本",
+    "description": "此接口用于将公开测试版本转为全网版本或者分阶段版本。",
+    "method": "PUT",
+    "path": "/api/publish/v2/test/version/release",
+    "command": "agc testing test-api-release-test-version",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-release-test-version-0000002271000713",
+    "officialSlug": "agc-help-test-api-release-test-version-0000002271000713",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/testing/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/testing/endpoints/test-api-release-test-version",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc testing test-api-release-test-version --invoke --body body.json",
+      "show": "agc testing test-api-release-test-version --pretty"
+    }
+  },
+  {
+    "id": "test-api-stop-invite-code",
+    "familyId": "testing",
+    "name": "停止邀请码",
+    "description": "此接口用于邀请测试停止邀请码。",
+    "method": "POST",
+    "path": "/api/app-test/v1/invitation-code/action/stop",
+    "command": "agc testing test-api-stop-invite-code",
+    "requiredParams": [
+      "appId",
+      "invitationCodeId"
+    ],
+    "parameters": [
+      {
+        "name": "appId",
+        "in": "header",
+        "required": true,
+        "description": "Huawei application ID"
+      },
+      {
+        "type": "string",
+        "name": "invitationCodeId",
+        "in": "body",
+        "required": true,
+        "description": "要停止的邀请码 ID"
+      }
+    ],
+    "body": "invitationCodeId",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-stop-invite-code-0000002271000725",
+    "officialSlug": "agc-help-test-api-stop-invite-code-0000002271000725",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/testing/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/testing/endpoints/test-api-stop-invite-code",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc testing test-api-stop-invite-code --invoke --body body.json",
+      "show": "agc testing test-api-stop-invite-code --pretty"
+    }
+  },
+  {
+    "id": "test-api-stop-test-version",
+    "familyId": "testing",
+    "name": "停止测试版本",
+    "description": "此接口用于停止测试版本。",
+    "method": "POST",
+    "path": "/api/publish/v2/test/version/stop",
+    "command": "agc testing test-api-stop-test-version",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-stop-test-version-0000002236041542",
+    "officialSlug": "agc-help-test-api-stop-test-version-0000002236041542",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/testing/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/testing/endpoints/test-api-stop-test-version",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc testing test-api-stop-test-version --invoke --body body.json",
+      "show": "agc testing test-api-stop-test-version --pretty"
+    }
+  },
+  {
+    "id": "test-api-submit-test-version",
+    "familyId": "testing",
+    "name": "提交测试版本",
+    "description": "此接口用于测试版本提交审核。",
+    "method": "POST",
+    "path": "/api/publish/v2/test/app/version/submit",
+    "command": "agc testing test-api-submit-test-version",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-submit-test-version-0000002236201334",
+    "officialSlug": "agc-help-test-api-submit-test-version-0000002236201334",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/testing/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/testing/endpoints/test-api-submit-test-version",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc testing test-api-submit-test-version --invoke --body body.json",
+      "show": "agc testing test-api-submit-test-version --pretty"
+    }
+  },
+  {
+    "id": "test-api-update-test-version-opentest",
+    "familyId": "testing",
+    "name": "更新有效期内的测试版本信息",
+    "description": "此接口用于更新有效期内测试版本的测试时间和下载安装次数。",
+    "method": "PUT",
+    "path": "/api/publish/v2/test/version/open-test",
+    "command": "agc testing test-api-update-test-version-opentest",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-update-test-version-opentest-0000002236041530",
+    "officialSlug": "agc-help-test-api-update-test-version-opentest-0000002236041530",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/testing/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/testing/endpoints/test-api-update-test-version-opentest",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc testing test-api-update-test-version-opentest --invoke --body body.json",
+      "show": "agc testing test-api-update-test-version-opentest --pretty"
+    }
+  },
+  {
+    "id": "activityawardexport",
+    "familyId": "reports",
+    "name": "获取给指定用户群发奖的报表",
+    "description": "获取指定给用户群发奖的报表数据的CSV文件地址。",
+    "method": "GET",
+    "path": "/api/report/distribution-operation-quality/v1/activityAwardExport/{appId}",
+    "command": "agc reports activityawardexport",
+    "requiredParams": [
+      "appId"
+    ],
+    "parameters": [
+      {
+        "name": "appId",
+        "in": "path",
+        "required": true,
+        "description": "appId parameter"
+      }
+    ],
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-activityawardexport-0000001158245071",
+    "officialSlug": "agcapi-activityawardexport-0000001158245071",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/reports/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/reports/endpoints/activityawardexport",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc reports activityawardexport --invoke",
+      "show": "agc reports activityawardexport --pretty"
+    }
+  },
+  {
+    "id": "addadkpexport",
+    "familyId": "reports",
+    "name": "获取新增和留存的报表",
+    "description": "获取新增和留存的报表数据的CSV或者Excel文件地址。",
+    "method": "GET",
+    "path": "/api/report/distribution-operation-quality/v1/addAdKpExport/{appId}",
+    "command": "agc reports addadkpexport",
+    "requiredParams": [
+      "appId"
+    ],
+    "parameters": [
+      {
+        "name": "appId",
+        "in": "path",
+        "required": true,
+        "description": "appId parameter"
+      }
+    ],
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-addadkpexport-0000001111845102",
+    "officialSlug": "agcapi-addadkpexport-0000001111845102",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/reports/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/reports/endpoints/addadkpexport",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc reports addadkpexport --invoke",
+      "show": "agc reports addadkpexport --pretty"
+    }
+  },
+  {
+    "id": "appdownloadexport",
+    "familyId": "reports",
+    "name": "获取下载安装的报表",
+    "description": "获取下载安装的报表数据的CSV或者Excel文件地址。",
+    "method": "GET",
+    "path": "/api/report/distribution-operation-quality/v1/appDownloadExport/{appId}",
+    "command": "agc reports appdownloadexport",
+    "requiredParams": [
+      "appId"
+    ],
+    "parameters": [
+      {
+        "name": "appId",
+        "in": "path",
+        "required": true,
+        "description": "appId parameter"
+      },
+      {
+        "name": "language",
+        "in": "query",
+        "required": false,
+        "description": "Report language"
+      },
+      {
+        "name": "startTime",
+        "in": "query",
+        "required": false,
+        "description": "Start date in YYYYMMDD format"
+      },
+      {
+        "name": "endTime",
+        "in": "query",
+        "required": false,
+        "description": "End date in YYYYMMDD format"
+      }
+    ],
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-appdownloadexport-0000001158365059",
+    "officialSlug": "agcapi-appdownloadexport-0000001158365059",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/reports/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/reports/endpoints/appdownloadexport",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc reports appdownloadexport --invoke",
+      "show": "agc reports appdownloadexport --pretty"
+    }
+  },
+  {
+    "id": "appdownloadfailexport",
+    "familyId": "reports",
+    "name": "获取安装失败数据的报表",
+    "description": "获取安装失败数据的报表CSV或EXCEL文件。",
+    "method": "GET",
+    "path": "/api/report/distribution-operation-quality/v1/appDownloadFailExport/{appId}",
+    "command": "agc reports appdownloadfailexport",
+    "requiredParams": [
+      "appId"
+    ],
+    "parameters": [
+      {
+        "name": "appId",
+        "in": "path",
+        "required": true,
+        "description": "appId parameter"
+      }
+    ],
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-appdownloadfailexport-0000001158365063",
+    "officialSlug": "agcapi-appdownloadfailexport-0000001158365063",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/reports/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/reports/endpoints/appdownloadfailexport",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc reports appdownloadfailexport --invoke",
+      "show": "agc reports appdownloadfailexport --pretty"
+    }
+  },
+  {
+    "id": "couponexport",
+    "familyId": "reports",
+    "name": "获取优惠券活动的报表",
+    "description": "获取优惠券活动的报表CSV或EXCEL文件。",
+    "method": "GET",
+    "path": "/api/report/distribution-operation-quality/v1/activityCouponExport/{appId}",
+    "command": "agc reports couponexport",
+    "requiredParams": [
+      "appId"
+    ],
+    "parameters": [
+      {
+        "name": "appId",
+        "in": "path",
+        "required": true,
+        "description": "appId parameter"
+      }
+    ],
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-couponexport-0000001111845104",
+    "officialSlug": "agcapi-couponexport-0000001111845104",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/reports/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/reports/endpoints/couponexport",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc reports couponexport --invoke",
+      "show": "agc reports couponexport --pretty"
+    }
+  },
+  {
+    "id": "fa-distribute-analysis-export",
+    "familyId": "reports",
+    "name": "获取元服务分发分析的报表文件",
+    "description": "获取元服务分发分析的报表数据的CSV或者Excel文件地址。",
+    "method": "GET",
+    "path": "/api/report/distribution-operation-quality/v1/fa/distributeAnalysisExport/",
+    "command": "agc reports fa-distribute-analysis-export",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-fa-distribute_analysis_export-0000001690307352",
+    "officialSlug": "agcapi-fa-distribute_analysis_export-0000001690307352",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/reports/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/reports/endpoints/fa-distribute-analysis-export",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc reports fa-distribute-analysis-export --invoke",
+      "show": "agc reports fa-distribute-analysis-export --pretty"
+    }
+  },
+  {
+    "id": "fa-user-analysis-export",
+    "familyId": "reports",
+    "name": "获取元服务新增留存的报表文件",
+    "description": "获取元服务新增留存的报表数据的CSV或者Excel文件地址。",
+    "method": "GET",
+    "path": "/api/report/distribution-operation-quality/v1/fa/userAnalysisExport/",
+    "command": "agc reports fa-user-analysis-export",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-fa-user_analysis_export-0000001738465949",
+    "officialSlug": "agcapi-fa-user_analysis_export-0000001738465949",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/reports/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/reports/endpoints/fa-user-analysis-export",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc reports fa-user-analysis-export --invoke",
+      "show": "agc reports fa-user-analysis-export --pretty"
+    }
+  },
+  {
+    "id": "fa-widget-analysis-export",
+    "familyId": "reports",
+    "name": "获取元服务卡片分析的报表文件",
+    "description": "获取元服务卡片分析的报表数据的CSV或者Excel文件地址。",
+    "method": "GET",
+    "path": "/api/report/distribution-operation-quality/v1/fa/widgetAnalysisExport/",
+    "command": "agc reports fa-widget-analysis-export",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-fa-widget_analysis_export-0000001690467092",
+    "officialSlug": "agcapi-fa-widget_analysis_export-0000001690467092",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/reports/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/reports/endpoints/fa-widget-analysis-export",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc reports fa-widget-analysis-export --invoke",
+      "show": "agc reports fa-widget-analysis-export --pretty"
+    }
+  },
+  {
+    "id": "gamereservationexport",
+    "familyId": "reports",
+    "name": "获取预约的报表",
+    "description": "获取预约报表数据的CSV或EXCEL文件地址。",
+    "method": "GET",
+    "path": "/api/report/distribution-operation-quality/v1/gameReservationExport/{appId}",
+    "command": "agc reports gamereservationexport",
+    "requiredParams": [
+      "appId"
+    ],
+    "parameters": [
+      {
+        "name": "appId",
+        "in": "path",
+        "required": true,
+        "description": "appId parameter"
+      }
+    ],
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-gamereservationexport-0000001111685212",
+    "officialSlug": "agcapi-gamereservationexport-0000001111685212",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/reports/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/reports/endpoints/gamereservationexport",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc reports gamereservationexport --invoke",
+      "show": "agc reports gamereservationexport --pretty"
+    }
+  },
+  {
+    "id": "iapexport",
+    "familyId": "reports",
+    "name": "获取应用内付费的报表",
+    "description": "获取应用内付费的报表的CSV或者EXCEL文件地址。",
+    "method": "GET",
+    "path": "/api/report/distribution-operation-quality/v1/IAPExport/{appId}",
+    "command": "agc reports iapexport",
+    "requiredParams": [
+      "appId",
+      "currency"
+    ],
+    "parameters": [
+      {
+        "name": "appId",
+        "in": "path",
+        "required": true,
+        "description": "appId parameter"
+      },
+      {
+        "name": "currency",
+        "in": "query",
+        "required": true,
+        "description": "Report currency"
+      }
+    ],
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-iapexport-0000001158365061",
+    "officialSlug": "agcapi-iapexport-0000001158365061",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/reports/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/reports/endpoints/iapexport",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc reports iapexport --invoke",
+      "show": "agc reports iapexport --pretty"
+    }
+  },
+  {
+    "id": "orderanalysisexport",
+    "familyId": "reports",
+    "name": "获取付费下载的报表",
+    "description": "获取付费下载报表的CSV或者EXCEL文件。",
+    "method": "GET",
+    "path": "/api/report/distribution-operation-quality/v1/orderAnalysisExport/{appId}",
+    "command": "agc reports orderanalysisexport",
+    "requiredParams": [
+      "appId",
+      "teamId"
+    ],
+    "parameters": [
+      {
+        "name": "appId",
+        "in": "path",
+        "required": true,
+        "description": "appId parameter"
+      },
+      {
+        "name": "teamId",
+        "in": "header",
+        "required": true,
+        "description": "Huawei team ID"
+      }
+    ],
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-orderanalysisexport-0000001111685214",
+    "officialSlug": "agcapi-orderanalysisexport-0000001111685214",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/reports/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/reports/endpoints/orderanalysisexport",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc reports orderanalysisexport --invoke",
+      "show": "agc reports orderanalysisexport --pretty"
+    }
+  },
+  {
+    "id": "orderdetailexport",
+    "familyId": "reports",
+    "name": "获取付费下载明细的报表",
+    "description": "获取付费下载明细的报表CSV文件。",
+    "method": "GET",
+    "path": "/api/report/distribution-operation-quality/v1/orderDetailExport/{appId}",
+    "command": "agc reports orderdetailexport",
+    "requiredParams": [
+      "appId"
+    ],
+    "parameters": [
+      {
+        "name": "appId",
+        "in": "path",
+        "required": true,
+        "description": "appId parameter"
+      }
+    ],
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-orderdetailexport-0000001158245073",
+    "officialSlug": "agcapi-orderdetailexport-0000001158245073",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/reports/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/reports/endpoints/orderdetailexport",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc reports orderdetailexport --invoke",
+      "show": "agc reports orderdetailexport --pretty"
+    }
+  },
+  {
+    "id": "addappfingerprint",
+    "familyId": "projects",
+    "name": "添加证书指纹",
+    "description": "此接口用于设置应用的证书指纹信息。",
+    "method": "PUT",
+    "path": "/api/cds/app-distirbution/v1/all/app-extra-info/{appId}",
+    "command": "agc projects addappfingerprint",
+    "requiredParams": [
+      "appId"
+    ],
+    "parameters": [
+      {
+        "name": "appId",
+        "in": "path",
+        "required": true,
+        "description": "appId parameter"
+      }
+    ],
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-addappfingerprint-0000001111685218",
+    "officialSlug": "agcapi-addappfingerprint-0000001111685218",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/projects/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/projects/endpoints/addappfingerprint",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc projects addappfingerprint --invoke --body body.json",
+      "show": "agc projects addappfingerprint --pretty"
+    }
+  },
+  {
+    "id": "appbriefinfo",
+    "familyId": "projects",
+    "name": "获取应用简略信息",
+    "description": "批量查询应用简略信息。",
+    "method": "GET",
+    "path": "/api/cds/app-distirbution/v1/all/app-brief-info/list",
+    "command": "agc projects appbriefinfo",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-appbriefinfo-0000001111845106",
+    "officialSlug": "agcapi-appbriefinfo-0000001111845106",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/projects/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/projects/endpoints/appbriefinfo",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc projects appbriefinfo --invoke",
+      "show": "agc projects appbriefinfo --pretty"
+    }
+  },
+  {
+    "id": "getconfigfile",
+    "familyId": "projects",
+    "name": "获取配置文件",
+    "description": "获取应用的配置文件。",
+    "method": "GET",
+    "path": "/api/cpms/project-management-service/v1/config-file",
+    "command": "agc projects getconfigfile",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-getconfigfile-0000001158365065",
+    "officialSlug": "agcapi-getconfigfile-0000001158365065",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/projects/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/projects/endpoints/getconfigfile",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc projects getconfigfile --invoke",
+      "show": "agc projects getconfigfile --pretty"
+    }
+  },
+  {
+    "id": "getteamlist",
+    "familyId": "projects",
+    "name": "获取团队列表",
+    "description": "获取开发者的团队账号列表信息。",
+    "method": "GET",
+    "path": "/api/ups/user-permission-service/v1/user-team-list",
+    "command": "agc projects getteamlist",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-getteamlist-0000001158245075",
+    "officialSlug": "agcapi-getteamlist-0000001158245075",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/projects/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/projects/endpoints/getteamlist",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc projects getteamlist --invoke",
+      "show": "agc projects getteamlist --pretty"
+    }
+  },
+  {
+    "id": "queryappfingerprint",
+    "familyId": "projects",
+    "name": "查询证书指纹和AppSecret",
+    "description": "此接口用于根据应用ID查询App Secret、证书指纹信息。",
+    "method": "GET",
+    "path": "/api/cds/app-distirbution/v1/all/app-extra-info/{appId}",
+    "command": "agc projects queryappfingerprint",
+    "requiredParams": [
+      "appId"
+    ],
+    "parameters": [
+      {
+        "name": "appId",
+        "in": "path",
+        "required": true,
+        "description": "appId parameter"
+      }
+    ],
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryappfingerprint-0000001158245077",
+    "officialSlug": "agcapi-queryappfingerprint-0000001158245077",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/projects/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/projects/endpoints/queryappfingerprint",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc projects queryappfingerprint --invoke",
+      "show": "agc projects queryappfingerprint --pretty"
+    }
+  },
+  {
+    "id": "queryprojectdetail",
+    "familyId": "projects",
+    "name": "查询项目详情及项目下的应用",
+    "description": "此接口用于查询指定项目的详细项目信息和项目下的应用列表信息。",
+    "method": "GET",
+    "path": "/api/project-service/v1/projects/{projectId}",
+    "command": "agc projects queryprojectdetail",
+    "requiredParams": [
+      "projectId"
+    ],
+    "parameters": [
+      {
+        "name": "projectId",
+        "in": "path",
+        "required": true,
+        "description": "projectId parameter"
+      }
+    ],
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryprojectdetail-0000001158365067",
+    "officialSlug": "agcapi-queryprojectdetail-0000001158365067",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/projects/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/projects/endpoints/queryprojectdetail",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc projects queryprojectdetail --invoke",
+      "show": "agc projects queryprojectdetail --pretty"
+    }
+  },
+  {
+    "id": "queryprojectlist",
+    "familyId": "projects",
+    "name": "查询项目列表",
+    "description": "此接口用于查询指定团队账号下的项目列表信息。",
+    "method": "GET",
+    "path": "/api/project-service/v1/projects",
+    "command": "agc projects queryprojectlist",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryprojectlist-0000001111685220",
+    "officialSlug": "agcapi-queryprojectlist-0000001111685220",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/projects/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/projects/endpoints/queryprojectlist",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc projects queryprojectlist --invoke",
+      "show": "agc projects queryprojectlist --pretty"
+    }
+  },
+  {
+    "id": "queryservice",
+    "familyId": "projects",
+    "name": "查询服务开通状态",
+    "description": "此接口用于查询项目、应用开通的服务信息列表以及API的状态。",
+    "method": "GET",
+    "path": "/api/cpms/project-service/v1/services/order-api",
+    "command": "agc projects queryservice",
+    "requiredParams": [
+      "projectId",
+      "appID"
+    ],
+    "parameters": [
+      {
+        "name": "projectId",
+        "in": "query",
+        "required": true,
+        "description": "Huawei project ID"
+      },
+      {
+        "name": "appID",
+        "in": "query",
+        "required": true,
+        "description": "Huawei application ID; parameter name is case sensitive"
+      }
+    ],
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryservice-0000001111845108",
+    "officialSlug": "agcapi-queryservice-0000001111845108",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/projects/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/projects/endpoints/queryservice",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc projects queryservice --invoke",
+      "show": "agc projects queryservice --pretty"
+    }
+  },
+  {
+    "id": "com-getreviewinfo",
+    "familyId": "comments",
+    "name": "查询单个评论详情",
+    "description": "获取单个评论详情。",
+    "method": "GET",
+    "path": "/api/reviews/v1/manage/dev/reviews/{reviewId}",
+    "command": "agc comments com-getreviewinfo",
+    "requiredParams": [
+      "reviewId"
+    ],
+    "parameters": [
+      {
+        "name": "reviewId",
+        "in": "path",
+        "required": true,
+        "description": "reviewId parameter"
+      }
+    ],
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-getreviewinfo-0000001116028248",
+    "officialSlug": "agcapi-com-getreviewinfo-0000001116028248",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/comments/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/comments/endpoints/com-getreviewinfo",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc comments com-getreviewinfo --invoke",
+      "show": "agc comments com-getreviewinfo --pretty"
+    }
+  },
+  {
+    "id": "com-getreviewinfo-harmonyos",
+    "familyId": "comments",
+    "name": "查询单个评论详情",
+    "description": "开发者查询对应鸿蒙应用下的单个评论详情及评论下的回复列表。",
+    "method": "GET",
+    "path": "/api/marketing-api/v2/reviews/manage/dev/reviews/{reviewId}",
+    "command": "agc comments com-getreviewinfo-harmonyos",
+    "requiredParams": [
+      "reviewId"
+    ],
+    "parameters": [
+      {
+        "name": "reviewId",
+        "in": "path",
+        "required": true,
+        "description": "reviewId parameter"
+      }
+    ],
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-getreviewinfo-harmonyos-0000002504053839",
+    "officialSlug": "agcapi-com-getreviewinfo-harmonyos-0000002504053839",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/comments/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/comments/endpoints/com-getreviewinfo-harmonyos",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc comments com-getreviewinfo-harmonyos --invoke",
+      "show": "agc comments com-getreviewinfo-harmonyos --pretty"
+    }
+  },
+  {
+    "id": "com-rating",
+    "familyId": "comments",
+    "name": "查询应用评分",
+    "description": "开发者查询对应应用下的评分列表及综合评分。",
+    "method": "GET",
+    "path": "/api/reviews/v1/manage/dev/ratings",
+    "command": "agc comments com-rating",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-rating-0000001133889426",
+    "officialSlug": "agcapi-com-rating-0000001133889426",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/comments/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/comments/endpoints/com-rating",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc comments com-rating --invoke",
+      "show": "agc comments com-rating --pretty"
+    }
+  },
+  {
+    "id": "com-rating-harmonyos",
+    "familyId": "comments",
+    "name": "查询应用评分列表",
+    "description": "开发者查询对应鸿蒙应用下的评分列表。",
+    "method": "GET",
+    "path": "/api/marketing-api/v2/reviews/manage/dev/ratings",
+    "command": "agc comments com-rating-harmonyos",
+    "requiredParams": [
+      "appId",
+      "beginTime",
+      "endTime",
+      "countries"
+    ],
+    "parameters": [
+      {
+        "type": "string",
+        "name": "appId",
+        "in": "query",
+        "required": true,
+        "description": "Huawei application ID"
+      },
+      {
+        "type": "integer",
+        "format": "int64",
+        "name": "beginTime",
+        "in": "query",
+        "required": true,
+        "description": "Start timestamp in milliseconds since Unix epoch; query interval must not exceed six months"
+      },
+      {
+        "type": "integer",
+        "format": "int64",
+        "name": "endTime",
+        "in": "query",
+        "required": true,
+        "description": "End timestamp in milliseconds since Unix epoch; query interval must not exceed six months"
+      },
+      {
+        "type": "string",
+        "name": "countries",
+        "in": "query",
+        "required": true,
+        "description": "Comma-separated country codes, such as CN; all countries must belong to the same regional site"
+      },
+      {
+        "type": "string",
+        "name": "ratings",
+        "in": "query",
+        "required": false,
+        "description": "Comma-separated ratings from 1 to 5"
+      },
+      {
+        "type": "string",
+        "name": "appVersions",
+        "in": "query",
+        "required": false,
+        "description": "Comma-separated application versions"
+      },
+      {
+        "type": "integer",
+        "format": "int32",
+        "name": "sort",
+        "in": "query",
+        "required": false,
+        "description": "0: descending time (default); 1: descending score; 2: ascending score"
+      },
+      {
+        "type": "integer",
+        "format": "int32",
+        "name": "page",
+        "in": "query",
+        "required": false,
+        "description": "Page number; defaults to 1"
+      },
+      {
+        "type": "integer",
+        "format": "int32",
+        "name": "limit",
+        "in": "query",
+        "required": false,
+        "description": "Page size; defaults to 50, maximum 100"
+      }
+    ],
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-rating-harmonyos-0000002503933921",
+    "officialSlug": "agcapi-com-rating-harmonyos-0000002503933921",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/comments/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/comments/endpoints/com-rating-harmonyos",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc comments com-rating-harmonyos --invoke",
+      "show": "agc comments com-rating-harmonyos --pretty"
+    }
+  },
+  {
+    "id": "com-reviewreply",
+    "familyId": "comments",
+    "name": "回复评论和回复",
+    "description": "开发者在自己的应用下回复用户的评论，并继续回复用户的回复。",
+    "method": "POST",
+    "path": "/api/reviews/v1/manage/dev/reviews",
+    "command": "agc comments com-reviewreply",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-reviewreply-0000001162548117",
+    "officialSlug": "agcapi-com-reviewreply-0000001162548117",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/comments/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/comments/endpoints/com-reviewreply",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc comments com-reviewreply --invoke --body body.json",
+      "show": "agc comments com-reviewreply --pretty"
+    }
+  },
+  {
+    "id": "com-reviewreply-harmonyos",
+    "familyId": "comments",
+    "name": "回复评论和回复",
+    "description": "开发者在自己的鸿蒙应用下回复用户的评论，并支持继续回复用户的回复。",
+    "method": "POST",
+    "path": "/api/marketing-api/v2/",
+    "command": "agc comments com-reviewreply-harmonyos",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-reviewreply-harmonyos-0000002471053974",
+    "officialSlug": "agcapi-com-reviewreply-harmonyos-0000002471053974",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/comments/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/comments/endpoints/com-reviewreply-harmonyos",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc comments com-reviewreply-harmonyos --invoke --body body.json",
+      "show": "agc comments com-reviewreply-harmonyos --pretty"
+    }
+  },
+  {
+    "id": "comapi-getreviews",
+    "familyId": "comments",
+    "name": "查询评论列表",
+    "description": "开发者查询对应应用下的评论列表。",
+    "method": "GET",
+    "path": "/api/reviews/v1/manage/dev/reviews",
+    "command": "agc comments comapi-getreviews",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-comapi-getreviews-0000001162468139",
+    "officialSlug": "agcapi-comapi-getreviews-0000001162468139",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/comments/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/comments/endpoints/comapi-getreviews",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc comments comapi-getreviews --invoke",
+      "show": "agc comments comapi-getreviews --pretty"
+    }
+  },
+  {
+    "id": "comapi-getreviews-harmonyos",
+    "familyId": "comments",
+    "name": "查询应用评论列表",
+    "description": "开发者查询对应鸿蒙应用下的评论列表。",
+    "method": "GET",
+    "path": "/api/marketing-api/v2/reviews/manage/dev/reviews",
+    "command": "agc comments comapi-getreviews-harmonyos",
+    "requiredParams": [
+      "appId",
+      "beginTime",
+      "endTime",
+      "countries"
+    ],
+    "parameters": [
+      {
+        "type": "string",
+        "name": "appId",
+        "in": "query",
+        "required": true,
+        "description": "Huawei application ID"
+      },
+      {
+        "type": "integer",
+        "format": "int64",
+        "name": "beginTime",
+        "in": "query",
+        "required": true,
+        "description": "Start timestamp in milliseconds since Unix epoch; query interval must not exceed six months"
+      },
+      {
+        "type": "integer",
+        "format": "int64",
+        "name": "endTime",
+        "in": "query",
+        "required": true,
+        "description": "End timestamp in milliseconds since Unix epoch; query interval must not exceed six months"
+      },
+      {
+        "type": "string",
+        "name": "countries",
+        "in": "query",
+        "required": true,
+        "description": "Comma-separated country codes, such as CN; all countries must belong to the same regional site"
+      },
+      {
+        "type": "string",
+        "name": "ratings",
+        "in": "query",
+        "required": false,
+        "description": "Comma-separated ratings from 1 to 5"
+      },
+      {
+        "type": "string",
+        "name": "appVersions",
+        "in": "query",
+        "required": false,
+        "description": "Comma-separated application versions"
+      },
+      {
+        "type": "integer",
+        "format": "int32",
+        "name": "sort",
+        "in": "query",
+        "required": false,
+        "description": "0: descending time (default); 1: descending score; 2: ascending score"
+      },
+      {
+        "type": "integer",
+        "format": "int32",
+        "name": "page",
+        "in": "query",
+        "required": false,
+        "description": "Page number; defaults to 1"
+      },
+      {
+        "type": "integer",
+        "format": "int32",
+        "name": "limit",
+        "in": "query",
+        "required": false,
+        "description": "Page size; defaults to 20, maximum 100"
+      },
+      {
+        "type": "string",
+        "name": "content",
+        "in": "query",
+        "required": false,
+        "description": "Comment content keyword"
+      },
+      {
+        "type": "string",
+        "name": "devReplyStates",
+        "in": "query",
+        "required": false,
+        "description": "Comma-separated developer reply states: 0, 1, 6, 3"
+      },
+      {
+        "type": "string",
+        "name": "langs",
+        "in": "query",
+        "required": false,
+        "description": "Comma-separated ISO 639-1 language codes"
+      }
+    ],
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-comapi-getreviews-harmonyos-0000002470893976",
+    "officialSlug": "agcapi-comapi-getreviews-harmonyos-0000002470893976",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/comments/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/comments/endpoints/comapi-getreviews-harmonyos",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc comments comapi-getreviews-harmonyos --invoke",
+      "show": "agc comments comapi-getreviews-harmonyos --pretty"
+    }
+  },
+  {
+    "id": "addproduct-android",
+    "familyId": "pms",
+    "name": "创建商品",
+    "description": "此接口用于创建商品定义信息，包含商品价格，展示语言等。",
+    "method": "POST",
+    "path": "/api/pms/product-price-service/v1/manage/product",
+    "command": "agc pms addproduct-android",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-addproduct-android-0000002171407001",
+    "officialSlug": "agcapi-addproduct-android-0000002171407001",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/pms/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/pms/endpoints/addproduct-android",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc pms addproduct-android --invoke --body body.json",
+      "show": "agc pms addproduct-android --pretty"
+    }
+  },
+  {
+    "id": "addproduct-harmonyosnext",
+    "familyId": "pms",
+    "name": "创建商品",
+    "description": "此接口用于创建商品定义信息，包含商品价格，展示语言等。",
+    "method": "POST",
+    "path": "/api/pms/product-price-service/v2/manage/product",
+    "command": "agc pms addproduct-harmonyosnext",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-addproduct-harmonyosnext-0000002131508844",
+    "officialSlug": "agcapi-addproduct-harmonyosnext-0000002131508844",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/pms/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/pms/endpoints/addproduct-harmonyosnext",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc pms addproduct-harmonyosnext --invoke --body body.json",
+      "show": "agc pms addproduct-harmonyosnext --pretty"
+    }
+  },
+  {
+    "id": "addproductgroup-android",
+    "familyId": "pms",
+    "name": "创建商品订阅分组信息",
+    "description": "此接口用于创建商品订阅分组信息。",
+    "method": "POST",
+    "path": "/api/pms/product-price-service/v1/manage/product/group",
+    "command": "agc pms addproductgroup-android",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-addproductgroup-android-0000002135929308",
+    "officialSlug": "agcapi-addproductgroup-android-0000002135929308",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/pms/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/pms/endpoints/addproductgroup-android",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc pms addproductgroup-android --invoke --body body.json",
+      "show": "agc pms addproductgroup-android --pretty"
+    }
+  },
+  {
+    "id": "addproductgroup-harmonyosnext",
+    "familyId": "pms",
+    "name": "创建商品订阅分组信息",
+    "description": "此接口用于创建商品订阅分组信息。",
+    "method": "POST",
+    "path": "/api/pms/product-price-service/v2/manage/product/group",
+    "command": "agc pms addproductgroup-harmonyosnext",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-addproductgroup-harmonyosnext-0000002166748605",
+    "officialSlug": "agcapi-addproductgroup-harmonyosnext-0000002166748605",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/pms/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/pms/endpoints/addproductgroup-harmonyosnext",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc pms addproductgroup-harmonyosnext --invoke --body body.json",
+      "show": "agc pms addproductgroup-harmonyosnext --pretty"
+    }
+  },
+  {
+    "id": "addpromotion-android",
+    "familyId": "pms",
+    "name": "创建商品促销信息",
+    "description": "此接口用于创建商品促销信息。",
+    "method": "POST",
+    "path": "/api/pms/product-price-service/v1/manage/product/promotion",
+    "command": "agc pms addpromotion-android",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-addpromotion-android-0000002171407021",
+    "officialSlug": "agcapi-addpromotion-android-0000002171407021",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/pms/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/pms/endpoints/addpromotion-android",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc pms addpromotion-android --invoke --body body.json",
+      "show": "agc pms addpromotion-android --pretty"
+    }
+  },
+  {
+    "id": "addpromotion-harmonyosnext",
+    "familyId": "pms",
+    "name": "创建商品促销信息",
+    "description": "此接口用于创建商品促销信息。",
+    "method": "POST",
+    "path": "/api/pms/product-price-service/v2/manage/product/promotion",
+    "command": "agc pms addpromotion-harmonyosnext",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-addpromotion-harmonyosnext-0000002131508856",
+    "officialSlug": "agcapi-addpromotion-harmonyosnext-0000002131508856",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/pms/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/pms/endpoints/addpromotion-harmonyosnext",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc pms addpromotion-harmonyosnext --invoke --body body.json",
+      "show": "agc pms addpromotion-harmonyosnext --pretty"
+    }
+  },
+  {
+    "id": "basicapplication-harmonyosnext",
+    "familyId": "pms",
+    "name": "查询关联APP已有商品类型",
+    "description": "此接口用于查询关联APP已有商品类型。",
+    "method": "GET",
+    "path": "/api/pms/product-price-service/v2/manage/application/basic",
+    "command": "agc pms basicapplication-harmonyosnext",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basicapplication-harmonyosnext-0000002131519928",
+    "officialSlug": "agcapi-basicapplication-harmonyosnext-0000002131519928",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/pms/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/pms/endpoints/basicapplication-harmonyosnext",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc pms basicapplication-harmonyosnext --invoke",
+      "show": "agc pms basicapplication-harmonyosnext --pretty"
+    }
+  },
+  {
+    "id": "batchactproduct-android",
+    "familyId": "pms",
+    "name": "批量激活商品",
+    "description": "此接口用于批量激活商品。",
+    "method": "PUT",
+    "path": "/api/pms/product-price-service/v1/manage/product/batchActive",
+    "command": "agc pms batchactproduct-android",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchactproduct-android-0000002171288617",
+    "officialSlug": "agcapi-batchactproduct-android-0000002171288617",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/pms/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/pms/endpoints/batchactproduct-android",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc pms batchactproduct-android --invoke --body body.json",
+      "show": "agc pms batchactproduct-android --pretty"
+    }
+  },
+  {
+    "id": "batchactproduct-harmonyosnext",
+    "familyId": "pms",
+    "name": "批量激活商品",
+    "description": "此接口用于批量激活商品 ， 生效已下线商品，已结束的促销不会重新生效 。",
+    "method": "PUT",
+    "path": "/api/pms/product-price-service/v2/manage/product/batchActive",
+    "command": "agc pms batchactproduct-harmonyosnext",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchactproduct-harmonyosnext-0000002131350712",
+    "officialSlug": "agcapi-batchactproduct-harmonyosnext-0000002131350712",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/pms/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/pms/endpoints/batchactproduct-harmonyosnext",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc pms batchactproduct-harmonyosnext --invoke --body body.json",
+      "show": "agc pms batchactproduct-harmonyosnext --pretty"
+    }
+  },
+  {
+    "id": "batchactpromotion-android",
+    "familyId": "pms",
+    "name": "批量上线商品促销活动",
+    "description": "此接口用于批量上线商品促销活动。",
+    "method": "PUT",
+    "path": "/api/pms/product-price-service/v1/manage/product/promotion/batchActive",
+    "command": "agc pms batchactpromotion-android",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchactpromotion-android-0000002171407025",
+    "officialSlug": "agcapi-batchactpromotion-android-0000002171407025",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/pms/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/pms/endpoints/batchactpromotion-android",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc pms batchactpromotion-android --invoke --body body.json",
+      "show": "agc pms batchactpromotion-android --pretty"
+    }
+  },
+  {
+    "id": "batchactpromotion-harmonyosnext",
+    "familyId": "pms",
+    "name": "批量上线商品促销活动",
+    "description": "此接口用于批量上线商品促销活动。",
+    "method": "PUT",
+    "path": "/api/pms/product-price-service/v2/manage/product/promotion/batchActive",
+    "command": "agc pms batchactpromotion-harmonyosnext",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchactpromotion-harmonyosnext-0000002131508860",
+    "officialSlug": "agcapi-batchactpromotion-harmonyosnext-0000002131508860",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/pms/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/pms/endpoints/batchactpromotion-harmonyosnext",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc pms batchactpromotion-harmonyosnext --invoke --body body.json",
+      "show": "agc pms batchactpromotion-harmonyosnext --pretty"
+    }
+  },
+  {
+    "id": "batchaddproduct-android",
+    "familyId": "pms",
+    "name": "批量创建商品",
+    "description": "此接口用于批量创建商品定义信息，展示语言，商品价格，促销活动信息。",
+    "method": "POST",
+    "path": "/api/pms/product-price-service/v1/manage/product/batchImportProducts",
+    "command": "agc pms batchaddproduct-android",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchaddproduct-android-0000002171288605",
+    "officialSlug": "agcapi-batchaddproduct-android-0000002171288605",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/pms/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/pms/endpoints/batchaddproduct-android",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc pms batchaddproduct-android --invoke --body body.json",
+      "show": "agc pms batchaddproduct-android --pretty"
+    }
+  },
+  {
+    "id": "batchaddproduct-harmonyosnext",
+    "familyId": "pms",
+    "name": "批量创建商品",
+    "description": "此接口用于批量创建商品定义信息，展示语言，商品价格，促销活动信息。",
+    "method": "POST",
+    "path": "/api/pms/product-price-service/v2/manage/product/batchImportProducts",
+    "command": "agc pms batchaddproduct-harmonyosnext",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchaddproduct-harmonyosnext-0000002131350704",
+    "officialSlug": "agcapi-batchaddproduct-harmonyosnext-0000002131350704",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/pms/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/pms/endpoints/batchaddproduct-harmonyosnext",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc pms batchaddproduct-harmonyosnext --invoke --body body.json",
+      "show": "agc pms batchaddproduct-harmonyosnext --pretty"
+    }
+  },
+  {
+    "id": "batchdeactproduct-android",
+    "familyId": "pms",
+    "name": "批量去激活商品",
+    "description": "此接口用于批量去激活商品。",
+    "method": "PUT",
+    "path": "/api/pms/product-price-service/v1/manage/product/batchDeactive",
+    "command": "agc pms batchdeactproduct-android",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchdeactproduct-android-0000002135929320",
+    "officialSlug": "agcapi-batchdeactproduct-android-0000002135929320",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/pms/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/pms/endpoints/batchdeactproduct-android",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc pms batchdeactproduct-android --invoke --body body.json",
+      "show": "agc pms batchdeactproduct-android --pretty"
+    }
+  },
+  {
+    "id": "batchdeactproduct-harmonyosnext",
+    "familyId": "pms",
+    "name": "批量去激活商品",
+    "description": "此接口用于批量去激活商品 ，下线已生效商品，结束促销活动 。",
+    "method": "PUT",
+    "path": "/api/pms/product-price-service/v2/manage/product/batchDeactive",
+    "command": "agc pms batchdeactproduct-harmonyosnext",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchdeactproduct-harmonyosnext-0000002166748613",
+    "officialSlug": "agcapi-batchdeactproduct-harmonyosnext-0000002166748613",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/pms/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/pms/endpoints/batchdeactproduct-harmonyosnext",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc pms batchdeactproduct-harmonyosnext --invoke --body body.json",
+      "show": "agc pms batchdeactproduct-harmonyosnext --pretty"
+    }
+  },
+  {
+    "id": "batchdeactpromotion-android",
+    "familyId": "pms",
+    "name": "批量下线商品促销活动",
+    "description": "此接口用于批量下线商品促销活动。",
+    "method": "PUT",
+    "path": "/api/pms/product-price-service/v1/manage/product/promotion/batchDeactive",
+    "command": "agc pms batchdeactpromotion-android",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchdeactpromotion-android-0000002171288629",
+    "officialSlug": "agcapi-batchdeactpromotion-android-0000002171288629",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/pms/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/pms/endpoints/batchdeactpromotion-android",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc pms batchdeactpromotion-android --invoke --body body.json",
+      "show": "agc pms batchdeactpromotion-android --pretty"
+    }
+  },
+  {
+    "id": "batchdeactpromotion-harmonyosnext",
+    "familyId": "pms",
+    "name": "批量下线商品促销活动",
+    "description": "此接口用于批量下线商品促销活动。",
+    "method": "PUT",
+    "path": "/api/pms/product-price-service/v2/manage/product/promotion/batchDeactive",
+    "command": "agc pms batchdeactpromotion-harmonyosnext",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchdeactpromotion-harmonyosnext-0000002131350720",
+    "officialSlug": "agcapi-batchdeactpromotion-harmonyosnext-0000002131350720",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/pms/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/pms/endpoints/batchdeactpromotion-harmonyosnext",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc pms batchdeactpromotion-harmonyosnext --invoke --body body.json",
+      "show": "agc pms batchdeactpromotion-harmonyosnext --pretty"
+    }
+  },
+  {
+    "id": "batchupdateproduct-android",
+    "familyId": "pms",
+    "name": "批量更新商品",
+    "description": "此接口用于批量更新商品定义信息，展示语言，商品价格，促销活动信息。",
+    "method": "PUT",
+    "path": "/api/pms/product-price-service/v1/manage/product/batchImportProducts",
+    "command": "agc pms batchupdateproduct-android",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchupdateproduct-android-0000002171407013",
+    "officialSlug": "agcapi-batchupdateproduct-android-0000002171407013",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/pms/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/pms/endpoints/batchupdateproduct-android",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc pms batchupdateproduct-android --invoke --body body.json",
+      "show": "agc pms batchupdateproduct-android --pretty"
+    }
+  },
+  {
+    "id": "batchupdateproduct-harmonyosnext",
+    "familyId": "pms",
+    "name": "批量更新商品",
+    "description": "此接口用于批量更新商品定义信息，展示语言，商品价格，促销活动信息。",
+    "method": "PUT",
+    "path": "/api/pms/product-price-service/v2/manage/product/batchImportProducts",
+    "command": "agc pms batchupdateproduct-harmonyosnext",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchupdateproduct-harmonyosnext-0000002131508852",
+    "officialSlug": "agcapi-batchupdateproduct-harmonyosnext-0000002131508852",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/pms/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/pms/endpoints/batchupdateproduct-harmonyosnext",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc pms batchupdateproduct-harmonyosnext --invoke --body body.json",
+      "show": "agc pms batchupdateproduct-harmonyosnext --pretty"
+    }
+  },
+  {
+    "id": "bygetproductinfo-android",
+    "familyId": "pms",
+    "name": "按条件查询商品信息",
+    "description": "此接口用于商品查询，支持多条件过滤，根据productNo和AppId唯一查询一个商品信息。",
+    "method": "POST",
+    "path": "/api/pms/product-price-service/v1/manage/product/list",
+    "command": "agc pms bygetproductinfo-android",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetproductinfo-android-0000002135929316",
+    "officialSlug": "agcapi-bygetproductinfo-android-0000002135929316",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/pms/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/pms/endpoints/bygetproductinfo-android",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc pms bygetproductinfo-android --invoke --body body.json",
+      "show": "agc pms bygetproductinfo-android --pretty"
+    }
+  },
+  {
+    "id": "bygetproductinfo-harmonyosnext",
+    "familyId": "pms",
+    "name": "按条件查询商品信息",
+    "description": "此接口用于商品查询，支持多条件过滤，根据productNo和AppId唯一查询一个商品信息。",
+    "method": "POST",
+    "path": "/api/pms/product-price-service/v2/manage/product/list",
+    "command": "agc pms bygetproductinfo-harmonyosnext",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetproductinfo-harmonyosnext-0000002166748609",
+    "officialSlug": "agcapi-bygetproductinfo-harmonyosnext-0000002166748609",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/pms/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/pms/endpoints/bygetproductinfo-harmonyosnext",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc pms bygetproductinfo-harmonyosnext --invoke --body body.json",
+      "show": "agc pms bygetproductinfo-harmonyosnext --pretty"
+    }
+  },
+  {
+    "id": "bygetpromotioninfo-android",
+    "familyId": "pms",
+    "name": "按条件查询商品促销信息",
+    "description": "此接口用于商品促销查询，支持多条件过滤。",
+    "method": "POST",
+    "path": "/api/pms/product-price-service/v1/manage/product/promotion/list",
+    "command": "agc pms bygetpromotioninfo-android",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetpromotioninfo-android-0000002136087416",
+    "officialSlug": "agcapi-bygetpromotioninfo-android-0000002136087416",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/pms/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/pms/endpoints/bygetpromotioninfo-android",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc pms bygetpromotioninfo-android --invoke --body body.json",
+      "show": "agc pms bygetpromotioninfo-android --pretty"
+    }
+  },
+  {
+    "id": "bygetpromotioninfo-harmonyosnext",
+    "familyId": "pms",
+    "name": "按条件查询商品促销信息",
+    "description": "此接口用于商品促销查询，支持多条件过滤。",
+    "method": "POST",
+    "path": "/api/pms/product-price-service/v2/manage/product/promotion/list",
+    "command": "agc pms bygetpromotioninfo-harmonyosnext",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetpromotioninfo-harmonyosnext-0000002166670149",
+    "officialSlug": "agcapi-bygetpromotioninfo-harmonyosnext-0000002166670149",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/pms/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/pms/endpoints/bygetpromotioninfo-harmonyosnext",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc pms bygetpromotioninfo-harmonyosnext --invoke --body body.json",
+      "show": "agc pms bygetpromotioninfo-harmonyosnext --pretty"
+    }
+  },
+  {
+    "id": "getproductgroup-android",
+    "familyId": "pms",
+    "name": "查询商品订阅分组信息",
+    "description": "此接口用于查询商品订阅分组信息。",
+    "method": "POST",
+    "path": "/api/pms/product-price-service/v1/manage/product/group/list",
+    "command": "agc pms getproductgroup-android",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-getproductgroup-android-0000002171407009",
+    "officialSlug": "agcapi-getproductgroup-android-0000002171407009",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/pms/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/pms/endpoints/getproductgroup-android",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc pms getproductgroup-android --invoke --body body.json",
+      "show": "agc pms getproductgroup-android --pretty"
+    }
+  },
+  {
+    "id": "getproductgroup-harmonyosnext",
+    "familyId": "pms",
+    "name": "查询商品订阅分组信息",
+    "description": "此接口用于查询商品订阅分组信息。",
+    "method": "POST",
+    "path": "/api/pms/product-price-service/v2/manage/product/group/list",
+    "command": "agc pms getproductgroup-harmonyosnext",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-getproductgroup-harmonyosnext-0000002131508848",
+    "officialSlug": "agcapi-getproductgroup-harmonyosnext-0000002131508848",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/pms/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/pms/endpoints/getproductgroup-harmonyosnext",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc pms getproductgroup-harmonyosnext --invoke --body body.json",
+      "show": "agc pms getproductgroup-harmonyosnext --pretty"
+    }
+  },
+  {
+    "id": "getproductinfo-android",
+    "familyId": "pms",
+    "name": "查询商品详情",
+    "description": "此接口用于商品详情查询，根据productNo和appId唯一查询一个商品信息。",
+    "method": "GET",
+    "path": "/api/pms/product-price-service/v1/manage/product",
+    "command": "agc pms getproductinfo-android",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-getproductinfo-android-0000002171288609",
+    "officialSlug": "agcapi-getproductinfo-android-0000002171288609",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/pms/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/pms/endpoints/getproductinfo-android",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc pms getproductinfo-android --invoke",
+      "show": "agc pms getproductinfo-android --pretty"
+    }
+  },
+  {
+    "id": "getproductinfo-harmonyosnext",
+    "familyId": "pms",
+    "name": "查询商品详情",
+    "description": "此接口用于商品详情查询，根据productNo和appId唯一查询一个商品信息。",
+    "method": "GET",
+    "path": "/api/pms/product-price-service/v2/manage/product",
+    "command": "agc pms getproductinfo-harmonyosnext",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-getproductinfo-harmonyosnext-0000002131350708",
+    "officialSlug": "agcapi-getproductinfo-harmonyosnext-0000002131350708",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/pms/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/pms/endpoints/getproductinfo-harmonyosnext",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc pms getproductinfo-harmonyosnext --invoke",
+      "show": "agc pms getproductinfo-harmonyosnext --pretty"
+    }
+  },
+  {
+    "id": "getpromotioninfo-android",
+    "familyId": "pms",
+    "name": "查询商品促销详情",
+    "description": "此接口用于查询商品促销信息。",
+    "method": "GET",
+    "path": "/api/pms/product-price-service/v1/manage/product/promotion",
+    "command": "agc pms getpromotioninfo-android",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-getpromotioninfo-android-0000002135929328",
+    "officialSlug": "agcapi-getpromotioninfo-android-0000002135929328",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/pms/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/pms/endpoints/getpromotioninfo-android",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc pms getpromotioninfo-android --invoke",
+      "show": "agc pms getpromotioninfo-android --pretty"
+    }
+  },
+  {
+    "id": "getpromotioninfo-harmonyosnext",
+    "familyId": "pms",
+    "name": "查询商品促销详情",
+    "description": "此接口用于查询商品促销信息。",
+    "method": "GET",
+    "path": "/api/pms/product-price-service/v2/manage/product/promotion",
+    "command": "agc pms getpromotioninfo-harmonyosnext",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-getpromotioninfo-harmonyosnext-0000002166748617",
+    "officialSlug": "agcapi-getpromotioninfo-harmonyosnext-0000002166748617",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/pms/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/pms/endpoints/getpromotioninfo-harmonyosnext",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc pms getpromotioninfo-harmonyosnext --invoke",
+      "show": "agc pms getpromotioninfo-harmonyosnext --pretty"
+    }
+  },
+  {
+    "id": "isproductactive-android",
+    "familyId": "pms",
+    "name": "查询是否有在线商品",
+    "description": "此接口用于根据AppId查询是否有激活的商品。",
+    "method": "GET",
+    "path": "/api/pms/product-price-service/v1/manage/product/check",
+    "command": "agc pms isproductactive-android",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-isproductactive-android-0000002136087412",
+    "officialSlug": "agcapi-isproductactive-android-0000002136087412",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/pms/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/pms/endpoints/isproductactive-android",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc pms isproductactive-android --invoke",
+      "show": "agc pms isproductactive-android --pretty"
+    }
+  },
+  {
+    "id": "isproductactive-harmonyosnext",
+    "familyId": "pms",
+    "name": "查询是否有在线商品",
+    "description": "此接口用于根据AppId查询是否有激活的商品。",
+    "method": "GET",
+    "path": "/api/pms/product-price-service/v2/manage/product/check",
+    "command": "agc pms isproductactive-harmonyosnext",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-isproductactive-harmonyosnext-0000002166670145",
+    "officialSlug": "agcapi-isproductactive-harmonyosnext-0000002166670145",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/pms/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/pms/endpoints/isproductactive-harmonyosnext",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc pms isproductactive-harmonyosnext --invoke",
+      "show": "agc pms isproductactive-harmonyosnext --pretty"
+    }
+  },
+  {
+    "id": "levelgroup-harmonyosnext",
+    "familyId": "pms",
+    "name": "更新商品订阅分组等级信息",
+    "description": "此接口用于更新商品订阅分组等级信息。",
+    "method": "PUT",
+    "path": "/api/pms/product-price-service/v2/manage/product/group/level",
+    "command": "agc pms levelgroup-harmonyosnext",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-levelgroup-harmonyosnext-0000002175107485",
+    "officialSlug": "agcapi-levelgroup-harmonyosnext-0000002175107485",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/pms/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/pms/endpoints/levelgroup-harmonyosnext",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc pms levelgroup-harmonyosnext --invoke --body body.json",
+      "show": "agc pms levelgroup-harmonyosnext --pretty"
+    }
+  },
+  {
+    "id": "resourcemanage-harmonyosnext",
+    "familyId": "pms",
+    "name": "上传资源",
+    "description": "此接口用于提交上传资源。",
+    "method": "POST",
+    "path": "/api/pms/product-price-service/v2/manage/resource",
+    "command": "agc pms resourcemanage-harmonyosnext",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resourcemanage-harmonyosnext-0000002131361792",
+    "officialSlug": "agcapi-resourcemanage-harmonyosnext-0000002131361792",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/pms/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/pms/endpoints/resourcemanage-harmonyosnext",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc pms resourcemanage-harmonyosnext --invoke --body body.json",
+      "show": "agc pms resourcemanage-harmonyosnext --pretty"
+    }
+  },
+  {
+    "id": "reviewproduct-harmonyosnext",
+    "familyId": "pms",
+    "name": "提交商品审核",
+    "description": "此接口用于提交商品审核。",
+    "method": "POST",
+    "path": "/api/pms/product-price-service/v2/manage/product/review",
+    "command": "agc pms reviewproduct-harmonyosnext",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-reviewproduct-harmonyosnext-0000002166681241",
+    "officialSlug": "agcapi-reviewproduct-harmonyosnext-0000002166681241",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/pms/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/pms/endpoints/reviewproduct-harmonyosnext",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc pms reviewproduct-harmonyosnext --invoke --body body.json",
+      "show": "agc pms reviewproduct-harmonyosnext --pretty"
+    }
+  },
+  {
+    "id": "updateproduct-android",
+    "familyId": "pms",
+    "name": "更新商品信息",
+    "description": "此接口用于更新商品定义信息，包含商品价格，展示语言和商品状态。",
+    "method": "PUT",
+    "path": "/api/pms/product-price-service/v1/manage/product",
+    "command": "agc pms updateproduct-android",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-updateproduct-android-0000002136087404",
+    "officialSlug": "agcapi-updateproduct-android-0000002136087404",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/pms/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/pms/endpoints/updateproduct-android",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc pms updateproduct-android --invoke --body body.json",
+      "show": "agc pms updateproduct-android --pretty"
+    }
+  },
+  {
+    "id": "updateproduct-harmonyosnext",
+    "familyId": "pms",
+    "name": "更新商品信息",
+    "description": "此接口用于更新商品定义信息，包含商品价格，展示语言和商品状态。",
+    "method": "PUT",
+    "path": "/api/pms/product-price-service/v2/manage/product",
+    "command": "agc pms updateproduct-harmonyosnext",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-updateproduct-harmonyosnext-0000002166670141",
+    "officialSlug": "agcapi-updateproduct-harmonyosnext-0000002166670141",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/pms/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/pms/endpoints/updateproduct-harmonyosnext",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc pms updateproduct-harmonyosnext --invoke --body body.json",
+      "show": "agc pms updateproduct-harmonyosnext --pretty"
+    }
+  },
+  {
+    "id": "updateproductgroup-android",
+    "familyId": "pms",
+    "name": "更新商品订阅分组信息",
+    "description": "此接口用于更新商品订阅分组信息。",
+    "method": "PUT",
+    "path": "/api/pms/product-price-service/v1/manage/product/group",
+    "command": "agc pms updateproductgroup-android",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-updateproductgroup-android-0000002136087400",
+    "officialSlug": "agcapi-updateproductgroup-android-0000002136087400",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/pms/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/pms/endpoints/updateproductgroup-android",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc pms updateproductgroup-android --invoke --body body.json",
+      "show": "agc pms updateproductgroup-android --pretty"
+    }
+  },
+  {
+    "id": "updateproductgroup-harmonyosnext",
+    "familyId": "pms",
+    "name": "更新商品订阅分组信息",
+    "description": "此接口用于更新商品订阅分组信息。",
+    "method": "PUT",
+    "path": "/api/pms/product-price-service/v2/manage/product/group",
+    "command": "agc pms updateproductgroup-harmonyosnext",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-updateproductgroup-harmonyosnext-0000002166670137",
+    "officialSlug": "agcapi-updateproductgroup-harmonyosnext-0000002166670137",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/pms/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/pms/endpoints/updateproductgroup-harmonyosnext",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc pms updateproductgroup-harmonyosnext --invoke --body body.json",
+      "show": "agc pms updateproductgroup-harmonyosnext --pretty"
+    }
+  },
+  {
+    "id": "updatepromotion-android",
+    "familyId": "pms",
+    "name": "更新商品促销信息",
+    "description": "此接口用于更新商品促销信息。",
+    "method": "PUT",
+    "path": "/api/pms/product-price-service/v1/manage/product/promotion",
+    "command": "agc pms updatepromotion-android",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-updatepromotion-android-0000002171288621",
+    "officialSlug": "agcapi-updatepromotion-android-0000002171288621",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/pms/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/pms/endpoints/updatepromotion-android",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc pms updatepromotion-android --invoke --body body.json",
+      "show": "agc pms updatepromotion-android --pretty"
+    }
+  },
+  {
+    "id": "updatepromotion-harmonyosnext",
+    "familyId": "pms",
+    "name": "更新商品促销信息",
+    "description": "此接口用于更新商品促销信息。",
+    "method": "PUT",
+    "path": "/api/pms/product-price-service/v2/manage/product/promotion",
+    "command": "agc pms updatepromotion-harmonyosnext",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-updatepromotion-harmonyosnext-0000002131350716",
+    "officialSlug": "agcapi-updatepromotion-harmonyosnext-0000002131350716",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/pms/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/pms/endpoints/updatepromotion-harmonyosnext",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc pms updatepromotion-harmonyosnext --invoke --body body.json",
+      "show": "agc pms updatepromotion-harmonyosnext --pretty"
+    }
+  },
+  {
+    "id": "asset-details",
+    "familyId": "gameplay",
+    "name": "查询资产明细",
+    "description": "华为游戏服务器调用此接口查询玩家在玩游戏的资产明细数据，并将信息展示在游戏中心的“在玩”页面上。",
+    "method": "POST",
+    "path": "{callbackUrl}",
+    "command": "agc gameplay asset-details",
+    "requiredParams": [
+      "callbackUrl",
+      "callbackUrl"
+    ],
+    "parameters": [
+      {
+        "name": "callbackUrl",
+        "in": "path",
+        "required": true,
+        "description": "callbackUrl parameter"
+      },
+      {
+        "name": "callbackUrl",
+        "in": "path",
+        "required": true,
+        "description": "callbackUrl parameter"
+      }
+    ],
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect inbound callback reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-asset-details-0000002022225253",
+    "officialSlug": "agcapi-asset-details-0000002022225253",
+    "direction": "inbound-callback",
+    "_links": {
+      "family": {
+        "href": "/api/v1/gameplay/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/gameplay/endpoints/asset-details",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc gameplay asset-details --invoke --body body.json",
+      "show": "agc gameplay asset-details --pretty"
+    }
+  },
+  {
+    "id": "asset-summary",
+    "familyId": "gameplay",
+    "name": "查询资产概要",
+    "description": "华为游戏服务器调用此接口查询玩家在玩游戏的资产概要数据，并将信息展示在游戏中心的“在玩”页面上。",
+    "method": "POST",
+    "path": "{callbackUrl}",
+    "command": "agc gameplay asset-summary",
+    "requiredParams": [
+      "callbackUrl",
+      "callbackUrl"
+    ],
+    "parameters": [
+      {
+        "name": "callbackUrl",
+        "in": "path",
+        "required": true,
+        "description": "callbackUrl parameter"
+      },
+      {
+        "name": "callbackUrl",
+        "in": "path",
+        "required": true,
+        "description": "callbackUrl parameter"
+      }
+    ],
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect inbound callback reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-asset-summary-0000002022105729",
+    "officialSlug": "agcapi-asset-summary-0000002022105729",
+    "direction": "inbound-callback",
+    "_links": {
+      "family": {
+        "href": "/api/v1/gameplay/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/gameplay/endpoints/asset-summary",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc gameplay asset-summary --invoke --body body.json",
+      "show": "agc gameplay asset-summary --pretty"
+    }
+  },
+  {
+    "id": "basic-info",
+    "familyId": "gameplay",
+    "name": "批量查询玩家基本信息",
+    "description": "华为游戏服务器调用此接口批量查询玩家基本信息，并将信息展示在游戏中心的“在玩”页面上。",
+    "method": "POST",
+    "path": "{callbackUrl}",
+    "command": "agc gameplay basic-info",
+    "requiredParams": [
+      "callbackUrl",
+      "callbackUrl"
+    ],
+    "parameters": [
+      {
+        "name": "callbackUrl",
+        "in": "path",
+        "required": true,
+        "description": "callbackUrl parameter"
+      },
+      {
+        "name": "callbackUrl",
+        "in": "path",
+        "required": true,
+        "description": "callbackUrl parameter"
+      }
+    ],
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect inbound callback reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322",
+    "officialSlug": "agcapi-basic-info-0000002038975322",
+    "direction": "inbound-callback",
+    "_links": {
+      "family": {
+        "href": "/api/v1/gameplay/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/gameplay/endpoints/basic-info",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc gameplay basic-info --invoke --body body.json",
+      "show": "agc gameplay basic-info --pretty"
+    }
+  },
+  {
+    "id": "label",
+    "familyId": "gameplay",
+    "name": "查询战绩筛选标签",
+    "description": "华为游戏服务器调用此接口查询玩家在玩游戏战绩的筛选标签，并将信息展示在游戏中心的“在玩”页面上。",
+    "method": "POST",
+    "path": "{callbackUrl}",
+    "command": "agc gameplay label",
+    "requiredParams": [
+      "callbackUrl",
+      "callbackUrl"
+    ],
+    "parameters": [
+      {
+        "name": "callbackUrl",
+        "in": "path",
+        "required": true,
+        "description": "callbackUrl parameter"
+      },
+      {
+        "name": "callbackUrl",
+        "in": "path",
+        "required": true,
+        "description": "callbackUrl parameter"
+      }
+    ],
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect inbound callback reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-label-0000001985625670",
+    "officialSlug": "agcapi-label-0000001985625670",
+    "direction": "inbound-callback",
+    "_links": {
+      "family": {
+        "href": "/api/v1/gameplay/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/gameplay/endpoints/label",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc gameplay label --invoke --body body.json",
+      "show": "agc gameplay label --pretty"
+    }
+  },
+  {
+    "id": "resources",
+    "familyId": "gameplay",
+    "name": "上传/下架游戏资源",
+    "description": "开发者服务器调用此接口同步华为服务器的游戏资源，用于上传或下架“在玩”页面上的图片或视频。",
+    "method": "POST",
+    "path": "/gameservice/api/gbClientApi",
+    "command": "agc gameplay resources",
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725",
+    "officialSlug": "agcapi-resources-0000002022105725",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/gameplay/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/gameplay/endpoints/resources",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc gameplay resources --invoke --body body.json",
+      "show": "agc gameplay resources --pretty"
+    }
+  },
+  {
+    "id": "role-info",
+    "familyId": "gameplay",
+    "name": "批量查询玩家角色信息",
+    "description": "华为游戏服务器调用此接口批量查询玩家角色信息。",
+    "method": "POST",
+    "path": "{callbackUrl}",
+    "command": "agc gameplay role-info",
+    "requiredParams": [
+      "callbackUrl",
+      "callbackUrl"
+    ],
+    "parameters": [
+      {
+        "name": "callbackUrl",
+        "in": "path",
+        "required": true,
+        "description": "callbackUrl parameter"
+      },
+      {
+        "name": "callbackUrl",
+        "in": "path",
+        "required": true,
+        "description": "callbackUrl parameter"
+      }
+    ],
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect inbound callback reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-role-info-0000002075016173",
+    "officialSlug": "agcapi-role-info-0000002075016173",
+    "direction": "inbound-callback",
+    "_links": {
+      "family": {
+        "href": "/api/v1/gameplay/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/gameplay/endpoints/role-info",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc gameplay role-info --invoke --body body.json",
+      "show": "agc gameplay role-info --pretty"
+    }
+  },
+  {
+    "id": "scores",
+    "familyId": "gameplay",
+    "name": "分页查询玩家战绩",
+    "description": "华为游戏服务器调用此接口分页查询玩家在玩游戏的战绩数据，并将信息展示在游戏中心的“在玩”页面上。",
+    "method": "POST",
+    "path": "{callbackUrl}",
+    "command": "agc gameplay scores",
+    "requiredParams": [
+      "callbackUrl",
+      "callbackUrl"
+    ],
+    "parameters": [
+      {
+        "name": "callbackUrl",
+        "in": "path",
+        "required": true,
+        "description": "callbackUrl parameter"
+      },
+      {
+        "name": "callbackUrl",
+        "in": "path",
+        "required": true,
+        "description": "callbackUrl parameter"
+      }
+    ],
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect inbound callback reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-scores-0000001985465938",
+    "officialSlug": "agcapi-scores-0000001985465938",
+    "direction": "inbound-callback",
+    "_links": {
+      "family": {
+        "href": "/api/v1/gameplay/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/gameplay/endpoints/scores",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc gameplay scores --invoke --body body.json",
+      "show": "agc gameplay scores --pretty"
+    }
+  },
+  {
+    "id": "summary",
+    "familyId": "gameplay",
+    "name": "查询游戏概要信息",
+    "description": "华为游戏服务器调用此接口查询玩家在玩游戏的概要数据，并将信息展示在游戏中心的“在玩”页面上。",
+    "method": "POST",
+    "path": "{callbackUrl}",
+    "command": "agc gameplay summary",
+    "requiredParams": [
+      "callbackUrl",
+      "callbackUrl"
+    ],
+    "parameters": [
+      {
+        "name": "callbackUrl",
+        "in": "path",
+        "required": true,
+        "description": "callbackUrl parameter"
+      },
+      {
+        "name": "callbackUrl",
+        "in": "path",
+        "required": true,
+        "description": "callbackUrl parameter"
+      }
+    ],
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect inbound callback reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-summary-0000002022225249",
+    "officialSlug": "agcapi-summary-0000002022225249",
+    "direction": "inbound-callback",
+    "_links": {
+      "family": {
+        "href": "/api/v1/gameplay/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/gameplay/endpoints/summary",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc gameplay summary --invoke --body body.json",
+      "show": "agc gameplay summary --pretty"
+    }
+  },
+  {
+    "id": "propapi-getroleinfo",
+    "familyId": "game-items",
+    "name": "查询玩家区服角色",
+    "description": "此接口用于查询玩家区服角色信息。",
+    "method": "POST",
+    "path": "{callbackUrl}",
+    "command": "agc game-items propapi-getroleinfo",
+    "requiredParams": [
+      "callbackUrl",
+      "callbackUrl"
+    ],
+    "parameters": [
+      {
+        "name": "callbackUrl",
+        "in": "path",
+        "required": true,
+        "description": "callbackUrl parameter"
+      },
+      {
+        "name": "callbackUrl",
+        "in": "path",
+        "required": true,
+        "description": "callbackUrl parameter"
+      }
+    ],
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect inbound callback reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377",
+    "officialSlug": "agcapi-propapi-getroleinfo-0000002355255377",
+    "direction": "inbound-callback",
+    "_links": {
+      "family": {
+        "href": "/api/v1/game-items/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/game-items/endpoints/propapi-getroleinfo",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc game-items propapi-getroleinfo --invoke --body body.json",
+      "show": "agc game-items propapi-getroleinfo --pretty"
+    }
+  },
+  {
+    "id": "propapi-order",
+    "familyId": "game-items",
+    "name": "下单",
+    "description": "下单",
+    "method": "POST",
+    "path": "{callbackUrl}",
+    "command": "agc game-items propapi-order",
+    "requiredParams": [
+      "callbackUrl",
+      "callbackUrl"
+    ],
+    "parameters": [
+      {
+        "name": "callbackUrl",
+        "in": "path",
+        "required": true,
+        "description": "callbackUrl parameter"
+      },
+      {
+        "name": "callbackUrl",
+        "in": "path",
+        "required": true,
+        "description": "callbackUrl parameter"
+      }
+    ],
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect inbound callback reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-order-0000002321296666",
+    "officialSlug": "agcapi-propapi-order-0000002321296666",
+    "direction": "inbound-callback",
+    "_links": {
+      "family": {
+        "href": "/api/v1/game-items/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/game-items/endpoints/propapi-order",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc game-items propapi-order --invoke --body body.json",
+      "show": "agc game-items propapi-order --pretty"
+    }
+  },
+  {
+    "id": "respackapi-addversion",
+    "familyId": "resources",
+    "name": "新增资源包版本",
+    "description": "创建“使用华为CDN”方式的资源包预下载任务。",
+    "method": "POST",
+    "path": "/api/games-background-assets-service/v1/open-gw/dev/{devId}/package-versions",
+    "command": "agc resources respackapi-addversion",
+    "requiredParams": [
+      "devId"
+    ],
+    "parameters": [
+      {
+        "name": "devId",
+        "in": "path",
+        "required": true,
+        "description": "devId parameter"
+      }
+    ],
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-addversion-0000002328396224",
+    "officialSlug": "agcapi-respackapi-addversion-0000002328396224",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/resources/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/resources/endpoints/respackapi-addversion",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc resources respackapi-addversion --invoke --body body.json",
+      "show": "agc resources respackapi-addversion --pretty"
+    }
+  },
+  {
+    "id": "respackapi-deletefile",
+    "familyId": "resources",
+    "name": "删除资源包文件",
+    "description": "删除资源包任务文件，要求该资源包任务为下线状态。",
+    "method": "DELETE",
+    "path": "/api/games-background-assets-service/v1/open-gw/dev/{devId}/package-files",
+    "command": "agc resources respackapi-deletefile",
+    "requiredParams": [
+      "devId"
+    ],
+    "parameters": [
+      {
+        "name": "devId",
+        "in": "path",
+        "required": true,
+        "description": "devId parameter"
+      }
+    ],
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-deletefile-0000002328396228",
+    "officialSlug": "agcapi-respackapi-deletefile-0000002328396228",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/resources/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/resources/endpoints/respackapi-deletefile",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc resources respackapi-deletefile --invoke",
+      "show": "agc resources respackapi-deletefile --pretty"
+    }
+  },
+  {
+    "id": "respackapi-getversion",
+    "familyId": "resources",
+    "name": "查询资源包版本",
+    "description": "查询指定游戏下所有资源包版本的详细信息。",
+    "method": "GET",
+    "path": "/api/games-background-assets-service/v1/open-gw/dev/{devId}/package-versions",
+    "command": "agc resources respackapi-getversion",
+    "requiredParams": [
+      "devId"
+    ],
+    "parameters": [
+      {
+        "name": "devId",
+        "in": "path",
+        "required": true,
+        "description": "devId parameter"
+      }
+    ],
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-getversion-0000002362274745",
+    "officialSlug": "agcapi-respackapi-getversion-0000002362274745",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/resources/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/resources/endpoints/respackapi-getversion",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc resources respackapi-getversion --invoke",
+      "show": "agc resources respackapi-getversion --pretty"
+    }
+  },
+  {
+    "id": "respackapi-modifyversion",
+    "familyId": "resources",
+    "name": "修改资源包版本",
+    "description": "若isDraft传参为0，提交资源包预下载任务。",
+    "method": "PUT",
+    "path": "/api/games-background-assets-service/v1/open-gw/dev/{devId}/package-versions",
+    "command": "agc resources respackapi-modifyversion",
+    "requiredParams": [
+      "devId"
+    ],
+    "parameters": [
+      {
+        "name": "devId",
+        "in": "path",
+        "required": true,
+        "description": "devId parameter"
+      }
+    ],
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-modifyversion-0000002328236372",
+    "officialSlug": "agcapi-respackapi-modifyversion-0000002328236372",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/resources/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/resources/endpoints/respackapi-modifyversion",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc resources respackapi-modifyversion --invoke --body body.json",
+      "show": "agc resources respackapi-modifyversion --pretty"
+    }
+  },
+  {
+    "id": "respackapi-queryfile",
+    "familyId": "resources",
+    "name": "查询资源包文件",
+    "description": "查询资源包文件。",
+    "method": "GET",
+    "path": "/api/games-background-assets-service/v1/open-gw/dev/{devId}/package-files",
+    "command": "agc resources respackapi-queryfile",
+    "requiredParams": [
+      "devId"
+    ],
+    "parameters": [
+      {
+        "name": "devId",
+        "in": "path",
+        "required": true,
+        "description": "devId parameter"
+      }
+    ],
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-queryfile-0000002362274749",
+    "officialSlug": "agcapi-respackapi-queryfile-0000002362274749",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/resources/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/resources/endpoints/respackapi-queryfile",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc resources respackapi-queryfile --invoke",
+      "show": "agc resources respackapi-queryfile --pretty"
+    }
+  },
+  {
+    "id": "respackapi-releaseversion",
+    "familyId": "resources",
+    "name": "发布资源包版本",
+    "description": "发布资源包下载任务。",
+    "method": "POST",
+    "path": "/api/games-background-assets-service/v1/open-gw/dev/{devId}/package-version/publish",
+    "command": "agc resources respackapi-releaseversion",
+    "requiredParams": [
+      "devId"
+    ],
+    "parameters": [
+      {
+        "name": "devId",
+        "in": "path",
+        "required": true,
+        "description": "devId parameter"
+      }
+    ],
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-releaseversion-0000002362394637",
+    "officialSlug": "agcapi-respackapi-releaseversion-0000002362394637",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/resources/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/resources/endpoints/respackapi-releaseversion",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc resources respackapi-releaseversion --invoke --body body.json",
+      "show": "agc resources respackapi-releaseversion --pretty"
+    }
+  },
+  {
+    "id": "respackapi-uploadapplyfor",
+    "familyId": "resources",
+    "name": "资源包文件上传申请",
+    "description": "获取上传地址和必要参数，根据申请返回的信息完成文件上传。",
+    "method": "POST",
+    "path": "/api/games-background-assets-service/v1/open-gw/dev/{devId}/package-file/apply",
+    "command": "agc resources respackapi-uploadapplyfor",
+    "requiredParams": [
+      "devId"
+    ],
+    "parameters": [
+      {
+        "name": "devId",
+        "in": "path",
+        "required": true,
+        "description": "devId parameter"
+      }
+    ],
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadapplyfor-0000002328236376",
+    "officialSlug": "agcapi-respackapi-uploadapplyfor-0000002328236376",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/resources/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/resources/endpoints/respackapi-uploadapplyfor",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc resources respackapi-uploadapplyfor --invoke --body body.json",
+      "show": "agc resources respackapi-uploadapplyfor --pretty"
+    }
+  },
+  {
+    "id": "respackapi-uploadconfirm",
+    "familyId": "resources",
+    "name": "资源包文件上传确认",
+    "description": "确认资源包文件已上传。",
+    "method": "POST",
+    "path": "/api/games-background-assets-service/v1/open-gw/dev/{devId}/package-file/confirm",
+    "command": "agc resources respackapi-uploadconfirm",
+    "requiredParams": [
+      "devId"
+    ],
+    "parameters": [
+      {
+        "name": "devId",
+        "in": "path",
+        "required": true,
+        "description": "devId parameter"
+      }
+    ],
+    "body": "json",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadconfirm-0000002362394641",
+    "officialSlug": "agcapi-respackapi-uploadconfirm-0000002362394641",
+    "direction": "developer-to-huawei",
+    "_links": {
+      "family": {
+        "href": "/api/v1/resources/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/resources/endpoints/respackapi-uploadconfirm",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc resources respackapi-uploadconfirm --invoke --body body.json",
+      "show": "agc resources respackapi-uploadconfirm --pretty"
+    }
+  },
+  {
+    "id": "build-hvigor",
+    "familyId": "cicd",
+    "name": "本地 Hvigor 构建",
+    "description": "Run local HarmonyOS Hvigor build and return artifact metadata.",
+    "method": "POST",
+    "path": "/local/hvigor/build",
+    "command": "agc cicd build-hvigor",
+    "requiredParams": [
+      "project"
+    ],
+    "parameters": [
+      {
+        "name": "project",
+        "in": "body",
+        "required": true,
+        "description": "project parameter"
+      }
+    ],
+    "body": "project",
+    "status": "registered",
+    "source": "agc-cli local integration",
+    "sourceUrl": "docs/AGC_CLI_FULL_PLAN.md",
+    "officialSlug": "local-hvigor-build",
+    "direction": "local",
+    "_links": {
+      "family": {
+        "href": "/api/v1/cicd/endpoints",
+        "method": "GET"
+      },
+      "self": {
+        "href": "/api/v1/cicd/endpoints/build-hvigor",
+        "method": "GET"
+      }
+    },
+    "affordances": {
+      "invoke": "agc cicd build-hvigor --invoke --body body.json",
+      "show": "agc cicd build-hvigor --pretty"
+    }
+  }
+]

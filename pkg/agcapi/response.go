@@ -57,6 +57,8 @@ func responseResults(data []byte) []responseResult {
 	}
 	add(nested("ret"), "code", "msg", "message")
 	add(root, "rtnCode", "rtnDesc", "rtnMsg", "message", "msg")
+	// 某些测试接口同时返回 rtnCode 和 businessCode；子业务失败也必须报错。
+	add(root, "businessCode", "rtnDesc", "rtnMsg", "message", "msg")
 	add(nested("error"), "errorCode", "errorMsg", "errorMessage", "message", "msg")
 	add(root, "code", "message", "msg", "error")
 	add(nested("errorDetail"), "code", "message", "msg")

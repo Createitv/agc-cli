@@ -165,12 +165,19 @@ func invokeEndpoint(w http.ResponseWriter, r *http.Request, familyID, endpointID
 		return
 	}
 	body, err := requestBody(payload)
+	if len(payload.Body) == 0 && len(payload.Fields) > 0 {
+		body, err = agcapi.MarshalEndpointFields(endpoint, payload.Fields)
+	}
 	if err != nil {
 		writeJSON(w, http.StatusBadRequest, domain.ErrorEnvelope{Error: domain.ErrorDetail{Code: "invalid_body", Message: err.Error()}})
 		return
 	}
 	if err := validateInvokeParameters(endpoint, payload.Params, payload.Query, payload.Headers, payload.Fields, body); err != nil {
 		writeJSON(w, http.StatusBadRequest, domain.ErrorEnvelope{Error: domain.ErrorDetail{Code: "missing_parameter", Message: err.Error()}})
+		return
+	}
+	if err := agcapi.ValidateEndpointBody(endpoint, body); err != nil {
+		writeJSON(w, http.StatusBadRequest, domain.ErrorEnvelope{Error: domain.ErrorDetail{Code: "invalid_body", Message: err.Error()}})
 		return
 	}
 	dryRun := true

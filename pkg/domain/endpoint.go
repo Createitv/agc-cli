@@ -23,6 +23,9 @@ type Endpoint struct {
 }
 
 type Parameter struct {
+	MinItems    int    `json:"minItems,omitempty"`
+	MaxItems    int    `json:"maxItems,omitempty"`
+	ItemsType   string `json:"itemsType,omitempty"`
 	Type        string `json:"type,omitempty"`
 	Format      string `json:"format,omitempty"`
 	Name        string `json:"name"`
