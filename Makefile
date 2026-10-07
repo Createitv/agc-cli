@@ -4,7 +4,7 @@ COVERAGE_MIN ?= 80
 
 GORELEASER ?= go run github.com/goreleaser/goreleaser/v2@v2.17.1
 
-.PHONY: build test coverage coverage-check lint ci web-install web-test web-build release-snapshot release-snapshot-docker
+.PHONY: check-docs build test coverage coverage-check lint ci web-install web-test web-build release-snapshot release-snapshot-docker
 
 build:
 	$(GO) build -o bin/agc ./cmd/agc
@@ -32,7 +32,10 @@ web-test:
 web-build:
 	$(NPM) --prefix apps/web run build
 
-ci: lint coverage-check web-test web-build
+check-docs:
+	python3 scripts/check-docs.py
+
+ci: check-docs lint coverage-check web-test web-build
 
 release-snapshot:
 	$(GORELEASER) release --snapshot --clean --skip=docker
