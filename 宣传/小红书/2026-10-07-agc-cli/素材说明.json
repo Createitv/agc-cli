@@ -1,0 +1,28 @@
+{
+  "reference": "docs/community/assets/agc-cli-cover.png",
+  "generation": "Built-in image generation tool; aiimages entry not available",
+  "images": [
+    {
+      "file": "01-封面.png",
+      "width": 1086,
+      "height": 1448,
+      "sha256": "f38d32c64c71489165ac213a8e046bfb88b818a3082dce2bbfc4096304db0a80",
+      "source": "/Users/tnt/Documents/Github/项目/林逍遥/agc-cli/docs/community/assets/agc-cli-cover-zh-CN-xiaohongshu.png"
+    },
+    {
+      "file": "02-应用资料管理.png",
+      "width": 1086,
+      "height": 1448,
+      "sha256": "84ba05638da8270407ea2576ca7120f9ff83c36458e546eb563c965c7a0fa48b",
+      "source": "/Users/tnt/.codex/generated_images/01a11409-6c00-7163-a665-786d8e5bc9cc/exec-9195fadd-5496-4711-84f0-cd77989f5f35.png"
+    },
+    {
+      "file": "03-发行包上传与状态.png",
+      "width": 1086,
+      "height": 1448,
+      "sha256": "f277da0933a4c5b9391d3426c58fbd4319d7111b29549f3024a2c35139359f9e",
+      "source": "/Users/tnt/.codex/generated_images/01a11409-6c00-7163-a665-786d8e5bc9cc/exec-882ed30d-af9d-44a3-96c0-0aff38036e8b.png"
+    }
+  ],
+  "published": false
+}
