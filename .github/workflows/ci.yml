@@ -9,6 +9,16 @@ permissions:
   contents: read
 
 jobs:
+  docs:
+    name: Docs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: make check-docs
+
   test:
     runs-on: ubuntu-latest
     steps:
@@ -23,6 +33,6 @@ jobs:
           cache: npm
           cache-dependency-path: apps/web/package-lock.json
       - run: go mod download
-      - run: npm --prefix apps/web install
+      - run: npm --prefix apps/web ci
       - run: make ci
 
