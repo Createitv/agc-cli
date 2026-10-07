@@ -38,10 +38,6 @@ jobs:
         include:
           - os: ubuntu-latest
             go: '1.22'
-        go: [stable]
-        include:
-          - os: ubuntu-latest
-            go: '1.22'
     runs-on: ${{ matrix.os }}
     timeout-minutes: 25
     defaults:
