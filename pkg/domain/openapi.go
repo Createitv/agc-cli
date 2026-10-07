@@ -41,18 +41,21 @@ func OpenAPISpec() map[string]any {
 		"info": map[string]any{
 			"title":       "agc-cli local REST API",
 			"version":     "0.1.0",
-			"description": "Local REST and OpenAPI contract for the Huawei AppGallery Connect CLI command center.",
+			"description": "Local REST and OpenAPI contract for the Huawei AppGallery Connect CLI command center. All routes require X-AGC-Server-Token when AGC_SERVER_TOKEN is configured; otherwise local server authentication is optional. Huawei upstream credentials are supplied in the invoke JSON token or headers fields.",
 		},
 		"servers": []map[string]string{
 			{"url": "http://localhost:8421"},
 		},
-		"paths": paths,
+		"paths":                    paths,
+		"security":                 []map[string][]string{{}, {"localServerToken": {}}},
+		"x-agc-auth-required-when": "AGC_SERVER_TOKEN is configured",
 		"components": map[string]any{
 			"securitySchemes": map[string]any{
-				"bearerAuth": map[string]string{
-					"type":         "http",
-					"scheme":       "bearer",
-					"bearerFormat": "Huawei AppGallery Connect access token",
+				"localServerToken": map[string]string{
+					"type":        "apiKey",
+					"in":          "header",
+					"name":        "X-AGC-Server-Token",
+					"description": "Required on every local route when AGC_SERVER_TOKEN is configured. This token authenticates the local server, not Huawei.",
 				},
 			},
 		},
@@ -79,11 +82,11 @@ func endpointOperation(prefix string, endpoint Endpoint, summaryPrefix string, t
 					"schema": map[string]any{
 						"type":       "object",
 						"properties": invokeRequestSchemaProperties(endpoint),
+						"required":   invokeRequiredContainers(endpoint),
 					},
 				},
 			},
 		}
-		op["security"] = []map[string][]string{{"bearerAuth": []string{}}}
 	}
 	return op
 }
@@ -111,8 +114,42 @@ func invokeRequestSchemaProperties(endpoint Endpoint) map[string]any {
 		"headers": map[string]any{"type": "object", "additionalProperties": map[string]string{"type": "string"}},
 		"fields":  map[string]any{"type": "object", "additionalProperties": map[string]string{"type": "string"}},
 		"body":    map[string]any{"description": "Raw JSON request body for the Huawei endpoint."},
-		"token":   map[string]string{"type": "string"},
+		"token":   map[string]string{"type": "string", "description": "Huawei upstream access token; separate from the local X-AGC-Server-Token header."},
 		"dryRun":  map[string]string{"type": "boolean"},
+	}
+	for _, parameter := range endpoint.Parameters {
+		container := ""
+		switch parameter.In {
+		case "header":
+			container = "headers"
+		case "query":
+			container = "query"
+		case "path":
+			container = "params"
+		case "file":
+			container = "fields"
+		}
+		if container == "" {
+			continue
+		}
+		object := properties[container].(map[string]any)
+		known, ok := object["properties"].(map[string]any)
+		if !ok {
+			known = map[string]any{}
+			object["properties"] = known
+		}
+		known[parameter.Name] = map[string]any{"type": "string", "description": parameter.Description, "x-huawei-required": parameter.Required}
+		// Local query/header maps hold strings; preserve upstream types separately.
+		if parameter.Type != "" {
+			known[parameter.Name].(map[string]any)["x-huawei-type"] = parameter.Type
+		}
+		if parameter.Format != "" {
+			known[parameter.Name].(map[string]any)["x-huawei-format"] = parameter.Format
+		}
+		if parameter.Required {
+			required, _ := object["required"].([]string)
+			object["required"] = append(required, parameter.Name)
+		}
 	}
 	if methodNeedsBody(endpoint.Method) {
 		properties["body"] = map[string]any{
@@ -133,4 +170,32 @@ func exportedID(id string) string {
 		parts[i] = strings.ToUpper(part[:1]) + part[1:]
 	}
 	return strings.Join(parts, "")
+}
+
+func invokeRequiredContainers(endpoint Endpoint) []string {
+	required := []string{}
+	seen := map[string]bool{}
+	for _, parameter := range endpoint.Parameters {
+		if !parameter.Required {
+			continue
+		}
+		container := ""
+		switch parameter.In {
+		case "header":
+			container = "headers"
+		case "query":
+			container = "query"
+		case "path":
+			container = "params"
+		case "file":
+			container = "fields"
+		case "body":
+			container = "body"
+		}
+		if container != "" && !seen[container] {
+			required = append(required, container)
+			seen[container] = true
+		}
+	}
+	return required
 }

@@ -71,3 +71,69 @@ func TestEndpointParametersAreClassified(t *testing.T) {
 		t.Fatal("updatepromotion-harmonyosnext should declare a body")
 	}
 }
+
+func TestVerifiedEndpointParameterContracts(t *testing.T) {
+	cases := []struct {
+		family, id, name, location string
+		required                   bool
+	}{
+		{"provisioning", "provision-api-get-fingerprints", "appId", "header", true},
+		{"provisioning", "provision-api-getacl", "appId", "header", true},
+		{"domains", "domain-api-get-domain", "appId", "header", true},
+		{"domains", "domain-api-get-domain", "category", "query", true},
+		{"testing", "test-api-get-test-grouplist", "appId", "header", true},
+		{"testing", "test-api-query-test-user", "appId", "header", true},
+		{"testing", "test-api-query-test-user", "groupId", "header", true},
+		{"upload", "upload-url-new", "contentLength", "query", true},
+		{"upload", "upload-url-new", "appId", "query", false},
+		{"upload", "upload-url-new", "suffix", "query", false},
+		{"upload", "upload-url-new", "fileName", "query", false},
+		{"publishing", "app-info-query", "appId", "query", true},
+		{"publishing", "app-info-query", "lang", "query", false},
+		{"projects", "queryservice", "projectId", "query", true},
+		{"projects", "queryservice", "appID", "query", true},
+		{"reports", "appdownloadexport", "language", "query", false},
+		{"reports", "appdownloadexport", "startTime", "query", false},
+		{"reports", "appdownloadexport", "endTime", "query", false},
+		{"reports", "iapexport", "currency", "query", true},
+		{"reports", "orderanalysisexport", "teamId", "header", true},
+	}
+	for _, tc := range cases {
+		t.Run(tc.id+"/"+tc.name, func(t *testing.T) {
+			ep, ok := EndpointByID(tc.family, tc.id)
+			if !ok {
+				t.Fatal("missing endpoint")
+			}
+			for _, p := range ep.Parameters {
+				if p.Name == tc.name {
+					if p.In != tc.location || p.Required != tc.required {
+						t.Fatalf("parameter = %#v", p)
+					}
+					return
+				}
+			}
+			t.Fatalf("missing parameter %s", tc.name)
+		})
+	}
+}
+
+func TestHarmonyOSCommentsRequireMillisecondQueryWindow(t *testing.T) {
+	for _, id := range []string{"comapi-getreviews-harmonyos", "com-rating-harmonyos"} {
+		ep, _ := EndpointByID("comments", id)
+		found := map[string]Parameter{}
+		for _, parameter := range ep.Parameters {
+			found[parameter.Name] = parameter
+		}
+		for _, name := range []string{"appId", "beginTime", "endTime", "countries"} {
+			parameter, ok := found[name]
+			if !ok || parameter.In != "query" || !parameter.Required {
+				t.Fatalf("%s %s = %#v", id, name, parameter)
+			}
+		}
+		for _, name := range []string{"beginTime", "endTime"} {
+			if found[name].Type != "integer" || found[name].Format != "int64" {
+				t.Fatalf("%s timestamp = %#v", id, found[name])
+			}
+		}
+	}
+}

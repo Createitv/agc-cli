@@ -8,6 +8,7 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"os"
 	"sort"
 	"strings"
 
@@ -20,6 +21,7 @@ type InvokeRequest struct {
 	Params      map[string]string `json:"params,omitempty"`
 	Query       map[string]string `json:"query,omitempty"`
 	Headers     map[string]string `json:"headers,omitempty"`
+	FilePath    string            `json:"filePath,omitempty"`
 	Body        []byte            `json:"-"`
 	AccessToken string            `json:"-"`
 	DryRun      bool              `json:"dryRun"`
@@ -44,14 +46,38 @@ func InvokeEndpoint(ctx context.Context, client *http.Client, req InvokeRequest)
 		return InvokeResponse{}, err
 	}
 	result := InvokeResponse{Method: req.Endpoint.Method, URL: url, DryRun: req.DryRun}
+	signedUpload := req.Endpoint.Method == http.MethodPut && req.Endpoint.Path == "{uploadUrl}" && (req.Endpoint.ID == "upload-file-new" || req.Endpoint.ID == "obbfile-upload")
+	var body io.Reader = bytes.NewReader(req.Body)
+	var fileSize int64
+	if req.FilePath != "" {
+		if !signedUpload {
+			return result, fmt.Errorf("file upload is unsupported for endpoint %s", req.Endpoint.ID)
+		}
+		if len(req.Body) > 0 {
+			return result, fmt.Errorf("file upload cannot also specify a JSON body")
+		}
+		file, openErr := os.Open(req.FilePath)
+		if openErr != nil {
+			return result, fmt.Errorf("open upload file: %w", openErr)
+		}
+		defer file.Close()
+		info, statErr := file.Stat()
+		if statErr != nil {
+			return result, fmt.Errorf("stat upload file: %w", statErr)
+		}
+		if !info.Mode().IsRegular() {
+			return result, fmt.Errorf("upload file must be a regular file")
+		}
+		body, fileSize = file, info.Size()
+	}
 	if req.DryRun {
 		return result, nil
 	}
-	httpReq, err := http.NewRequestWithContext(ctx, req.Endpoint.Method, url, bytes.NewReader(req.Body))
+	httpReq, err := http.NewRequestWithContext(ctx, req.Endpoint.Method, url, body)
 	if err != nil {
 		return InvokeResponse{}, err
 	}
-	if req.AccessToken != "" {
+	if req.AccessToken != "" && !signedUpload {
 		httpReq.Header.Set("Authorization", "Bearer "+req.AccessToken)
 	}
 	for key, value := range req.Headers {
@@ -59,8 +85,18 @@ func InvokeEndpoint(ctx context.Context, client *http.Client, req InvokeRequest)
 			httpReq.Header.Set(key, value)
 		}
 	}
-	if len(req.Body) > 0 {
-		httpReq.Header.Set("Content-Type", "application/json")
+	if req.FilePath != "" {
+		httpReq.ContentLength = fileSize
+		if fileSize == 0 {
+			httpReq.Body = http.NoBody
+		}
+	}
+	if httpReq.Header.Get("Content-Type") == "" {
+		if signedUpload {
+			httpReq.Header.Set("Content-Type", "application/octet-stream")
+		} else if len(req.Body) > 0 {
+			httpReq.Header.Set("Content-Type", "application/json")
+		}
 	}
 	resp, err := client.Do(httpReq)
 	if err != nil {
@@ -80,7 +116,7 @@ func InvokeEndpoint(ctx context.Context, client *http.Client, req InvokeRequest)
 		encoded, _ := json.Marshal(string(data))
 		result.Body = encoded
 	}
-	if resp.StatusCode >= 400 {
+	if resp.StatusCode >= 400 || businessFailure(data) {
 		return result, ParseAGCError(resp.StatusCode, data)
 	}
 	return result, nil

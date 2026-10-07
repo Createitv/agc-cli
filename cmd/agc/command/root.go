@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"net"
 	"net/http"
 	"os"
 	"strings"
@@ -110,10 +111,14 @@ func openAPICommand(opts *options) *cobra.Command {
 
 func authCommand(opts *options) *cobra.Command {
 	var serviceAccountFile string
+	var apiClientFile string
+	var activate bool
 	var clientID string
 	var clientKey string
 	var name string
 	var credentialsPath string
+	var remote bool
+	var checkBaseURL string
 	cmd := &cobra.Command{Use: "auth", Short: "Manage AppGallery Connect credentials"}
 	login := &cobra.Command{
 		Use:   "login",
@@ -127,6 +132,17 @@ func authCommand(opts *options) *cobra.Command {
 				mode = "api-client"
 			}
 			credential := agcapi.Credential{Name: name, Mode: mode, ServiceAccountFile: serviceAccountFile, ClientID: clientID, ClientKey: clientKey}
+			if apiClientFile != "" {
+				if cmd.Flags().Changed("client-id") || cmd.Flags().Changed("client-key") || cmd.Flags().Changed("service-account-file") {
+					return fmt.Errorf("--api-client-file cannot be combined with --client-id, --client-key, or --service-account-file")
+				}
+				imported, err := agcapi.LoadAPIClientCredential(apiClientFile)
+				if err != nil {
+					return err
+				}
+				imported.Name = name
+				credential = imported
+			}
 			if err := agcapi.ValidateCredential(credential); err != nil {
 				return err
 			}
@@ -134,12 +150,19 @@ func authCommand(opts *options) *cobra.Command {
 			if err != nil {
 				return err
 			}
-			if err := agcapi.SaveCredential(path, credential); err != nil {
+			if err := agcapi.SaveCredentialWithActivation(path, credential, activate); err != nil {
 				return err
 			}
-			return output.Write(cmd.OutOrStdout(), domain.Envelope[agcapi.Credential]{Data: credential}, output.Format(opts.output), opts.pretty)
+			saved, err := agcapi.LoadCredentials(path)
+			if err != nil {
+				return err
+			}
+			credential, _ = agcapi.CredentialByName(saved, name)
+			return output.Write(cmd.OutOrStdout(), domain.Envelope[agcapi.CredentialView]{Data: credential.View()}, output.Format(opts.output), opts.pretty)
 		},
 	}
+	login.Flags().StringVar(&apiClientFile, "api-client-file", "", "API client JSON file with client_id/client_secret or clientId/clientKey")
+	login.Flags().BoolVar(&activate, "activate", true, "Make this profile active; false preserves the current active profile")
 	login.Flags().StringVar(&serviceAccountFile, "service-account-file", "", "Path to Huawei service account JSON")
 	login.Flags().StringVar(&clientID, "client-id", "", "API client ID")
 	login.Flags().StringVar(&clientKey, "client-key", "", "API client key")
@@ -158,7 +181,11 @@ func authCommand(opts *options) *cobra.Command {
 			if err != nil {
 				return err
 			}
-			return output.Write(cmd.OutOrStdout(), domain.Envelope[[]agcapi.Credential]{Data: store.Accounts}, output.Format(opts.output), opts.pretty)
+			views := make([]agcapi.CredentialView, 0, len(store.Accounts))
+			for _, credential := range store.Accounts {
+				views = append(views, credential.View())
+			}
+			return output.Write(cmd.OutOrStdout(), domain.Envelope[[]agcapi.CredentialView]{Data: views}, output.Format(opts.output), opts.pretty)
 		},
 	}
 	list.Flags().StringVar(&credentialsPath, "credentials-path", "", "Override credentials file path")
@@ -182,10 +209,66 @@ func authCommand(opts *options) *cobra.Command {
 			if !ok {
 				return fmt.Errorf("no active credential profile")
 			}
-			return output.Write(cmd.OutOrStdout(), domain.Envelope[agcapi.Credential]{Data: credential}, output.Format(opts.output), opts.pretty)
+			if remote {
+				ctx, cancel := context.WithTimeout(cmd.Context(), opts.timeout)
+				defer cancel()
+				token, err := agcapi.AccessToken(ctx, nil, checkBaseURL, credential)
+				if err != nil {
+					return fmt.Errorf("remote token generation: %w", err)
+				}
+				config, err := project.Load(opts.project)
+				if err != nil && !os.IsNotExist(err) {
+					return fmt.Errorf("load project context: %w", err)
+				}
+				projectID := config.ProjectID
+				if projectID == "" && credential.Mode == "service-account" {
+					account, err := agcapi.LoadServiceAccount(credential.ServiceAccountFile)
+					if err != nil {
+						return err
+					}
+					projectID = account.ProjectID
+				}
+				if credential.Mode == "api-client" && config.AppID == "" {
+					return output.Write(cmd.OutOrStdout(), domain.Envelope[map[string]any]{Data: map[string]any{"credential": credential.View(), "tokenVerified": true, "readVerified": false, "remoteVerified": false, "message": "Token verified; run agc init --app-id to verify app read permission."}}, output.Format(opts.output), opts.pretty)
+				}
+				endpointID := "queryprojectlist"
+				family := "projects"
+				query := map[string]string{}
+				params := map[string]string{}
+				if projectID != "" {
+					endpointID = "queryprojectdetail"
+					params["projectId"] = projectID
+				}
+				if credential.Mode == "api-client" {
+					endpointID = "app-info-query"
+					family = "publishing"
+					params = map[string]string{}
+					query["appId"] = config.AppID
+					query["lang"] = "en-US"
+				}
+				var endpoint domain.Endpoint
+				for _, candidate := range domain.EndpointsByFamily(family) {
+					if candidate.ID == endpointID {
+						endpoint = candidate
+						break
+					}
+				}
+				headers := map[string]string{}
+				if credential.ClientID != "" {
+					headers["client_id"] = credential.ClientID
+				}
+				response, err := agcapi.InvokeEndpoint(ctx, nil, agcapi.InvokeRequest{Endpoint: endpoint, BaseURL: checkBaseURL, Params: params, Query: query, Headers: headers, AccessToken: token.AccessToken})
+				if err != nil {
+					return fmt.Errorf("remote authorization check: %w", err)
+				}
+				return output.Write(cmd.OutOrStdout(), domain.Envelope[map[string]any]{Data: map[string]any{"credential": credential.View(), "remoteVerified": true, "tokenVerified": true, "readVerified": true, "endpoint": endpointID, "statusCode": response.StatusCode}}, output.Format(opts.output), opts.pretty)
+			}
+			return output.Write(cmd.OutOrStdout(), domain.Envelope[agcapi.CredentialView]{Data: credential.View()}, output.Format(opts.output), opts.pretty)
 		},
 	}
 	check.Flags().StringVar(&credentialsPath, "credentials-path", "", "Override credentials file path")
+	check.Flags().BoolVar(&remote, "remote", false, "Verify token and available app or project read permission")
+	check.Flags().StringVar(&checkBaseURL, "base-url", "https://connect-api.cloud.huawei.com", "Connect API base URL for remote verification")
 	token := &cobra.Command{
 		Use:   "token",
 		Short: "Create an AppGallery Connect authorization token for the active credential",
@@ -251,8 +334,12 @@ func webServerCommand() *cobra.Command {
 		Use:   "web-server",
 		Short: "Start the local REST API for Command Center and agents",
 		RunE: func(cmd *cobra.Command, args []string) error {
-			srv := &http.Server{Addr: addr, Handler: server.Handler(), ReadHeaderTimeout: 5 * time.Second}
-			cmd.Printf("agc web-server listening on http://localhost%s\n", addr)
+			serverToken := os.Getenv("AGC_SERVER_TOKEN")
+			if !loopbackListenAddress(addr) && serverToken == "" {
+				return fmt.Errorf("non-loopback listening requires AGC_SERVER_TOKEN; set it or use --addr 127.0.0.1:8421")
+			}
+			srv := &http.Server{Addr: addr, Handler: server.HandlerWithToken(serverToken), ReadHeaderTimeout: 5 * time.Second}
+			cmd.Printf("agc web-server listening on http://%s\n", addr)
 			go func() {
 				<-cmd.Context().Done()
 				ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
@@ -265,7 +352,7 @@ func webServerCommand() *cobra.Command {
 			return nil
 		},
 	}
-	cmd.Flags().StringVar(&addr, "addr", ":8421", "Listen address")
+	cmd.Flags().StringVar(&addr, "addr", "127.0.0.1:8421", "Listen address")
 	return cmd
 }
 
@@ -334,6 +421,7 @@ func endpointCommand(opts *options, endpoint domain.Endpoint) *cobra.Command {
 	var headers []string
 	var fields []string
 	var bodyFile string
+	var uploadFile string
 	var baseURL string
 	var invoke bool
 	var dryRun bool
@@ -363,6 +451,52 @@ func endpointCommand(opts *options, endpoint domain.Endpoint) *cobra.Command {
 			if err != nil {
 				return err
 			}
+			config, configErr := project.Load(opts.project)
+			if configErr != nil && !os.IsNotExist(configErr) {
+				return fmt.Errorf("load project context: %w", configErr)
+			}
+			for _, parameter := range endpoint.Parameters {
+				value := ""
+				switch parameter.Name {
+				case "appId", "appID":
+					value = config.AppID
+				case "projectId":
+					value = config.ProjectID
+				}
+				if value != "" {
+					switch parameter.In {
+					case "path":
+						if paramMap[parameter.Name] == "" {
+							paramMap[parameter.Name] = value
+						}
+					case "query":
+						if queryMap[parameter.Name] == "" {
+							queryMap[parameter.Name] = value
+						}
+					case "header":
+						if !hasHeader(headerMap, parameter.Name) {
+							headerMap[parameter.Name] = value
+						}
+					case "body":
+						if bodyFile == "" && fieldMap[parameter.Name] == "" {
+							fieldMap[parameter.Name] = value
+						}
+					}
+				}
+			}
+			var bodyFields map[string]json.RawMessage
+			if bodyFile != "" {
+				bodyData, err := os.ReadFile(bodyFile)
+				if err != nil {
+					return err
+				}
+				if err := json.Unmarshal(bodyData, &bodyFields); err != nil {
+					return fmt.Errorf("body must be a JSON object: %w", err)
+				}
+				if bodyFields == nil {
+					return fmt.Errorf("body must be a JSON object")
+				}
+			}
 			for _, parameter := range endpoint.Parameters {
 				if !parameter.Required {
 					continue
@@ -377,15 +511,15 @@ func endpointCommand(opts *options, endpoint domain.Endpoint) *cobra.Command {
 						return fmt.Errorf("missing --query %s=value", parameter.Name)
 					}
 				case "header":
-					if headerMap[parameter.Name] == "" {
+					if !hasHeaderValue(headerMap, parameter.Name) {
 						return fmt.Errorf("missing --header %s=value", parameter.Name)
 					}
 				case "body":
-					if bodyFile == "" && fieldMap[parameter.Name] == "" {
+					if (bodyFile == "" && fieldMap[parameter.Name] == "") || (bodyFile != "" && (len(bodyFields[parameter.Name]) == 0 || string(bodyFields[parameter.Name]) == "null" || string(bodyFields[parameter.Name]) == `""`)) {
 						return fmt.Errorf("missing --field %s=value or --body", parameter.Name)
 					}
 				case "file":
-					if paramMap[parameter.Name] == "" && fieldMap[parameter.Name] == "" && bodyFile == "" {
+					if paramMap[parameter.Name] == "" && fieldMap[parameter.Name] == "" && bodyFile == "" && uploadFile == "" {
 						return fmt.Errorf("missing --param %s=value, --field %s=value, or --body", parameter.Name, parameter.Name)
 					}
 				}
@@ -404,13 +538,18 @@ func endpointCommand(opts *options, endpoint domain.Endpoint) *cobra.Command {
 					}
 				}
 			}
-			if token == "" {
+			explicitAuthHeader := hasHeaderValue(headerMap, "Authorization") || hasHeaderValue(headerMap, "oauth2Token")
+			if token == "" && !explicitAuthHeader {
 				token = os.Getenv("AGC_ACCESS_TOKEN")
 			}
 			ctx, cancel := context.WithTimeout(cmd.Context(), opts.timeout)
 			defer cancel()
-			if token == "" && !dryRun {
-				token, err = endpointAccessToken(ctx, opts, credentialsPath, baseURL)
+			if token == "" && !explicitAuthHeader && !dryRun && endpoint.Path != "{uploadUrl}" {
+				var clientID string
+				token, clientID, err = endpointAuthorization(ctx, opts, credentialsPath, baseURL)
+				if clientID != "" && !hasHeader(headerMap, "client_id") {
+					headerMap["client_id"] = clientID
+				}
 				if err != nil {
 					return err
 				}
@@ -422,6 +561,7 @@ func endpointCommand(opts *options, endpoint domain.Endpoint) *cobra.Command {
 				Query:       queryMap,
 				Headers:     headerMap,
 				Body:        body,
+				FilePath:    uploadFile,
 				AccessToken: token,
 				DryRun:      dryRun,
 			})
@@ -442,6 +582,7 @@ func endpointCommand(opts *options, endpoint domain.Endpoint) *cobra.Command {
 	cmd.Flags().StringArrayVar(&headers, "header", nil, "HTTP header as key=value; repeatable")
 	cmd.Flags().StringArrayVar(&fields, "field", nil, "JSON body field as key=value; repeatable")
 	cmd.Flags().StringVar(&bodyFile, "body", "", "JSON body file")
+	cmd.Flags().StringVar(&uploadFile, "file", "", "Raw file for signed upload endpoints")
 	cmd.Flags().StringVar(&baseURL, "base-url", "https://connect-api.cloud.huawei.com", "Connect API base URL")
 	cmd.Flags().StringVar(&token, "token", "", "Bearer token; defaults to AGC_ACCESS_TOKEN")
 	cmd.Flags().StringVar(&credentialsPath, "credentials-path", "", "Override credentials file path")
@@ -451,27 +592,27 @@ func endpointCommand(opts *options, endpoint domain.Endpoint) *cobra.Command {
 	return cmd
 }
 
-func endpointAccessToken(ctx context.Context, opts *options, credentialsPathOverride, baseURL string) (string, error) {
+func endpointAuthorization(ctx context.Context, opts *options, credentialsPathOverride, baseURL string) (string, string, error) {
 	path, err := credentialPath(credentialsPathOverride)
 	if err != nil {
-		return "", err
+		return "", "", err
 	}
 	store, err := agcapi.LoadCredentials(path)
 	if err != nil {
-		return "", err
+		return "", "", err
 	}
 	credential, ok, err := resolveCredential(opts, store)
 	if err != nil {
-		return "", err
+		return "", "", err
 	}
 	if !ok {
-		return "", fmt.Errorf("no active credential profile; pass --token, set AGC_ACCESS_TOKEN, or run agc auth login")
+		return "", "", fmt.Errorf("no active credential profile; pass --token, set AGC_ACCESS_TOKEN, or run agc auth login")
 	}
 	token, err := agcapi.AccessToken(ctx, nil, baseURL, credential)
 	if err != nil {
-		return "", err
+		return "", "", err
 	}
-	return token.AccessToken, nil
+	return token.AccessToken, credential.ClientID, nil
 }
 
 func resolveCredential(opts *options, store agcapi.CredentialStore) (agcapi.Credential, bool, error) {
@@ -485,8 +626,14 @@ func resolveCredential(opts *options, store agcapi.CredentialStore) (agcapi.Cred
 		}
 	}
 	if profileName == "" {
+		profileName = os.Getenv("AGC_PROFILE")
+	}
+	if profileName == "" {
 		credential, ok := agcapi.ActiveCredential(store)
-		return credential, ok, nil
+		if ok {
+			return credential, true, nil
+		}
+		return agcapi.CredentialFromEnvironment()
 	}
 	credential, ok := agcapi.CredentialByName(store, profileName)
 	if !ok {
@@ -515,4 +662,34 @@ func credentialPath(override string) (string, error) {
 		return path, nil
 	}
 	return agcapi.CredentialsPath()
+}
+
+func hasHeader(headers map[string]string, name string) bool {
+	for key := range headers {
+		if strings.EqualFold(key, name) {
+			return true
+		}
+	}
+	return false
+}
+
+func hasHeaderValue(headers map[string]string, name string) bool {
+	for key, value := range headers {
+		if strings.EqualFold(key, name) && value != "" {
+			return true
+		}
+	}
+	return false
+}
+
+func loopbackListenAddress(addr string) bool {
+	host, _, err := net.SplitHostPort(addr)
+	if err != nil {
+		return false
+	}
+	if strings.EqualFold(host, "localhost") {
+		return true
+	}
+	ip := net.ParseIP(host)
+	return ip != nil && ip.IsLoopback()
 }

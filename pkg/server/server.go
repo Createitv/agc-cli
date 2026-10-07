@@ -2,6 +2,8 @@ package server
 
 import (
 	"context"
+	"crypto/sha256"
+	"crypto/subtle"
 	"encoding/json"
 	"fmt"
 	"net/http"
@@ -13,6 +15,12 @@ import (
 )
 
 func Handler() http.Handler {
+	return HandlerWithToken("")
+}
+
+// HandlerWithToken protects the local command API when the operator exposes it
+// beyond loopback. This token is separate from Huawei authorization credentials.
+func HandlerWithToken(token string) http.Handler {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/api/v1", root)
 	mux.HandleFunc("/api/v1/capabilities", capabilities)
@@ -20,7 +28,18 @@ func Handler() http.Handler {
 	mux.HandleFunc("/api/v1/openapi.json", openapi)
 	mux.HandleFunc("/api/v1/", resource)
 	mux.HandleFunc("/api/run", run)
-	return mux
+	if token == "" {
+		return mux
+	}
+	expected := sha256.Sum256([]byte(token))
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		provided := sha256.Sum256([]byte(r.Header.Get("X-AGC-Server-Token")))
+		if subtle.ConstantTimeCompare(expected[:], provided[:]) != 1 {
+			writeJSON(w, http.StatusUnauthorized, domain.ErrorEnvelope{Error: domain.ErrorDetail{Code: "server_auth_required", Message: "valid X-AGC-Server-Token required"}})
+			return
+		}
+		mux.ServeHTTP(w, r)
+	})
 }
 
 func root(w http.ResponseWriter, r *http.Request) {
@@ -207,11 +226,18 @@ func validateInvokeParameters(endpoint domain.Endpoint, params, query, headers, 
 				return endpointParamError("query", parameter.Name)
 			}
 		case "header":
-			if headers[parameter.Name] == "" {
+			found := false
+			for name, value := range headers {
+				if strings.EqualFold(name, parameter.Name) && value != "" {
+					found = true
+				}
+			}
+			if !found {
 				return endpointParamError("headers", parameter.Name)
 			}
 		case "body":
-			if len(body) == 0 && fields[parameter.Name] == "" {
+			var object map[string]json.RawMessage
+			if json.Unmarshal(body, &object) != nil || len(object[parameter.Name]) == 0 || string(object[parameter.Name]) == "null" || string(object[parameter.Name]) == `""` {
 				return endpointParamError("fields", parameter.Name)
 			}
 		case "file":

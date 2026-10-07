@@ -15,7 +15,13 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  validation:
+    uses: ./.github/workflows/ci.yml
+    permissions:
+      contents: read
+
   release:
+    needs: validation
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -46,6 +52,19 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TAP_GITHUB_TOKEN: ${{ secrets.TAP_GITHUB_TOKEN }}
+      - name: Download validation evidence
+        uses: actions/download-artifact@v4
+        with:
+          pattern: test-report-*
+          path: release-evidence
+      - name: Attach validation evidence to version
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          tag=$(git describe --tags --exact-match)
+          printf 'Commit: %s\nValidation run: %s/%s/actions/runs/%s\n' "$GITHUB_SHA" "$GITHUB_SERVER_URL" "$GITHUB_REPOSITORY" "$GITHUB_RUN_ID" > release-evidence/VALIDATION.txt
+          zip -r validation-reports.zip release-evidence
+          gh release upload "$tag" validation-reports.zip --clobber
       - name: Publish install commands
         run: |
           {
