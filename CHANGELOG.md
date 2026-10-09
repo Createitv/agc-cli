@@ -6,6 +6,10 @@ User-visible changes are listed here. Published binaries and versions are availa
 
 ## Unreleased
 
+### Added
+
+- `agc skills add` installs the bundled, self-contained agc-cli skill for Copilot, Claude Code, or Codex.
+
 ## v0.2.0 — 2026-10-07
 
 ### Added

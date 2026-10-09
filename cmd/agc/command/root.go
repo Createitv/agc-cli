@@ -2,11 +2,13 @@ package command
 
 import (
 	"context"
+	_ "embed"
 	"encoding/json"
 	"fmt"
 	"net"
 	"net/http"
 	"os"
+	"path/filepath"
 	"strings"
 	"time"
 
@@ -53,6 +55,7 @@ func NewRootCommand() *cobra.Command {
 	cmd.AddCommand(initCommand(opts))
 	cmd.AddCommand(webServerCommand())
 	cmd.AddCommand(docsCommand(opts))
+	cmd.AddCommand(skillsCommand(opts))
 	for _, capability := range domain.DecoratedCapabilities() {
 		cmd.AddCommand(moduleCommand(opts, capability))
 	}
@@ -353,6 +356,91 @@ func webServerCommand() *cobra.Command {
 		},
 	}
 	cmd.Flags().StringVar(&addr, "addr", "127.0.0.1:8421", "Listen address")
+	return cmd
+}
+
+//go:embed assets/agc-cli/SKILL.md
+var agcCLISkill []byte
+
+func skillsCommand(opts *options) *cobra.Command {
+	cmd := &cobra.Command{
+		Use:   "skills",
+		Short: "Install agent skills",
+	}
+	var agent string
+	var force bool
+	add := &cobra.Command{
+		Use:   "add",
+		Short: "Add the agc-cli skill to an agent",
+		Args:  cobra.NoArgs,
+		RunE: func(cmd *cobra.Command, args []string) error {
+			agentDirs := map[string]string{
+				"copilot": ".github/skills",
+				"claude":  ".claude/skills",
+				"codex":   ".agents/skills",
+			}
+			agents := []string{agent}
+			if agent == "all" {
+				agents = []string{"copilot", "claude", "codex"}
+			}
+			for _, name := range agents {
+				if _, ok := agentDirs[name]; !ok {
+					return fmt.Errorf("unsupported agent %q; choose copilot, claude, codex, or all", name)
+				}
+			}
+
+			type skillInstall struct {
+				Agent string `json:"agent"`
+				Path  string `json:"path"`
+			}
+			paths := make([]string, 0, len(agents))
+			for _, name := range agents {
+				path := filepath.Join(agentDirs[name], "agc-cli", "SKILL.md")
+				info, err := os.Lstat(filepath.Join(opts.project, path))
+				if err == nil && !force {
+					return fmt.Errorf("skill already exists at %s; use --force to replace it", path)
+				} else if err == nil && info.IsDir() {
+					return fmt.Errorf("skill destination %s is a directory", path)
+				} else if err != nil && !os.IsNotExist(err) {
+					return fmt.Errorf("check skill destination %s: %w", path, err)
+				}
+				paths = append(paths, path)
+			}
+
+			installed := make([]skillInstall, 0, len(agents))
+			for i, path := range paths {
+				destination := filepath.Join(opts.project, path)
+				if err := os.MkdirAll(filepath.Dir(destination), 0755); err != nil {
+					return fmt.Errorf("create skill directory %s: %w", filepath.Dir(destination), err)
+				}
+				if force {
+					if err := os.Remove(destination); err != nil && !os.IsNotExist(err) {
+						return fmt.Errorf("replace skill at %s: %w", path, err)
+					}
+				}
+				file, err := os.OpenFile(destination, os.O_WRONLY|os.O_CREATE|os.O_EXCL, 0644)
+				if err != nil {
+					return fmt.Errorf("install skill at %s: %w", path, err)
+				}
+				_, writeErr := file.Write(agcCLISkill)
+				closeErr := file.Close()
+				if writeErr != nil {
+					_ = os.Remove(destination)
+					return fmt.Errorf("write skill at %s: %w", path, writeErr)
+				}
+				if closeErr != nil {
+					_ = os.Remove(destination)
+					return fmt.Errorf("close skill at %s: %w", path, closeErr)
+				}
+				installed = append(installed, skillInstall{Agent: agents[i], Path: filepath.ToSlash(path)})
+			}
+			return output.Write(cmd.OutOrStdout(), domain.Envelope[[]skillInstall]{Data: installed}, output.Format(opts.output), opts.pretty)
+		},
+	}
+	add.Flags().StringVar(&agent, "agent", "", "Target agent: copilot, claude, codex, or all")
+	add.Flags().BoolVar(&force, "force", false, "Replace an existing agc-cli skill")
+	_ = add.MarkFlagRequired("agent")
+	cmd.AddCommand(add)
 	return cmd
 }
 

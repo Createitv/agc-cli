@@ -46,7 +46,7 @@ agc publishing app-info-query --invoke --query appId=YOUR_APP_ID --query lang=zh
 }
 ```
 
-默认 JSON；人工浏览可加 `--output table` 或 `--output markdown`。`agc web-server` 提供本地 REST API。命令模板需要补齐参数，当前不会根据远程业务状态判断能否提交。详见 [Agent 与 REST 使用说明](docs/CLI_USAGE.md#json-与-agent-支持)。
+默认 JSON；人工浏览可加 `--output table` 或 `--output markdown`。运行 `agc skills add --agent copilot` 安装内置 skill，也可用 `--agent all` 安装到 Copilot、Claude Code 和 Codex。`agc web-server` 提供本地 REST API。命令模板需要补齐参数，当前不会根据远程业务状态判断能否提交。详见 [Agent 与 REST 使用说明](docs/CLI_USAGE.md#json-与-agent-支持)。
 
 ## 功能覆盖
 

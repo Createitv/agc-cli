@@ -233,6 +233,16 @@ agc publishing app-info-query --pretty
 
 Endpoint definitions include `_links` to local REST routes and `affordances` with next-command templates. Agents can inspect the definition and `sourceUrl`, fill in parameters, and preview requests. Templates do not confirm that business prerequisites are satisfied.
 
+Install the bundled `agc-cli` skill into an agent's skill directory in the selected project:
+
+```bash
+agc --project . skills add --agent copilot
+# Or install for all supported agents: copilot, claude, and codex
+agc --project . skills add --agent all
+```
+
+The command creates `.github/skills/agc-cli`, `.claude/skills/agc-cli`, or `.agents/skills/agc-cli` as appropriate. Existing skills are left unchanged unless `--force` is specified. Run `agc skills add --help` for details.
+
 ## Web, REST, and OpenAPI
 
 Browse static endpoint references at [agccli.app](https://agccli.app/). For local REST data, start the API and Web development server from the source checkout:
