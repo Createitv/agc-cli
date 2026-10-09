@@ -117,6 +117,97 @@ func TestVersionCommand(t *testing.T) {
 	}
 }
 
+func TestSkillsAddInstallsForAllAgents(t *testing.T) {
+	projectDir := t.TempDir()
+	out, err := execute("--project", projectDir, "skills", "add", "--agent", "all")
+	if err != nil {
+		t.Fatal(err)
+	}
+	var body domain.Envelope[[]struct {
+		Agent string `json:"agent"`
+		Path  string `json:"path"`
+	}]
+	if err := json.Unmarshal([]byte(out), &body); err != nil {
+		t.Fatal(err)
+	}
+	want := map[string]string{
+		"copilot": ".github/skills/agc-cli/SKILL.md",
+		"claude":  ".claude/skills/agc-cli/SKILL.md",
+		"codex":   ".agents/skills/agc-cli/SKILL.md",
+	}
+	if len(body.Data) != len(want) {
+		t.Fatalf("installed %d skills, want %d", len(body.Data), len(want))
+	}
+	for _, skill := range body.Data {
+		if want[skill.Agent] != skill.Path {
+			t.Errorf("installed agent/path = %q/%q", skill.Agent, skill.Path)
+		}
+		content, err := os.ReadFile(filepath.Join(projectDir, filepath.FromSlash(skill.Path)))
+		if err != nil {
+			t.Fatal(err)
+		}
+		if string(content) != string(agcCLISkill) {
+			t.Errorf("%s skill differs from embedded skill", skill.Agent)
+		}
+	}
+}
+
+func TestSkillsAddDoesNotReplaceUnlessForced(t *testing.T) {
+	projectDir := t.TempDir()
+	destination := filepath.Join(projectDir, ".claude", "skills", "agc-cli", "SKILL.md")
+	if err := os.MkdirAll(filepath.Dir(destination), 0755); err != nil {
+		t.Fatal(err)
+	}
+	const existing = "existing skill"
+	if err := os.WriteFile(destination, []byte(existing), 0644); err != nil {
+		t.Fatal(err)
+	}
+	if _, err := execute("--project", projectDir, "skills", "add", "--agent", "claude"); err == nil {
+		t.Fatal("expected existing skill error")
+	}
+	content, err := os.ReadFile(destination)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if string(content) != existing {
+		t.Fatalf("existing skill changed to %q", content)
+	}
+	if _, err := execute("--project", projectDir, "skills", "add", "--agent", "claude", "--force"); err != nil {
+		t.Fatal(err)
+	}
+	content, err = os.ReadFile(destination)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if string(content) != string(agcCLISkill) {
+		t.Fatal("forced skill does not match embedded content")
+	}
+}
+
+func TestSkillsAddRejectsUnsupportedAgent(t *testing.T) {
+	if _, err := execute("skills", "add", "--agent", "unknown"); err == nil {
+		t.Fatal("expected unsupported agent error")
+	}
+}
+
+func TestSkillsAddDoesNotReplaceDirectory(t *testing.T) {
+	projectDir := t.TempDir()
+	destination := filepath.Join(projectDir, ".agents", "skills", "agc-cli", "SKILL.md")
+	if err := os.MkdirAll(destination, 0755); err != nil {
+		t.Fatal(err)
+	}
+	if _, err := execute("--project", projectDir, "skills", "add", "--agent", "codex", "--force"); err == nil {
+		t.Fatal("expected directory destination error")
+	}
+	info, err := os.Stat(destination)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if !info.IsDir() {
+		t.Fatal("destination directory was replaced")
+	}
+}
+
 func TestEveryRegisteredCommandHasHelp(t *testing.T) {
 	root := NewRootCommand()
 	for _, cmd := range root.Commands() {

@@ -46,7 +46,7 @@ Endpoint definitions include `affordances` command templates and `_links` REST r
 }
 ```
 
-JSON is the default; add `--output table` or `--output markdown` for people. `agc web-server` exposes a local REST API. Templates require parameters and currently do not check remote business state to determine submission readiness. More in the [agent and REST guide](docs/CLI_USAGE.en.md#json-and-agents).
+JSON is the default; add `--output table` or `--output markdown` for people. Install the bundled skill with `agc skills add --agent copilot` (or `--agent all` for Copilot, Claude Code, and Codex). `agc web-server` exposes a local REST API. Templates require parameters and currently do not check remote business state to determine submission readiness. More in the [agent and REST guide](docs/CLI_USAGE.en.md#json-and-agents).
 
 ## What It Covers
 

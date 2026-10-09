@@ -233,6 +233,16 @@ agc publishing app-info-query --pretty
 
 接口定义中的 `_links` 提供本地 REST 路由，`affordances` 提供后续命令模板。Agent 可先读取定义和 `sourceUrl`，补齐参数后预览请求。模板并不表示业务前置条件已经满足。
 
+可将内置的 `agc-cli` skill 安装到项目中的 Agent skill 目录：
+
+```bash
+agc --project . skills add --agent copilot
+# 或安装到所有支持的 Agent：copilot、claude 和 codex
+agc --project . skills add --agent all
+```
+
+命令会按目标创建 `.github/skills/agc-cli`、`.claude/skills/agc-cli` 或 `.agents/skills/agc-cli`。默认不覆盖已有 skill；使用 `--force` 才会替换。运行 `agc skills add --help` 查看详情。
+
 ## Web、REST 与 OpenAPI
 
 [agccli.app](https://agccli.app/) 可浏览静态接口参考。要读取本地 REST 数据，在源码仓库启动服务和 Web 开发服务器：
