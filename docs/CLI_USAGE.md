@@ -16,7 +16,7 @@ brew install agc-cli
 agc version
 ```
 
-Windows 和 Linux 用户见[安装与升级](#安装与升级)。使用发布版安装包不需要 Go 或 Node.js。
+Windows 和 Linux 用户见[安装与升级](#安装与升级)。NPM 安装需要 Node.js 18+；其他发布版安装方式不需要 Go 或 Node.js。
 
 ### 2. 保存凭据
 
@@ -116,6 +116,17 @@ scoop update agc-cli
 ```
 
 Winget 发布记录见 [manifest PR](https://github.com/microsoft/winget-pkgs/pull/415361)。使用前可运行 `winget search --id Createitv.AgcCli -e` 确认可用性。
+
+### Windows / macOS / Linux：NPM
+
+适合已统一安装 Node.js 18+ 的无人值守 CI 环境：
+
+```bash
+npm install --global @createitv/agc-cli
+agc version
+```
+
+需要固定版本时使用 `npm install --global @createitv/agc-cli@1.2.3`。该包不运行 `postinstall`，也不会在安装阶段另行访问 GitHub；五个受支持平台的官方二进制均包含在同一个 NPM 包中，因此可使用企业 NPM 镜像或预热的 NPM 缓存。当前支持 macOS/Linux amd64、arm64 和 Windows amd64。
 
 ### macOS / Linux / Windows：Release 安装包
 
@@ -292,7 +303,7 @@ make ci
 
 主要目录：`cmd/agc/command`（CLI）、`pkg/agcapi`（鉴权与 HTTP）、`pkg/domain`（接口注册表）、`pkg/server`（本地 REST）、`apps/web`（网站）。欢迎通过 [Pull Request](https://github.com/Createitv/agc-cli/pulls) 改进命令、文档和测试。
 
-工具自身的发布配置见 [.goreleaser.yaml](../.goreleaser.yaml) 和 [Release workflow](../.github/workflows/release.yml)：`v*` tag 触发发布，配置包含 Release 安装包与校验文件、Homebrew、Scoop、Winget manifest PR 和 GHCR 镜像。Homebrew/Scoop/Winget 发布需要 `TAP_GITHUB_TOKEN`。实际发布结果以 Actions 和 Release 页面为准。
+工具自身的发布配置见 [.goreleaser.yaml](../.goreleaser.yaml)、[Release workflow](../.github/workflows/release.yml) 和 [NPM workflow](../.github/workflows/npm.yml)：`v*` tag 触发 Release，稳定版发布完成后再从已校验的 Release 资产构建 NPM 包。Homebrew/Scoop/Winget 发布需要 `TAP_GITHUB_TOKEN`；NPM 使用 npm Trusted Publishing。实际发布结果以 Actions、Release 页面和 npm registry 回读为准。
 
 ## 许可证
 

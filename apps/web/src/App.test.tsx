@@ -39,9 +39,19 @@ describe('App', () => {
     fireEvent.click(screen.getByRole('button', { name: '安装' }));
 
     expect(screen.getByRole('dialog', { name: '像普通 CLI 工具一样安装 agc。' })).toBeInTheDocument();
-    expect(screen.getAllByText(/brew install agc-cli/).length).toBeGreaterThan(1);
+    expect(screen.getAllByText(/npm install --global @createitv\/agc-cli/).length).toBeGreaterThan(1);
+    expect(screen.getAllByText(/brew install agc-cli/).length).toBeGreaterThan(0);
     expect(screen.getAllByText(/scoop install agc-cli/).length).toBeGreaterThan(0);
     expect(document.documentElement).toHaveAttribute('lang', 'zh-CN');
+  });
+
+  it('presents NPM as the default cross-platform CI installation', () => {
+    render(<App />);
+    expect(screen.getByText('Windows · macOS · Linux CI')).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: 'Install' }));
+    expect(screen.getByRole('tab', { name: 'NPM · all platforms' })).toHaveAttribute('aria-selected', 'true');
+    expect(screen.getByRole('dialog')).toHaveTextContent('npm install --global @createitv/agc-cli && agc version');
+    expect(screen.getByText(/without lifecycle install scripts/i)).toBeInTheDocument();
   });
 
   it('shows the complete selected family without a local API server', async () => {

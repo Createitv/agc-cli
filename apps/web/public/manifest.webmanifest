@@ -1,7 +1,7 @@
 {
   "name": "agc CLI",
   "short_name": "agc CLI",
-  "description": "Install agc CLI with Homebrew or Scoop and automate AppGallery Connect releases.",
+  "description": "Install agc CLI with NPM, Homebrew, or Scoop and automate AppGallery Connect releases.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#080809",

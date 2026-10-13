@@ -16,7 +16,7 @@ brew install agc-cli
 agc version
 ```
 
-For Windows and Linux, see [installation and upgrades](#installation-and-upgrades). Release binaries require neither Go nor Node.js.
+For Windows and Linux, see [installation and upgrades](#installation-and-upgrades). NPM installation requires Node.js 18+; the other release methods require neither Go nor Node.js.
 
 ### 2. Save credentials
 
@@ -116,6 +116,17 @@ scoop update agc-cli
 ```
 
 See the [Winget manifest PR](https://github.com/microsoft/winget-pkgs/pull/415361) for its publishing history. Check availability with `winget search --id Createitv.AgcCli -e` before using it.
+
+### Windows / macOS / Linux: NPM
+
+For unattended CI environments that already provide Node.js 18 or later:
+
+```bash
+npm install --global @createitv/agc-cli
+agc version
+```
+
+Pin a release with `npm install --global @createitv/agc-cli@1.2.3`. The package has no `postinstall` script and makes no separate GitHub request during installation. It contains the official binaries for all five supported targets, so an internal npm mirror or pre-warmed npm cache can serve it. Supported targets are macOS/Linux amd64 and arm64, plus Windows amd64.
 
 ### macOS / Linux / Windows: release archives
 
@@ -294,7 +305,7 @@ make ci
 
 Key directories: `cmd/agc/command` (CLI), `pkg/agcapi` (auth/HTTP), `pkg/domain` (registry), `pkg/server` (local REST), and `apps/web` (website). Contributions through [pull requests](https://github.com/Createitv/agc-cli/pulls) are welcome.
 
-For releases of the CLI itself, see [.goreleaser.yaml](../.goreleaser.yaml) and the [Release workflow](../.github/workflows/release.yml). A `v*` tag triggers publishing. Configuration includes release archives/checksums, Homebrew, Scoop, a Winget manifest PR, and GHCR images. Homebrew/Scoop/Winget publishing requires `TAP_GITHUB_TOKEN`. Actions and release pages show actual publishing results.
+For releases of the CLI itself, see [.goreleaser.yaml](../.goreleaser.yaml), the [Release workflow](../.github/workflows/release.yml), and the [NPM workflow](../.github/workflows/npm.yml). A `v*` tag triggers the Release; after a stable Release is published, the NPM workflow builds from its checksum-verified assets. Homebrew/Scoop/Winget publishing requires `TAP_GITHUB_TOKEN`; NPM uses npm Trusted Publishing. Check Actions, the Release page, and npm registry readback for actual publishing results.
 
 ## License
 

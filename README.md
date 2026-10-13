@@ -14,10 +14,11 @@
 
 ## 快速开始
 
-需要应用 ID 和 Service Account JSON，可在 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 管理应用和凭据。macOS 使用 Homebrew：
+需要应用 ID 和 Service Account JSON，可在 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 管理应用和凭据。macOS 可使用 Homebrew；已安装 Node.js 18+ 的 Windows、macOS、Linux CI 也可使用 NPM：
 
 ```bash
 brew tap createitv/tap && brew install agc-cli
+# 跨平台 CI：npm install --global @createitv/agc-cli
 
 agc auth login --service-account-file ~/.agc/service-account.json --name production
 agc init --app-id YOUR_APP_ID --default-profile production

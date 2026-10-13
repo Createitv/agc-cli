@@ -1,6 +1,6 @@
 export type SiteLanguage = 'zh' | 'en';
 export const siteOrigin = 'https://agccli.app';
-export const updated = '2026-10-07';
+export const updated = '2026-10-13';
 export const content = {
   zh: {
     title: 'agc-cli：鸿蒙与华为 AppGallery Connect 开源命令行工具',
@@ -10,7 +10,7 @@ export const content = {
     source: '项目与使用指南', faq: '常见问题', updated: '内容更新',
     faqs: [
       { q: 'agc-cli 是华为官方工具吗？', a: '不是。agc-cli 是 Createitv 维护的独立开源项目，使用 MIT 许可证。它基于华为 AppGallery Connect API 参考文档组织接口，不代表华为官方产品或官方支持服务。' },
-      { q: '如何在 macOS、Windows 和 Linux 安装 agc-cli？', a: 'macOS：brew tap createitv/tap，然后 brew install agc-cli。Windows：scoop bucket add createitv https://github.com/Createitv/scoop-bucket，然后 scoop install agc-cli。Linux：从 GitHub Releases 下载适合架构的二进制。安装后运行 agc version 检查版本。' },
+      { q: '如何在 macOS、Windows 和 Linux 安装 agc-cli？', a: '已安装 Node.js 18+ 时，三个系统都可运行 npm install --global @createitv/agc-cli。macOS 也可使用 Homebrew，Windows 也可使用 Scoop。安装后运行 agc version 检查版本。' },
       { q: 'agc-cli 免费吗，需要付费账号吗？', a: 'agc-cli 使用 MIT 许可证，可免费使用和修改。调用华为 API 需要自己的 AppGallery Connect 账号、凭据和相应权限；华为平台服务的费用和限制以华为说明为准。浏览官网接口和使用 CLI 查看接口定义无需登录。' },
       { q: '如何开始第一次应用信息查询？', a: '先用 agc auth login --service-account-file ~/.agc/service-account.json --name production 保存凭据，再用 agc init --app-id YOUR_APP_ID --default-profile production 绑定项目。运行 agc publishing app-info-query --invoke --query appId=YOUR_APP_ID --query lang=zh-CN 预演请求，确认后增加 --dry-run=false 发送请求。接口要求 client_id 时显式补上请求头。' },
       { q: '156 个接口是否都完成了生产验证？', a: '156 表示注册表中的接口条目数量，分属 13 个 API 家族，不代表每个接口都已完成生产验证。注册表展示已登记参数和调用入口；完整请求、响应、权限与业务前置条件以每个接口链接的参考文档为准。' },
@@ -27,7 +27,7 @@ export const content = {
     source: 'Project and guides', faq: 'Frequently asked questions', updated: 'Content updated',
     faqs: [
       { q: 'Is agc-cli an official Huawei tool?', a: 'No. agc-cli is an independent open-source project maintained by Createitv under the MIT license. It organizes endpoints using Huawei AppGallery Connect API references and is not an official Huawei product or support service.' },
-      { q: 'How do I install agc-cli on macOS, Windows, or Linux?', a: 'On macOS, run brew tap createitv/tap, then brew install agc-cli. On Windows, run scoop bucket add createitv https://github.com/Createitv/scoop-bucket, then scoop install agc-cli. On Linux, download a binary for your architecture from GitHub Releases. Run agc version to verify installation.' },
+      { q: 'How do I install agc-cli on macOS, Windows, or Linux?', a: 'With Node.js 18+, all three systems can run npm install --global @createitv/agc-cli. Homebrew remains available on macOS and Scoop on Windows. Run agc version to verify installation.' },
       { q: 'Is agc-cli free, and do I need an account?', a: 'agc-cli is free to use and modify under the MIT license. Calling Huawei APIs requires your own AppGallery Connect account, credentials, and permissions. Huawei service pricing and limits remain subject to Huawei terms. Browsing the endpoint reference or inspecting CLI definitions does not require login.' },
       { q: 'How do I query app information for the first time?', a: 'Save credentials with agc auth login --service-account-file ~/.agc/service-account.json --name production, then bind the project with agc init --app-id YOUR_APP_ID --default-profile production. Preview with agc publishing app-info-query --invoke --query appId=YOUR_APP_ID --query lang=en-US. Add --dry-run=false after checking the request. Supply a client_id header explicitly when required.' },
       { q: 'Are all 156 endpoints production-verified?', a: 'No. The registry contains 156 entries across 13 API families; this is registry coverage, not production verification of every endpoint. Registered parameters and command surfaces are shown here. Consult each endpoint reference for full request and response schemas, permissions, and business prerequisites.' },

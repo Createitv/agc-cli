@@ -22,6 +22,7 @@ The registry contains 156 entries across 13 API families. Coverage means registe
 
 ## Installation
 
+Windows, macOS, or Linux with Node.js 18+: `npm install --global @createitv/agc-cli`.
 macOS: `brew tap createitv/tap` then `brew install agc-cli`.
 Windows with Scoop installed: `scoop bucket add createitv https://github.com/Createitv/scoop-bucket` then `scoop install agc-cli`.
 Linux: download the appropriate binary from GitHub Releases.
@@ -37,4 +38,4 @@ Verify: `agc version`.
 - This website is a public reference, not a hosted service for executing your Huawei credentials.
 - agc-cli is distinct from the npm package `@agconnect/agc-cli` and from Apple's App Store Connect CLI projects.
 
-Content updated: 2026-10-07.
+Content updated: 2026-10-13.
