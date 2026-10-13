@@ -1,0 +1,4 @@
+interface:
+  display_name: "AGC Testing"
+  short_description: "Operate HarmonyOS testing and tester workflows"
+  default_prompt: "Use $agc-testing to inspect the current AppGallery Connect test state, preview the command, and perform only the authorized tester or test-release operation."

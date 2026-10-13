@@ -1,0 +1,4 @@
+interface:
+  display_name: "AGC CI/CD"
+  short_description: "Automate agc-cli across CI runners"
+  default_prompt: "Use $agc-cicd to design or operate a pinned, secret-safe agc-cli pipeline with dry-run gates and verified remote outcomes."

@@ -8,6 +8,7 @@ User-visible changes are listed here. Published binaries and versions are availa
 
 ### Added
 
+- 按 ASC Skills 的任务分层模式增加鉴权、发布、邀请测试、报表和 CI/CD Skills，并增加 `agc skills list/install` 便捷安装命令。/ Added task-oriented authentication, publishing, testing, reports, and CI/CD Skills following the ASC Skills pattern, plus `agc skills list/install` convenience commands.
 - 增加 `agc auth whoami`，安全显示当前凭据身份；完成华为 OAuth Client 用户授权后，可通过 `AGC_OAUTH2_TOKEN` 与 `--teams` 查询官方团队账号列表。/ Added `agc auth whoami` for secret-free local identity output and optional official team-account lookup through `AGC_OAUTH2_TOKEN` and `--teams` after Huawei OAuth Client user authorization.
 
 ## v0.3.0 — 2026-10-13

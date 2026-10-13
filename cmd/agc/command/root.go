@@ -4,9 +4,11 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"io"
 	"net"
 	"net/http"
 	"os"
+	"os/exec"
 	"strings"
 	"time"
 
@@ -68,9 +70,64 @@ func NewRootCommand() *cobra.Command {
 	cmd.AddCommand(initCommand(opts))
 	cmd.AddCommand(webServerCommand())
 	cmd.AddCommand(docsCommand(opts))
+	cmd.AddCommand(skillsCommand())
 	for _, capability := range domain.DecoratedCapabilities() {
 		cmd.AddCommand(moduleCommand(opts, capability))
 	}
+	return cmd
+}
+
+var runSkillsCLI = func(ctx context.Context, stdout, stderr io.Writer, args ...string) error {
+	command := exec.CommandContext(ctx, "npx", args...)
+	command.Stdout = stdout
+	command.Stderr = stderr
+	command.Stdin = os.Stdin
+	if err := command.Run(); err != nil {
+		if execError, ok := err.(*exec.Error); ok && execError.Err == exec.ErrNotFound {
+			return fmt.Errorf("npx is required to manage Agent Skills; install Node.js and try again")
+		}
+		return fmt.Errorf("run Agent Skills installer: %w", err)
+	}
+	return nil
+}
+
+func skillsCommand() *cobra.Command {
+	const repository = "Createitv/agc-cli"
+	cmd := &cobra.Command{
+		Use:   "skills",
+		Short: "Browse and install agc-cli Agent Skills",
+	}
+	list := &cobra.Command{
+		Use:   "list",
+		Short: "List Agent Skills published by agc-cli",
+		RunE: func(cmd *cobra.Command, args []string) error {
+			return runSkillsCLI(cmd.Context(), cmd.OutOrStdout(), cmd.ErrOrStderr(), "--yes", "skills", "add", repository, "--list")
+		},
+	}
+	var name string
+	var agent string
+	var global bool
+	install := &cobra.Command{
+		Use:   "install",
+		Short: "Install one or all agc-cli Agent Skills",
+		RunE: func(cmd *cobra.Command, args []string) error {
+			installerArgs := []string{"--yes", "skills", "add", repository}
+			if name != "" {
+				installerArgs = append(installerArgs, "--skill", name)
+			}
+			if agent != "" {
+				installerArgs = append(installerArgs, "--agent", agent)
+			}
+			if global {
+				installerArgs = append(installerArgs, "--global")
+			}
+			return runSkillsCLI(cmd.Context(), cmd.OutOrStdout(), cmd.ErrOrStderr(), installerArgs...)
+		},
+	}
+	install.Flags().StringVar(&name, "name", "", "Install only the named skill; omit to install all skills")
+	install.Flags().StringVar(&agent, "agent", "", "Target agent supported by the skills installer, for example codex or claude-code")
+	install.Flags().BoolVar(&global, "global", false, "Install into the selected agent's global skill directory")
+	cmd.AddCommand(list, install)
 	return cmd
 }
 
