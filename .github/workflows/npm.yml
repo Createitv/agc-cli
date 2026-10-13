@@ -1,6 +1,12 @@
 name: npm package
 
 on:
+  workflow_call:
+    inputs:
+      tag:
+        description: Existing published stable release tag to publish
+        required: true
+        type: string
   release:
     types: [published]
   workflow_dispatch:
@@ -14,7 +20,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: npm-${{ github.event.release.tag_name || inputs.tag }}
+  group: npm-${{ inputs.tag || github.event.release.tag_name }}
   cancel-in-progress: false
 
 jobs:
@@ -23,7 +29,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:
-      RELEASE_TAG: ${{ github.event.release.tag_name || inputs.tag }}
+      RELEASE_TAG: ${{ inputs.tag || github.event.release.tag_name }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -106,7 +112,7 @@ jobs:
           package=${packages[0]}
           npm install --prefix "$RUNNER_TEMP/npm-install" "$package" --ignore-scripts
           node "$RUNNER_TEMP/npm-install/node_modules/@createitv/agc-cli/bin/agc.js" version | tee "$RUNNER_TEMP/npm-version.txt"
-          version=${{ github.event.release.tag_name || inputs.tag }}
+          version=${{ inputs.tag || github.event.release.tag_name }}
           grep -F "${version#v}" "$RUNNER_TEMP/npm-version.txt"
 
   publish:
@@ -117,7 +123,7 @@ jobs:
       contents: read
       id-token: write
     env:
-      RELEASE_TAG: ${{ github.event.release.tag_name || inputs.tag }}
+      RELEASE_TAG: ${{ inputs.tag || github.event.release.tag_name }}
     steps:
       - uses: actions/setup-node@v4
         with:
