@@ -17,6 +17,8 @@ test-scripts:
 	python3 scripts/test_ci_report.py
 	python3 scripts/test_api_suite.py
 	python3 scripts/test_live_lifecycle.py
+	python3 scripts/test_npm_package.py
+	node --test packaging/npm/test/agc.test.cjs
 
 # 每个注册接口验证真实本地 HTTP 收发，8 路并发。
 test-api-transport:

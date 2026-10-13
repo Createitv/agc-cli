@@ -14,10 +14,11 @@ A Go CLI for AppGallery Connect: query apps, build publishing requests, and invo
 
 ## Quick Start
 
-You need an app ID and a Service Account JSON file. Manage your apps and credentials in [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html). On macOS, install with Homebrew:
+You need an app ID and a Service Account JSON file. Manage your apps and credentials in [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html). Use Homebrew on macOS, or NPM with Node.js 18+ in Windows, macOS, and Linux CI:
 
 ```bash
 brew tap createitv/tap && brew install agc-cli
+# Cross-platform CI: npm install --global @createitv/agc-cli
 
 agc auth login --service-account-file ~/.agc/service-account.json --name production
 agc init --app-id YOUR_APP_ID --default-profile production

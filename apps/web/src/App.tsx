@@ -27,7 +27,7 @@ import { ProjectAnswers } from './ProjectAnswers';
 import { localeFromPath, familyFromPath, pagePath, pageMeta, structuredData } from './siteContent';
 
 type Language = 'en' | 'zh';
-type InstallPlatform = 'macos' | 'windows';
+type InstallPlatform = 'npm' | 'macos' | 'windows';
 
 type Capability = {
   id: string;
@@ -40,6 +40,7 @@ type Capability = {
 };
 
 const installCommands: Record<InstallPlatform, string> = {
+  npm: 'npm install --global @createitv/agc-cli && agc version',
   macos: 'brew tap createitv/tap && brew install agc-cli && agc version',
   windows: 'if (!(Get-Command scoop -ErrorAction SilentlyContinue)) { Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force; irm get.scoop.sh | iex }; scoop bucket add createitv https://github.com/Createitv/scoop-bucket; scoop install agc-cli; agc version',
 };
@@ -149,12 +150,14 @@ const translations = {
     installGuide: {
       eyebrow: 'Install agc CLI',
       title: 'Use the package manager for your system.',
-      body: 'macOS installs through the Createitv Homebrew tap with brew tap createitv/tap && brew install agc-cli. Windows installs through Scoop from the Createitv bucket.',
+      body: 'Use NPM for one unattended command across Windows, macOS, and Linux CI. Native Homebrew and Scoop packages remain available for developer workstations.',
+      npm: 'Windows · macOS · Linux CI',
       macos: 'macOS Homebrew command',
       windows: 'Windows Scoop command',
+      copyNpm: 'Copy cross-platform NPM install command',
       copyMac: 'Copy macOS install command',
       copyWindows: 'Copy Windows install command',
-      requirements: ['Homebrew formula: agc-cli', 'Versioned GitHub Release binary', 'Winget PR submitted for Microsoft review'],
+      requirements: ['NPM: Node.js 18+', 'No postinstall download', 'Five checksum-verified platform binaries'],
     },
     console: {
       eyebrow: 'Local command center',
@@ -168,13 +171,14 @@ const translations = {
       button: 'Install',
       eyebrow: 'Package manager install',
       title: 'Install agc as a normal CLI tool.',
-      body: 'Copy one command. macOS uses the Createitv Homebrew tap, while Windows uses Scoop and the Createitv bucket.',
+      body: 'NPM provides the same unattended command on Windows, macOS, and Linux. Homebrew and Scoop remain available as native alternatives.',
+      npm: 'NPM · all platforms',
       unix: 'macOS',
       windows: 'Windows',
       terminal: 'PACKAGE MANAGER / STABLE',
       copy: 'Copy command',
       copied: 'Copied',
-      note: 'Homebrew installs agc-cli from the Createitv tap. Scoop installs the versioned GitHub Release build.',
+      note: 'The NPM package bundles checksum-verified release binaries and runs without lifecycle install scripts. Homebrew and Scoop install the same versioned release.',
       source: 'Release checksum tracked',
       destination: 'Installed on PATH',
       close: 'Close install window',
@@ -249,12 +253,14 @@ const translations = {
     installGuide: {
       eyebrow: '安装 agc CLI',
       title: '用系统包管理器安装。',
-      body: 'macOS 通过 Createitv Homebrew tap 安装：brew tap createitv/tap && brew install agc-cli。Windows 通过 Scoop 和 Createitv bucket 安装。',
+      body: 'Windows、macOS 和 Linux CI 可通过同一条 NPM 命令无人值守安装。开发电脑仍可使用 Homebrew 或 Scoop 原生包。',
+      npm: 'Windows · macOS · Linux CI',
       macos: 'macOS Homebrew 命令',
       windows: 'Windows Scoop 命令',
+      copyNpm: '复制跨平台 NPM 安装命令',
       copyMac: '复制 macOS 安装命令',
       copyWindows: '复制 Windows 安装命令',
-      requirements: ['Homebrew formula：agc-cli', '正式 GitHub Release 二进制', 'Winget PR 已提交等待 Microsoft 审核'],
+      requirements: ['NPM：Node.js 18+', '安装时不运行 postinstall 下载', '内置五个平台校验后二进制'],
     },
     console: {
       eyebrow: '本地命令中心',
@@ -268,13 +274,14 @@ const translations = {
       button: '安装',
       eyebrow: '包管理器安装',
       title: '像普通 CLI 工具一样安装 agc。',
-      body: '复制一条命令即可。macOS 使用 Createitv Homebrew tap，Windows 使用 Scoop 和 Createitv bucket。',
+      body: 'Windows、macOS 和 Linux 使用同一条 NPM 命令即可无人值守安装，也可选择 Homebrew 或 Scoop 原生包。',
+      npm: 'NPM · 全平台',
       unix: 'macOS',
       windows: 'Windows',
       terminal: '包管理器 / 稳定版',
       copy: '复制命令',
       copied: '已复制',
-      note: 'Homebrew 通过 Createitv tap 安装 agc-cli。Scoop 安装的是带版本信息的 GitHub Release 构建。',
+      note: 'NPM 包内置经过 checksum 校验的 Release 二进制，安装时不执行生命周期下载脚本。Homebrew 与 Scoop 安装同一版本的 Release。',
       source: 'Release checksum 可追踪',
       destination: '安装到 PATH',
       close: '关闭安装窗口',
@@ -294,7 +301,7 @@ export function App({ renderLanguage, renderFamily }: { renderLanguage?: Languag
   const [language, setLanguage] = useState<Language>(() => renderLanguage ?? initialLanguage());
   const [languageOpen, setLanguageOpen] = useState(false);
   const [installOpen, setInstallOpen] = useState(false);
-  const [installPlatform, setInstallPlatform] = useState<InstallPlatform>('macos');
+  const [installPlatform, setInstallPlatform] = useState<InstallPlatform>('npm');
   const [capabilities, setCapabilities] = useState<Capability[]>(fallbackCapabilities);
   const [endpointCount, setEndpointCount] = useState(156);
   const [endpoints, setEndpoints] = useState<Endpoint[]>(bundledEndpoints);
@@ -524,6 +531,15 @@ export function App({ renderLanguage, renderFamily }: { renderLanguage?: Languag
           <p>{text.installGuide.body}</p>
         </div>
         <div className="installGuideGrid">
+          <article className="installGuideCard installGuideCardFeatured">
+            <div className="installGuideCardHeader"><PackageCheck size={18} /> {text.installGuide.npm}</div>
+            <div className="commandBox installGuideCommand">
+              <code><span>$</span> {installCommands.npm}</code>
+              <button onClick={() => copyCommand('install-npm', installCommands.npm)} aria-label={text.installGuide.copyNpm}>
+                {copied === 'install-npm' ? <Check size={16} /> : <Clipboard size={16} />}
+              </button>
+            </div>
+          </article>
           <article className="installGuideCard">
             <div className="installGuideCardHeader"><Terminal size={18} /> {text.installGuide.macos}</div>
             <div className="commandBox installGuideCommand">
@@ -712,6 +728,9 @@ export function App({ renderLanguage, renderFamily }: { renderLanguage?: Languag
               <p className="installLead">{text.install.body}</p>
 
               <div className="platformTabs" role="tablist" aria-label={language === 'zh' ? '安装平台' : 'Install platform'}>
+                <button type="button" role="tab" aria-selected={installPlatform === 'npm'} onClick={() => setInstallPlatform('npm')}>
+                  {text.install.npm}
+                </button>
                 <button type="button" role="tab" aria-selected={installPlatform === 'macos'} onClick={() => setInstallPlatform('macos')}>
                   {text.install.unix}
                 </button>

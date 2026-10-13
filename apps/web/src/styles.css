@@ -311,6 +311,12 @@ main { min-height: 100vh; overflow: hidden; }
   border-radius: 10px;
   background: linear-gradient(155deg, #111114, #0d0d0f);
 }
+.installGuideCardFeatured {
+  grid-column: 1 / -1;
+  border-color: rgba(240, 68, 68, 0.34);
+  background: linear-gradient(105deg, rgba(240, 68, 68, 0.09), #111114 42%, #0d0d0f);
+}
+.installGuideCardFeatured .installGuideCommand { min-height: 86px; }
 .installGuideCardHeader {
   display: inline-flex;
   align-items: center;

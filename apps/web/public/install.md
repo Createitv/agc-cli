@@ -1,12 +1,22 @@
 # Install agc CLI
 
-Last updated: 2026-08-11
+Last updated: 2026-10-13
 
 agc CLI is a Go command-line tool for AppGallery Connect automation. It helps developers discover AppGallery Connect API families, bind project profiles, dry-run requests, invoke supported endpoints, export reports, upload release assets, and run a local REST command center.
 
 ## Recommended package manager install
 
 These commands install the versioned GitHub Release build instead of compiling from source.
+
+### Windows, macOS, and Linux with NPM
+
+For unattended CI/CD machines with Node.js 18 or later:
+
+```bash
+npm install --global @createitv/agc-cli && agc version
+```
+
+The package bundles checksum-verified Windows x64, macOS x64/arm64, and Linux x64/arm64 release binaries. It does not use `postinstall` or download an executable while installing, so it also works with `npm --ignore-scripts` and private npm caches.
 
 ### macOS with Homebrew
 
@@ -60,6 +70,7 @@ Go install requires Go 1.22 or later and may show `dev` in `agc version` because
 
 ## Package sources
 
+- NPM: https://www.npmjs.com/package/@createitv/agc-cli
 - Homebrew tap: https://github.com/Createitv/homebrew-tap
 - Scoop bucket: https://github.com/Createitv/scoop-bucket
 - Winget PR: https://github.com/microsoft/winget-pkgs/pull/415361
