@@ -32,6 +32,20 @@ class NPMWorkflowTests(unittest.TestCase):
             "the workflow must only treat an sha512 integrity as published",
         )
 
+    def test_registry_verification_waits_for_new_package_processing(self):
+        workflow = NPM_WORKFLOW.read_text(encoding="utf-8")
+
+        self.assertIn(
+            "for attempt in {1..30}",
+            workflow,
+            "npm says newly published packages may take a few minutes to become available",
+        )
+        self.assertIn(
+            'npm view "@createitv/agc-cli@$version" version',
+            workflow,
+            "the retry must wait for the exact version before installing",
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

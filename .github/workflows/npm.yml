@@ -159,6 +159,17 @@ jobs:
       - name: Verify registry installation
         run: |
           version=${RELEASE_TAG#v}
+          for attempt in {1..30}; do
+            if npm view "@createitv/agc-cli@$version" version 2>/dev/null | grep -Fx "$version"; then
+              break
+            fi
+            if test "$attempt" -eq 30; then
+              echo "@createitv/agc-cli@$version was not visible after 5 minutes" >&2
+              exit 1
+            fi
+            echo "Waiting for npm to finish processing @createitv/agc-cli@$version ($attempt/30)..."
+            sleep 10
+          done
           npm install --global "@createitv/agc-cli@$version" --prefix "$RUNNER_TEMP/npm-install" --ignore-scripts
           "$RUNNER_TEMP/npm-install/bin/agc" version | tee "$RUNNER_TEMP/npm-version.txt"
           grep -F "$version" "$RUNNER_TEMP/npm-version.txt"
