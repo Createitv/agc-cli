@@ -7,6 +7,7 @@
 [![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Linux%20%7C%20Windows-blue)](https://github.com/Createitv/agc-cli/releases)
 [![Release](https://img.shields.io/github/v/release/Createitv/agc-cli)](https://github.com/Createitv/agc-cli/releases)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+[![Sponsor](https://img.shields.io/badge/GitHub-Sponsor-ea4aaa?logo=githubsponsors)](https://github.com/sponsors/Createitv)
 
 **简体中文** · [English](README.en.md) · [官网](https://agccli.app/)
 
@@ -73,6 +74,10 @@ agc publishing app-info-query --invoke --query appId=YOUR_APP_ID --query lang=zh
 - [贡献指南](CONTRIBUTING.md) — 构建、测试、代码组织和提交改动
 - [变更日志](CHANGELOG.md) · [Release 下载](https://github.com/Createitv/agc-cli/releases)
 - [反馈问题](https://github.com/Createitv/agc-cli/issues) — 附版本、脱敏命令和错误信息
+
+## 赞助
+
+如果 agc-cli 为你的开发或自动化工作节省了时间，可以通过 [GitHub Sponsors](https://github.com/sponsors/Createitv) 支持项目的持续维护、跨平台测试和文档更新。
 
 ## 许可证
 

@@ -7,6 +7,7 @@
 [![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Linux%20%7C%20Windows-blue)](https://github.com/Createitv/agc-cli/releases)
 [![Release](https://img.shields.io/github/v/release/Createitv/agc-cli)](https://github.com/Createitv/agc-cli/releases)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+[![Sponsor](https://img.shields.io/badge/GitHub-Sponsor-ea4aaa?logo=githubsponsors)](https://github.com/sponsors/Createitv)
 
 [简体中文](README.md) · **English** · [Website](https://agccli.app/)
 
@@ -73,6 +74,10 @@ All guides: [docs index](docs/README.md). Every command and flag: `agc --help` o
 - [Contributing](CONTRIBUTING.md#english) — build, test, code organization, and submitting changes
 - [Changelog](CHANGELOG.md) · [Release downloads](https://github.com/Createitv/agc-cli/releases)
 - [Issues](https://github.com/Createitv/agc-cli/issues) — include your version, a redacted command, and error details
+
+## Sponsor
+
+If agc-cli saves you time in development or automation, you can support ongoing maintenance, cross-platform testing, and documentation through [GitHub Sponsors](https://github.com/sponsors/Createitv).
 
 ## License
 
