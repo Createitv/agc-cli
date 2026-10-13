@@ -24,10 +24,10 @@ Windows 和 Linux 用户见[安装与升级](#安装与升级)。NPM 安装需�
 
 ```bash
 agc auth login --service-account-file ~/.agc/service-account.json --name production
-agc auth check
+agc auth whoami
 ```
 
-`auth check` 显示当前本地凭据配置；它不验证华为服务器是否接受该凭据。其他登录方式见[鉴权与多账号](#鉴权与多账号)。
+`auth whoami` 显示当前本地凭据身份，不输出密钥。`auth check --remote` 可验证令牌和可用的应用或项目读取权限。其他登录方式见[鉴权与多账号](#鉴权与多账号)。
 
 ### 3. 绑定项目
 
@@ -169,9 +169,19 @@ agc --project ../another-app auth check
 | 环境变量 | 用途 |
 | --- | --- |
 | `AGC_ACCESS_TOKEN` | 接口调用的 Bearer token，优先级低于 `--token`，高于凭据 profile |
+| `AGC_OAUTH2_TOKEN` | 华为 OAuth Client 用户授权令牌，仅供 `agc auth whoami --teams` 查询官方团队账号列表 |
 | `AGC_CREDENTIALS_PATH` | 覆盖默认凭据文件 `~/.agc/credentials.json`；低于 `--credentials-path` |
 
-`agc auth token` 输出令牌。当前 `auth login`、`auth list`、`auth check` 在 API Client 模式下可能输出 `clientKey`；这些输出不应直接上传到 Issue 或公开 CI 日志。凭据文件、Service Account 私钥和访问令牌应保存在本机或 CI secret store 中。
+查询当前身份：
+
+```bash
+agc auth whoami
+AGC_OAUTH2_TOKEN="$HUAWEI_USER_TOKEN" agc auth whoami --teams
+```
+
+普通调用显示 profile、API Client ID、Service Account `sub_account` 和本地项目上下文，不输出 Client Key 或私钥。华为[项目管理 API](https://developer.huawei.com/consumer/cn/doc/appgallery-connect-Guides/agcapi-project-overview-0000001111685232) 规定团队账号列表仅支持 OAuth Client 模式；Service Account 与 API Client 不能直接读取开发者/团队名称。完成用户 OAuth 授权后，将访问令牌临时放入 `AGC_OAUTH2_TOKEN` 并添加 `--teams`，命令会请求官方团队列表。不要将令牌写入命令参数、仓库、Issue 或公开 CI 日志。
+
+`agc auth token` 会将令牌输出到终端；凭据文件、Service Account 私钥和所有访问令牌都应保存在本机或 CI secret store 中。
 
 ## 命令发现与请求参数
 
