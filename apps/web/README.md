@@ -21,6 +21,8 @@ npm run check:seo
 
 构建同时生成双语 Markdown、`api-reference.json` 和带语言对应关系的 sitemap。`public/llms.txt` 提供辅助入口，`robots.txt` 允许 OAI-SearchBot；这些文件与结构化数据不保证收录、排名或模型推荐。ChatGPT 实测证据保存在仓库 `docs/verification/seo-aeo/`，区分上线前基线、搜索引用和显式提供 URL 的读取测试。
 
+面向 Agent 的完整知识入口由构建脚本生成：`agent-guide.zh-CN.md`、`agent-guide.en.md`、`skills.md` 和 `llms-full.txt`。官网可见区域必须链接这些文件，`llms.txt` 负责轻量导航，`llms-full.txt` 提供一次读取所需的完整上下文。更新任务数量、安全边界或 Skills 时，需要同步生成内容和 `check:seo` 断言，避免人类页面与 AI 文档漂移。
+
 ### ChatGPT 读取兼容性
 
 2026-10-07 的实际测试发现：ChatGPT 可以读取中英文 HTML 页面，但读取 `overview.zh-CN.md` 时报告 `Unsupported content-type: text/markdown`。因此 `overview.zh-CN.md` 和 `overview.en.md` 保留 Markdown 内容和文件名，通过 `public/_headers` 以 `text/plain; charset=utf-8` 返回。变更后需要实际读回响应头，并在 ChatGPT 中重测，不能仅凭文件上传成功认定可读取。

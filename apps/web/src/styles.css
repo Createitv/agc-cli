@@ -484,6 +484,22 @@ main { min-height: 100vh; overflow: hidden; }
 .projectSources, .contentUpdated { color: var(--muted); font-size: 12px; line-height: 1.8; }
 .projectSources a { color: var(--paper); text-decoration: underline; }
 .projectAnswers h3 { margin: 36px 0 20px; font-size: 23px; }
+.agentDocs {
+  margin: 42px 0 56px;
+  padding: 30px;
+  border: 1px solid rgba(101, 213, 218, 0.2);
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(101, 213, 218, 0.07), rgba(240, 68, 68, 0.035));
+}
+.agentDocsIntro { max-width: 780px; }
+.agentDocsIntro h3 { margin: 8px 0 12px; }
+.agentDocsIntro > p:last-child { color: var(--muted); line-height: 1.7; }
+.agentDocsGrid { margin-top: 24px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.agentDocsGrid a { min-height: 148px; padding: 20px; display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 10px; background: rgba(8, 8, 9, 0.56); transition: border-color 180ms ease, transform 180ms ease; }
+.agentDocsGrid a:hover { border-color: rgba(101, 213, 218, 0.45); transform: translateY(-2px); }
+.agentDocsGrid span { font-weight: 700; }
+.agentDocsGrid p { margin: 10px 0 18px; color: var(--muted); font-size: 13px; line-height: 1.6; }
+.agentDocsGrid code { margin-top: auto; color: var(--cyan); font-size: 10px; overflow-wrap: anywhere; }
 .projectFaq details { border-top: 1px solid var(--line); padding: 19px 0; }
 .projectFaq summary { cursor: pointer; font-size: 16px; line-height: 1.6; }
 .projectFaq p { max-width: 900px; color: var(--muted); font-size: 14px; line-height: 1.85; }
@@ -704,6 +720,8 @@ footer { max-width: var(--max); min-height: 160px; margin: 0 auto; padding: 38px
   .detailHeader { flex-direction: column; }
   .commandTable > div { grid-template-columns: 78px 1fr; }
   .detailFooter { align-items: flex-start; flex-direction: column; }
+  .agentDocs { padding: 22px; }
+  .agentDocsGrid { grid-template-columns: 1fr; }
   .quickStep { grid-template-columns: 38px 1fr; gap: 14px; }
   .consoleMap > div { grid-template-columns: 44px 1fr; padding: 14px; }
   .consoleMap small { grid-column: 2; }

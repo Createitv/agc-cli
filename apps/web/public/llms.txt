@@ -14,6 +14,10 @@ The registry contains 156 entries across 13 API families. Coverage means registe
 - [English website](https://agccli.app/en/): English product overview, installation, FAQ and endpoint browser.
 - [中文完整介绍](https://agccli.app/overview.zh-CN.md): Chinese plain-text overview and answers.
 - [English overview](https://agccli.app/overview.en.md): English plain-text overview and answers.
+- [中文 Agent 使用指南](https://agccli.app/agent-guide.zh-CN.md): Task selection, safe execution, verification, and machine-readable resources in Chinese.
+- [English Agent usage guide](https://agccli.app/agent-guide.en.md): Task selection, safe execution, verification, and machine-readable resources in English.
+- [Agent Skills index](https://agccli.app/skills.md): All six task-oriented Skills with install commands and direct source links.
+- [Complete AI context](https://agccli.app/llms-full.txt): Combined project overview, Agent guide, safety boundaries, and Skills index for one-pass retrieval.
 - [Endpoint contracts](https://agccli.app/api-reference.json): All registered endpoints, methods, paths, parameters and reference URLs.
 - [Source repository](https://github.com/Createitv/agc-cli): Code, MIT license and issues.
 - [中文使用指南](https://github.com/Createitv/agc-cli/blob/main/docs/CLI_USAGE.md): CLI installation and usage.

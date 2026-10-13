@@ -1,6 +1,7 @@
 export type SiteLanguage = 'zh' | 'en';
 export const siteOrigin = 'https://agccli.app';
 export const updated = '2026-10-13';
+export const agentSkillNames = ['agc-cli-usage', 'agc-auth', 'agc-publishing', 'agc-testing', 'agc-reports', 'agc-cicd'] as const;
 export const content = {
   zh: {
     title: 'agc-cli：鸿蒙与华为 AppGallery Connect 开源命令行工具',
@@ -8,6 +9,16 @@ export const content = {
     heading: 'agc-cli 是什么，适合谁使用？',
     definition: 'agc-cli 是 Createitv 开源的华为 AppGallery Connect 命令行工具，安装后的命令名是 agc。它面向鸿蒙和华为应用开发者，将接口发现、凭据 Profile、请求预演与 API 调用组织成可复用命令，适合需要维护应用资料、测试用户、商品和报表的个人开发者与团队。',
     source: '项目与使用指南', faq: '常见问题', updated: '内容更新',
+    agentDocs: {
+      heading: '面向 AI Agent 的可读取文档',
+      intro: '这些公开文件提供项目事实、任务选择、安全边界、Skills 和完整接口契约。Coding Agent 可以直接读取，无需执行 JavaScript、登录或猜测页面结构。',
+      links: [
+        { title: 'Agent 使用指南', description: '从任务识别、鉴权检查、dry-run 到结果验证的完整流程。', href: '/agent-guide.zh-CN.md' },
+        { title: 'Skills 索引', description: '6 个任务型 Skills、适用场景、安装命令和源码入口。', href: '/skills.md' },
+        { title: '完整 AI 上下文', description: '适合 LLM 一次读取的项目说明、命令边界和资源索引。', href: '/llms-full.txt' },
+        { title: 'API 契约 JSON', description: '156 个注册接口的方法、路径、参数和官方参考链接。', href: '/api-reference.json' },
+      ],
+    },
     faqs: [
       { q: 'agc-cli 是华为官方工具吗？', a: '不是。agc-cli 是 Createitv 维护的独立开源项目，使用 MIT 许可证。它基于华为 AppGallery Connect API 参考文档组织接口，不代表华为官方产品或官方支持服务。' },
       { q: '如何在 macOS、Windows 和 Linux 安装 agc-cli？', a: '已安装 Node.js 18+ 时，三个系统都可运行 npm install --global @createitv/agc-cli。macOS 也可使用 Homebrew，Windows 也可使用 Scoop。安装后运行 agc version 检查版本。' },
@@ -26,6 +37,16 @@ export const content = {
     heading: 'What is agc-cli, and who is it for?',
     definition: 'agc-cli is an open-source Go command-line tool for Huawei AppGallery Connect, maintained by Createitv. Its installed command is agc. It organizes API discovery, credential profiles, request previews, and API invocation into reusable commands for HarmonyOS and Huawei app developers who manage app metadata, testers, products, and reports.',
     source: 'Project and guides', faq: 'Frequently asked questions', updated: 'Content updated',
+    agentDocs: {
+      heading: 'Agent-readable documentation',
+      intro: 'These public files expose project facts, task selection, safety boundaries, Skills, and endpoint contracts without requiring JavaScript, authentication, or page-structure guessing.',
+      links: [
+        { title: 'Agent usage guide', description: 'A complete path from task selection and auth checks to dry runs and result verification.', href: '/agent-guide.en.md' },
+        { title: 'Skills index', description: 'Six task-oriented Skills with use cases, install commands, and source links.', href: '/skills.md' },
+        { title: 'Full AI context', description: 'A single-file project briefing, command boundaries, and resource index for LLMs.', href: '/llms-full.txt' },
+        { title: 'API contract JSON', description: 'Methods, paths, parameters, and official references for all 156 registered endpoints.', href: '/api-reference.json' },
+      ],
+    },
     faqs: [
       { q: 'Is agc-cli an official Huawei tool?', a: 'No. agc-cli is an independent open-source project maintained by Createitv under the MIT license. It organizes endpoints using Huawei AppGallery Connect API references and is not an official Huawei product or support service.' },
       { q: 'How do I install agc-cli on macOS, Windows, or Linux?', a: 'With Node.js 18+, all three systems can run npm install --global @createitv/agc-cli. Homebrew remains available on macOS and Scoop on Windows. Run agc version to verify installation.' },
@@ -50,9 +71,10 @@ export function pageMeta(language: SiteLanguage, family?: string) {
 export function structuredData(language: SiteLanguage, family?: string) {
   const c = content[language]; const meta = pageMeta(language, family);
   return { '@context': 'https://schema.org', '@graph': [
-    { '@type': 'WebSite', '@id': `${siteOrigin}/#website`, name: 'agc-cli', url: `${siteOrigin}/`, inLanguage: ['zh-CN', 'en'] },
-    { '@type': 'WebPage', '@id': `${meta.url}#webpage`, url: meta.url, name: meta.title, description: meta.description, inLanguage: language === 'zh' ? 'zh-CN' : 'en', dateModified: updated, isPartOf: { '@id': `${siteOrigin}/#website` } },
-    { '@type': 'SoftwareApplication', '@id': `${siteOrigin}/#software`, name: 'agc-cli', alternateName: 'agc', url: `${siteOrigin}/`, description: c.definition, applicationCategory: 'DeveloperApplication', operatingSystem: 'macOS, Windows, Linux', license: 'https://github.com/Createitv/agc-cli/blob/main/LICENSE', downloadUrl: 'https://github.com/Createitv/agc-cli/releases', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
+    { '@type': 'Organization', '@id': 'https://github.com/Createitv#organization', name: 'Createitv', url: 'https://github.com/Createitv' },
+    { '@type': 'WebSite', '@id': `${siteOrigin}/#website`, name: 'agc-cli', url: `${siteOrigin}/`, inLanguage: ['zh-CN', 'en'], publisher: { '@id': 'https://github.com/Createitv#organization' } },
+    { '@type': 'WebPage', '@id': `${meta.url}#webpage`, url: meta.url, name: meta.title, description: meta.description, inLanguage: language === 'zh' ? 'zh-CN' : 'en', dateModified: updated, isPartOf: { '@id': `${siteOrigin}/#website` }, about: { '@id': `${siteOrigin}/#software` }, hasPart: c.agentDocs.links.map(({title,description,href}) => ({ '@type': 'DigitalDocument', name: title, description, url: siteOrigin + href })) },
+    { '@type': 'SoftwareApplication', '@id': `${siteOrigin}/#software`, name: 'agc-cli', alternateName: 'agc', url: `${siteOrigin}/`, description: c.definition, applicationCategory: 'DeveloperApplication', operatingSystem: 'macOS, Windows, Linux', license: 'https://github.com/Createitv/agc-cli/blob/main/LICENSE', downloadUrl: 'https://github.com/Createitv/agc-cli/releases', isAccessibleForFree: true, softwareRequirements: 'Node.js 18+ for NPM installation, or a supported native package manager', featureList: ['AppGallery Connect API discovery', 'Credential profiles', 'Dry-run request previews', 'Stable JSON output', 'Task-oriented Agent Skills'], sameAs: ['https://github.com/Createitv/agc-cli', 'https://www.npmjs.com/package/@createitv/agc-cli'], author: { '@id': 'https://github.com/Createitv#organization' }, offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
     { '@type': 'SoftwareSourceCode', name: 'agc-cli', codeRepository: 'https://github.com/Createitv/agc-cli', programmingLanguage: 'Go', author: { '@type': 'Person', name: 'Createitv', url: 'https://github.com/Createitv' } },
     { '@type': 'FAQPage', '@id': `${meta.url}#faq`, inLanguage: language === 'zh' ? 'zh-CN' : 'en', mainEntity: c.faqs.map(({q,a}) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) },
   ] };
