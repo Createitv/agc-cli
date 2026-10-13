@@ -6,9 +6,13 @@ User-visible changes are listed here. Published binaries and versions are availa
 
 ## Unreleased
 
+## v0.3.0 — 2026-10-13
+
 ### Added
 
 - 提供跨 macOS、Linux、Windows 的 `@createitv/agc-cli` NPM 安装包，在官网提供安装入口，并在发布前后校验各平台安装版本与包完整性。/ Added a script-free `@createitv/agc-cli` npm package for macOS, Linux, and Windows, exposed it on the website, and verified platform installs and package integrity before and after publishing.
+- 增加 GitHub Sponsors 项目入口和中英文赞助说明。/ Added GitHub Sponsors project metadata and bilingual sponsorship guidance.
+- 增加可供 Codex、Claude Code 等 Agent 安装的 `agc-cli-usage` Skill 和双语安装说明。/ Added an installable `agc-cli-usage` skill for Codex, Claude Code, and other agents, with bilingual installation guidance.
 
 ## v0.2.0 — 2026-10-07
 

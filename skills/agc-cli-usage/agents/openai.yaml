@@ -1,0 +1,4 @@
+interface:
+  display_name: "AGC CLI Usage"
+  short_description: "Operate AppGallery Connect safely with agc-cli"
+  default_prompt: "Use $agc-cli-usage to inspect this AppGallery Connect task, preview the command, and execute only the authorized remote changes."

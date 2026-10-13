@@ -7,6 +7,7 @@
 [![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Linux%20%7C%20Windows-blue)](https://github.com/Createitv/agc-cli/releases)
 [![Release](https://img.shields.io/github/v/release/Createitv/agc-cli)](https://github.com/Createitv/agc-cli/releases)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+[![Sponsor](https://img.shields.io/badge/GitHub-Sponsor-ea4aaa?logo=githubsponsors)](https://github.com/sponsors/Createitv)
 
 **简体中文** · [English](README.en.md) · [官网](https://agccli.app/)
 
@@ -49,6 +50,8 @@ agc publishing app-info-query --invoke --query appId=YOUR_APP_ID --query lang=zh
 
 默认 JSON；人工浏览可加 `--output table` 或 `--output markdown`。`agc web-server` 提供本地 REST API。命令模板需要补齐参数，当前不会根据远程业务状态判断能否提交。详见 [Agent 与 REST 使用说明](docs/CLI_USAGE.md#json-与-agent-支持)。
 
+仓库还提供可供 Codex、Claude Code 等 Agent 安装的 [`agc-cli-usage` Skill](docs/AGENT_SKILLS.md)，涵盖命令发现、凭据与项目选择、dry-run 预览、授权执行和远程结果验证。
+
 ## 功能覆盖
 
 | 领域 | 可以做什么 |
@@ -73,6 +76,10 @@ agc publishing app-info-query --invoke --query appId=YOUR_APP_ID --query lang=zh
 - [贡献指南](CONTRIBUTING.md) — 构建、测试、代码组织和提交改动
 - [变更日志](CHANGELOG.md) · [Release 下载](https://github.com/Createitv/agc-cli/releases)
 - [反馈问题](https://github.com/Createitv/agc-cli/issues) — 附版本、脱敏命令和错误信息
+
+## 赞助
+
+如果 agc-cli 为你的开发或自动化工作节省了时间，可以通过 [GitHub Sponsors](https://github.com/sponsors/Createitv) 支持项目的持续维护、跨平台测试和文档更新。
 
 ## 许可证
 

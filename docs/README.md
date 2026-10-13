@@ -10,6 +10,7 @@
 | 命令与请求参数 / Commands | [发现接口](CLI_USAGE.md#命令发现与请求参数) | [Discover endpoints](CLI_USAGE.en.md#command-discovery-and-request-flags) |
 | 上传与审核 / Publishing | [发布流程](CLI_USAGE.md#应用发布流程) | [Release workflow](CLI_USAGE.en.md#app-release-workflow) |
 | JSON 与 Agent / Agents | [输出与模板](CLI_USAGE.md#json-与-agent-支持) | [JSON and agents](CLI_USAGE.en.md#json-and-agents) |
+| Agent Skill | [安装与设计 / Install and design](AGENT_SKILLS.md) | [Install and design](AGENT_SKILLS.md) |
 | 本地 REST 与 Web / Local API | [本地使用](CLI_USAGE.md#webrest-与-openapi) | [REST and OpenAPI](CLI_USAGE.en.md#web-rest-and-openapi) |
 | 常见问题 / Troubleshooting | [排查问题](CLI_USAGE.md#常见问题) | [Common questions](CLI_USAGE.en.md#common-questions) |
 | 开发与贡献 / Contributing | [贡献指南](../CONTRIBUTING.md) | [Contributor guide](../CONTRIBUTING.md#english) |
