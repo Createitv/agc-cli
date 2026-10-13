@@ -50,6 +50,8 @@ agc publishing app-info-query --invoke --query appId=YOUR_APP_ID --query lang=zh
 
 默认 JSON；人工浏览可加 `--output table` 或 `--output markdown`。`agc web-server` 提供本地 REST API。命令模板需要补齐参数，当前不会根据远程业务状态判断能否提交。详见 [Agent 与 REST 使用说明](docs/CLI_USAGE.md#json-与-agent-支持)。
 
+仓库还提供可供 Codex、Claude Code 等 Agent 安装的 [`agc-cli-usage` Skill](docs/AGENT_SKILLS.md)，涵盖命令发现、凭据与项目选择、dry-run 预览、授权执行和远程结果验证。
+
 ## 功能覆盖
 
 | 领域 | 可以做什么 |
