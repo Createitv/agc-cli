@@ -5,6 +5,7 @@ import { JSDOM } from 'jsdom';
 const registry = JSON.parse(await readFile('dist/api-reference.json','utf8')).data;
 const families = [...new Set(registry.map(e=>e.familyId))];
 const sitemap = await readFile('dist/sitemap.xml','utf8');
+assert.ok(sitemap.includes('<lastmod>2026-10-13</lastmod>'));
 let checked=0;
 for (const language of ['zh','en']) for (const family of [undefined,...families]) {
   const path=`${language==='en'?'/en/':'/'}${family?`reference/${family}/`:''}`;
@@ -19,6 +20,11 @@ for (const language of ['zh','en']) for (const family of [undefined,...families]
   for (const lang of ['zh-CN','en','x-default']) assert.ok(doc.querySelector(`link[hreflang="${lang}"]`));
   const graph=JSON.parse(doc.querySelector('#seo-schema').textContent)['@graph'];
   const faq=graph.find(e=>e['@type']==='FAQPage');
+  const software=graph.find(e=>e['@type']==='SoftwareApplication');
+  const webpage=graph.find(e=>e['@type']==='WebPage');
+  assert.ok(software.isAccessibleForFree);
+  assert.ok(software.featureList.includes('Task-oriented Agent Skills'));
+  assert.equal(webpage.hasPart.length,4);
   const visibleFaq=[...doc.querySelectorAll('.projectFaq details')];
   assert.equal(visibleFaq.length,faq.mainEntity.length);
   for (const [i,element] of visibleFaq.entries()) {
@@ -35,5 +41,9 @@ for (const language of ['zh','en']) for (const family of [undefined,...families]
 }
 assert.ok((await readFile('dist/robots.txt','utf8')).includes('User-agent: OAI-SearchBot\nAllow: /'));
 const headers=await readFile('dist/_headers','utf8');
-for (const file of ['overview.zh-CN.md','overview.en.md']) assert.ok(headers.includes(`/${file}\n  Content-Type: text/plain; charset=utf-8`),`${file} must remain readable by clients that reject text/markdown`);
+for (const file of ['overview.zh-CN.md','overview.en.md','agent-guide.zh-CN.md','agent-guide.en.md','skills.md']) assert.ok(headers.includes(`/${file}\n  Cache-Control: public, max-age=300\n  Content-Type: text/plain; charset=utf-8`) || headers.includes(`/${file}\n  Content-Type: text/plain; charset=utf-8`),`${file} must remain readable by clients that reject text/markdown`);
+for (const file of ['llms-full.txt','agent-guide.zh-CN.md','agent-guide.en.md','skills.md']) {
+  const body=await readFile(`dist/${file}`,'utf8');
+  assert.ok(body.length>500,`${file} must contain substantial agent-readable guidance`);
+}
 console.log(`SEO checks passed: ${checked} pages, reciprocal locales, visible FAQ/schema parity, ${registry.length} endpoints.`);

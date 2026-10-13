@@ -61,6 +61,11 @@ describe('App', () => {
     expect(screen.getAllByText(/agc skills install --name/)).toHaveLength(6);
     expect(screen.getAllByRole('link', { name: 'Download SKILL.md' })).toHaveLength(6);
     expect(screen.getByRole('link', { name: /Contribute a Skill/ })).toHaveAttribute('href', 'https://github.com/Createitv/agc-cli/blob/main/CONTRIBUTING.md');
+    expect(screen.getByRole('heading', { name: 'Agent-readable documentation' })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /Agent usage guide/ })).toHaveAttribute('href', '/agent-guide.en.md');
+    expect(screen.getByRole('link', { name: /Skills index/ })).toHaveAttribute('href', '/skills.md');
+    expect(screen.getByRole('link', { name: /Full AI context/ })).toHaveAttribute('href', '/llms-full.txt');
+    expect(screen.getByRole('link', { name: /API contract JSON/ })).toHaveAttribute('href', '/api-reference.json');
   });
 
   it('shows the complete selected family without a local API server', async () => {
