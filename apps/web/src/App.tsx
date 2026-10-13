@@ -1,5 +1,6 @@
 import {
   ArrowRight,
+  Bot,
   Check,
   ChevronDown,
   ChevronRight,
@@ -13,6 +14,7 @@ import {
   KeyRound,
   Layers3,
   PackageCheck,
+  Download,
   Rocket,
   ShieldCheck,
   Terminal,
@@ -44,6 +46,12 @@ const installCommands: Record<InstallPlatform, string> = {
   macos: 'brew tap createitv/tap && brew install agc-cli && agc version',
   windows: 'if (!(Get-Command scoop -ErrorAction SilentlyContinue)) { Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force; irm get.scoop.sh | iex }; scoop bucket add createitv https://github.com/Createitv/scoop-bucket; scoop install agc-cli; agc version',
 };
+
+const agentSkills = ['agc-cli-usage', 'agc-auth', 'agc-publishing', 'agc-testing', 'agc-reports', 'agc-cicd'] as const;
+const installAllSkillsCommand = 'agc skills install --agent codex --global';
+const installSkillCommand = (skill: string) => `agc skills install --name ${skill} --agent codex --global`;
+const skillSourceURL = (skill: string) => `https://github.com/Createitv/agc-cli/tree/main/skills/${skill}`;
+const skillDownloadURL = (skill: string) => `https://raw.githubusercontent.com/Createitv/agc-cli/main/skills/${skill}/SKILL.md`;
 
 const fallbackCapabilities: Capability[] = [
   { id: 'publishing', name: 'Publishing API', description: 'Release metadata, package state, submissions, review withdrawal, and release timing.', command: 'agc publishing', restPath: '/api/v1/publishing', status: 'registered', endpointCount: 14 },
@@ -83,7 +91,7 @@ const capabilityTranslations: Record<Language, Record<string, { name: string; de
 const translations = {
   en: {
     documentTitle: 'agc CLI — AppGallery Connect from one command surface',
-    nav: { installGuide: 'Install', workflow: 'Workflow', profiles: 'Profiles', registry: 'API registry', quickstart: 'Quick start', language: 'Language', install: 'Install' },
+    nav: { installGuide: 'Install', skills: 'Agent Skills', workflow: 'Workflow', profiles: 'Profiles', registry: 'API registry', quickstart: 'Quick start', language: 'Language', install: 'Install' },
     hero: {
       kicker: 'AppGallery Connect, mapped for the terminal',
       titleLead: 'Move every release through',
@@ -159,6 +167,25 @@ const translations = {
       copyWindows: 'Copy Windows install command',
       requirements: ['NPM: Node.js 18+', 'No postinstall download', 'Five checksum-verified platform binaries'],
     },
+    skills: {
+      eyebrow: 'Agent Skills',
+      title: 'Give your coding agent a map of AppGallery Connect.',
+      body: 'Six portable Skills follow the task-oriented asc-cli pattern. Install all of them, choose one workflow, inspect the source, or contribute improvements through GitHub.',
+      installAll: 'Install all six for Codex',
+      copyAll: 'Copy install-all command',
+      installOne: 'Install this Skill',
+      download: 'Download SKILL.md',
+      source: 'View source',
+      contribute: 'Contribute a Skill',
+      descriptions: {
+        'agc-cli-usage': 'General command discovery, dry-run review, authorized execution, and remote verification.',
+        'agc-auth': 'Credential profiles, whoami, OAuth team lookup, and authorization diagnosis.',
+        'agc-publishing': 'Metadata, packages, review submission, staged rollout, and release-state verification.',
+        'agc-testing': 'Test versions, groups, testers, invitation links, feedback, and promotion.',
+        'agc-reports': 'Distribution, install, revenue, retention, and HarmonyOS service report exports.',
+        'agc-cicd': 'Pinned cross-platform installation, protected credentials, dry-run gates, and CI verification.',
+      },
+    },
     console: {
       eyebrow: 'Local command center',
       title: 'The browser is a window into the same registry.',
@@ -186,7 +213,7 @@ const translations = {
   },
   zh: {
     documentTitle: 'agc CLI — 用一套命令管理 AppGallery Connect',
-    nav: { installGuide: '安装', workflow: '发布流程', profiles: '凭据 Profile', registry: '接口注册表', quickstart: '快速开始', language: '语言', install: '安装' },
+    nav: { installGuide: '安装', skills: 'Agent Skills', workflow: '发布流程', profiles: '凭据 Profile', registry: '接口注册表', quickstart: '快速开始', language: '语言', install: '安装' },
     hero: {
       kicker: '为终端而生的 AppGallery Connect 控制面',
       titleLead: '让每一次发布沿着',
@@ -261,6 +288,25 @@ const translations = {
       copyMac: '复制 macOS 安装命令',
       copyWindows: '复制 Windows 安装命令',
       requirements: ['NPM：Node.js 18+', '安装时不运行 postinstall 下载', '内置五个平台校验后二进制'],
+    },
+    skills: {
+      eyebrow: 'Agent Skills',
+      title: '让 Coding Agent 真正理解 AppGallery Connect 工作流。',
+      body: '6 个可移植 Skills 参考 asc-cli 的任务分层方式设计。可以全部安装，也可以只选择一个工作流；每个 Skill 都支持查看源码、直接下载和通过 GitHub 参与完善。',
+      installAll: '为 Codex 安装全部 6 个 Skills',
+      copyAll: '复制全部安装命令',
+      installOne: '安装这个 Skill',
+      download: '下载 SKILL.md',
+      source: '查看源码',
+      contribute: '提交一个 Skill',
+      descriptions: {
+        'agc-cli-usage': '通用命令发现、dry-run 预演、授权执行和远程结果验证。',
+        'agc-auth': '凭据 Profile、whoami、OAuth 团队查询和权限诊断。',
+        'agc-publishing': '应用资料、软件包、提交审核、分阶段发布和发布状态验证。',
+        'agc-testing': '测试版本、群组、测试用户、邀请链接、反馈和版本转正。',
+        'agc-reports': '分发、安装、付费、留存和鸿蒙元服务报表导出。',
+        'agc-cicd': '跨平台固定版本安装、受保护凭据、dry-run 门禁和 CI 验证。',
+      },
     },
     console: {
       eyebrow: '本地命令中心',
@@ -436,6 +482,7 @@ export function App({ renderLanguage, renderFamily }: { renderLanguage?: Languag
         </a>
         <div className="navlinks">
           <a href="#install">{text.nav.installGuide}</a>
+          <a href="#skills">{text.nav.skills}</a>
           <a href="#workflow">{text.nav.workflow}</a>
           <a href="#profiles">{text.nav.profiles}</a>
           <a href="#registry">{text.nav.registry}</a>
@@ -563,6 +610,49 @@ export function App({ renderLanguage, renderFamily }: { renderLanguage?: Languag
           {text.installGuide.requirements.map((requirement) => (
             <span key={requirement}><ShieldCheck size={14} /> {requirement}</span>
           ))}
+        </div>
+      </section>
+
+      <section className="section skillsSection" id="skills">
+        <div className="sectionIntro skillsIntro">
+          <div>
+            <p className="eyebrow">{text.skills.eyebrow}</p>
+            <h2>{text.skills.title}</h2>
+          </div>
+          <div className="skillsIntroCopy">
+            <p>{text.skills.body}</p>
+            <a href="https://github.com/Createitv/agc-cli/blob/main/CONTRIBUTING.md" target="_blank" rel="noreferrer">
+              {text.skills.contribute} <ArrowRight size={15} />
+            </a>
+          </div>
+        </div>
+        <div className="skillsInstallAll">
+          <span><Bot size={20} /> {text.skills.installAll}</span>
+          <code><span>$</span> {installAllSkillsCommand}</code>
+          <button type="button" onClick={() => copyCommand('skills-all', installAllSkillsCommand)} aria-label={text.skills.copyAll}>
+            {copied === 'skills-all' ? <Check size={16} /> : <Clipboard size={16} />}
+          </button>
+        </div>
+        <div className="skillsGrid">
+          {agentSkills.map((skill) => {
+            const command = installSkillCommand(skill);
+            return (
+              <article className="skillCard" key={skill}>
+                <div className="skillCardHeader"><Bot size={18} /><code>{skill}</code></div>
+                <p>{text.skills.descriptions[skill]}</p>
+                <div className="skillCommand">
+                  <code>{command}</code>
+                  <button type="button" onClick={() => copyCommand(`skill-${skill}`, command)} aria-label={`${text.skills.installOne}: ${skill}`}>
+                    {copied === `skill-${skill}` ? <Check size={15} /> : <Clipboard size={15} />}
+                  </button>
+                </div>
+                <div className="skillLinks">
+                  <a href={skillDownloadURL(skill)} target="_blank" rel="noreferrer"><Download size={14} /> {text.skills.download}</a>
+                  <a href={skillSourceURL(skill)} target="_blank" rel="noreferrer">{text.skills.source} <ArrowRight size={14} /></a>
+                </div>
+              </article>
+            );
+          })}
         </div>
       </section>
 
