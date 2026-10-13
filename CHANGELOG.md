@@ -6,6 +6,10 @@ User-visible changes are listed here. Published binaries and versions are availa
 
 ## Unreleased
 
+### Added
+
+- 增加 `agc auth whoami`，安全显示当前凭据身份；完成华为 OAuth Client 用户授权后，可通过 `AGC_OAUTH2_TOKEN` 与 `--teams` 查询官方团队账号列表。/ Added `agc auth whoami` for secret-free local identity output and optional official team-account lookup through `AGC_OAUTH2_TOKEN` and `--teams` after Huawei OAuth Client user authorization.
+
 ## v0.3.0 — 2026-10-13
 
 ### Added

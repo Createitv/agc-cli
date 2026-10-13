@@ -24,10 +24,10 @@ Keep your Service Account JSON at a stable local path:
 
 ```bash
 agc auth login --service-account-file ~/.agc/service-account.json --name production
-agc auth check
+agc auth whoami
 ```
 
-`auth check` displays local credential configuration. It does not verify that Huawei accepts those credentials. See [authentication and multiple accounts](#authentication-and-multiple-accounts) for alternatives.
+`auth whoami` displays the current local credential identity without secret material. `auth check --remote` verifies the token and an available app or project read permission. See [authentication and multiple accounts](#authentication-and-multiple-accounts) for alternatives.
 
 ### 3. Bind your project
 
@@ -169,9 +169,19 @@ agc --project ../another-app auth check
 | Environment variable | Purpose |
 | --- | --- |
 | `AGC_ACCESS_TOKEN` | Bearer token for endpoint requests; below `--token`, above profile credentials |
+| `AGC_OAUTH2_TOKEN` | Huawei OAuth Client user token used only by `agc auth whoami --teams` for the official team account list |
 | `AGC_CREDENTIALS_PATH` | Override `~/.agc/credentials.json`; below `--credentials-path` |
 
-`agc auth token` outputs a token. Currently, API Client output from `auth login`, `auth list`, and `auth check` may include `clientKey`. Do not publish that output in issues or public CI logs. Keep credential files, Service Account private keys, and access tokens locally or in CI secret storage.
+Inspect the current identity:
+
+```bash
+agc auth whoami
+AGC_OAUTH2_TOKEN="$HUAWEI_USER_TOKEN" agc auth whoami --teams
+```
+
+The normal command reports the profile, API Client ID, Service Account `sub_account`, and local project context without Client Key or private-key material. Huawei's [Project Management API](https://developer.huawei.com/consumer/en/doc/appgallery-connect-Guides/agcapi-project-overview-0000001111685232) makes its team account list OAuth Client-only; Service Account and API Client credentials cannot directly disclose the developer or team name. After user OAuth authorization, place the access token temporarily in `AGC_OAUTH2_TOKEN` and add `--teams` to query the official team list. Never put that token in command arguments, a repository, an issue, or public CI logs.
+
+`agc auth token` prints a token to the terminal. Keep credential files, Service Account private keys, and all access tokens locally or in CI secret storage.
 
 ## Command discovery and request flags
 

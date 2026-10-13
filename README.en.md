@@ -22,6 +22,7 @@ brew tap createitv/tap && brew install agc-cli
 # Cross-platform CI: npm install --global @createitv/agc-cli
 
 agc auth login --service-account-file ~/.agc/service-account.json --name production
+agc auth whoami
 agc init --app-id YOUR_APP_ID --default-profile production
 
 # Preview the query; add --dry-run=false to send it

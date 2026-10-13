@@ -22,6 +22,7 @@ brew tap createitv/tap && brew install agc-cli
 # 跨平台 CI：npm install --global @createitv/agc-cli
 
 agc auth login --service-account-file ~/.agc/service-account.json --name production
+agc auth whoami
 agc init --app-id YOUR_APP_ID --default-profile production
 
 # 预览查询；添加 --dry-run=false 才会发送请求
