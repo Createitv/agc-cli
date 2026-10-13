@@ -1,0 +1,15 @@
+{
+  "updatedAt": "2026-10-13T13:45:00+08:00",
+  "titleZh": "现在，Codex 可以直接使用 agc-cli 管理鸿蒙应用了",
+  "titleEn": "Codex Can Now Use agc-cli for HarmonyOS App Workflows",
+  "websiteGate": "pending_seo_geo_merge_and_live_verification",
+  "sites": [
+    { "site": "V2EX", "language": "zh-CN", "status": "prepared" },
+    { "site": "DEV", "language": "en", "status": "prepared" },
+    { "site": "华为开发者社区", "language": "zh-CN", "status": "prepared" },
+    { "site": "CSDN", "language": "zh-CN", "status": "prepared" },
+    { "site": "掘金", "language": "zh-CN", "status": "prepared" },
+    { "site": "51CTO", "language": "zh-CN", "status": "login_required" },
+    { "site": "微信公众号", "language": "zh-CN", "status": "prepared_as_draft_only" }
+  ]
+}

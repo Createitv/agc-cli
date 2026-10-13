@@ -1,0 +1,41 @@
+{
+  "generator": "built-in image_gen.imagegen",
+  "generatedAt": "2026-10-13",
+  "referenceStyle": [
+    "agc-cli-cover.png",
+    "agc-cli-workflow.png",
+    "agc-cli-interfaces.png"
+  ],
+  "assets": [
+    {
+      "file": "agc-cli-npm-agents-cover-en.png",
+      "purpose": "English article cover",
+      "size": "1672x941",
+      "promptSummary": "Dark agc-cli editorial cover with a red branching path from the CLI to NPM, six Skills, and a neutral coding-agent icon."
+    },
+    {
+      "file": "agc-cli-npm-agents-cover-zh-CN.png",
+      "purpose": "Chinese article cover",
+      "size": "1672x941",
+      "promptSummary": "Text-localized counterpart of the English cover, preserving the same layout and icons."
+    },
+    {
+      "file": "agc-cli-agent-workflow.png",
+      "purpose": "Shared NPM-to-Agent workflow diagram",
+      "size": "1672x941",
+      "promptSummary": "White technical diagram showing NPM to agc-cli to six Skills to Codex or another AI, with a dry-run guard."
+    },
+    {
+      "file": "agc-cli-agent-schema.png",
+      "purpose": "Shared structured-documentation diagram",
+      "size": "1672x941",
+      "promptSummary": "White technical diagram connecting the website and agc-cli to JSON-LD, llms.txt, Skills, API JSON, and a coding agent, with human approval separated from information flow."
+    }
+  ],
+  "constraints": [
+    "No Huawei logo",
+    "No OpenAI logo",
+    "No fake product screenshots",
+    "No unverified metrics or claims"
+  ]
+}

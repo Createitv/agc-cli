@@ -1,0 +1,26 @@
+{
+  "uploadedAt": "2026-10-13",
+  "basePath": "uPic/articles/agc-cli/20261013-npm-agents",
+  "assets": [
+    {
+      "file": "agc-cli-npm-agents-cover-en.png",
+      "url": "https://typora-1300715298.cos.ap-shanghai.myqcloud.com/uPic/articles/agc-cli/20261013-npm-agents/agc-cli-npm-agents-cover-en.png",
+      "sha256": "bc4a68bb130c0088d64a5105a43d4f7f90cfc230b4ab72e5df932329e93974f7"
+    },
+    {
+      "file": "agc-cli-npm-agents-cover-zh-CN.png",
+      "url": "https://typora-1300715298.cos.ap-shanghai.myqcloud.com/uPic/articles/agc-cli/20261013-npm-agents/agc-cli-npm-agents-cover-zh-CN.png",
+      "sha256": "48327fd7867efbddc2fad597394ee5de1399f23b46b990c5493984cf55d95c34"
+    },
+    {
+      "file": "agc-cli-agent-workflow.png",
+      "url": "https://typora-1300715298.cos.ap-shanghai.myqcloud.com/uPic/articles/agc-cli/20261013-npm-agents/agc-cli-agent-workflow.png",
+      "sha256": "e06f07437467987163458b1fa1f47a01ccab99cf5044728b5738b3b4772570ff"
+    },
+    {
+      "file": "agc-cli-agent-schema.png",
+      "url": "https://typora-1300715298.cos.ap-shanghai.myqcloud.com/uPic/articles/agc-cli/20261013-npm-agents/agc-cli-agent-schema.png",
+      "sha256": "498469a716f821b82964699966fc0ae90277dcd7a735684a848262952175946f"
+    }
+  ]
+}
