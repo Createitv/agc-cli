@@ -17,6 +17,21 @@ class NPMWorkflowTests(unittest.TestCase):
             "omit cache to disable it",
         )
 
+    def test_missing_version_does_not_turn_npm_json_error_into_integrity(self):
+        workflow = NPM_WORKFLOW.read_text(encoding="utf-8")
+
+        self.assertNotIn(
+            'dist.integrity --json',
+            workflow,
+            "npm view --json prints an error object to stdout for a missing "
+            "version, which must not be mistaken for an existing integrity",
+        )
+        self.assertIn(
+            'case "$published_integrity" in',
+            workflow,
+            "the workflow must only treat an sha512 integrity as published",
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

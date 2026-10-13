@@ -142,13 +142,20 @@ jobs:
           test "${#packages[@]}" -eq 1
           package=${packages[0]}
           candidate_integrity=$(node -e 'const fs=require("fs"); const p=JSON.parse(fs.readFileSync(process.argv[1],"utf8"))[0]; process.stdout.write(p.integrity)' "$RUNNER_TEMP/npm-artifact/npm-pack.json")
-          published_integrity=$(npm view "@createitv/agc-cli@$version" dist.integrity --json 2>/dev/null | tr -d '"\n' || true)
-          if test -n "$published_integrity"; then
-            test "$candidate_integrity" = "$published_integrity" || { echo "published npm package integrity differs from this release" >&2; exit 1; }
-            echo "@createitv/agc-cli@$version already matches the release; skipping immutable version."
-          else
-            npm publish "$package" --access public
-          fi
+          published_integrity=$(npm view "@createitv/agc-cli@$version" dist.integrity 2>/dev/null || true)
+          case "$published_integrity" in
+            sha512-*)
+              test "$candidate_integrity" = "$published_integrity" || { echo "published npm package integrity differs from this release" >&2; exit 1; }
+              echo "@createitv/agc-cli@$version already matches the release; skipping immutable version."
+              ;;
+            "")
+              npm publish "$package" --access public
+              ;;
+            *)
+              echo "unexpected npm integrity response: $published_integrity" >&2
+              exit 1
+              ;;
+          esac
       - name: Verify registry installation
         run: |
           version=${RELEASE_TAG#v}
