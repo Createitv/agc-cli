@@ -1,0 +1,4 @@
+interface:
+  display_name: "AGC Authentication"
+  short_description: "Authenticate and inspect agc-cli profiles safely"
+  default_prompt: "Use $agc-auth to inspect the selected agc-cli identity and configure or diagnose authentication without exposing secrets."

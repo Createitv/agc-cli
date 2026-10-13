@@ -349,6 +349,49 @@ main { min-height: 100vh; overflow: hidden; }
   background: rgba(126, 226, 168, 0.055);
 }
 
+.skillsSection { padding-top: 92px; padding-bottom: 132px; border-top: 1px solid var(--line); }
+.skillsIntro { max-width: none; display: grid; grid-template-columns: 1.05fr 0.75fr; gap: 72px; align-items: end; }
+.skillsIntro h2 { max-width: 760px; }
+.skillsIntroCopy > p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.75; }
+.skillsIntroCopy > a { margin-top: 18px; display: inline-flex; align-items: center; gap: 7px; color: var(--red); font-family: var(--mono); font-size: 10px; font-weight: 600; }
+.skillsInstallAll {
+  min-height: 78px;
+  margin-top: 48px;
+  padding: 16px 18px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) 38px;
+  align-items: center;
+  gap: 18px;
+  border: 1px solid rgba(240, 68, 68, 0.34);
+  border-radius: 10px;
+  background: linear-gradient(100deg, rgba(240, 68, 68, 0.12), #111114 48%, #0d0d0f);
+}
+.skillsInstallAll > span { display: inline-flex; align-items: center; gap: 9px; color: var(--paper); font-size: 12px; font-weight: 700; }
+.skillsInstallAll > span svg { color: var(--red); }
+.skillsInstallAll > code { color: #d5d0cd; font-size: 11px; overflow-wrap: anywhere; }
+.skillsInstallAll > code span { color: var(--red); margin-right: 7px; }
+.skillsInstallAll > button, .skillCommand button {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  border: 1px solid var(--line-strong);
+  border-radius: 7px;
+  background: #0a0a0c;
+  cursor: pointer;
+}
+.skillsGrid { margin-top: 18px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.skillCard { min-width: 0; padding: 22px; display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 10px; background: linear-gradient(155deg, #111114, #0d0d0f); }
+.skillCardHeader { display: flex; align-items: center; gap: 9px; color: var(--red); }
+.skillCardHeader code { color: var(--paper); font-size: 12px; font-weight: 600; }
+.skillCard > p { min-height: 66px; margin: 18px 0; color: var(--muted); font-size: 12px; line-height: 1.7; }
+.skillCommand { min-height: 64px; padding: 12px; display: grid; grid-template-columns: minmax(0, 1fr) 36px; align-items: center; gap: 10px; border: 1px solid var(--line); border-radius: 8px; background: #09090b; }
+.skillCommand code { color: #c9c5c2; font-size: 9px; line-height: 1.55; overflow-wrap: anywhere; }
+.skillLinks { margin-top: 17px; padding-top: 15px; display: flex; align-items: center; justify-content: space-between; gap: 12px; border-top: 1px solid var(--line); }
+.skillLinks a { display: inline-flex; align-items: center; gap: 6px; color: var(--quiet); font-family: var(--mono); font-size: 9px; }
+.skillLinks a:hover { color: var(--paper); }
+
 .workflowSection { padding-bottom: 152px; }
 .workflowGrid { margin-top: 64px; display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--line); }
 .workflowCard { min-height: 280px; padding: 27px; position: relative; border-right: 1px solid var(--line); background: linear-gradient(155deg, #111114, #0d0d0f); overflow: hidden; }
@@ -627,6 +670,7 @@ footer { max-width: var(--max); min-height: 160px; margin: 0 auto; padding: 38px
   .profileSection, .consoleSection { grid-template-columns: 1fr; }
   .profileConfig { max-width: 720px; }
   .installGuideGrid { grid-template-columns: 1fr; }
+  .skillsGrid { grid-template-columns: repeat(2, 1fr); }
   .quickStep { grid-template-columns: 50px 1fr; }
   .quickStep .commandBox { grid-column: 2; }
 }
@@ -701,3 +745,7 @@ footer { max-width: var(--max); min-height: 160px; margin: 0 auto; padding: 38px
 }
 
 :focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
+  .skillsIntro { grid-template-columns: 1fr; gap: 24px; }
+  .skillsInstallAll { grid-template-columns: 1fr 38px; }
+  .skillsInstallAll > span { grid-column: 1 / -1; }
+  .skillsGrid { grid-template-columns: 1fr; }

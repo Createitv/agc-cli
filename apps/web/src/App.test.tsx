@@ -54,6 +54,15 @@ describe('App', () => {
     expect(screen.getByText(/without lifecycle install scripts/i)).toBeInTheDocument();
   });
 
+  it('lists downloadable Agent Skills and copyable install commands', () => {
+    render(<App />);
+    expect(screen.getByText('Give your coding agent a map of AppGallery Connect.')).toBeInTheDocument();
+    expect(screen.getByText('agc-publishing')).toBeInTheDocument();
+    expect(screen.getAllByText(/agc skills install --name/)).toHaveLength(6);
+    expect(screen.getAllByRole('link', { name: 'Download SKILL.md' })).toHaveLength(6);
+    expect(screen.getByRole('link', { name: /Contribute a Skill/ })).toHaveAttribute('href', 'https://github.com/Createitv/agc-cli/blob/main/CONTRIBUTING.md');
+  });
+
   it('shows the complete selected family without a local API server', async () => {
     vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new Error('offline')));
     render(<App />);

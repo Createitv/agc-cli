@@ -51,7 +51,7 @@ Endpoint definitions include `affordances` command templates and `_links` REST r
 
 JSON is the default; add `--output table` or `--output markdown` for people. `agc web-server` exposes a local REST API. Templates require parameters and currently do not check remote business state to determine submission readiness. More in the [agent and REST guide](docs/CLI_USAGE.en.md#json-and-agents).
 
-The repository also ships an installable [`agc-cli-usage` skill](docs/AGENT_SKILLS.md) for Codex, Claude Code, and other agents. It covers command discovery, credential and project selection, dry-run review, authorized execution, and remote-state verification.
+The repository also ships installable [task-oriented Agent Skills](docs/AGENT_SKILLS.md) for Codex, Claude Code, and other agents, covering general usage, authentication, publishing, testing, reports, and CI/CD.
 
 ## What It Covers
 
