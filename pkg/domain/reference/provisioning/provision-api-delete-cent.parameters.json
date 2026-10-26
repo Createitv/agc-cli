@@ -1,0 +1,23 @@
+[
+  {
+    "name": "teamId",
+    "in": "header",
+    "type": "string",
+    "required": false,
+    "description": "开发者所在团队的团队ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-delete-cent-0000002271000685#section1323714041015",
+    "maxLength": 64
+  },
+  {
+    "name": "certIds",
+    "in": "body",
+    "type": "array",
+    "required": true,
+    "description": "证书ID列表。 数组长度为1~100。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-delete-cent-0000002271000685#section16551174881019",
+    "itemsType": "string",
+    "itemsMaxLength": 32,
+    "minItems": 1,
+    "maxItems": 100
+  }
+]

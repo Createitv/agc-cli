@@ -1,0 +1,14 @@
+[
+  {
+    "id": "report-date-window",
+    "kind": "date_window",
+    "fields": [
+      "query.startTime",
+      "query.endTime"
+    ],
+    "maxDays": 180,
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-gamereservationexport-0000001111685212#section886219295206",
+    "message": "Report dates must be real YYYYMMDD dates in chronological order within the documented query interval.",
+    "suggestion": "Use YYYYMMDD dates with endTime at or after startTime and no more than 180 days apart."
+  }
+]

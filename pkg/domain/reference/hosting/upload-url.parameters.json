@@ -1,0 +1,123 @@
+[
+  {
+    "name": "Authorization",
+    "type": "string",
+    "required": false,
+    "description": "认证鉴权信息。 认证方式：Bearer token。 格式:“Authorization: Bearer ${access_token}”。 access_token为获取Token中获取的access_token。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadurl-0000001166347942#section13360089148",
+    "in": "header"
+  },
+  {
+    "name": "productId",
+    "type": "string",
+    "required": true,
+    "description": "项目ID，获取方法参考查询开发者账号ID及项目ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadurl-0000001166347942#section13360089148",
+    "in": "header"
+  },
+  {
+    "name": "requestid",
+    "type": "string",
+    "required": true,
+    "description": "自定义的请求字符串，必须唯一标识此请求。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadurl-0000001166347942#section13360089148",
+    "in": "header"
+  },
+  {
+    "name": "client_id",
+    "type": "string",
+    "required": false,
+    "description": "客户端ID，获取方法参考创建API客户端。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadurl-0000001166347942#section13360089148",
+    "in": "header"
+  },
+  {
+    "name": "service",
+    "type": "string",
+    "required": true,
+    "description": "API业务标识。固定值：hosting。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadurl-0000001166347942#section13360089148",
+    "in": "header",
+    "enum": [
+      "hosting"
+    ]
+  },
+  {
+    "name": "siteId",
+    "type": "string",
+    "required": true,
+    "description": "云托管版本所在的站点ID。 可根据站点名称查询站点ID，获取方法参考查询站点信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadurl-0000001166347942#section17512144171520",
+    "in": "body",
+    "maxLength": 64
+  },
+  {
+    "name": "version",
+    "type": "string",
+    "required": true,
+    "description": "当前版本的版本号（只支持“CREATED”状态版本）",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadurl-0000001166347942#section17512144171520",
+    "in": "body",
+    "maxLength": 64
+  },
+  {
+    "name": "materialInfos",
+    "type": "array",
+    "required": true,
+    "description": "zip增量包参数信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadurl-0000001166347942#section17512144171520",
+    "in": "body",
+    "itemsType": "object",
+    "itemsProperties": [
+      {
+        "name": "sceneId",
+        "type": "string",
+        "required": true,
+        "description": "场景ID，与项目ID一致。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadurl-0000001166347942#section17512144171520",
+        "in": "body",
+        "maxLength": 128
+      },
+      {
+        "name": "fileName",
+        "type": "string",
+        "required": true,
+        "description": "文件名称。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadurl-0000001166347942#section17512144171520",
+        "in": "body",
+        "maxLength": 256
+      },
+      {
+        "name": "fileSha256",
+        "type": "string",
+        "required": true,
+        "description": "zip增量的Hash值。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadurl-0000001166347942#section17512144171520",
+        "in": "body",
+        "maxLength": 64,
+        "pattern": "^[a-fA-F0-9]{64}$"
+      },
+      {
+        "name": "fileSize",
+        "type": "integer",
+        "required": true,
+        "description": "文件大小，参数最大限制10G。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadurl-0000001166347942#section17512144171520",
+        "in": "body",
+        "minimum": 0,
+        "maximum": 10737418240
+      },
+      {
+        "name": "contentType",
+        "type": "integer",
+        "required": true,
+        "description": "上传资源类型。固定值为：902。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadurl-0000001166347942#section17512144171520",
+        "in": "body",
+        "enum": [
+          "902"
+        ]
+      }
+    ]
+  }
+]

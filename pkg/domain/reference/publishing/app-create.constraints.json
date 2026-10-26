@@ -1,0 +1,23 @@
+{
+  "header.teamId": {
+    "maxLength": 64
+  },
+  "body.appName": {
+    "maxLength": 64
+  },
+  "body.packageName": {
+    "maxLength": 128
+  },
+  "body.parentType": {
+    "enum": [
+      "2",
+      "13"
+    ]
+  },
+  "body.installationFree": {
+    "enum": [
+      "0",
+      "1"
+    ]
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "examples": [],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter#section195981215284",
+      "title": "了解新版目录"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-open-ability-0000002235710238",
+      "title": "AGC开放能力"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-0000002236015554",
+      "title": "AppGallery Connect API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-reference-0000002271000709",
+      "title": "Testing API参考"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-data-0000002237336484",
+      "title": "数据模型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-data-groupinfo-0000002272575557",
+      "title": "GroupInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-data-simplegroupinfo-0000002237336496",
+      "title": "SimpleGroupInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-data-testerinfo-0000002272575561",
+      "title": "TesterInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-data-testtaskinfo-0000002272455649",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "groupInfos",
+          "M",
+          "List<GroupInfo>",
+          "测试用户信息。 注意 公开测试不支持修改。"
+        ],
+        [
+          "needShareLink",
+          "O",
+          "Integer",
+          "是否需要生成分享链接。 取值范围： 0：不需要。 1：需要。"
+        ],
+        [
+          "publicTestInstallLimit",
+          "O",
+          "Integer",
+          "公开测试安装次数上限。 默认值：10万次 注意 仅公开测试支持填写此字段。"
+        ],
+        [
+          "displayArea",
+          "O",
+          "String(32)",
+          "展示区域。 取值范围： 1：AppGallery客户端测试专区 说明 邀请测试该字段必填。 公开测试该字段选填。"
+        ],
+        [
+          "needNotify",
+          "O",
+          "Integer(32)",
+          "是否向用户发送测试通知。 取值范围： 0：不需要 1：需要 默认值：1"
+        ]
+      ],
+      "section": "",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-data-testtaskinfo-0000002272455649"
+    }
+  ],
+  "title": "TestTaskInfo",
+  "updatedAt": "2026-08-05 11:22",
+  "checkedAt": "2026-10-07T04:53:08.862Z"
+}

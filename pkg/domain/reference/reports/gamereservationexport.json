@@ -1,0 +1,399 @@
+{
+  "examples": [],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-reportsapi-0000001111685194",
+      "title": "Reports API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-reportsapi-android-0000002356786268",
+      "title": "HarmonyOS 3.1/4.0及以下、Android"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114",
+      "title": "使用入门"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114#section1785535363715",
+      "title": "通过Service Account方式获取授权"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114#section103mcpsimp",
+      "title": "创建API客户端"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain_token-0000001158365043",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-getteamlist-0000001158245075",
+      "title": "获取团队列表"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114#section949717114392",
+      "title": "获取用户授权码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/distribution/app/agc-help-appinfo-0000001100014694",
+      "title": "查询应用信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-gamereservationexport-0000001111685212#ZH-CN_TOPIC_0000001111685212__p166283135816",
+      "title": "预约报表数据说明"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-appdownloadexport-0000001158365059",
+      "title": "获取下载安装的报表"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-activityawardexport-0000001158245071",
+      "title": "获取给指定用户群发奖的报表"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-gamereservationexport-0000001111685212#section17324802",
+      "title": "功能介绍"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-gamereservationexport-0000001111685212#section21705491",
+      "title": "使用约束"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-gamereservationexport-0000001111685212#section6932219103913",
+      "title": "接口原型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-gamereservationexport-0000001111685212#section62398251",
+      "title": "请求参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-gamereservationexport-0000001111685212#section236517415165",
+      "title": "Header"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-gamereservationexport-0000001111685212#section1250171775311",
+      "title": "Path"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-gamereservationexport-0000001111685212#section886219295206",
+      "title": "Query"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-gamereservationexport-0000001111685212#section4723514",
+      "title": "响应参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-gamereservationexport-0000001111685212#section17324802",
+      "text": "获取预约报表数据的CSV或EXCEL文件地址。接口调用者的角色：账号持有者、管理员、App管理员、运营。"
+    },
+    {
+      "section": "使用约束",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-gamereservationexport-0000001111685212#section21705491",
+      "text": "本接口仅支持在中国大陆地区发布的应用。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-gamereservationexport-0000001111685212#section236517415165",
+      "text": "本接口支持使用Service Account方式、API客户端方式和OAuth客户端方式，区别请参见使用入门。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-gamereservationexport-0000001111685212#section236517415165",
+      "text": "Service Account方式："
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-gamereservationexport-0000001111685212#section236517415165",
+      "text": "API客户端方式："
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-gamereservationexport-0000001111685212#section236517415165",
+      "text": "OAuth客户端方式："
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-gamereservationexport-0000001111685212#section4723514",
+      "text": "预约报表数据说明"
+    }
+  ],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-gamereservationexport-0000001111685212",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "承载协议",
+          "HTTPS GET"
+        ],
+        [
+          "接口方向",
+          "开发者服务器 -> 华为服务器"
+        ],
+        [
+          "接口URL",
+          "https://connect-api.cloud.huawei.com/api/report/distribution-operation-quality/v1/gameReservationExport/{appId}"
+        ],
+        [
+          "数据格式",
+          "请求：Content-Type: application/json 响应：Content-Type: application/json"
+        ]
+      ],
+      "section": "接口原型",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-gamereservationexport-0000001111685212#section6932219103913"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "Authorization",
+          "M",
+          "String",
+          "认证信息，格式为“Authorization: Bearer ${JWT}”。JWT为通过Service Account方式获取授权中获取的鉴权令牌。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-gamereservationexport-0000001111685212#section236517415165"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "client_id",
+          "M",
+          "String",
+          "客户端ID，获取方法参考创建API客户端。"
+        ],
+        [
+          "Authorization",
+          "M",
+          "String",
+          "认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-gamereservationexport-0000001111685212#section236517415165"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "teamId",
+          "M",
+          "String",
+          "开发者所在团队的团队ID，可通过获取团队列表接口获取。"
+        ],
+        [
+          "oauth2Token",
+          "M",
+          "String",
+          "认证信息，传入获取用户授权码中获取的Access Token。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-gamereservationexport-0000001111685212#section236517415165"
+    },
+    {
+      "location": "path",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "appId",
+          "M",
+          "String",
+          "应用ID，获取方法参考查询应用信息。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-gamereservationexport-0000001111685212#section1250171775311"
+    },
+    {
+      "location": "query",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "language",
+          "M",
+          "String",
+          "查询语言，报表title会根据不同语言来展现，目前只支持简体中文（zh-CN）。"
+        ],
+        [
+          "startTime",
+          "M",
+          "String",
+          "查询开始时间，UTC时间，格式为YYYYMMDD。startTime和endTime之间不超过180天。"
+        ],
+        [
+          "endTime",
+          "M",
+          "String",
+          "查询结束时间，UTC时间，格式为YYYYMMDD。startTime和endTime之间不超过180天。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-gamereservationexport-0000001111685212#section886219295206"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "fileURL",
+          "M",
+          "String",
+          "导出CSV或EXCEL文件的路径。 报表文件中字段语言由language参数指定，首个字段为groupBy参数中指定的数据统计分组类型。以报表字段为英文为例，您可以点击文件样例.zip下载样例文件。 文件中包含的字段说明请参见预约报表数据说明。"
+        ],
+        [
+          "packName",
+          "M",
+          "String",
+          "应用包名。"
+        ],
+        [
+          "ret",
+          "M",
+          "String",
+          "包含返回码及描述信息的JSON字符串，格式为{\"code\":retcode, \"msg\": \"description\"}，retcode为返回码，description为返回码描述信息。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-gamereservationexport-0000001111685212#section4723514"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "字段名（中文）",
+          "字段名（英文）",
+          "字段名（俄语）",
+          "字段含义"
+        ],
+        [
+          "日期",
+          "Time",
+          "Время",
+          "数据统计按时间进行分组。"
+        ],
+        [
+          "预约详情PV",
+          "Preorder details PV",
+          "Просмотры страницы предзаказа",
+          "预约详情浏览的次数。"
+        ],
+        [
+          "预约详情浏览设备数",
+          "Preorder details Devices viewing preorder details page",
+          "Устройства, на которых была просмотрена страница предзаказа",
+          "进入预约详情浏览的设备数。"
+        ],
+        [
+          "预约用户数",
+          "Preordering users",
+          "Пользователи, оформившие предзаказ",
+          "预约该应用的用户数，含快捷预约用户数和详情页预约用户数。"
+        ],
+        [
+          "详情页预约转换率",
+          "Preorder conversion rate on details page",
+          "Показатель конверсий предзаказов на странице описания",
+          "详情页带来的预约用户数/ 预约详情UV。"
+        ],
+        [
+          "已预约取消用户数",
+          "Users with preorders canceled",
+          "Пользователи, отменившие предзаказ",
+          "取消预约的用户数。"
+        ],
+        [
+          "累计预约用户数",
+          "Total preordering users",
+          "Всего пользователей, оформивших предзаказ",
+          "截止当前累计预约该应用的用户数。"
+        ],
+        [
+          "安装成功用户数",
+          "Users with successful installs",
+          "Пользователи с выполненными установками",
+          "应用上线后，已预约用户安装成功的用户。"
+        ],
+        [
+          "安装转换率",
+          "Installation rate",
+          "Показатель установок",
+          "安装成功用户数/累积预约用户数。"
+        ],
+        [
+          "新增注册数",
+          "New sign-ups",
+          "Новые регистрации",
+          "应用上线后，已预约用户新增注册用户数。"
+        ],
+        [
+          "累计注册数",
+          "Total sign-ups",
+          "Всего регистраций",
+          "截止当前应用上线后，已预约用户新增注册用户数。"
+        ],
+        [
+          "注册转换率",
+          "Sign-up rate",
+          "Показатель регистраций",
+          "累积注册数/累积预约用户数。"
+        ],
+        [
+          "登录用户数",
+          "Signed-in users",
+          "Пользователей, вошедших в систему",
+          "应用上线后，已预约用户登录用户数。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-gamereservationexport-0000001111685212#section4723514"
+    }
+  ],
+  "title": "获取预约的报表",
+  "updatedAt": "2026-03-11 09:18",
+  "checkedAt": "2026-10-07T02:56:25.394Z",
+  "family": "reports",
+  "endpoint": "gamereservationexport"
+}

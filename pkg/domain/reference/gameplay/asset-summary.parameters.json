@@ -1,0 +1,99 @@
+[
+  {
+    "name": "appId",
+    "in": "header",
+    "type": "string",
+    "required": true,
+    "description": "游戏在AppGallery Connect中生成的APP ID，获取方法请参见查看应用基本信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-asset-summary-0000002022105729#section133671740131017",
+    "maxLength": 32
+  },
+  {
+    "name": "timestamp",
+    "in": "header",
+    "type": "string",
+    "required": true,
+    "description": "当前时间的时间戳，即距离GMT时间1970年1月1号0时0分0秒所差的毫秒数。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-asset-summary-0000002022105729#section133671740131017",
+    "maxLength": 32
+  },
+  {
+    "name": "nonce",
+    "in": "header",
+    "type": "string",
+    "required": true,
+    "description": "随机字符串。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-asset-summary-0000002022105729#section133671740131017",
+    "maxLength": 64
+  },
+  {
+    "name": "sign",
+    "in": "header",
+    "type": "string",
+    "required": true,
+    "description": "华为服务器在发送请求时的签名字符串，生成步骤如下： 将Header参数中的appId、timestamp、nonce字段依次拼接成一个待签名的字符串。 对待签名字符串使用SHA256WithRSA/PSS算法进行签名。 将签名后的字符串经过Base64编码，得到的字符串即为签名字符串。 您需要获取验签公钥，并根据加密算法使用公钥对签名字符串进行验签，验签方法参见验签机制。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-asset-summary-0000002022105729#section133671740131017",
+    "maxLength": 1024
+  },
+  {
+    "name": "appId",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "游戏在AppGallery Connect中生成的APP ID，获取方法请参见查看应用基本信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-asset-summary-0000002022105729#section114701453163211",
+    "maxLength": 32
+  },
+  {
+    "name": "userId",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "华为账号登录游戏后生成的玩家标识。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-asset-summary-0000002022105729#section114701453163211",
+    "maxLength": 256
+  },
+  {
+    "name": "userIdType",
+    "in": "body",
+    "type": "integer",
+    "required": true,
+    "description": "玩家标识类型： 1：playerId 2：openId 3：unionId 4：gamePlayerId 5：teamPlayerId 6：thirdOpenId",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-asset-summary-0000002022105729#section114701453163211",
+    "enum": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "name": "serverId",
+    "in": "body",
+    "type": "string",
+    "required": false,
+    "description": "区服ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-asset-summary-0000002022105729#section114701453163211",
+    "maxLength": 32
+  },
+  {
+    "name": "roleId",
+    "in": "body",
+    "type": "string",
+    "required": false,
+    "description": "角色ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-asset-summary-0000002022105729#section114701453163211",
+    "maxLength": 32
+  },
+  {
+    "name": "lang",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "语言，用于获取不同语言的资产概要统计数据和资产明细数据，至少需要支持zh_CN（中文）和en_US（英文）。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-asset-summary-0000002022105729#section114701453163211",
+    "maxLength": 20
+  }
+]

@@ -1,0 +1,41 @@
+{
+  "checkedAt": "2026-10-26",
+  "examples": [],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-game-leaderboard-0000001349245017",
+      "title": "游戏排行榜模板API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [],
+  "renderedText": "API参考\nServerless模板\n抽奖活动模板API\n返回码\n返回码\n更新时间: 2022-07-11 10:50\n\n返回码（errorCode）\n\n\t\n\n错误描述（errorMsg）\n\n\n\n\n200\n\n\t\n\n成功。\n\n\n\n\n403\n\n\t\n\naccessToken无效，鉴权失败。\n\n游戏排行榜模板API\n意见反馈\n以上内容对您是否有帮助？\n意见反馈\n如果您有其他疑问，您也可以通过开发者社区问答频道来和我们联系探讨。\n社区提问AI 助手提问\n简体中文\n华为开发者联盟 版权所有 ©2026\n问题反馈\n使用条款\n华为开发者联盟用户协议\n关于华为开发者联盟与隐私的声明\nCookies\n开源软件声明",
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-lottery-api-errcode-0000001307372009",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "返回码（errorCode）",
+          "错误描述（errorMsg）"
+        ],
+        [
+          "200",
+          "成功。"
+        ],
+        [
+          "403",
+          "accessToken无效，鉴权失败。"
+        ]
+      ],
+      "section": "",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-lottery-api-errcode-0000001307372009"
+    }
+  ],
+  "title": "返回码",
+  "updatedAt": "2022-07-11 10:50"
+}

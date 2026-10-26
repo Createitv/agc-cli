@@ -1,0 +1,282 @@
+{
+  "checkedAt": "2026-10-26",
+  "examples": [
+    {
+      "section": "请求示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-verify-0000001182300271#section111611358426",
+      "text": "请求示例\nGET /api/oauth2/third/v1/verify-token?productId=7364********61998\nContent-Type: application/json\nclient_id: 680************560\naccessToken: eyJhbGciOi***KBC3JSnGx\nAuthorization: Bearer ***\nHost: connect-api.cloud.huawei.com"
+    },
+    {
+      "section": "响应示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-verify-0000001182300271#section4608111864818",
+      "text": "响应示例\n{\n    \"ret\": {\n        \"code\": 0,\n        \"msg\": \"OK\"\n    },\n    \"productId\": \"7364******98\",\n    \"accessToken\": {\n        \"token\": \"eyJhbGciOiJQUzI1NiIsImtpZCI6Ijhw******EF-8C2xT0VHwASTcPKgtcKBC3JSnGx\",\n        \"validPeriod\": 3553\n    },\n    \"uid\": \"686203960465306368\"\n}"
+    }
+  ],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-auth-0000001055443186",
+      "title": "Server"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-auth-rest-0000001135233594",
+      "title": "REST API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain_token-0000001158365043",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain_token-0000001158365043",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-get-developerid-projectid-0000001166543063",
+      "title": "查询项目ID"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549",
+      "title": "获取服务端API授权"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section276512551310",
+      "title": "通过Service Account方式获取授权"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section186371930132016",
+      "title": "创建API客户端"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain-token-project-0000001477336048",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-export-0000001136180686",
+      "title": "导出用户"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-revoke-0000001182420193",
+      "title": "撤销用户凭据"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-verify-0000001182300271#section15408512141113",
+      "title": "功能介绍"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-verify-0000001182300271#section899515213431",
+      "title": "使用约束"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-verify-0000001182300271#section17667171510253",
+      "title": "接口原型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-verify-0000001182300271#section98801710132813",
+      "title": "请求参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-verify-0000001182300271#section29031245171214",
+      "title": "Query"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-verify-0000001182300271#section1651855118124",
+      "title": "Header"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-verify-0000001182300271#section111611358426",
+      "title": "请求示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-verify-0000001182300271#section1787523414439",
+      "title": "响应参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-verify-0000001182300271#section4608111864818",
+      "title": "响应示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-verify-0000001182300271#section1969817010483",
+      "title": "调用示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-verify-0000001182300271#section15408512141113",
+      "text": "此接口用于验证已经颁发的用户凭据并且检查用户凭据是否已经撤销。"
+    },
+    {
+      "section": "使用约束",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-verify-0000001182300271#section899515213431",
+      "text": "接口调用者的角色：管理员、APP管理员、开发。"
+    },
+    {
+      "section": "使用约束",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-verify-0000001182300271#section899515213431",
+      "text": "接口调用次数限制：500个请求/client_id/秒"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-verify-0000001182300271#section1651855118124",
+      "text": "本接口支持使用Service Account方式和API客户端方式，二者区别请参见获取服务端API授权。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-verify-0000001182300271#section1651855118124",
+      "text": "Service Account方式"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-verify-0000001182300271#section1651855118124",
+      "text": "API客户端方式"
+    }
+  ],
+  "renderedText": "API参考\n认证服务\nServer\nREST API\n验证用户凭据\n验证用户凭据\n更新时间: 2026-10-22 11:25\n功能介绍\n\n此接口用于验证已经颁发的用户凭据并且检查用户凭据是否已经撤销。\n\n使用约束\n接口调用者的角色：管理员、APP管理员、开发。\n接口调用次数限制：500个请求/client_id/秒\n接口原型\n\n承载协议\n\n\t\n\nHTTPS GET\n\n\n\n\n接口方向\n\n\t\n\n开发者服务器->华为认证服务\n\n\n\n\n接口URL\n\n\t\n\nhttps://{domain}/api/oauth2/third/v1/verify-token?productId={productId}\n\n中国站点的domain：connect-api.cloud.huawei.com\n\n德国站点的domain：connect-api-dre.cloud.huawei.com\n\n新加坡站点的domain：connect-api-dra.cloud.huawei.com\n\n俄罗斯站点的domain：connect-api-drru.cloud.huawei.com\n\n注意\n\n调用获取Token接口时使用的域名必须与本接口域名保持一致，例如本接口使用“connect-api-dre.cloud.huawei.com”，则调用获取Token接口必须使用“https://connect-api-dre.cloud.huawei.com/api/oauth2/v1/token”。\n\n\n\n\n数据格式\n\n\t\n\n请求：Content-Type: application/json\n\n响应：Content-Type: application/json\n\n请求参数\nQuery\n\n参数名称\n\n\t\n\n必选(M)/可选(O)\n\n\t\n\n类型\n\n\t\n\n参数说明\n\n\n\n\nproductId\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n\n项目ID，查询方法可参见查询项目ID。\n\nHeader\n说明\n\n本接口支持使用Service Account方式和API客户端方式，二者区别请参见获取服务端API授权。\n\nService Account方式\n\n参数名称\n\n\t\n\n必选(M)/可选(O)\n\n\t\n\n类型\n\n\t\n\n参数说明\n\n\n\n\naccessToken\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n\n用户凭据。\n\n\n\n\nAuthorization\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n\n认证信息，格式为“Authorization: Bearer ${JWT}”。JWT为通过Service Account方式获取授权中获取的鉴权令牌。\n\nAPI客户端方式\n\n参数名称\n\n\t\n\n必选(M)/可选(O)\n\n\t\n\n类型\n\n\t\n\n参数说明\n\n\n\n\nclient_id\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n\n客户端ID，获取方法参考创建API客户端。\n\n\n\n\naccessToken\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n\n用户凭据。\n\n\n\n\nAuthorization\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n\n认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。\n\n请求示例\nGET /api/oauth2/third/v1/verify-token?productId=7364********61998\nContent-Type: application/json\nclient_id: 680************560\naccessToken: eyJhbGciOi***KBC3JSnGx\nAuthorization: Bearer ***\nHost: connect-api.cloud.huawei.com\n响应参数\n\n参数\n\n\t\n\n必选（M）/可选（O）\n\n\t\n\n参数类型\n\n\t\n\n描述\n\n\n\n\nret\n\n\t\n\nM\n\n\t\n\nString(100)\n\n\t\n\n包含返回码及描述信息的JSON字符串，格式为{\"code\":retcode, \"msg\": \"description\"}，retcode为返回码，description为返回码描述信息。\n\n\n\n\nproductId\n\n\t\n\nM\n\n\t\n\nInteger\n\n\t\n\n项目ID。\n\n\n\n\naccessToken\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n\nJSON字符串，格式为{\"token\": \"string\", \"validPeriod\": xxx }，token为用户凭据，validPeriod为token有效时长。单位为秒。\n\n\n\n\nuid\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n\n用户ID，唯一标识。\n\n响应示例\n{\n    \"ret\": {\n        \"code\": 0,\n        \"msg\": \"OK\"\n    },\n    \"productId\": \"7364******98\",\n    \"accessToken\": {\n        \"token\": \"eyJhbGciOiJQUzI1NiIsImtpZCI6Ijhw******EF-8C2xT0VHwASTcPKgtcKBC3JSnGx\",\n        \"validPeriod\": 3553\n    },\n    \"uid\": \"686203960465306368\"\n}\n调用示例\nJava\n    /**\n     * 通过华为认证服务进行验证用户凭据是否有效\n     *\n     * @param client_id clientId\n     * @param clientToken clientToken\n     * @param accessToken 用户凭据\n     * @param productId 项目ID\n     * @return uid\n     */\n    public static String verifyTokenServer(String clientId, String clientToken, String accessToken, String productId) {\n        HttpGet get =\n            new HttpGet(\"https://connect-api.cloud.huawei.com/api/oauth2/third/v1/verify-token?productId=\" + productId);\n        CloseableHttpClient httpClient = HttpClients.createDefault();\n        get.setHeader(\"client_id\", clientId);\n        get.setHeader(\"accessToken\", accessToken);\n        get.setHeader(\"Authorization\", \"Bearer \" + clientToken);\n        try {\n\n\n            CloseableHttpResponse httpResponse = httpClient.execute(get);\n            int statusCode = httpResponse.getStatusLine().getStatusCode();\n            if (statusCode == HttpStatus.SC_OK) {\n                BufferedReader br =\n                    new BufferedReader(new InputStreamReader(httpResponse.getEntity().getContent(), Consts.UTF_8));\n                String result = br.readLine();\n\n\n                JSONObject object = JSON.parseObject(result);\n                return object.getString(\"uid\");\n            }\n        } catch (Exception e) {\n            e.printStackTrace();\n        } finally {\n            try {\n                if (Objects.nonNull(get)) {\n                    get.releaseConnection();\n                }\n                if (Objects.nonNull(httpClient)) {\n                    httpClient.close();\n                }\n            } catch (Exception e) {\n                e.printStackTrace();\n            }\n        }\n\n\n        return null;\n    }\n导出用户\n撤销用户凭据\n意见反馈\n以上内容对您是否有帮助？\n意见反馈\n如果您有其他疑问，您也可以通过开发者社区问答频道来和我们联系探讨。\n社区提问AI 助手提问\n本文导读\n功能介绍\n使用约束\n接口原型\n请求参数\nQuery\nHeader\n请求示例\n响应参数\n响应示例\n调用示例\n简体中文\n华为开发者联盟 版权所有 ©2026\n问题反馈\n使用条款\n华为开发者联盟用户协议\n关于华为开发者联盟与隐私的声明\nCookies\n开源软件声明",
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-verify-0000001182300271",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "承载协议",
+          "HTTPS GET"
+        ],
+        [
+          "接口方向",
+          "开发者服务器->华为认证服务"
+        ],
+        [
+          "接口URL",
+          "https://{domain}/api/oauth2/third/v1/verify-token?productId={productId} 中国站点的domain：connect-api.cloud.huawei.com 德国站点的domain：connect-api-dre.cloud.huawei.com 新加坡站点的domain：connect-api-dra.cloud.huawei.com 俄罗斯站点的domain：connect-api-drru.cloud.huawei.com 注意 调用获取Token接口时使用的域名必须与本接口域名保持一致，例如本接口使用“connect-api-dre.cloud.huawei.com”，则调用获取Token接口必须使用“https://connect-api-dre.cloud.huawei.com/api/oauth2/v1/token”。"
+        ],
+        [
+          "数据格式",
+          "请求：Content-Type: application/json 响应：Content-Type: application/json"
+        ]
+      ],
+      "section": "接口原型",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-verify-0000001182300271#section17667171510253"
+    },
+    {
+      "location": "query",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "productId",
+          "M",
+          "String",
+          "项目ID，查询方法可参见查询项目ID。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-verify-0000001182300271#section29031245171214"
+    },
+    {
+      "authenticationBranch": "Service Account方式",
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "accessToken",
+          "M",
+          "String",
+          "用户凭据。"
+        ],
+        [
+          "Authorization",
+          "M",
+          "String",
+          "认证信息，格式为“Authorization: Bearer ${JWT}”。JWT为通过Service Account方式获取授权中获取的鉴权令牌。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-verify-0000001182300271#section1651855118124"
+    },
+    {
+      "authenticationBranch": "API客户端方式",
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "client_id",
+          "M",
+          "String",
+          "客户端ID，获取方法参考创建API客户端。"
+        ],
+        [
+          "accessToken",
+          "M",
+          "String",
+          "用户凭据。"
+        ],
+        [
+          "Authorization",
+          "M",
+          "String",
+          "认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-verify-0000001182300271#section1651855118124"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数",
+          "必选（M）/可选（O）",
+          "参数类型",
+          "描述"
+        ],
+        [
+          "ret",
+          "M",
+          "String(100)",
+          "包含返回码及描述信息的JSON字符串，格式为{\"code\":retcode, \"msg\": \"description\"}，retcode为返回码，description为返回码描述信息。"
+        ],
+        [
+          "productId",
+          "M",
+          "Integer",
+          "项目ID。"
+        ],
+        [
+          "accessToken",
+          "M",
+          "String",
+          "JSON字符串，格式为{\"token\": \"string\", \"validPeriod\": xxx }，token为用户凭据，validPeriod为token有效时长。单位为秒。"
+        ],
+        [
+          "uid",
+          "M",
+          "String",
+          "用户ID，唯一标识。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-verify-0000001182300271#section1787523414439"
+    }
+  ],
+  "title": "验证用户凭据",
+  "updatedAt": "2026-10-22 11:25",
+  "captureTool": "Computer Use; scripts/browser-capture-reference.mjs-compatible merged-cell capture"
+}

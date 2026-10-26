@@ -1,0 +1,4691 @@
+[
+  {
+    "id": "create-version",
+    "familyId": "hosting",
+    "name": "创建版本",
+    "description": "此接口用于创建云托管站点版本，已归档版本可作为新版本的基线版本。",
+    "method": "POST",
+    "path": "/api/cloudhosting/web/v1/version/create",
+    "command": "agc hosting create-version",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-newapp-0000001111685196",
+    "officialSlug": "agcapi-cloudhost-newapp-0000001111685196",
+    "direction": "developer-to-huawei",
+    "defaultBaseUrl": "https://connect-api.cloud.huawei.com",
+    "authentication": "server-api-client",
+    "requestContentType": "application/json",
+    "parameters": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "required": false,
+        "description": "认证鉴权信息。 认证方式：Bearer token。 格式:“Authorization: Bearer ${access_token}”。 access_token为获取Token中获取的access_token。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-newapp-0000001111685196#section236517415165",
+        "in": "header"
+      },
+      {
+        "name": "productId",
+        "type": "string",
+        "required": true,
+        "description": "项目ID，获取方法参考查询开发者账号ID及项目ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-newapp-0000001111685196#section236517415165",
+        "in": "header"
+      },
+      {
+        "name": "requestid",
+        "type": "string",
+        "required": true,
+        "description": "自定义的请求字符串，必须唯一标识此请求。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-newapp-0000001111685196#section236517415165",
+        "in": "header"
+      },
+      {
+        "name": "client_id",
+        "type": "string",
+        "required": false,
+        "description": "客户端ID，获取方法参考创建API客户端。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-newapp-0000001111685196#section236517415165",
+        "in": "header"
+      },
+      {
+        "name": "service",
+        "type": "string",
+        "required": true,
+        "description": "API业务标识。固定值：hosting。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-newapp-0000001111685196#section236517415165",
+        "in": "header",
+        "enum": [
+          "hosting"
+        ]
+      },
+      {
+        "name": "siteId",
+        "type": "string",
+        "required": true,
+        "description": "云托管版本所在的站点ID。 可根据站点名称查询站点ID，获取方法参考查询站点信息。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-newapp-0000001111685196#section17512144171520",
+        "in": "body",
+        "maxLength": 64
+      },
+      {
+        "name": "baseVersion",
+        "type": "string",
+        "required": false,
+        "description": "基线版本号，基于该版本创建新的版本。 仅支持版本状态为“FINALIZED”的版本作为基线版本。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-newapp-0000001111685196#section17512144171520",
+        "in": "body",
+        "maxLength": 64
+      }
+    ]
+  },
+  {
+    "id": "modify-files",
+    "familyId": "hosting",
+    "name": "修改版本文件列表",
+    "description": "此接口用于对基线版本需要删除的文件做版本修改，标记需要删除文件的绝对路径，在归档版本时处理文件。",
+    "method": "POST",
+    "path": "/api/cloudhosting/web/v1/version/modifyFilelist",
+    "command": "agc hosting modify-files",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-modifyversion-0000001211627867",
+    "officialSlug": "agcapi-cloudhost-modifyversion-0000001211627867",
+    "direction": "developer-to-huawei",
+    "defaultBaseUrl": "https://connect-api.cloud.huawei.com",
+    "authentication": "server-api-client",
+    "requestContentType": "application/json",
+    "parameters": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "required": false,
+        "description": "认证鉴权信息。 认证方式：Bearer token。 格式:“Authorization: Bearer ${access_token}”。 access_token为获取Token中获取的access_token。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-modifyversion-0000001211627867#section13360089148",
+        "in": "header"
+      },
+      {
+        "name": "productId",
+        "type": "string",
+        "required": true,
+        "description": "项目ID，获取方法参考查询开发者账号ID及项目ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-modifyversion-0000001211627867#section13360089148",
+        "in": "header"
+      },
+      {
+        "name": "requestid",
+        "type": "string",
+        "required": true,
+        "description": "自定义的请求字符串，必须唯一标识此请求。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-modifyversion-0000001211627867#section13360089148",
+        "in": "header"
+      },
+      {
+        "name": "client_id",
+        "type": "string",
+        "required": false,
+        "description": "客户端ID，获取方法参考创建API客户端。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-modifyversion-0000001211627867#section13360089148",
+        "in": "header"
+      },
+      {
+        "name": "service",
+        "type": "string",
+        "required": true,
+        "description": "API业务标识。固定值：hosting。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-modifyversion-0000001211627867#section13360089148",
+        "in": "header",
+        "enum": [
+          "hosting"
+        ]
+      },
+      {
+        "name": "siteId",
+        "type": "string",
+        "required": true,
+        "description": "云托管站点版本所在的站点ID。 可根据站点名称查询站点ID，获取方法参考查询站点信息。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-modifyversion-0000001211627867#section17512144171520",
+        "in": "body",
+        "maxLength": 64
+      },
+      {
+        "name": "version",
+        "type": "string",
+        "required": true,
+        "description": "当前版本的版本号（仅支持版本状态为“CREATED”的版本）。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-modifyversion-0000001211627867#section17512144171520",
+        "in": "body",
+        "maxLength": 64
+      },
+      {
+        "name": "deleteFiles",
+        "type": "array",
+        "required": true,
+        "description": "需要删除的文件列表（文件的绝对路径），一次最多删除1000个。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-modifyversion-0000001211627867#section17512144171520",
+        "in": "body",
+        "itemsType": "string",
+        "maxItems": 1000
+      }
+    ]
+  },
+  {
+    "id": "upload-url",
+    "familyId": "hosting",
+    "name": "获取版本压缩包上传地址",
+    "description": "此接口用于获取增量版本文件压缩包或全量版本文件压缩包的上传地址等信息，并完成增量版本包上传。您可以多次获取上传地址，以最后一次获取为最终增量版本。",
+    "method": "POST",
+    "path": "/api/cloudhosting/web/v1/version/populateFiles",
+    "command": "agc hosting upload-url",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadurl-0000001166347942",
+    "officialSlug": "agcapi-cloudhost-uploadurl-0000001166347942",
+    "direction": "developer-to-huawei",
+    "defaultBaseUrl": "https://connect-api.cloud.huawei.com",
+    "authentication": "server-api-client",
+    "requestContentType": "application/json",
+    "parameters": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "required": false,
+        "description": "认证鉴权信息。 认证方式：Bearer token。 格式:“Authorization: Bearer ${access_token}”。 access_token为获取Token中获取的access_token。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadurl-0000001166347942#section13360089148",
+        "in": "header"
+      },
+      {
+        "name": "productId",
+        "type": "string",
+        "required": true,
+        "description": "项目ID，获取方法参考查询开发者账号ID及项目ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadurl-0000001166347942#section13360089148",
+        "in": "header"
+      },
+      {
+        "name": "requestid",
+        "type": "string",
+        "required": true,
+        "description": "自定义的请求字符串，必须唯一标识此请求。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadurl-0000001166347942#section13360089148",
+        "in": "header"
+      },
+      {
+        "name": "client_id",
+        "type": "string",
+        "required": false,
+        "description": "客户端ID，获取方法参考创建API客户端。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadurl-0000001166347942#section13360089148",
+        "in": "header"
+      },
+      {
+        "name": "service",
+        "type": "string",
+        "required": true,
+        "description": "API业务标识。固定值：hosting。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadurl-0000001166347942#section13360089148",
+        "in": "header",
+        "enum": [
+          "hosting"
+        ]
+      },
+      {
+        "name": "siteId",
+        "type": "string",
+        "required": true,
+        "description": "云托管版本所在的站点ID。 可根据站点名称查询站点ID，获取方法参考查询站点信息。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadurl-0000001166347942#section17512144171520",
+        "in": "body",
+        "maxLength": 64
+      },
+      {
+        "name": "version",
+        "type": "string",
+        "required": true,
+        "description": "当前版本的版本号（只支持“CREATED”状态版本）",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadurl-0000001166347942#section17512144171520",
+        "in": "body",
+        "maxLength": 64
+      },
+      {
+        "name": "materialInfos",
+        "type": "array",
+        "required": true,
+        "description": "zip增量包参数信息。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadurl-0000001166347942#section17512144171520",
+        "in": "body",
+        "itemsType": "object",
+        "itemsProperties": [
+          {
+            "name": "sceneId",
+            "type": "string",
+            "required": true,
+            "description": "场景ID，与项目ID一致。",
+            "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadurl-0000001166347942#section17512144171520",
+            "in": "body",
+            "maxLength": 128
+          },
+          {
+            "name": "fileName",
+            "type": "string",
+            "required": true,
+            "description": "文件名称。",
+            "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadurl-0000001166347942#section17512144171520",
+            "in": "body",
+            "maxLength": 256
+          },
+          {
+            "name": "fileSha256",
+            "type": "string",
+            "required": true,
+            "description": "zip增量的Hash值。",
+            "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadurl-0000001166347942#section17512144171520",
+            "in": "body",
+            "maxLength": 64,
+            "pattern": "^[a-fA-F0-9]{64}$"
+          },
+          {
+            "name": "fileSize",
+            "type": "integer",
+            "required": true,
+            "description": "文件大小，参数最大限制10G。",
+            "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadurl-0000001166347942#section17512144171520",
+            "in": "body",
+            "minimum": 0,
+            "maximum": 10737418240
+          },
+          {
+            "name": "contentType",
+            "type": "integer",
+            "required": true,
+            "description": "上传资源类型。固定值为：902。",
+            "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadurl-0000001166347942#section17512144171520",
+            "in": "body",
+            "enum": [
+              "902"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "upload-version",
+    "familyId": "hosting",
+    "name": "上传版本压缩包",
+    "description": "通过获取上传地址的响应请求地址、请求方法、请求头信息，上传版本压缩包至云托管。",
+    "method": "PUT",
+    "path": "{uploadUrl}",
+    "command": "agc hosting upload-version",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadversion-0000001211707813",
+    "officialSlug": "agcapi-cloudhost-uploadversion-0000001211707813",
+    "direction": "developer-to-huawei",
+    "defaultBaseUrl": "",
+    "authentication": "signed-upload",
+    "requestContentType": "",
+    "parameters": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "required": true,
+        "description": "校验信息，对应获取版本压缩包上传地址接口返回的headers参数中的Authorization。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadversion-0000001211707813#section236517415165",
+        "in": "header"
+      },
+      {
+        "name": "x-amz-content-sha256",
+        "type": "string",
+        "required": true,
+        "description": "文件对象内容的SHA256哈希值，对应获取版本压缩包上传地址接口返回的headers参数中的x-amz-content-sha256。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadversion-0000001211707813#section236517415165",
+        "in": "header"
+      },
+      {
+        "name": "x-amz-client-request-id",
+        "type": "string",
+        "required": true,
+        "description": "文件上传的唯一标识，对应获取版本压缩包上传地址接口返回的headers参数中的x-amz-client-request-id。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadversion-0000001211707813#section236517415165",
+        "in": "header"
+      },
+      {
+        "name": "x-amz-date",
+        "type": "string",
+        "required": true,
+        "description": "文件上传地址生成的时间，对应获取版本压缩包上传地址接口返回的headers参数中的x-amz-date。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadversion-0000001211707813#section236517415165",
+        "in": "header"
+      },
+      {
+        "name": "Host",
+        "type": "string",
+        "required": true,
+        "description": "上传服务器地址，对应获取版本压缩包上传地址接口返回的headers参数中的Host。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadversion-0000001211707813#section236517415165",
+        "in": "header"
+      },
+      {
+        "name": "Content-Type",
+        "type": "string",
+        "required": true,
+        "description": "对象内容的类型，对应获取版本压缩包上传地址接口返回的headers参数中的Content-Type。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadversion-0000001211707813#section236517415165",
+        "in": "header"
+      },
+      {
+        "name": "uploadUrl",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadversion-0000001211707813"
+      },
+      {
+        "name": "file",
+        "in": "file",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadversion-0000001211707813"
+      }
+    ]
+  },
+  {
+    "id": "archive-version",
+    "familyId": "hosting",
+    "name": "归档版本",
+    "description": "版本包上传完成后，此接口用于对新版本进行归档。如果上传的是增量版本包，云托管对基线版本和增量版本包进行合并，归档为完整的新版本文件包。归档版本是异步操作，从开始到完成，版本的状态从“MERGING”变为“FINALIZED”。",
+    "method": "POST",
+    "path": "/api/cloudhosting/web/v1/version/merge",
+    "command": "agc hosting archive-version",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-archivedversion-0000001211826385",
+    "officialSlug": "agcapi-cloudhost-archivedversion-0000001211826385",
+    "direction": "developer-to-huawei",
+    "defaultBaseUrl": "https://connect-api.cloud.huawei.com",
+    "authentication": "server-api-client",
+    "requestContentType": "application/json",
+    "parameters": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "required": false,
+        "description": "认证鉴权信息。 认证方式：Bearer token。 格式:“Authorization: Bearer ${access_token}”。 access_token为获取Token中获取的access_token。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-archivedversion-0000001211826385#section236517415165",
+        "in": "header"
+      },
+      {
+        "name": "productId",
+        "type": "string",
+        "required": true,
+        "description": "项目ID，获取方法参考查询开发者账号ID及项目ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-archivedversion-0000001211826385#section236517415165",
+        "in": "header"
+      },
+      {
+        "name": "requestid",
+        "type": "string",
+        "required": true,
+        "description": "自定义的请求字符串，必须唯一标识此请求。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-archivedversion-0000001211826385#section236517415165",
+        "in": "header"
+      },
+      {
+        "name": "client_id",
+        "type": "string",
+        "required": false,
+        "description": "客户端ID，获取方法参考创建API客户端。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-archivedversion-0000001211826385#section236517415165",
+        "in": "header"
+      },
+      {
+        "name": "service",
+        "type": "string",
+        "required": true,
+        "description": "API业务标识。固定值：hosting。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-archivedversion-0000001211826385#section236517415165",
+        "in": "header",
+        "enum": [
+          "hosting"
+        ]
+      },
+      {
+        "name": "siteId",
+        "type": "string",
+        "required": true,
+        "description": "云托管版本所在站点ID。 可根据站点名称查询站点ID，获取方法参考查询站点信息。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-archivedversion-0000001211826385#section17512144171520",
+        "in": "body",
+        "maxLength": 64
+      },
+      {
+        "name": "version",
+        "type": "string",
+        "required": true,
+        "description": "当前版本的版本号（只支持“CREATED”状态）。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-archivedversion-0000001211826385#section17512144171520",
+        "in": "body",
+        "maxLength": 64
+      }
+    ]
+  },
+  {
+    "id": "release-version",
+    "familyId": "hosting",
+    "name": "发布版本",
+    "description": "此接口用于发布新版本。",
+    "method": "POST",
+    "path": "/api/cloudhosting/web/v1/version/release",
+    "command": "agc hosting release-version",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-releaseversion-0000001166666484",
+    "officialSlug": "agcapi-cloudhost-releaseversion-0000001166666484",
+    "direction": "developer-to-huawei",
+    "defaultBaseUrl": "https://connect-api.cloud.huawei.com",
+    "authentication": "server-api-client",
+    "requestContentType": "application/json",
+    "parameters": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "required": false,
+        "description": "认证鉴权信息。 认证方式：Bearer token。 格式:“Authorization: Bearer ${access_token}”。 access_token为获取Token中获取的access_token。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-releaseversion-0000001166666484#section236517415165",
+        "in": "header"
+      },
+      {
+        "name": "productId",
+        "type": "string",
+        "required": true,
+        "description": "项目ID，获取方法参考查询开发者账号ID及项目ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-releaseversion-0000001166666484#section236517415165",
+        "in": "header"
+      },
+      {
+        "name": "requestid",
+        "type": "string",
+        "required": true,
+        "description": "自定义的请求字符串，必须唯一标识此请求。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-releaseversion-0000001166666484#section236517415165",
+        "in": "header"
+      },
+      {
+        "name": "client_id",
+        "type": "string",
+        "required": false,
+        "description": "客户端ID，获取方法参考创建API客户端。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-releaseversion-0000001166666484#section236517415165",
+        "in": "header"
+      },
+      {
+        "name": "service",
+        "type": "string",
+        "required": true,
+        "description": "API业务标识。固定值：hosting。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-releaseversion-0000001166666484#section236517415165",
+        "in": "header",
+        "enum": [
+          "hosting"
+        ]
+      },
+      {
+        "name": "siteId",
+        "type": "string",
+        "required": true,
+        "description": "云托管版本所在站点ID。 可根据站点名称查询站点ID，获取方法参考查询站点信息。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-releaseversion-0000001166666484#section17512144171520",
+        "in": "body",
+        "maxLength": 64
+      },
+      {
+        "name": "version",
+        "type": "string",
+        "required": true,
+        "description": "当前版本的版本号。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-releaseversion-0000001166666484#section17512144171520",
+        "in": "body",
+        "maxLength": 64
+      },
+      {
+        "name": "environment",
+        "type": "integer",
+        "required": true,
+        "description": "发布环境类型。 0：生产 1：沙箱",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-releaseversion-0000001166666484#section17512144171520",
+        "in": "body",
+        "enum": [
+          "0",
+          "1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "list-versions",
+    "familyId": "hosting",
+    "name": "查询版本列表",
+    "description": "此接口用于查询云托管站点下的版本列表。",
+    "method": "POST",
+    "path": "/api/cloudhosting/web/v1/version/query",
+    "command": "agc hosting list-versions",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryversion-0000001166507920",
+    "officialSlug": "agcapi-cloudhost-queryversion-0000001166507920",
+    "direction": "developer-to-huawei",
+    "defaultBaseUrl": "https://connect-api.cloud.huawei.com",
+    "authentication": "server-api-client",
+    "requestContentType": "application/json",
+    "parameters": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "required": false,
+        "description": "认证鉴权信息。 认证方式：Bearer token。 格式:“Authorization: Bearer ${access_token}”。 access_token为获取Token中获取的access_token。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryversion-0000001166507920#section236517415165",
+        "in": "header"
+      },
+      {
+        "name": "productId",
+        "type": "string",
+        "required": true,
+        "description": "项目ID，获取方法参考查询开发者账号ID及项目ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryversion-0000001166507920#section236517415165",
+        "in": "header"
+      },
+      {
+        "name": "requestid",
+        "type": "string",
+        "required": true,
+        "description": "自定义的请求字符串，必须唯一标识此请求。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryversion-0000001166507920#section236517415165",
+        "in": "header"
+      },
+      {
+        "name": "client_id",
+        "type": "string",
+        "required": false,
+        "description": "客户端ID，获取方法参考创建API客户端。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryversion-0000001166507920#section236517415165",
+        "in": "header"
+      },
+      {
+        "name": "service",
+        "type": "string",
+        "required": true,
+        "description": "API业务标识。固定值：hosting。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryversion-0000001166507920#section236517415165",
+        "in": "header",
+        "enum": [
+          "hosting"
+        ]
+      },
+      {
+        "name": "siteId",
+        "type": "string",
+        "required": false,
+        "description": "云托管版本所在站点ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryversion-0000001166507920#section17512144171520",
+        "in": "body",
+        "maxLength": 64
+      },
+      {
+        "name": "tenantId",
+        "type": "string",
+        "required": false,
+        "description": "租户ID，与项目ID一致。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryversion-0000001166507920#section17512144171520",
+        "in": "body",
+        "maxLength": 64
+      },
+      {
+        "name": "version",
+        "type": "string",
+        "required": false,
+        "description": "版本ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryversion-0000001166507920#section17512144171520",
+        "in": "body",
+        "maxLength": 64
+      },
+      {
+        "name": "versionStatus",
+        "type": "string",
+        "required": false,
+        "description": "版本状态，参考版本状态码。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryversion-0000001166507920#section17512144171520",
+        "in": "body",
+        "maxLength": 64
+      }
+    ]
+  },
+  {
+    "id": "list-version-files",
+    "familyId": "hosting",
+    "name": "查询归档版本文件",
+    "description": "此接口用于查询已归档版本的归档文件信息，为创建和修改版本提供基线版本内容的查询。",
+    "method": "POST",
+    "path": "/api/cloudhosting/web/v1/version/queryFiles",
+    "command": "agc hosting list-version-files",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryfile-0000001211627869",
+    "officialSlug": "agcapi-cloudhost-queryfile-0000001211627869",
+    "direction": "developer-to-huawei",
+    "defaultBaseUrl": "https://connect-api.cloud.huawei.com",
+    "authentication": "server-api-client",
+    "requestContentType": "application/json",
+    "parameters": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "required": false,
+        "description": "认证鉴权信息。 认证方式：Bearer token。 格式:“Authorization: Bearer ${access_token}”。 access_token为获取Token中获取的access_token。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryfile-0000001211627869#section236517415165",
+        "in": "header"
+      },
+      {
+        "name": "productId",
+        "type": "string",
+        "required": true,
+        "description": "项目ID，获取方法参考查询开发者账号ID及项目ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryfile-0000001211627869#section236517415165",
+        "in": "header"
+      },
+      {
+        "name": "requestid",
+        "type": "string",
+        "required": true,
+        "description": "自定义的请求字符串，必须唯一标识此请求。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryfile-0000001211627869#section236517415165",
+        "in": "header"
+      },
+      {
+        "name": "client_id",
+        "type": "string",
+        "required": false,
+        "description": "客户端ID，获取方法参考创建API客户端。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryfile-0000001211627869#section236517415165",
+        "in": "header"
+      },
+      {
+        "name": "service",
+        "type": "string",
+        "required": true,
+        "description": "API业务标识。固定值：hosting。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryfile-0000001211627869#section236517415165",
+        "in": "header",
+        "enum": [
+          "hosting"
+        ]
+      },
+      {
+        "name": "siteId",
+        "type": "string",
+        "required": true,
+        "description": "云托管版本所在站点ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryfile-0000001211627869#section17512144171520",
+        "in": "body",
+        "maxLength": 64
+      },
+      {
+        "name": "version",
+        "type": "string",
+        "required": true,
+        "description": "站点版本ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryfile-0000001211627869#section17512144171520",
+        "in": "body",
+        "maxLength": 64
+      },
+      {
+        "name": "pageInfo",
+        "type": "object",
+        "required": true,
+        "description": "分页模型。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryfile-0000001211627869#section17512144171520",
+        "in": "body",
+        "properties": [
+          {
+            "name": "queryIndex",
+            "type": "integer",
+            "required": false,
+            "description": "索引查询，默认值为0。",
+            "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryfile-0000001211627869#section17512144171520",
+            "in": "body"
+          },
+          {
+            "name": "querySize",
+            "type": "integer",
+            "required": false,
+            "description": "每页查询数量，默认值为1000，最大值为1000。",
+            "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryfile-0000001211627869#section17512144171520",
+            "in": "body",
+            "maximum": 1000
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "delete-version",
+    "familyId": "hosting",
+    "name": "删除版本",
+    "description": "此接口用于删除站点下非“上线”状态的版本。",
+    "method": "DELETE",
+    "path": "/api/cloudhosting/web/v1/version/{versionId}",
+    "command": "agc hosting delete-version",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-deleteversion-0000001166347944",
+    "officialSlug": "agcapi-cloudhost-deleteversion-0000001166347944",
+    "direction": "developer-to-huawei",
+    "defaultBaseUrl": "https://connect-api.cloud.huawei.com",
+    "authentication": "server-api-client",
+    "requestContentType": "application/json",
+    "parameters": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "required": false,
+        "description": "认证鉴权信息。 认证方式：Bearer token。 格式:“Authorization: Bearer ${access_token}”。 access_token为获取Token中获取的access_token。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-deleteversion-0000001166347944#section236517415165",
+        "in": "header"
+      },
+      {
+        "name": "productId",
+        "type": "string",
+        "required": true,
+        "description": "项目ID，获取方法参考查询开发者账号ID及项目ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-deleteversion-0000001166347944#section236517415165",
+        "in": "header"
+      },
+      {
+        "name": "requestid",
+        "type": "string",
+        "required": true,
+        "description": "自定义的请求字符串，必须唯一标识此请求。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-deleteversion-0000001166347944#section236517415165",
+        "in": "header"
+      },
+      {
+        "name": "client_id",
+        "type": "string",
+        "required": false,
+        "description": "客户端ID，获取方法参考创建API客户端。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-deleteversion-0000001166347944#section236517415165",
+        "in": "header"
+      },
+      {
+        "name": "service",
+        "type": "string",
+        "required": true,
+        "description": "API业务标识。固定值：hosting。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-deleteversion-0000001166347944#section236517415165",
+        "in": "header",
+        "enum": [
+          "hosting"
+        ]
+      },
+      {
+        "name": "versionId",
+        "type": "string",
+        "required": true,
+        "description": "站点版本ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-deleteversion-0000001166347944#section17512144171520",
+        "in": "path",
+        "maxLength": 64
+      }
+    ]
+  },
+  {
+    "id": "create-environment",
+    "familyId": "hosting",
+    "name": "创建站点环境",
+    "description": "此接口用于创建站点环境。",
+    "method": "POST",
+    "path": "/api/cloudhosting/web/v1/site/environment/create",
+    "command": "agc hosting create-environment",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-createnvir-0000001216965720",
+    "officialSlug": "agcapi-cloudhost-createnvir-0000001216965720",
+    "direction": "developer-to-huawei",
+    "defaultBaseUrl": "https://connect-api.cloud.huawei.com",
+    "authentication": "server-api-client",
+    "requestContentType": "application/json",
+    "parameters": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "required": false,
+        "description": "认证鉴权信息。 认证方式：Bearer token。 格式:“Authorization: Bearer ${access_token}”。 access_token为获取Token中获取的access_token。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-createnvir-0000001216965720#section580816227139",
+        "in": "header"
+      },
+      {
+        "name": "productId",
+        "type": "string",
+        "required": true,
+        "description": "项目ID，获取方法参考查询开发者账号ID及项目ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-createnvir-0000001216965720#section580816227139",
+        "in": "header"
+      },
+      {
+        "name": "requestid",
+        "type": "string",
+        "required": true,
+        "description": "自定义的请求字符串，必须唯一标识此请求。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-createnvir-0000001216965720#section580816227139",
+        "in": "header"
+      },
+      {
+        "name": "client_id",
+        "type": "string",
+        "required": false,
+        "description": "客户端ID，获取方法参考创建API客户端。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-createnvir-0000001216965720#section580816227139",
+        "in": "header"
+      },
+      {
+        "name": "service",
+        "type": "string",
+        "required": true,
+        "description": "API业务标识。固定值：hosting。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-createnvir-0000001216965720#section580816227139",
+        "in": "header",
+        "enum": [
+          "hosting"
+        ]
+      },
+      {
+        "name": "siteId",
+        "type": "string",
+        "required": true,
+        "description": "站点ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-createnvir-0000001216965720#section2809102219131",
+        "in": "body",
+        "maxLength": 64
+      },
+      {
+        "name": "environmentId",
+        "type": "string",
+        "required": true,
+        "description": "环境ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-createnvir-0000001216965720#section2809102219131",
+        "in": "body",
+        "maxLength": 64
+      }
+    ]
+  },
+  {
+    "id": "list-environments",
+    "familyId": "hosting",
+    "name": "查询站点环境",
+    "description": "此接口用于查询站点环境。",
+    "method": "POST",
+    "path": "/api/cloudhosting/web/v1/site/environment/query",
+    "command": "agc hosting list-environments",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryenvir-0000001217285680",
+    "officialSlug": "agcapi-cloudhost-queryenvir-0000001217285680",
+    "direction": "developer-to-huawei",
+    "defaultBaseUrl": "https://connect-api.cloud.huawei.com",
+    "authentication": "server-api-client",
+    "requestContentType": "application/json",
+    "parameters": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "required": false,
+        "description": "认证鉴权信息。 认证方式：Bearer token。 格式:“Authorization: Bearer ${access_token}”。 access_token为获取Token中获取的access_token。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryenvir-0000001217285680#section580816227139",
+        "in": "header"
+      },
+      {
+        "name": "productId",
+        "type": "string",
+        "required": true,
+        "description": "项目ID，获取方法参考查询开发者账号ID及项目ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryenvir-0000001217285680#section580816227139",
+        "in": "header"
+      },
+      {
+        "name": "requestid",
+        "type": "string",
+        "required": true,
+        "description": "自定义的请求字符串，必须唯一标识此请求。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryenvir-0000001217285680#section580816227139",
+        "in": "header"
+      },
+      {
+        "name": "client_id",
+        "type": "string",
+        "required": false,
+        "description": "客户端ID，获取方法参考创建API客户端。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryenvir-0000001217285680#section580816227139",
+        "in": "header"
+      },
+      {
+        "name": "service",
+        "type": "string",
+        "required": true,
+        "description": "API业务标识。固定值：hosting。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryenvir-0000001217285680#section580816227139",
+        "in": "header",
+        "enum": [
+          "hosting"
+        ]
+      },
+      {
+        "name": "siteId",
+        "type": "string",
+        "required": true,
+        "description": "站点ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryenvir-0000001217285680#section2809102219131",
+        "in": "body",
+        "maxLength": 64
+      },
+      {
+        "name": "environmentId",
+        "type": "string",
+        "required": false,
+        "description": "环境ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryenvir-0000001217285680#section2809102219131",
+        "in": "body",
+        "maxLength": 64
+      }
+    ]
+  },
+  {
+    "id": "delete-environment",
+    "familyId": "hosting",
+    "name": "删除站点环境",
+    "description": "此接口用于删除站点环境。",
+    "method": "POST",
+    "path": "/api/cloudhosting/web/v1/site/environment/delete",
+    "command": "agc hosting delete-environment",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-deletenvir-0000001217445648",
+    "officialSlug": "agcapi-cloudhost-deletenvir-0000001217445648",
+    "direction": "developer-to-huawei",
+    "defaultBaseUrl": "https://connect-api.cloud.huawei.com",
+    "authentication": "server-api-client",
+    "requestContentType": "application/json",
+    "parameters": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "required": false,
+        "description": "认证鉴权信息。 认证方式：Bearer token。 格式:“Authorization: Bearer ${access_token}”。 access_token为获取Token中获取的access_token。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-deletenvir-0000001217445648#section580816227139",
+        "in": "header"
+      },
+      {
+        "name": "productId",
+        "type": "string",
+        "required": true,
+        "description": "项目ID，获取方法参考查询开发者账号ID及项目ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-deletenvir-0000001217445648#section580816227139",
+        "in": "header"
+      },
+      {
+        "name": "requestid",
+        "type": "string",
+        "required": true,
+        "description": "自定义的请求字符串，必须唯一标识此请求。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-deletenvir-0000001217445648#section580816227139",
+        "in": "header"
+      },
+      {
+        "name": "client_id",
+        "type": "string",
+        "required": false,
+        "description": "客户端ID，获取方法参考创建API客户端。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-deletenvir-0000001217445648#section580816227139",
+        "in": "header"
+      },
+      {
+        "name": "service",
+        "type": "string",
+        "required": true,
+        "description": "API业务标识。固定值：hosting。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-deletenvir-0000001217445648#section580816227139",
+        "in": "header",
+        "enum": [
+          "hosting"
+        ]
+      },
+      {
+        "name": "siteId",
+        "type": "string",
+        "required": true,
+        "description": "站点ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-deletenvir-0000001217445648#section2809102219131",
+        "in": "body",
+        "maxLength": 64
+      },
+      {
+        "name": "environmentId",
+        "type": "string",
+        "required": true,
+        "description": "环境ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-deletenvir-0000001217445648#section2809102219131",
+        "in": "body",
+        "maxLength": 64
+      }
+    ]
+  },
+  {
+    "id": "create-site",
+    "familyId": "hosting",
+    "name": "创建站点",
+    "description": "此接口用于创建泛域名站点。",
+    "method": "POST",
+    "path": "/api/cloudhosting/web/v1/site/create",
+    "command": "agc hosting create-site",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-createsite-0000001216061466",
+    "officialSlug": "agcapi-cloudhost-createsite-0000001216061466",
+    "direction": "developer-to-huawei",
+    "defaultBaseUrl": "https://connect-api.cloud.huawei.com",
+    "authentication": "server-api-client",
+    "requestContentType": "application/json",
+    "parameters": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "required": false,
+        "description": "认证鉴权信息。 认证方式：Bearer token。 格式:“Authorization: Bearer ${access_token}”。 access_token为获取Token中获取的access_token。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-createsite-0000001216061466#section580816227139",
+        "in": "header"
+      },
+      {
+        "name": "productId",
+        "type": "string",
+        "required": true,
+        "description": "项目ID，获取方法参考查询开发者账号ID及项目ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-createsite-0000001216061466#section580816227139",
+        "in": "header"
+      },
+      {
+        "name": "requestid",
+        "type": "string",
+        "required": true,
+        "description": "自定义的请求字符串，必须唯一标识此请求。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-createsite-0000001216061466#section580816227139",
+        "in": "header"
+      },
+      {
+        "name": "client_id",
+        "type": "string",
+        "required": false,
+        "description": "客户端ID，获取方法参考创建API客户端。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-createsite-0000001216061466#section580816227139",
+        "in": "header"
+      },
+      {
+        "name": "service",
+        "type": "string",
+        "required": true,
+        "description": "API业务标识。固定值：hosting。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-createsite-0000001216061466#section580816227139",
+        "in": "header",
+        "enum": [
+          "hosting"
+        ]
+      },
+      {
+        "name": "siteName",
+        "type": "string",
+        "required": true,
+        "description": "站点名。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-createsite-0000001216061466#section2809102219131",
+        "in": "body",
+        "maxLength": 30
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "required": false,
+        "description": "站点描述信息。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-createsite-0000001216061466#section2809102219131",
+        "in": "body",
+        "maxLength": 1000
+      }
+    ]
+  },
+  {
+    "id": "list-sites",
+    "familyId": "hosting",
+    "name": "查询站点",
+    "description": "此接口用于通过站点部分信息查询站点其他信息，例如通过站点名称查询站点ID。",
+    "method": "POST",
+    "path": "/api/cloudhosting/web/v1/site/query",
+    "command": "agc hosting list-sites",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-querysite-0000001166826430",
+    "officialSlug": "agcapi-cloudhost-querysite-0000001166826430",
+    "direction": "developer-to-huawei",
+    "defaultBaseUrl": "https://connect-api.cloud.huawei.com",
+    "authentication": "server-api-client",
+    "requestContentType": "application/json",
+    "parameters": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "required": false,
+        "description": "认证鉴权信息。 认证方式：Bearer token。 格式:“Authorization: Bearer ${access_token}”。 access_token为获取Token中获取的access_token。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-querysite-0000001166826430#section580816227139",
+        "in": "header"
+      },
+      {
+        "name": "productId",
+        "type": "string",
+        "required": true,
+        "description": "项目ID，获取方法参考查询开发者账号ID及项目ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-querysite-0000001166826430#section580816227139",
+        "in": "header"
+      },
+      {
+        "name": "requestid",
+        "type": "string",
+        "required": true,
+        "description": "自定义的请求字符串，必须唯一标识此请求。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-querysite-0000001166826430#section580816227139",
+        "in": "header"
+      },
+      {
+        "name": "client_id",
+        "type": "string",
+        "required": false,
+        "description": "客户端ID，获取方法参考创建API客户端。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-querysite-0000001166826430#section580816227139",
+        "in": "header"
+      },
+      {
+        "name": "service",
+        "type": "string",
+        "required": true,
+        "description": "API业务标识。固定值：hosting。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-querysite-0000001166826430#section580816227139",
+        "in": "header",
+        "enum": [
+          "hosting"
+        ]
+      },
+      {
+        "name": "site",
+        "type": "object",
+        "required": true,
+        "description": "站点信息。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-querysite-0000001166826430#section2809102219131",
+        "in": "body",
+        "properties": [
+          {
+            "name": "siteName",
+            "type": "string",
+            "required": false,
+            "description": "站点名称。 可通过云托管站点名称查询站点完整信息。",
+            "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-querysite-0000001166826430#section2809102219131",
+            "in": "body",
+            "maxLength": 63
+          },
+          {
+            "name": "siteId",
+            "type": "string",
+            "required": false,
+            "description": "站点ID。",
+            "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-querysite-0000001166826430#section2809102219131",
+            "in": "body",
+            "maxLength": 64
+          },
+          {
+            "name": "tenantId",
+            "type": "string",
+            "required": false,
+            "description": "租户ID，与项目ID一致。",
+            "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-querysite-0000001166826430#section2809102219131",
+            "in": "body",
+            "maxLength": 64
+          }
+        ]
+      },
+      {
+        "name": "pageInfo",
+        "type": "object",
+        "required": false,
+        "description": "分页模型。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-querysite-0000001166826430#section2809102219131",
+        "in": "body",
+        "properties": [
+          {
+            "name": "queryIndex",
+            "type": "integer",
+            "required": false,
+            "description": "索引查询，默认值为0。",
+            "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-querysite-0000001166826430#section2809102219131",
+            "in": "body"
+          },
+          {
+            "name": "querySize",
+            "type": "integer",
+            "required": false,
+            "description": "每页查询数量。默认值为1000，最大值为1000",
+            "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-querysite-0000001166826430#section2809102219131",
+            "in": "body",
+            "maximum": 1000
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "update-site",
+    "familyId": "hosting",
+    "name": "更新站点",
+    "description": "此接口用于更新站点描述信息及控制是否开启简洁链接。",
+    "method": "POST",
+    "path": "/api/cloudhosting/web/v1/site/modify",
+    "command": "agc hosting update-site",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-refreshsite-0000001260949359",
+    "officialSlug": "agcapi-cloudhost-refreshsite-0000001260949359",
+    "direction": "developer-to-huawei",
+    "defaultBaseUrl": "https://connect-api.cloud.huawei.com",
+    "authentication": "server-api-client",
+    "requestContentType": "application/json",
+    "parameters": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "required": false,
+        "description": "认证鉴权信息。 认证方式：Bearer token。 格式:“Authorization: Bearer ${access_token}”。 access_token为获取Token中获取的access_token。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-refreshsite-0000001260949359#section580816227139",
+        "in": "header"
+      },
+      {
+        "name": "productId",
+        "type": "string",
+        "required": true,
+        "description": "项目ID，获取方法参考查询开发者账号ID及项目ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-refreshsite-0000001260949359#section580816227139",
+        "in": "header"
+      },
+      {
+        "name": "requestid",
+        "type": "string",
+        "required": true,
+        "description": "自定义的请求字符串，必须唯一标识此请求。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-refreshsite-0000001260949359#section580816227139",
+        "in": "header"
+      },
+      {
+        "name": "client_id",
+        "type": "string",
+        "required": false,
+        "description": "客户端ID，获取方法参考创建API客户端。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-refreshsite-0000001260949359#section580816227139",
+        "in": "header"
+      },
+      {
+        "name": "service",
+        "type": "string",
+        "required": true,
+        "description": "API业务标识。固定值：hosting。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-refreshsite-0000001260949359#section580816227139",
+        "in": "header",
+        "enum": [
+          "hosting"
+        ]
+      },
+      {
+        "name": "siteId",
+        "type": "string",
+        "required": true,
+        "description": "站点信息。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-refreshsite-0000001260949359#section2809102219131",
+        "in": "body",
+        "maxLength": 64
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "required": false,
+        "description": "描述信息内容，匹配中文、空格、下划线、中划线、点、英文字母及数字。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-refreshsite-0000001260949359#section2809102219131",
+        "in": "body",
+        "maxLength": 1000
+      },
+      {
+        "name": "cleanSuffix",
+        "type": "integer",
+        "required": false,
+        "description": "简洁链接： 0-关闭。 1-开启。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-refreshsite-0000001260949359#section2809102219131",
+        "in": "body",
+        "enum": [
+          "0",
+          "1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "delete-site",
+    "familyId": "hosting",
+    "name": "删除站点",
+    "description": "此接口用于删除站点。",
+    "method": "DELETE",
+    "path": "/api/cloudhosting/web/v1/site/{siteId}",
+    "command": "agc hosting delete-site",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-deletesite-0000001260869361",
+    "officialSlug": "agcapi-cloudhost-deletesite-0000001260869361",
+    "direction": "developer-to-huawei",
+    "defaultBaseUrl": "https://connect-api.cloud.huawei.com",
+    "authentication": "server-api-client",
+    "requestContentType": "application/json",
+    "parameters": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "required": false,
+        "description": "认证鉴权信息。 认证方式：Bearer token。 格式:“Authorization: Bearer ${access_token}”。 access_token为获取Token中获取的access_token。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-deletesite-0000001260869361#section580816227139",
+        "in": "header"
+      },
+      {
+        "name": "productId",
+        "type": "string",
+        "required": true,
+        "description": "项目ID，获取方法参考查询开发者账号ID及项目ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-deletesite-0000001260869361#section580816227139",
+        "in": "header"
+      },
+      {
+        "name": "requestid",
+        "type": "string",
+        "required": true,
+        "description": "自定义的请求字符串，必须唯一标识此请求。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-deletesite-0000001260869361#section580816227139",
+        "in": "header"
+      },
+      {
+        "name": "client_id",
+        "type": "string",
+        "required": false,
+        "description": "客户端ID，获取方法参考创建API客户端。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-deletesite-0000001260869361#section580816227139",
+        "in": "header"
+      },
+      {
+        "name": "service",
+        "type": "string",
+        "required": true,
+        "description": "API业务标识。固定值：hosting。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-deletesite-0000001260869361#section580816227139",
+        "in": "header",
+        "enum": [
+          "hosting"
+        ]
+      },
+      {
+        "name": "siteId",
+        "type": "string",
+        "required": true,
+        "description": "站点信息。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-deletesite-0000001260869361#section2809102219131",
+        "in": "path",
+        "maxLength": 64
+      }
+    ]
+  },
+  {
+    "id": "import-users",
+    "familyId": "cloud-auth",
+    "name": "导入用户",
+    "description": "此接口用于将准备好的用户信息导入到认证服务的用户数据中。",
+    "method": "POST",
+    "path": "/api/auth-service/v1/server/user:import",
+    "command": "agc cloud-auth import-users",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-import-0000001136020892",
+    "officialSlug": "server-rest-import-0000001136020892",
+    "direction": "developer-to-huawei",
+    "defaultBaseUrl": "https://connect-api.cloud.huawei.com",
+    "authentication": "service-account-or-api-client",
+    "requestContentType": "application/json",
+    "parameters": [
+      {
+        "name": "productId",
+        "type": "string",
+        "required": true,
+        "description": "项目ID，查询方法可参见查询项目ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-import-0000001136020892#section17216134314169",
+        "in": "header"
+      },
+      {
+        "name": "Authorization",
+        "type": "string",
+        "required": false,
+        "description": "认证信息，格式为“Authorization: Bearer ${JWT}”。JWT为通过Service Account方式获取授权中获取的鉴权令牌。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-import-0000001136020892#section17216134314169",
+        "in": "header"
+      },
+      {
+        "name": "client_id",
+        "type": "string",
+        "required": false,
+        "description": "客户端ID，获取方法参考创建API客户端。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-import-0000001136020892#section17216134314169",
+        "in": "header"
+      },
+      {
+        "name": "users",
+        "type": "array",
+        "required": true,
+        "description": "第三方的认证信息。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-import-0000001136020892#section12304113241318",
+        "in": "body",
+        "itemsType": "object",
+        "itemsProperties": [
+          {
+            "name": "importUid",
+            "type": "string",
+            "required": true,
+            "description": "用户ID，唯一标识。",
+            "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-import-0000001136020892#section12304113241318",
+            "in": "body",
+            "maxLength": 1024
+          },
+          {
+            "name": "displayName",
+            "type": "string",
+            "required": false,
+            "description": "用户昵称。",
+            "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-import-0000001136020892#section12304113241318",
+            "in": "body",
+            "maxLength": 1024
+          },
+          {
+            "name": "photoUrl",
+            "type": "string",
+            "required": false,
+            "description": "头像地址。",
+            "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-import-0000001136020892#section12304113241318",
+            "in": "body",
+            "maxLength": 2048
+          },
+          {
+            "name": "email",
+            "type": "string",
+            "required": false,
+            "description": "用户邮箱地址。 第三方的认证信息providers中的providerId为12的时候不能为空。",
+            "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-import-0000001136020892#section12304113241318",
+            "in": "body",
+            "maxLength": 512
+          },
+          {
+            "name": "emailVerified",
+            "type": "boolean",
+            "required": false,
+            "description": "邮箱是否需要验证，值为true或者false。 第三方的认证信息providers中的providerId为12的时候不能为空。",
+            "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-import-0000001136020892#section12304113241318",
+            "in": "body"
+          },
+          {
+            "name": "phone",
+            "type": "string",
+            "required": false,
+            "description": "手机号。格式: +国家码-手机号，示例+86-18260096275。 第三方的认证信息providers中的providerId为11的时候不能为空。",
+            "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-import-0000001136020892#section12304113241318",
+            "in": "body",
+            "maxLength": 32
+          },
+          {
+            "name": "createTime",
+            "type": "string",
+            "required": true,
+            "description": "创建时间，距离1970年1月1日毫秒数。",
+            "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-import-0000001136020892#section12304113241318",
+            "in": "body",
+            "maxLength": 20
+          },
+          {
+            "name": "lastLoginTime",
+            "type": "string",
+            "required": false,
+            "description": "上次登入时间，距离1970年1月1日的毫秒数。",
+            "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-import-0000001136020892#section12304113241318",
+            "in": "body",
+            "maxLength": 20
+          },
+          {
+            "name": "passwordHash",
+            "type": "string",
+            "required": false,
+            "description": "明文密码经过PBKDF2WithSHA256后的结果，迭代次数10000，盐值对应passwordSalt。",
+            "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-import-0000001136020892#section12304113241318",
+            "in": "body",
+            "maxLength": 8192
+          },
+          {
+            "name": "passwordSalt",
+            "type": "string",
+            "required": false,
+            "description": "密码算法的盐值。",
+            "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-import-0000001136020892#section12304113241318",
+            "in": "body",
+            "maxLength": 8192
+          },
+          {
+            "name": "providers",
+            "type": "array",
+            "required": true,
+            "description": "第三方的认证信息。",
+            "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-import-0000001136020892#section12304113241318",
+            "in": "body",
+            "itemsType": "object",
+            "maxItems": 32,
+            "itemsProperties": [
+              {
+                "name": "provider",
+                "type": "string",
+                "required": true,
+                "description": "认证方式类型: 0：匿名账号 1：华为账号 2: FACEBOOK* 3. TWITTER* 4：微信 5：华为游戏 6：QQ 7：微博 8：GOOGLE* 9: GOOGLE_PLAY_GAME* 10：自建账号 11：手机 12：邮箱 13：苹果账号 18：支付宝账号 说明 *星号标记的账号类型仅在海外站点支持，当您选择数据处理位置为德国、新加坡或俄罗斯时可以使用这些认证方式。",
+                "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-import-0000001136020892#section12304113241318",
+                "in": "body"
+              },
+              {
+                "name": "providerUid",
+                "type": "string",
+                "required": true,
+                "description": "用户唯一标识，由三方系统分配。",
+                "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-import-0000001136020892#section12304113241318",
+                "in": "body",
+                "maxLength": 1024
+              },
+              {
+                "name": "photoUrl",
+                "type": "string",
+                "required": false,
+                "description": "头像地址。",
+                "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-import-0000001136020892#section12304113241318",
+                "in": "body",
+                "maxLength": 2048
+              },
+              {
+                "name": "displayName",
+                "type": "string",
+                "required": false,
+                "description": "用户昵称。",
+                "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-import-0000001136020892#section12304113241318",
+                "in": "body",
+                "maxLength": 1024
+              },
+              {
+                "name": "openId",
+                "type": "string",
+                "required": false,
+                "description": "发送者唯一标识，例如微信openId。",
+                "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-import-0000001136020892#section12304113241318",
+                "in": "body",
+                "maxLength": 1024
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "export-users",
+    "familyId": "cloud-auth",
+    "name": "导出用户",
+    "description": "此接口用于导出认证服务中的用户信息。",
+    "method": "POST",
+    "path": "/api/auth-service/v1/server/user:export",
+    "command": "agc cloud-auth export-users",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-export-0000001136180686",
+    "officialSlug": "server-rest-export-0000001136180686",
+    "direction": "developer-to-huawei",
+    "defaultBaseUrl": "https://connect-api.cloud.huawei.com",
+    "authentication": "service-account-or-api-client",
+    "requestContentType": "application/json",
+    "parameters": [
+      {
+        "name": "productId",
+        "type": "string",
+        "required": true,
+        "description": "项目ID，查询方法可参见查询项目ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-export-0000001136180686#section1651855118124",
+        "in": "header"
+      },
+      {
+        "name": "Authorization",
+        "type": "string",
+        "required": false,
+        "description": "认证信息，格式为“Authorization: Bearer ${JWT}”。JWT为通过Service Account方式获取授权中获取的鉴权令牌。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-export-0000001136180686#section1651855118124",
+        "in": "header"
+      },
+      {
+        "name": "client_id",
+        "type": "string",
+        "required": false,
+        "description": "客户端ID，获取方法参考创建API客户端。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-export-0000001136180686#section1651855118124",
+        "in": "header"
+      },
+      {
+        "name": "block",
+        "type": "",
+        "required": false,
+        "description": "当前存储块号。不填默认是0。第1次调用时，block设置为0。服务端会返回totalBlock。后面采用循环调用，遍历导出block块里面的用户。 Documented String/example integer conflict; accepted without coercion.",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-export-0000001136180686#section16294334331",
+        "in": "body"
+      }
+    ]
+  },
+  {
+    "id": "verify-token",
+    "familyId": "cloud-auth",
+    "name": "验证用户凭据",
+    "description": "此接口用于验证已经颁发的用户凭据并且检查用户凭据是否已经撤销。",
+    "method": "GET",
+    "path": "/api/oauth2/third/v1/verify-token",
+    "command": "agc cloud-auth verify-token",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-verify-0000001182300271",
+    "officialSlug": "server-rest-verify-0000001182300271",
+    "direction": "developer-to-huawei",
+    "defaultBaseUrl": "https://connect-api.cloud.huawei.com",
+    "authentication": "service-account-or-api-client",
+    "requestContentType": "application/json",
+    "parameters": [
+      {
+        "name": "accessToken",
+        "type": "string",
+        "required": true,
+        "description": "用户凭据。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-verify-0000001182300271#section1651855118124",
+        "in": "header"
+      },
+      {
+        "name": "Authorization",
+        "type": "string",
+        "required": false,
+        "description": "认证信息，格式为“Authorization: Bearer ${JWT}”。JWT为通过Service Account方式获取授权中获取的鉴权令牌。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-verify-0000001182300271#section1651855118124",
+        "in": "header"
+      },
+      {
+        "name": "client_id",
+        "type": "string",
+        "required": false,
+        "description": "客户端ID，获取方法参考创建API客户端。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-verify-0000001182300271#section1651855118124",
+        "in": "header"
+      },
+      {
+        "name": "productId",
+        "type": "string",
+        "required": true,
+        "description": "项目ID，查询方法可参见查询项目ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-verify-0000001182300271#section29031245171214",
+        "in": "query"
+      }
+    ]
+  },
+  {
+    "id": "revoke-token",
+    "familyId": "cloud-auth",
+    "name": "撤销用户凭据",
+    "description": "此接口用于撤销已经颁发的用户访问凭据。",
+    "method": "POST",
+    "path": "/api/oauth2/third/v1/revoke-token",
+    "command": "agc cloud-auth revoke-token",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-revoke-0000001182420193",
+    "officialSlug": "server-rest-revoke-0000001182420193",
+    "direction": "developer-to-huawei",
+    "defaultBaseUrl": "https://connect-api.cloud.huawei.com",
+    "authentication": "service-account-or-api-client",
+    "requestContentType": "application/json",
+    "parameters": [
+      {
+        "name": "uid",
+        "type": "string",
+        "required": true,
+        "description": "待撤销凭据的用户。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-revoke-0000001182420193#section1649104725019",
+        "in": "header"
+      },
+      {
+        "name": "Authorization",
+        "type": "string",
+        "required": false,
+        "description": "认证信息，格式为“Authorization: Bearer ${JWT}”。JWT为通过Service Account方式获取授权中获取的鉴权令牌。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-revoke-0000001182420193#section1649104725019",
+        "in": "header"
+      },
+      {
+        "name": "client_id",
+        "type": "string",
+        "required": false,
+        "description": "客户端ID，获取方法参考创建API客户端。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-revoke-0000001182420193#section1649104725019",
+        "in": "header"
+      },
+      {
+        "name": "productId",
+        "type": "string",
+        "required": true,
+        "description": "项目ID，查询方法可参见查询项目ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-revoke-0000001182420193#section1696945244814",
+        "in": "query"
+      }
+    ]
+  },
+  {
+    "id": "client-token",
+    "familyId": "cloud-auth",
+    "name": "获取Token",
+    "description": "在使用客户端REST API调用业务接口前，需要通过华为开放平台进行鉴权，并获取认证通过后的Token。",
+    "method": "POST",
+    "path": "/agc/apigw/oauth2/v1/token",
+    "command": "agc cloud-auth client-token",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-obtaintoken-0000001414202481",
+    "officialSlug": "client-rest-auth-obtaintoken-0000001414202481",
+    "direction": "developer-to-huawei",
+    "defaultBaseUrl": "https://connect-drcn.dbankcloud.cn",
+    "authentication": "body-client-credentials",
+    "requestContentType": "application/json",
+    "parameters": [
+      {
+        "name": "useJwt",
+        "type": "integer",
+        "required": true,
+        "description": "是否使用自有账号凭据JWT(Json Web Token)： 1：使用JWT。 0：不使用，默认为0。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-obtaintoken-0000001414202481#section128mcpsimp",
+        "in": "body",
+        "enum": [
+          "0",
+          "1"
+        ]
+      },
+      {
+        "name": "grant_type",
+        "type": "string",
+        "required": true,
+        "description": "固定传入“client_credentials”。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-obtaintoken-0000001414202481#section128mcpsimp",
+        "in": "body",
+        "enum": [
+          "client_credentials"
+        ]
+      },
+      {
+        "name": "client_id",
+        "type": "string",
+        "required": true,
+        "description": "客户端ID，即获取客户端API授权中的“Client ID”。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-obtaintoken-0000001414202481#section128mcpsimp",
+        "in": "body"
+      },
+      {
+        "name": "client_secret",
+        "type": "string",
+        "required": true,
+        "description": "客户端密钥，即获取客户端API授权中的“Client Secret”。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-obtaintoken-0000001414202481#section128mcpsimp",
+        "in": "body"
+      }
+    ]
+  },
+  {
+    "id": "request-code",
+    "familyId": "cloud-auth",
+    "name": "验证码申请",
+    "description": "此接口用于用户注册、登录或者重置密码时验证码申请。",
+    "method": "POST",
+    "path": "/agc/apigw/oauth2/third/v1/verify-code",
+    "command": "agc cloud-auth request-code",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-verifycode-0000001294228992",
+    "officialSlug": "client-rest-auth-verifycode-0000001294228992",
+    "direction": "developer-to-huawei",
+    "defaultBaseUrl": "https://connect-drcn.dbankcloud.cn",
+    "authentication": "client-api-token",
+    "requestContentType": "application/json",
+    "parameters": [
+      {
+        "name": "client_id",
+        "type": "string",
+        "required": false,
+        "description": "客户端ID，获取方法参考获取客户端API授权。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-verifycode-0000001294228992#section16132444182317",
+        "in": "header"
+      },
+      {
+        "name": "Authorization",
+        "type": "string",
+        "required": false,
+        "description": "认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-verifycode-0000001294228992#section16132444182317",
+        "in": "header"
+      },
+      {
+        "name": "productId",
+        "type": "string",
+        "required": true,
+        "description": "项目ID，查询方法可参见查询项目ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-verifycode-0000001294228992#section228117246513",
+        "in": "query"
+      },
+      {
+        "name": "phone",
+        "type": "string",
+        "required": false,
+        "description": "手机号。需包含国家码，以“+”开头，国家码和手机号之间以“-”连接，例如中国大陆手机号“+86-150xxxxxxxx”。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-verifycode-0000001294228992#section31763842416",
+        "in": "body"
+      },
+      {
+        "name": "email",
+        "type": "string",
+        "required": false,
+        "description": "电子邮箱。 电子邮箱和手机号码二者必填一个。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-verifycode-0000001294228992#section31763842416",
+        "in": "body"
+      },
+      {
+        "name": "action",
+        "type": "integer",
+        "required": false,
+        "description": "验证码行为，取值如下： 1001：注册登录时申请验证码。 1002：重置密码时申请验证码。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-verifycode-0000001294228992#section31763842416",
+        "in": "body",
+        "enum": [
+          "1001",
+          "1002"
+        ]
+      },
+      {
+        "name": "lang",
+        "type": "string",
+        "required": false,
+        "description": "语言，格式为“zh_CN”。所有支持的语言类型请参考认证服务验证码语言类型。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-verifycode-0000001294228992#section31763842416",
+        "in": "body",
+        "enum": [
+          "am_ET",
+          "ar_EG",
+          "as_IN",
+          "az_AZ",
+          "be_BY",
+          "bg_BG",
+          "bn_BD",
+          "bo_CN",
+          "bs_BA",
+          "ca_ES",
+          "cs_CZ",
+          "da_DK",
+          "de_DE",
+          "el_GR",
+          "en_GB",
+          "en_US",
+          "es_ES",
+          "es_US",
+          "et_EE",
+          "eu_ES",
+          "fa_IR",
+          "fi_FI",
+          "fr_FR",
+          "gl_ES",
+          "gu_IN",
+          "iw_IL",
+          "hi_IN",
+          "hr_HR",
+          "hu_HU",
+          "in_ID",
+          "it_IT",
+          "ja_JP",
+          "jv_Latn",
+          "ka_GE",
+          "kk_KZ",
+          "km_KH",
+          "kn_IN",
+          "ko_KR",
+          "lo_LA",
+          "lt_LT",
+          "lv_LV",
+          "mai_IN",
+          "mi_NZ",
+          "mk_MK",
+          "ml_IN",
+          "mn_MN",
+          "mr_IN",
+          "ms_MY",
+          "my_MM",
+          "ne_NP",
+          "nl_NL",
+          "nb_NO",
+          "or_IN",
+          "pa_IN",
+          "pl_PL",
+          "pt_BR",
+          "pt_PT",
+          "ro_RO",
+          "ru_RU",
+          "si_LK",
+          "sk_SK",
+          "sl_SI",
+          "sr_latn",
+          "sv_SE",
+          "sw_KE",
+          "ta_IN",
+          "te_IN",
+          "th_TH",
+          "tl_PH",
+          "tr_TR",
+          "my_ZG",
+          "uk_UA",
+          "ur_PK",
+          "uz_UZ",
+          "vi_VN",
+          "zh_CN",
+          "zh_HK",
+          "zh_TW"
+        ]
+      },
+      {
+        "name": "sendInterval",
+        "type": "integer",
+        "required": false,
+        "description": "验证码发送间隔，30s到120s之间。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-verifycode-0000001294228992#section31763842416",
+        "in": "body",
+        "minimum": 30,
+        "maximum": 120
+      }
+    ]
+  },
+  {
+    "id": "register",
+    "familyId": "cloud-auth",
+    "name": "用户注册",
+    "description": "此接口用于用户注册。",
+    "method": "POST",
+    "path": "/agc/apigw/oauth2/third/v1/user-register",
+    "command": "agc cloud-auth register",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-register-0000001346709109",
+    "officialSlug": "client-rest-auth-register-0000001346709109",
+    "direction": "developer-to-huawei",
+    "defaultBaseUrl": "https://connect-drcn.dbankcloud.cn",
+    "authentication": "client-api-token",
+    "requestContentType": "application/json",
+    "parameters": [
+      {
+        "name": "client_id",
+        "type": "string",
+        "required": false,
+        "description": "客户端ID，获取方法参考获取客户端API授权。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-register-0000001346709109#section1271295172910",
+        "in": "header"
+      },
+      {
+        "name": "Authorization",
+        "type": "string",
+        "required": false,
+        "description": "认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-register-0000001346709109#section1271295172910",
+        "in": "header"
+      },
+      {
+        "name": "productId",
+        "type": "string",
+        "required": true,
+        "description": "项目ID，查询方法可参见查询项目ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-register-0000001346709109#section3324145832711",
+        "in": "query"
+      },
+      {
+        "name": "phone",
+        "type": "string",
+        "required": false,
+        "description": "手机号，包括国家码，以“+”开头，例如中国大陆的手机号以“+86”开头。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-register-0000001346709109#section1041827152910",
+        "in": "body"
+      },
+      {
+        "name": "email",
+        "type": "string",
+        "required": false,
+        "description": "电子邮箱。 电子邮箱和手机号码二者必填一个。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-register-0000001346709109#section1041827152910",
+        "in": "body"
+      },
+      {
+        "name": "verifyCode",
+        "type": "string",
+        "required": false,
+        "description": "验证码，传入手机号时必填。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-register-0000001346709109#section1041827152910",
+        "in": "body"
+      },
+      {
+        "name": "password",
+        "type": "string",
+        "required": false,
+        "description": "登录密码。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-register-0000001346709109#section1041827152910",
+        "in": "body"
+      },
+      {
+        "name": "useJwt",
+        "type": "integer",
+        "required": false,
+        "description": "是否使用自有账号凭据JWT(Json Web Token)： 0：不使用，默认为0。 1：使用。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-register-0000001346709109#section1041827152910",
+        "in": "body",
+        "enum": [
+          "0",
+          "1"
+        ]
+      },
+      {
+        "name": "channelId",
+        "type": "string",
+        "required": false,
+        "description": "渠道标识，当前渠道划分为华为渠道、AppStore渠道以及GooglePlay渠道。当从这些渠道SDK登录时，该参数有值。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-register-0000001346709109#section1041827152910",
+        "in": "body"
+      },
+      {
+        "name": "aaId",
+        "type": "string",
+        "required": false,
+        "description": "应用实例唯一编号。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-register-0000001346709109#section1041827152910",
+        "in": "body"
+      }
+    ]
+  },
+  {
+    "id": "sign-in-password",
+    "familyId": "cloud-auth",
+    "name": "用户密码登录",
+    "description": "此接口用于用户使用密码登录。",
+    "method": "POST",
+    "path": "/agc/apigw/oauth2/third/v1/user-signin",
+    "command": "agc cloud-auth sign-in-password",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-signin-0000001294069348",
+    "officialSlug": "client-rest-auth-signin-0000001294069348",
+    "direction": "developer-to-huawei",
+    "defaultBaseUrl": "https://connect-drcn.dbankcloud.cn",
+    "authentication": "client-api-token",
+    "requestContentType": "application/json",
+    "parameters": [
+      {
+        "name": "client_id",
+        "type": "string",
+        "required": false,
+        "description": "客户端ID，获取方法参考获取客户端API授权。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-signin-0000001294069348#section1180818719577",
+        "in": "header"
+      },
+      {
+        "name": "Authorization",
+        "type": "string",
+        "required": false,
+        "description": "认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-signin-0000001294069348#section1180818719577",
+        "in": "header"
+      },
+      {
+        "name": "productId",
+        "type": "string",
+        "required": true,
+        "description": "项目ID，查询方法可参见查询项目ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-signin-0000001294069348#section8252421578",
+        "in": "query"
+      },
+      {
+        "name": "provider",
+        "type": "integer",
+        "required": true,
+        "description": "账号授权提供方，取值及对应认证方式如下： 0：匿名账号 1：华为账号 2：Facebook* 3：Twitter* 4：微信 5：华为游戏 6：QQ 7：微博 8：Google* 9：Google Play Game* 10：自建账号 11：手机 12：邮箱 13：苹果账号 说明 *星号标记的账号类型仅在海外站点支持，当您选择数据处理位置为德国、新加坡或俄罗斯时可以使用这些认证方式。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-signin-0000001294069348#section1643221416579",
+        "in": "body",
+        "enum": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13"
+        ]
+      },
+      {
+        "name": "token",
+        "type": "string",
+        "required": true,
+        "description": "手机号码或者邮箱账号。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-signin-0000001294069348#section1643221416579",
+        "in": "body"
+      },
+      {
+        "name": "extraData",
+        "type": "string",
+        "required": false,
+        "description": "扩展字段，此处用于密码登录时填写密码，填写样例如 {\\\"password\\\":\\\"xxxxxxxxx\\\"}。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-signin-0000001294069348#section1643221416579",
+        "in": "body"
+      },
+      {
+        "name": "autoCreateUser",
+        "type": "integer",
+        "required": false,
+        "description": "是否自动创建用户，仅用于非托管账号： 0：不自动创建。 1：自动创建，默认为1。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-signin-0000001294069348#section1643221416579",
+        "in": "body",
+        "enum": [
+          "0",
+          "1"
+        ]
+      },
+      {
+        "name": "useJwt",
+        "type": "integer",
+        "required": false,
+        "description": "是否使用自有账号凭据JWT(Json Web Token)： 0：不使用，默认为0。 1：使用。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-signin-0000001294069348#section1643221416579",
+        "in": "body",
+        "enum": [
+          "0",
+          "1"
+        ]
+      },
+      {
+        "name": "channelId",
+        "type": "string",
+        "required": false,
+        "description": "渠道标识，当前渠道划分为华为渠道、AppStore渠道以及GooglePlay渠道。当从这些渠道SDK登录时，该参数有值。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-signin-0000001294069348#section1643221416579",
+        "in": "body"
+      },
+      {
+        "name": "aaId",
+        "type": "string",
+        "required": false,
+        "description": "应用实例唯一编号。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-signin-0000001294069348#section1643221416579",
+        "in": "body"
+      }
+    ]
+  },
+  {
+    "id": "sign-in-code",
+    "familyId": "cloud-auth",
+    "name": "用户验证码登录",
+    "description": "此接口用于用户使用验证码登录。",
+    "method": "POST",
+    "path": "/agc/apigw/oauth2/third/v1/user-signin",
+    "command": "agc cloud-auth sign-in-code",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-usersigini-0000001346828685",
+    "officialSlug": "client-rest-auth-usersigini-0000001346828685",
+    "direction": "developer-to-huawei",
+    "defaultBaseUrl": "https://connect-drcn.dbankcloud.cn",
+    "authentication": "client-api-token",
+    "requestContentType": "application/json",
+    "parameters": [
+      {
+        "name": "client_id",
+        "type": "string",
+        "required": false,
+        "description": "客户端ID，获取方法参考获取客户端API授权。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-usersigini-0000001346828685#section0279104411591",
+        "in": "header"
+      },
+      {
+        "name": "Authorization",
+        "type": "string",
+        "required": false,
+        "description": "认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-usersigini-0000001346828685#section0279104411591",
+        "in": "header"
+      },
+      {
+        "name": "productId",
+        "type": "string",
+        "required": true,
+        "description": "项目ID，查询方法可参见查询项目ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-usersigini-0000001346828685#section11159123655916",
+        "in": "query"
+      },
+      {
+        "name": "provider",
+        "type": "integer",
+        "required": true,
+        "description": "账号授权提供方，取值及对应认证方式如下： 0：匿名账号 1：华为账号 2：Facebook* 3：Twitter* 4：微信 5：华为游戏 6：QQ 7：微博 8：Google* 9：Google Play Game* 10：自建账号 11：手机 12：邮箱 13：苹果账号 说明 *星号标记的账号类型仅在海外站点支持，当您选择数据处理位置为德国、新加坡或俄罗斯时可以使用这些认证方式。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-usersigini-0000001346828685#section1432704914599",
+        "in": "body",
+        "enum": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13"
+        ]
+      },
+      {
+        "name": "token",
+        "type": "string",
+        "required": true,
+        "description": "手机号码或者邮箱账号。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-usersigini-0000001346828685#section1432704914599",
+        "in": "body"
+      },
+      {
+        "name": "extraData",
+        "type": "string",
+        "required": false,
+        "description": "扩展字段，此处用于验证码登录时填写验证码，填写样例如 {\\\"verifyCode\\\":\\\"123456\\\"}。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-usersigini-0000001346828685#section1432704914599",
+        "in": "body"
+      },
+      {
+        "name": "autoCreateUser",
+        "type": "integer",
+        "required": false,
+        "description": "是否自动创建用户，仅用于非托管账号： 1：自动创建，默认为1。 0：不自动创建。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-usersigini-0000001346828685#section1432704914599",
+        "in": "body",
+        "enum": [
+          "0",
+          "1"
+        ]
+      },
+      {
+        "name": "useJwt",
+        "type": "integer",
+        "required": false,
+        "description": "是否使用自有账号凭据JWT(Json Web Token)： 0：不使用，默认为0。 1：使用。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-usersigini-0000001346828685#section1432704914599",
+        "in": "body",
+        "enum": [
+          "0",
+          "1"
+        ]
+      },
+      {
+        "name": "channelId",
+        "type": "string",
+        "required": false,
+        "description": "渠道标识，当前渠道划分为华为渠道、AppStore渠道以及GooglePlay渠道。当从这些渠道SDK登录时，该参数有值。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-usersigini-0000001346828685#section1432704914599",
+        "in": "body"
+      },
+      {
+        "name": "aaId",
+        "type": "string",
+        "required": false,
+        "description": "应用实例唯一编号。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-usersigini-0000001346828685#section1432704914599",
+        "in": "body"
+      }
+    ]
+  },
+  {
+    "id": "update-account",
+    "familyId": "cloud-auth",
+    "name": "修改手机号或邮箱地址",
+    "description": "此接口用于用户修改手机号码或者邮箱地址。",
+    "method": "PUT",
+    "path": "/agc/apigw/oauth2/third/v1/user-phone-email",
+    "command": "agc cloud-auth update-account",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-modify-phone-email-0000001347069197",
+    "officialSlug": "client-rest-auth-modify-phone-email-0000001347069197",
+    "direction": "developer-to-huawei",
+    "defaultBaseUrl": "https://connect-drcn.dbankcloud.cn",
+    "authentication": "client-api-token",
+    "requestContentType": "application/json",
+    "parameters": [
+      {
+        "name": "client_id",
+        "type": "string",
+        "required": false,
+        "description": "客户端ID，获取方法参考获取客户端API授权。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-modify-phone-email-0000001347069197#section14358637816",
+        "in": "header"
+      },
+      {
+        "name": "Authorization",
+        "type": "string",
+        "required": false,
+        "description": "认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-modify-phone-email-0000001347069197#section14358637816",
+        "in": "header"
+      },
+      {
+        "name": "access_token",
+        "type": "string",
+        "required": true,
+        "description": "认证凭据。用户登录成功后，在登录接口的响应参数“accessToken”中获取。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-modify-phone-email-0000001347069197#section14358637816",
+        "in": "header"
+      },
+      {
+        "name": "productId",
+        "type": "string",
+        "required": true,
+        "description": "项目ID，查询方法可参见查询项目ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-modify-phone-email-0000001347069197#section1454420327110",
+        "in": "query"
+      },
+      {
+        "name": "lang",
+        "type": "string",
+        "required": false,
+        "description": "语言，格式为“zh_CN”。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-modify-phone-email-0000001347069197#section1556604410117",
+        "in": "body"
+      },
+      {
+        "name": "newPhone",
+        "type": "string",
+        "required": false,
+        "description": "新手机号。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-modify-phone-email-0000001347069197#section1556604410117",
+        "in": "body"
+      },
+      {
+        "name": "newEmail",
+        "type": "string",
+        "required": false,
+        "description": "新邮箱地址。 新邮箱地址和新手机号必填一个且只能填一个，即一次只修改手机号或者只修改邮箱地址。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-modify-phone-email-0000001347069197#section1556604410117",
+        "in": "body"
+      },
+      {
+        "name": "newVerifyCode",
+        "type": "string",
+        "required": true,
+        "description": "新验证码。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-modify-phone-email-0000001347069197#section1556604410117",
+        "in": "body"
+      }
+    ]
+  },
+  {
+    "id": "reset-password",
+    "familyId": "cloud-auth",
+    "name": "重置密码",
+    "description": "此接口用于用户进行密码重置。",
+    "method": "POST",
+    "path": "/agc/apigw/oauth2/third/v1/reset-password",
+    "command": "agc cloud-auth reset-password",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-resetpwd-0000001293909500",
+    "officialSlug": "client-rest-auth-resetpwd-0000001293909500",
+    "direction": "developer-to-huawei",
+    "defaultBaseUrl": "https://connect-drcn.dbankcloud.cn",
+    "authentication": "client-api-token",
+    "requestContentType": "application/json",
+    "parameters": [
+      {
+        "name": "client_id",
+        "type": "string",
+        "required": false,
+        "description": "客户端ID，获取方法参考获取客户端API授权。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-resetpwd-0000001293909500#section187405231633",
+        "in": "header"
+      },
+      {
+        "name": "Authorization",
+        "type": "string",
+        "required": false,
+        "description": "认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-resetpwd-0000001293909500#section187405231633",
+        "in": "header"
+      },
+      {
+        "name": "productId",
+        "type": "string",
+        "required": true,
+        "description": "项目ID，查询方法可参见查询项目ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-resetpwd-0000001293909500#section1226971914320",
+        "in": "query"
+      },
+      {
+        "name": "provider",
+        "type": "integer",
+        "required": false,
+        "description": "账号授权提供方，取值及对应认证方式如下： 0：匿名账号 1：华为账号 2：Facebook* 3：Twitter* 4：微信 5：华为游戏 6：QQ 7：微博 8：Google* 9：Google Play Game* 10：自建账号 11：手机 12：邮箱 13：苹果账号 说明 *星号标记的账号类型仅在海外站点支持，当您选择数据处理位置为德国、新加坡或俄罗斯时可以使用这些认证方式。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-resetpwd-0000001293909500#section1263082911311",
+        "in": "body",
+        "enum": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13"
+        ]
+      },
+      {
+        "name": "account",
+        "type": "string",
+        "required": false,
+        "description": "用户手机账号或者邮箱账号。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-resetpwd-0000001293909500#section1263082911311",
+        "in": "body"
+      },
+      {
+        "name": "verifyCode",
+        "type": "string",
+        "required": false,
+        "description": "验证码。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-resetpwd-0000001293909500#section1263082911311",
+        "in": "body"
+      },
+      {
+        "name": "password",
+        "type": "string",
+        "required": false,
+        "description": "新密码。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-resetpwd-0000001293909500#section1263082911311",
+        "in": "body"
+      }
+    ]
+  },
+  {
+    "id": "update-password",
+    "familyId": "cloud-auth",
+    "name": "修改密码",
+    "description": "此接口用于用户进行密码修改。",
+    "method": "PUT",
+    "path": "/agc/apigw/oauth2/third/v1/user-password",
+    "command": "agc cloud-auth update-password",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-modifypwd-0000001293749536",
+    "officialSlug": "client-rest-auth-modifypwd-0000001293749536",
+    "direction": "developer-to-huawei",
+    "defaultBaseUrl": "https://connect-drcn.dbankcloud.cn",
+    "authentication": "client-api-token",
+    "requestContentType": "application/json",
+    "parameters": [
+      {
+        "name": "client_id",
+        "type": "string",
+        "required": false,
+        "description": "客户端ID，获取方法参考获取客户端API授权。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-modifypwd-0000001293749536#section10676123415615",
+        "in": "header"
+      },
+      {
+        "name": "Authorization",
+        "type": "string",
+        "required": false,
+        "description": "认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-modifypwd-0000001293749536#section10676123415615",
+        "in": "header"
+      },
+      {
+        "name": "access_token",
+        "type": "string",
+        "required": true,
+        "description": "认证凭据。用户登录成功后，在登录接口的响应参数“accessToken”中获取。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-modifypwd-0000001293749536#section10676123415615",
+        "in": "header"
+      },
+      {
+        "name": "productId",
+        "type": "string",
+        "required": true,
+        "description": "项目ID，查询方法可参见查询项目ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-modifypwd-0000001293749536#section790812451959",
+        "in": "query"
+      },
+      {
+        "name": "provider",
+        "type": "integer",
+        "required": false,
+        "description": "账号授权提供方，取值及对应认证方式如下： 0：匿名账号 1：华为账号 2：Facebook* 3：Twitter* 4：微信 5：华为游戏 6：QQ 7：微博 8：Google* 9：Google Play Game* 10：自建账号 11：手机 12：邮箱 13：苹果账号 说明 *星号标记的账号类型仅在海外站点支持，当您选择数据处理位置为德国、新加坡或俄罗斯时可以使用这些认证方式。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-modifypwd-0000001293749536#section787416439612",
+        "in": "body",
+        "enum": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13"
+        ]
+      },
+      {
+        "name": "verifyCode",
+        "type": "string",
+        "required": false,
+        "description": "验证码。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-modifypwd-0000001293749536#section787416439612",
+        "in": "body"
+      },
+      {
+        "name": "newPassword",
+        "type": "string",
+        "required": true,
+        "description": "新密码。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-modifypwd-0000001293749536#section787416439612",
+        "in": "body"
+      }
+    ]
+  },
+  {
+    "id": "link-user",
+    "familyId": "cloud-auth",
+    "name": "用户关联",
+    "description": "此接口用于用户进行账号关联操作。",
+    "method": "POST",
+    "path": "/agc/apigw/oauth2/third/v1/user-link",
+    "command": "agc cloud-auth link-user",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-userlink-0000001346909381",
+    "officialSlug": "client-rest-auth-userlink-0000001346909381",
+    "direction": "developer-to-huawei",
+    "defaultBaseUrl": "https://connect-drcn.dbankcloud.cn",
+    "authentication": "client-api-token",
+    "requestContentType": "application/json",
+    "parameters": [
+      {
+        "name": "client_id",
+        "type": "string",
+        "required": false,
+        "description": "客户端ID，获取方法参考获取客户端API授权。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-userlink-0000001346909381#section1871425017815",
+        "in": "header"
+      },
+      {
+        "name": "Authorization",
+        "type": "string",
+        "required": false,
+        "description": "认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-userlink-0000001346909381#section1871425017815",
+        "in": "header"
+      },
+      {
+        "name": "access_token",
+        "type": "string",
+        "required": true,
+        "description": "认证凭据。用户登录成功后，在登录接口的响应参数“accessToken”中获取。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-userlink-0000001346909381#section1871425017815",
+        "in": "header"
+      },
+      {
+        "name": "productId",
+        "type": "string",
+        "required": true,
+        "description": "项目ID，查询方法可参见查询项目ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-userlink-0000001346909381#section448216421586",
+        "in": "query"
+      },
+      {
+        "name": "provider",
+        "type": "integer",
+        "required": true,
+        "description": "账号授权提供方，取值及对应认证方式如下： 0：匿名账号 1：华为账号 2：Facebook* 3：Twitter* 4：微信 5：华为游戏 6：QQ 7：微博 8：Google* 9：Google Play Game* 10：自建账号 11：手机 12：邮箱 13：苹果账号 说明 *星号标记的账号类型仅在海外站点支持，当您选择数据处理位置为德国、新加坡或俄罗斯时可以使用这些认证方式。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-userlink-0000001346909381#section101544567816",
+        "in": "body",
+        "enum": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13"
+        ]
+      },
+      {
+        "name": "token",
+        "type": "string",
+        "required": true,
+        "description": "手机号码或者邮箱账号。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-userlink-0000001346909381#section101544567816",
+        "in": "body"
+      },
+      {
+        "name": "extraData",
+        "type": "string",
+        "required": false,
+        "description": "扩展字段，此处用于账号关联时填写密码，填写样例如{\\\"password\\\":\\\"xxxxxxxxx\\\"}。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-userlink-0000001346909381#section101544567816",
+        "in": "body"
+      },
+      {
+        "name": "autoCreateUser",
+        "type": "integer",
+        "required": false,
+        "description": "是否自动创建用户，仅用于非托管账号： 1：自动创建，默认为1。 0：不自动创建。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-userlink-0000001346909381#section101544567816",
+        "in": "body",
+        "enum": [
+          "0",
+          "1"
+        ]
+      },
+      {
+        "name": "useJwt",
+        "type": "integer",
+        "required": false,
+        "description": "是否使用自有账号凭据JWT(Json Web Token)： 0：不使用，默认为0。 1：使用。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-userlink-0000001346909381#section101544567816",
+        "in": "body",
+        "enum": [
+          "0",
+          "1"
+        ]
+      },
+      {
+        "name": "channelId",
+        "type": "string",
+        "required": false,
+        "description": "渠道标识，当前渠道划分为华为渠道、AppStore渠道以及GooglePlay渠道。当从这些渠道SDK登录时，该参数有值。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-userlink-0000001346909381#section101544567816",
+        "in": "body"
+      },
+      {
+        "name": "aaId",
+        "type": "string",
+        "required": false,
+        "description": "应用实例唯一编号。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-userlink-0000001346909381#section101544567816",
+        "in": "body"
+      }
+    ]
+  },
+  {
+    "id": "unlink-user",
+    "familyId": "cloud-auth",
+    "name": "取消关联",
+    "description": "此接口用于用户取消账号关联。",
+    "method": "POST",
+    "path": "/agc/apigw/oauth2/third/v1/user-unlink",
+    "command": "agc cloud-auth unlink-user",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-unlink-0000001294229000",
+    "officialSlug": "client-rest-auth-unlink-0000001294229000",
+    "direction": "developer-to-huawei",
+    "defaultBaseUrl": "https://connect-drcn.dbankcloud.cn",
+    "authentication": "client-api-token",
+    "requestContentType": "application/json",
+    "parameters": [
+      {
+        "name": "client_id",
+        "type": "string",
+        "required": false,
+        "description": "客户端ID，获取方法参考获取客户端API授权。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-unlink-0000001294229000#section7186123271011",
+        "in": "header"
+      },
+      {
+        "name": "Authorization",
+        "type": "string",
+        "required": false,
+        "description": "认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-unlink-0000001294229000#section7186123271011",
+        "in": "header"
+      },
+      {
+        "name": "access_token",
+        "type": "string",
+        "required": true,
+        "description": "认证凭据。用户登录成功后，在登录接口的响应参数“accessToken”中获取。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-unlink-0000001294229000#section7186123271011",
+        "in": "header"
+      },
+      {
+        "name": "productId",
+        "type": "string",
+        "required": true,
+        "description": "项目ID，查询方法可参见查询项目ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-unlink-0000001294229000#section14425102781015",
+        "in": "query"
+      },
+      {
+        "name": "provider",
+        "type": "integer",
+        "required": true,
+        "description": "需要取消关联的provider认证方式。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-unlink-0000001294229000#section14425102781015",
+        "in": "query",
+        "enum": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sign-out",
+    "familyId": "cloud-auth",
+    "name": "登出",
+    "description": "此接口用于用户进行登出操作。",
+    "method": "POST",
+    "path": "/agc/apigw/oauth2/third/v1/user-signout",
+    "command": "agc cloud-auth sign-out",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-signout-0000001346709113",
+    "officialSlug": "client-rest-auth-signout-0000001346709113",
+    "direction": "developer-to-huawei",
+    "defaultBaseUrl": "https://connect-drcn.dbankcloud.cn",
+    "authentication": "client-api-token",
+    "requestContentType": "application/json",
+    "parameters": [
+      {
+        "name": "client_id",
+        "type": "string",
+        "required": false,
+        "description": "客户端ID，获取方法参考获取客户端API授权。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-signout-0000001346709113#section28252016123",
+        "in": "header"
+      },
+      {
+        "name": "Authorization",
+        "type": "string",
+        "required": false,
+        "description": "认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-signout-0000001346709113#section28252016123",
+        "in": "header"
+      },
+      {
+        "name": "productId",
+        "type": "string",
+        "required": true,
+        "description": "项目ID，查询方法可参见查询项目ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-signout-0000001346709113#section664965521111",
+        "in": "query"
+      },
+      {
+        "name": "refreshToken",
+        "type": "string",
+        "required": true,
+        "description": "用于刷新accessToken。当accessToken过期后，需要使用refreshToken去获取新的accessToken。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-signout-0000001346709113#section1894611571217",
+        "in": "body"
+      },
+      {
+        "name": "accessToken",
+        "type": "string",
+        "required": true,
+        "description": "认证凭据。用户登录成功后，在登录接口的响应参数“accessToken”中获取。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-signout-0000001346709113#section1894611571217",
+        "in": "body"
+      }
+    ]
+  },
+  {
+    "id": "delete-user",
+    "familyId": "cloud-auth",
+    "name": "注销",
+    "description": "此接口用于用户进行账号注销操作。",
+    "method": "POST",
+    "path": "/agc/apigw/oauth2/third/v1/user-delete",
+    "command": "agc cloud-auth delete-user",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-userdelete-0000001294069360",
+    "officialSlug": "client-rest-auth-userdelete-0000001294069360",
+    "direction": "developer-to-huawei",
+    "defaultBaseUrl": "https://connect-drcn.dbankcloud.cn",
+    "authentication": "client-api-token",
+    "requestContentType": "application/json",
+    "parameters": [
+      {
+        "name": "client_id",
+        "type": "string",
+        "required": false,
+        "description": "客户端ID，获取方法参考获取客户端API授权。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-userdelete-0000001294069360#section6802739131316",
+        "in": "header"
+      },
+      {
+        "name": "Authorization",
+        "type": "string",
+        "required": false,
+        "description": "认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-userdelete-0000001294069360#section6802739131316",
+        "in": "header"
+      },
+      {
+        "name": "access_token",
+        "type": "string",
+        "required": true,
+        "description": "认证凭据。用户登录成功后，在登录接口的响应参数“accessToken”中获取。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-userdelete-0000001294069360#section6802739131316",
+        "in": "header"
+      },
+      {
+        "name": "productId",
+        "type": "string",
+        "required": true,
+        "description": "项目ID，查询方法可参见查询项目ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-userdelete-0000001294069360#section1636433517133",
+        "in": "query"
+      }
+    ]
+  },
+  {
+    "id": "reauthenticate",
+    "familyId": "cloud-auth",
+    "name": "账号重认证",
+    "description": "此接口用于用户进行账号重认证操作。",
+    "method": "POST",
+    "path": "/agc/apigw/oauth2/third/v1/user-reauthenticate",
+    "command": "agc cloud-auth reauthenticate",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-reauthenticate-0000001346828693",
+    "officialSlug": "client-rest-auth-reauthenticate-0000001346828693",
+    "direction": "developer-to-huawei",
+    "defaultBaseUrl": "https://connect-drcn.dbankcloud.cn",
+    "authentication": "client-api-token",
+    "requestContentType": "application/json",
+    "parameters": [
+      {
+        "name": "client_id",
+        "type": "string",
+        "required": false,
+        "description": "客户端ID，获取方法参考获取客户端API授权。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-reauthenticate-0000001346828693#section587118188151",
+        "in": "header"
+      },
+      {
+        "name": "Authorization",
+        "type": "string",
+        "required": false,
+        "description": "认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-reauthenticate-0000001346828693#section587118188151",
+        "in": "header"
+      },
+      {
+        "name": "access_token",
+        "type": "string",
+        "required": true,
+        "description": "认证凭据。用户登录成功后，在登录接口的响应参数“accessToken”中获取。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-reauthenticate-0000001346828693#section587118188151",
+        "in": "header"
+      },
+      {
+        "name": "productId",
+        "type": "string",
+        "required": true,
+        "description": "项目ID，查询方法可参见查询项目ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-reauthenticate-0000001346828693#section13279111311156",
+        "in": "query"
+      },
+      {
+        "name": "provider",
+        "type": "integer",
+        "required": true,
+        "description": "账号授权提供方，取值及对应认证方式如下： 0：匿名账号 1：华为账号 2：Facebook* 3：Twitter* 4：微信 5：华为游戏 6：QQ 7：微博 8：Google* 9：Google Play Game* 10：自建账号 11：手机 12：邮箱 13：苹果账号 说明 *星号标记的账号类型仅在海外站点支持，当您选择数据处理位置为德国、新加坡或俄罗斯时可以使用这些认证方式。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-reauthenticate-0000001346828693#section05352023131512",
+        "in": "body",
+        "enum": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13"
+        ]
+      },
+      {
+        "name": "token",
+        "type": "string",
+        "required": true,
+        "description": "手机号码或者邮箱账号。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-reauthenticate-0000001346828693#section05352023131512",
+        "in": "body"
+      },
+      {
+        "name": "extraData",
+        "type": "string",
+        "required": false,
+        "description": "扩展字段，此处用于账号重认证时填写密码，填写样例如{\\\"password\\\":\\\"xxxxxxxxx\\\"}。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-reauthenticate-0000001346828693#section05352023131512",
+        "in": "body"
+      },
+      {
+        "name": "autoCreateUser",
+        "type": "integer",
+        "required": false,
+        "description": "是否自动创建用户，仅用于非托管账号： 0：不自动创建。 1：自动创建，默认为1。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-reauthenticate-0000001346828693#section05352023131512",
+        "in": "body",
+        "enum": [
+          "0",
+          "1"
+        ]
+      },
+      {
+        "name": "useJwt",
+        "type": "integer",
+        "required": false,
+        "description": "是否使用自有账号凭据JWT(Json Web Token)： 0：不使用，默认为0。 1：使用。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-reauthenticate-0000001346828693#section05352023131512",
+        "in": "body",
+        "enum": [
+          "0",
+          "1"
+        ]
+      },
+      {
+        "name": "channelId",
+        "type": "string",
+        "required": false,
+        "description": "渠道标识，当前渠道划分为华为渠道、AppStore渠道以及GooglePlay渠道。当从这些渠道SDK登录时，该参数有值。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-reauthenticate-0000001346828693#section05352023131512",
+        "in": "body"
+      },
+      {
+        "name": "aaId",
+        "type": "string",
+        "required": false,
+        "description": "应用实例唯一编号。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-reauthenticate-0000001346828693#section05352023131512",
+        "in": "body"
+      }
+    ]
+  },
+  {
+    "id": "client-token",
+    "familyId": "clouddb",
+    "name": "获取Token",
+    "description": "在使用客户端REST API调用业务接口前，需要通过华为开放平台进行鉴权，并获取认证通过后的Token。",
+    "method": "POST",
+    "path": "/agc/apigw/oauth2/v1/token",
+    "command": "agc clouddb client-token",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-obtaintoken-rest-0000001446607602",
+    "officialSlug": "clouddb-obtaintoken-rest-0000001446607602",
+    "direction": "developer-to-huawei",
+    "defaultBaseUrl": "https://connect-drcn.dbankcloud.cn",
+    "authentication": "body-client-credentials",
+    "requestContentType": "application/json",
+    "parameters": [
+      {
+        "name": "useJwt",
+        "type": "integer",
+        "required": true,
+        "description": "使用账号凭据JWT(Json Web Token)，固定传入“1”。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-obtaintoken-rest-0000001446607602#section128mcpsimp",
+        "in": "body",
+        "enum": [
+          "0",
+          "1"
+        ]
+      },
+      {
+        "name": "grant_type",
+        "type": "string",
+        "required": true,
+        "description": "固定传入“client_credentials”。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-obtaintoken-rest-0000001446607602#section128mcpsimp",
+        "in": "body",
+        "enum": [
+          "client_credentials"
+        ]
+      },
+      {
+        "name": "client_id",
+        "type": "string",
+        "required": true,
+        "description": "客户端ID，即获取客户端API授权中的“Client ID”。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-obtaintoken-rest-0000001446607602#section128mcpsimp",
+        "in": "body"
+      },
+      {
+        "name": "client_secret",
+        "type": "string",
+        "required": true,
+        "description": "客户端密钥，即获取客户端API授权中的“Client Secret”。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-obtaintoken-rest-0000001446607602#section128mcpsimp",
+        "in": "body"
+      }
+    ]
+  },
+  {
+    "id": "sign-in",
+    "familyId": "clouddb",
+    "name": "用户登录",
+    "description": "该接口用于用户使用账号密码登录。",
+    "method": "POST",
+    "path": "/agc/apigw/oauth2/third/v1/user-signin",
+    "command": "agc clouddb sign-in",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-signin-rest-0000001496447669",
+    "officialSlug": "clouddb-signin-rest-0000001496447669",
+    "direction": "developer-to-huawei",
+    "defaultBaseUrl": "https://connect-drcn.dbankcloud.cn",
+    "authentication": "client-api-token",
+    "requestContentType": "application/json",
+    "parameters": [
+      {
+        "name": "client_id",
+        "type": "string",
+        "required": false,
+        "description": "客户端ID，获取方法参考获取客户端API授权。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-signin-rest-0000001496447669#section1180818719577",
+        "in": "header"
+      },
+      {
+        "name": "Authorization",
+        "type": "string",
+        "required": false,
+        "description": "认证信息。格式为“Authorization: Bearer ${access_token}”。 access_token为获取Token中获取的access_token。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-signin-rest-0000001496447669#section1180818719577",
+        "in": "header"
+      },
+      {
+        "name": "productId",
+        "type": "string",
+        "required": true,
+        "description": "项目ID，查询方法可参见查询项目ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-signin-rest-0000001496447669#section8252421578",
+        "in": "query"
+      },
+      {
+        "name": "provider",
+        "type": "integer",
+        "required": true,
+        "description": "账号授权提供方，取值及对应认证方式如下： 0：匿名账号 1：华为账号 2：Facebook* 3：Twitter* 4：微信 5：华为游戏 6：QQ 7：微博 8：Google* 9：Google Play Game* 10：自建账号 11：手机 12：邮箱 13：苹果账号 说明 *星号标记的账号类型仅在海外站点支持，当您选择数据处理位置为德国、新加坡或俄罗斯时可以使用这些认证方式。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-signin-rest-0000001496447669#section1643221416579",
+        "in": "body",
+        "enum": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13"
+        ]
+      },
+      {
+        "name": "token",
+        "type": "string",
+        "required": true,
+        "description": "手机号码或者邮箱账号。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-signin-rest-0000001496447669#section1643221416579",
+        "in": "body"
+      },
+      {
+        "name": "extraData",
+        "type": "string",
+        "required": false,
+        "description": "扩展字段，此处用于密码登录时填写密码，填写样例如 {\\\"password\\\":\\\"xxxxxxxxx\\\"}。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-signin-rest-0000001496447669#section1643221416579",
+        "in": "body"
+      },
+      {
+        "name": "autoCreateUser",
+        "type": "integer",
+        "required": false,
+        "description": "是否自动创建用户，仅用于非托管账号。 0：不自动创建用户。 1：默认值，自动创建用户。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-signin-rest-0000001496447669#section1643221416579",
+        "in": "body",
+        "enum": [
+          "0",
+          "1"
+        ]
+      },
+      {
+        "name": "useJwt",
+        "type": "integer",
+        "required": true,
+        "description": "使用账号凭据JWT(Json Web Token)，固定传入“1”。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-signin-rest-0000001496447669#section1643221416579",
+        "in": "body",
+        "enum": [
+          "0",
+          "1"
+        ]
+      },
+      {
+        "name": "channelId",
+        "type": "string",
+        "required": false,
+        "description": "渠道标识，当前渠道划分为华为渠道、AppStore渠道以及GooglePlay渠道。当从这些渠道SDK登录时，该参数有值。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-signin-rest-0000001496447669#section1643221416579",
+        "in": "body"
+      },
+      {
+        "name": "aaId",
+        "type": "string",
+        "required": false,
+        "description": "应用实例唯一编号。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-signin-rest-0000001496447669#section1643221416579",
+        "in": "body"
+      }
+    ]
+  },
+  {
+    "id": "query-data",
+    "familyId": "clouddb",
+    "name": "查询数据",
+    "description": "该接口用于用户查询数据，云数据库提供了丰富的谓词查询，比如equalTo、notEqualTo、in等，通过单个或者多个链式过滤条件，您可以从云侧数据库查询到满足特定条件的对象，也可以通过限定查询返回数量谓词限定查询结果返回的数量，还可以支持聚合查询，例如查询平均值、最大值、最小值等。",
+    "method": "POST",
+    "path": "/agc/apigw/clouddb/clouddbservice/sync/query",
+    "command": "agc clouddb query-data",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573",
+    "officialSlug": "clouddb-query-data-rest-0000001496647573",
+    "direction": "developer-to-huawei",
+    "defaultBaseUrl": "https://connect-drcn.dbankcloud.cn",
+    "authentication": "client-api-token",
+    "requestContentType": "application/json",
+    "parameters": [
+      {
+        "name": "client_id",
+        "type": "string",
+        "required": false,
+        "description": "客户端ID，获取方法参考获取客户端API授权。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section1191513141413",
+        "in": "header"
+      },
+      {
+        "name": "Authorization",
+        "type": "string",
+        "required": false,
+        "description": "认证信息。格式为“Authorization: Bearer ${client_token}”。 client_token为获取Token中获取的access_token。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section1191513141413",
+        "in": "header"
+      },
+      {
+        "name": "productId",
+        "type": "string",
+        "required": true,
+        "description": "项目ID，查询方法可参见查询项目ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section1191513141413",
+        "in": "header"
+      },
+      {
+        "name": "access_token",
+        "type": "string",
+        "required": false,
+        "description": "认证凭据。用户登录成功后，在登录接口的响应参数“accessToken”中获取。该值为空时，则表示匿名账号登录。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section1191513141413",
+        "in": "header"
+      },
+      {
+        "name": "_v",
+        "type": "integer",
+        "required": true,
+        "description": "数据版本类型，入参需为“4”表示protobuf v2 版本类型的json字符串。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section88414213129",
+        "in": "query",
+        "enum": [
+          "4"
+        ]
+      },
+      {
+        "name": "msgInfo",
+        "type": "object",
+        "required": true,
+        "description": "消息的基本信息，具体请参见MsgInfo。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section2069774871410",
+        "in": "body",
+        "properties": [
+          {
+            "name": "type",
+            "type": "integer",
+            "required": true,
+            "description": "查询请求。入参需为“5”。 “3”：更新数据或删除数据请求。 “5”：查询数据请求。",
+            "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section42449327218",
+            "in": "body",
+            "enum": [
+              "5"
+            ]
+          },
+          {
+            "name": "opStore",
+            "type": "object",
+            "required": true,
+            "description": "JSON字符串。格式为{\"storeName\": \"cloudDBZone\"}。 cloudDBZone为存储区名。",
+            "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section42449327218",
+            "in": "body",
+            "properties": [
+              {
+                "name": "storeName",
+                "in": "body",
+                "type": "string",
+                "required": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "clientInfo",
+        "type": "object",
+        "required": true,
+        "description": "客户端的基本信息，具体请参见ClientInfo。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section2069774871410",
+        "in": "body",
+        "properties": [
+          {
+            "name": "appVer",
+            "type": "integer",
+            "required": true,
+            "description": "对象类型对应的版本号，获取请参考导出对象类型步骤4中的版本号。",
+            "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section448214662111",
+            "in": "body"
+          }
+        ]
+      },
+      {
+        "name": "queryReqMsg",
+        "type": "object",
+        "required": true,
+        "description": "查询请求的基本信息，具体请参见QueryRequestMessage。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section2069774871410",
+        "in": "body",
+        "properties": [
+          {
+            "name": "queryType",
+            "type": "integer",
+            "required": true,
+            "description": "查询类型。涉及到的查询值类型如下： 0：默认值，普通查询。 1：AVG、Average，平均值查询。 2：SUM，总和查询。 3：MAX，最大值查询。 4：MIN，最小值查询。 5：COUNT，计数查询。",
+            "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section18423962213",
+            "in": "body",
+            "enum": [
+              "0",
+              "1",
+              "2",
+              "3",
+              "4",
+              "5"
+            ]
+          },
+          {
+            "name": "queryTable",
+            "type": "string",
+            "required": true,
+            "description": "查询的对象类型名称。",
+            "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section18423962213",
+            "in": "body"
+          },
+          {
+            "name": "queryCond",
+            "type": "string",
+            "required": true,
+            "description": "查询条件。Json格式的字符串，例如：\"{\\\"queryConditions\\\":[{\\\"conditionType\\\":\\\"EqualTo\\\",\\\"fieldName\\\":\\\"id\\\",\\\"value\\\":\\\"3\\\"},{\\\"conditionType\\\":\\\"Limit\\\",\\\"value\\\":{\\\"number\\\":10,\\\"offset\\\":0}}]}\" 说明 当queryType不为0时，queryCond的conditionType参数必须设置为与queryType取值一致的查询条件，否则会导致接口返回错误。 例如：queryType取值为2时，conditionType必须设置为SUM。",
+            "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section18423962213",
+            "in": "body",
+            "encodedJson": {
+              "type": "object",
+              "properties": [
+                {
+                  "name": "queryConditions",
+                  "in": "body",
+                  "type": "array",
+                  "required": true,
+                  "itemsType": "object",
+                  "itemsProperties": [
+                    {
+                      "name": "conditionType",
+                      "in": "body",
+                      "type": "string",
+                      "required": true
+                    },
+                    {
+                      "name": "fieldName",
+                      "in": "body",
+                      "type": "string"
+                    },
+                    {
+                      "name": "value",
+                      "in": "body"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "update-data",
+    "familyId": "clouddb",
+    "name": "更新数据",
+    "description": "该接口用于用户更新数据，支持数据的新增和更新。更新数据时，如果在CloudDBZone已经存在主键值相同的对象，则更新已有的对象；如果不存在，则写入一个新的对象。更新操作需要设置naturalbase_deleted字段为false，具体请参见SchemaField字段设置。",
+    "method": "POST",
+    "path": "/agc/apigw/clouddb/clouddbservice/sync/upsert",
+    "command": "agc clouddb update-data",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706",
+    "officialSlug": "clouddb-update-data-rest-0000001446287706",
+    "direction": "developer-to-huawei",
+    "defaultBaseUrl": "https://connect-drcn.dbankcloud.cn",
+    "authentication": "client-api-token",
+    "requestContentType": "application/json",
+    "parameters": [
+      {
+        "name": "client_id",
+        "type": "string",
+        "required": false,
+        "description": "客户端ID，即获取客户端API授权中的“Client ID”。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section1840608132312",
+        "in": "header"
+      },
+      {
+        "name": "Authorization",
+        "type": "string",
+        "required": false,
+        "description": "认证信息，格式为“Authorization: Bearer ${authorization_token}”。 authorization_token为获取Token中获取的access_token。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section1840608132312",
+        "in": "header"
+      },
+      {
+        "name": "productId",
+        "type": "string",
+        "required": true,
+        "description": "项目ID，查询方法可参见查询项目ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section1840608132312",
+        "in": "header"
+      },
+      {
+        "name": "access_token",
+        "type": "string",
+        "required": false,
+        "description": "认证凭据。用户登录成功后，在登录接口的响应参数“accessToken”中获取。该值为空时，则表示匿名账号登录。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section1840608132312",
+        "in": "header"
+      },
+      {
+        "name": "_v",
+        "type": "integer",
+        "required": true,
+        "description": "数据版本类型，入参需为“4”表示protobuf v2 版本类型的json字符串。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section1475695062212",
+        "in": "query",
+        "enum": [
+          "4"
+        ]
+      },
+      {
+        "name": "msgInfo",
+        "type": "object",
+        "required": true,
+        "description": "消息的基本信息，具体请参见MsgInfo。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section621613240231",
+        "in": "body",
+        "properties": [
+          {
+            "name": "type",
+            "type": "integer",
+            "required": true,
+            "description": "更新请求，入参需为“3”。 “3”：更新数据或删除数据请求。 “5”：查询数据请求。",
+            "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section1295143742319",
+            "in": "body",
+            "enum": [
+              "3"
+            ]
+          },
+          {
+            "name": "opStore",
+            "type": "object",
+            "required": true,
+            "description": "JSON字符串。格式为{\"storeName\": \"cloudDBZone\"}。 cloudDBZone为存储区名。",
+            "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section1295143742319",
+            "in": "body",
+            "properties": [
+              {
+                "name": "storeName",
+                "in": "body",
+                "type": "string",
+                "required": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "clientInfo",
+        "type": "object",
+        "required": true,
+        "description": "客户端的基本信息，具体请参见ClientInfo。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section621613240231",
+        "in": "body",
+        "properties": [
+          {
+            "name": "appVer",
+            "type": "integer",
+            "required": true,
+            "description": "对象类型对应的版本号，获取请参考导出对象类型步骤4中的版本号。",
+            "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section10559951122313",
+            "in": "body"
+          }
+        ]
+      },
+      {
+        "name": "schemas",
+        "type": "array",
+        "required": true,
+        "description": "表对象信息，具体请参见Schema。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section621613240231",
+        "in": "body",
+        "itemsType": "object",
+        "itemsProperties": [
+          {
+            "name": "n",
+            "type": "string",
+            "required": true,
+            "description": "对象类型名称。",
+            "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section1344310632417",
+            "in": "body"
+          },
+          {
+            "name": "fs",
+            "type": "array",
+            "required": true,
+            "description": "字段名称。更新字段时，该字段必须属于同一个对象类型，否则会导致更新失败。",
+            "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section1344310632417",
+            "in": "body",
+            "itemsType": "object",
+            "itemsProperties": [
+              {
+                "name": "n",
+                "type": "string",
+                "required": true,
+                "description": "字段名。更新操作时必须有如下两个字段，并遵循如下约束： long类型的naturalbase_version字段：该字段不生效，可设置为任意值。 布尔类型的naturalbase_deleted字段：需设置为固定值“false”。",
+                "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section3658142019245",
+                "in": "body"
+              },
+              {
+                "name": "t",
+                "type": "string",
+                "required": true,
+                "description": "字段类型，取值包含如下字段类型： 1：TYPE_BOOLEAN，布尔类型。 2：TYPE_BYTE，byte类型。 3：TYPE_SHORT，short类型。 4：TYPE_INT32，int类型。 5：TYPE_LONG，long类型。 6：TYPE_FLOAT，float类型。 7：TYPE_DOUBLE，double类型。 8：TYPE_BYTE_ARRAY，byte数组类型。 9：TYPE_STRING，String类型。 10：TYPE_DATE，date类型。 11：TYPE_TEXT，文本类型。 12：TYPE_AUTO_INCREMENT_INT，int自增类型。 13：TYPE_AUTO_INCREMENT_LONG，long自增类型。",
+                "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section3658142019245",
+                "in": "body"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "opData",
+        "type": "array",
+        "required": true,
+        "description": "更新数据对象信息，具体请参见OperatorData。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section621613240231",
+        "in": "body",
+        "itemsType": "object",
+        "itemsProperties": [
+          {
+            "name": "os",
+            "type": "array",
+            "required": true,
+            "description": "操作对象信息。该对象必须属于同一个对象类型，且仅支持传入一个Field。",
+            "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section090964114246",
+            "in": "body",
+            "itemsType": "object",
+            "itemsProperties": [
+              {
+                "name": "fs",
+                "type": "array",
+                "required": true,
+                "description": "单条对象信息。 说明 更新操作包含naturalbase_deleted的字段固定设置值为false。",
+                "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section101441056257",
+                "in": "body",
+                "itemsType": "object",
+                "itemsProperties": [
+                  {
+                    "name": "n",
+                    "type": "boolean",
+                    "required": false,
+                    "description": "是否设置为null",
+                    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section153514306256",
+                    "in": "body"
+                  },
+                  {
+                    "name": "bl",
+                    "type": "boolean",
+                    "required": false,
+                    "description": "boolean类型值",
+                    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section153514306256",
+                    "in": "body"
+                  },
+                  {
+                    "name": "b",
+                    "type": "integer",
+                    "required": false,
+                    "description": "byte类型值",
+                    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section153514306256",
+                    "in": "body"
+                  },
+                  {
+                    "name": "st",
+                    "type": "integer",
+                    "required": false,
+                    "description": "short类型值",
+                    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section153514306256",
+                    "in": "body"
+                  },
+                  {
+                    "name": "i",
+                    "type": "integer",
+                    "required": false,
+                    "description": "int类型值",
+                    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section153514306256",
+                    "in": "body"
+                  },
+                  {
+                    "name": "l",
+                    "type": "integer",
+                    "required": false,
+                    "description": "long类型值",
+                    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section153514306256",
+                    "in": "body"
+                  },
+                  {
+                    "name": "f",
+                    "type": "number",
+                    "required": false,
+                    "description": "float类型值",
+                    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section153514306256",
+                    "in": "body"
+                  },
+                  {
+                    "name": "d",
+                    "type": "number",
+                    "required": false,
+                    "description": "double类型值",
+                    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section153514306256",
+                    "in": "body"
+                  },
+                  {
+                    "name": "ba",
+                    "type": "",
+                    "required": false,
+                    "description": "byteArray类型值",
+                    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section153514306256",
+                    "in": "body"
+                  },
+                  {
+                    "name": "s",
+                    "type": "string",
+                    "required": false,
+                    "description": "String类型值",
+                    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section153514306256",
+                    "in": "body"
+                  }
+                ]
+              }
+            ],
+            "maxItems": 1
+          },
+          {
+            "name": "t",
+            "type": "integer",
+            "required": true,
+            "description": "更新操作类型，入参为“1”。",
+            "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section090964114246",
+            "in": "body",
+            "enum": [
+              "1"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "delete-data",
+    "familyId": "clouddb",
+    "name": "删除数据",
+    "description": "该接口用于用户删除数据，根据您传入对象主键删除相应的数据，不会比对该对象其他属性与存储的数据是否一致，删除操作需要设置naturalbase_deleted字段为true，具体请参见SchemaField字段设置。",
+    "method": "POST",
+    "path": "/agc/apigw/clouddb/clouddbservice/sync/upsert",
+    "command": "agc clouddb delete-data",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714",
+    "officialSlug": "clouddb-delete-data-rest-0000001449956714",
+    "direction": "developer-to-huawei",
+    "defaultBaseUrl": "https://connect-drcn.dbankcloud.cn",
+    "authentication": "client-api-token",
+    "requestContentType": "application/json",
+    "parameters": [
+      {
+        "name": "client_id",
+        "type": "string",
+        "required": false,
+        "description": "客户端ID，即获取客户端API授权中的“Client ID”。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section664671343615",
+        "in": "header"
+      },
+      {
+        "name": "Authorization",
+        "type": "string",
+        "required": false,
+        "description": "认证信息，格式为“Authorization: Bearer ${authorization_token}”。 authorization_token为获取Token中获取的access_token。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section664671343615",
+        "in": "header"
+      },
+      {
+        "name": "productId",
+        "type": "string",
+        "required": true,
+        "description": "项目ID，查询方法可参见查询项目ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section664671343615",
+        "in": "header"
+      },
+      {
+        "name": "access_token",
+        "type": "string",
+        "required": false,
+        "description": "认证凭据。用户登录成功后，在登录接口的响应参数“accessToken”中获取。该值为空时，则表示匿名账号登录。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section664671343615",
+        "in": "header"
+      },
+      {
+        "name": "_v",
+        "type": "integer",
+        "required": true,
+        "description": "数据版本类型，入参需为“4”表示protobuf v2 版本类型的json字符串。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1664165216352",
+        "in": "query",
+        "enum": [
+          "4"
+        ]
+      },
+      {
+        "name": "msgInfo",
+        "type": "object",
+        "required": true,
+        "description": "消息的基本信息，具体请参见MsgInfo。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1719674619367",
+        "in": "body",
+        "properties": [
+          {
+            "name": "type",
+            "in": "body",
+            "type": "integer",
+            "required": true,
+            "enum": [
+              "3"
+            ],
+            "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714"
+          },
+          {
+            "name": "opStore",
+            "in": "body",
+            "type": "object",
+            "required": true,
+            "properties": [
+              {
+                "name": "storeName",
+                "in": "body",
+                "type": "string",
+                "required": true
+              }
+            ],
+            "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714"
+          }
+        ]
+      },
+      {
+        "name": "clientInfo",
+        "type": "object",
+        "required": true,
+        "description": "客户端的基本信息，具体请参见ClientInfo。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1719674619367",
+        "in": "body",
+        "properties": [
+          {
+            "name": "appVer",
+            "type": "integer",
+            "required": true,
+            "description": "对象类型对应的版本号，获取请参考导出对象类型步骤4中的版本号。",
+            "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section177593293713",
+            "in": "body"
+          }
+        ]
+      },
+      {
+        "name": "schemas",
+        "type": "array",
+        "required": true,
+        "description": "对象类型信息。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1719674619367",
+        "in": "body",
+        "itemsType": "object",
+        "itemsProperties": [
+          {
+            "name": "n",
+            "type": "string",
+            "required": true,
+            "description": "对象类型名称。",
+            "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section18342205718374",
+            "in": "body"
+          },
+          {
+            "name": "fs",
+            "type": "array",
+            "required": true,
+            "description": "字段名称。删除字段时，该对象必须属于同一个对象类型，且只能传入一个SchemaField。",
+            "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section18342205718374",
+            "in": "body",
+            "itemsType": "object",
+            "itemsProperties": [
+              {
+                "name": "n",
+                "type": "string",
+                "required": true,
+                "description": "字段名。删除操作时必须有如下两个字段，并遵循相关约束： long类型的naturalbase_version字段：该字段不生效，可设置为任意值。 boolean类型的naturalbase_deleted字段：需设置为固定值“true”。",
+                "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section129653168386",
+                "in": "body"
+              },
+              {
+                "name": "t",
+                "type": "string",
+                "required": true,
+                "description": "字段类型，取值包含如下字段类型： 1：TYPE_BOOLEAN，布尔类型。 2：TYPE_BYTE，byte类型。 3：TYPE_SHORT，short类型。 4：TYPE_INT32，int类型。 5：TYPE_LONG，long类型。 6：TYPE_FLOAT，float类型。 7：TYPE_DOUBLE，double类型。 8：TYPE_BYTE_ARRAY，byte数组类型。 9：TYPE_STRING，String类型。 10：TYPE_DATE，date类型。 11：TYPE_TEXT，文本类型。 12：TYPE_AUTO_INCREMENT_INT，int自增类型。 13：TYPE_AUTO_INCREMENT_LONG，long自增类型。",
+                "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section129653168386",
+                "in": "body"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "opData",
+        "type": "array",
+        "required": true,
+        "description": "更新数据的对象信息。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1719674619367",
+        "in": "body",
+        "itemsType": "object",
+        "itemsProperties": [
+          {
+            "name": "os",
+            "type": "array",
+            "required": true,
+            "description": "操作对象信息。该对象必须属于同一个对象类型，且仅支持传入一个Field。",
+            "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section7855744143812",
+            "in": "body",
+            "itemsType": "object",
+            "itemsProperties": [
+              {
+                "name": "fs",
+                "type": "array",
+                "required": true,
+                "description": "单条对象信息。 说明 删除操作中包含主键、naturalbase_deleted的字段固定设置值为true。",
+                "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section156861057163820",
+                "in": "body",
+                "itemsType": "object",
+                "itemsProperties": [
+                  {
+                    "name": "n",
+                    "type": "boolean",
+                    "required": false,
+                    "description": "是否设置为null",
+                    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1176810453917",
+                    "in": "body"
+                  },
+                  {
+                    "name": "bl",
+                    "type": "boolean",
+                    "required": false,
+                    "description": "boolean类型值",
+                    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1176810453917",
+                    "in": "body"
+                  },
+                  {
+                    "name": "b",
+                    "type": "integer",
+                    "required": false,
+                    "description": "byte类型值",
+                    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1176810453917",
+                    "in": "body"
+                  },
+                  {
+                    "name": "st",
+                    "type": "integer",
+                    "required": false,
+                    "description": "short类型值",
+                    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1176810453917",
+                    "in": "body"
+                  },
+                  {
+                    "name": "i",
+                    "type": "integer",
+                    "required": false,
+                    "description": "int类型值",
+                    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1176810453917",
+                    "in": "body"
+                  },
+                  {
+                    "name": "l",
+                    "type": "integer",
+                    "required": false,
+                    "description": "long类型值",
+                    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1176810453917",
+                    "in": "body"
+                  },
+                  {
+                    "name": "f",
+                    "type": "number",
+                    "required": false,
+                    "description": "float类型值",
+                    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1176810453917",
+                    "in": "body"
+                  },
+                  {
+                    "name": "d",
+                    "type": "number",
+                    "required": false,
+                    "description": "double类型值",
+                    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1176810453917",
+                    "in": "body"
+                  },
+                  {
+                    "name": "ba",
+                    "type": "",
+                    "required": false,
+                    "description": "byteArray类型值",
+                    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1176810453917",
+                    "in": "body"
+                  },
+                  {
+                    "name": "s",
+                    "type": "string",
+                    "required": false,
+                    "description": "String类型值",
+                    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1176810453917",
+                    "in": "body"
+                  }
+                ]
+              }
+            ],
+            "maxItems": 1
+          },
+          {
+            "name": "t",
+            "type": "integer",
+            "required": true,
+            "description": "删除操作类型，入参为“1”。",
+            "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section7855744143812",
+            "in": "body",
+            "enum": [
+              "1"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "upload-file",
+    "familyId": "storage",
+    "name": "上传文件",
+    "description": "此接口用于上传文件。",
+    "method": "PUT",
+    "path": "/{bucket_name}/{object_name}",
+    "command": "agc storage upload-file",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-uploadfile-0000001549318457",
+    "officialSlug": "storage-restapi-uploadfile-0000001549318457",
+    "direction": "developer-to-huawei",
+    "defaultBaseUrl": "https://ops-server-drcn.agcstorage.link/v0",
+    "authentication": "server-api-client",
+    "requestContentType": "",
+    "parameters": [
+      {
+        "name": "object_name",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "description": "Storage instance or object path; percent-encoded exactly once.",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-uploadfile-0000001549318457"
+      },
+      {
+        "name": "bucket_name",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "description": "Storage instance or object path; percent-encoded exactly once.",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-uploadfile-0000001549318457"
+      },
+      {
+        "name": "client_id",
+        "type": "string",
+        "required": false,
+        "description": "客户端ID，获取方法参考创建API客户端。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-uploadfile-0000001549318457#section17216134314169",
+        "in": "header"
+      },
+      {
+        "name": "productId",
+        "type": "string",
+        "required": true,
+        "description": "项目ID，查询方法可参见查询项目ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-uploadfile-0000001549318457#section17216134314169",
+        "in": "header"
+      },
+      {
+        "name": "Authorization",
+        "type": "string",
+        "required": false,
+        "description": "认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-uploadfile-0000001549318457#section17216134314169",
+        "in": "header"
+      },
+      {
+        "name": "X-Agc-File-Size",
+        "type": "string",
+        "required": false,
+        "description": "文件大小，断点续传时为必选。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-uploadfile-0000001549318457#section17216134314169",
+        "in": "header"
+      },
+      {
+        "name": "X-Agc-File-Offset",
+        "type": "string",
+        "required": false,
+        "description": "文件偏移量，断点续传的起始位置非零时为必选。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-uploadfile-0000001549318457#section17216134314169",
+        "in": "header"
+      },
+      {
+        "name": "X-Agc-Sha256",
+        "type": "string",
+        "required": false,
+        "description": "文件的SHA256值，断点续传时为必选。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-uploadfile-0000001549318457#section17216134314169",
+        "in": "header"
+      },
+      {
+        "name": "X-Agc-Content-Type",
+        "type": "string",
+        "required": false,
+        "description": "文件类型。 默认值：application/octet-stream",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-uploadfile-0000001549318457#section17216134314169",
+        "in": "header"
+      },
+      {
+        "name": "X-Agc-Content-Disposition",
+        "type": "string",
+        "required": false,
+        "description": "文件打开方式。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-uploadfile-0000001549318457#section17216134314169",
+        "in": "header"
+      },
+      {
+        "name": "X-Agc-Content-Encoding",
+        "type": "string",
+        "required": false,
+        "description": "HTTP标准头部Content-Encoding。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-uploadfile-0000001549318457#section17216134314169",
+        "in": "header"
+      },
+      {
+        "name": "X-Agc-Cache-Control",
+        "type": "string",
+        "required": false,
+        "description": "HTTP标准头部Cache-Control。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-uploadfile-0000001549318457#section17216134314169",
+        "in": "header"
+      },
+      {
+        "name": "X-Agc-Content-Language",
+        "type": "string",
+        "required": false,
+        "description": "HTTP标准头部Content-Language。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-uploadfile-0000001549318457#section17216134314169",
+        "in": "header"
+      },
+      {
+        "name": "X-Agc-meta-*",
+        "type": "string",
+        "required": false,
+        "description": "可以在请求中加入以“X-Agc-meta-”开头的消息头，用于加入自定义的元数据，以便对文件进行自定义管理。当用户获取此文件或查询此文件元数据时，加入的自定义元数据将会在返回消息的头部出现。 X-Agc-meta-仅标记此header是传递元数据，并非元数据key的一部分。例如，您传入的是“X-Agc-meta-test: test metadata”，保存的数据实例为“test: test metadata”。 说明 元数据名称相同则覆盖。自定义的部署不区分大小写，最后记录均为小写的方式。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-uploadfile-0000001549318457#section17216134314169",
+        "in": "header"
+      },
+      {
+        "name": "X-Agc-Trace-Id",
+        "type": "string",
+        "required": false,
+        "description": "单个文件请求的Traceid。可不填或者随机生成，用于日志打印跟踪。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-uploadfile-0000001549318457#section17216134314169",
+        "in": "header"
+      },
+      {
+        "name": "file",
+        "in": "file",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-uploadfile-0000001549318457"
+      }
+    ]
+  },
+  {
+    "id": "download-file",
+    "familyId": "storage",
+    "name": "下载文件",
+    "description": "此接口用于使用用户身份认证方式下载文件。",
+    "method": "GET",
+    "path": "/{bucket_name}/{object_name}",
+    "command": "agc storage download-file",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-getfile-0000001498998530",
+    "officialSlug": "storage-restapi-getfile-0000001498998530",
+    "direction": "developer-to-huawei",
+    "defaultBaseUrl": "https://ops-server-drcn.agcstorage.link/v0",
+    "authentication": "server-api-client",
+    "requestContentType": "",
+    "parameters": [
+      {
+        "name": "object_name",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "description": "Storage instance or object path; percent-encoded exactly once.",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-getfile-0000001498998530"
+      },
+      {
+        "name": "bucket_name",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "description": "Storage instance or object path; percent-encoded exactly once.",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-getfile-0000001498998530"
+      },
+      {
+        "name": "Authorization",
+        "type": "string",
+        "required": false,
+        "description": "认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-getfile-0000001498998530#section17216134314169",
+        "in": "header"
+      },
+      {
+        "name": "client_id",
+        "type": "string",
+        "required": false,
+        "description": "客户端ID，获取方法参考创建API客户端。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-getfile-0000001498998530#section17216134314169",
+        "in": "header"
+      },
+      {
+        "name": "productId",
+        "type": "string",
+        "required": true,
+        "description": "项目ID，查询方法可参见查询项目ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-getfile-0000001498998530#section17216134314169",
+        "in": "header"
+      },
+      {
+        "name": "Range",
+        "type": "string",
+        "required": false,
+        "description": "HTTP标准协议头，用于指定第一个字节和最后一个字节的位置，告诉服务器想获取的文件范围。如未指定，则获取整个文件。 例如一个文件有900个字节，其范围为0-899，则： Range: bytes=500- 表示读取该文件的500-899字节。 Range: bytes=500-699 表示读取该文件的500-699字节。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-getfile-0000001498998530#section17216134314169",
+        "in": "header"
+      },
+      {
+        "name": "If-Modified-Since",
+        "type": "string",
+        "required": false,
+        "description": "一个条件式请求首部。 服务器只在所请求的资源在给定的时间之后对内容进行过修改的情况下才会将资源返回，状态码为200 。如果请求的资源在给定的时间之后未经修改，则返回一个不带消息主体的304响应。 格式：<day-name>, <day> <month> <year> <hour>:<minute>:<second> GMT 举例：Mon, 10 Apr 2023 07:28:00 GMT 说明 If-Modified-Since只可以用在GET或HEAD请求中。当与If-None-Match 一同出现时，If-Modified-Since会被忽略，除非服务器不支持If-None-Match。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-getfile-0000001498998530#section17216134314169",
+        "in": "header"
+      },
+      {
+        "name": "If-None-Match",
+        "type": "string",
+        "required": false,
+        "description": "一个条件式请求首部。 对于GET和HEAD方法，当且仅当服务器上没有任何资源的ETag属性值与这个首部中列出的相匹配时，服务器端会才返回所请求的资源，响应码为200 ，否则返回304。其他方法暂不实现。 格式：If-None-Match: \"<etag_value>\" 不支持通配符*，不支持弱比较算法。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-getfile-0000001498998530#section17216134314169",
+        "in": "header"
+      },
+      {
+        "name": "X-Agc-Trace-Id",
+        "type": "string",
+        "required": false,
+        "description": "单个文件请求的Traceid。可不填或者随机生成，用于日志打印跟踪。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-getfile-0000001498998530#section17216134314169",
+        "in": "header"
+      }
+    ]
+  },
+  {
+    "id": "delete-file",
+    "familyId": "storage",
+    "name": "删除文件",
+    "description": "此接口用于删除文件。",
+    "method": "DELETE",
+    "path": "/{bucket_name}/{object_name}",
+    "command": "agc storage delete-file",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-deletefile-0000001549478405",
+    "officialSlug": "storage-restapi-deletefile-0000001549478405",
+    "direction": "developer-to-huawei",
+    "defaultBaseUrl": "https://ops-server-drcn.agcstorage.link/v0",
+    "authentication": "server-api-client",
+    "requestContentType": "",
+    "parameters": [
+      {
+        "name": "object_name",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "description": "Storage instance or object path; percent-encoded exactly once.",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-deletefile-0000001549478405"
+      },
+      {
+        "name": "bucket_name",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "description": "Storage instance or object path; percent-encoded exactly once.",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-deletefile-0000001549478405"
+      },
+      {
+        "name": "Authorization",
+        "type": "string",
+        "required": false,
+        "description": "认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-deletefile-0000001549478405#section17216134314169",
+        "in": "header"
+      },
+      {
+        "name": "client_id",
+        "type": "string",
+        "required": false,
+        "description": "客户端ID，获取方法参考创建API客户端。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-deletefile-0000001549478405#section17216134314169",
+        "in": "header"
+      },
+      {
+        "name": "productId",
+        "type": "string",
+        "required": true,
+        "description": "项目ID，查询方法可参见查询项目ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-deletefile-0000001549478405#section17216134314169",
+        "in": "header"
+      },
+      {
+        "name": "X-Agc-Trace-Id",
+        "type": "string",
+        "required": false,
+        "description": "单个文件请求的Traceid。可不填或者随机生成，用于日志打印跟踪。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-deletefile-0000001549478405#section17216134314169",
+        "in": "header"
+      }
+    ]
+  },
+  {
+    "id": "get-metadata",
+    "familyId": "storage",
+    "name": "获取文件元数据",
+    "description": "此接口用于获取文件元数据。",
+    "method": "GET",
+    "path": "/{bucket_name}/{object_name}?metadata=query",
+    "command": "agc storage get-metadata",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-getmetadata-0000001549518573",
+    "officialSlug": "storage-restapi-getmetadata-0000001549518573",
+    "direction": "developer-to-huawei",
+    "defaultBaseUrl": "https://ops-server-drcn.agcstorage.link/v0",
+    "authentication": "server-api-client",
+    "requestContentType": "",
+    "parameters": [
+      {
+        "name": "object_name",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "description": "Storage instance or object path; percent-encoded exactly once.",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-getmetadata-0000001549518573"
+      },
+      {
+        "name": "bucket_name",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "description": "Storage instance or object path; percent-encoded exactly once.",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-getmetadata-0000001549518573"
+      },
+      {
+        "name": "Authorization",
+        "type": "string",
+        "required": false,
+        "description": "认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-getmetadata-0000001549518573#section17216134314169",
+        "in": "header"
+      },
+      {
+        "name": "client_id",
+        "type": "string",
+        "required": false,
+        "description": "客户端ID，获取方法参考创建API客户端。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-getmetadata-0000001549518573#section17216134314169",
+        "in": "header"
+      },
+      {
+        "name": "productId",
+        "type": "string",
+        "required": true,
+        "description": "项目ID，查询方法可参见查询项目ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-getmetadata-0000001549518573#section17216134314169",
+        "in": "header"
+      },
+      {
+        "name": "X-Agc-Trace-Id",
+        "type": "string",
+        "required": false,
+        "description": "单个文件请求的Traceid。可不填或者随机生成，用于日志打印跟踪。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-getmetadata-0000001549518573#section17216134314169",
+        "in": "header"
+      }
+    ]
+  },
+  {
+    "id": "update-metadata",
+    "familyId": "storage",
+    "name": "修改文件元数据",
+    "description": "此接口用于修改文件元数据。",
+    "method": "GET",
+    "path": "/{bucket_name}/{object_name}?metadata=update",
+    "command": "agc storage update-metadata",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-changemetadata-0000001549198553",
+    "officialSlug": "storage-restapi-changemetadata-0000001549198553",
+    "direction": "developer-to-huawei",
+    "defaultBaseUrl": "https://ops-server-drcn.agcstorage.link/v0",
+    "authentication": "server-api-client",
+    "requestContentType": "",
+    "parameters": [
+      {
+        "name": "object_name",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "description": "Storage instance or object path; percent-encoded exactly once.",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-changemetadata-0000001549198553"
+      },
+      {
+        "name": "bucket_name",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "description": "Storage instance or object path; percent-encoded exactly once.",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-changemetadata-0000001549198553"
+      },
+      {
+        "name": "Authorization",
+        "type": "string",
+        "required": false,
+        "description": "认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-changemetadata-0000001549198553#section17216134314169",
+        "in": "header"
+      },
+      {
+        "name": "client_id",
+        "type": "string",
+        "required": false,
+        "description": "客户端ID，获取方法参考创建API客户端。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-changemetadata-0000001549198553#section17216134314169",
+        "in": "header"
+      },
+      {
+        "name": "productId",
+        "type": "string",
+        "required": true,
+        "description": "项目ID，查询方法可参见查询项目ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-changemetadata-0000001549198553#section17216134314169",
+        "in": "header"
+      },
+      {
+        "name": "X-Agc-Trace-Id",
+        "type": "string",
+        "required": false,
+        "description": "单个文件请求的Traceid。可不填或者随机生成，用于日志打印跟踪。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-changemetadata-0000001549198553#section17216134314169",
+        "in": "header"
+      },
+      {
+        "name": "X-Agc-Content-Type",
+        "type": "string",
+        "required": false,
+        "description": "文件类型。 默认值：application/octet-stream",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-changemetadata-0000001549198553#section17216134314169",
+        "in": "header"
+      },
+      {
+        "name": "X-Agc-Content-Disposition",
+        "type": "string",
+        "required": false,
+        "description": "文件打开方式。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-changemetadata-0000001549198553#section17216134314169",
+        "in": "header"
+      },
+      {
+        "name": "X-Agc-Content-Encoding",
+        "type": "string",
+        "required": false,
+        "description": "HTTP标准头部Content-Encoding。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-changemetadata-0000001549198553#section17216134314169",
+        "in": "header"
+      },
+      {
+        "name": "X-Agc-Cache-Control",
+        "type": "string",
+        "required": false,
+        "description": "HTTP标准头部Cache-Control。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-changemetadata-0000001549198553#section17216134314169",
+        "in": "header"
+      },
+      {
+        "name": "X-Agc-Content-Language",
+        "type": "string",
+        "required": false,
+        "description": "HTTP标准头部Content-Language。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-changemetadata-0000001549198553#section17216134314169",
+        "in": "header"
+      },
+      {
+        "name": "X-Agc-meta-*",
+        "type": "string",
+        "required": false,
+        "description": "可以在请求中加入以“X-Agc-meta-”开头的消息头，用于加入自定义的元数据，以便对文件进行自定义管理。当用户获取此文件或查询此文件元数据时，加入的自定义元数据将会在返回消息的头中出现。 示例：X-Agc-meta-test: test metadata 保存实例为：test: test metadata 说明 元数据名称相同则覆盖。自定义的部署不区分大小写，最后记录均为小写的方式。X-Agc-meta-仅标记此header是传递元数据，并非元数据key的一部分。 目录对象不支持自定义元数据，所以此接口不支持目录对象。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-changemetadata-0000001549198553#section17216134314169",
+        "in": "header"
+      }
+    ]
+  },
+  {
+    "id": "list-files",
+    "familyId": "storage",
+    "name": "列举文件",
+    "description": "此接口用于列举文件。",
+    "method": "GET",
+    "path": "/{bucket_name}",
+    "command": "agc storage list-files",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-listfile-0000001498518878",
+    "officialSlug": "storage-restapi-listfile-0000001498518878",
+    "direction": "developer-to-huawei",
+    "defaultBaseUrl": "https://ops-server-drcn.agcstorage.link/v0",
+    "authentication": "server-api-client",
+    "requestContentType": "",
+    "parameters": [
+      {
+        "name": "bucket_name",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "description": "Storage instance or object path; percent-encoded exactly once.",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-listfile-0000001498518878"
+      },
+      {
+        "name": "client_id",
+        "type": "string",
+        "required": false,
+        "description": "客户端ID，获取方法参考创建API客户端。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-listfile-0000001498518878#section17216134314169",
+        "in": "header"
+      },
+      {
+        "name": "productId",
+        "type": "string",
+        "required": true,
+        "description": "项目ID，查询方法可参见查询项目ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-listfile-0000001498518878#section17216134314169",
+        "in": "header"
+      },
+      {
+        "name": "Authorization",
+        "type": "string",
+        "required": false,
+        "description": "认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-listfile-0000001498518878#section17216134314169",
+        "in": "header"
+      },
+      {
+        "name": "X-Agc-Trace-Id",
+        "type": "string",
+        "required": false,
+        "description": "单个文件请求的Traceid。可不填或者随机生成，用于日志打印跟踪。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-listfile-0000001498518878#section17216134314169",
+        "in": "header"
+      },
+      {
+        "name": "max-keys",
+        "type": "string",
+        "required": false,
+        "description": "指定返回文件个数的最大值，默认值为50，取值范围为[1,1000]。 超出范围时，按照默认值进行处理。 如果因为max-keys的设置无法一次完成列举，返回结果会附加NextMarker元素作为下一次列举的marker。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-listfile-0000001498518878#section233813595165",
+        "in": "query"
+      },
+      {
+        "name": "marker",
+        "type": "string",
+        "required": false,
+        "description": "指定返回哪个标识符之后的文件，按照文件Key的UTF-8字典顺序排序。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-listfile-0000001498518878#section233813595165",
+        "in": "query"
+      },
+      {
+        "name": "prefix",
+        "type": "string",
+        "required": false,
+        "description": "列举以指定的字符串prefix开头的文件。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-listfile-0000001498518878#section233813595165",
+        "in": "query"
+      },
+      {
+        "name": "delimiter",
+        "type": "string",
+        "required": false,
+        "description": "将文件名按照特定字符分割的分割符。 注意 当前仅支持传空值或正斜杠（/），正斜杠（/）编码后为%2F。 如果指定了prefix参数，按delimiter对所有文件名进行分割，多个文件分割后从prefix到第一个delimiter之间相同的部分会形成一条CommonPrefixes。 如果未携带prefix参数，按delimiter对所有文件名进行分割，多个文件分割后从文件名开始到第一个delimiter之间相同的部分形成一条CommonPrefixes。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-listfile-0000001498518878#section233813595165",
+        "in": "query"
+      }
+    ]
+  },
+  {
+    "id": "user-id",
+    "familyId": "templates",
+    "name": "获取用户ID",
+    "description": "通过accessToken获取抽奖用户ID，即userId。",
+    "method": "POST",
+    "path": "{callbackUrl}",
+    "command": "agc templates user-id",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-comm-api-obtainuserid-0000001260291838",
+    "officialSlug": "agc-serverless-comm-api-obtainuserid-0000001260291838",
+    "direction": "inbound-callback",
+    "defaultBaseUrl": "",
+    "authentication": "callback-body",
+    "requestContentType": "application/json",
+    "parameters": [
+      {
+        "name": "callbackUrl",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "description": "Developer HTTPS authentication callback URL",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-comm-api-obtainuserid-0000001260291838"
+      },
+      {
+        "name": "accessToken",
+        "type": "string",
+        "required": true,
+        "description": "认证凭据。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-comm-api-obtainuserid-0000001260291838#section128mcpsimp",
+        "in": "body",
+        "maxLength": 256
+      }
+    ]
+  },
+  {
+    "id": "player-id",
+    "familyId": "templates",
+    "name": "获取玩家ID",
+    "description": "通过accessToken获取游戏排行榜的用户ID。",
+    "method": "POST",
+    "path": "{callbackUrl}",
+    "command": "agc templates player-id",
+    "status": "registered",
+    "source": "Huawei AppGallery Connect API reference",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-get-id-0000001296645276",
+    "officialSlug": "agc-serverless-get-id-0000001296645276",
+    "direction": "inbound-callback",
+    "defaultBaseUrl": "",
+    "authentication": "callback-body",
+    "requestContentType": "application/json",
+    "parameters": [
+      {
+        "name": "callbackUrl",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "description": "Developer HTTPS authentication callback URL",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-get-id-0000001296645276"
+      },
+      {
+        "name": "appId",
+        "type": "string",
+        "required": true,
+        "description": "应用ID，获取方法参考查看应用基本信息。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-get-id-0000001296645276#section128mcpsimp",
+        "in": "body",
+        "maxLength": 64
+      },
+      {
+        "name": "accessToken",
+        "type": "string",
+        "required": true,
+        "description": "玩家ID的认证凭据，来自于您调用函数接口时带的参数值。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-get-id-0000001296645276#section128mcpsimp",
+        "in": "body",
+        "maxLength": 2048
+      }
+    ]
+  }
+]

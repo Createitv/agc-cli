@@ -1,0 +1,152 @@
+{
+  "checkedAt": "2026-10-26",
+  "examples": [],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-obtaintoken-0000001414202481",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-verifycode-0000001294228992",
+      "title": "验证码申请"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-register-0000001346709109",
+      "title": "用户注册"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-signin-0000001294069348",
+      "title": "用户密码登录"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-usersigini-0000001346828685",
+      "title": "用户验证码登录"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-modify-phone-email-0000001347069197",
+      "title": "修改手机号或邮箱地址"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-resetpwd-0000001293909500",
+      "title": "重置密码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-modifypwd-0000001293749536",
+      "title": "修改密码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-userlink-0000001346909381",
+      "title": "用户关联"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-unlink-0000001294229000",
+      "title": "取消关联"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-signout-0000001346709113",
+      "title": "登出"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-userdelete-0000001294069360",
+      "title": "注销"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-reauthenticate-0000001346828693",
+      "title": "账号重认证"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-errorcode-0000001353626777",
+      "title": "错误码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/harmonyos-arkts-agcautherror-0000001633167954",
+      "title": "AGCAuthError"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-obtaintoken-0000001414202481",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "文档说明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-0000001351815781",
+      "text": "获取Token"
+    },
+    {
+      "section": "文档说明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-0000001351815781",
+      "text": "验证码申请"
+    },
+    {
+      "section": "文档说明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-0000001351815781",
+      "text": "用户注册"
+    },
+    {
+      "section": "文档说明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-0000001351815781",
+      "text": "用户密码登录"
+    },
+    {
+      "section": "文档说明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-0000001351815781",
+      "text": "用户验证码登录"
+    },
+    {
+      "section": "文档说明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-0000001351815781",
+      "text": "修改手机号或邮箱地址"
+    },
+    {
+      "section": "文档说明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-0000001351815781",
+      "text": "重置密码"
+    },
+    {
+      "section": "文档说明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-0000001351815781",
+      "text": "修改密码"
+    },
+    {
+      "section": "文档说明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-0000001351815781",
+      "text": "用户关联"
+    },
+    {
+      "section": "文档说明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-0000001351815781",
+      "text": "取消关联"
+    },
+    {
+      "section": "文档说明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-0000001351815781",
+      "text": "登出"
+    },
+    {
+      "section": "文档说明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-0000001351815781",
+      "text": "注销"
+    },
+    {
+      "section": "文档说明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-0000001351815781",
+      "text": "账号重认证"
+    },
+    {
+      "section": "文档说明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-0000001351815781",
+      "text": "错误码"
+    }
+  ],
+  "renderedText": "API参考\n认证服务\nREST API\nREST API\n更新时间: 2026-10-22 11:25\n获取Token\n\n验证码申请\n\n用户注册\n\n用户密码登录\n\n用户验证码登录\n\n修改手机号或邮箱地址\n\n重置密码\n\n修改密码\n\n用户关联\n\n取消关联\n\n登出\n\n注销\n\n账号重认证\n\n错误码\n\nAGCAuthError\n获取Token\n意见反馈\n以上内容对您是否有帮助？\n意见反馈\n如果您有其他疑问，您也可以通过开发者社区问答频道来和我们联系探讨。\n社区提问AI 助手提问\n简体中文\n华为开发者联盟 版权所有 ©2026\n问题反馈\n使用条款\n华为开发者联盟用户协议\n关于华为开发者联盟与隐私的声明\nCookies\n开源软件声明",
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-0000001351815781",
+  "status": "browser-read",
+  "tables": [],
+  "title": "REST API",
+  "updatedAt": "2026-10-22 11:25"
+}

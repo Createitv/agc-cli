@@ -1,0 +1,186 @@
+{
+  "examples": [],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pmapi-0000001158245053",
+      "title": "Project Management API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114#section949717114392",
+      "title": "获取用户授权码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-get-developerid-projectid-0000001166543063",
+      "title": "查询开发者账号ID"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-appbriefinfo-0000001111845106",
+      "title": "获取应用简略信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-addappfingerprint-0000001111685218",
+      "title": "添加证书指纹"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryservice-0000001111845108",
+      "title": "查询服务开通状态"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryappfingerprint-0000001158245077#section49483413",
+      "title": "功能介绍"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryappfingerprint-0000001158245077#section6932219103913",
+      "title": "接口原型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryappfingerprint-0000001158245077#section62398251",
+      "title": "请求参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryappfingerprint-0000001158245077#section236517415165",
+      "title": "Header"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryappfingerprint-0000001158245077#section886219295206",
+      "title": "Path"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryappfingerprint-0000001158245077#section4770825143714",
+      "title": "响应参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryappfingerprint-0000001158245077#section026332842518",
+      "title": "调用示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryappfingerprint-0000001158245077#section49483413",
+      "text": "此接口用于根据应用ID查询App Secret、证书指纹信息。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryappfingerprint-0000001158245077#section236517415165",
+      "text": "本接口只支持OAuth客户端方式。"
+    }
+  ],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryappfingerprint-0000001158245077",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "承载协议",
+          "HTTPS GET"
+        ],
+        [
+          "接口方向",
+          "开发者服务器 -> 华为服务器"
+        ],
+        [
+          "接口URL",
+          "https://connect-api.cloud.huawei.com/api/cds/app-distirbution/v1/all/app-extra-info/{appId}"
+        ],
+        [
+          "数据格式",
+          "请求：Content-Type: application/json 响应：Content-Type: application/json"
+        ]
+      ],
+      "section": "接口原型",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryappfingerprint-0000001158245077#section6932219103913"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "oauth2Token",
+          "M",
+          "String",
+          "认证信息，传入获取用户授权码中获取的Access Token。"
+        ],
+        [
+          "uid",
+          "M",
+          "String",
+          "开发者账号ID，可通过查询开发者账号ID查询。"
+        ],
+        [
+          "teamId",
+          "M",
+          "String",
+          "应用归属的团队账号ID，可以通过获取应用简略信息接口获取。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryappfingerprint-0000001158245077#section236517415165"
+    },
+    {
+      "location": "path",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "appId",
+          "M",
+          "String",
+          "应用ID。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryappfingerprint-0000001158245077#section886219295206"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "secret",
+          "M",
+          "String",
+          "应用的App Secret。"
+        ],
+        [
+          "certFingerprints",
+          "O",
+          "List<String>",
+          "应用的证书指纹信息。"
+        ],
+        [
+          "ret",
+          "M",
+          "String",
+          "包含返回码及描述信息的JSON字符串，格式为{\"code\":retcode, \"msg\": \"description\"}，retcode为返回码，description为返回码描述信息。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryappfingerprint-0000001158245077#section4770825143714"
+    }
+  ],
+  "title": "查询证书指纹和AppSecret",
+  "updatedAt": "2025-08-06 18:02",
+  "checkedAt": "2026-10-07T02:56:34.746Z",
+  "family": "projects",
+  "endpoint": "queryappfingerprint"
+}

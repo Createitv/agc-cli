@@ -1,0 +1,106 @@
+[
+  {
+    "name": "client_id",
+    "type": "string",
+    "required": false,
+    "description": "客户端ID，获取方法参考获取客户端API授权。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-signin-rest-0000001496447669#section1180818719577",
+    "in": "header"
+  },
+  {
+    "name": "Authorization",
+    "type": "string",
+    "required": false,
+    "description": "认证信息。格式为“Authorization: Bearer ${access_token}”。 access_token为获取Token中获取的access_token。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-signin-rest-0000001496447669#section1180818719577",
+    "in": "header"
+  },
+  {
+    "name": "productId",
+    "type": "string",
+    "required": true,
+    "description": "项目ID，查询方法可参见查询项目ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-signin-rest-0000001496447669#section8252421578",
+    "in": "query"
+  },
+  {
+    "name": "provider",
+    "type": "integer",
+    "required": true,
+    "description": "账号授权提供方，取值及对应认证方式如下： 0：匿名账号 1：华为账号 2：Facebook* 3：Twitter* 4：微信 5：华为游戏 6：QQ 7：微博 8：Google* 9：Google Play Game* 10：自建账号 11：手机 12：邮箱 13：苹果账号 说明 *星号标记的账号类型仅在海外站点支持，当您选择数据处理位置为德国、新加坡或俄罗斯时可以使用这些认证方式。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-signin-rest-0000001496447669#section1643221416579",
+    "in": "body",
+    "enum": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13"
+    ]
+  },
+  {
+    "name": "token",
+    "type": "string",
+    "required": true,
+    "description": "手机号码或者邮箱账号。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-signin-rest-0000001496447669#section1643221416579",
+    "in": "body"
+  },
+  {
+    "name": "extraData",
+    "type": "string",
+    "required": false,
+    "description": "扩展字段，此处用于密码登录时填写密码，填写样例如 {\\\"password\\\":\\\"xxxxxxxxx\\\"}。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-signin-rest-0000001496447669#section1643221416579",
+    "in": "body"
+  },
+  {
+    "name": "autoCreateUser",
+    "type": "integer",
+    "required": false,
+    "description": "是否自动创建用户，仅用于非托管账号。 0：不自动创建用户。 1：默认值，自动创建用户。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-signin-rest-0000001496447669#section1643221416579",
+    "in": "body",
+    "enum": [
+      "0",
+      "1"
+    ]
+  },
+  {
+    "name": "useJwt",
+    "type": "integer",
+    "required": true,
+    "description": "使用账号凭据JWT(Json Web Token)，固定传入“1”。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-signin-rest-0000001496447669#section1643221416579",
+    "in": "body",
+    "enum": [
+      "0",
+      "1"
+    ]
+  },
+  {
+    "name": "channelId",
+    "type": "string",
+    "required": false,
+    "description": "渠道标识，当前渠道划分为华为渠道、AppStore渠道以及GooglePlay渠道。当从这些渠道SDK登录时，该参数有值。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-signin-rest-0000001496447669#section1643221416579",
+    "in": "body"
+  },
+  {
+    "name": "aaId",
+    "type": "string",
+    "required": false,
+    "description": "应用实例唯一编号。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-signin-rest-0000001496447669#section1643221416579",
+    "in": "body"
+  }
+]

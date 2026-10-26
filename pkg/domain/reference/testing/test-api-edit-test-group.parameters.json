@@ -1,0 +1,37 @@
+[
+  {
+    "name": "appId",
+    "in": "header",
+    "type": "string",
+    "required": true,
+    "description": "应用ID，获取方法参考查看应用信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-edit-test-group-0000002634718664#section2081954113114",
+    "maxLength": 32
+  },
+  {
+    "name": "teamId",
+    "in": "header",
+    "type": "integer",
+    "required": false,
+    "description": "开发者所在团队的团队ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-edit-test-group-0000002634718664#section2081954113114"
+  },
+  {
+    "name": "groupId",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "测试群组ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-edit-test-group-0000002634718664#section141117691213",
+    "maxLength": 32
+  },
+  {
+    "name": "groupName",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "群组名称。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-edit-test-group-0000002634718664#section141117691213",
+    "maxLength": 50
+  }
+]

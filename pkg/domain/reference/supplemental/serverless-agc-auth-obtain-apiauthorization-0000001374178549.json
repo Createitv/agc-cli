@@ -1,0 +1,439 @@
+{
+  "checkedAt": "2026-10-26",
+  "examples": [],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-console-0000001325045601",
+      "title": "开发者中心配置"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section172553511916",
+      "title": "（推荐）Service Account方式"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section8100153831815",
+      "title": "API客户端方式"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section47096509126",
+      "title": "创建Service Account"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section276512551310",
+      "title": "获取鉴权令牌"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section628511528139",
+      "title": "访问API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-team-account-rolepermission-0000002735800564",
+      "title": "角色与权限"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/HMSCore-Examples/server-sample-code-0000001057110387",
+      "title": "服务端示例代码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section186371930132016",
+      "title": "创建API客户端"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section206281157202011",
+      "title": "获取访问API的Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section18775752151812",
+      "title": "访问API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-team-account-rolepermission-0000002735800564",
+      "title": "角色与权限"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain-token-project-0000001477336048",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-download-credentials-0000001281251800",
+      "title": "下载项目级凭证"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-client-apiauthorization-0000001453744605",
+      "title": "获取客户端API授权"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section172553511916",
+      "title": "（推荐）Service Account方式"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section47096509126",
+      "title": "创建服务账号凭证"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section276512551310",
+      "title": "获取鉴权令牌"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section628511528139",
+      "title": "访问API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section8100153831815",
+      "title": "API客户端方式"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section186371930132016",
+      "title": "创建API客户端凭证（项目级）"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section206281157202011",
+      "title": "获取访问API的Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section18775752151812",
+      "title": "访问API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "文档说明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549",
+      "text": "在向服务端发起REST API请求前，您需要先获得服务端的授权。"
+    },
+    {
+      "section": "文档说明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549",
+      "text": "获得授权的方式有如下两种："
+    },
+    {
+      "section": "文档说明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549",
+      "text": "（推荐）Service Account方式 使用Service Account（服务账号），您可以实现服务器与服务器之间接口的鉴权，相比API客户端方式更安全。 说明 Service Account即将替代API客户端，新创建凭据请您选择Service Account，并请尽快将您使用的API客户端切换到Service Account。"
+    },
+    {
+      "section": "文档说明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549",
+      "text": "使用Service Account（服务账号），您可以实现服务器与服务器之间接口的鉴权，相比API客户端方式更安全。"
+    },
+    {
+      "section": "文档说明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549",
+      "text": "Service Account即将替代API客户端，新创建凭据请您选择Service Account，并请尽快将您使用的API客户端切换到Service Account。"
+    },
+    {
+      "section": "文档说明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549",
+      "text": "API客户端方式 使用API客户端，您可以以应用的身份进行API操作，API访问权限由API客户端的角色来确定。此方式适合开发者自己的IT系统对接HarmonyOS 开发者中心时使用。"
+    },
+    {
+      "section": "文档说明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549",
+      "text": "使用API客户端，您可以以应用的身份进行API操作，API访问权限由API客户端的角色来确定。此方式适合开发者自己的IT系统对接HarmonyOS 开发者中心时使用。"
+    },
+    {
+      "section": "（推荐）Service Account方式",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section172553511916",
+      "text": "要发起一个基本的Service Account方式的API调用，您需要在HarmonyOS 开发者中心中管理您的Service Account。"
+    },
+    {
+      "section": "（推荐）Service Account方式",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section172553511916",
+      "text": "基本流程如下："
+    },
+    {
+      "section": "（推荐）Service Account方式",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section172553511916",
+      "text": "创建Service Account"
+    },
+    {
+      "section": "（推荐）Service Account方式",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section172553511916",
+      "text": "获取鉴权令牌"
+    },
+    {
+      "section": "（推荐）Service Account方式",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section172553511916",
+      "text": "访问API"
+    },
+    {
+      "section": "（推荐）Service Account方式",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section47096509126",
+      "text": "服务账号凭证是用于管理使用Service Account鉴权方式访问API的身份凭据，您可以给不同角色创建不同的服务账号凭证，使不同角色可以访问对应权限的API。"
+    },
+    {
+      "section": "（推荐）Service Account方式",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section47096509126",
+      "text": "登录HarmonyOS 开发者中心，进入“开发者管理”页面。"
+    },
+    {
+      "section": "（推荐）Service Account方式",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section47096509126",
+      "text": "左侧导航栏选择“ID、证书和Profile > 凭证”，选择“项目级凭证”页签，在“服务账号凭证”栏点击“创建”。"
+    },
+    {
+      "section": "（推荐）Service Account方式",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section47096509126",
+      "text": "在“创建服务账号凭证”页面，配置相关信息后，点击“确认”。 参数 说明 凭证名称 输入自定义的服务账号名称。 凭证级别 默认为“项目级凭证”，不可更改。 项目 选择你希望通过创建的项目级凭据访问的项目。 角色 选择的角色决定了该服务账号密钥具有的权限，具体角色对应的权限请参考角色与权限。 描述 填写服务账号描述。 公钥 点击下方“生成公私钥”，平台会为您生成公私钥。公钥信息会填充至“公钥”文本框，私钥将包含在凭证文件中。 注意 如果不点击“生成公私钥”，后续下载的凭证文件中将不包含私钥信息。"
+    },
+    {
+      "section": "（推荐）Service Account方式",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section47096509126",
+      "text": "服务账号创建成功，平台将自动下载对应的“******private.json”格式的凭证文件。 凭证文件信息如下，请妥善保存。 { \"project_id\": \"244********17868\", \"key_id\": \"79******b9\", \"private_key\": \"-----BEGIN PRIVATE KEY-----\\n******\\n-----END PRIVATE KEY-----\\n\", \"sub_account\": \"10*****19\", \"auth_uri\": \"https://******\", \"token_uri\": \"https://oauth-login.cloud.huawei.com/oauth2/v3/token\", \"auth_provider_cert_uri\": \"https://******\", \"client_cert_uri\": \"https://******\" }"
+    },
+    {
+      "section": "（推荐）Service Account方式",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section47096509126",
+      "text": "凭证文件信息如下，请妥善保存。"
+    },
+    {
+      "section": "（推荐）Service Account方式",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section47096509126",
+      "text": "{ \"project_id\": \"244********17868\", \"key_id\": \"79******b9\", \"private_key\": \"-----BEGIN PRIVATE KEY-----\\n******\\n-----END PRIVATE KEY-----\\n\", \"sub_account\": \"10*****19\", \"auth_uri\": \"https://******\", \"token_uri\": \"https://oauth-login.cloud.huawei.com/oauth2/v3/token\", \"auth_provider_cert_uri\": \"https://******\", \"client_cert_uri\": \"https://******\" }"
+    },
+    {
+      "section": "（推荐）Service Account方式",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section47096509126",
+      "text": "（可选）每个服务账号凭证最多可以添加10对公私钥，可点击服务账号凭证所在行的“添加”增加新的公私钥。"
+    },
+    {
+      "section": "（推荐）Service Account方式",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section276512551310",
+      "text": "创建服务账号凭证后，您可以使用凭据文件中返回的key_id和private_key来获取鉴权令牌，从而访问API。"
+    },
+    {
+      "section": "（推荐）Service Account方式",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section276512551310",
+      "text": "Service Account鉴权令牌为JWT（JSON Web Token）格式字符串，JWT数据格式包括Header（头部）、Payload（负载）和Signature（签名），示例：eyJraWQiOiIx******.eyJhdWQiOiJodHR******.QRodgXa2xeXSt4Gp******"
+    },
+    {
+      "section": "（推荐）Service Account方式",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section276512551310",
+      "text": "生成JWT Header数据。 根据文件中的key_id字段拼接JSON体，对JSON体进行BASE64编码，生成Header数据，示例：eyJraWQiOiIx******。 { \"kid\": \"79******b9\", \"typ\": \"JWT\", \"alg\": \"PS256\" } 参数 说明 kid 填写JSON凭据文件中的key_id字段的值。 typ 数据类型，固定为：JWT。 alg 算法类型，固定为：PS256。"
+    },
+    {
+      "section": "（推荐）Service Account方式",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section276512551310",
+      "text": "根据文件中的key_id字段拼接JSON体，对JSON体进行BASE64编码，生成Header数据，示例：eyJraWQiOiIx******。"
+    },
+    {
+      "section": "（推荐）Service Account方式",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section276512551310",
+      "text": "{ \"kid\": \"79******b9\", \"typ\": \"JWT\", \"alg\": \"PS256\" }"
+    },
+    {
+      "section": "（推荐）Service Account方式",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section276512551310",
+      "text": "生成JWT Payload数据。 根据文件中的sub_account字段拼接JSON体，对JSON体进行BASE64编码，生成Payload数据，示例：eyJhdWQiOiJodHR******。 { \"aud\": \"https://oauth-login.cloud.huawei.com/oauth2/v3/token\", \"iss\": \"10*****19\", \"exp\": 1581410664, \"iat\": 1581407064 } 参数 说明 aud 固定为：https://oauth-login.cloud.huawei.com/oauth2/v3/token。 iss JSON凭据文件中sub_account字段的值，标识数据生成者。 exp JWT到期时间，UTC时间戳，比iat晚3600秒。 iat JWT签发时间，UTC时间戳，为自UTC时间1970年1月1日00:00:00的秒数（您的服务器时间需要校准为标准时间）。"
+    },
+    {
+      "section": "（推荐）Service Account方式",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section276512551310",
+      "text": "根据文件中的sub_account字段拼接JSON体，对JSON体进行BASE64编码，生成Payload数据，示例：eyJhdWQiOiJodHR******。"
+    },
+    {
+      "section": "（推荐）Service Account方式",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section276512551310",
+      "text": "{ \"aud\": \"https://oauth-login.cloud.huawei.com/oauth2/v3/token\", \"iss\": \"10*****19\", \"exp\": 1581410664, \"iat\": 1581407064 }"
+    },
+    {
+      "section": "（推荐）Service Account方式",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section276512551310",
+      "text": "生成JWT Signature数据。 将完成BASE64编码后的Header字符串与Payload字符串，通过“.”进行连接，并在业务应用中，通过密钥JSON文件中的private_key（华为不进行存储，请您妥善保管），使用SHA256withRSA/PSS算法对拼接的字符串签名，生成Signature数据，示例：QRodgXa2xeXSt4Gp******。"
+    },
+    {
+      "section": "（推荐）Service Account方式",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section276512551310",
+      "text": "将完成BASE64编码后的Header字符串与Payload字符串，通过“.”进行连接，并在业务应用中，通过密钥JSON文件中的private_key（华为不进行存储，请您妥善保管），使用SHA256withRSA/PSS算法对拼接的字符串签名，生成Signature数据，示例：QRodgXa2xeXSt4Gp******。"
+    },
+    {
+      "section": "（推荐）Service Account方式",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section276512551310",
+      "text": "您可以在应用程序中参考如下代码来获取鉴权令牌，完整Demo请参见服务端示例代码。"
+    },
+    {
+      "section": "（推荐）Service Account方式",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section276512551310",
+      "text": "public class JWTGenerateDemo { // please replace it with the private_key in your json file // this is the plain text in this demo, please encrypt the private key in your code, only get the string between // '-----BEGIN PRIVATE KEY-----\\n' and '\\n-----END PRIVATE KEY-----\\n' private static final String PRIVATE_KEY = \"******\"; // please replace it with the sub_account in your json file private static final String ISS = \"10*****19\"; // please replace it with the key_id in your json file private static final String KID = \"79******b9\"; private static final String AUD = \"https://oauth-login.cloud.huawei.com/oauth2/v3/token\"; private static final String ALG_PS256 = \"PS256\"; private static final String DOT = \".\"; private static PrivateKey getPrivateKey(String key) throws NoSuchAlgorithmException, InvalidKeySpecException { PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(decodeBase64(key)); KeyFactory keyFactory = KeyFactory.getInstance(\"RSA\"); return keyFactory.generatePrivate(keySpec); } private static byte[] decodeBase64(String Base64Str) { return Base64.decodeBase64(Base64Str.getBytes(StandardCharsets.UTF_8)); } private String createJwt() throws NoSuchAlgorithmException, InvalidKeySpecException, InvalidKeyException, SignatureException { long iat = System.currentTimeMillis() / 1000; long exp = iat + 3600; // jwt header JSONObject header = new JSONObject(); header.put(\"alg\", ALG_PS256); header.put(\"kid\", KID); header.put(\"typ\", \"JWT\"); // jwt payload JSONObject payload = new JSONObject(); payload.put(\"aud\", AUD); payload.put(\"iss\", ISS); payload.put(\"exp\", exp); payload.put(\"iat\", iat); // jwt signature byte[] encodeHeaderBytes = Base64.encodeBase64URLSafe(header.toString().getBytes(StandardCharsets.UTF_8)); byte[] encodePayloadBytes = Base64.encodeBase64URLSafe(payload.toString().getBytes(StandardCharsets.UTF_8)); String encodeHeader = new String(encodeHeaderBytes, StandardCharsets.UTF_8); String encodePayload = new String(encodePayloadBytes, StandardCharsets.UTF_8); String jwtHeaderAndPayload = encodeHeader + DOT + encodePayload; Signature signatureInstance = Signature.getInstance(\"SHA256withRSA/PSS\", new BouncyCastleProvider()); signatureInstance.initSign(getPrivateKey(PRIVATE_KEY)); signatureInstance.update(jwtHeaderAndPayload.getBytes(StandardCharsets.UTF_8)); String signature = new String(Objects.requireNonNull(Base64.encodeBase64URLSafe(signatureInstance.sign())), StandardCharsets.UTF_8); return jwtHeaderAndPayload + DOT + signature; } public static void main(String args[]) throws InvalidKeySpecException, NoSuchAlgorithmException, SignatureException, InvalidKeyException { JWTGenerateDemo JWTGenerateDemo = new JWTGenerateDemo(); System.out.println(JWTGenerateDemo.createJwt()); } }"
+    },
+    {
+      "section": "（推荐）Service Account方式",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section628511528139",
+      "text": "在调用API时，把已获取的鉴权令牌置于Authorization头部以完成鉴权。"
+    },
+    {
+      "section": "（推荐）Service Account方式",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section628511528139",
+      "text": "GET /v1/demo/indexes HTTP/1.1 Authorization: Bearer eyJraWQiOiIx******.eyJhdWQiOiJodHR******.QRodgXa2xeXSt4Gp****** Host: connect-api.cloud.huawei.com"
+    },
+    {
+      "section": "API客户端方式",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section8100153831815",
+      "text": "要发起一个基本的API客户端方式的API调用，您需要在HarmonyOS 开发者中心中管理您的API客户端，API只能由您的团队账号所有者管理。"
+    },
+    {
+      "section": "API客户端方式",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section8100153831815",
+      "text": "基本流程具体如下："
+    },
+    {
+      "section": "API客户端方式",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section8100153831815",
+      "text": "创建API客户端"
+    },
+    {
+      "section": "API客户端方式",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section8100153831815",
+      "text": "获取访问API的Token"
+    },
+    {
+      "section": "API客户端方式",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section186371930132016",
+      "text": "API客户端凭证是用于管理使用API客户端鉴权方式访问API的身份凭据，您可以给不同角色创建不同的API客户端凭证，使不同角色可以访问对应权限的API。"
+    },
+    {
+      "section": "API客户端方式",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section186371930132016",
+      "text": "左侧导航栏选择“ID、证书和Profile > 凭证”，选择“项目级凭证”页签，在“API客户端凭证”栏点击“创建”。"
+    },
+    {
+      "section": "API客户端方式",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section186371930132016",
+      "text": "在“创建API客户端凭证”页面，配置相关信息。 参数 说明 凭证名称 输入自定义的API客户端名称。 项目 选择服务所属的项目。 角色 选择的角色决定了该API客户端具有的权限，具体角色对应的权限请参考角色与权限。"
+    },
+    {
+      "section": "API客户端方式",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section186371930132016",
+      "text": "API客户端凭证创建成功后，可获取“凭证ID”和“密钥”。后续需要使用凭证ID和密钥获取访问API的Token。"
+    },
+    {
+      "section": "API客户端方式",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section206281157202011",
+      "text": "创建完API客户端后需要到华为HarmonyOS 开发者中心进行鉴权，鉴权通过后将获得Access Token，用户凭借该Access Token即可访问REST API。您可以调用获取Token接口来获取Access Token。"
+    },
+    {
+      "section": "API客户端方式",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section18775752151812",
+      "text": "获取鉴权通过后的Access Token后，您即可以调用对应的服务API来完成相应的功能开发。"
+    }
+  ],
+  "renderedText": "指南\n认证服务\n开发者中心配置\n获取服务端API授权\n获取服务端API授权\n更新时间: 2026-10-22 11:25\n\n在向服务端发起REST API请求前，您需要先获得服务端的授权。\n\n获得授权的方式有如下两种：\n\n（推荐）Service Account方式\n\n使用Service Account（服务账号），您可以实现服务器与服务器之间接口的鉴权，相比API客户端方式更安全。\n\n说明\n\nService Account即将替代API客户端，新创建凭据请您选择Service Account，并请尽快将您使用的API客户端切换到Service Account。\n\nAPI客户端方式\n\n使用API客户端，您可以以应用的身份进行API操作，API访问权限由API客户端的角色来确定。此方式适合开发者自己的IT系统对接HarmonyOS 开发者中心时使用。\n\n（推荐）Service Account方式\n\n要发起一个基本的Service Account方式的API调用，您需要在HarmonyOS 开发者中心中管理您的Service Account。\n\n基本流程如下：\n\n创建Service Account\n获取鉴权令牌\n访问API\n创建服务账号凭证\n\n服务账号凭证是用于管理使用Service Account鉴权方式访问API的身份凭据，您可以给不同角色创建不同的服务账号凭证，使不同角色可以访问对应权限的API。\n\n登录HarmonyOS 开发者中心，进入“开发者管理”页面。\n左侧导航栏选择“ID、证书和Profile > 凭证”，选择“项目级凭证”页签，在“服务账号凭证”栏点击“创建”。\n\n在“创建服务账号凭证”页面，配置相关信息后，点击“确认”。\n\n参数\n\n\t\n\n说明\n\n\n\n\n凭证名称\n\n\t\n\n输入自定义的服务账号名称。\n\n\n\n\n凭证级别\n\n\t\n\n默认为“项目级凭证”，不可更改。\n\n\n\n\n项目\n\n\t\n\n选择你希望通过创建的项目级凭据访问的项目。\n\n\n\n\n角色\n\n\t\n\n选择的角色决定了该服务账号密钥具有的权限，具体角色对应的权限请参考角色与权限。\n\n\n\n\n描述\n\n\t\n\n填写服务账号描述。\n\n\n\n\n公钥\n\n\t\n\n点击下方“生成公私钥”，平台会为您生成公私钥。公钥信息会填充至“公钥”文本框，私钥将包含在凭证文件中。\n\n注意\n\n如果不点击“生成公私钥”，后续下载的凭证文件中将不包含私钥信息。\n\n服务账号创建成功，平台将自动下载对应的“******private.json”格式的凭证文件。\n\n凭证文件信息如下，请妥善保存。\n\n{\n    \"project_id\": \"244********17868\",\n    \"key_id\": \"79******b9\",\n    \"private_key\": \"-----BEGIN PRIVATE KEY-----\\n******\\n-----END PRIVATE KEY-----\\n\",\n    \"sub_account\": \"10*****19\",\n    \"auth_uri\": \"https://******\",\n    \"token_uri\": \"https://oauth-login.cloud.huawei.com/oauth2/v3/token\",\n    \"auth_provider_cert_uri\": \"https://******\",\n    \"client_cert_uri\": \"https://******\"\n}\n（可选）每个服务账号凭证最多可以添加10对公私钥，可点击服务账号凭证所在行的“添加”增加新的公私钥。\n\n获取鉴权令牌\n\n创建服务账号凭证后，您可以使用凭据文件中返回的key_id和private_key来获取鉴权令牌，从而访问API。\n\nService Account鉴权令牌为JWT（JSON Web Token）格式字符串，JWT数据格式包括Header（头部）、Payload（负载）和Signature（签名），示例：eyJraWQiOiIx******.eyJhdWQiOiJodHR******.QRodgXa2xeXSt4Gp******\n\n生成JWT Header数据。\n\n根据文件中的key_id字段拼接JSON体，对JSON体进行BASE64编码，生成Header数据，示例：eyJraWQiOiIx******。\n\n{\n  \"kid\": \"79******b9\",\n  \"typ\": \"JWT\",\n  \"alg\": \"PS256\"\n}\n\n参数\n\n\t\n\n说明\n\n\n\n\nkid\n\n\t\n\n填写JSON凭据文件中的key_id字段的值。\n\n\n\n\ntyp\n\n\t\n\n数据类型，固定为：JWT。\n\n\n\n\nalg\n\n\t\n\n算法类型，固定为：PS256。\n\n生成JWT Payload数据。\n\n根据文件中的sub_account字段拼接JSON体，对JSON体进行BASE64编码，生成Payload数据，示例：eyJhdWQiOiJodHR******。\n\n{\n  \"aud\": \"https://oauth-login.cloud.huawei.com/oauth2/v3/token\",\n  \"iss\": \"10*****19\",\n  \"exp\": 1581410664,\n  \"iat\": 1581407064\n}\n\n参数\n\n\t\n\n说明\n\n\n\n\naud\n\n\t\n\n固定为：https://oauth-login.cloud.huawei.com/oauth2/v3/token。\n\n\n\n\niss\n\n\t\n\nJSON凭据文件中sub_account字段的值，标识数据生成者。\n\n\n\n\nexp\n\n\t\n\nJWT到期时间，UTC时间戳，比iat晚3600秒。\n\n\n\n\niat\n\n\t\n\nJWT签发时间，UTC时间戳，为自UTC时间1970年1月1日00:00:00的秒数（您的服务器时间需要校准为标准时间）。\n\n生成JWT Signature数据。\n\n将完成BASE64编码后的Header字符串与Payload字符串，通过“.”进行连接，并在业务应用中，通过密钥JSON文件中的private_key（华为不进行存储，请您妥善保管），使用SHA256withRSA/PSS算法对拼接的字符串签名，生成Signature数据，示例：QRodgXa2xeXSt4Gp******。\n\n您可以在应用程序中参考如下代码来获取鉴权令牌，完整Demo请参见服务端示例代码。\n\npublic class JWTGenerateDemo {\n    // please replace it with the private_key in your json file\n    // this is the plain text in this demo, please encrypt the private key in your code, only get the string between\n    // '-----BEGIN PRIVATE KEY-----\\n' and '\\n-----END PRIVATE KEY-----\\n'\n    private static final String PRIVATE_KEY = \"******\";\n\n    // please replace it with the sub_account in your json file\n    private static final String ISS = \"10*****19\";\n\n    // please replace it with the key_id in your json file\n    private static final String KID = \"79******b9\";\n\n    private static final String AUD = \"https://oauth-login.cloud.huawei.com/oauth2/v3/token\";\n\n    private static final String ALG_PS256 = \"PS256\";\n\n    private static final String DOT = \".\";\n\n    private static PrivateKey getPrivateKey(String key) throws NoSuchAlgorithmException, InvalidKeySpecException {\n        PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(decodeBase64(key));\n        KeyFactory keyFactory = KeyFactory.getInstance(\"RSA\");\n        return keyFactory.generatePrivate(keySpec);\n    }\n\n    private static byte[] decodeBase64(String Base64Str) {\n        return Base64.decodeBase64(Base64Str.getBytes(StandardCharsets.UTF_8));\n    }\n\n    private String createJwt()\n        throws NoSuchAlgorithmException, InvalidKeySpecException, InvalidKeyException, SignatureException {\n        long iat = System.currentTimeMillis() / 1000;\n        long exp = iat + 3600;\n\n        // jwt header\n        JSONObject header = new JSONObject();\n        header.put(\"alg\", ALG_PS256);\n        header.put(\"kid\", KID);\n        header.put(\"typ\", \"JWT\");\n\n        // jwt payload\n        JSONObject payload = new JSONObject();\n        payload.put(\"aud\", AUD);\n        payload.put(\"iss\", ISS);\n        payload.put(\"exp\", exp);\n        payload.put(\"iat\", iat);\n\n        // jwt signature\n        byte[] encodeHeaderBytes = Base64.encodeBase64URLSafe(header.toString().getBytes(StandardCharsets.UTF_8));\n        byte[] encodePayloadBytes = Base64.encodeBase64URLSafe(payload.toString().getBytes(StandardCharsets.UTF_8));\n        String encodeHeader = new String(encodeHeaderBytes, StandardCharsets.UTF_8);\n        String encodePayload = new String(encodePayloadBytes, StandardCharsets.UTF_8);\n        String jwtHeaderAndPayload = encodeHeader + DOT + encodePayload;\n        Signature signatureInstance = Signature.getInstance(\"SHA256withRSA/PSS\", new BouncyCastleProvider());\n        signatureInstance.initSign(getPrivateKey(PRIVATE_KEY));\n        signatureInstance.update(jwtHeaderAndPayload.getBytes(StandardCharsets.UTF_8));\n        String signature =\n            new String(Objects.requireNonNull(Base64.encodeBase64URLSafe(signatureInstance.sign())), StandardCharsets.UTF_8);\n\n        return jwtHeaderAndPayload + DOT + signature;\n    }\n\n    public static void main(String args[])\n        throws InvalidKeySpecException, NoSuchAlgorithmException, SignatureException, InvalidKeyException {\n        JWTGenerateDemo JWTGenerateDemo = new JWTGenerateDemo();\n        System.out.println(JWTGenerateDemo.createJwt());\n    }\n}\n访问API\n\n在调用API时，把已获取的鉴权令牌置于Authorization头部以完成鉴权。\n\nGET /v1/demo/indexes HTTP/1.1\nAuthorization: Bearer eyJraWQiOiIx******.eyJhdWQiOiJodHR******.QRodgXa2xeXSt4Gp******\nHost: connect-api.cloud.huawei.com\nAPI客户端方式\n\n要发起一个基本的API客户端方式的API调用，您需要在HarmonyOS 开发者中心中管理您的API客户端，API只能由您的团队账号所有者管理。\n\n基本流程具体如下：\n\n创建API客户端\n获取访问API的Token\n访问API\n创建API客户端凭证（项目级）\n\nAPI客户端凭证是用于管理使用API客户端鉴权方式访问API的身份凭据，您可以给不同角色创建不同的API客户端凭证，使不同角色可以访问对应权限的API。\n\n登录HarmonyOS 开发者中心，进入“开发者管理”页面。\n左侧导航栏选择“ID、证书和Profile > 凭证”，选择“项目级凭证”页签，在“API客户端凭证”栏点击“创建”。\n\n在“创建API客户端凭证”页面，配置相关信息。\n\n参数\n\n\t\n\n说明\n\n\n\n\n凭证名称\n\n\t\n\n输入自定义的API客户端名称。\n\n\n\n\n项目\n\n\t\n\n选择服务所属的项目。\n\n\n\n\n角色\n\n\t\n\n选择的角色决定了该API客户端具有的权限，具体角色对应的权限请参考角色与权限。\n\nAPI客户端凭证创建成功后，可获取“凭证ID”和“密钥”。后续需要使用凭证ID和密钥获取访问API的Token。\n\n获取访问API的Token\n\n创建完API客户端后需要到华为HarmonyOS 开发者中心进行鉴权，鉴权通过后将获得Access Token，用户凭借该Access Token即可访问REST API。您可以调用获取Token接口来获取Access Token。\n\n访问API\n\n获取鉴权通过后的Access Token后，您即可以调用对应的服务API来完成相应的功能开发。\n\n下载项目级凭证\n获取客户端API授权\n意见反馈\n以上内容对您是否有帮助？\n意见反馈\n如果您有其他疑问，您也可以通过开发者社区问答频道来和我们联系探讨。\n社区提问AI 助手提问\n本文导读\n（推荐）Service Account方式\n创建服务账号凭证\n获取鉴权令牌\n访问API\nAPI客户端方式\n创建API客户端凭证（项目级）\n获取访问API的Token\n访问API\n简体中文\n华为开发者联盟 版权所有 ©2026\n问题反馈\n使用条款\n华为开发者联盟用户协议\n关于华为开发者联盟与隐私的声明\nCookies\n开源软件声明",
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数",
+          "说明"
+        ],
+        [
+          "凭证名称",
+          "输入自定义的服务账号名称。"
+        ],
+        [
+          "凭证级别",
+          "默认为“项目级凭证”，不可更改。"
+        ],
+        [
+          "项目",
+          "选择你希望通过创建的项目级凭据访问的项目。"
+        ],
+        [
+          "角色",
+          "选择的角色决定了该服务账号密钥具有的权限，具体角色对应的权限请参考角色与权限。"
+        ],
+        [
+          "描述",
+          "填写服务账号描述。"
+        ],
+        [
+          "公钥",
+          "点击下方“生成公私钥”，平台会为您生成公私钥。公钥信息会填充至“公钥”文本框，私钥将包含在凭证文件中。 注意 如果不点击“生成公私钥”，后续下载的凭证文件中将不包含私钥信息。"
+        ]
+      ],
+      "section": "（推荐）Service Account方式",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section47096509126"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数",
+          "说明"
+        ],
+        [
+          "kid",
+          "填写JSON凭据文件中的key_id字段的值。"
+        ],
+        [
+          "typ",
+          "数据类型，固定为：JWT。"
+        ],
+        [
+          "alg",
+          "算法类型，固定为：PS256。"
+        ]
+      ],
+      "section": "（推荐）Service Account方式",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section276512551310"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数",
+          "说明"
+        ],
+        [
+          "aud",
+          "固定为：https://oauth-login.cloud.huawei.com/oauth2/v3/token。"
+        ],
+        [
+          "iss",
+          "JSON凭据文件中sub_account字段的值，标识数据生成者。"
+        ],
+        [
+          "exp",
+          "JWT到期时间，UTC时间戳，比iat晚3600秒。"
+        ],
+        [
+          "iat",
+          "JWT签发时间，UTC时间戳，为自UTC时间1970年1月1日00:00:00的秒数（您的服务器时间需要校准为标准时间）。"
+        ]
+      ],
+      "section": "（推荐）Service Account方式",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section276512551310"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数",
+          "说明"
+        ],
+        [
+          "凭证名称",
+          "输入自定义的API客户端名称。"
+        ],
+        [
+          "项目",
+          "选择服务所属的项目。"
+        ],
+        [
+          "角色",
+          "选择的角色决定了该API客户端具有的权限，具体角色对应的权限请参考角色与权限。"
+        ]
+      ],
+      "section": "API客户端方式",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549#section186371930132016"
+    }
+  ],
+  "title": "获取服务端API授权",
+  "updatedAt": "2026-10-22 11:25"
+}

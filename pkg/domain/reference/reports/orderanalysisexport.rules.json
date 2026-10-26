@@ -1,0 +1,25 @@
+[
+  {
+    "id": "report-date-window",
+    "kind": "date_window",
+    "fields": [
+      "query.startTime",
+      "query.endTime"
+    ],
+    "maxDays": 365,
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-orderanalysisexport-0000001111685214#section886219295206",
+    "message": "Report dates must be real YYYYMMDD dates in chronological order within the documented query interval.",
+    "suggestion": "Use YYYYMMDD dates with endTime at or after startTime and no more than 365 days apart."
+  },
+  {
+    "id": "ordered-filter-pairs",
+    "kind": "equal_length",
+    "fields": [
+      "query.filterCondition",
+      "query.filterConditionValue"
+    ],
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-orderanalysisexport-0000001111685214#section886219295206",
+    "message": "Each filterCondition must have a filterConditionValue at the same position.",
+    "suggestion": "Repeat both query keys once per filter, preserving matching order."
+  }
+]

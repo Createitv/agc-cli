@@ -1,0 +1,74 @@
+[
+  {
+    "name": "object_name",
+    "in": "path",
+    "type": "string",
+    "required": true,
+    "description": "Storage instance or object path; percent-encoded exactly once.",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-getfile-0000001498998530"
+  },
+  {
+    "name": "bucket_name",
+    "in": "path",
+    "type": "string",
+    "required": true,
+    "description": "Storage instance or object path; percent-encoded exactly once.",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-getfile-0000001498998530"
+  },
+  {
+    "name": "Authorization",
+    "type": "string",
+    "required": false,
+    "description": "认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-getfile-0000001498998530#section17216134314169",
+    "in": "header"
+  },
+  {
+    "name": "client_id",
+    "type": "string",
+    "required": false,
+    "description": "客户端ID，获取方法参考创建API客户端。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-getfile-0000001498998530#section17216134314169",
+    "in": "header"
+  },
+  {
+    "name": "productId",
+    "type": "string",
+    "required": true,
+    "description": "项目ID，查询方法可参见查询项目ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-getfile-0000001498998530#section17216134314169",
+    "in": "header"
+  },
+  {
+    "name": "Range",
+    "type": "string",
+    "required": false,
+    "description": "HTTP标准协议头，用于指定第一个字节和最后一个字节的位置，告诉服务器想获取的文件范围。如未指定，则获取整个文件。 例如一个文件有900个字节，其范围为0-899，则： Range: bytes=500- 表示读取该文件的500-899字节。 Range: bytes=500-699 表示读取该文件的500-699字节。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-getfile-0000001498998530#section17216134314169",
+    "in": "header"
+  },
+  {
+    "name": "If-Modified-Since",
+    "type": "string",
+    "required": false,
+    "description": "一个条件式请求首部。 服务器只在所请求的资源在给定的时间之后对内容进行过修改的情况下才会将资源返回，状态码为200 。如果请求的资源在给定的时间之后未经修改，则返回一个不带消息主体的304响应。 格式：<day-name>, <day> <month> <year> <hour>:<minute>:<second> GMT 举例：Mon, 10 Apr 2023 07:28:00 GMT 说明 If-Modified-Since只可以用在GET或HEAD请求中。当与If-None-Match 一同出现时，If-Modified-Since会被忽略，除非服务器不支持If-None-Match。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-getfile-0000001498998530#section17216134314169",
+    "in": "header"
+  },
+  {
+    "name": "If-None-Match",
+    "type": "string",
+    "required": false,
+    "description": "一个条件式请求首部。 对于GET和HEAD方法，当且仅当服务器上没有任何资源的ETag属性值与这个首部中列出的相匹配时，服务器端会才返回所请求的资源，响应码为200 ，否则返回304。其他方法暂不实现。 格式：If-None-Match: \"<etag_value>\" 不支持通配符*，不支持弱比较算法。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-getfile-0000001498998530#section17216134314169",
+    "in": "header"
+  },
+  {
+    "name": "X-Agc-Trace-Id",
+    "type": "string",
+    "required": false,
+    "description": "单个文件请求的Traceid。可不填或者随机生成，用于日志打印跟踪。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-getfile-0000001498998530#section17216134314169",
+    "in": "header"
+  }
+]

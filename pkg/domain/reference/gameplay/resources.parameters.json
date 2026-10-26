@@ -1,0 +1,141 @@
+[
+  {
+    "name": "method",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "固定传入“external.hms.gs.syncGameResources”。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section8202184551317",
+    "maxLength": 64,
+    "enum": [
+      "external.hms.gs.syncGameResources"
+    ]
+  },
+  {
+    "name": "appId",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "游戏在AppGallery Connect中生成的APP ID，获取方法请参见查看应用基本信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section8202184551317",
+    "maxLength": 32
+  },
+  {
+    "name": "resources",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "图片或视频资源，JSON字符串，JSON类型List<Resources>，最大支持50个资源。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section8202184551317",
+    "maxLength": 300000,
+    "encodedJson": {
+      "type": "array",
+      "itemsType": "object",
+      "maxItems": 50,
+      "itemsProperties": [
+        {
+          "name": "index",
+          "in": "body",
+          "type": "string",
+          "required": true,
+          "description": "资源索引，取值由开发者定义，在该游戏内必须全局唯一。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section8202184551317",
+          "maxLength": 128
+        },
+        {
+          "name": "name",
+          "in": "body",
+          "type": "string",
+          "required": true,
+          "description": "资源名称。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section8202184551317",
+          "maxLength": 128
+        },
+        {
+          "name": "type",
+          "in": "body",
+          "type": "integer",
+          "required": true,
+          "description": "资源类型。 1：图片，大小不超过500KB，格式支持jpg、jpeg、bmp、png。 2：视频，大小不超过500MB，格式支持mp4、avi、mov。 说明 请按要求上传如下特殊位置的图片，否则页面展示可能会失真： 要求各勋章图片均保持相同的尺寸和1:1的宽高比。 用于战绩信息背景的皮肤要求大小不超过500KB，尺寸为1080*1440。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section8202184551317",
+          "enum": [
+            "1",
+            "2"
+          ]
+        },
+        {
+          "name": "url",
+          "in": "body",
+          "type": "string",
+          "required": false,
+          "description": "可以公网访问的资源地址，需支持资源下载。 说明 上传游戏资源时，此参数必填。要求url中必须携带文件的后缀，并且图片地址需要https格式，例如https://test.abc.com/testPath/test.png。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section8202184551317",
+          "maxLength": 2048
+        },
+        {
+          "name": "updateTime",
+          "in": "body",
+          "type": "integer",
+          "required": false,
+          "description": "更新时间的时间戳，即距离GMT时间1970年1月1号0时0分0秒所差的毫秒数。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section8202184551317",
+          "format": "int64"
+        },
+        {
+          "name": "resourceHash",
+          "in": "body",
+          "type": "string",
+          "required": false,
+          "description": "图片资源的SHA256值。 说明 resourceHash和updateTime二选一，建议优先使用updateTime。如果资源的更新时间无法获取，则再传图片的散列值。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section8202184551317",
+          "maxLength": 64
+        },
+        {
+          "name": "operType",
+          "in": "body",
+          "type": "integer",
+          "required": true,
+          "description": "对资源的操作。 0：上传资源 1：下架资源",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section8202184551317",
+          "enum": [
+            "0",
+            "1"
+          ]
+        }
+      ],
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section8202184551317",
+      "itemsRules": [
+        {
+          "id": "upload-resource-url",
+          "kind": "required_if",
+          "field": "body.url",
+          "when": {
+            "field": "body.operType",
+            "equals": "0"
+          },
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section8202184551317",
+          "message": "url is required when uploading a resource.",
+          "suggestion": "Supply a publicly downloadable resource URL with its file extension."
+        }
+      ]
+    }
+  },
+  {
+    "name": "ts",
+    "in": "body",
+    "type": "integer",
+    "required": true,
+    "description": "当前时间的时间戳，即距离GMT时间1970年1月1号0时0分0秒所差的毫秒数。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section8202184551317",
+    "format": "int64"
+  },
+  {
+    "name": "sign",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "用于华为游戏服务器对请求参数验签的签名字符串。 为防止请求被篡改，游戏需要根据签名机制中的方法生成签名字符串，华为服务器在收到请求后会对签名字符串进行验签，验签成功后才会进行后续处理，否则将返回失败错误码。请求中除sign、resources以外的所有Body参数均参与签名。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section8202184551317",
+    "maxLength": 1024
+  }
+]

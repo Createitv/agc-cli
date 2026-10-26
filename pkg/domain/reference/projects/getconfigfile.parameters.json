@@ -1,0 +1,10 @@
+[
+  {
+    "name": "appId",
+    "in": "query",
+    "type": "string",
+    "required": true,
+    "description": "需要获取配置文件的应用ID，可以通过获取应用简略信息接口获取。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-getconfigfile-0000001158365065#section886219295206"
+  }
+]

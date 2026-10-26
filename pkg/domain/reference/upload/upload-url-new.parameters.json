@@ -1,0 +1,60 @@
+[
+  {
+    "name": "appId",
+    "in": "query",
+    "type": "string",
+    "required": true,
+    "description": "应用ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-upload-url-new-0000001111685200#section798917276209",
+    "maxLength": 32
+  },
+  {
+    "name": "fileName",
+    "in": "query",
+    "type": "string",
+    "required": true,
+    "description": "原始文件名，需包含文件后缀。主要用于在生成上传地址时获取原始文件后缀。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-upload-url-new-0000001111685200#section798917276209",
+    "maxLength": 256
+  },
+  {
+    "name": "sha256",
+    "in": "query",
+    "type": "string",
+    "required": false,
+    "description": "文件内容的SHA256哈希值，如果传入此参数，文件在上传到文件服务器后会执行完整性校验。如果不传则不做校验。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-upload-url-new-0000001111685200#section798917276209",
+    "maxLength": 64
+  },
+  {
+    "name": "contentLength",
+    "in": "query",
+    "type": "integer",
+    "required": true,
+    "description": "文件内容的大小，单位：字节。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-upload-url-new-0000001111685200#section798917276209"
+  },
+  {
+    "name": "releaseType",
+    "in": "query",
+    "type": "integer",
+    "required": false,
+    "description": "发布方式。 取值范围： 1：全网发布。 默认值：1",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-upload-url-new-0000001111685200#section798917276209",
+    "enum": [
+      "1"
+    ]
+  },
+  {
+    "name": "chineseMainlandFlag",
+    "in": "query",
+    "type": "integer",
+    "required": false,
+    "description": "软件包是否分发中国大陆（不包括港澳台）。 取值范围： 0：不分发中国大陆 1：分发中国大陆 说明 当开发者注册地非中国大陆时，必须设置chineseMainlandFlag参数。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-upload-url-new-0000001111685200#section798917276209",
+    "enum": [
+      "0",
+      "1"
+    ]
+  }
+]

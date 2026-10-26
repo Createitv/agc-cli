@@ -1,0 +1,74 @@
+[
+  {
+    "name": "bucket_name",
+    "in": "path",
+    "type": "string",
+    "required": true,
+    "description": "Storage instance or object path; percent-encoded exactly once.",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-listfile-0000001498518878"
+  },
+  {
+    "name": "client_id",
+    "type": "string",
+    "required": false,
+    "description": "客户端ID，获取方法参考创建API客户端。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-listfile-0000001498518878#section17216134314169",
+    "in": "header"
+  },
+  {
+    "name": "productId",
+    "type": "string",
+    "required": true,
+    "description": "项目ID，查询方法可参见查询项目ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-listfile-0000001498518878#section17216134314169",
+    "in": "header"
+  },
+  {
+    "name": "Authorization",
+    "type": "string",
+    "required": false,
+    "description": "认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-listfile-0000001498518878#section17216134314169",
+    "in": "header"
+  },
+  {
+    "name": "X-Agc-Trace-Id",
+    "type": "string",
+    "required": false,
+    "description": "单个文件请求的Traceid。可不填或者随机生成，用于日志打印跟踪。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-listfile-0000001498518878#section17216134314169",
+    "in": "header"
+  },
+  {
+    "name": "max-keys",
+    "type": "string",
+    "required": false,
+    "description": "指定返回文件个数的最大值，默认值为50，取值范围为[1,1000]。 超出范围时，按照默认值进行处理。 如果因为max-keys的设置无法一次完成列举，返回结果会附加NextMarker元素作为下一次列举的marker。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-listfile-0000001498518878#section233813595165",
+    "in": "query"
+  },
+  {
+    "name": "marker",
+    "type": "string",
+    "required": false,
+    "description": "指定返回哪个标识符之后的文件，按照文件Key的UTF-8字典顺序排序。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-listfile-0000001498518878#section233813595165",
+    "in": "query"
+  },
+  {
+    "name": "prefix",
+    "type": "string",
+    "required": false,
+    "description": "列举以指定的字符串prefix开头的文件。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-listfile-0000001498518878#section233813595165",
+    "in": "query"
+  },
+  {
+    "name": "delimiter",
+    "type": "string",
+    "required": false,
+    "description": "将文件名按照特定字符分割的分割符。 注意 当前仅支持传空值或正斜杠（/），正斜杠（/）编码后为%2F。 如果指定了prefix参数，按delimiter对所有文件名进行分割，多个文件分割后从prefix到第一个delimiter之间相同的部分会形成一条CommonPrefixes。 如果未携带prefix参数，按delimiter对所有文件名进行分割，多个文件分割后从文件名开始到第一个delimiter之间相同的部分形成一条CommonPrefixes。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-listfile-0000001498518878#section233813595165",
+    "in": "query"
+  }
+]

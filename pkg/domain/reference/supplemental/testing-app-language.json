@@ -1,0 +1,108 @@
+{
+  "examples": [],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter#section195981215284",
+      "title": "了解新版目录"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-open-ability-0000002235710238",
+      "title": "AGC开放能力"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-0000002236015554",
+      "title": "AppGallery Connect API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-reference-0000002271000709",
+      "title": "Testing API参考"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-data-0000002237336484",
+      "title": "数据模型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-data-devicematerial-0000002237336492",
+      "title": "DeviceMaterial"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-operations/agc-help-app-visual-asset-spec-0000002277607976",
+      "title": "素材规范"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-data-0000002237336484",
+      "title": "数据模型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-data-appreviewcontact-0000002527365043",
+      "title": "AppReviewContact"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-data-applanguage-0000002237496312",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "language",
+          "M",
+          "String(20)",
+          "应用支持的语言。"
+        ],
+        [
+          "appName",
+          "O",
+          "String(255)",
+          "应用名称。 不少于2个字符，否则应用信息不完整。"
+        ],
+        [
+          "appDesc",
+          "M",
+          "String(8000)",
+          "对应语言的应用介绍。 不少于2个字符，否则应用信息不完整。"
+        ],
+        [
+          "briefInfo",
+          "O",
+          "String(256)",
+          "应用简介，用于新增应用一句话介绍。 不少于1个字符，否则应用信息不完整。"
+        ],
+        [
+          "newFeatures",
+          "M",
+          "String(1024)",
+          "测试说明，描述测试版本的重点特性。"
+        ],
+        [
+          "formalVersionNewFeatures",
+          "O",
+          "String(1024)",
+          "描述正式版本的重点特性。 当为测试版本时，该字段表示后续转成正式版本的新版本特性描述。"
+        ],
+        [
+          "deviceMaterials",
+          "O",
+          "List<DeviceMaterial>",
+          "设备类型相关的素材。 数组长度不超过6。 说明 素材的格式请参考素材规范。 注意 接口不校验素材的格式（尺寸、分辨率、文件后缀等），请开发者自行保证素材格式的准确性，以免影响素材最终的呈现效果。"
+        ]
+      ],
+      "section": "",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-data-applanguage-0000002237496312"
+    }
+  ],
+  "title": "AppLanguage",
+  "updatedAt": "2026-06-25 19:52",
+  "checkedAt": "2026-10-07T04:37:01.753Z"
+}

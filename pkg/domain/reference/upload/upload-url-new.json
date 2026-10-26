@@ -1,0 +1,373 @@
+{
+  "examples": [],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-uploadapi-0000002092927786",
+      "title": "Upload Management API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114",
+      "title": "使用入门"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114#section1785535363715",
+      "title": "通过Service Account方式获取授权"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114#section103mcpsimp",
+      "title": "创建API客户端"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain_token-0000001158365043",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-getteamlist-0000001158245075",
+      "title": "获取团队列表"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114#section949717114392",
+      "title": "获取用户授权码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-upload-url-new-0000001111685200#ZH-CN_TOPIC_0000001111685200__p1474451117",
+      "title": "ConnectRet"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-upload-url-new-0000001111685200#ZH-CN_TOPIC_0000001111685200__zh-cn_topic_0000001057512485_p173701128151713",
+      "title": "CommonUrlInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-uploadapi-errorcode-harmonyos-0000002123259325",
+      "title": "错误码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-upload-file-new-0000001111845090",
+      "title": "上传文件"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-uploadapi-0000002092927786",
+      "title": "Upload Management API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-upload-file-new-0000001111845090",
+      "title": "上传文件"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-upload-url-new-0000001111685200#section10647983",
+      "title": "功能介绍"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-upload-url-new-0000001111685200#section6932219103913",
+      "title": "接口原型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-upload-url-new-0000001111685200#section44860761",
+      "title": "请求参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-upload-url-new-0000001111685200#section236517415165",
+      "title": "Header"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-upload-url-new-0000001111685200#section798917276209",
+      "title": "Query"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-upload-url-new-0000001111685200#section1093665",
+      "title": "响应参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-upload-url-new-0000001111685200#section8439614104314",
+      "title": "调用示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-upload-url-new-0000001111685200#section10647983",
+      "text": "上传文件至AppGallery Connect前需要先调用此接口获取上传地址，包括图片、视频、PDF等文件。接口调用者的角色：账号持有者、管理员、APP管理员、运营。"
+    },
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-upload-url-new-0000001111685200#section10647983",
+      "text": "此接口当前支持获取上传地址的应用软件包格式包括APK、AAB、RPK、EXE（Windows应用软件包）。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-upload-url-new-0000001111685200#section236517415165",
+      "text": "本接口支持使用Service Account方式、API客户端方式和OAuth客户端方式，区别请参见使用入门。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-upload-url-new-0000001111685200#section236517415165",
+      "text": "Service Account方式："
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-upload-url-new-0000001111685200#section236517415165",
+      "text": "API客户端方式："
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-upload-url-new-0000001111685200#section236517415165",
+      "text": "OAuth客户端方式："
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-upload-url-new-0000001111685200#section1093665",
+      "text": "获取的上传URL有效期约为5分钟，超时后此URL将失效，需重新调用接口获取上传URL。"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-upload-url-new-0000001111685200#section1093665",
+      "text": "ConnectRet"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-upload-url-new-0000001111685200#section1093665",
+      "text": "CommonUrlInfo"
+    }
+  ],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-upload-url-new-0000001111685200",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "承载协议",
+          "HTTPS GET"
+        ],
+        [
+          "接口方向",
+          "开发者服务器 -> 华为服务器"
+        ],
+        [
+          "接口URL",
+          "https://connect-api.cloud.huawei.com/api/publish/v2/upload-url/for-obs"
+        ],
+        [
+          "数据格式",
+          "请求：Content-Type: application/json 响应：Content-Type: application/json"
+        ]
+      ],
+      "section": "接口原型",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-upload-url-new-0000001111685200#section6932219103913"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "Authorization",
+          "M",
+          "String",
+          "认证信息，格式为“Authorization: Bearer ${JWT}”。JWT为通过Service Account方式获取授权中获取的鉴权令牌。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-upload-url-new-0000001111685200#section236517415165"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "client_id",
+          "M",
+          "String",
+          "客户端ID，获取方法参考创建API客户端。"
+        ],
+        [
+          "Authorization",
+          "M",
+          "String",
+          "认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-upload-url-new-0000001111685200#section236517415165"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "teamId",
+          "M",
+          "String",
+          "开发者所在团队的团队ID，可通过获取团队列表接口获取。"
+        ],
+        [
+          "oauth2Token",
+          "M",
+          "String",
+          "认证信息，传入获取用户授权码中获取的Access Token。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-upload-url-new-0000001111685200#section236517415165"
+    },
+    {
+      "location": "query",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "appId",
+          "M",
+          "String(32)",
+          "应用ID。"
+        ],
+        [
+          "fileName",
+          "M",
+          "String(256)",
+          "原始文件名，需包含文件后缀。主要用于在生成上传地址时获取原始文件后缀。"
+        ],
+        [
+          "sha256",
+          "O",
+          "String(64)",
+          "文件内容的SHA256哈希值，如果传入此参数，文件在上传到文件服务器后会执行完整性校验。如果不传则不做校验。"
+        ],
+        [
+          "contentLength",
+          "M",
+          "Integer",
+          "文件内容的大小，单位：字节。"
+        ],
+        [
+          "releaseType",
+          "O",
+          "Integer",
+          "发布方式。 取值范围： 1：全网发布。 默认值：1"
+        ],
+        [
+          "chineseMainlandFlag",
+          "O",
+          "Integer",
+          "软件包是否分发中国大陆（不包括港澳台）。 取值范围： 0：不分发中国大陆 1：分发中国大陆 说明 当开发者注册地非中国大陆时，必须设置chineseMainlandFlag参数。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-upload-url-new-0000001111685200#section798917276209"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "ret",
+          "M",
+          "ConnectRet",
+          "包含返回码及描述信息的结果。"
+        ],
+        [
+          "urlInfo",
+          "M",
+          "CommonUrlInfo",
+          "文件上传信息，包含请求方法、文件上传URL、请求头等信息。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-upload-url-new-0000001111685200#section1093665"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "code",
+          "O",
+          "Integer",
+          "返回码，请参见错误码。"
+        ],
+        [
+          "msg",
+          "O",
+          "String",
+          "返回码描述信息。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-upload-url-new-0000001111685200#section1093665"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "objectId",
+          "M",
+          "String",
+          "文件在文件服务器中的对象ID。"
+        ],
+        [
+          "url",
+          "M",
+          "String",
+          "文件的上传URL，格式为https://{domainname}.com/{objectId}。"
+        ],
+        [
+          "method",
+          "M",
+          "String",
+          "HTTP请求方法。获取文件上传地址时固定返回PUT。"
+        ],
+        [
+          "headers",
+          "O",
+          "Map<String,String>",
+          "使用文件上传URL上传文件到文件服务器时，请求头所需的参数，为JSON结构，格式为：{\"Authorization\":\"***\",\"x-amz-content-sha256\":\"***\",\"x-amz-date\":\"***\",\"Host\":\"***\",\"user-agent\":\"***\",\"Content-Type\":\"***\"}。 具体说明请参见上传文件接口。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-upload-url-new-0000001111685200#section1093665"
+    }
+  ],
+  "title": "获取文件上传地址",
+  "updatedAt": "2026-05-26 15:34",
+  "checkedAt": "2026-10-07T02:53:06.315Z",
+  "family": "upload",
+  "endpoint": "upload-url-new"
+}

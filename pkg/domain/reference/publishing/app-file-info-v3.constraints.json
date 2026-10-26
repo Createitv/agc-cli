@@ -1,0 +1,52 @@
+{
+  "query.appId": {
+    "maxLength": 32
+  },
+  "query.releaseType": {
+    "enum": [
+      "1"
+    ]
+  },
+  "query.releasePhase": {
+    "enum": [
+      "0",
+      "3"
+    ]
+  },
+  "body.appIconList": {
+    "maxItems": 20
+  },
+  "body.screenShotList": {
+    "maxItems": 20
+  },
+  "body.introVideoList": {
+    "maxItems": 20
+  },
+  "body.rcmdVideoList": {
+    "maxItems": 20
+  },
+  "body.rcmdPicList": {
+    "maxItems": 20
+  },
+  "body.elecCertificate": {
+    "maxLength": 512
+  },
+  "body.certificateList": {
+    "maxItems": 10
+  },
+  "body.publicationList": {
+    "maxItems": 10
+  },
+  "body.packagePermissionIntroVideoList": {
+    "maxItems": 100
+  },
+  "body.otherCertificatesURL": {
+    "maxLength": 512
+  },
+  "body.updateScreenShotList": {
+    "maxItems": 20
+  },
+  "body.updateVideoList": {
+    "maxItems": 20
+  }
+}

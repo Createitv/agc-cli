@@ -1,0 +1,64 @@
+[
+  {
+    "name": "Authorization",
+    "type": "string",
+    "required": true,
+    "description": "校验信息，对应获取版本压缩包上传地址接口返回的headers参数中的Authorization。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadversion-0000001211707813#section236517415165",
+    "in": "header"
+  },
+  {
+    "name": "x-amz-content-sha256",
+    "type": "string",
+    "required": true,
+    "description": "文件对象内容的SHA256哈希值，对应获取版本压缩包上传地址接口返回的headers参数中的x-amz-content-sha256。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadversion-0000001211707813#section236517415165",
+    "in": "header"
+  },
+  {
+    "name": "x-amz-client-request-id",
+    "type": "string",
+    "required": true,
+    "description": "文件上传的唯一标识，对应获取版本压缩包上传地址接口返回的headers参数中的x-amz-client-request-id。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadversion-0000001211707813#section236517415165",
+    "in": "header"
+  },
+  {
+    "name": "x-amz-date",
+    "type": "string",
+    "required": true,
+    "description": "文件上传地址生成的时间，对应获取版本压缩包上传地址接口返回的headers参数中的x-amz-date。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadversion-0000001211707813#section236517415165",
+    "in": "header"
+  },
+  {
+    "name": "Host",
+    "type": "string",
+    "required": true,
+    "description": "上传服务器地址，对应获取版本压缩包上传地址接口返回的headers参数中的Host。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadversion-0000001211707813#section236517415165",
+    "in": "header"
+  },
+  {
+    "name": "Content-Type",
+    "type": "string",
+    "required": true,
+    "description": "对象内容的类型，对应获取版本压缩包上传地址接口返回的headers参数中的Content-Type。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadversion-0000001211707813#section236517415165",
+    "in": "header"
+  },
+  {
+    "name": "uploadUrl",
+    "in": "path",
+    "type": "string",
+    "required": true,
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadversion-0000001211707813"
+  },
+  {
+    "name": "file",
+    "in": "file",
+    "type": "string",
+    "required": true,
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadversion-0000001211707813"
+  }
+]

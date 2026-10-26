@@ -72,6 +72,27 @@ func TestCurrentPublishingOpenAPIExposesOfficialParameters(t *testing.T) {
 						found = true
 					}
 				}
+				if p.In == "query" {
+					allOf, _ := schema["allOf"].([]any)
+					for _, condition := range allOf {
+						branches, _ := condition.(map[string]any)["anyOf"].([]any)
+						alternatives := map[string]bool{}
+						for _, rawBranch := range branches {
+							branch := rawBranch.(map[string]any)
+							for _, container := range branch["required"].([]string) {
+								nested := branch["properties"].(map[string]any)[container].(map[string]any)
+								for _, name := range nested["required"].([]string) {
+									if name == p.Name {
+										alternatives[container] = true
+									}
+								}
+							}
+						}
+						if alternatives["query"] && alternatives["queryValues"] {
+							found = true
+						}
+					}
+				}
 				if found != p.Required {
 					t.Errorf("%s wrong requiredness", p.Name)
 				}

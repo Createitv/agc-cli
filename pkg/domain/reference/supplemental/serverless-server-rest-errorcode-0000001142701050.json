@@ -1,0 +1,105 @@
+{
+  "checkedAt": "2026-10-26",
+  "examples": [],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-auth-0000001055443186",
+      "title": "Server"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-auth-rest-0000001135233594",
+      "title": "REST API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-revoke-0000001182420193",
+      "title": "撤销用户凭据"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [],
+  "renderedText": "API参考\n认证服务\nServer\nREST API\n错误码\n错误码\n更新时间: 2026-10-22 11:25\n\n错误码（errorCode）\n\n\t\n\n错误描述（errorMsg）\n\n\n\n\n0\n\n\t\n\n成功。\n\n\n\n\n205524993\n\n\t\n\nclientToken鉴权失败。\n\n\n\n\n205524994\n\n\t\n\naccessToken验证失败。\n\n\n\n\n203816961\n\n\t\n\n系统内部错误。\n\n\n\n\n203818355\n\n\t\n\ntoken格式错误。\n\n\n\n\n203817985\n\n\t\n\n无效的accessToken。\n\n\n\n\n203818357\n\n\t\n\naccessToken过期。\n\n\n\n\n203817987\n\n\t\n\naccessToken与项目ID不匹配。\n\n\n\n\n203817988\n\n\t\n\n三方认证方式未开通。\n\n\n\n\n203818305\n\n\t\n\n用户列表为空。\n\n\n\n\n203817219\n\n\t\n\n无效的项目ID。\n\n\n\n\n203817744\n\n\t\n\n项目状态错误。\n\n\n\n\n203817856\n\n\t\n\n导出用户信息失败。\n\n\n\n\n203817220\n\n\t\n\n无效的用户ID。\n\n\n\n\n203817729\n\n\t\n\n用户ID和项目ID不匹配。\n\n\n\n\n203818358\n\n\t\n\n更新用户revokeTime失败。\n\n撤销用户凭据\n意见反馈\n以上内容对您是否有帮助？\n意见反馈\n如果您有其他疑问，您也可以通过开发者社区问答频道来和我们联系探讨。\n社区提问AI 助手提问\n简体中文\n华为开发者联盟 版权所有 ©2026\n问题反馈\n使用条款\n华为开发者联盟用户协议\n关于华为开发者联盟与隐私的声明\nCookies\n开源软件声明",
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-errorcode-0000001142701050",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "错误码（errorCode）",
+          "错误描述（errorMsg）"
+        ],
+        [
+          "0",
+          "成功。"
+        ],
+        [
+          "205524993",
+          "clientToken鉴权失败。"
+        ],
+        [
+          "205524994",
+          "accessToken验证失败。"
+        ],
+        [
+          "203816961",
+          "系统内部错误。"
+        ],
+        [
+          "203818355",
+          "token格式错误。"
+        ],
+        [
+          "203817985",
+          "无效的accessToken。"
+        ],
+        [
+          "203818357",
+          "accessToken过期。"
+        ],
+        [
+          "203817987",
+          "accessToken与项目ID不匹配。"
+        ],
+        [
+          "203817988",
+          "三方认证方式未开通。"
+        ],
+        [
+          "203818305",
+          "用户列表为空。"
+        ],
+        [
+          "203817219",
+          "无效的项目ID。"
+        ],
+        [
+          "203817744",
+          "项目状态错误。"
+        ],
+        [
+          "203817856",
+          "导出用户信息失败。"
+        ],
+        [
+          "203817220",
+          "无效的用户ID。"
+        ],
+        [
+          "203817729",
+          "用户ID和项目ID不匹配。"
+        ],
+        [
+          "203818358",
+          "更新用户revokeTime失败。"
+        ]
+      ],
+      "section": "",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-errorcode-0000001142701050"
+    }
+  ],
+  "title": "错误码",
+  "updatedAt": "2026-10-22 11:25"
+}

@@ -1,0 +1,495 @@
+{
+  "examples": [
+    {
+      "section": "响应示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section76943261515",
+      "text": "响应示例\n{\n    \"ret\": {\n        \"code\": 0,\n        \"msg\": \"success\"\n    }\n}"
+    }
+  ],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-publishing-api-0000002351880118",
+      "title": "Publishing API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-publishingapi-0000001150409957",
+      "title": "Android"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section37920632",
+      "title": "功能介绍"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section12531813163019",
+      "title": "使用约束"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section6932219103913",
+      "title": "接口原型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section62398251",
+      "title": "请求参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section236517415165",
+      "title": "Header"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section886219295206",
+      "title": "Query"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section17512144171520",
+      "title": "Body"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section24713355",
+      "title": "响应参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section76943261515",
+      "title": "响应示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section8439614104314",
+      "title": "调用示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section1026325810439",
+      "title": "Postman调试"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114",
+      "title": "使用入门"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114#section103mcpsimp",
+      "title": "创建API客户端"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain_token-0000001158365043",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-getteamlist-0000001158245075",
+      "title": "获取团队列表"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114#section949717114392",
+      "title": "获取用户授权码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-reference-langtype-0000001158245079",
+      "title": "语言类型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-reference-apptype-0000001158365069",
+      "title": "应用游戏分类"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-reference-apptype-0000001158365069",
+      "title": "应用游戏分类"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-reference-countrycode-0000001111845110",
+      "title": "国家码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-reference-pricechange-0000001111845112",
+      "title": "价格换算规则"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-reference-countrycode-0000001111845110",
+      "title": "国家码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-reference-pricechange-0000001111845112",
+      "title": "价格换算规则"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-reference-countrycode-0000001111845110",
+      "title": "国家码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#ZH-CN_TOPIC_0000001111685198__zh-cn_topic_0000001059070156_p17819165272318",
+      "title": "DeviceTypeInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-publishingapi-errorcode-0000001163523297",
+      "title": "错误码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-query-0000001158365045",
+      "title": "查询应用信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-language-info-update-0000001158245057",
+      "title": "更新语言描述信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section37920632",
+      "text": "此接口用于更新指定应用的应用详情。接口调用者的角色：账号持有者、管理员、APP管理员、运营。"
+    },
+    {
+      "section": "使用约束",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section12531813163019",
+      "text": "本接口暂不支持俄罗斯个人开发者。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section236517415165",
+      "text": "API客户端方式和OAuth客户端方式的区别请参见使用入门。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section236517415165",
+      "text": "API客户端方式："
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section236517415165",
+      "text": "OAuth客户端方式："
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section17512144171520",
+      "text": "请求Body中使用JSON格式携带更新的应用信息，参数如下表所示。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section17512144171520",
+      "text": "DeviceTypeInfo"
+    },
+    {
+      "section": "Postman调试",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section1026325810439",
+      "text": "您可以使用Postman在线调试此接口。"
+    }
+  ],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "承载协议",
+          "HTTPS PUT"
+        ],
+        [
+          "接口方向",
+          "开发者服务器 -> 华为服务器"
+        ],
+        [
+          "接口URL",
+          "https://connect-api.cloud.huawei.com/api/publish/v2/app-info"
+        ],
+        [
+          "数据格式",
+          "请求：Content-Type: application/json 响应：Content-Type: application/json"
+        ]
+      ],
+      "section": "接口原型",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section6932219103913"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "client_id",
+          "M",
+          "String",
+          "客户端ID，获取方法参考创建API客户端。"
+        ],
+        [
+          "Authorization",
+          "M",
+          "String",
+          "认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section236517415165"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "teamId",
+          "M",
+          "String",
+          "开发者所在团队的团队ID，可通过获取团队列表接口获取。"
+        ],
+        [
+          "oauth2Token",
+          "M",
+          "String",
+          "认证信息，传入获取用户授权码中获取的Access Token。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section236517415165"
+    },
+    {
+      "location": "query",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "releaseType",
+          "O",
+          "Integer",
+          "应用发布方式。 取值范围： 1：全网 3：分阶段 默认值：1"
+        ],
+        [
+          "appId",
+          "M",
+          "String",
+          "需要更新的应用ID。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section886219295206"
+    },
+    {
+      "location": "body",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "defaultLang",
+          "O",
+          "String(64)",
+          "应用的默认语言，取值参见语言类型。"
+        ],
+        [
+          "childType",
+          "O",
+          "Integer(4)",
+          "应用的二级分类，固定ID，取值参见应用游戏分类。"
+        ],
+        [
+          "grandChildType",
+          "O",
+          "Integer(4)",
+          "应用的三级分类，固定ID，取值参见应用游戏分类。"
+        ],
+        [
+          "privacyPolicy",
+          "M",
+          "String(255)",
+          "隐私声明地址。"
+        ],
+        [
+          "appNetType",
+          "O",
+          "Integer(1)",
+          "应用联网类型。 取值范围： 1：单机 2：网游"
+        ],
+        [
+          "isFree",
+          "O",
+          "Integer(1)",
+          "应用付费类型。 取值范围： 1：免费 0：付费 如果isFree为1，price和priceDetail参数将无效。"
+        ],
+        [
+          "price",
+          "O",
+          "String(256)",
+          "应用价格，格式为{\"countryCode\":\"price\"}。countryCode为国家码，price为应用的价格。国家码列表请参见国家码，对应币种请参见ISO 4217标准。 AppGallery Connect会根据所在国家/地区的价格规则对最终价格做适当调整，具体规则请参见价格换算规则。 注意 当isFree为0时，此参数必选。"
+        ],
+        [
+          "priceDetail",
+          "O",
+          "String(8192)",
+          "应用在不同国家或地区的价格，json数组格式，不同国家和地区之间使用逗号分隔，例如：[{\"country\":\"CN\",\"currency\":\"CNY\",\"price\":\"18.00\"},{{\"country\":\"DE\",\"currency\":\"EUR\",\"price\":\"2.50\"}}]。 其中，country为国家码，currency为国家码所对应的币种，price为应用价格。国家码列表请参见国家码，对应币种请参见ISO 4217标准。 AppGallery Connect会根据所在国家/地区的价格规则对最终价格做适当调整，具体规则请参见价格换算规则。 注意 当isFree为0时，此参数必选。"
+        ],
+        [
+          "publishCountry",
+          "O",
+          "String(2048)",
+          "应用发布国家的国家码，多个国家以英文逗号分隔，例如：“CN,DE,MC”。如果取值为“OTHER”，表示当AppGallery支持的国家或地区列表中新增某个国家或地区时，应用将自动分发到新增的国家和地区。国家码列表请参见国家码。 注意 取值不能只包含OTHER。"
+        ],
+        [
+          "isAppForcedUpdate",
+          "O",
+          "Integer(1)",
+          "应用是否强制升级。 取值范围： 0：不强制 1：强制"
+        ],
+        [
+          "hispaceAutoDown",
+          "O",
+          "Integer(1)",
+          "是否允许华为应用市场抓包。 取值范围： 0：不允许 1：允许"
+        ],
+        [
+          "appTariffType",
+          "O",
+          "String(16)",
+          "应用内付费道具类型。 取值范围： 1：激活收费 2：道具收费 3：关卡收费 4：购买虚拟币 5：部分章节收费（图书阅读类） 6：其他的 7：课程收费 8：会员收费 支持设置多个，使用英文逗号分隔，例如“1,2,3”。"
+        ],
+        [
+          "publicationNumber",
+          "O",
+          "String(50)",
+          "版号信息。 此参数只支持游戏类应用。"
+        ],
+        [
+          "cultureRecordNumber",
+          "O",
+          "String(50)",
+          "文化部备案编号。 此参数只支持游戏类应用。"
+        ],
+        [
+          "developerWebsite",
+          "O",
+          "String(255)",
+          "开发者官网。"
+        ],
+        [
+          "familyShareTag",
+          "O",
+          "Integer(1)",
+          "是否可以家庭共享。 取值范围： 0：不可以。 1：可以。"
+        ],
+        [
+          "deviceTypes",
+          "O",
+          "List<DeviceTypeInfo>",
+          "设备类型信息。"
+        ],
+        [
+          "webGameFlag",
+          "O",
+          "Integer",
+          "该应用是否为网页游戏。 取值范围： 0：否 1：是 该参数仅在应用为手机RPK游戏，且设备类型信息中适配设备类型包含Windows（appAdapters取值包含15）时才会生效。"
+        ],
+        [
+          "privacyRightsUrl",
+          "O",
+          "String(256)",
+          "隐私权利网址，即关于您的用户实施其权利的网站地址，如用户删除、修改、导出其个人数据的入口。"
+        ],
+        [
+          "registeredDclType",
+          "O",
+          "Integer(32)",
+          "APP类型信息。 取值范围： -1：清空APP类型信息 0：APP服务器在中国大陆 1：APP服务器不在中国大陆 2：APP为单机APP"
+        ],
+        [
+          "registeredIdType",
+          "O",
+          "Integer(32)",
+          "主办单位类型。 取值范围： -1：清空数据（会联动清空registeredIdNumber的内容） 1：企业（社会信用代码） 2：个人（身份证号码） 3：机构（机构代码）"
+        ],
+        [
+          "registeredIdNumber",
+          "O",
+          "String(64)",
+          "主办单位证件号。 取值范围： registeredIdType为1时，对应统一社会信用代码 registeredIdType为2时，对应身份证号码 registeredIdType为3时，对应组织机构代码"
+        ],
+        [
+          "registeredEntity",
+          "O",
+          "Integer(32)",
+          "主办单位。 取值范围： 1：与开发者账号主体一致 2：与开发者账号主体不一致 说明 当registeredDclType值为0（APP服务器在中国大陆）时，该字段必填。若不填写或填写错误，会导致审核不通过。 若在版本提交时，该字段值选择“一致”，则主办单位名称和证件号，将直接复用开发者联盟注册账号信息。 若您提交的主办单位信息与联盟账号信息不一致，该字段值却选择了“一致”，则系统将自动判定为“不一致”，将会影响审核结果。"
+        ],
+        [
+          "registeredEntityName",
+          "O",
+          "String(1024)",
+          "主办单位名称。 说明 当registeredDclType值为0（APP服务器在中国大陆）时，该字段必填。若不填写或填写错误，会导致审核不通过。"
+        ],
+        [
+          "userAgreementUrl",
+          "O",
+          "String(512)",
+          "用户协议URL。"
+        ],
+        [
+          "encrypted",
+          "O",
+          "Integer(32)",
+          "包是否加密。 取值范围： 0：否，表示不加密。 1：是，表示加密。 默认值：1"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section17512144171520"
+    },
+    {
+      "location": "body",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "deviceType",
+          "M",
+          "Integer",
+          "设备类型。 取值范围： 4：手机 6：VR 7：手表 8：大屏 9：路由器 10：车机"
+        ],
+        [
+          "appAdapters",
+          "M",
+          "String",
+          "适配设备类型，多个类型以英文逗号分隔。 取值范围： 1：荣耀立方（路由器） 4：手机 5：平板 6：VR 7：手表 8：大屏 9：路由器 11：儿童表 12：智能手表 13：带屏音响 15：Windows APK类型的软件包约束如下： 当deviceType为4时，appAdapters可选范围为：4，5，7（如果有7，4也必须选择）,15(受限开放，需要联系华为运营开通) 当deviceType为6时，appAdapters可选范围为：4, 5。 当deviceType为7时，appAdapters可选范围为：11，12。 当deviceType为8时，appAdapters可选范围为：1，3，8。 RPK类型的软件包约束如下： 当deviceType为4时，appAdapters可选范围为：4，5，15 注意 修改设备类型信息时此字段必选，否则传入deviceType后会此参数会被置为空。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section17512144171520"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "ret",
+          "M",
+          "String(100)",
+          "包含返回码及描述信息的JSON字符串，格式为{\"code\":retcode, \"msg\": \"description\"}，retcode为返回码，description为返回码描述信息。返回码请参见错误码。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section24713355"
+    }
+  ],
+  "title": "更新应用基本信息",
+  "updatedAt": "2026-09-14 08:56",
+  "checkedAt": "2026-10-07T04:48:08.197Z"
+}

@@ -1,0 +1,116 @@
+{
+  "query.appId": {
+    "maxLength": 32
+  },
+  "query.releaseType": {
+    "enum": [
+      "1"
+    ]
+  },
+  "query.releasePhase": {
+    "enum": [
+      "0",
+      "3"
+    ]
+  },
+  "body.defaultLang": {
+    "maxLength": 16
+  },
+  "body.privacyPolicy": {
+    "maxLength": 255
+  },
+  "body.appNetType": {
+    "enum": [
+      "1",
+      "2"
+    ]
+  },
+  "body.publishCountry": {
+    "maxLength": 2048
+  },
+  "body.appTariffType": {
+    "maxLength": 16
+  },
+  "body.publicationNumber": {
+    "maxLength": 50
+  },
+  "body.developerWebsite": {
+    "maxLength": 255
+  },
+  "body.privacyRightsUrl": {
+    "maxLength": 256
+  },
+  "body.registeredDclType": {
+    "enum": [
+      "-1",
+      "0",
+      "1",
+      "2"
+    ]
+  },
+  "body.registeredIdType": {
+    "enum": [
+      "-1",
+      "1",
+      "2",
+      "3"
+    ]
+  },
+  "body.registeredIdNumber": {
+    "maxLength": 64
+  },
+  "body.registeredEntity": {
+    "enum": [
+      "1",
+      "2"
+    ]
+  },
+  "body.registeredEntityName": {
+    "maxLength": 1024
+  },
+  "body.privacyAgreementId": {
+    "maxLength": 32
+  },
+  "body.userAgreementUrl": {
+    "maxLength": 512
+  },
+  "body.userAgreementIds": {
+    "maxItems": 5
+  },
+  "body.encrypted": {
+    "enum": [
+      "0",
+      "1"
+    ]
+  },
+  "body.isAiGenerate": {
+    "enum": [
+      "0",
+      "1"
+    ]
+  },
+  "body.testUserName": {
+    "maxLength": 128
+  },
+  "body.testUserPassword": {
+    "maxLength": 128
+  },
+  "body.appRemark": {
+    "maxLength": 300
+  },
+  "body.selfTestVideos": {
+    "maxLength": 2000
+  },
+  "body.appReviewName": {
+    "maxLength": 256
+  },
+  "body.versionVocs": {
+    "maxItems": 1000
+  },
+  "body.kindSubTags": {
+    "maxItems": 4
+  },
+  "body.aiTypes": {
+    "enum": []
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "examples": [],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pmsapi-0000001162548121",
+      "title": "PMS API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pmsapi-android-0000002131508240",
+      "title": "HarmonyOS 3.1/4.0及以下、Android"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-data-android-0000002135929332",
+      "title": "数据模型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-ptlanguageinfo-android-0000002171288649",
+      "title": "PromotionLanguageInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-ptpriceinfo-android-0000002135929356",
+      "title": "PromotionPriceInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-perrorinfo-android-0000002135929352",
+      "title": "PromotionErrorInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-pintroduceinfo-android-0000002171407049",
+      "title": "PromotionIntroductoryInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-promotioninfo-android-0000002136087440",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "promotionId",
+          "O",
+          "String",
+          "优惠唯一ID，批量创建时不需要传入，更新时必传。"
+        ],
+        [
+          "promotionTitle",
+          "M",
+          "String",
+          "促销名称。"
+        ],
+        [
+          "startDate",
+          "M",
+          "Integer(64)",
+          "开始优惠时间，格式为毫秒单位的时间戳。"
+        ],
+        [
+          "endDate",
+          "O",
+          "Integer(64)",
+          "结束优惠时间，格式为毫秒单位的时间戳。"
+        ],
+        [
+          "status",
+          "O",
+          "String",
+          "促销状态，取值如下，默认值：inactive。 active：上线 inactive：下线"
+        ],
+        [
+          "strategy",
+          "M",
+          "String",
+          "促销策略类型： trial：免费试用 说明 仅当关联商品的purchaseType为auto_subscription类型时支持配置trial。 introductory：按周期扣费"
+        ],
+        [
+          "price",
+          "O",
+          "String",
+          "默认促销价格，单位为分，strategy取值为introductory时，必须传入。"
+        ],
+        [
+          "numberOfUnits",
+          "O",
+          "Integer",
+          "优惠周期数。如优惠两个月，numberOfUnits=2， periodUnit=M"
+        ],
+        [
+          "periodUnit",
+          "O",
+          "String",
+          "优惠周期单位： D：天 W：周 M：月 Y：年 可选值： 1周 1个月 2个月 3个月 6个月 1年 30天（上次订阅日期+30天） 31天（上次订阅日期+31天） 说明 当前仅purchaseType为\"auto_subscription\"的自动续期型商品需要维护。"
+        ],
+        [
+          "languages",
+          "O",
+          "List<PromotionLanguageInfo>",
+          "各个国家的语言信息。"
+        ],
+        [
+          "promotionPrice",
+          "M",
+          "List<PromotionPriceInfo>",
+          "各个国家的自定义价格信息。"
+        ]
+      ],
+      "section": "",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-promotioninfo-android-0000002136087440"
+    }
+  ],
+  "title": "PromotionInfo",
+  "updatedAt": "2025-08-15 09:52",
+  "checkedAt": "2026-10-07T03:15:25.869Z"
+}

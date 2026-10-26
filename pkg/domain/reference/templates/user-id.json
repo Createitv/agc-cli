@@ -1,0 +1,136 @@
+{
+  "checkedAt": "2026-10-26",
+  "examples": [
+    {
+      "section": "请求示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-comm-api-obtainuserid-0000001260291838#section624414128367",
+      "text": "请求示例\nPOST https://your_auth_url\nContent-Type: application/json; charset=utf-8\n{\n   \"accessToken\":\"eyJhbGciOiJIUzU****************\"\n}"
+    },
+    {
+      "section": "响应示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-comm-api-obtainuserid-0000001260291838#section18524194122113",
+      "text": "响应示例\nHTTP/1.1 200 OK\nContent-Type: application/json; charset=utf-8\n{\n    \"userId\": \"10****01\"\n}"
+    }
+  ],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-comm-api-obtainuserid-0000001260291838#section125771341635",
+      "title": "功能介绍"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-comm-api-obtainuserid-0000001260291838#section6932219103913",
+      "title": "接口原型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-comm-api-obtainuserid-0000001260291838#section128mcpsimp",
+      "title": "请求参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-comm-api-obtainuserid-0000001260291838#section624414128367",
+      "title": "请求示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-comm-api-obtainuserid-0000001260291838#section129mcpsimp",
+      "title": "响应参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-comm-api-obtainuserid-0000001260291838#section18524194122113",
+      "title": "响应示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-comm-api-obtainuserid-0000001260291838#section125771341635",
+      "text": "通过accessToken获取抽奖用户ID，即userId。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-comm-api-obtainuserid-0000001260291838#section128mcpsimp",
+      "text": "请求参数以JSON格式传入，包含参数如下。"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-comm-api-obtainuserid-0000001260291838#section129mcpsimp",
+      "text": "返回值为JSON格式的字符串，包含参数如下。"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-comm-api-obtainuserid-0000001260291838#section129mcpsimp",
+      "text": "返回码使用标准HTTP状态码，详情请参考对应模板的返回码。"
+    }
+  ],
+  "renderedText": "API参考\nServerless模板\n公共API\n获取用户ID\n获取用户ID\n更新时间: 2022-07-11 10:50\n功能介绍\n\n通过accessToken获取抽奖用户ID，即userId。\n\n接口原型\n\n承载协议\n\n\t\n\nHTTPS POST\n\n\n\n\n接口方向\n\n\t\n\n华为服务器 -> 开发者服务器\n\n\n\n\n接口URL\n\n\t\n\n开发者提供用户认证接口URL，必须为HTTPS协议。\n\n\n\n\n数据格式\n\n\t\n\n请求：Content-Type: application/json\n\n响应：Content-Type: application/json\n\n请求参数\n\n请求参数以JSON格式传入，包含参数如下。\n\n参数名称\n\n\t\n\n必选(M)/可选(O)\n\n\t\n\n数据类型\n\n\t\n\n参数说明\n\n\n\n\naccessToken\n\n\t\n\nM\n\n\t\n\nString(256)\n\n\t\n\n认证凭据。\n\n请求示例\nPOST https://your_auth_url\nContent-Type: application/json; charset=utf-8\n{\n   \"accessToken\":\"eyJhbGciOiJIUzU****************\"\n}\n响应参数\n\n返回值为JSON格式的字符串，包含参数如下。\n\n说明\n\n返回码使用标准HTTP状态码，详情请参考对应模板的返回码。\n\n参数名称\n\n\t\n\n必选(M)/可选(O)\n\n\t\n\n数据类型\n\n\t\n\n参数说明\n\n\n\n\nuserId\n\n\t\n\nO\n\n\t\n\nString(100)\n\n\t\n\n根据accessToken获取的用户ID。\n\n响应示例\nHTTP/1.1 200 OK\nContent-Type: application/json; charset=utf-8\n{\n    \"userId\": \"10****01\"\n}\n意见反馈\n以上内容对您是否有帮助？\n意见反馈\n如果您有其他疑问，您也可以通过开发者社区问答频道来和我们联系探讨。\n社区提问AI 助手提问\n本文导读\n功能介绍\n接口原型\n请求参数\n请求示例\n响应参数\n响应示例\n简体中文\n华为开发者联盟 版权所有 ©2026\n问题反馈\n使用条款\n华为开发者联盟用户协议\n关于华为开发者联盟与隐私的声明\nCookies\n开源软件声明",
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-comm-api-obtainuserid-0000001260291838",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "承载协议",
+          "HTTPS POST"
+        ],
+        [
+          "接口方向",
+          "华为服务器 -> 开发者服务器"
+        ],
+        [
+          "接口URL",
+          "开发者提供用户认证接口URL，必须为HTTPS协议。"
+        ],
+        [
+          "数据格式",
+          "请求：Content-Type: application/json 响应：Content-Type: application/json"
+        ]
+      ],
+      "section": "接口原型",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-comm-api-obtainuserid-0000001260291838#section6932219103913"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "数据类型",
+          "参数说明"
+        ],
+        [
+          "accessToken",
+          "M",
+          "String(256)",
+          "认证凭据。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-comm-api-obtainuserid-0000001260291838#section128mcpsimp"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "数据类型",
+          "参数说明"
+        ],
+        [
+          "userId",
+          "O",
+          "String(100)",
+          "根据accessToken获取的用户ID。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-comm-api-obtainuserid-0000001260291838#section129mcpsimp"
+    }
+  ],
+  "title": "获取用户ID",
+  "updatedAt": "2022-07-11 10:50",
+  "captureTool": "Computer Use; scripts/browser-capture-reference.mjs-compatible merged-cell capture"
+}

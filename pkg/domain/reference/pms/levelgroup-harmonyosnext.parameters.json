@@ -1,0 +1,35 @@
+[
+  {
+    "name": "appId",
+    "in": "header",
+    "type": "string",
+    "required": true,
+    "description": "应用ID，获取方法参考查询应用信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-levelgroup-harmonyosnext-0000002175107485#section1146731320212"
+  },
+  {
+    "name": "requestId",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "请求序列，开发者自定义唯一标识符。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-levelgroup-harmonyosnext-0000002175107485#section48988321545"
+  },
+  {
+    "name": "groupId",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "订阅组ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-levelgroup-harmonyosnext-0000002175107485#section48988321545"
+  },
+  {
+    "name": "productGroupInfoList",
+    "in": "body",
+    "type": "array",
+    "required": true,
+    "description": "订阅组等级信息列表。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-levelgroup-harmonyosnext-0000002175107485#section48988321545",
+    "itemsType": "object"
+  }
+]

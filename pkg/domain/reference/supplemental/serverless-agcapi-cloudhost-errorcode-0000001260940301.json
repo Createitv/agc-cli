@@ -1,0 +1,180 @@
+{
+  "checkedAt": "2026-10-26",
+  "examples": [],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-restapi-0000001150409957",
+      "title": "RESTful API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-releasecode-0000001229838565",
+      "title": "版本发布状态码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-errorcode-0000001260940301#section18455681858",
+      "title": "成功"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-errorcode-0000001260940301#section18064507518",
+      "title": "错误"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [],
+  "renderedText": "API参考\n云托管\nRESTful API\n状态码\n状态码\n更新时间: 2026-10-23 16:56\n成功\n\n状态码（code）\n\n\t\n\n信息（msg）\n\n\n\n\n0\n\n\t\n\n成功。\n\n错误\n\n错误码（errorCode）\n\n\t\n\n错误信息（errorMsg）\n\n\n\n\nCOMMON.0000\n\n\t\n\n未知错误。\n\n\n\n\nCOMMON.0001\n\n\t\n\n头部productId为空。\n\n\n\n\nCOMMON.0002\n\n\t\n\n头部productId和body中productId不匹配。\n\n\n\n\nSITE.0000\n\n\t\n\n获取上传地址时，站点不存在。\n\n\n\n\nSITE.0001\n\n\t\n\n该站点不属于当前项目。\n\n\n\n\nSITE.0002\n\n\t\n\n站点不是在线状态。\n\n\n\n\nSITE.0003\n\n\t\n\n租户下站点数达到上限。\n\n\n\n\nSITE.0004\n\n\t\n\n站点名称不合法。\n\n\n\n\nSITE.0005\n\n\t\n\n非法的站点类型。\n\n\n\n\nVERSION.0000\n\n\t\n\n该版本不存在。\n\n\n\n\nVERSION.0001\n\n\t\n\n版本数量达到上限。\n\n\n\n\nVERSION.0002\n\n\t\n\n超过一个上线版本。\n\n\n\n\nVERSION.0003\n\n\t\n\n不能克隆当前版本。\n\n\n\n\nVERSION.0005\n\n\t\n\n当前版本状态操作被拒绝。\n\n\n\n\nVERSION.0006\n\n\t\n\n只允许一个创建中状态版本。\n\n\n\n\nVERSION.0007\n\n\t\n\n只允许一个归档中状态版本。\n\n\n\n\nVERSION.0008\n\n\t\n\n只允许一个沙箱发布中状态版本。\n\n\n\n\nVERSION.0009\n\n\t\n\n只允许一个沙箱发布状态版本。\n\n\n\n\nMATERIAL.0000\n\n\t\n\n租户储存容量不足。\n\n\n\n\nMATERIAL.0001\n\n\t\n\n获取上传地址失败。\n\n\n\n\nMATERIAL.0002\n\n\t\n\n该租户无法使用该素材。\n\n\n\n\nMATERIAL.0003\n\n\t\n\n当前版本包上传次数达到上限。\n\n\n\n\nMATERIAL.0004\n\n\t\n\n当前版本包不存在。\n\n\n\n\nVERSION_FILES.0000\n\n\t\n\n当前版本不符合查询条件。\n\n\n\n\nTENANT.0000\n\n\t\n\n超出租户当日操作次数上限。\n\n\n\n\nSITE_ENVIRONMENT.0001\n\n\t\n\n超出最大站点环境数量。\n\n\n\n\nSITE_ENVIRONMENT.0002\n\n\t\n\n站点环境ID存在重复。\n\n\n\n\nSITE_ENVIRONMENT.0003\n\n\t\n\n禁止删除默认环境。\n\n\n\n\nSITE_ENVIRONMENT.0004\n\n\t\n\n禁止删除中状态的环境。\n\n\n\n\nSITE_ENVIRONMENT.0005\n\n\t\n\n站点环境ID不存在。\n\n版本发布状态码\n意见反馈\n以上内容对您是否有帮助？\n意见反馈\n如果您有其他疑问，您也可以通过开发者社区问答频道来和我们联系探讨。\n社区提问AI 助手提问\n本文导读\n成功\n错误\n简体中文\n华为开发者联盟 版权所有 ©2026\n问题反馈\n使用条款\n华为开发者联盟用户协议\n关于华为开发者联盟与隐私的声明\nCookies\n开源软件声明",
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-errorcode-0000001260940301",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "状态码（code）",
+          "信息（msg）"
+        ],
+        [
+          "0",
+          "成功。"
+        ]
+      ],
+      "section": "成功",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-errorcode-0000001260940301#section18455681858"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "错误码（errorCode）",
+          "错误信息（errorMsg）"
+        ],
+        [
+          "COMMON.0000",
+          "未知错误。"
+        ],
+        [
+          "COMMON.0001",
+          "头部productId为空。"
+        ],
+        [
+          "COMMON.0002",
+          "头部productId和body中productId不匹配。"
+        ],
+        [
+          "SITE.0000",
+          "获取上传地址时，站点不存在。"
+        ],
+        [
+          "SITE.0001",
+          "该站点不属于当前项目。"
+        ],
+        [
+          "SITE.0002",
+          "站点不是在线状态。"
+        ],
+        [
+          "SITE.0003",
+          "租户下站点数达到上限。"
+        ],
+        [
+          "SITE.0004",
+          "站点名称不合法。"
+        ],
+        [
+          "SITE.0005",
+          "非法的站点类型。"
+        ],
+        [
+          "VERSION.0000",
+          "该版本不存在。"
+        ],
+        [
+          "VERSION.0001",
+          "版本数量达到上限。"
+        ],
+        [
+          "VERSION.0002",
+          "超过一个上线版本。"
+        ],
+        [
+          "VERSION.0003",
+          "不能克隆当前版本。"
+        ],
+        [
+          "VERSION.0005",
+          "当前版本状态操作被拒绝。"
+        ],
+        [
+          "VERSION.0006",
+          "只允许一个创建中状态版本。"
+        ],
+        [
+          "VERSION.0007",
+          "只允许一个归档中状态版本。"
+        ],
+        [
+          "VERSION.0008",
+          "只允许一个沙箱发布中状态版本。"
+        ],
+        [
+          "VERSION.0009",
+          "只允许一个沙箱发布状态版本。"
+        ],
+        [
+          "MATERIAL.0000",
+          "租户储存容量不足。"
+        ],
+        [
+          "MATERIAL.0001",
+          "获取上传地址失败。"
+        ],
+        [
+          "MATERIAL.0002",
+          "该租户无法使用该素材。"
+        ],
+        [
+          "MATERIAL.0003",
+          "当前版本包上传次数达到上限。"
+        ],
+        [
+          "MATERIAL.0004",
+          "当前版本包不存在。"
+        ],
+        [
+          "VERSION_FILES.0000",
+          "当前版本不符合查询条件。"
+        ],
+        [
+          "TENANT.0000",
+          "超出租户当日操作次数上限。"
+        ],
+        [
+          "SITE_ENVIRONMENT.0001",
+          "超出最大站点环境数量。"
+        ],
+        [
+          "SITE_ENVIRONMENT.0002",
+          "站点环境ID存在重复。"
+        ],
+        [
+          "SITE_ENVIRONMENT.0003",
+          "禁止删除默认环境。"
+        ],
+        [
+          "SITE_ENVIRONMENT.0004",
+          "禁止删除中状态的环境。"
+        ],
+        [
+          "SITE_ENVIRONMENT.0005",
+          "站点环境ID不存在。"
+        ]
+      ],
+      "section": "错误",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-errorcode-0000001260940301#section18064507518"
+    }
+  ],
+  "title": "状态码",
+  "updatedAt": "2026-10-23 16:56"
+}

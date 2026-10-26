@@ -243,6 +243,32 @@ main { min-height: 100vh; overflow: hidden; }
 .deckLights { display: flex; gap: 6px; }
 .deckLights i { width: 7px; height: 7px; border-radius: 50%; background: #414147; }
 .deckLights i:first-child { background: var(--red); }
+.commandFlow {
+  margin: 0;
+  padding: 14px 12px 12px;
+  background: radial-gradient(ellipse at 52% 48%, #241519 0, #101316 50%, #0b0d10 90%);
+  border-bottom: 1px solid var(--line);
+}
+.commandFlow svg { width: 100%; height: auto; display: block; overflow: hidden; }
+.flowCommand { fill: #e0e5eb; font: 600 26px var(--mono); letter-spacing: -1px; }
+.flowLabels { fill: #a6afb9; font: 12px var(--mono); }
+.flowPacket {
+  stroke: #83e7ed;
+  stroke-dasharray: 2 98;
+  stroke-dashoffset: 2;
+  animation: flow-travel 6s linear infinite;
+}
+.flowPacketMiddle { stroke: #80e5ac; animation-delay: -2s; }
+.flowPacketBottom { stroke: #80e5ac; animation-delay: -4s; }
+.commandFlow figcaption { display: flex; gap: 12px; align-items: center; justify-content: space-between; padding: 0 8px; color: var(--muted); font-size: 11px; }
+.commandFlow button { border: 1px solid var(--line-strong); border-radius: 5px; background: #15181d; color: var(--paper); font: inherit; padding: 6px 9px; white-space: nowrap; cursor: pointer; }
+.commandFlow button:focus-visible { outline: 2px solid #83e7ed; outline-offset: 3px; }
+.commandFlow.isPaused .flowPacket { animation-play-state: paused; }
+@keyframes flow-travel { to { stroke-dashoffset: -98; } }
+@media (prefers-reduced-motion: reduce) {
+  .commandFlow .flowPacket { animation: none; stroke-dashoffset: -62; }
+  .commandFlow button { display: none; }
+}
 .deckMode { justify-self: end; display: flex; align-items: center; gap: 7px; }
 .pulse { width: 6px; height: 6px; border-radius: 50%; background: var(--amber); box-shadow: 0 0 10px currentColor; }
 .pulse.live { background: var(--green); }
@@ -361,6 +387,35 @@ main { min-height: 100vh; overflow: hidden; }
 .registryItem > span:nth-child(2) { font-size: 11px; font-weight: 600; }
 .registryItem small { display: block; margin-top: 3px; color: #5f5c62; font-family: var(--mono); font-size: 8px; font-weight: 400; }
 .registryDetail { padding: 48px; display: flex; flex-direction: column; }
+.registryDetail { min-width: 0; max-height: 850px; overflow-y: auto; }
+.registryDetail .commandTable { margin-top: 12px; }
+.registryDetail .commandTable > div { min-height: 42px; }
+.registryDetail .detailFooter { margin-top: 12px; padding-top: 8px; }
+.registryNav { max-height: 850px; }
+.endpointList { margin-top: 28px; border-top: 1px solid var(--line); }
+.endpointList h4 { font-size: 18px; margin: 24px 0 10px; }
+.endpointList h4 span { color: var(--red); font-family: var(--mono); }
+.endpointNote { color: var(--muted); font-size: 12px; line-height: 1.6; }
+.endpointEntry { border-bottom: 1px solid var(--line); }
+.endpointEntry summary { cursor: pointer; padding: 18px 0; display: flex; gap: 14px; align-items: flex-start; }
+.endpointEntry summary:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
+.endpointEntry summary::after { content: '+'; margin-left: auto; color: var(--red); }
+.endpointEntry[open] summary::after { content: '−'; }
+.httpMethod { padding: 5px 7px; min-width: 52px; color: var(--green); border: 1px solid var(--line-strong); border-radius: 4px; font: 10px var(--mono); text-align: center; }
+.method-post, .method-put, .method-patch { color: var(--amber); }
+.method-delete { color: var(--red); }
+.endpointHeading { min-width: 0; display: grid; gap: 7px; }
+.endpointHeading b { font-size: 14px; }
+.endpointHeading code { font-size: 11px; color: var(--muted); overflow-wrap: anywhere; }
+.endpointContent { padding: 0 0 22px; font-size: 12px; line-height: 1.7; color: var(--muted); }
+.endpointContent pre { padding: 12px; background: var(--void); white-space: pre-wrap; overflow-wrap: anywhere; color: var(--paper); }
+.endpointContent a { color: var(--red); text-decoration: underline; }
+.endpointDirection { color: var(--green); }
+.endpointParameters { overflow-x: auto; }
+.endpointParameters table { width: 100%; text-align: left; border-collapse: collapse; font-size: 11px; }
+.endpointParameters caption { text-align: left; color: var(--paper); padding: 10px 0; }
+.endpointParameters th, .endpointParameters td { padding: 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+@media (max-width: 700px) { .registryDetail { max-height: none; } }
 .detailHeader { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; }
 .detailHeader h3 { margin: 0; font-size: clamp(34px, 4vw, 56px); letter-spacing: -0.05em; }
 .registeredBadge { display: inline-flex; align-items: center; gap: 7px; padding: 7px 10px; color: var(--green); border: 1px solid rgba(126,226,168,0.22); background: rgba(126,226,168,0.07); border-radius: 99px; font-family: var(--mono); font-size: 9px; text-transform: uppercase; }
@@ -374,6 +429,18 @@ main { min-height: 100vh; overflow: hidden; }
 .detailFooter button { padding: 9px 11px; border-radius: 6px; border: 1px solid var(--line-strong); background: #0c0c0e; cursor: pointer; font-size: 10px; }
 
 .quickstartSection { padding-top: 80px; }
+.projectAnswers { border-top: 1px solid var(--line); }
+.projectAnswers h2 { max-width: 850px; }
+.projectDefinition { max-width: 900px; color: var(--muted); font-size: 17px; line-height: 1.85; }
+.projectSources, .contentUpdated { color: var(--muted); font-size: 12px; line-height: 1.8; }
+.projectSources a { color: var(--paper); text-decoration: underline; }
+.projectAnswers h3 { margin: 36px 0 20px; font-size: 23px; }
+.projectFaq details { border-top: 1px solid var(--line); padding: 19px 0; }
+.projectFaq summary { cursor: pointer; font-size: 16px; line-height: 1.6; }
+.projectFaq p { max-width: 900px; color: var(--muted); font-size: 14px; line-height: 1.85; }
+.familyLinks { display: flex; flex-wrap: wrap; gap: 12px; }
+.familyLinks a { padding: 8px 12px; border: 1px solid var(--line); border-radius: 5px; font: 12px var(--mono); }
+.familyLinks a:hover { border-color: var(--red); }
 .quickIntro { max-width: 780px; }
 .quickSteps { margin-top: 64px; border-top: 1px solid var(--line-strong); }
 .quickStep { padding: 38px 0; display: grid; grid-template-columns: 66px 0.78fr 1.22fr; gap: 28px; align-items: center; border-bottom: 1px solid var(--line); }

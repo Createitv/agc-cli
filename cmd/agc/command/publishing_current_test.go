@@ -20,6 +20,7 @@ type publishingReference struct {
 			In       string `json:"in"`
 			Type     string `json:"type"`
 			Required bool   `json:"required"`
+			Example  string `json:"example"`
 		} `json:"parameters"`
 	} `json:"endpoints"`
 }
@@ -57,12 +58,42 @@ func TestCurrentPublishingRequestsMatchOfficialReference(t *testing.T) {
 					case strings.HasPrefix(p.Type, "List<Integer"):
 						value = []any{float64(1)}
 						encoded = `[1]`
+					case p.Type == "List<DeviceTypeInfo>":
+						encoded = `[{"deviceType":4}]`
+						json.Unmarshal([]byte(encoded), &value)
+					case p.Type == "List<AgreementInfo>":
+						encoded = `[{"lang":"zh","baseInfo":{"name":"验证协议"}}]`
+						json.Unmarshal([]byte(encoded), &value)
+					case p.Type == "List<TagQualInfo>":
+						encoded = `[{"tagId":"30000322","taskId":"fixture-task"}]`
+						json.Unmarshal([]byte(encoded), &value)
+					case p.Type == "List<VersionVoc>":
+						encoded = `[{"versionId":"fixture-version","packageId":"fixture-package","vocId":"fixture-voc"}]`
+						json.Unmarshal([]byte(encoded), &value)
+					case p.Type == "List<LangFileInfo>":
+						encoded = `[{"lang":"zh_CN","fileInfoList":[{"deviceType":4,"objectIdList":["fixture"]}]}]`
+						json.Unmarshal([]byte(encoded), &value)
+					case p.Type == "List<PackagePermissionIntroVideo>":
+						encoded = `[{"lang":"zh_CN","permissionName":"ohos.permission.fixture","deviceType":4,"objectId":"fixture"}]`
+						json.Unmarshal([]byte(encoded), &value)
 					case strings.HasPrefix(p.Type, "List<"):
 						value = []any{map[string]any{"fixture": "value"}}
 						encoded = `[{"fixture":"value"}]`
 					case !strings.HasPrefix(p.Type, "String"):
 						value = map[string]any{"fixture": "value"}
 						encoded = `{"fixture":"value"}`
+					}
+				}
+				if strings.HasPrefix(p.Type, "Integer") && p.In != "body" {
+					encoded = "1"
+					value = "1"
+				}
+				if p.Example != "" {
+					encoded = p.Example
+					if p.In == "body" && strings.HasPrefix(p.Type, "Integer") {
+						json.Unmarshal([]byte(encoded), &value)
+					} else {
+						value = encoded
 					}
 				}
 				values[p.In+"/"+p.Name] = value

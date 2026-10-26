@@ -6,10 +6,12 @@ import (
 )
 
 type AGCError struct {
-	StatusCode int             `json:"statusCode"`
-	Code       string          `json:"code,omitempty"`
-	Message    string          `json:"message"`
-	RawBody    json.RawMessage `json:"rawBody,omitempty"`
+	CodeField   string            `json:"codeField,omitempty"`
+	ResultCodes map[string]string `json:"resultCodes,omitempty"`
+	StatusCode  int               `json:"statusCode"`
+	Code        string            `json:"code,omitempty"`
+	Message     string            `json:"message"`
+	RawBody     json.RawMessage   `json:"rawBody,omitempty"`
 }
 
 func (e AGCError) Error() string {
@@ -33,7 +35,7 @@ func responseResults(data []byte) []responseResult {
 		return nil
 	}
 	var results []responseResult
-	add := func(obj map[string]json.RawMessage, codeKey string, messageKeys ...string) {
+	add := func(obj map[string]json.RawMessage, prefix, codeKey string, messageKeys ...string) {
 		var code string
 		raw := obj[codeKey]
 		if json.Unmarshal(raw, &code) != nil {
@@ -48,24 +50,31 @@ func responseResults(data []byte) []responseResult {
 				break
 			}
 		}
-		results = append(results, responseResult{code: code, message: message})
+		results = append(results, responseResult{code: code, message: message, field: prefix + codeKey})
 	}
 	nested := func(key string) map[string]json.RawMessage {
 		var obj map[string]json.RawMessage
-		_ = json.Unmarshal(root[key], &obj)
+		if json.Unmarshal(root[key], &obj) != nil {
+			// 部分项目接口的 ret 是 JSON 字符串，而非 JSON 对象。
+			var encoded string
+			if json.Unmarshal(root[key], &encoded) == nil {
+				_ = json.Unmarshal([]byte(encoded), &obj)
+			}
+		}
 		return obj
 	}
-	add(nested("ret"), "code", "msg", "message")
-	add(root, "rtnCode", "rtnDesc", "rtnMsg", "message", "msg")
+	add(nested("ret"), "ret.", "code", "msg", "message")
+	add(nested("resInfo"), "resInfo.", "resCode", "resInfo", "message")
+	add(root, "", "rtnCode", "rtnDesc", "rtnMsg", "message", "msg")
 	// 某些测试接口同时返回 rtnCode 和 businessCode；子业务失败也必须报错。
-	add(root, "businessCode", "rtnDesc", "rtnMsg", "message", "msg")
-	add(nested("error"), "errorCode", "errorMsg", "errorMessage", "message", "msg")
-	add(root, "code", "message", "msg", "error")
-	add(nested("errorDetail"), "code", "message", "msg")
+	add(root, "", "businessCode", "rtnDesc", "rtnMsg", "message", "msg")
+	add(nested("error"), "error.", "errorCode", "errorMsg", "errorMessage", "message", "msg")
+	add(root, "", "code", "message", "msg", "error")
+	add(nested("errorDetail"), "errorDetail.", "code", "message", "msg")
 	return results
 }
 
-type responseResult struct{ code, message string }
+type responseResult struct{ code, message, field string }
 
 func businessFailure(data []byte) bool {
 	for _, result := range responseResults(data) {
@@ -84,12 +93,24 @@ func ParseAGCError(statusCode int, data []byte) AGCError {
 	}
 	if json.Valid(data) {
 		errResp.RawBody = append(json.RawMessage(nil), data...)
+		// 缺少描述时不将整份 JSON 当作消息，避免邀请码等字段被错误反馈回显。
+		errResp.Message = "upstream error response; no description provided"
 	}
 	results := responseResults(data)
+	// 仅保留已知结果码字段，供调用方区分返回码与业务子码；不暴露原始响应。
+	for _, result := range results {
+		if result.code != "" {
+			if errResp.ResultCodes == nil {
+				errResp.ResultCodes = map[string]string{}
+			}
+			errResp.ResultCodes[result.field] = result.code
+		}
+	}
 	// Prefer the failing result when multiple envelopes occur in one response.
 	for _, result := range results {
 		if result.code != "" && result.code != "0" {
 			errResp.Code = result.code
+			errResp.CodeField = result.field
 			if result.message != "" {
 				errResp.Message = result.message
 			}
@@ -99,6 +120,7 @@ func ParseAGCError(statusCode int, data []byte) AGCError {
 	for _, result := range results {
 		if result.code != "" || result.message != "" {
 			errResp.Code = result.code
+			errResp.CodeField = result.field
 			if result.message != "" {
 				errResp.Message = result.message
 			}

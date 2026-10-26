@@ -1,0 +1,11 @@
+[
+  {
+    "name": "teamId",
+    "in": "header",
+    "type": "string",
+    "required": false,
+    "description": "开发者所在团队的团队ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-create-open-test-link-0000002665117715#section15707195611112",
+    "maxLength": 64
+  }
+]

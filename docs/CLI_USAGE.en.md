@@ -2,6 +2,17 @@
 
 [Project README](../README.en.md) · [简体中文](CLI_USAGE.md)
 
+## Bundled agent skills
+
+```bash
+agc skills list --pretty
+agc skills show agc-cli --output markdown
+```
+
+Guides are embedded in the binary and work offline without credentials. These commands do not install files or query a remote registry. Output defaults to JSON; table and Markdown formats are also supported.
+
+The original v0.3.0 does not include this command. Rebuild from updated source, or upgrade after a release containing this fix is published.
+
 ## Quick start
 
 You need an AppGallery Connect app ID and either a Service Account JSON file or API Client credentials. Find your app ID in the app information section of the [AppGallery Connect console](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html).
@@ -350,3 +361,7 @@ For releases of the CLI itself, see [.goreleaser.yaml](../.goreleaser.yaml) and 
 ## License
 
 [MIT](../LICENSE)
+
+## Serverless
+
+Six families expose 46 documented HTTP/callback operations and nine native Go function workflows. See [Serverless usage and verification boundaries](SERVERLESS.md). Offline verification is separate from dedicated-resource live verification.

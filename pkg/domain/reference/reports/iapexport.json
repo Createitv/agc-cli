@@ -1,0 +1,400 @@
+{
+  "examples": [],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-reportsapi-0000001111685194",
+      "title": "Reports API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-reportsapi-android-0000002356786268",
+      "title": "HarmonyOS 3.1/4.0及以下、Android"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114",
+      "title": "使用入门"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114#section1785535363715",
+      "title": "通过Service Account方式获取授权"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114#section103mcpsimp",
+      "title": "创建API客户端"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain_token-0000001158365043",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-getteamlist-0000001158245075",
+      "title": "获取团队列表"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114#section949717114392",
+      "title": "获取用户授权码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/distribution/app/agc-help-appinfo-0000001100014694",
+      "title": "查询应用信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/agcapi-reference-countrycode-0000001111845110",
+      "title": "国家码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-iapexport-0000001158365061#ZH-CN_TOPIC_0000001158365061__p12954147173",
+      "title": "应用内付费的报表数据说明"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-addadkpexport-0000001111845102",
+      "title": "获取新增和留存的报表"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-orderanalysisexport-0000001111685214",
+      "title": "获取付费下载的报表"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-iapexport-0000001158365061#section28304321",
+      "title": "功能介绍"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-iapexport-0000001158365061#section6932219103913",
+      "title": "接口原型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-iapexport-0000001158365061#section62398251",
+      "title": "请求参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-iapexport-0000001158365061#section236517415165",
+      "title": "Header"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-iapexport-0000001158365061#section1250171775311",
+      "title": "Path"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-iapexport-0000001158365061#section886219295206",
+      "title": "Query"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-iapexport-0000001158365061#section14423508",
+      "title": "响应参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-iapexport-0000001158365061#section28304321",
+      "text": "获取应用内付费的报表的CSV或者EXCEL文件地址。接口调用者的角色：账号持有者、管理员、App管理员、运营、财务。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-iapexport-0000001158365061#section236517415165",
+      "text": "本接口支持使用Service Account方式、API客户端方式和OAuth客户端方式，区别请参见使用入门。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-iapexport-0000001158365061#section236517415165",
+      "text": "Service Account方式："
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-iapexport-0000001158365061#section236517415165",
+      "text": "API客户端方式："
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-iapexport-0000001158365061#section236517415165",
+      "text": "OAuth客户端方式："
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-iapexport-0000001158365061#section14423508",
+      "text": "应用内付费的报表数据说明"
+    }
+  ],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-iapexport-0000001158365061",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "承载协议",
+          "HTTPS GET"
+        ],
+        [
+          "接口方向",
+          "开发者服务器 -> 华为服务器"
+        ],
+        [
+          "接口URL",
+          "https://connect-api.cloud.huawei.com/api/report/distribution-operation-quality/v1/IAPExport/{appId}"
+        ],
+        [
+          "数据格式",
+          "请求：Content-Type: application/json 响应：Content-Type: application/json"
+        ]
+      ],
+      "section": "接口原型",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-iapexport-0000001158365061#section6932219103913"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "Authorization",
+          "M",
+          "String",
+          "认证信息，格式为“Authorization: Bearer ${JWT}”。JWT为通过Service Account方式获取授权中获取的鉴权令牌。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-iapexport-0000001158365061#section236517415165"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "client_id",
+          "M",
+          "String",
+          "客户端ID，获取方法参考创建API客户端。"
+        ],
+        [
+          "Authorization",
+          "M",
+          "String",
+          "认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-iapexport-0000001158365061#section236517415165"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "teamId",
+          "M",
+          "String",
+          "开发者所在团队的团队ID，可通过获取团队列表接口获取。"
+        ],
+        [
+          "oauth2Token",
+          "M",
+          "String",
+          "认证信息，传入获取用户授权码中获取的Access Token。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-iapexport-0000001158365061#section236517415165"
+    },
+    {
+      "location": "path",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "appId",
+          "M",
+          "String",
+          "应用ID，获取方法参考查询应用信息。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-iapexport-0000001158365061#section1250171775311"
+    },
+    {
+      "location": "query",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "language",
+          "M",
+          "String",
+          "查询语言，报表title会根据不同语言来展现，只支持简体中文（zh-CN），美式英文（en-US），俄文（ru-RU）。"
+        ],
+        [
+          "startTime",
+          "M",
+          "String",
+          "查询开始时间，UTC时间，格式为YYYYMMDD。startTime和endTime之间不超过180天。"
+        ],
+        [
+          "endTime",
+          "M",
+          "String",
+          "查询结束时间，UTC时间，格式为YYYYMMDD。startTime和endTime之间不超过180天。"
+        ],
+        [
+          "filterCondition",
+          "O",
+          "List<String>",
+          "过滤器，取值范围： countryId：按国家过滤。 businessType：按业务类型过滤。 如果不传，默认无过滤器。 支持countryId和businessType同时使用，URL示例：&filterCondition=countryId&filterCondition=businessType"
+        ],
+        [
+          "filterConditionValue",
+          "O",
+          "List<String>",
+          "过滤器对应的值。 如果过滤器为countryId，此参数的取值为国家码的字符串数组，例如“CN, AL, AD, AT”。具体国家码列表参考国家码。传入“all”表示查询全球。传入“others”表示仅查询“US,CU,IR,SD,SY”（美国,古巴,伊朗,苏丹,叙利亚），获取的数据作为一个整体展示，例如“CN,AL,others”。“all”和“others”不区分大小写。 如果过滤器为businessType，此参数的取值为业务类型，取值范围为: ALL：所有业务 AppGallery：华为应用市场 AppTouch：AppTouch业务 取值区分大小写。 如果传入多个过滤器，使用多个filterConditionValue表示，顺序必须与filterCondition中过滤器的顺序一致。URL示例：&filterConditionValue=CN&filterConditionValue=AppGallery。"
+        ],
+        [
+          "groupBy",
+          "O",
+          "String",
+          "数据统计的分组信息，支持按如下依据分组。 date：按日期分组。 countryId：按国家分组 businessType：按业务类型分组 默认值：date。"
+        ],
+        [
+          "currency",
+          "M",
+          "String",
+          "货币单位编码，只支持3种货币单位，分别为：CNY(元)、EUR(欧元)、USD(美金)。 设置后，报表中非指定货币单位的货币值将按汇率转换为指定的货币值。例如：设置为USD，那么报表中以CNY、EUR等为单位的数据将按汇率转换为以USD为单位的数据呈现。"
+        ],
+        [
+          "exportType",
+          "O",
+          "String",
+          "导出文件类型，取值范围： CSV：导出CSV文件格式 EXCEL：导出Excel文件格式 默认值：CSV"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-iapexport-0000001158365061#section886219295206"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "fileURL",
+          "M",
+          "String",
+          "导出CSV或者Excel文件的路径。 报表文件中字段语言由language参数指定，首个字段为groupBy参数中指定的数据统计分组类型。以报表字段英文为例，您可以点击文件样例.zip下载样例文件。 文件中包含的字段说明请参见应用内付费的报表数据说明。"
+        ],
+        [
+          "packName",
+          "M",
+          "String",
+          "应用包名。"
+        ],
+        [
+          "ret",
+          "M",
+          "String",
+          "包含返回码及描述信息的JSON字符串，格式为{\"code\":retcode, \"msg\": \"description\"}，retcode为返回码，description为返回码描述信息。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-iapexport-0000001158365061#section14423508"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "字段名（中文）",
+          "字段名（英文）",
+          "字段名（俄语）",
+          "字段含义"
+        ],
+        [
+          "日期",
+          "Time",
+          "Время",
+          "数据统计按时间进行分组。 注意 只有当请求参数groupBy传入date时才会返回此字段。"
+        ],
+        [
+          "国家/地区",
+          "Country/Region",
+          "Страна/регион",
+          "数据统计按国家或地区进行分组。 注意 只有当请求参数groupBy传入countryId时才会返回此字段。"
+        ],
+        [
+          "业务类型",
+          "Channel",
+          "Канал",
+          "数据统计按业务类型进行分组。 注意 只有当请求参数groupBy传入BusinessType时才会返回此字段。"
+        ],
+        [
+          "付费用户数",
+          "Paying users",
+          "Платящие пользователи",
+          "时间间隔范围内有付费的用户数。"
+        ],
+        [
+          "付费金额(元)",
+          "Payment amount(CNY)",
+          "Сумма оплаты(CNY)",
+          "时间间隔范围内所有用户付费总额。"
+        ],
+        [
+          "付费笔数",
+          "Payment times",
+          "Кол-во оплат",
+          "时间间隔范围所有用户付费次数总和。"
+        ],
+        [
+          "新增付费用户数",
+          "New paying users",
+          "Новые платящие пользователи",
+          "首次付费的用户数。"
+        ],
+        [
+          "付费渗透率",
+          "Paying user rate",
+          "Доля платящих пользователей",
+          "时间间隔范围内付费用户占活跃用户的比率。"
+        ],
+        [
+          "ARPPU(元)",
+          "ARPPU(CNY)",
+          "ARPPU(CNY)",
+          "付费金额/付费用户数。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-iapexport-0000001158365061#section14423508"
+    }
+  ],
+  "title": "获取应用内付费的报表",
+  "updatedAt": "2026-03-11 09:18",
+  "checkedAt": "2026-10-07T02:56:26.548Z",
+  "family": "reports",
+  "endpoint": "iapexport"
+}

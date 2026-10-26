@@ -63,7 +63,7 @@ Go install requires Go 1.22 or later and may show `dev` in `agc version` because
 - Homebrew tap: https://github.com/Createitv/homebrew-tap
 - Scoop bucket: https://github.com/Createitv/scoop-bucket
 - Winget PR: https://github.com/microsoft/winget-pkgs/pull/415361
-- GitHub Release: https://github.com/Createitv/agc-cli/releases/tag/v0.1.0
+- GitHub Release: https://github.com/Createitv/agc-cli/releases/latest
 
 ## First commands after install
 

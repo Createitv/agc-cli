@@ -1,0 +1,90 @@
+[
+  {
+    "name": "requestId",
+    "in": "header",
+    "type": "string",
+    "required": true,
+    "description": "请求ID，最大长度128个字符，必须唯一。开发者自定义，用于鉴别是否是重复请求。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-modifyversion-0000002328236372#section16852614454",
+    "maxLength": 128
+  },
+  {
+    "name": "devId",
+    "in": "path",
+    "type": "integer",
+    "required": true,
+    "description": "开发者ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-modifyversion-0000002328236372#section6704618182019"
+  },
+  {
+    "name": "isDraft",
+    "in": "body",
+    "type": "integer",
+    "required": true,
+    "description": "是否草稿： 0：提交。提交之后进入预发布状态。 1：草稿。草稿状态支持重新编辑。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-modifyversion-0000002328236372#section985411610234",
+    "enum": [
+      "0",
+      "1"
+    ]
+  },
+  {
+    "name": "resourceVersion",
+    "in": "body",
+    "type": "object",
+    "required": false,
+    "description": "修改的资源包版本信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-modifyversion-0000002328236372#section985411610234",
+    "properties": [
+      {
+        "name": "versionId",
+        "in": "body",
+        "type": "integer",
+        "required": true,
+        "description": "资源包版本ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-modifyversion-0000002328236372#section985411610234"
+      },
+      {
+        "name": "packageName",
+        "in": "body",
+        "type": "string",
+        "required": false,
+        "description": "游戏包名。最大长度255个字符。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-modifyversion-0000002328236372#section985411610234",
+        "maxLength": 255
+      },
+      {
+        "name": "appId",
+        "in": "body",
+        "type": "string",
+        "required": true,
+        "description": "游戏APP ID，获取方法参考查询应用信息。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-modifyversion-0000002328236372#section985411610234"
+      },
+      {
+        "name": "version",
+        "in": "body",
+        "type": "integer",
+        "required": false,
+        "description": "版本号。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-modifyversion-0000002328236372#section985411610234"
+      },
+      {
+        "name": "startTime",
+        "in": "body",
+        "type": "integer",
+        "required": false,
+        "description": "开始下载时间。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-modifyversion-0000002328236372#section985411610234"
+      },
+      {
+        "name": "endTime",
+        "in": "body",
+        "type": "integer",
+        "required": false,
+        "description": "结束下载时间。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-modifyversion-0000002328236372#section985411610234"
+      }
+    ]
+  }
+]

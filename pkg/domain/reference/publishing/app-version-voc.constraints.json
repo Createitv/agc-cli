@@ -1,0 +1,17 @@
+{
+  "header.appId": {
+    "maxLength": 32
+  },
+  "body.vocId": {
+    "maxLength": 32
+  },
+  "body.vocDesc": {
+    "maxLength": 255
+  },
+  "body.pageNo": {
+    "minimum": 1
+  },
+  "body.pageSize": {
+    "maximum": 100
+  }
+}

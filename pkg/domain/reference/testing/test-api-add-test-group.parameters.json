@@ -1,0 +1,40 @@
+[
+  {
+    "name": "appId",
+    "in": "header",
+    "type": "string",
+    "required": true,
+    "description": "应用ID，获取方法参考查看应用信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-test-group-0000002271160661#section154576486341",
+    "maxLength": 32
+  },
+  {
+    "name": "teamId",
+    "in": "header",
+    "type": "integer",
+    "required": false,
+    "description": "开发者所在团队的团队ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-test-group-0000002271160661#section154576486341"
+  },
+  {
+    "name": "groupName",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "测试群组。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-test-group-0000002271160661#section141117691213",
+    "maxLength": 50
+  },
+  {
+    "name": "groupType",
+    "in": "body",
+    "type": "integer",
+    "required": false,
+    "description": "群组类别。 取值范围： 0: 外部群组（默认）。 1: 内部群组。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-test-group-0000002271160661#section141117691213",
+    "enum": [
+      "0",
+      "1"
+    ]
+  }
+]

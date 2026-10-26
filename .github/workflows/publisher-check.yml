@@ -1,0 +1,25 @@
+name: Check package publishers
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check publisher credentials and latest stable manifests
+        env:
+          GH_TOKEN: ${{ secrets.TAP_GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          python3 scripts/verify-package-publish.py --check-access
+          tag=$(gh api "repos/$GH_REPO/releases/latest" --jq .tag_name)
+          python3 scripts/verify-package-publish.py --tag "$tag"

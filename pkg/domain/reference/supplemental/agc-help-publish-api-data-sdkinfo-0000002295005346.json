@@ -1,0 +1,110 @@
+{
+  "examples": [],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter#section195981215284",
+      "title": "了解新版目录"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-open-ability-0000002235710238",
+      "title": "AGC开放能力"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-0000002236015554",
+      "title": "AppGallery Connect API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-reference-0000002271160565",
+      "title": "Publishing API参考"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-0000002236201266",
+      "title": "数据模型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+      "title": "SceneItem"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+      "title": "SceneItem"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-servicestop-0000002328805237",
+      "title": "ServiceStop"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sdkinfo-0000002295005346",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "name",
+          "O",
+          "String(100)",
+          "SDK名称。"
+        ],
+        [
+          "providerName",
+          "O",
+          "String(100)",
+          "SDK提供方名称。"
+        ],
+        [
+          "version",
+          "O",
+          "String(100)",
+          "SDK版本号。"
+        ],
+        [
+          "privacyDeclare",
+          "O",
+          "String(512)",
+          "SDK隐私声明。"
+        ],
+        [
+          "privacyLabels",
+          "O",
+          "List<SceneItem>",
+          "SDK收集的信息。 数组长度不超过200。"
+        ],
+        [
+          "scene",
+          "O",
+          "String(200)",
+          "使用场景。"
+        ],
+        [
+          "collectType",
+          "O",
+          "String(100)",
+          "收集方式。"
+        ],
+        [
+          "purpose",
+          "O",
+          "String(500)",
+          "使用目的。"
+        ]
+      ],
+      "section": "",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sdkinfo-0000002295005346"
+    }
+  ],
+  "title": "SdkInfo",
+  "updatedAt": "2026-06-25 19:52",
+  "checkedAt": "2026-10-07T04:54:00.224Z"
+}

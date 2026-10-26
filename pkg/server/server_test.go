@@ -22,8 +22,8 @@ func TestCapabilitiesRoute(t *testing.T) {
 	if err := json.Unmarshal(rec.Body.Bytes(), &body); err != nil {
 		t.Fatal(err)
 	}
-	if len(body.Data) != 13 {
-		t.Fatalf("capabilities = %d, want 13", len(body.Data))
+	if len(body.Data) != 21 {
+		t.Fatalf("capabilities = %d, want 21", len(body.Data))
 	}
 }
 

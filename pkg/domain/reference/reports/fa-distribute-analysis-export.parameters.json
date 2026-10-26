@@ -1,0 +1,44 @@
+[
+  {
+    "name": "language",
+    "in": "query",
+    "type": "string",
+    "required": false,
+    "description": "查询语言。 报表title会根据不同语言来展现。 只支持简体中文（zh-CN）, 美式英文（en-US），俄文（ru-RU）。 默认简体中文。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-fa-distribute_analysis_export-0000001690307352#section27982911",
+    "maxLength": 10,
+    "enum": [
+      "zh-CN",
+      "en-US",
+      "ru-RU"
+    ]
+  },
+  {
+    "name": "startTime",
+    "in": "query",
+    "type": "string",
+    "required": true,
+    "description": "查询开始时间。 UTC时间。 格式：YYYYMMDD startTime和endTime之间不超过180天。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-fa-distribute_analysis_export-0000001690307352#section27982911"
+  },
+  {
+    "name": "endTime",
+    "in": "query",
+    "type": "string",
+    "required": true,
+    "description": "查询结束时间。 UTC时间。 格式：YYYYMMDD startTime和endTime之间不超过180天。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-fa-distribute_analysis_export-0000001690307352#section27982911"
+  },
+  {
+    "name": "exportType",
+    "in": "query",
+    "type": "string",
+    "required": false,
+    "description": "导出文件类型。 取值范围： CSV：导出CSV文件格式 EXCEL：导出Excel文件格式 默认值：CSV",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-fa-distribute_analysis_export-0000001690307352#section27982911",
+    "enum": [
+      "CSV",
+      "EXCEL"
+    ]
+  }
+]

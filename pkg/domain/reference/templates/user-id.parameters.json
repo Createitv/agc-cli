@@ -1,0 +1,19 @@
+[
+  {
+    "name": "callbackUrl",
+    "in": "path",
+    "type": "string",
+    "required": true,
+    "description": "Developer HTTPS authentication callback URL",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-comm-api-obtainuserid-0000001260291838"
+  },
+  {
+    "name": "accessToken",
+    "type": "string",
+    "required": true,
+    "description": "认证凭据。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-comm-api-obtainuserid-0000001260291838#section128mcpsimp",
+    "in": "body",
+    "maxLength": 256
+  }
+]

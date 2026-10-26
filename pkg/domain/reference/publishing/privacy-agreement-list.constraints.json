@@ -1,0 +1,28 @@
+{
+  "header.appId": {
+    "maxLength": 32
+  },
+  "body.agreementIdList": {
+    "minItems": 1,
+    "maxItems": 1000
+  },
+  "body.name": {
+    "maxLength": 100
+  },
+  "body.status": {
+    "enum": [
+      "1",
+      "2",
+      "3"
+    ]
+  },
+  "body.type": {
+    "enum": [
+      "1"
+    ]
+  },
+  "body.maxReqCount": {
+    "minimum": 1,
+    "maximum": 100
+  }
+}

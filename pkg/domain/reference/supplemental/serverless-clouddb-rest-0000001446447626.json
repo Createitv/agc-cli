@@ -1,0 +1,80 @@
+{
+  "checkedAt": "2026-10-26",
+  "examples": [],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-obtaintoken-rest-0000001446607602",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-signin-rest-0000001496447669",
+      "title": "用户登录"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573",
+      "title": "查询数据"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706",
+      "title": "更新数据"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714",
+      "title": "删除数据"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-error-code-rest-0000001454149360",
+      "title": "错误码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-harmonyos-ts-databaseconfig-0000001674830125",
+      "title": "DatabaseConfig"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-obtaintoken-rest-0000001446607602",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "文档说明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-rest-0000001446447626",
+      "text": "获取Token"
+    },
+    {
+      "section": "文档说明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-rest-0000001446447626",
+      "text": "用户登录"
+    },
+    {
+      "section": "文档说明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-rest-0000001446447626",
+      "text": "查询数据"
+    },
+    {
+      "section": "文档说明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-rest-0000001446447626",
+      "text": "更新数据"
+    },
+    {
+      "section": "文档说明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-rest-0000001446447626",
+      "text": "删除数据"
+    },
+    {
+      "section": "文档说明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-rest-0000001446447626",
+      "text": "错误码"
+    }
+  ],
+  "renderedText": "API参考\n云数据库 for Object\nREST API\nREST API\n更新时间: 2026-10-21 17:20\n获取Token\n\n用户登录\n\n查询数据\n\n更新数据\n\n删除数据\n\n错误码\n\nDatabaseConfig\n获取Token\n意见反馈\n以上内容对您是否有帮助？\n意见反馈\n如果您有其他疑问，您也可以通过开发者社区问答频道来和我们联系探讨。\n社区提问AI 助手提问\n简体中文\n华为开发者联盟 版权所有 ©2026\n问题反馈\n使用条款\n华为开发者联盟用户协议\n关于华为开发者联盟与隐私的声明\nCookies\n开源软件声明",
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-rest-0000001446447626",
+  "status": "browser-read",
+  "tables": [],
+  "title": "REST API",
+  "updatedAt": "2026-10-21 17:20"
+}

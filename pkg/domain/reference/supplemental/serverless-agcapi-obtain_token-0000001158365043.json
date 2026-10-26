@@ -1,0 +1,171 @@
+{
+  "checkedAt": "2026-10-26",
+  "examples": [
+    {
+      "section": "请求示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain_token-0000001158365043#section624414128367",
+      "text": "请求示例\nPOST /api/oauth2/v1/token\nHost: connect-api.cloud.huawei.com\nContent-Type: application/json\n{\n   \"grant_type\":\"client_credentials\",\n   \"client_id\":\"26********20\",\n   \"client_secret\":\"************************\"\n}"
+    },
+    {
+      "section": "响应示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain_token-0000001158365043#section18524194122113",
+      "text": "响应示例\nHTTP/1.1 200 OK\nContent-Type: application/json; charset=utf-8\n{\n    \"access_token\": \"eyJhbGciOiJIUzU****************\",    \n    \"expires_in\": 172800\n}"
+    }
+  ],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114#section103mcpsimp",
+      "title": "创建API客户端"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114#section103mcpsimp",
+      "title": "创建API客户端"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain_token-0000001158365043#section125771341635",
+      "title": "功能介绍"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain_token-0000001158365043#section6932219103913",
+      "title": "接口原型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain_token-0000001158365043#section128mcpsimp",
+      "title": "请求参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain_token-0000001158365043#section624414128367",
+      "title": "请求示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain_token-0000001158365043#section129mcpsimp",
+      "title": "响应参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain_token-0000001158365043#section18524194122113",
+      "title": "响应示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain_token-0000001158365043#section53163821",
+      "title": "调用示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain_token-0000001158365043#section1466414833814",
+      "title": "Postman调试"
+    }
+  ],
+  "notes": [
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain_token-0000001158365043#section125771341635",
+      "text": "在使用API客户端方式调用Connect API的接口前，需要通过华为开放平台进行鉴权，并获取认证通过后的Token。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain_token-0000001158365043#section128mcpsimp",
+      "text": "请求参数以JSON格式传入，包含参数如下。"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain_token-0000001158365043#section129mcpsimp",
+      "text": "返回值为JSON格式的字符串，包含参数如下。"
+    },
+    {
+      "section": "Postman调试",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain_token-0000001158365043#section1466414833814",
+      "text": "您可以使用Postman在线调试此接口。"
+    }
+  ],
+  "renderedText": "获取Token\n更新时间: 2026-03-11 09:18\n功能介绍\n\n在使用API客户端方式调用Connect API的接口前，需要通过华为开放平台进行鉴权，并获取认证通过后的Token。\n\n接口原型\n\n承载协议\n\n\t\n\nHTTPS POST\n\n\n\n\n接口方向\n\n\t\n\n开发者服务器 -> 华为服务器\n\n\n\n\n接口URL\n\n\t\n\nhttps://connect-api.cloud.huawei.com/api/oauth2/v1/token\n\n\n\n\n数据格式\n\n\t\n\n请求：Content-Type: application/json\n\n响应：Content-Type: application/json\n\n请求参数\n\n请求参数以JSON格式传入，包含参数如下。\n\n参数名称\n\n\t\n\n必选(M)/可选(O)\n\n\t\n\n数据类型\n\n\t\n\n参数说明\n\n\n\n\ngrant_type\n\n\t\n\nM\n\n\t\n\nString(256)\n\n\t\n\n固定传入“client_credentials”。\n\n\n\n\nclient_id\n\n\t\n\nM\n\n\t\n\nString(256)\n\n\t\n\n客户端ID，即创建API客户端中生成的“ID”。\n\n\n\n\nclient_secret\n\n\t\n\nM\n\n\t\n\nString(2048)\n\n\t\n\n客户端密钥，即创建API客户端中生成的“密钥”。\n\n请求示例\nPOST /api/oauth2/v1/token\nHost: connect-api.cloud.huawei.com\nContent-Type: application/json\n{\n   \"grant_type\":\"client_credentials\",\n   \"client_id\":\"26********20\",\n   \"client_secret\":\"************************\"\n}\n响应参数\n\n返回值为JSON格式的字符串，包含参数如下。\n\n参数名称\n\n\t\n\n必选(M)/可选(O)\n\n\t\n\n数据类型\n\n\t\n\n参数说明\n\n\n\n\naccess_token\n\n\t\n\nO\n\n\t\n\nString\n\n\t\n\n认证Token，用于AppGallery Connect API接口调用。\n\n此参数只在获取成功时返回。\n\n\n\n\nexpires_in\n\n\t\n\nO\n\n\t\n\nLong\n\n\t\n\naccess_token的有效期，单位秒。您需要在过期时间到达时重新调用本接口获取新的access_token。\n\n有效期为48小时，如果在有效期内再次调用接口获取access_token时，新老access_token都是有效的。\n\n此参数只在获取成功时返回。\n\n\n\n\nret\n\n\t\n\nO\n\n\t\n\nString(100)\n\n\t\n\n获取Token失败时的错误信息，包含错误码及描述信息的JSON字符串，格式为{\"code\":retcode, \"msg\": \"description\"}，retcode为错误码，description为错误码描述信息。\n\n响应示例\nHTTP/1.1 200 OK\nContent-Type: application/json; charset=utf-8\n{\n    \"access_token\": \"eyJhbGciOiJIUzU****************\",    \n    \"expires_in\": 172800\n}\n调用示例\npublic static String getToken(String domain, String clientId, String clientSecret) {\n    String token = null;\n    try {\n        HttpPost post = new HttpPost(domain + \"/oauth2/v1/token\");\n\n        JSONObject keyString = new JSONObject();\n        keyString.put(\"client_id\", \"18893***83957248\");\n        keyString.put(\"client_secret\", \"B15B497B44E080EBE2C4DE4E74930***52409516B2A1A5C8F0FCD2C579A8EB14\");\n        keyString.put(\"grant_type\", \"client_credentials\");\n\n        StringEntity entity = new StringEntity(keyString.toString(), Charset.forName(\"UTF-8\"));\n        entity.setContentEncoding(\"UTF-8\");\n        entity.setContentType(\"application/json\");\n        post.setEntity(entity);\n\n        CloseableHttpClient httpClient = HttpClients.createDefault();\n        HttpResponse response = httpClient.execute(post);\n        int statusCode = response.getStatusLine().getStatusCode();\n        if (statusCode == HttpStatus.SC_OK) {\n\n            BufferedReader br =\n                new BufferedReader(new InputStreamReader(response.getEntity().getContent(), Consts.UTF_8));\n            String result = br.readLine();\n            JSONObject object = JSON.parseObject(result);\n            token = object.getString(\"access_token\");\n        }\n\n        post.releaseConnection();\n        httpClient.close();\n    } catch (Exception e) {\n\n    }\n    return token;\n}\nPostman调试\n\n您可以使用Postman在线调试此接口。\n\n意见反馈\n以上内容对您是否有帮助？\n意见反馈\n如果您有其他疑问，您也可以通过开发者社区问答频道来和我们联系探讨。\n社区提问AI 助手提问\n本文导读\n功能介绍\n接口原型\n请求参数\n请求示例\n响应参数\n响应示例\n调用示例\nPostman调试\n简体中文",
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain_token-0000001158365043",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "承载协议",
+          "HTTPS POST"
+        ],
+        [
+          "接口方向",
+          "开发者服务器 -> 华为服务器"
+        ],
+        [
+          "接口URL",
+          "https://connect-api.cloud.huawei.com/api/oauth2/v1/token"
+        ],
+        [
+          "数据格式",
+          "请求：Content-Type: application/json 响应：Content-Type: application/json"
+        ]
+      ],
+      "section": "接口原型",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain_token-0000001158365043#section6932219103913"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "数据类型",
+          "参数说明"
+        ],
+        [
+          "grant_type",
+          "M",
+          "String(256)",
+          "固定传入“client_credentials”。"
+        ],
+        [
+          "client_id",
+          "M",
+          "String(256)",
+          "客户端ID，即创建API客户端中生成的“ID”。"
+        ],
+        [
+          "client_secret",
+          "M",
+          "String(2048)",
+          "客户端密钥，即创建API客户端中生成的“密钥”。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain_token-0000001158365043#section128mcpsimp"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "数据类型",
+          "参数说明"
+        ],
+        [
+          "access_token",
+          "O",
+          "String",
+          "认证Token，用于AppGallery Connect API接口调用。 此参数只在获取成功时返回。"
+        ],
+        [
+          "expires_in",
+          "O",
+          "Long",
+          "access_token的有效期，单位秒。您需要在过期时间到达时重新调用本接口获取新的access_token。 有效期为48小时，如果在有效期内再次调用接口获取access_token时，新老access_token都是有效的。 此参数只在获取成功时返回。"
+        ],
+        [
+          "ret",
+          "O",
+          "String(100)",
+          "获取Token失败时的错误信息，包含错误码及描述信息的JSON字符串，格式为{\"code\":retcode, \"msg\": \"description\"}，retcode为错误码，description为错误码描述信息。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain_token-0000001158365043#section129mcpsimp"
+    }
+  ],
+  "title": "获取Token",
+  "updatedAt": "2026-03-11 09:18"
+}

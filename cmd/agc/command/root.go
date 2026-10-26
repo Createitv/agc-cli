@@ -3,6 +3,7 @@ package command
 import (
 	"context"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"net"
 	"net/http"
@@ -46,6 +47,7 @@ func NewRootCommand() *cobra.Command {
 	cmd.PersistentFlags().StringVar(&opts.project, "project", ".", "Project directory")
 
 	cmd.AddCommand(versionCommand(opts))
+	cmd.AddCommand(skillsCommand(opts))
 	cmd.AddCommand(capabilitiesCommand(opts))
 	cmd.AddCommand(endpointsCommand(opts))
 	cmd.AddCommand(openAPICommand(opts))
@@ -416,6 +418,9 @@ func moduleCommand(opts *options, capability domain.Capability) *cobra.Command {
 }
 
 func endpointCommand(opts *options, endpoint domain.Endpoint) *cobra.Command {
+	if endpoint.Authentication == "agcli-user-oauth" {
+		return functionEndpointCommand(opts, endpoint)
+	}
 	var params []string
 	var query []string
 	var headers []string
@@ -424,15 +429,51 @@ func endpointCommand(opts *options, endpoint domain.Endpoint) *cobra.Command {
 	var uploadFile string
 	var baseURL string
 	var invoke bool
+	var showDocs bool
 	var dryRun bool
 	var token string
 	var credentialsPath string
+	var sessionFile, managementProjectID string
 	var outFile string
 	cmd := &cobra.Command{
 		Use:   endpoint.ID,
 		Short: endpoint.Name,
 		Long:  endpointHelp(endpoint),
-		RunE: func(cmd *cobra.Command, args []string) error {
+		RunE: func(cmd *cobra.Command, args []string) (runErr error) {
+			defer func() {
+				if runErr == nil || opts.output != "json" {
+					return
+				}
+				cmd.Root().SilenceErrors = true
+				cmd.Root().SilenceUsage = true
+				detail := domain.ErrorDetail{Code: "invalid_request", Message: runErr.Error(), Endpoint: endpoint.FamilyID + "/" + endpoint.ID, SourceURL: endpoint.SourceURL, Suggestion: "Read the endpoint's documented parameters and requirements, correct the input, then retry.", DocumentationCommand: endpoint.Command + " --docs --pretty"}
+				var invalid *agcapi.RequestValidationError
+				if errors.As(runErr, &invalid) {
+					detail.Violations = invalid.Violations
+				}
+				var authErr *agcapi.AuthenticationError
+				if errors.As(runErr, &authErr) {
+					detail.Code = "authentication_failed"
+					detail.Suggestion = "Select a compatible explicit profile or token for this service and region."
+				}
+				var upstream agcapi.AGCError
+				if errors.As(runErr, &upstream) {
+					detail.Code = upstream.Code
+					if detail.Code == "" {
+						detail.Code = "upstream_error"
+					}
+					detail.CodeField, detail.ResultCodes = upstream.CodeField, upstream.ResultCodes
+					detail.Suggestion = "Review the upstream business error against the documented permissions, application state, and prerequisites before retrying."
+				}
+				_ = output.Write(cmd.OutOrStdout(), domain.ErrorEnvelope{Error: detail}, output.JSON, opts.pretty)
+			}()
+			if showDocs {
+				doc, ok := domain.EndpointReference(endpoint.FamilyID, endpoint.ID)
+				if !ok {
+					return fmt.Errorf("official documentation has not yet been browser-reviewed for %s/%s", endpoint.FamilyID, endpoint.ID)
+				}
+				return output.Write(cmd.OutOrStdout(), domain.Envelope[json.RawMessage]{Data: doc}, output.Format(opts.output), opts.pretty)
+			}
 			if !invoke {
 				return output.Write(cmd.OutOrStdout(), domain.Envelope[domain.Endpoint]{Data: endpoint}, output.Format(opts.output), opts.pretty)
 			}
@@ -440,7 +481,7 @@ func endpointCommand(opts *options, endpoint domain.Endpoint) *cobra.Command {
 			if err != nil {
 				return err
 			}
-			queryMap, err := parsePairs(query)
+			queryMap, queryValues, err := parseQueryPairs(query)
 			if err != nil {
 				return err
 			}
@@ -461,7 +502,7 @@ func endpointCommand(opts *options, endpoint domain.Endpoint) *cobra.Command {
 				switch parameter.Name {
 				case "appId", "appID":
 					value = config.AppID
-				case "projectId":
+				case "projectId", "productId":
 					value = config.ProjectID
 				}
 				if value != "" {
@@ -540,18 +581,27 @@ func endpointCommand(opts *options, endpoint domain.Endpoint) *cobra.Command {
 					}
 				}
 			}
+			if err := agcapi.ValidateEndpointPathInput(endpoint, paramMap); err != nil {
+				return err
+			}
+			if err := agcapi.ValidateEndpointRequest(endpoint, queryMap, headerMap, body, queryValues); err != nil {
+				return err
+			}
 			if err := agcapi.ValidateEndpointBody(endpoint, body); err != nil {
 				return err
 			}
+			if err := agcapi.ValidateEndpointFileInput(endpoint, uploadFile, headerMap); err != nil {
+				return err
+			}
 			explicitAuthHeader := hasHeaderValue(headerMap, "Authorization") || hasHeaderValue(headerMap, "oauth2Token")
-			if token == "" && !explicitAuthHeader {
+			if token == "" && !explicitAuthHeader && !agcapi.IsManagementEndpoint(endpoint) {
 				token = os.Getenv("AGC_ACCESS_TOKEN")
 			}
 			ctx, cancel := context.WithTimeout(cmd.Context(), opts.timeout)
 			defer cancel()
-			if token == "" && !explicitAuthHeader && !dryRun && endpoint.Path != "{uploadUrl}" && endpoint.Direction != "local" {
+			if token == "" && !explicitAuthHeader && !agcapi.IsManagementEndpoint(endpoint) && endpoint.Authentication != "body-client-credentials" && !dryRun && endpoint.Path != "{uploadUrl}" && endpoint.Direction != "local" && endpoint.Direction != "inbound-callback" && endpoint.Authentication != "body-signature" {
 				var clientID string
-				token, clientID, err = endpointAuthorization(ctx, opts, credentialsPath, baseURL)
+				token, clientID, err = endpointAuthorizationFor(ctx, opts, credentialsPath, baseURL, endpoint)
 				if clientID != "" && !hasHeader(headerMap, "client_id") {
 					headerMap["client_id"] = clientID
 				}
@@ -560,10 +610,13 @@ func endpointCommand(opts *options, endpoint domain.Endpoint) *cobra.Command {
 				}
 			}
 			resp, err := agcapi.InvokeEndpoint(ctx, nil, agcapi.InvokeRequest{
+				SessionFile: sessionFile,
+				ProjectID:   managementProjectID,
 				Endpoint:    endpoint,
 				BaseURL:     baseURL,
 				Params:      paramMap,
 				Query:       queryMap,
+				QueryValues: queryValues,
 				Headers:     headerMap,
 				Body:        body,
 				FilePath:    uploadFile,
@@ -573,25 +626,38 @@ func endpointCommand(opts *options, endpoint domain.Endpoint) *cobra.Command {
 			if err != nil {
 				return err
 			}
-			if outFile != "" && len(resp.RawBody) > 0 {
+			if outFile != "" && !resp.DryRun && (len(resp.RawBody) > 0 || (endpoint.FamilyID == "storage" && endpoint.ID == "download-file")) {
 				if err := os.WriteFile(outFile, resp.RawBody, 0644); err != nil {
 					return err
 				}
 				resp.Body = nil
+				resp.BodyBase64 = ""
 			}
 			return output.Write(cmd.OutOrStdout(), domain.Envelope[agcapi.InvokeResponse]{Data: resp}, output.Format(opts.output), opts.pretty)
 		},
 	}
 	cmd.Flags().StringArrayVar(&params, "param", nil, "Path parameter as key=value; repeatable")
-	cmd.Flags().StringArrayVar(&query, "query", nil, "Query parameter as key=value; repeatable")
+	cmd.Flags().StringArrayVar(&query, "query", nil, "Query parameter as key=value; repeat the same key for ordered array values")
 	cmd.Flags().StringArrayVar(&headers, "header", nil, "HTTP header as key=value; repeatable")
-	cmd.Flags().StringArrayVar(&fields, "field", nil, "JSON body field as key=value; repeatable")
+	cmd.Flags().StringArrayVar(&fields, "field", nil, "Request body field as key=value; repeatable; supply raw unescaped values for form endpoints")
 	cmd.Flags().StringVar(&bodyFile, "body", "", "JSON body file")
 	cmd.Flags().StringVar(&uploadFile, "file", "", "Raw file for signed upload endpoints")
-	cmd.Flags().StringVar(&baseURL, "base-url", "https://connect-api.cloud.huawei.com", "Connect API base URL")
+	defaultBaseURL := endpoint.DefaultBaseURL
+	if defaultBaseURL == "" {
+		defaultBaseURL = "https://connect-api.cloud.huawei.com"
+	}
+	if agcapi.IsManagementEndpoint(endpoint) {
+		defaultBaseURL = ""
+	}
+	cmd.Flags().StringVar(&baseURL, "base-url", defaultBaseURL, "Upstream service base URL")
 	cmd.Flags().StringVar(&token, "token", "", "Bearer token; defaults to AGC_ACCESS_TOKEN")
 	cmd.Flags().StringVar(&credentialsPath, "credentials-path", "", "Override credentials file path")
+	if agcapi.IsManagementEndpoint(endpoint) {
+		cmd.Flags().StringVar(&sessionFile, "session-file", "", "Explicit vendor user-session JSON; never publishing credentials")
+		cmd.Flags().StringVar(&managementProjectID, "project-id", "", "Selected project; must match session productId")
+	}
 	cmd.Flags().StringVar(&outFile, "out", "", "Write raw response body to a file")
+	cmd.Flags().BoolVar(&showDocs, "docs", false, "Read the embedded browser-reviewed official document, including notes, examples, and paragraph links")
 	cmd.Flags().BoolVar(&invoke, "invoke", false, "Invoke the registered endpoint")
 	cmd.Flags().BoolVar(&dryRun, "dry-run", true, "Build the request without sending it")
 	return cmd
@@ -718,4 +784,24 @@ func endpointHelp(endpoint domain.Endpoint) string {
 		fmt.Fprintf(&help, "  %s %s=value (%s, %s): %s\n", flag, parameter.Name, parameter.Type, required, parameter.Description)
 	}
 	return help.String()
+}
+
+func parseQueryPairs(items []string) (map[string]string, map[string][]string, error) {
+	scalar, err := parsePairs(items)
+	if err != nil {
+		return nil, nil, err
+	}
+	all := map[string][]string{}
+	for _, item := range items {
+		key, value, _ := strings.Cut(item, "=")
+		all[key] = append(all[key], value)
+	}
+	repeated := map[string][]string{}
+	for key, values := range all {
+		if len(values) > 1 {
+			repeated[key] = values
+			scalar[key] = values[0]
+		}
+	}
+	return scalar, repeated, nil
 }

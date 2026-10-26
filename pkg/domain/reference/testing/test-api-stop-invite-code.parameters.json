@@ -1,0 +1,28 @@
+[
+  {
+    "name": "appId",
+    "in": "header",
+    "type": "string",
+    "required": true,
+    "description": "应用ID，获取方法参考查看应用信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-stop-invite-code-0000002271000725#section667421774310",
+    "maxLength": 32
+  },
+  {
+    "name": "teamId",
+    "in": "header",
+    "type": "integer",
+    "required": false,
+    "description": "开发者所在团队的团队ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-stop-invite-code-0000002271000725#section667421774310"
+  },
+  {
+    "name": "invitationCodeId",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "邀请码ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-stop-invite-code-0000002271000725#section141117691213",
+    "maxLength": 32
+  }
+]

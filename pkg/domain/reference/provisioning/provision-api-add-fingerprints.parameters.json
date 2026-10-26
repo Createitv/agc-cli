@@ -1,0 +1,22 @@
+[
+  {
+    "name": "appId",
+    "in": "header",
+    "type": "string",
+    "required": true,
+    "description": "应用ID，获取方法参考查看应用信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-add-fingerprints-0000002431201480#section236517415165",
+    "maxLength": 32
+  },
+  {
+    "name": "fingerprintList",
+    "in": "body",
+    "type": "array",
+    "required": true,
+    "description": "证书指纹列表。 最大长度50个。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-add-fingerprints-0000002431201480#section16551174881019",
+    "itemsType": "string",
+    "itemsMaxLength": 128,
+    "maxItems": 50
+  }
+]

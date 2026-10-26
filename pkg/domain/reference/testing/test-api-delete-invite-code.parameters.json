@@ -1,0 +1,27 @@
+[
+  {
+    "name": "appId",
+    "in": "header",
+    "type": "string",
+    "required": true,
+    "description": "应用ID，获取方法参考查看应用信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-delete-invite-code-0000002634878570#section9736184114188",
+    "maxLength": 32
+  },
+  {
+    "name": "teamId",
+    "in": "header",
+    "type": "integer",
+    "required": false,
+    "description": "开发者所在团队的团队ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-delete-invite-code-0000002634878570#section9736184114188"
+  },
+  {
+    "name": "invitationCodeId",
+    "in": "query",
+    "type": "string",
+    "required": true,
+    "description": "待删除的邀请码ID；参数表缺漏，Query位置由官方请求示例确认。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-delete-invite-code-0000002634878570#section162251741185115"
+  }
+]

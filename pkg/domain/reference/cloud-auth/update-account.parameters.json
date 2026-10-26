@@ -1,0 +1,66 @@
+[
+  {
+    "name": "client_id",
+    "type": "string",
+    "required": false,
+    "description": "客户端ID，获取方法参考获取客户端API授权。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-modify-phone-email-0000001347069197#section14358637816",
+    "in": "header"
+  },
+  {
+    "name": "Authorization",
+    "type": "string",
+    "required": false,
+    "description": "认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-modify-phone-email-0000001347069197#section14358637816",
+    "in": "header"
+  },
+  {
+    "name": "access_token",
+    "type": "string",
+    "required": true,
+    "description": "认证凭据。用户登录成功后，在登录接口的响应参数“accessToken”中获取。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-modify-phone-email-0000001347069197#section14358637816",
+    "in": "header"
+  },
+  {
+    "name": "productId",
+    "type": "string",
+    "required": true,
+    "description": "项目ID，查询方法可参见查询项目ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-modify-phone-email-0000001347069197#section1454420327110",
+    "in": "query"
+  },
+  {
+    "name": "lang",
+    "type": "string",
+    "required": false,
+    "description": "语言，格式为“zh_CN”。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-modify-phone-email-0000001347069197#section1556604410117",
+    "in": "body"
+  },
+  {
+    "name": "newPhone",
+    "type": "string",
+    "required": false,
+    "description": "新手机号。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-modify-phone-email-0000001347069197#section1556604410117",
+    "in": "body"
+  },
+  {
+    "name": "newEmail",
+    "type": "string",
+    "required": false,
+    "description": "新邮箱地址。 新邮箱地址和新手机号必填一个且只能填一个，即一次只修改手机号或者只修改邮箱地址。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-modify-phone-email-0000001347069197#section1556604410117",
+    "in": "body"
+  },
+  {
+    "name": "newVerifyCode",
+    "type": "string",
+    "required": true,
+    "description": "新验证码。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-modify-phone-email-0000001347069197#section1556604410117",
+    "in": "body"
+  }
+]

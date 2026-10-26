@@ -1,0 +1,37 @@
+[
+  {
+    "name": "appId",
+    "in": "path",
+    "type": "string",
+    "required": true,
+    "description": "应用ID，获取方法参考查询应用信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-gamereservationexport-0000001111685212#section1250171775311"
+  },
+  {
+    "name": "language",
+    "in": "query",
+    "type": "string",
+    "required": true,
+    "description": "查询语言，报表title会根据不同语言来展现，目前只支持简体中文（zh-CN）。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-gamereservationexport-0000001111685212#section886219295206",
+    "enum": [
+      "zh-CN"
+    ]
+  },
+  {
+    "name": "startTime",
+    "in": "query",
+    "type": "string",
+    "required": true,
+    "description": "查询开始时间，UTC时间，格式为YYYYMMDD。startTime和endTime之间不超过180天。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-gamereservationexport-0000001111685212#section886219295206"
+  },
+  {
+    "name": "endTime",
+    "in": "query",
+    "type": "string",
+    "required": true,
+    "description": "查询结束时间，UTC时间，格式为YYYYMMDD。startTime和endTime之间不超过180天。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-gamereservationexport-0000001111685212#section886219295206"
+  }
+]

@@ -1,0 +1,27 @@
+[
+  {
+    "name": "teamId",
+    "in": "header",
+    "type": "string",
+    "required": false,
+    "description": "开发者所在团队的团队ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-delete-test-version-0000002236201346#section15707195611112",
+    "maxLength": 64
+  },
+  {
+    "name": "versionId",
+    "in": "query",
+    "type": "string",
+    "required": true,
+    "description": "测试版本ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-delete-test-version-0000002236201346#section6641436115716"
+  },
+  {
+    "name": "appId",
+    "in": "query",
+    "type": "string",
+    "required": true,
+    "description": "应用ID",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-delete-test-version-0000002236201346#section6641436115716"
+  }
+]

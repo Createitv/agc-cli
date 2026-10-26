@@ -1,0 +1,347 @@
+{
+  "examples": [
+    {
+      "section": "请求示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-invite-code-0000002236201342#section162251741185115",
+      "text": "请求示例\n POST /api/app-test/v1/invitation-code HTTP/1.1 \n Host: connect-api.cloud.huawei.com \n client_id: 4141******68 \n Content-Type: application/json \n Authorization: Bearer ******* \n appId: 6917********65\n {\n   \"groupId\": \"76********08\",\n   \"invitationCodeValidDays\": 7,\n   \"invitationCodeInviteLimit\": 1000\n }"
+    },
+    {
+      "section": "响应示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-invite-code-0000002236201342#section45981511195316",
+      "text": "响应示例\n{\n  \"rtnCode\": 0,\n  \"rtnDesc\": \"success\",\n  \"businessCode\": 0,\n  \"invitationCode\": \"1f******ll\",\n  \"invitationCodeId\": \"2697**********43\"\n}"
+    }
+  ],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter#section195981215284",
+      "title": "了解新版目录"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-open-ability-0000002235710238",
+      "title": "AGC开放能力"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-0000002236015554",
+      "title": "AppGallery Connect API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-reference-0000002271000709",
+      "title": "Testing API参考"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-create-open-test-link-0000002665117715",
+      "title": "公开链接"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-obtain-server-auth-0000002271134661",
+      "title": "获取服务端授权"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-obtain-server-auth-0000002271134661#section104621343151212",
+      "title": "通过Service Account方式获取授权"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-getting-started/agc-help-view-app-info-0000002282674569",
+      "title": "查看应用信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-obtain-server-auth-0000002271134661#section103mcpsimp",
+      "title": "创建API客户端"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-obtain-server-auth-0000002271134661#section09831133141712",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-getting-started/agc-help-view-app-info-0000002282674569",
+      "title": "查看应用信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-obtain-server-auth-0000002271134661#section949717114392",
+      "title": "获取用户授权码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-getting-started/agc-help-view-app-info-0000002282674569",
+      "title": "查看应用信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-post-test-notify-0000002236041538",
+      "title": "发送邀请测试通知"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-delete-invite-code-0000002634878570",
+      "title": "删除邀请码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-add-invite-code-0000002236201342#section16817111413112",
+      "title": "功能介绍"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-add-invite-code-0000002236201342#section101651738121111",
+      "title": "接口原型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-add-invite-code-0000002236201342#section747013518115",
+      "title": "请求参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-add-invite-code-0000002236201342#section1929055974115",
+      "title": "Header"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-add-invite-code-0000002236201342#section141117691213",
+      "title": "Body"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-add-invite-code-0000002236201342#section162251741185115",
+      "title": "请求示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-add-invite-code-0000002236201342#section9752647125217",
+      "title": "响应参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-add-invite-code-0000002236201342#section45981511195316",
+      "title": "响应示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-invite-code-0000002236201342#section16817111413112",
+      "text": "此接口用于邀请测试生成邀请码。"
+    },
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-invite-code-0000002236201342#section16817111413112",
+      "text": "接口调用者的角色：账号持有者、管理员、APP管理员、运营。"
+    },
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-invite-code-0000002236201342#section16817111413112",
+      "text": "若您的应用已切换为“AppTest邀请测试”，无法使用该接口，您可以使用创建公开链接接口。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-invite-code-0000002236201342#section1929055974115",
+      "text": "本接口支持使用Service Account方式、API客户端方式和OAuth客户端方式，区别请参见获取服务端授权。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-invite-code-0000002236201342#section1929055974115",
+      "text": "Service Account方式："
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-invite-code-0000002236201342#section1929055974115",
+      "text": "API客户端方式："
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-invite-code-0000002236201342#section1929055974115",
+      "text": "OAuth客户端方式："
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-invite-code-0000002236201342#section141117691213",
+      "text": "请求Body中使用JSON格式携带邀请码信息，参数如下表所示。"
+    }
+  ],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-invite-code-0000002236201342",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "承载协议",
+          "HTTPS POST"
+        ],
+        [
+          "接口方向",
+          "开发者服务器 -> 华为服务器"
+        ],
+        [
+          "接口URL",
+          "https://connect-api.cloud.huawei.com/api/app-test/v1/invitation-code"
+        ],
+        [
+          "数据格式",
+          "请求：Content-Type: application/json 响应：Content-Type: application/json"
+        ]
+      ],
+      "section": "接口原型",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-invite-code-0000002236201342#section101651738121111"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "Authorization",
+          "M",
+          "String",
+          "认证信息，格式为“Authorization: Bearer ${JWT}”。JWT为通过Service Account方式获取授权中获取的鉴权令牌。"
+        ],
+        [
+          "appId",
+          "M",
+          "String(32)",
+          "应用ID，获取方法参考查看应用信息。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-invite-code-0000002236201342#section1929055974115"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "client_id",
+          "M",
+          "String",
+          "客户端ID，获取方法参考创建API客户端。"
+        ],
+        [
+          "Authorization",
+          "M",
+          "String",
+          "认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。"
+        ],
+        [
+          "appId",
+          "M",
+          "String(32)",
+          "应用ID，获取方法参考查看应用信息。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-invite-code-0000002236201342#section1929055974115"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "teamId",
+          "M",
+          "Integer(int64)",
+          "开发者所在团队的团队ID。"
+        ],
+        [
+          "oauth2Token",
+          "M",
+          "String",
+          "认证信息，传入获取用户授权码中获取的Access Token。"
+        ],
+        [
+          "appId",
+          "M",
+          "String(32)",
+          "应用ID，获取方法参考查看应用信息。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-invite-code-0000002236201342#section1929055974115"
+    },
+    {
+      "location": "body",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "groupId",
+          "M",
+          "String(32)",
+          "测试群组ID。"
+        ],
+        [
+          "invitationCodeValidDays",
+          "M",
+          "Integer(32)",
+          "邀请码有效期。 单位：天 邀请码仅支持30天有效。"
+        ],
+        [
+          "invitationCodeInviteLimit",
+          "M",
+          "Integer(32)",
+          "邀请码可邀请人数上限。 最大值10000。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-invite-code-0000002236201342#section141117691213"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "rtnCode",
+          "M",
+          "String",
+          "返回码。 取值范围： 0：成功 1：参数校验不通过。 2：越权错误。 3：并发修改错误。 -1：内部异常。"
+        ],
+        [
+          "rtnDesc",
+          "O",
+          "String",
+          "返回码描述信息。"
+        ],
+        [
+          "businessCode",
+          "O",
+          "String",
+          "业务错误码。 取值范围： 100：测试群组已存在生效邀请码。 101：测试群用户数量已达上限。"
+        ],
+        [
+          "invitationCode",
+          "O",
+          "String",
+          "邀请码。"
+        ],
+        [
+          "invitationCodeId",
+          "O",
+          "String",
+          "邀请码ID。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-invite-code-0000002236201342#section9752647125217"
+    }
+  ],
+  "title": "生成邀请码",
+  "updatedAt": "2026-08-11 10:20",
+  "checkedAt": "2026-10-07T02:54:52.317Z",
+  "family": "testing",
+  "endpoint": "test-api-add-invite-code"
+}

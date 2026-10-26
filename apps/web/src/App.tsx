@@ -20,6 +20,11 @@ import {
   X,
 } from 'lucide-react';
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { CommandFlow } from './CommandFlow';
+import bundledEndpoints from './endpoint-registry.json';
+import { EndpointList, type Endpoint } from './EndpointList';
+import { ProjectAnswers } from './ProjectAnswers';
+import { localeFromPath, familyFromPath, pagePath, pageMeta, structuredData } from './siteContent';
 
 type Language = 'en' | 'zh';
 type InstallPlatform = 'macos' | 'windows';
@@ -40,7 +45,7 @@ const installCommands: Record<InstallPlatform, string> = {
 };
 
 const fallbackCapabilities: Capability[] = [
-  { id: 'publishing', name: 'Publishing API', description: 'Release metadata, package state, submissions, review withdrawal, and release timing.', command: 'agc publishing', restPath: '/api/v1/publishing', status: 'registered', endpointCount: 14 },
+  { id: 'publishing', name: 'Publishing API', description: 'Release metadata, package state, submissions, review withdrawal, and release timing.', command: 'agc publishing', restPath: '/api/v1/publishing', status: 'registered', endpointCount: 42 },
   { id: 'upload', name: 'Upload Management', description: 'APP packages, icons, screenshots, videos, PDFs, and multipart binary uploads.', command: 'agc upload', restPath: '/api/v1/upload', status: 'registered', endpointCount: 6 },
   { id: 'provisioning', name: 'Provisioning', description: 'Certificates, profiles, ACLs, devices, and fingerprints for release workflows.', command: 'agc provisioning', restPath: '/api/v1/provisioning', status: 'registered', endpointCount: 17 },
   { id: 'domains', name: 'Domain Management', description: 'Inspect, precheck, download, and update atomic service domain configuration.', command: 'agc domains', restPath: '/api/v1/domains', status: 'registered', endpointCount: 5 },
@@ -53,6 +58,12 @@ const fallbackCapabilities: Capability[] = [
   { id: 'game-items', name: 'Game Item Mall', description: 'Inbound role query and order callbacks configured in AGC.', command: 'agc game-items', restPath: '/api/v1/game-items', status: 'registered', endpointCount: 2 },
   { id: 'resources', name: 'Resource Predownload', description: 'Coordinate resource package versions, files, upload confirmation, and publishing.', command: 'agc resources', restPath: '/api/v1/resources', status: 'registered', endpointCount: 8 },
   { id: 'cicd', name: 'CI/CD Platform', description: 'Connect local Hvigor builds to the same command surface.', command: 'agc cicd', restPath: '/api/v1/cicd', status: 'registered', endpointCount: 1 },
+  { id: 'functions', name: 'Cloud Functions', description: 'Native function creation, code/config updates, publishing and invocation; explicit user OAuth session.', command: 'agc functions', restPath: '/api/v1/functions', status: 'registered', endpointCount: 9 },
+  { id: 'cloud-auth', name: 'Cloud Authentication', description: 'Application user sign-in and server user management; separate credential branches.', command: 'agc cloud-auth', restPath: '/api/v1/cloud-auth', status: 'registered', endpointCount: 17 },
+  { id: 'clouddb', name: 'Cloud DB for Object', description: 'Object data queries, writes and deletion using existing zones and schemas.', command: 'agc clouddb', restPath: '/api/v1/clouddb', status: 'registered', endpointCount: 5 },
+  { id: 'storage', name: 'Cloud Storage', description: 'File upload/download, metadata and listing with server REST.', command: 'agc storage', restPath: '/api/v1/storage', status: 'registered', endpointCount: 6 },
+  { id: 'hosting', name: 'Cloud Hosting', description: 'Website sites, environments, signed ZIP uploads, archive and release.', command: 'agc hosting', restPath: '/api/v1/hosting', status: 'registered', endpointCount: 16 },
+  { id: 'templates', name: 'Serverless Templates', description: 'Developer-hosted user authentication callbacks; no AGC bearer forwarding.', command: 'agc templates', restPath: '/api/v1/templates', status: 'registered', endpointCount: 2 },
 ];
 
 const capabilityTranslations: Record<Language, Record<string, { name: string; description: string }>> = {
@@ -70,6 +81,12 @@ const capabilityTranslations: Record<Language, Record<string, { name: string; de
     gameplay: { name: '游戏联运', description: '处理游戏资源同步以及 AppGallery 游戏联运回调。' },
     'game-items': { name: '游戏道具商城', description: '处理在 AGC 中配置的角色查询与订单回调。' },
     resources: { name: '资源预下载', description: '协调资源包版本、文件上传、上传确认与发布。' },
+    functions: { name: '云函数', description: '创建、更新、发布、调用及版本查询，显式选择用户 OAuth 会话。' },
+    'cloud-auth': { name: '认证服务', description: '应用用户认证及服务端用户管理，与开发者登录分开。' },
+    clouddb: { name: '云数据库', description: '在已有存储区和对象类型中查询、更新和删除数据。' },
+    storage: { name: '云存储', description: '文件上传下载、元数据与文件列表。' },
+    hosting: { name: '云托管', description: '网站站点、环境、签名上传和版本归档发布。' },
+    templates: { name: 'Serverless 模板', description: '开发者服务器的认证回调，模拟调用不转发 AGC 令牌。' },
     cicd: { name: 'CI/CD 平台', description: '把本地 Hvigor 构建接入同一套命令控制面。' },
   },
 };
@@ -136,7 +153,7 @@ const translations = {
       body: 'Use placeholders for your AppGallery Connect values. The second command is what makes the profile automatic for this project.',
       steps: [
         { number: '01', title: 'Save a credential profile', body: 'Service Account is the preferred route. Secrets stay in ~/.agc/credentials.json with restricted permissions.', command: 'agc auth login --service-account-file ~/.agc/service-account.json --name production' },
-        { number: '02', title: 'Bind it to the project', body: 'Pin the app, project, package, and default profile once. Every later command resolves that context automatically.', command: 'agc init --app-id <app-id> --project-id <project-id> --package-name com.example.app --default-profile production' },
+        { number: '02', title: 'Bind it to the project', body: 'Save project metadata and choose a default credential profile. Supply endpoint parameters explicitly when invoking APIs.', command: 'agc init --app-id <app-id> --project-id <project-id> --package-name com.example.app --default-profile production' },
         { number: '03', title: 'Inspect before invoking', body: 'Endpoint commands are dry-run first. Review the exact method and URL, then opt into the real request.', command: 'agc publishing app-info-query --invoke --query appId=<app-id> --dry-run=false' },
       ],
       copyStep: 'Copy step command',
@@ -236,7 +253,7 @@ const translations = {
       body: '请将占位符替换为 AppGallery Connect 的真实值。第二条命令会让该项目自动选择对应 Profile。',
       steps: [
         { number: '01', title: '保存凭据 Profile', body: '推荐使用 Service Account。密钥会以受限权限保存在 ~/.agc/credentials.json。', command: 'agc auth login --service-account-file ~/.agc/service-account.json --name production' },
-        { number: '02', title: '绑定当前项目', body: '一次性保存应用、项目、包名和默认 Profile，后续命令会自动解析这些上下文。', command: 'agc init --app-id <app-id> --project-id <project-id> --package-name com.example.app --default-profile production' },
+        { number: '02', title: '绑定当前项目', body: '保存项目资料与默认凭据 Profile；调用接口时仍按要求填写应用 ID 等参数。', command: 'agc init --app-id <app-id> --project-id <project-id> --package-name com.example.app --default-profile production' },
         { number: '03', title: '调用前先检查', body: '接口命令默认 dry-run。确认 method 与 URL 后，再明确执行真实请求。', command: 'agc publishing app-info-query --invoke --query appId=<app-id> --dry-run=false' },
       ],
       copyStep: '复制步骤命令',
@@ -282,23 +299,19 @@ const principleIcons = [ShieldCheck, FileJson2, Cloud];
 const profileCodes = ['--profile staging', '.agc/project.json', '~/.agc/credentials.json'];
 
 function initialLanguage(): Language {
-  if (typeof window === 'undefined') return 'en';
-  const stored = typeof window.localStorage?.getItem === 'function'
-    ? window.localStorage.getItem('agc-language')
-    : null;
-  if (stored === 'en' || stored === 'zh') return stored;
-  return window.navigator.language.toLowerCase().startsWith('zh') ? 'zh' : 'en';
+  return typeof window === 'undefined' ? 'zh' : localeFromPath(window.location.pathname);
 }
 
-export function App() {
-  const [language, setLanguage] = useState<Language>(initialLanguage);
+export function App({ renderLanguage, renderFamily }: { renderLanguage?: Language; renderFamily?: string } = {}) {
+  const [language, setLanguage] = useState<Language>(() => renderLanguage ?? initialLanguage());
   const [languageOpen, setLanguageOpen] = useState(false);
   const [installOpen, setInstallOpen] = useState(false);
   const [installPlatform, setInstallPlatform] = useState<InstallPlatform>('macos');
   const [capabilities, setCapabilities] = useState<Capability[]>(fallbackCapabilities);
   const [endpointCount, setEndpointCount] = useState(156);
+  const [endpoints, setEndpoints] = useState<Endpoint[]>(bundledEndpoints);
   const [mode, setMode] = useState<'demo' | 'live'>('demo');
-  const [selected, setSelected] = useState('publishing');
+  const [selected, setSelected] = useState(() => renderFamily ?? (typeof window !== 'undefined' ? familyFromPath(window.location.pathname) : undefined) ?? 'publishing');
   const [copied, setCopied] = useState('');
   const languagePickerRef = useRef<HTMLDivElement>(null);
   const installTriggerRef = useRef<HTMLButtonElement>(null);
@@ -307,11 +320,33 @@ export function App() {
 
   useEffect(() => {
     document.documentElement.lang = language === 'zh' ? 'zh-CN' : 'en';
-    document.title = text.documentTitle;
+    const family = familyFromPath(window.location.pathname);
+    const meta = pageMeta(language, family);
+    document.title = meta.title;
+    for (const [selector, value, attribute] of [
+      ['meta[name="description"]', meta.description, 'content'],
+      ['link[rel="canonical"]', meta.url, 'href'],
+      ['meta[property="og:title"]', meta.title, 'content'],
+      ['meta[property="og:description"]', meta.description, 'content'],
+      ['meta[property="og:url"]', meta.url, 'content'],
+      ['meta[property="og:locale"]', language === 'zh' ? 'zh_CN' : 'en_US', 'content'],
+      ['meta[property="og:locale:alternate"]', language === 'zh' ? 'en_US' : 'zh_CN', 'content'],
+      ['meta[name="twitter:title"]', meta.title, 'content'],
+      ['meta[name="twitter:description"]', meta.description, 'content'],
+    ]) document.querySelector(selector)?.setAttribute(attribute, value);
+    for (const alternate of ['zh-CN', 'en', 'x-default']) document.querySelector(`link[hreflang="${alternate}"]`)?.setAttribute('href', 'https://agccli.app' + pagePath(alternate === 'en' ? 'en' : 'zh', family));
+    const schema = document.getElementById('seo-schema');
+    if (schema) schema.textContent = JSON.stringify(structuredData(language, family));
     if (typeof window.localStorage?.setItem === 'function') {
       window.localStorage.setItem('agc-language', language);
     }
-  }, [language, text.documentTitle]);
+  }, [language, selected]);
+
+  useEffect(() => {
+    const navigate = () => { setLanguage(initialLanguage()); setSelected(familyFromPath(window.location.pathname) ?? 'publishing'); };
+    window.addEventListener('popstate', navigate);
+    return () => window.removeEventListener('popstate', navigate);
+  }, []);
 
   useEffect(() => {
     if (typeof fetch === 'undefined') return;
@@ -328,8 +363,14 @@ export function App() {
 
     fetch('/api/v1/endpoints')
       .then((response) => response.ok ? response.json() : Promise.reject(new Error('offline')))
-      .then((body: { data: unknown[] }) => {
-        if (Array.isArray(body.data)) setEndpointCount(body.data.length);
+      .then((body: { data: Endpoint[] }) => {
+        if (Array.isArray(body.data) && body.data.length > 0 && body.data.every(endpoint =>
+          typeof endpoint.id === 'string' && typeof endpoint.familyId === 'string' &&
+          typeof endpoint.method === 'string' && typeof endpoint.path === 'string' &&
+          typeof endpoint.command === 'string')) {
+          setEndpoints(body.data);
+          setEndpointCount(body.data.length);
+        }
       })
       .catch(() => setEndpointCount(156));
   }, []);
@@ -383,6 +424,7 @@ export function App() {
   };
 
   const selectLanguage = (nextLanguage: Language) => {
+    window.history.pushState({}, '', pagePath(nextLanguage, familyFromPath(window.location.pathname)) + window.location.hash);
     setLanguage(nextLanguage);
     setLanguageOpen(false);
   };
@@ -459,6 +501,7 @@ export function App() {
             <span>agc / production</span>
             <span className="deckMode"><span className={mode === 'live' ? 'pulse live' : 'pulse'} />{mode === 'live' ? text.deck.live : text.deck.demo}</span>
           </div>
+          <CommandFlow language={language} />
           <div className="rail" aria-label={text.workflow.eyebrow}>
             {text.rail.map(({ label, detail }, index) => {
               const Icon = railIcons[index];
@@ -577,18 +620,18 @@ export function App() {
                 <button
                   key={capability.id}
                   className={selected === capability.id ? 'registryItem selected' : 'registryItem'}
-                  onClick={() => setSelected(capability.id)}
+                  onClick={() => { window.history.pushState({}, '', pagePath(language, capability.id) + '#registry'); setSelected(capability.id); }}
                   aria-pressed={selected === capability.id}
                 >
                   <span className="familyCode">{capability.id.slice(0, 2).toUpperCase()}</span>
-                  <span>{capabilityCopy.name}<small>{capability.endpointCount ?? 0} {text.registry.interfaces}</small></span>
+                  <span>{capabilityCopy.name}<small>{endpoints.filter(endpoint => endpoint.familyId === capability.id).length} {text.registry.interfaces}</small></span>
                   <ChevronRight size={15} />
                 </button>
               );
             })}
           </aside>
 
-          <div className="registryDetail">
+          <div className="registryDetail" key={active.id}>
             <div className="detailHeader">
               <div>
                 <p className="eyebrow">{text.registry.selected} / {active.id}</p>
@@ -609,9 +652,12 @@ export function App() {
                 {copied === 'active' ? text.registry.copied : text.registry.copy}
               </button>
             </div>
+            <EndpointList key={active.id} endpoints={endpoints.filter(endpoint => endpoint.familyId === active.id)} language={language} />
           </div>
         </div>
       </section>
+
+      <ProjectAnswers language={language} families={capabilities.map(capability => capability.id)} />
 
       <section className="section quickstartSection" id="quickstart">
         <div className="sectionIntro quickIntro">

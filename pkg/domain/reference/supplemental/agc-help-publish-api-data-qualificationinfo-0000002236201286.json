@@ -1,0 +1,96 @@
+{
+  "examples": [],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter#section195981215284",
+      "title": "了解新版目录"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-open-ability-0000002235710238",
+      "title": "AGC开放能力"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-0000002236015554",
+      "title": "AppGallery Connect API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-reference-0000002271160565",
+      "title": "Publishing API参考"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-0000002236201266",
+      "title": "数据模型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-appendix-qualificationcode-0000002422741790",
+      "title": "资质编码与资质文件对照表"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-qualificationfileinfo-0000002271160609",
+      "title": "QualificationFileInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-qualificationfileinfo-0000002271160609",
+      "title": "QualificationFileInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-qualreviewtaskinfo-0000002271000665",
+      "title": "QualReviewTaskInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-qualificationinfo-0000002236201286",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "qualificationCode",
+          "M",
+          "String(32)",
+          "资质编码，具体请参见资质编码与资质文件对照表。"
+        ],
+        [
+          "qualificationFileInfos",
+          "M",
+          "List<QualificationFileInfo>",
+          "资质文件信息列表。 数组长度不超过10。"
+        ],
+        [
+          "validityType",
+          "M",
+          "Integer(32)",
+          "资质有效期类型。 取值类型： 0：自定义有效期 1：永久有效 默认值：0"
+        ],
+        [
+          "startTime",
+          "O",
+          "String(20)",
+          "资质有效期开始时间。 UTC时间格式：yyyy-MM-dd 示例：2024-05-10"
+        ],
+        [
+          "expireTime",
+          "O",
+          "String(20)",
+          "资质有效期结束时间。 UTC时间格式：yyyy-MM-dd 示例：2024-05-10 说明 请保证剩余有效期大于30天。"
+        ]
+      ],
+      "section": "",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-qualificationinfo-0000002236201286"
+    }
+  ],
+  "title": "QualificationInfo",
+  "updatedAt": "2026-06-25 19:52",
+  "checkedAt": "2026-10-07T05:18:23.787Z"
+}

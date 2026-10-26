@@ -1,0 +1,460 @@
+{
+  "examples": [],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter#section195981215284",
+      "title": "了解新版目录"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-open-ability-0000002235710238",
+      "title": "AGC开放能力"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-0000002236015554",
+      "title": "AppGallery Connect API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-reference-0000002271160565",
+      "title": "Publishing API参考"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-0000002236201266",
+      "title": "数据模型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-appendix-application-status-0000002240477940#section1637119146108",
+      "title": "全网发布的应用状态流转说明"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-appendix-application-status-0000002240477940#section994894212109",
+      "title": "测试发布的应用状态流转说明"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-appendix-langtype-0000002236041558",
+      "title": "语言类型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-appendix-apptype-0000002271160689",
+      "title": "应用游戏分类"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-appendix-apptype-0000002271160689",
+      "title": "应用游戏分类"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-appendix-apptype-0000002271160689",
+      "title": "应用游戏分类"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-appendix-apptype-0000002271160689",
+      "title": "应用游戏分类"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-custinfo-0000002504067925",
+      "title": "CustInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-devicetypeinfo-0000002236201270",
+      "title": "DeviceTypeInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-appreviewcontact-0000002505438989",
+      "title": "AppReviewContact"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-appreviewcontact-0000002505438989",
+      "title": "AppReviewContact"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-versionvoc-0000002495156924",
+      "title": "VersionVoc"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-allpermission-0000002295046904",
+      "title": "AllPermission"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-appreviewcontact-0000002505438989",
+      "title": "AppReviewContact"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-appinfo-0000002236041454",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "releaseState",
+          "O",
+          "Integer",
+          "应用状态。 releaseType为1时，状态含义如下。 说明 各状态间的转换请参见全网发布的应用状态流转说明。 0：已上架 1：上架审核不通过 2：已下架（含强制下架） 3：待上架，预约上架 4：审核中 5：升级审核中 6：申请下架 7：草稿 8：升级审核不通过 9：下架审核不通过 10：应用被开发者下架 11：撤销上架 12：预审中 13：预审不通过 releaseType为6时，状态含义如下。 说明 各状态间的转换请参见测试发布的应用状态流转说明。 0：正在测试 1：审核不通过 2：已失效（运营停止测试） 3：待生效 4：正在审核 7：准备提交 10：已失效（开发者停止测试） 11：撤销审核 12：预审中 13：预审不通过"
+        ],
+        [
+          "defaultLang",
+          "O",
+          "String(16)",
+          "应用的默认语言。 说明 取值参见语言类型。"
+        ],
+        [
+          "parentType",
+          "M",
+          "Integer",
+          "应用的一级分类。 固定ID。 说明 取值参见应用游戏分类。"
+        ],
+        [
+          "harmonyChildType",
+          "O",
+          "Integer",
+          "HarmonyOS应用/元服务的二级分类。 固定ID。 说明 取值参见应用游戏分类。"
+        ],
+        [
+          "kindMainTag",
+          "O",
+          "Integer",
+          "HarmonyOS应用/元服务主标签。 固定ID。 说明 取值参见应用游戏分类的“标签”列。"
+        ],
+        [
+          "kindSubTags",
+          "O",
+          "List<Integer>",
+          "HarmonyOS应用/元服务附属标签。 固定ID。最多可选4个附属标签。 说明 取值参见应用游戏分类的“标签”列。"
+        ],
+        [
+          "privacyPolicy",
+          "M",
+          "String(255)",
+          "隐私政策声明的网页地址。 该网址会在应用的详情页面添加隐私政策跳转，可帮助用户清楚地了解您如何处理敏感的用户数据和设备数据。 隐私政策必须完整说明您的应用如何收集、使用和分享用户数据，包含但不限于如下情况建议提供： 面向儿童的App。 包含账户注册或需要访问用户的现有账户，或由法律另行规定。 对于收集用户或设备相关数据的App。"
+        ],
+        [
+          "appNetType",
+          "O",
+          "Integer",
+          "应用联网类型。 取值范围： 1：单机 2：网游 默认值：1 说明 此参数只支持游戏类应用。"
+        ],
+        [
+          "publishCountry",
+          "O",
+          "String(2048)",
+          "应用发布国家的国家码。 多个国家以英文逗号分隔。 示例：CN,DE,MC"
+        ],
+        [
+          "contentRate",
+          "O",
+          "String(256)",
+          "应用分级。 Json格式。 示例：{\"HW\":\"3+\"}。"
+        ],
+        [
+          "appTariffType",
+          "O",
+          "String(16)",
+          "应用内付费道具类型。 取值范围： 1：激活收费 2：道具收费 3：关卡收费 4：购买虚拟币 5：部分章节收费（图书阅读类） 6：其他的 7：课程收费 8：会员收费 返回多个表示具备多个类型，例如“1,2,3”。"
+        ],
+        [
+          "publicationNumber",
+          "O",
+          "String(50)",
+          "版号信息。"
+        ],
+        [
+          "developerNameCn",
+          "O",
+          "String(64)",
+          "开发者中文名称。 HarmonyOS应用和元服务此字段不支持修改。"
+        ],
+        [
+          "developerNameEn",
+          "O",
+          "String(64)",
+          "开发者英文名称。 HarmonyOS应用和元服务此字段不支持修改。"
+        ],
+        [
+          "developerWebsite",
+          "O",
+          "String(255)",
+          "开发者官网。"
+        ],
+        [
+          "customInfo",
+          "O",
+          "CustInfo",
+          "客服信息。"
+        ],
+        [
+          "elecCertificateUrl",
+          "O",
+          "String(256)",
+          "电子版权证书PDF地址。"
+        ],
+        [
+          "certificateURLs",
+          "M",
+          "String(1024)",
+          "应用版权证书或代理证书图片地址列表。 逗号分隔，最多5个。"
+        ],
+        [
+          "publicationURLs",
+          "O",
+          "String(1024)",
+          "版号证明。 逗号分隔的地址，可以为图片或者PDF，最多3个。"
+        ],
+        [
+          "updateTime",
+          "O",
+          "String(32)",
+          "更新时间。 UTC时间格式：yyyy-mm-dd hh:mm:ss"
+        ],
+        [
+          "versionNumber",
+          "O",
+          "String(32)",
+          "版本号。"
+        ],
+        [
+          "versionCode",
+          "O",
+          "Integer(64)",
+          "对应软件包中的versionCode。"
+        ],
+        [
+          "buildVersion",
+          "O",
+          "String",
+          "构建版本号，用于区分同一主版本下的不同测试子版本。"
+        ],
+        [
+          "versionId",
+          "O",
+          "String(32)",
+          "版本ID。"
+        ],
+        [
+          "onShelfVersionNumber",
+          "O",
+          "String(32)",
+          "在架版本版本号。"
+        ],
+        [
+          "onShelfVersionCode",
+          "O",
+          "Integer(64)",
+          "在架版本versionCode，对应软件包中的versionCode。"
+        ],
+        [
+          "onShelfVersionId",
+          "O",
+          "String(32)",
+          "在架版本版本ID。"
+        ],
+        [
+          "shareLink",
+          "O",
+          "String(1024)",
+          "分享链接。 仅查询场景返回。"
+        ],
+        [
+          "sensitivePermissionDesc",
+          "O",
+          "String(2048)",
+          "敏感权限说明。 此字段仅用于查询。 格式为JSON格式的字符串。 格式：{\"权限名称1\":\"权限描述1\",\"权限名称2\":\"权限描述2\"...}"
+        ],
+        [
+          "familyShareTag",
+          "O",
+          "Integer",
+          "是否可以家庭共享。 取值范围： 0：不可以 1：可以 只有分发区域包含中国大陆的应用返回1。"
+        ],
+        [
+          "deviceTypes",
+          "M",
+          "List<DeviceTypeInfo>",
+          "应用的设备类型信息。 数组长度不超过6。"
+        ],
+        [
+          "restrictedPermissionVideo",
+          "O",
+          "String",
+          "HarmonyOS应用受限权限使用说明视频在文件服务器中的对象ID。 此字段仅用于查询。"
+        ],
+        [
+          "privacyRightsUrl",
+          "O",
+          "String(256)",
+          "隐私权利网址。 即关于您的用户实施其权利的网站地址，例如用户删除、修改、导出其个人数据的入口。"
+        ],
+        [
+          "projectId",
+          "O",
+          "String",
+          "项目ID。"
+        ],
+        [
+          "registeredDclType",
+          "O",
+          "Integer(32)",
+          "APP类型信息。 取值范围： -1：清空APP类型信息 0：APP服务器在中国大陆 1：APP服务器不在中国大陆 2：APP为单机APP"
+        ],
+        [
+          "registeredIdType",
+          "O",
+          "Integer(32)",
+          "主办单位类型。 取值范围： -1：清空数据（会联动清空registeredIdNumber的内容） 1：企业（社会信用代码） 2：个人（身份证号码） 3：机构（机构代码）"
+        ],
+        [
+          "registeredIdNumber",
+          "O",
+          "String(64)",
+          "主办单位证件号。 取值范围： registeredIdType为1时，对应统一社会信用代码 registeredIdType为2时，对应身份证号码 registeredIdType为3时，对应组织机构代码"
+        ],
+        [
+          "registeredEntity",
+          "O",
+          "Integer(32)",
+          "主办单位。 取值范围： 1：与开发者账号主体一致 2：与开发者账号主体不一致"
+        ],
+        [
+          "registeredEntityName",
+          "O",
+          "String(1024)",
+          "主办单位名称。"
+        ],
+        [
+          "privacyAgreementId",
+          "O",
+          "String(32)",
+          "隐私协议ID。"
+        ],
+        [
+          "userAgreementUrl",
+          "O",
+          "String(512)",
+          "用户协议URL。"
+        ],
+        [
+          "userAgreementIds",
+          "O",
+          "List<String(32)>",
+          "用户协议ID列表。 当userAgreementUrl和userAgreementIds同时传值时，以userAgreementIds值为准。 数组长度不超过5。"
+        ],
+        [
+          "encrypted",
+          "O",
+          "Integer(32)",
+          "包是否加密。 取值范围： 0：不加密 1：加密 默认值：1"
+        ],
+        [
+          "invitationCount",
+          "O",
+          "Integer",
+          "邀请量。 如果是邀请测试，返回的是参与测试的用户数。 如果是公开测试，返回的是下载安装次数。"
+        ],
+        [
+          "downloadCount",
+          "O",
+          "Integer",
+          "下载量。 该版本启动下载的累计次数。"
+        ],
+        [
+          "installCount",
+          "O",
+          "Integer",
+          "安装量。 该版本启动安装的累计次数。"
+        ],
+        [
+          "releasePhase",
+          "O",
+          "Integer(32)",
+          "分阶段发布标识。 取值范围： 0：全网 3：分阶段 4：分阶段转全网"
+        ],
+        [
+          "isAiGenerate",
+          "O",
+          "Integer(32)",
+          "是否涉及AI生成合成服务。 取值范围： 0：不涉及。 1：涉及。"
+        ],
+        [
+          "aiTypes",
+          "O",
+          "List<Integer(32)>",
+          "涉及的AI生成合成服务类型。 取值范围： -1：其他 1：文本 2：图片 3：音频 4：视频 5：虚拟场景"
+        ],
+        [
+          "testUserName",
+          "O",
+          "String(128)",
+          "应用审核信息的测试账号用户名。"
+        ],
+        [
+          "testUserPassword",
+          "O",
+          "String(128)",
+          "应用审核信息的测试账号密码。"
+        ],
+        [
+          "appRemark",
+          "O",
+          "String(300)",
+          "应用审核信息的备注。"
+        ],
+        [
+          "selfTestVideos",
+          "O",
+          "String(2000)",
+          "应用审核信息的自测文件。 格式为JSON字符串，示例：{\"objectId1\":\"文件名1\",\"objectId2\":\"文件名2\"...} 说明 此字段只支持元服务。"
+        ],
+        [
+          "appReviewPhoneInfo",
+          "O",
+          "AppReviewContact",
+          "应用负责人的手机号信息。"
+        ],
+        [
+          "appReviewEmailInfo",
+          "O",
+          "AppReviewContact",
+          "应用负责人的邮箱账号信息。"
+        ],
+        [
+          "appReviewName",
+          "O",
+          "String(256)",
+          "应用负责人的姓名。"
+        ],
+        [
+          "versionVocs",
+          "O",
+          "List<VersionVoc>",
+          "应用版本已解决问题。 数组长度不超过1000。"
+        ],
+        [
+          "reviewState",
+          "O",
+          "Integer",
+          "审核状态。 取值范围： 1：等待审核 2：正在审核"
+        ],
+        [
+          "releaseTime",
+          "O",
+          "String(32)",
+          "上架时间。 UTC时间格式：yyyy-mm-dd hh:mm:ss 说明 应用存在上架版本时，该参数才有返回值。"
+        ]
+      ],
+      "section": "",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-appinfo-0000002236041454"
+    }
+  ],
+  "title": "AppInfo",
+  "updatedAt": "2026-06-25 19:52",
+  "checkedAt": "2026-10-07T04:40:20.854Z"
+}

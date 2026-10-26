@@ -1,0 +1,31 @@
+[
+  {
+    "name": "teamId",
+    "in": "header",
+    "type": "string",
+    "required": false,
+    "description": "开发者所在团队的团队ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-update-provision-0000002469198766#section1323714041015",
+    "maxLength": 64
+  },
+  {
+    "name": "provisionId",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "Profile的ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-update-provision-0000002469198766#section16551174881019",
+    "maxLength": 32
+  },
+  {
+    "name": "deviceIdList",
+    "in": "body",
+    "type": "array",
+    "required": true,
+    "description": "调试/测试设备ID列表。 可通过查询设备列表接口获取。 数组长度不超过4000。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-update-provision-0000002469198766#section16551174881019",
+    "itemsType": "string",
+    "itemsMaxLength": 32,
+    "maxItems": 4000
+  }
+]

@@ -1,0 +1,11 @@
+[
+  {
+    "name": "appId",
+    "in": "query",
+    "type": "string",
+    "required": true,
+    "description": "元服务的应用ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-domain-api-get-domain-config-0000002236201326#section886219295206",
+    "maxLength": 32
+  }
+]

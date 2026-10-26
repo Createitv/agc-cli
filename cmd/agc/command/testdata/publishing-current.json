@@ -30,13 +30,15 @@
           "name": "parentType",
           "in": "body",
           "required": true,
-          "type": "Integer(32)"
+          "type": "Integer(32)",
+          "example": "13"
         },
         {
           "name": "installationFree",
           "in": "body",
           "required": true,
-          "type": "Integer(32)"
+          "type": "Integer(32)",
+          "example": "1"
         }
       ],
       "id": "app-create"
@@ -84,7 +86,8 @@
           "name": "languageCode",
           "in": "query",
           "required": true,
-          "type": "String(20)"
+          "type": "String(20)",
+          "example": "zh_cn"
         }
       ],
       "id": "members-role-list"
@@ -111,7 +114,8 @@
           "name": "releaseType",
           "in": "query",
           "required": false,
-          "type": "Integer"
+          "type": "Integer",
+          "example": "1"
         },
         {
           "name": "versionId",
@@ -138,13 +142,15 @@
           "name": "releaseType",
           "in": "query",
           "required": false,
-          "type": "Integer(32)"
+          "type": "Integer(32)",
+          "example": "1"
         },
         {
           "name": "releasePhase",
           "in": "query",
           "required": false,
-          "type": "Integer(32)"
+          "type": "Integer(32)",
+          "example": "0"
         },
         {
           "name": "defaultLang",
@@ -228,13 +234,15 @@
           "name": "registeredDclType",
           "in": "body",
           "required": false,
-          "type": "Integer(32)"
+          "type": "Integer(32)",
+          "example": "2"
         },
         {
           "name": "registeredIdType",
           "in": "body",
           "required": false,
-          "type": "Integer(32)"
+          "type": "Integer(32)",
+          "example": "1"
         },
         {
           "name": "registeredIdNumber",
@@ -246,7 +254,8 @@
           "name": "registeredEntity",
           "in": "body",
           "required": false,
-          "type": "Integer(32)"
+          "type": "Integer(32)",
+          "example": "1"
         },
         {
           "name": "registeredEntityName",
@@ -282,7 +291,8 @@
           "name": "isAiGenerate",
           "in": "body",
           "required": false,
-          "type": "Integer(32)"
+          "type": "Integer(32)",
+          "example": "0"
         },
         {
           "name": "aiTypes",
@@ -357,13 +367,15 @@
           "name": "releaseType",
           "in": "query",
           "required": false,
-          "type": "Integer(32)"
+          "type": "Integer(32)",
+          "example": "1"
         },
         {
           "name": "releasePhase",
           "in": "query",
           "required": false,
-          "type": "Integer(32)"
+          "type": "Integer(32)",
+          "example": "0"
         },
         {
           "name": "lang",
@@ -420,7 +432,8 @@
           "name": "releaseType",
           "in": "query",
           "required": false,
-          "type": "Integer"
+          "type": "Integer",
+          "example": "1"
         }
       ],
       "id": "language-info-delete"
@@ -441,13 +454,15 @@
           "name": "releaseType",
           "in": "query",
           "required": false,
-          "type": "Integer(32)"
+          "type": "Integer(32)",
+          "example": "1"
         },
         {
           "name": "releasePhase",
           "in": "query",
           "required": false,
-          "type": "Integer(32)"
+          "type": "Integer(32)",
+          "example": "0"
         },
         {
           "name": "appIconList",
@@ -540,13 +555,15 @@
           "name": "releaseType",
           "in": "query",
           "required": false,
-          "type": "Integer(32)"
+          "type": "Integer(32)",
+          "example": "1"
         },
         {
           "name": "releasePhase",
           "in": "query",
           "required": false,
-          "type": "Integer(32)"
+          "type": "Integer(32)",
+          "example": "0"
         },
         {
           "name": "fileName",
@@ -579,7 +596,8 @@
           "name": "changeType",
           "in": "body",
           "required": true,
-          "type": "Integer"
+          "type": "Integer",
+          "example": "2"
         },
         {
           "name": "releaseTime",
@@ -591,7 +609,8 @@
           "name": "releaseType",
           "in": "body",
           "required": true,
-          "type": "Integer"
+          "type": "Integer",
+          "example": "1"
         }
       ],
       "id": "update-releasetime"
@@ -618,13 +637,15 @@
           "name": "releasePhase",
           "in": "body",
           "required": false,
-          "type": "Integer(32)"
+          "type": "Integer(32)",
+          "example": "3"
         },
         {
           "name": "state",
           "in": "body",
           "required": false,
-          "type": "String(16)"
+          "type": "String(16)",
+          "example": "SUSPEND"
         },
         {
           "name": "description",
@@ -636,7 +657,8 @@
           "name": "phaseDay",
           "in": "body",
           "required": false,
-          "type": "Integer(32)"
+          "type": "Integer(32)",
+          "example": "2"
         }
       ],
       "id": "phased-release-update"
@@ -692,8 +714,9 @@
         {
           "name": "appId",
           "in": "header",
-          "required": true,
-          "type": "String(32)"
+          "required": false,
+          "type": "String(32)",
+          "note": "Official packageName remark allows appId OR packageName."
         },
         {
           "name": "packageName",
@@ -705,7 +728,8 @@
           "name": "state",
           "in": "body",
           "required": false,
-          "type": "String(64)"
+          "type": "String(64)",
+          "example": "SUSPEND"
         }
       ],
       "id": "app-version-list"
@@ -878,7 +902,8 @@
           "name": "type",
           "in": "body",
           "required": true,
-          "type": "Integer(32)"
+          "type": "Integer(32)",
+          "example": "2"
         },
         {
           "name": "defaultLang",
@@ -930,13 +955,15 @@
           "name": "status",
           "in": "body",
           "required": false,
-          "type": "Integer(32)"
+          "type": "Integer(32)",
+          "example": "2"
         },
         {
           "name": "type",
           "in": "body",
           "required": false,
-          "type": "Integer(32)"
+          "type": "Integer(32)",
+          "example": "2"
         },
         {
           "name": "fromRecCount",
@@ -1041,13 +1068,15 @@
           "name": "status",
           "in": "body",
           "required": false,
-          "type": "Integer(32)"
+          "type": "Integer(32)",
+          "example": "2"
         },
         {
           "name": "type",
           "in": "body",
           "required": false,
-          "type": "Integer(32)"
+          "type": "Integer(32)",
+          "example": "1"
         },
         {
           "name": "fromRecCount",
@@ -1113,13 +1142,15 @@
           "name": "releaseType",
           "in": "query",
           "required": false,
-          "type": "Integer(32)"
+          "type": "Integer(32)",
+          "example": "1"
         },
         {
           "name": "releasePhase",
           "in": "query",
           "required": false,
-          "type": "Integer(32)"
+          "type": "Integer(32)",
+          "example": "0"
         },
         {
           "name": "feedback",
@@ -1176,13 +1207,15 @@
           "name": "releaseType",
           "in": "body",
           "required": false,
-          "type": "Integer(32)"
+          "type": "Integer(32)",
+          "example": "1"
         },
         {
           "name": "releasePhase",
           "in": "body",
           "required": false,
-          "type": "Integer(32)"
+          "type": "Integer(32)",
+          "example": "0"
         },
         {
           "name": "phasedReleaseDescription",
@@ -1236,7 +1269,8 @@
           "name": "releaseType",
           "in": "query",
           "required": false,
-          "type": "Integer"
+          "type": "Integer",
+          "example": "1"
         }
       ],
       "id": "app-shelf-off"

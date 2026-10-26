@@ -1,0 +1,63 @@
+{
+  "checkedAt": "2026-10-26",
+  "examples": [],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-console-0000001325045601",
+      "title": "开发者中心配置"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-obtaintoken-0000001414202481",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-client-apiauthorization-0000001453744605#ZH-CN_TOPIC_0000002769572721__li168721829143617",
+      "title": "3"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-apiauthorization-0000001374178549",
+      "title": "获取服务端API授权"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-android-0000001053333939",
+      "title": "Android"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "文档说明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-client-apiauthorization-0000001453744605",
+      "text": "访问端侧网关的客户端需要具备有效的Client ID以及Client Secret，才能通过端侧网关的鉴权校验并对业务接口发起有效调用。"
+    },
+    {
+      "section": "文档说明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-client-apiauthorization-0000001453744605",
+      "text": "登录HarmonyOS 开发者中心，进入“开发者管理”页面。"
+    },
+    {
+      "section": "文档说明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-client-apiauthorization-0000001453744605",
+      "text": "左侧导航栏选择“ID、证书和Profile > APP ID”，点击“项目管理”页签。"
+    },
+    {
+      "section": "文档说明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-client-apiauthorization-0000001453744605",
+      "text": "在项目管理页面顶部选择您的项目，记录“项目”栏下的“Client ID”和“Client Secret”。"
+    },
+    {
+      "section": "文档说明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-client-apiauthorization-0000001453744605",
+      "text": "调用获取Token接口，获取访问客户端REST API的Access Token。您在3中记录的“Client ID”和“Client Secret”将作为请求参数在调用时传入。"
+    }
+  ],
+  "renderedText": "指南\n认证服务\n开发者中心配置\n获取客户端API授权\n获取客户端API授权\n更新时间: 2026-10-21 11:02\n\n访问端侧网关的客户端需要具备有效的Client ID以及Client Secret，才能通过端侧网关的鉴权校验并对业务接口发起有效调用。\n\n登录HarmonyOS 开发者中心，进入“开发者管理”页面。\n左侧导航栏选择“ID、证书和Profile > APP ID”，点击“项目管理”页签。\n在项目管理页面顶部选择您的项目，记录“项目”栏下的“Client ID”和“Client Secret”。\n\n调用获取Token接口，获取访问客户端REST API的Access Token。您在3中记录的“Client ID”和“Client Secret”将作为请求参数在调用时传入。\n获取服务端API授权\nAndroid\n意见反馈\n以上内容对您是否有帮助？\n意见反馈\n如果您有其他疑问，您也可以通过开发者社区问答频道来和我们联系探讨。\n社区提问AI 助手提问\n简体中文\n华为开发者联盟 版权所有 ©2026\n问题反馈\n使用条款\n华为开发者联盟用户协议\n关于华为开发者联盟与隐私的声明\nCookies\n开源软件声明",
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-client-apiauthorization-0000001453744605",
+  "status": "browser-read",
+  "tables": [],
+  "title": "获取客户端API授权",
+  "updatedAt": "2026-10-21 11:02"
+}

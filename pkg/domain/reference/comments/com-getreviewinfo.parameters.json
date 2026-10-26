@@ -1,0 +1,35 @@
+[
+  {
+    "name": "reviewId",
+    "in": "path",
+    "type": "string",
+    "required": true,
+    "description": "评论ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-getreviewinfo-0000001116028248#section3861044135212"
+  },
+  {
+    "name": "appId",
+    "in": "query",
+    "type": "string",
+    "required": true,
+    "description": "应用ID，获取方法参考查询应用信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-getreviewinfo-0000001116028248#section1268762644313"
+  },
+  {
+    "name": "page",
+    "in": "query",
+    "type": "integer",
+    "required": false,
+    "description": "请求页码，默认1。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-getreviewinfo-0000001116028248#section1268762644313"
+  },
+  {
+    "name": "limit",
+    "in": "query",
+    "type": "integer",
+    "required": false,
+    "description": "每页请求数目，最大100条每页，默认20条。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-getreviewinfo-0000001116028248#section1268762644313",
+    "maximum": 100
+  }
+]

@@ -1,0 +1,109 @@
+[
+  {
+    "name": "Authorization",
+    "type": "string",
+    "required": false,
+    "description": "认证鉴权信息。 认证方式：Bearer token。 格式:“Authorization: Bearer ${access_token}”。 access_token为获取Token中获取的access_token。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-querysite-0000001166826430#section580816227139",
+    "in": "header"
+  },
+  {
+    "name": "productId",
+    "type": "string",
+    "required": true,
+    "description": "项目ID，获取方法参考查询开发者账号ID及项目ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-querysite-0000001166826430#section580816227139",
+    "in": "header"
+  },
+  {
+    "name": "requestid",
+    "type": "string",
+    "required": true,
+    "description": "自定义的请求字符串，必须唯一标识此请求。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-querysite-0000001166826430#section580816227139",
+    "in": "header"
+  },
+  {
+    "name": "client_id",
+    "type": "string",
+    "required": false,
+    "description": "客户端ID，获取方法参考创建API客户端。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-querysite-0000001166826430#section580816227139",
+    "in": "header"
+  },
+  {
+    "name": "service",
+    "type": "string",
+    "required": true,
+    "description": "API业务标识。固定值：hosting。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-querysite-0000001166826430#section580816227139",
+    "in": "header",
+    "enum": [
+      "hosting"
+    ]
+  },
+  {
+    "name": "site",
+    "type": "object",
+    "required": true,
+    "description": "站点信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-querysite-0000001166826430#section2809102219131",
+    "in": "body",
+    "properties": [
+      {
+        "name": "siteName",
+        "type": "string",
+        "required": false,
+        "description": "站点名称。 可通过云托管站点名称查询站点完整信息。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-querysite-0000001166826430#section2809102219131",
+        "in": "body",
+        "maxLength": 63
+      },
+      {
+        "name": "siteId",
+        "type": "string",
+        "required": false,
+        "description": "站点ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-querysite-0000001166826430#section2809102219131",
+        "in": "body",
+        "maxLength": 64
+      },
+      {
+        "name": "tenantId",
+        "type": "string",
+        "required": false,
+        "description": "租户ID，与项目ID一致。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-querysite-0000001166826430#section2809102219131",
+        "in": "body",
+        "maxLength": 64
+      }
+    ]
+  },
+  {
+    "name": "pageInfo",
+    "type": "object",
+    "required": false,
+    "description": "分页模型。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-querysite-0000001166826430#section2809102219131",
+    "in": "body",
+    "properties": [
+      {
+        "name": "queryIndex",
+        "type": "integer",
+        "required": false,
+        "description": "索引查询，默认值为0。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-querysite-0000001166826430#section2809102219131",
+        "in": "body"
+      },
+      {
+        "name": "querySize",
+        "type": "integer",
+        "required": false,
+        "description": "每页查询数量。默认值为1000，最大值为1000",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-querysite-0000001166826430#section2809102219131",
+        "in": "body",
+        "maximum": 1000
+      }
+    ]
+  }
+]

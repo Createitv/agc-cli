@@ -1,0 +1,10 @@
+[
+  {
+    "name": "oauth2Token",
+    "in": "header",
+    "type": "string",
+    "required": true,
+    "description": "认证信息，传入获取用户授权码中获取的Access Token。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-getteamlist-0000001158245075#section236517415165"
+  }
+]

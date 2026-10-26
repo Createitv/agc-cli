@@ -1,0 +1,320 @@
+{
+  "examples": [
+    {
+      "section": "请求示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-test-group-user-0000002236201338#section162251741185115",
+      "text": "请求示例\nPOST /api/publish/v2/test/user HTTP/1.1 \nHost: connect-api.cloud.huawei.com \nclient_id: 4141******68 \nContent-Type: application/json \nAuthorization: Bearer ******* \nappId: 6917********65\n{\n  \"groupId\": \"41******68\",\n  \"nickName\": \"M***y\",\n  \"hwAccount\": \"86-130****5675\",\n  \"uid\": \"string\"\n}"
+    },
+    {
+      "section": "响应示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-test-group-user-0000002236201338#section14178457143617",
+      "text": "响应示例\n{\n    \"rtnCode\": 0,\n    \"rtnDesc\": \"string\",\n    \"businessCode\": 0\n}"
+    }
+  ],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter#section195981215284",
+      "title": "了解新版目录"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-open-ability-0000002235710238",
+      "title": "AGC开放能力"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-0000002236015554",
+      "title": "AppGallery Connect API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-reference-0000002271000709",
+      "title": "Testing API参考"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-obtain-server-auth-0000002271134661",
+      "title": "获取服务端授权"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-obtain-server-auth-0000002271134661#section104621343151212",
+      "title": "通过Service Account方式获取授权"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-getting-started/agc-help-view-app-info-0000002282674569",
+      "title": "查看应用信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-obtain-server-auth-0000002271134661#section103mcpsimp",
+      "title": "创建API客户端"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-obtain-server-auth-0000002271134661#section09831133141712",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-getting-started/agc-help-view-app-info-0000002282674569",
+      "title": "查看应用信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-obtain-server-auth-0000002271134661#section949717114392",
+      "title": "获取用户授权码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-getting-started/agc-help-view-app-info-0000002282674569",
+      "title": "查看应用信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-data-connectret-0000002272455641",
+      "title": "ConnectRet"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-query-test-user-0000002664997773",
+      "title": "查询测试群组成员"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-add-test-group-user-0000002236201338#section16817111413112",
+      "title": "功能介绍"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-add-test-group-user-0000002236201338#section101651738121111",
+      "title": "接口原型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-add-test-group-user-0000002236201338#section747013518115",
+      "title": "请求参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-add-test-group-user-0000002236201338#section1585011135518",
+      "title": "Header"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-add-test-group-user-0000002236201338#section141117691213",
+      "title": "Body"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-add-test-group-user-0000002236201338#section162251741185115",
+      "title": "请求示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-add-test-group-user-0000002236201338#section9752647125217",
+      "title": "响应参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-add-test-group-user-0000002236201338#section14178457143617",
+      "title": "响应示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-test-group-user-0000002236201338#section16817111413112",
+      "text": "此接口用于邀请测试新增测试群组成员。"
+    },
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-test-group-user-0000002236201338#section16817111413112",
+      "text": "接口调用者的角色：账号持有者、管理员、APP管理员、运营。"
+    },
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-test-group-user-0000002236201338#section16817111413112",
+      "text": "“内部群组”为AppTest专属能力，如果您希望体验此能力，但您的应用尚未切换为AppTest邀请测试，可以通过在线工单系统与我们联系。工单“问题分类”请选择“上架与运营-应用市场-应用测试”，并在“问题描述”中提供您的开发者名称、开发者ID、应用名称、APP ID。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-test-group-user-0000002236201338#section1585011135518",
+      "text": "本接口支持使用Service Account方式、API客户端方式和OAuth客户端方式，区别请参见获取服务端授权。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-test-group-user-0000002236201338#section1585011135518",
+      "text": "Service Account方式："
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-test-group-user-0000002236201338#section1585011135518",
+      "text": "API客户端方式："
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-test-group-user-0000002236201338#section1585011135518",
+      "text": "OAuth客户端方式："
+    }
+  ],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-test-group-user-0000002236201338",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "承载协议",
+          "HTTPS POST"
+        ],
+        [
+          "接口方向",
+          "开发者服务器 -> 华为服务器"
+        ],
+        [
+          "接口URL",
+          "https://connect-api.cloud.huawei.com/api/publish/v2/test/user"
+        ],
+        [
+          "数据格式",
+          "请求：Content-Type: application/json 响应：Content-Type: application/json"
+        ]
+      ],
+      "section": "接口原型",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-test-group-user-0000002236201338#section101651738121111"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "Authorization",
+          "M",
+          "String",
+          "认证信息，格式为“Authorization: Bearer ${JWT}”。JWT为通过Service Account方式获取授权中获取的鉴权令牌。"
+        ],
+        [
+          "appId",
+          "M",
+          "String(32)",
+          "应用ID，获取方法参考查看应用信息。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-test-group-user-0000002236201338#section1585011135518"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "client_id",
+          "M",
+          "String",
+          "客户端ID，获取方法参考创建API客户端。"
+        ],
+        [
+          "Authorization",
+          "M",
+          "String",
+          "认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。"
+        ],
+        [
+          "appId",
+          "M",
+          "String(32)",
+          "应用ID，获取方法参考查看应用信息。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-test-group-user-0000002236201338#section1585011135518"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "teamId",
+          "M",
+          "Integer(int64)",
+          "开发者所在团队的团队ID。"
+        ],
+        [
+          "oauth2Token",
+          "M",
+          "String",
+          "认证信息，传入获取用户授权码中获取的Access Token。"
+        ],
+        [
+          "appId",
+          "M",
+          "String(32)",
+          "应用ID，获取方法参考查看应用信息。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-test-group-user-0000002236201338#section1585011135518"
+    },
+    {
+      "location": "body",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "groupId",
+          "M",
+          "String(32)",
+          "测试群组ID。"
+        ],
+        [
+          "nickName",
+          "O",
+          "String(64)",
+          "需要添加到测试群组的成员昵称。"
+        ],
+        [
+          "hwAccount",
+          "M",
+          "String(256)",
+          "测试群组成员的华为账号、邮箱或者手机号。 手机号格式为：国家码-手机号 内部群组手机号格式为：0086手机号 外部群组手机号格式为：86-手机号"
+        ],
+        [
+          "uid",
+          "O",
+          "String(128)",
+          "联盟账号id，内部群组添加成员必填。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-test-group-user-0000002236201338#section141117691213"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "ret",
+          "M",
+          "ConnectRet",
+          "包含返回码及描述信息的结果。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-test-group-user-0000002236201338#section9752647125217"
+    }
+  ],
+  "title": "新增测试群组成员",
+  "updatedAt": "2026-08-05 11:22",
+  "checkedAt": "2026-10-07T02:54:55.274Z",
+  "family": "testing",
+  "endpoint": "test-api-add-test-group-user"
+}

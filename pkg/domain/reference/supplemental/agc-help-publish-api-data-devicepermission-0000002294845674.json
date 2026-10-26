@@ -1,0 +1,92 @@
+{
+  "examples": [],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter#section195981215284",
+      "title": "了解新版目录"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-open-ability-0000002235710238",
+      "title": "AGC开放能力"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-0000002236015554",
+      "title": "AppGallery Connect API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-reference-0000002271160565",
+      "title": "Publishing API参考"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-0000002236201266",
+      "title": "数据模型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-permission-0000002328924977",
+      "title": "Permission"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/publish-api-devicemultipermissionreason-0000002294885664",
+      "title": "DeviceMultiPermissionReason"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-devicetypeinfo-0000002236201270",
+      "title": "DeviceTypeInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-devicepermission-0000002294845674",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "permissions",
+          "O",
+          "List<Permission>",
+          "权限详情。 数组长度为1~200。"
+        ],
+        [
+          "reasonId",
+          "O",
+          "String(64)",
+          "权限理由ID。"
+        ],
+        [
+          "reason",
+          "O",
+          "String(500)",
+          "权限理由描述。"
+        ],
+        [
+          "groupId",
+          "O",
+          "String(100)",
+          "权限groupId。"
+        ],
+        [
+          "groupName",
+          "O",
+          "String(256)",
+          "权限groupName。"
+        ]
+      ],
+      "section": "",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-devicepermission-0000002294845674"
+    }
+  ],
+  "title": "DevicePermission",
+  "updatedAt": "2026-06-25 19:52",
+  "checkedAt": "2026-10-07T04:41:35.385Z"
+}

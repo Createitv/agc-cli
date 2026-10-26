@@ -1,0 +1,408 @@
+{
+  "captureTool": "Computer Use; merged-cell capture compatible with scripts/browser-capture-reference.mjs",
+  "checkedAt": "2026-10-26",
+  "examples": [
+    {
+      "section": "命令格式",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#命令格式",
+      "text": "cf_prefetch getcache -m <bundlename>"
+    }
+  ],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter#section195981215284",
+      "title": "了解新版目录"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloud-foundation-kit-guide",
+      "title": "Cloud Foundation Kit（云开发服务）"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-service",
+      "title": "预加载"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-debugging",
+      "title": "（可选）使用命令行工具调试周期性预加载"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#%E8%B0%83%E8%AF%95%E5%91%BD%E4%BB%A4",
+      "title": "getcache"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/registration-and-verification-0000001053628148",
+      "title": "账号注册认证"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-getting-started/agc-help-debug-cert-0000002283256797",
+      "title": "申请调试证书"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/hdc#%E8%AE%BE%E5%A4%87%E8%BF%9E%E6%8E%A5%E7%AE%A1%E7%90%86",
+      "title": "设备连接管理"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/hdc#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98",
+      "title": "常见问题"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#%E5%BC%82%E5%B8%B8%E5%9C%BA%E6%99%AF",
+      "title": "异常场景"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-debugging",
+      "title": "（可选）使用命令行工具调试周期性预加载"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-errorcode",
+      "title": "错误码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#%E8%B0%83%E8%AF%95%E5%87%86%E5%A4%87",
+      "title": "调试准备"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#%E5%88%87%E6%8D%A2shell%E7%8E%AF%E5%A2%83",
+      "title": "切换shell环境"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#%E8%B0%83%E8%AF%95%E5%91%BD%E4%BB%A4",
+      "title": "调试命令"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#%E5%91%BD%E4%BB%A4%E6%A0%BC%E5%BC%8F",
+      "title": "命令格式"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#%E5%91%BD%E4%BB%A4%E9%80%89%E9%A1%B9",
+      "title": "命令选项"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#%E8%B0%83%E7%94%A8%E7%A4%BA%E4%BE%8B",
+      "title": "调用示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#%E6%AD%A3%E5%B8%B8%E5%9C%BA%E6%99%AF",
+      "title": "正常场景"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#%E5%BC%82%E5%B8%B8%E5%9C%BA%E6%99%AF",
+      "title": "异常场景"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug",
+      "text": "您当前正在浏览新版开发者文档中心，目录分类和层级有所调整。点击左侧当前文档分类名称前的“☰”图标，可切换文档分类。 了解新版目录"
+    },
+    {
+      "section": "",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug",
+      "text": "prefetch_test_tool是为周期性预加载功能提供的一种命令行工具，开发者集成预加载服务后，使用该工具可以更方便、更高效地进行周期性预加载功能测试和调试，提高开发效率，同时确保预加载服务的平稳运行。"
+    },
+    {
+      "section": "",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug",
+      "text": "当前命令行工具支持的命令集如下："
+    },
+    {
+      "section": "调试准备",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#调试准备",
+      "text": "使用命令行工具调试周期性预加载之前，需要完成以下准备工作："
+    },
+    {
+      "section": "调试准备",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#调试准备",
+      "text": "您已在开发者联盟官网注册账号并通过实名认证，详情请参见账号注册认证。"
+    },
+    {
+      "section": "调试准备",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#调试准备",
+      "text": "您已在开发者联盟官网注册账号并通过实名认证，详情请参见账号注册认证。"
+    },
+    {
+      "section": "调试准备",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#调试准备",
+      "text": "您已在本地安装DevEco Studio 5.0.3 Release及以上版本。"
+    },
+    {
+      "section": "调试准备",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#调试准备",
+      "text": "您已在本地安装DevEco Studio 5.0.3 Release及以上版本。"
+    },
+    {
+      "section": "调试准备",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#调试准备",
+      "text": "手机/平板终端设备的ROM版本已升级至HarmonyOS 6.0.0 Beta5及以上版本。"
+    },
+    {
+      "section": "调试准备",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#调试准备",
+      "text": "手机/平板终端设备的ROM版本已升级至HarmonyOS 6.0.0 Beta5及以上版本。"
+    },
+    {
+      "section": "调试准备",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#调试准备",
+      "text": "设置HAP包的“Build Mode”为“debug”，且已申请调试证书。"
+    },
+    {
+      "section": "调试准备",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#调试准备",
+      "text": "设置HAP包的“Build Mode”为“debug”，且已申请调试证书。"
+    },
+    {
+      "section": "切换shell环境",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#切换shell环境",
+      "text": "prefetch_test_tool命令行工具基于hdc shell调试，需要切换到hdc shell命令环境。"
+    },
+    {
+      "section": "切换shell环境",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#切换shell环境",
+      "text": "PC连接调试设备。连接方式请根据实际情况选择，详情请参见设备连接管理。"
+    },
+    {
+      "section": "切换shell环境",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#切换shell环境",
+      "text": "PC连接调试设备。连接方式请根据实际情况选择，详情请参见设备连接管理。"
+    },
+    {
+      "section": "切换shell环境",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#切换shell环境",
+      "text": "打开DevEco Studio，菜单栏选择“View > Tool Windows > Terminal”进入Terminal窗口。"
+    },
+    {
+      "section": "切换shell环境",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#切换shell环境",
+      "text": "打开DevEco Studio，菜单栏选择“View > Tool Windows > Terminal”进入Terminal窗口。"
+    },
+    {
+      "section": "切换shell环境",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#切换shell环境",
+      "text": "输入hdc shell，切换到hdc shell命令环境。切换过程中如果出现报错，请参见常见问题排查解决。"
+    },
+    {
+      "section": "切换shell环境",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#切换shell环境",
+      "text": "输入hdc shell，切换到hdc shell命令环境。切换过程中如果出现报错，请参见常见问题排查解决。"
+    },
+    {
+      "section": "调试命令",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#调试命令",
+      "text": "命令名“getcache”，提供获取周期性预加载数据的能力。"
+    },
+    {
+      "section": "命令格式",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#命令格式",
+      "text": "cf_prefetch getcache -m <bundlename>"
+    },
+    {
+      "section": "正常场景",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#正常场景",
+      "text": "输入cf_prefetch help，获取命令行工具的使用说明。"
+    },
+    {
+      "section": "正常场景",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#正常场景",
+      "text": "输入cf_prefetch help，获取命令行工具的使用说明。"
+    },
+    {
+      "section": "正常场景",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#正常场景",
+      "text": "输入cf_prefetch getcache -h，获取getcache命令支持的参数信息。"
+    },
+    {
+      "section": "正常场景",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#正常场景",
+      "text": "输入cf_prefetch getcache -h，获取getcache命令支持的参数信息。"
+    },
+    {
+      "section": "正常场景",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#正常场景",
+      "text": "输入cf_prefetch getcache -m <bundlename>，立即向云侧请求获取一次周期性预加载数据。\n\n说明\n\n如果返回结果中的“fetch data timestamp”不是当前时间，则表示仍为上一次成功拉取数据的时间戳，此次数据拉取失败，请参见异常场景排查。"
+    },
+    {
+      "section": "正常场景",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#正常场景",
+      "text": "输入cf_prefetch getcache -m <bundlename>，立即向云侧请求获取一次周期性预加载数据。"
+    },
+    {
+      "section": "正常场景",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#正常场景",
+      "text": "如果返回结果中的“fetch data timestamp”不是当前时间，则表示仍为上一次成功拉取数据的时间戳，此次数据拉取失败，请参见异常场景排查。"
+    },
+    {
+      "section": "异常场景",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#异常场景",
+      "text": "链路不通，例如无网络情况；或周期性预加载配置不正确。"
+    },
+    {
+      "section": "异常场景",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#异常场景",
+      "text": "链路不通，例如无网络情况；或周期性预加载配置不正确。"
+    },
+    {
+      "section": "异常场景",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#异常场景",
+      "text": "命令行工具内部错误。"
+    },
+    {
+      "section": "异常场景",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#异常场景",
+      "text": "命令行工具内部错误。"
+    },
+    {
+      "section": "异常场景",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#异常场景",
+      "text": "HAP包非debug调试模式。"
+    },
+    {
+      "section": "异常场景",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#异常场景",
+      "text": "HAP包非debug调试模式。"
+    },
+    {
+      "section": "异常场景",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#异常场景",
+      "text": "应用包名输入错误。"
+    },
+    {
+      "section": "异常场景",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#异常场景",
+      "text": "应用包名输入错误。"
+    }
+  ],
+  "renderedText": "您当前正在浏览新版开发者文档中心，目录分类和层级有所调整。点击左侧当前文档分类名称前的“☰”图标，可切换文档分类。 了解新版目录\n\n指南与API参考\n指南\n应用服务\nCloud Foundation Kit（云开发服务）\n预加载\n（可选）使用命令行工具调试周期性预加载\n调试周期性预加载\n调试周期性预加载\n更新时间: 2026-04-20 14:34\n复制页面\n\nprefetch_test_tool是为周期性预加载功能提供的一种命令行工具，开发者集成预加载服务后，使用该工具可以更方便、更高效地进行周期性预加载功能测试和调试，提高开发效率，同时确保预加载服务的平稳运行。\n\n当前命令行工具支持的命令集如下：\n\n命令名\t描述\ngetcache\t提供获取周期性预加载数据的能力。\n调试准备\n\n使用命令行工具调试周期性预加载之前，需要完成以下准备工作：\n\n您已在开发者联盟官网注册账号并通过实名认证，详情请参见账号注册认证。\n\n您已在本地安装DevEco Studio 5.0.3 Release及以上版本。\n\n手机/平板终端设备的ROM版本已升级至HarmonyOS 6.0.0 Beta5及以上版本。\n\n设置HAP包的“Build Mode”为“debug”，且已申请调试证书。\n\n切换shell环境\n\nprefetch_test_tool命令行工具基于hdc shell调试，需要切换到hdc shell命令环境。\n\nPC连接调试设备。连接方式请根据实际情况选择，详情请参见设备连接管理。\n\n打开DevEco Studio，菜单栏选择“View > Tool Windows > Terminal”进入Terminal窗口。\n\n输入hdc shell，切换到hdc shell命令环境。切换过程中如果出现报错，请参见常见问题排查解决。\n\n调试命令\n\n命令名“getcache”，提供获取周期性预加载数据的能力。\n\n命令格式\ncf_prefetch getcache -m <bundlename>\n命令选项\n命令选项\t必填(M)/选填(O)\t描述\t示例\n-m\tM\t应用包名。此处的包名需要与您在AppGallery Connect中创建应用时配置的包名保持一致。\tcf_prefetch getcache -m com.huawei.hms.xs.test\n调用示例\n正常场景\n\n输入cf_prefetch help，获取命令行工具的使用说明。\n\n输入cf_prefetch getcache -h，获取getcache命令支持的参数信息。\n\n输入cf_prefetch getcache -m <bundlename>，立即向云侧请求获取一次周期性预加载数据。\n\n说明\n\n如果返回结果中的“fetch data timestamp”不是当前时间，则表示仍为上一次成功拉取数据的时间戳，此次数据拉取失败，请参见异常场景排查。\n\n异常场景\n\n链路不通，例如无网络情况；或周期性预加载配置不正确。\n\n命令行工具内部错误。\n\nHAP包非debug调试模式。\n\n应用包名输入错误。\n\n（可选）使用命令行工具调试周期性预加载\n错误码\n意见反馈\n以上内容对您是否有帮助？\n意见反馈\n如果您有其他疑问，您也可以通过开发者社区问答频道来和我们联系探讨。\n社区提问AI 助手提问\n本文导读\n调试准备\n切换shell环境\n调试命令\n命令格式\n命令选项\n调用示例\n正常场景\n异常场景\n华为开发者联盟 版权所有 ©2026\n问题反馈\n使用条款\n华为开发者联盟用户协议\n关于华为开发者联盟与隐私的声明\nCookies\n开源软件声明",
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "命令名",
+          "描述"
+        ],
+        [
+          "getcache",
+          "提供获取周期性预加载数据的能力。"
+        ]
+      ],
+      "section": "",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "命令选项",
+          "必填(M)/选填(O)",
+          "描述",
+          "示例"
+        ],
+        [
+          "-m",
+          "M",
+          "应用包名。此处的包名需要与您在AppGallery Connect中创建应用时配置的包名保持一致。",
+          "cf_prefetch getcache -m com.huawei.hms.xs.test"
+        ]
+      ],
+      "section": "命令选项",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#命令选项"
+    }
+  ],
+  "title": "调试周期性预加载",
+  "relatedDocuments": [
+    {
+      "captureTool": "Computer Use; merged-cell capture compatible with scripts/browser-capture-reference.mjs",
+      "checkedAt": "2026-10-26",
+      "examples": [],
+      "links": [
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter#section195981215284",
+          "title": "了解新版目录"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloud-foundation-kit-guide",
+          "title": "Cloud Foundation Kit（云开发服务）"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-service",
+          "title": "预加载"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-debugging",
+          "title": "（可选）使用命令行工具调试周期性预加载"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config",
+          "title": "配置预加载"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug",
+          "title": "调试周期性预加载"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-emulator",
+          "title": "使用模拟器调试"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+          "title": "华为开发者联盟用户协议"
+        }
+      ],
+      "notes": [
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-errorcode",
+          "text": "您当前正在浏览新版开发者文档中心，目录分类和层级有所调整。点击左侧当前文档分类名称前的“☰”图标，可切换文档分类。 了解新版目录"
+        }
+      ],
+      "renderedText": "您当前正在浏览新版开发者文档中心，目录分类和层级有所调整。点击左侧当前文档分类名称前的“☰”图标，可切换文档分类。 了解新版目录\n\n指南与API参考\n指南\n应用服务\nCloud Foundation Kit（云开发服务）\n预加载\n（可选）使用命令行工具调试周期性预加载\n错误码\n错误码\n更新时间: 2026-04-20 14:34\n复制页面\n错误码\t描述\t解决方法\n1008200005\t周期性预加载执行失败。\t\n\n请从以下方面进行排查：\n\n- 检查设备网络连接情况。\n\n- 确保周期性预加载配置正确。若配置不正确，请参考配置预加载重新配置。\n\n- 确保云函数数据存储到中国境内（香港特别行政区、澳门特别行政区、中国台湾除外）。\n\n\n1008200009\t命令行工具内部错误。\t请通过在线工单系统联系技术支持人员定位问题。\n1008240000\tHAP包不在debug模式下。\t请确保HAP包的“Build Mode”设置为“debug”，且已申请调试证书。\n1008240007\t无法获取当前HAP包信息，例如APP ID等。\t请检查应用包名合法性，输入正确的应用包名。\n调试周期性预加载\n使用模拟器调试\n意见反馈\n以上内容对您是否有帮助？\n意见反馈\n如果您有其他疑问，您也可以通过开发者社区问答频道来和我们联系探讨。\n社区提问AI 助手提问\n华为开发者联盟 版权所有 ©2026\n问题反馈\n使用条款\n华为开发者联盟用户协议\n关于华为开发者联盟与隐私的声明\nCookies\n开源软件声明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-errorcode",
+      "status": "browser-read",
+      "tables": [
+        {
+          "location": "",
+          "rows": [
+            [
+              "错误码",
+              "描述",
+              "解决方法"
+            ],
+            [
+              "1008200005",
+              "周期性预加载执行失败。",
+              "请从以下方面进行排查： - 检查设备网络连接情况。 - 确保周期性预加载配置正确。若配置不正确，请参考配置预加载重新配置。 - 确保云函数数据存储到中国境内（香港特别行政区、澳门特别行政区、中国台湾除外）。"
+            ],
+            [
+              "1008200009",
+              "命令行工具内部错误。",
+              "请通过在线工单系统联系技术支持人员定位问题。"
+            ],
+            [
+              "1008240000",
+              "HAP包不在debug模式下。",
+              "请确保HAP包的“Build Mode”设置为“debug”，且已申请调试证书。"
+            ],
+            [
+              "1008240007",
+              "无法获取当前HAP包信息，例如APP ID等。",
+              "请检查应用包名合法性，输入正确的应用包名。"
+            ]
+          ],
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-errorcode"
+        }
+      ],
+      "title": "错误码"
+    }
+  ],
+  "implementationNotes": [
+    "Runs hdc -t DEVICE shell cf_prefetch getcache -m BUNDLE with separate argv. A successful process is not proof of a new fetch data timestamp. Debug HAP, supported ROM and an explicitly connected test device are prerequisites."
+  ]
+}

@@ -1,0 +1,305 @@
+{
+  "examples": [
+    {
+      "section": "请求示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-query-user-agreement-0000002236041442#section590591091819",
+      "text": "请求示例\nPOST /api/publish/v2/agreement/list HTTP/1.1\nHost: connect-api.cloud.huawei.com\nclient_id: 41******68\nContent-Type: application/json\nAuthorization: Bearer ******\nappId: 1******57\n{\n  \"agreementIdList\": [\n    \"\"\n  ],\n  \"name\": \"\",\n  \"status\": 2,\n  \"type\": 2,\n  \"fromRecCount\": 1,\n  \"maxReqCount\": 30\n}"
+    },
+    {
+      "section": "响应示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-query-user-agreement-0000002236041442#section3931254151818",
+      "text": "响应示例\n{\n  \"ret\": {\n    \"code\": 0,\n    \"msg\": \"success\"\n  },\n  \"totalCount\": 1,\n  \"agreements\": [\n    {\n      \"id\": \"15********08\",\n      \"type\": 2,\n      \"agreementInfos\": [\n        {\n          \"lang\": \"zh\",\n          \"baseInfo\": {\n          \"name\": \"N*******9\",\n          \"agreementTitle\": \"**********\",\n          \"userAgreementUrl\": \"http://**********\"\n          }\n        }\n      ],\n      \"versionCode\": 1,\n      \"status\": 2,\n      \"defaultLang\": \"zh\",\n      \"createTime\": 1733555215000,\n      \"updateTime\": 1733555215000\n    }\n  ]\n}"
+    }
+  ],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter#section195981215284",
+      "title": "了解新版目录"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-open-ability-0000002235710238",
+      "title": "AGC开放能力"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-0000002236015554",
+      "title": "AppGallery Connect API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-reference-0000002271160565",
+      "title": "Publishing API参考"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-obtain-server-auth-0000002271134661",
+      "title": "获取服务端授权"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-obtain-server-auth-0000002271134661#section104621343151212",
+      "title": "通过Service Account方式获取授权"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-getting-started/agc-help-view-app-info-0000002282674569",
+      "title": "查看应用信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-obtain-server-auth-0000002271134661#section103mcpsimp",
+      "title": "创建API客户端"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-obtain-server-auth-0000002271134661#section09831133141712",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-getting-started/agc-help-view-app-info-0000002282674569",
+      "title": "查看应用信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-connectret-0000002271160589",
+      "title": "ConnectRet"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-agreement-user-0000002271160613",
+      "title": "Agreement"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-create-user-agreement-0000002271160581",
+      "title": "新建用户协议"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-update-user-agreement-0000002294845626",
+      "title": "更新用户协议"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-query-user-agreement-0000002236041442#section154708823714",
+      "title": "功能介绍"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-query-user-agreement-0000002236041442#section6932219103913",
+      "title": "接口原型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-query-user-agreement-0000002236041442#section44860761",
+      "title": "请求参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-query-user-agreement-0000002236041442#section236517415165",
+      "title": "Header"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-query-user-agreement-0000002236041442#section2357705386",
+      "title": "Body"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-query-user-agreement-0000002236041442#section590591091819",
+      "title": "请求示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-query-user-agreement-0000002236041442#section1383010100386",
+      "title": "响应参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-query-user-agreement-0000002236041442#section3931254151818",
+      "title": "响应示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-query-user-agreement-0000002236041442#section154708823714",
+      "text": "此接口用于查询HarmonyOS应用/元服务的用户协议信息。"
+    },
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-query-user-agreement-0000002236041442#section154708823714",
+      "text": "接口调用者的角色：账号持有者、管理员、APP管理员、运营。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-query-user-agreement-0000002236041442#section236517415165",
+      "text": "本接口支持使用Service Account方式和API客户端方式，二者区别请参见获取服务端授权。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-query-user-agreement-0000002236041442#section236517415165",
+      "text": "Service Account方式："
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-query-user-agreement-0000002236041442#section236517415165",
+      "text": "API客户端方式："
+    }
+  ],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-query-user-agreement-0000002236041442",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "承载协议",
+          "HTTPS POST"
+        ],
+        [
+          "接口方向",
+          "开发者服务器 -> 华为服务器"
+        ],
+        [
+          "接口URL",
+          "https://connect-api.cloud.huawei.com/api/publish/v2/agreement/list"
+        ],
+        [
+          "数据格式",
+          "请求：Content-Type: application/json 响应：Content-Type: application/json"
+        ]
+      ],
+      "section": "接口原型",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-query-user-agreement-0000002236041442#section6932219103913"
+    },
+    {
+      "authenticationBranch": "Service Account方式：",
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "Authorization",
+          "M",
+          "String",
+          "认证信息，格式为“Authorization: Bearer ${JWT}”。JWT为通过Service Account方式获取授权中获取的鉴权令牌。"
+        ],
+        [
+          "appId",
+          "M",
+          "String(32)",
+          "应用ID，获取方法参考查看应用信息。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-query-user-agreement-0000002236041442#section236517415165"
+    },
+    {
+      "authenticationBranch": "API客户端方式：",
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "client_id",
+          "M",
+          "String",
+          "客户端ID，获取方法参考创建API客户端。"
+        ],
+        [
+          "Authorization",
+          "M",
+          "String",
+          "认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。"
+        ],
+        [
+          "appId",
+          "M",
+          "String(32)",
+          "应用ID，获取方法参考查看应用信息。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-query-user-agreement-0000002236041442#section236517415165"
+    },
+    {
+      "location": "body",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "agreementIdList",
+          "O",
+          "List<String(64)>",
+          "用户协议ID。 数组长度为1~1000。"
+        ],
+        [
+          "name",
+          "M",
+          "String(100)",
+          "用户协议名称。 使用模糊查询方式。"
+        ],
+        [
+          "status",
+          "O",
+          "Integer(32)",
+          "用户协议状态。 取值范围： 2：已完成 3：已删除"
+        ],
+        [
+          "type",
+          "O",
+          "Integer(32)",
+          "协议类型。 取值范围： 2：用户协议"
+        ],
+        [
+          "fromRecCount",
+          "O",
+          "Integer(32)",
+          "查询起始位置。 默认值：1"
+        ],
+        [
+          "maxReqCount",
+          "O",
+          "Integer",
+          "最大请求查询数。 取值范围：[1,100] 默认值：30"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-query-user-agreement-0000002236041442#section2357705386"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "ret",
+          "M",
+          "ConnectRet",
+          "包含返回码及描述信息的结果。"
+        ],
+        [
+          "totalCount",
+          "O",
+          "Integer",
+          "用户协议总数量。"
+        ],
+        [
+          "agreements",
+          "O",
+          "Agreement",
+          "用户协议信息列表。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-query-user-agreement-0000002236041442#section1383010100386"
+    }
+  ],
+  "title": "查询用户协议列表",
+  "updatedAt": "2026-06-25 19:52",
+  "checkedAt": "2026-10-07T04:57:06.324Z",
+  "family": "publishing",
+  "endpoint": "user-agreement-list"
+}

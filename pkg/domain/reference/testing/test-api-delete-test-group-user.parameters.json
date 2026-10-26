@@ -1,0 +1,31 @@
+[
+  {
+    "name": "appId",
+    "in": "header",
+    "type": "string",
+    "required": true,
+    "description": "应用ID，获取方法参考查看应用信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-delete-test-group-user-0000002271000721#section236517415165",
+    "maxLength": 32
+  },
+  {
+    "name": "deleteTesterIds",
+    "in": "body",
+    "type": "array",
+    "required": true,
+    "description": "需要删除的测试成员的ID列表。 数组长度不超过100。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-delete-test-group-user-0000002271000721#section141117691213",
+    "itemsType": "string",
+    "itemsMaxLength": 100,
+    "maxItems": 100
+  },
+  {
+    "name": "groupId",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "测试群组ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-delete-test-group-user-0000002271000721#section141117691213",
+    "maxLength": 32
+  }
+]

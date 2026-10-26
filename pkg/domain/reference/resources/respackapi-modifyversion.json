@@ -1,0 +1,346 @@
+{
+  "examples": [
+    {
+      "section": "请求示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-modifyversion-0000002328236372#section175272026758",
+      "text": "请求示例\nPUT games-background-assets-service/v1/open/dev/1******7/package-versions HTTP/1.1\nHost: connect-api.cloud.huawei.com\nclient_id: 41******68\nContent-Type: application/json\nAuthorization: Bearer ******\n{\n   \"isDraft\": 0,\n    \"resourceVersion\": {\n      \"versionId\": 0,\n      \"packageName\": \"com.abc.test\",\n      \"appId\": \"12345678\",\n      \"version\": 999999999,\n      \"startTime\": 1752595200000,\n      \"endTime\": 1752699999999,\n    }\n  }"
+    },
+    {
+      "section": "响应示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-modifyversion-0000002328236372#section847941515100",
+      "text": "响应示例\n{\n    \"ret\": {\n      \"code\": 0,\n      \"msg\": \"string\"\n    }\n}"
+    }
+  ],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-res-pkg-preload-0000002362394629",
+      "title": "资源包预下载"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114#section103mcpsimp",
+      "title": "创建API客户端"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain_token-0000001158365043",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-modifyversion-0000002328236372#ZH-CN_TOPIC_0000002328236372__li167456115133",
+      "title": "GWOpModifyPackageVersionReq"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-modifyversion-0000002328236372#ZH-CN_TOPIC_0000002328236372__li384415309133",
+      "title": "GWOpPackageVersionEntity"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/appgallery_queryappinfo",
+      "title": "查询应用信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-modifyversion-0000002328236372#ZH-CN_TOPIC_0000002328236372__li1750915382310",
+      "title": "GbasRet"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-returncode-0000002328236396",
+      "title": "错误码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadconfirm-0000002362394641",
+      "title": "资源包文件上传确认"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-releaseversion-0000002362394637",
+      "title": "发布资源包版本"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-modifyversion-0000002328236372#section8711909",
+      "title": "功能介绍"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-modifyversion-0000002328236372#section6932219103913",
+      "title": "接口原型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-modifyversion-0000002328236372#section42749152",
+      "title": "请求参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-modifyversion-0000002328236372#section16852614454",
+      "title": "Header"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-modifyversion-0000002328236372#section6704618182019",
+      "title": "Path"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-modifyversion-0000002328236372#section985411610234",
+      "title": "Body"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-modifyversion-0000002328236372#section175272026758",
+      "title": "请求示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-modifyversion-0000002328236372#section49198053",
+      "title": "响应参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-modifyversion-0000002328236372#section847941515100",
+      "title": "响应示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-modifyversion-0000002328236372#section145575382294",
+      "title": "调用示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-modifyversion-0000002328236372#section8711909",
+      "text": "若isDraft传参为0，提交资源包预下载任务。提交后，资源包任务为“预下载”状态。"
+    },
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-modifyversion-0000002328236372#section8711909",
+      "text": "若isDraft传参为1，修改资源包下载任务信息。修改后，资源包任务为“草稿”状态。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-modifyversion-0000002328236372#section985411610234",
+      "text": "GWOpModifyPackageVersionReq 参数名称 必选(M)/可选(O) 类型 参数说明 isDraft M Int(32) 是否草稿： 0：提交。提交之后进入预发布状态。 1：草稿。草稿状态支持重新编辑。 resourceVersion O GWOpPackageVersionEntity 修改的资源包版本信息。 GWOpPackageVersionEntity 参数名称 必选(M)/可选(O) 类型 参数说明 versionId M Long 资源包版本ID。 packageName O String 游戏包名。最大长度255个字符。 appId M String 游戏APP ID，获取方法参考查询应用信息。 version O Int 版本号。 startTime O Long 开始下载时间。 endTime O Long 结束下载时间。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-modifyversion-0000002328236372#section985411610234",
+      "text": "GWOpPackageVersionEntity 参数名称 必选(M)/可选(O) 类型 参数说明 versionId M Long 资源包版本ID。 packageName O String 游戏包名。最大长度255个字符。 appId M String 游戏APP ID，获取方法参考查询应用信息。 version O Int 版本号。 startTime O Long 开始下载时间。 endTime O Long 结束下载时间。"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-modifyversion-0000002328236372#section49198053",
+      "text": "GbasRet 参数名称 必选(M)/可选(O) 类型 参数说明 code O Int 返回码，请参见错误码。 msg O String 返回码描述信息。"
+    }
+  ],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-modifyversion-0000002328236372",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "承载协议",
+          "HTTPS PUT"
+        ],
+        [
+          "接口方向",
+          "开发者服务器 ->华为服务器"
+        ],
+        [
+          "接口URL",
+          "https://connect-api.cloud.huawei.com/api/games-background-assets-service/v1/open-gw/dev/{devId}/package-versions"
+        ],
+        [
+          "数据格式",
+          "请求消息：Content-Type: application/json 响应消息：Content-Type: application/json"
+        ]
+      ],
+      "section": "接口原型",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-modifyversion-0000002328236372#section6932219103913"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "client_id",
+          "M",
+          "String",
+          "客户端ID，获取方法参考创建API客户端，其中“角色”支持勾选“APP管理员”、“管理员”、“运营”。"
+        ],
+        [
+          "Authorization",
+          "M",
+          "String",
+          "认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。"
+        ],
+        [
+          "requestId",
+          "M",
+          "String",
+          "请求ID，最大长度128个字符，必须唯一。开发者自定义，用于鉴别是否是重复请求。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-modifyversion-0000002328236372#section16852614454"
+    },
+    {
+      "location": "path",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "devId",
+          "M",
+          "Long",
+          "开发者ID。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-modifyversion-0000002328236372#section6704618182019"
+    },
+    {
+      "location": "body",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "modifyPackageVersionReq",
+          "M",
+          "GWOpModifyPackageVersionReq",
+          "修改资源包版本请求体。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-modifyversion-0000002328236372#section985411610234"
+    },
+    {
+      "location": "body",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "isDraft",
+          "M",
+          "Int(32)",
+          "是否草稿： 0：提交。提交之后进入预发布状态。 1：草稿。草稿状态支持重新编辑。"
+        ],
+        [
+          "resourceVersion",
+          "O",
+          "GWOpPackageVersionEntity",
+          "修改的资源包版本信息。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-modifyversion-0000002328236372#section985411610234"
+    },
+    {
+      "location": "body",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "versionId",
+          "M",
+          "Long",
+          "资源包版本ID。"
+        ],
+        [
+          "packageName",
+          "O",
+          "String",
+          "游戏包名。最大长度255个字符。"
+        ],
+        [
+          "appId",
+          "M",
+          "String",
+          "游戏APP ID，获取方法参考查询应用信息。"
+        ],
+        [
+          "version",
+          "O",
+          "Int",
+          "版本号。"
+        ],
+        [
+          "startTime",
+          "O",
+          "Long",
+          "开始下载时间。"
+        ],
+        [
+          "endTime",
+          "O",
+          "Long",
+          "结束下载时间。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-modifyversion-0000002328236372#section985411610234"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "ret",
+          "M",
+          "GbasRet",
+          "包含返回码及描述信息的JSON字符串，格式为{\"code\":retcode, \"msg\": \"description\"}，retcode为返回码，description为返回码描述信息。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-modifyversion-0000002328236372#section49198053"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "code",
+          "O",
+          "Int",
+          "返回码，请参见错误码。"
+        ],
+        [
+          "msg",
+          "O",
+          "String",
+          "返回码描述信息。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-modifyversion-0000002328236372#section49198053"
+    }
+  ],
+  "title": "修改资源包版本",
+  "updatedAt": "2025-08-06 18:02",
+  "checkedAt": "2026-10-07T03:00:24.360Z",
+  "family": "resources",
+  "endpoint": "respackapi-modifyversion"
+}

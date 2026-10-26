@@ -1,0 +1,40 @@
+{
+  "header.appId": {
+    "maxLength": 32
+  },
+  "query.releaseType": {
+    "enum": [
+      "1"
+    ]
+  },
+  "query.releasePhase": {
+    "enum": [
+      "0",
+      "3"
+    ]
+  },
+  "body.feedback": {
+    "maxLength": 8192
+  },
+  "body.expectedRating": {
+    "enum": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ]
+  },
+  "body.ratingRule": {
+    "enum": [
+      "0",
+      "1"
+    ]
+  },
+  "body.childFlag": {
+    "enum": [
+      "0",
+      "1"
+    ]
+  }
+}

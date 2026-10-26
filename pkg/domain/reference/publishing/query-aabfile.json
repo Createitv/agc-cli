@@ -1,0 +1,313 @@
+{
+  "examples": [
+    {
+      "section": "请求示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-query-aabfile-0000001111685206#section1067322214331",
+      "text": "请求示例\nGET /api/publish/v2/package/compile/status?appId=10*****7&pkgIds=10004151 HTTP/1.1\nHost: connect-api.cloud.huawei.com\nclient_id: 414*******68\nContent-Type: application/json\nAuthorization: Bearer ******"
+    },
+    {
+      "section": "响应示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-query-aabfile-0000001111685206#section9801143143518",
+      "text": "响应示例\n{\n  \"ret\": {    \n    \"code\": 0,\n    \"msg\": \"success\"\n  },\n  \"pkgStateList\": [\n    {\n      \"pkgId\": \"****\",\n      \"aabCompileStatus\": 0,\n      \"failReason\": 6,\n      \"successStatus\": 0\n    }\n  ]\n}"
+    }
+  ],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-publishing-api-0000002351880118",
+      "title": "Publishing API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-publishingapi-0000001150409957",
+      "title": "Android"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114",
+      "title": "使用入门"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114#section103mcpsimp",
+      "title": "创建API客户端"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain_token-0000001158365043",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-getteamlist-0000001158245075",
+      "title": "获取团队列表"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114#section949717114392",
+      "title": "获取用户授权码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obbfile-package-list-0000001111685210#ZH-CN_TOPIC_0000001111685210__zh-cn_topic_0000001059070160_p15136112112151",
+      "title": "pkgVersion"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-publishingapi-errorcode-0000001163523297",
+      "title": "错误码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-query-aabfile-0000001111685206#ZH-CN_TOPIC_0000001111685206__p0229956142012",
+      "title": "PackageStates"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-dynamicability-introduction-0000001057944549",
+      "title": "Dynamic Ability SDK"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-update-releasetime-0000001158365053",
+      "title": "更新版本上架时间"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-add-packageurl-0000001158245065",
+      "title": "通过下载方式提交软件包"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-query-aabfile-0000001111685206#section992664711544",
+      "title": "功能介绍"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-query-aabfile-0000001111685206#section6932219103913",
+      "title": "接口原型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-query-aabfile-0000001111685206#section44860761",
+      "title": "请求参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-query-aabfile-0000001111685206#section236517415165",
+      "title": "Header"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-query-aabfile-0000001111685206#section165302018915",
+      "title": "Query"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-query-aabfile-0000001111685206#section1067322214331",
+      "title": "请求示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-query-aabfile-0000001111685206#section163825114565",
+      "title": "响应参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-query-aabfile-0000001111685206#section9801143143518",
+      "title": "响应示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-query-aabfile-0000001111685206#section8439614104314",
+      "title": "调用示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-query-aabfile-0000001111685206#section47549119574",
+      "title": "Postman调试"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-query-aabfile-0000001111685206#section992664711544",
+      "text": "此接口用于查询软件包的编译状态。接口调用者的角色：账号持有者、管理员、APP管理员。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-query-aabfile-0000001111685206#section236517415165",
+      "text": "API客户端方式和OAuth客户端方式的区别请参见使用入门。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-query-aabfile-0000001111685206#section236517415165",
+      "text": "API客户端方式："
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-query-aabfile-0000001111685206#section236517415165",
+      "text": "OAuth客户端方式："
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-query-aabfile-0000001111685206#section163825114565",
+      "text": "PackageStates说明"
+    },
+    {
+      "section": "Postman调试",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-query-aabfile-0000001111685206#section47549119574",
+      "text": "您可以使用Postman在线调试此接口。"
+    }
+  ],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-query-aabfile-0000001111685206",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "承载协议",
+          "HTTPS GET"
+        ],
+        [
+          "接口方向",
+          "开发者服务器 -> 华为服务器"
+        ],
+        [
+          "接口URL",
+          "https://connect-api.cloud.huawei.com/api/publish/v2/package/compile/status"
+        ],
+        [
+          "数据格式",
+          "请求：Content-Type: application/json 响应：Content-Type: application/json"
+        ]
+      ],
+      "section": "接口原型",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-query-aabfile-0000001111685206#section6932219103913"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "client_id",
+          "M",
+          "String",
+          "客户端ID，获取方法参考创建API客户端。"
+        ],
+        [
+          "Authorization",
+          "M",
+          "String",
+          "认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-query-aabfile-0000001111685206#section236517415165"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "teamId",
+          "M",
+          "String",
+          "开发者所在团队的团队ID，可通过获取团队列表接口获取。"
+        ],
+        [
+          "oauth2Token",
+          "M",
+          "String",
+          "认证信息，传入获取用户授权码中获取的Access Token。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-query-aabfile-0000001111685206#section236517415165"
+    },
+    {
+      "location": "query",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "appId",
+          "M",
+          "String",
+          "应用ID。"
+        ],
+        [
+          "pkgIds",
+          "M",
+          "String",
+          "待查询的软件包id，多个id之间用逗号分隔。 对应查询软件包列表接口返回的pkgVersion参数。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-query-aabfile-0000001111685206#section165302018915"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "ret",
+          "M",
+          "String(100)",
+          "包含返回码及描述信息的JSON字符串，格式为{\"code\":retcode, \"msg\": \"description\"}，retcode为返回码，description为返回码描述信息。返回码请参见错误码。"
+        ],
+        [
+          "pkgStateList",
+          "M",
+          "PackageStates",
+          "软件包列表。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-query-aabfile-0000001111685206#section163825114565"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "pkgId",
+          "M",
+          "String",
+          "软件包id。"
+        ],
+        [
+          "aabCompileStatus",
+          "O",
+          "Integer",
+          "此配置项即将废弃，新接入应用请使用successStatus获取结果。 编译状态。 取值范围： 0：未发送 1：编译中 2：编译完成 3：编译失败"
+        ],
+        [
+          "failReason",
+          "O",
+          "Integer",
+          "此配置项即将废弃，新接入应用请使用successStatus获取结果。 Android AAB软件包编译失败时返回的错误码。 取值范围： 6：使用了动态下载功能，未正确集成华为Dynamic Ability SDK。 7：Module配置不正确，universal apk无法正常运行。 8：使用了Asset Pack。 9：AAB包下载失败。 10：AAB包下载失败，AAB包为空。 11：AAB包格式有问题，无法解压。 12：AAB包使用bundletool解析失败。 13-18：AAB包编译失败。 19：AAB包超过上限150MB。"
+        ],
+        [
+          "successStatus",
+          "M",
+          "Integer(32)",
+          "软件包状态汇总结果。 取值范围： 0：正常 1：解析中 2：失败，表示软件包不可用"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-query-aabfile-0000001111685206#section163825114565"
+    }
+  ],
+  "title": "查询软件包编译状态",
+  "updatedAt": "2025-08-06 18:02",
+  "checkedAt": "2026-10-07T02:52:56.407Z",
+  "family": "publishing",
+  "endpoint": "query-aabfile"
+}

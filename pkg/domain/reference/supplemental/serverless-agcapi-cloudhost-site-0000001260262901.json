@@ -1,0 +1,71 @@
+{
+  "checkedAt": "2026-10-26",
+  "examples": [],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-restapi-0000001150409957",
+      "title": "RESTful API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-createsite-0000001216061466",
+      "title": "创建站点"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-querysite-0000001166826430",
+      "title": "查询站点"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-refreshsite-0000001260949359",
+      "title": "更新站点"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-deletesite-0000001260869361",
+      "title": "删除站点"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-restapi-0000001150409957",
+      "title": "RESTful API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-createsite-0000001216061466",
+      "title": "创建站点"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "文档说明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-site-0000001260262901",
+      "text": "您可以通过API管理站点（仅支持使用泛域名管理站点）。"
+    },
+    {
+      "section": "文档说明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-site-0000001260262901",
+      "text": "创建站点"
+    },
+    {
+      "section": "文档说明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-site-0000001260262901",
+      "text": "查询站点"
+    },
+    {
+      "section": "文档说明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-site-0000001260262901",
+      "text": "更新站点"
+    },
+    {
+      "section": "文档说明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-site-0000001260262901",
+      "text": "删除站点"
+    }
+  ],
+  "renderedText": "API参考\n云托管\nRESTful API\n管理站点\n管理站点\n更新时间: 2026-10-23 16:56\n\n您可以通过API管理站点（仅支持使用泛域名管理站点）。\n\n创建站点\n\n查询站点\n\n更新站点\n\n删除站点\n\nRESTful API\n创建站点\n意见反馈\n以上内容对您是否有帮助？\n意见反馈\n如果您有其他疑问，您也可以通过开发者社区问答频道来和我们联系探讨。\n社区提问AI 助手提问\n简体中文\n华为开发者联盟 版权所有 ©2026\n问题反馈\n使用条款\n华为开发者联盟用户协议\n关于华为开发者联盟与隐私的声明\nCookies\n开源软件声明",
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-site-0000001260262901",
+  "status": "browser-read",
+  "tables": [],
+  "title": "管理站点",
+  "updatedAt": "2026-10-23 16:56"
+}

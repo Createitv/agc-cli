@@ -1,0 +1,201 @@
+{
+  "checkedAt": "2026-10-26",
+  "examples": [],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-cloudfunction-0000001192993000",
+      "title": "Server"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-nodejs-0000001779998825",
+      "title": "Node.js"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-nodejs-package-0000001780038561",
+      "title": "@hw-agconnect/cloud-server"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/cloudfunction-nodejs-0000001733038596#section1178121234312",
+      "title": "constructor"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/cloudfunction-nodejs-0000001733038596#section2026765062216",
+      "title": "call"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/functionparams-nodejs-0000001733711318",
+      "title": "FunctionParams"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/functionparams-nodejs-0000001733711318",
+      "title": "FunctionParams"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/cloud-nodejs-0000002000961181",
+      "title": "Cloud"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/functionparams-nodejs-0000001733711318",
+      "title": "FunctionParams"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/cloudfunction-nodejs-0000001733038596#section1611502174217",
+      "title": "Constructor Summary"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/cloudfunction-nodejs-0000001733038596#section177401747141118",
+      "title": "Method Summary"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/cloudfunction-nodejs-0000001733038596#section18207114439",
+      "title": "Constructors"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/cloudfunction-nodejs-0000001733038596#section1178121234312",
+      "title": "constructor"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/cloudfunction-nodejs-0000001733038596#section36433417229",
+      "title": "Public Methods"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/cloudfunction-nodejs-0000001733038596#section2026765062216",
+      "title": "call"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "Constructors",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/cloudfunction-nodejs-0000001733038596#section1178121234312",
+      "text": "Parameters"
+    },
+    {
+      "section": "Public Methods",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/cloudfunction-nodejs-0000001733038596#section2026765062216",
+      "text": "Return"
+    }
+  ],
+  "renderedText": "API参考\n云函数\nServer\nNode.js\n@hw-agconnect/cloud-server\nCloudFunction\nCloudFunction\n更新时间: 2026-10-20 16:24\n\nClass Info\n\n\n\n\nexport class CloudFunction\n\nCloud Functions SDK的入口类，包含调用云函数的方法。\n\nConstructor Summary\n\nConstructor Info\n\n\n\n\nconstructor(name: string)\n\n构造方法。\n\nMethod Summary\n\nQualifier and Type\n\n\t\n\nMethod Name and Description\n\n\n\n\nPromise<any>\n\n\t\n\ncall(params: FunctionParams)\n\n调用云函数，可以不传入data参数，也可以传入对象类型的参数。\n\nConstructors\nconstructor\n\nMethod\n\n\n\n\nconstructor(name: string)\n\n初始化CloudFunction实例。\n\nParameters\n\nName\n\n\t\n\nDescription\n\n\n\n\nname\n\n\t\n\nCloudFunction实例名称。\n\nPublic Methods\ncall\n\nMethod\n\n\n\n\ncall(params: FunctionParams):Promise<any>\n\n调用云函数。\n\nParameters\n\nName\n\n\t\n\nDescription\n\n\n\n\nparams\n\n\t\n\n函数调用参数，包含函数名（必填）、函数版本、超时时长、函数请求消息体。\n\nReturn\n\nType\n\n\t\n\nDescription\n\n\n\n\nPromise<any>\n\n\t\n\nPromise对象，返回函数调用结果。\n\nCloud\nFunctionParams\n意见反馈\n以上内容对您是否有帮助？\n意见反馈\n如果您有其他疑问，您也可以通过开发者社区问答频道来和我们联系探讨。\n社区提问AI 助手提问\n本文导读\nConstructor Summary\nMethod Summary\nConstructors\nconstructor\nPublic Methods\ncall\n简体中文\n华为开发者联盟 版权所有 ©2026\n问题反馈\n使用条款\n华为开发者联盟用户协议\n关于华为开发者联盟与隐私的声明\nCookies\n开源软件声明",
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/cloudfunction-nodejs-0000001733038596",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "Class Info"
+        ],
+        [
+          "export class CloudFunction Cloud Functions SDK的入口类，包含调用云函数的方法。"
+        ]
+      ],
+      "section": "",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/cloudfunction-nodejs-0000001733038596"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "Constructor Info"
+        ],
+        [
+          "constructor(name: string) 构造方法。"
+        ]
+      ],
+      "section": "Constructor Summary",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/cloudfunction-nodejs-0000001733038596#section1611502174217"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "Qualifier and Type",
+          "Method Name and Description"
+        ],
+        [
+          "Promise<any>",
+          "call(params: FunctionParams) 调用云函数，可以不传入data参数，也可以传入对象类型的参数。"
+        ]
+      ],
+      "section": "Method Summary",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/cloudfunction-nodejs-0000001733038596#section177401747141118"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "Method"
+        ],
+        [
+          "constructor(name: string) 初始化CloudFunction实例。"
+        ]
+      ],
+      "section": "Constructors",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/cloudfunction-nodejs-0000001733038596#section1178121234312"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "Name",
+          "Description"
+        ],
+        [
+          "name",
+          "CloudFunction实例名称。"
+        ]
+      ],
+      "section": "Constructors",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/cloudfunction-nodejs-0000001733038596#section1178121234312"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "Method"
+        ],
+        [
+          "call(params: FunctionParams):Promise<any> 调用云函数。"
+        ]
+      ],
+      "section": "Public Methods",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/cloudfunction-nodejs-0000001733038596#section2026765062216"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "Name",
+          "Description"
+        ],
+        [
+          "params",
+          "函数调用参数，包含函数名（必填）、函数版本、超时时长、函数请求消息体。"
+        ]
+      ],
+      "section": "Public Methods",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/cloudfunction-nodejs-0000001733038596#section2026765062216"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "Type",
+          "Description"
+        ],
+        [
+          "Promise<any>",
+          "Promise对象，返回函数调用结果。"
+        ]
+      ],
+      "section": "Public Methods",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/cloudfunction-nodejs-0000001733038596#section2026765062216"
+    }
+  ],
+  "title": "CloudFunction",
+  "updatedAt": "2026-10-20 16:24"
+}

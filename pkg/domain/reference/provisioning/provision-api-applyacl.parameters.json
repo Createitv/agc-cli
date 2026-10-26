@@ -1,0 +1,48 @@
+[
+  {
+    "name": "appId",
+    "in": "header",
+    "type": "string",
+    "required": true,
+    "description": "应用ID，获取方法参考查看应用信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-applyacl-0000002502198721#section236517415165",
+    "maxLength": 32
+  },
+  {
+    "name": "attachment",
+    "in": "body",
+    "type": "string",
+    "required": false,
+    "description": "附件的objectId。 说明 objectId的获取流程：先调用获取上传文件地址接口，然后调用上传文件接口上传文件，最后得到获取上传文件地址接口返回的objectId。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-applyacl-0000002502198721#section16551174881019"
+  },
+  {
+    "name": "aclPermissionList",
+    "in": "body",
+    "type": "array",
+    "required": true,
+    "description": "受限ACL权限申请列表。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-applyacl-0000002502198721#section16551174881019",
+    "itemsType": "object",
+    "itemsProperties": [
+      {
+        "name": "name",
+        "in": "body",
+        "type": "string",
+        "required": true,
+        "description": "受限ACL权限名称。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-provision-api-data-applypermissioninfo-0000002469038756",
+        "maxLength": 256
+      },
+      {
+        "name": "reason",
+        "in": "body",
+        "type": "string",
+        "required": true,
+        "description": "受限ACL权限的申请理由。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-provision-api-data-applypermissioninfo-0000002469038756",
+        "maxLength": 256
+      }
+    ]
+  }
+]

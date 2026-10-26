@@ -1,0 +1,72 @@
+{
+  "examples": [],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pmsapi-0000001162548121",
+      "title": "PMS API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pmsapi-android-0000002131508240",
+      "title": "HarmonyOS 3.1/4.0及以下、Android"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-data-android-0000002135929332",
+      "title": "数据模型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/distribution/app/agc-help-supported-countries-overview-0000001146718725",
+      "title": "国家/地区、语言、币种列表"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-pierrorinfo-android-0000002136087432",
+      "title": "ProductImportErrorInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-ppdetailinfo-android-0000002171288641",
+      "title": "ProductPromotionDetailInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-pdlanguageinfo-android-0000002171407041",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "locale",
+          "M",
+          "String",
+          "语言环境，请参考国家/地区、语言、币种列表。 例如：zh_CN、en_US。"
+        ],
+        [
+          "productName",
+          "M",
+          "String(55)",
+          "商品名称。不支持特殊字符|。"
+        ],
+        [
+          "productDesc",
+          "M",
+          "String(100)",
+          "商品描述。不支持特殊字符|。"
+        ]
+      ],
+      "section": "",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-pdlanguageinfo-android-0000002171407041"
+    }
+  ],
+  "title": "ProductLanguageInfo",
+  "updatedAt": "2025-08-06 18:02",
+  "checkedAt": "2026-10-07T03:15:19.904Z"
+}

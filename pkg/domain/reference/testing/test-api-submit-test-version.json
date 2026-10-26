@@ -1,0 +1,304 @@
+{
+  "examples": [
+    {
+      "section": "请求示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-submit-test-version-0000002236201334#section162251741185115",
+      "text": "请求示例\n POST /api/publish/v2/test/app/version/submit?appId=6917********65 HTTP/1.1 \n Host: connect-api.cloud.huawei.com \n client_id: 4141******68 \n Content-Type: application/json \n Authorization: Bearer ******* \n {\n   \"versionId\": \"1418********32\"\n }"
+    },
+    {
+      "section": "响应示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-submit-test-version-0000002236201334#section3431111843614",
+      "text": "响应示例\n{\n     \"ret\": {\n         \"code\": 0,\n         \"msg\": \"success\"\n     }\n}"
+    }
+  ],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter#section195981215284",
+      "title": "了解新版目录"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-open-ability-0000002235710238",
+      "title": "AGC开放能力"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-0000002236015554",
+      "title": "AppGallery Connect API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-reference-0000002271000709",
+      "title": "Testing API参考"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-obtain-server-auth-0000002271134661",
+      "title": "获取服务端授权"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-obtain-server-auth-0000002271134661#section104621343151212",
+      "title": "通过Service Account方式获取授权"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-obtain-server-auth-0000002271134661#section103mcpsimp",
+      "title": "创建API客户端"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-obtain-server-auth-0000002271134661#section09831133141712",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-obtain-server-auth-0000002271134661#section949717114392",
+      "title": "获取用户授权码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-data-connectret-0000002272455641",
+      "title": "ConnectRet"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-update-test-version-opentest-0000002236041530",
+      "title": "更新有效期内的测试版本信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-add-test-group-0000002271160661",
+      "title": "新增测试群组"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-submit-test-version-0000002236201334#section16817111413112",
+      "title": "功能介绍"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-submit-test-version-0000002236201334#section101651738121111",
+      "title": "接口原型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-submit-test-version-0000002236201334#section747013518115",
+      "title": "请求参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-submit-test-version-0000002236201334#section15707195611112",
+      "title": "Header"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-submit-test-version-0000002236201334#section6641436115716",
+      "title": "Query"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-submit-test-version-0000002236201334#section141117691213",
+      "title": "Body"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-submit-test-version-0000002236201334#section162251741185115",
+      "title": "请求示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-submit-test-version-0000002236201334#section9752647125217",
+      "title": "响应参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-submit-test-version-0000002236201334#section3431111843614",
+      "title": "响应示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-submit-test-version-0000002236201334#section16817111413112",
+      "text": "此接口用于测试版本提交审核。"
+    },
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-submit-test-version-0000002236201334#section16817111413112",
+      "text": "接口调用者的角色：账号持有者、管理员、APP管理员。"
+    },
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-submit-test-version-0000002236201334#section16817111413112",
+      "text": "针对设备类型为“智能表”目前为受限开放，若您想要体验使用，可以通过在线工单系统与我们联系，工单 “问题分类”请选择 “上架与运营-应用市场-应用测试”，并在“问题描述”中提供您的开发者名称，开发者ID、应用名称、APP ID。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-submit-test-version-0000002236201334#section15707195611112",
+      "text": "本接口支持使用Service Account方式、API客户端方式和OAuth客户端方式，区别请参见获取服务端授权。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-submit-test-version-0000002236201334#section15707195611112",
+      "text": "Service Account方式："
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-submit-test-version-0000002236201334#section15707195611112",
+      "text": "API客户端方式："
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-submit-test-version-0000002236201334#section15707195611112",
+      "text": "OAuth客户端方式："
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-submit-test-version-0000002236201334#section141117691213",
+      "text": "请求Body中使用JSON格式携带测试版本信息，参数如下表所示。"
+    }
+  ],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-submit-test-version-0000002236201334",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "承载协议",
+          "HTTPS POST"
+        ],
+        [
+          "接口方向",
+          "开发者服务器 -> 华为服务器"
+        ],
+        [
+          "接口URL",
+          "https://connect-api.cloud.huawei.com/api/publish/v2/test/app/version/submit"
+        ],
+        [
+          "数据格式",
+          "请求：Content-Type: application/json 响应：Content-Type: application/json"
+        ]
+      ],
+      "section": "接口原型",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-submit-test-version-0000002236201334#section101651738121111"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "Authorization",
+          "M",
+          "String",
+          "认证信息，格式为“Authorization: Bearer ${JWT}”。JWT为通过Service Account方式获取授权中获取的鉴权令牌。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-submit-test-version-0000002236201334#section15707195611112"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "client_id",
+          "M",
+          "String",
+          "客户端ID，获取方法参考创建API客户端。"
+        ],
+        [
+          "Authorization",
+          "M",
+          "String",
+          "认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-submit-test-version-0000002236201334#section15707195611112"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "teamId",
+          "M",
+          "String(64)",
+          "开发者所在团队的团队ID。"
+        ],
+        [
+          "oauth2Token",
+          "M",
+          "String",
+          "认证信息，传入获取用户授权码中获取的Access Token。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-submit-test-version-0000002236201334#section15707195611112"
+    },
+    {
+      "location": "query",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "appId",
+          "M",
+          "String",
+          "应用ID。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-submit-test-version-0000002236201334#section6641436115716"
+    },
+    {
+      "location": "body",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "versionId",
+          "M",
+          "String(32)",
+          "测试版本ID。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-submit-test-version-0000002236201334#section141117691213"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "ret",
+          "M",
+          "ConnectRet",
+          "包含返回码及描述信息的结果。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-submit-test-version-0000002236201334#section9752647125217"
+    }
+  ],
+  "title": "提交测试版本",
+  "updatedAt": "2026-08-05 11:22",
+  "checkedAt": "2026-10-07T02:55:45.828Z",
+  "family": "testing",
+  "endpoint": "test-api-submit-test-version"
+}

@@ -1,0 +1,28 @@
+{
+  "query.releaseType": {
+    "enum": [
+      "1"
+    ]
+  },
+  "query.releasePhase": {
+    "enum": [
+      "0",
+      "3"
+    ]
+  },
+  "body.lang": {
+    "maxLength": 8
+  },
+  "body.appName": {
+    "maxLength": 64
+  },
+  "body.appDesc": {
+    "maxLength": 8000
+  },
+  "body.briefInfo": {
+    "maxLength": 80
+  },
+  "body.newFeatures": {
+    "maxLength": 500
+  }
+}

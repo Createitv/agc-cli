@@ -1,0 +1,340 @@
+{
+  "checkedAt": "2026-10-26",
+  "examples": [
+    {
+      "section": "请求示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-listfile-0000001498518878#section111611358426",
+      "text": "请求示例\nGET /v0/testagc-02reg\nclient_id: 8490337****232064\nproductId: 736430****461998\nContent-Type: application/json\nAuthorization: Bearer ****\nUser-Agent: PostmanRuntime/7.6.0\nAccept: */*\nHost: ops-server-drcn.agcstorage.link\naccept-encoding: gzip, deflate"
+    },
+    {
+      "section": "响应示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-listfile-0000001498518878#section4608111864818",
+      "text": "响应示例\nHTTP/1.1 200\nstatus: 200\nDate: Mon, 27 Mar 2023 02:54:59 GMT\nContent-Type: text/plain\nTransfer-Encoding: chunked\nConnection: keep-alive\nX-Agc-Trace-Id: b1615584-3926-4cdc-9ae0-345e72efca77\nServer: elb\n{\"contents\":[{\"size\":\"92736\",\"lastModified\":\"2022-03-14T03:07:20Z\",\"key\":\"2.png\",\"contentType\":\"image/png\"}],\"bucket\":\"testagc-02reg\",\"isTruncated\":false,\"productId\":\"736430****461998\"}"
+    }
+  ],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-0000001054967271",
+      "title": "Server"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/restapi-0000001223619953",
+      "title": "REST API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/agcapi-obtain-token-project-0000001477336048",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/agcapi-obtain-token-project-0000001477336048",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-storage-getapicredentials-0000001498508514#section8727185210538",
+      "title": "创建API客户端"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-get-developerid-projectid-0000001166543063",
+      "title": "查询项目ID"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/agcapi-obtain-token-project-0000001477336048",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-listfile-0000001498518878#ZH-CN_TOPIC_0000002757145029__p086973141111",
+      "title": "Content"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-listfile-0000001498518878#ZH-CN_TOPIC_0000002757145029__p183512474399",
+      "title": "CommonPrefix"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-changemetadata-0000001549198553",
+      "title": "修改文件元数据"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-datatypes-0000001498678718",
+      "title": "数据类型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-listfile-0000001498518878#section15408512141113",
+      "title": "功能介绍"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-listfile-0000001498518878#section17667171510253",
+      "title": "接口原型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-listfile-0000001498518878#section98801710132813",
+      "title": "请求参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-listfile-0000001498518878#section17216134314169",
+      "title": "Header"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-listfile-0000001498518878#section233813595165",
+      "title": "Query"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-listfile-0000001498518878#section111611358426",
+      "title": "请求示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-listfile-0000001498518878#section1787523414439",
+      "title": "响应参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-listfile-0000001498518878#section4608111864818",
+      "title": "响应示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-listfile-0000001498518878#section1969112552197",
+      "title": "调用示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-listfile-0000001498518878#section15408512141113",
+      "text": "此接口用于列举文件。"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-listfile-0000001498518878#section1787523414439",
+      "text": "Content"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-listfile-0000001498518878#section1787523414439",
+      "text": "CommonPrefix"
+    }
+  ],
+  "renderedText": "API参考\n云存储\nServer\nREST API\n列举文件\n列举文件\n更新时间: 2026-10-22 14:56\n功能介绍\n\n此接口用于列举文件。\n\n接口原型\n\n承载协议\n\n\t\n\nHTTPS GET\n\n\n\n\n接口方向\n\n\t\n\n开发者服务器->华为服务器\n\n\n\n\n接口URL\n\n\t\n\nhttps://{domain}/{bucket_name}\n\n注意\n{bucket_name}为当前存储实例名称。\n{domain}为接口域名。\n中国站点的域名：ops-server-drcn.agcstorage.link/v0\n德国站点的域名：ops-server-dre.agcstorage.link/v0\n新加坡站点的域名：ops-server-dra.agcstorage.link/v0\n俄罗斯站点的域名：ops-server-drru.agcstorage.link/v0\n调用获取Token接口时使用的站点必须与本接口使用的站点保持一致。例如本接口使用的站点是德国，即接口域名为“ops-server-dre.agcstorage.link/v0”，则调用获取Token接口也必须使用德国站点，其接口域名需为“connect-api-dre.cloud.huawei.com”。\n\n\n\n数据格式\n\n\t\n\n请求：Content-Type: application/json\n\n响应：Content-Type: application/json\n\n请求参数\nHeader\n\n参数\n\n\t\n\n类型\n\n\t\n\n必选(M)/可选(O)\n\n\t\n\n说明\n\n\n\n\nclient_id\n\n\t\n\nString\n\n\t\n\nM\n\n\t\n\n客户端ID，获取方法参考创建API客户端。\n\n\n\n\nproductId\n\n\t\n\nString\n\n\t\n\nM\n\n\t\n\n项目ID，查询方法可参见查询项目ID。\n\n\n\n\nAuthorization\n\n\t\n\nString\n\n\t\n\nM\n\n\t\n\n认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。\n\n\n\n\nX-Agc-Trace-Id\n\n\t\n\nString\n\n\t\n\nO\n\n\t\n\n单个文件请求的Traceid。可不填或者随机生成，用于日志打印跟踪。\n\nQuery\n\n参数\n\n\t\n\n类型\n\n\t\n\n必选(M)/可选(O)\n\n\t\n\n说明\n\n\n\n\nmax-keys\n\n\t\n\nString\n\n\t\n\nO\n\n\t\n\n指定返回文件个数的最大值，默认值为50，取值范围为[1,1000]。\n\n超出范围时，按照默认值进行处理。\n\n如果因为max-keys的设置无法一次完成列举，返回结果会附加NextMarker元素作为下一次列举的marker。\n\n\n\n\nmarker\n\n\t\n\nString\n\n\t\n\nO\n\n\t\n\n指定返回哪个标识符之后的文件，按照文件Key的UTF-8字典顺序排序。\n\n\n\n\nprefix\n\n\t\n\nString\n\n\t\n\nO\n\n\t\n\n列举以指定的字符串prefix开头的文件。\n\n\n\n\ndelimiter\n\n\t\n\nString\n\n\t\n\nO\n\n\t\n\n将文件名按照特定字符分割的分割符。\n\n注意\n\n当前仅支持传空值或正斜杠（/），正斜杠（/）编码后为%2F。\n\n如果指定了prefix参数，按delimiter对所有文件名进行分割，多个文件分割后从prefix到第一个delimiter之间相同的部分会形成一条CommonPrefixes。\n如果未携带prefix参数，按delimiter对所有文件名进行分割，多个文件分割后从文件名开始到第一个delimiter之间相同的部分形成一条CommonPrefixes。\n请求示例\nGET /v0/testagc-02reg\nclient_id: 8490337****232064\nproductId: 736430****461998\nContent-Type: application/json\nAuthorization: Bearer ****\nUser-Agent: PostmanRuntime/7.6.0\nAccept: */*\nHost: ops-server-drcn.agcstorage.link\naccept-encoding: gzip, deflate\n响应参数\n\n参数\n\n\t\n\n类型\n\n\t\n\n必选(M)/可选(O)\n\n\t\n\n说明\n\n\n\n\nstatus\n\n\t\n\nInteger\n\n\t\n\nM\n\n\t\n\nHTTP响应码，200表示成功。\n\n\n\n\nX-Agc-Trace-Id\n\n\t\n\nString\n\n\t\n\nO\n\n\t\n\n单个文件请求的Traceid，与请求参数X-Agc-Trace-Id保持一致。\n\n\n\n\nproductId\n\n\t\n\nString\n\n\t\n\nM\n\n\t\n\n项目ID。\n\n\n\n\nbucket\n\n\t\n\nString\n\n\t\n\nM\n\n\t\n\n存储实例名称。\n\n\n\n\nnextMarker\n\n\t\n\nString\n\n\t\n\nO\n\n\t\n\n如果本次没有返回全部结果，响应请求中将包含此字段，用于标明本次请求列举到的最后一个文件。后续请求可以指定Marker等于该值来列举剩余的文件。\n\n\n\n\nisTruncated\n\n\t\n\nBoolean\n\n\t\n\nM\n\n\t\n\n表明是否本次返回的ListBucketResult结果列表被截断。\n\ntrue：表示本次没有返回全部结果。\nfalse：表示本次已经返回了全部结果。\n\n\n\ncontents\n\n\t\n\nContent[]\n\n\t\n\nM\n\n\t\n\n存储实例中的文件列表。\n\n\n\n\ncontentType\n\n\t\n\nString\n\n\t\n\nM\n\n\t\n\n文件类型，告诉客户端实际返回内容的类型。\n\n\n\n\ncommonPrefixes\n\n\t\n\nCommonPrefix[]\n\n\t\n\nO\n\n\t\n\n请求中带delimiter参数时返回的CommonPrefixes分组信息。\n\nContent\n\n参数\n\n\t\n\n类型\n\n\t\n\n必选(M)/可选(O)\n\n\t\n\n说明\n\n\n\n\nkey\n\n\t\n\nString\n\n\t\n\nM\n\n\t\n\n文件名\n\n\n\n\nsize\n\n\t\n\nString\n\n\t\n\nM\n\n\t\n\n文件大小\n\n\n\n\nlastModified\n\n\t\n\nString\n\n\t\n\nM\n\n\t\n\n文件最后修改时间\n\nCommonPrefix\n\n参数\n\n\t\n\n类型\n\n\t\n\n必选(M)/可选(O)\n\n\t\n\n说明\n\n\n\n\nprefix\n\n\t\n\nString\n\n\t\n\nO\n\n\t\n\n请求中带delimiter参数时返回的分组信息前缀\n\n响应示例\nHTTP/1.1 200\nstatus: 200\nDate: Mon, 27 Mar 2023 02:54:59 GMT\nContent-Type: text/plain\nTransfer-Encoding: chunked\nConnection: keep-alive\nX-Agc-Trace-Id: b1615584-3926-4cdc-9ae0-345e72efca77\nServer: elb\n{\"contents\":[{\"size\":\"92736\",\"lastModified\":\"2022-03-14T03:07:20Z\",\"key\":\"2.png\",\"contentType\":\"image/png\"}],\"bucket\":\"testagc-02reg\",\"isTruncated\":false,\"productId\":\"736430****461998\"}\n调用示例\nimport com.alibaba.fastjson.JSON;\nimport com.alibaba.fastjson.JSONObject;\n\n\nimport lombok.Builder;\nimport lombok.Getter;\nimport lombok.extern.slf4j.Slf4j;\n\n\nimport org.apache.commons.lang3.StringUtils;\nimport org.apache.http.Consts;\nimport org.apache.http.HttpStatus;\nimport org.apache.http.client.methods.CloseableHttpResponse;\nimport org.apache.http.client.methods.HttpGet;\nimport org.apache.http.client.utils.URIBuilder;\nimport org.apache.http.impl.client.CloseableHttpClient;\nimport org.apache.http.impl.client.HttpClients;\n\n\nimport java.io.BufferedReader;\nimport java.io.InputStreamReader;\n\n\n/**\n * 列举文件REST API示例代码\n */\n@Slf4j\npublic class ListObjectTest {\n    /**\n     * @param param 列举文件接口入参\n     */\n    public static void listObjects(String storageUrl, ListObjectsParam param) {\n        try {\n            URIBuilder uriBuilder = new URIBuilder(storageUrl + param.getBucketName());\n            if (StringUtils.isNotEmpty(param.getPrefix())) {\n                uriBuilder.addParameter(\"prefix\", param.getPrefix());\n            }\n            if (StringUtils.isNotEmpty(param.getMaxKeys())) {\n                uriBuilder.addParameter(\"max-keys\", param.getMaxKeys());\n            }\n            if (StringUtils.isNotEmpty(param.getMarker())) {\n                uriBuilder.addParameter(\"marker\", param.getMarker());\n            }\n\n\n            HttpGet get = new HttpGet(uriBuilder.build());\n            get.setHeader(\"productId\", param.getProjectId());\n            get.setHeader(\"client_id\", param.getClientId());\n            get.setHeader(\"Authorization\", \"Bearer \" + param.getToken());\n\n\n            CloseableHttpClient httpClient = HttpClients.createDefault();\n            CloseableHttpResponse httpResponse = httpClient.execute(get);\n            int statusCode = httpResponse.getStatusLine().getStatusCode();\n            if (statusCode == HttpStatus.SC_OK) {\n                BufferedReader br =\n                    new BufferedReader(new InputStreamReader(httpResponse.getEntity().getContent(), Consts.UTF_8));\n                String result = br.readLine();\n\n\n                JSONObject object = JSON.parseObject(result);\n                log.info(\"listObjects result:{}\", object.toJSONString());\n            }\n        } catch (Exception e) {\n            log.error(\"listObjects exception:\", e);\n        }\n    }\n\n\n    public static void main(String[] args) {\n        ConstantsTest.preCheck();\n\n\n        String clientToken = TokenServiceTest.getToken(\"https://connect-api.cloud.huawei.com/api/\", \"84903XXXXXX32064\",\n            \"00E5CCADB655891XXXXXXXXXXXX8CDCC83ACF22\");\n        ListObjectsParam mirrorParam = ListObjectsParam.builder()\n            .projectId(\"73643XXXXXX61998\")\n            .clientId(\"84903XXXXXX32064\")\n            .token(clientToken)\n            .bucketName(\"test-q36q0\")\n            .prefix(\"temp\")\n            .marker(\"\")\n            .maxKeys(\"\")\n            .build();\n\n\n        listObjects(\"https://ops-server-drcn.agcstorage.link/v0/\", mirrorParam);\n    }\n\n\n    @Builder\n    @Getter\n    static class ListObjectsParam {\n        // 项目ID\n        String projectId;\n\n\n        // 客户端ID\n        String clientId;\n\n\n        // clientToken\n        String token;\n\n\n        // 云存储实例名\n        String bucketName;\n\n\n        // 列举以指定的字符串prefix开头的文件\n        String prefix;\n\n\n        // 指定返回文件个数的最大值，默认50，取值范围为[1,1000]\n        String maxKeys;\n\n\n        // 指定返回哪个标识符之后的文件，按照文件Key的UTF-8字典顺序排序\n        String marker;\n    }\n}\n修改文件元数据\n数据类型\n意见反馈\n以上内容对您是否有帮助？\n意见反馈\n如果您有其他疑问，您也可以通过开发者社区问答频道来和我们联系探讨。\n社区提问AI 助手提问\n本文导读\n功能介绍\n接口原型\n请求参数\nHeader\nQuery\n请求示例\n响应参数\n响应示例\n调用示例\n简体中文\n华为开发者联盟 版权所有 ©2026\n问题反馈\n使用条款\n华为开发者联盟用户协议\n关于华为开发者联盟与隐私的声明\nCookies\n开源软件声明",
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-listfile-0000001498518878",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "承载协议",
+          "HTTPS GET"
+        ],
+        [
+          "接口方向",
+          "开发者服务器->华为服务器"
+        ],
+        [
+          "接口URL",
+          "https://{domain}/{bucket_name} 注意 {bucket_name}为当前存储实例名称。 {domain}为接口域名。 中国站点的域名：ops-server-drcn.agcstorage.link/v0 德国站点的域名：ops-server-dre.agcstorage.link/v0 新加坡站点的域名：ops-server-dra.agcstorage.link/v0 俄罗斯站点的域名：ops-server-drru.agcstorage.link/v0 调用获取Token接口时使用的站点必须与本接口使用的站点保持一致。例如本接口使用的站点是德国，即接口域名为“ops-server-dre.agcstorage.link/v0”，则调用获取Token接口也必须使用德国站点，其接口域名需为“connect-api-dre.cloud.huawei.com”。"
+        ],
+        [
+          "数据格式",
+          "请求：Content-Type: application/json 响应：Content-Type: application/json"
+        ]
+      ],
+      "section": "接口原型",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-listfile-0000001498518878#section17667171510253"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数",
+          "类型",
+          "必选(M)/可选(O)",
+          "说明"
+        ],
+        [
+          "client_id",
+          "String",
+          "M",
+          "客户端ID，获取方法参考创建API客户端。"
+        ],
+        [
+          "productId",
+          "String",
+          "M",
+          "项目ID，查询方法可参见查询项目ID。"
+        ],
+        [
+          "Authorization",
+          "String",
+          "M",
+          "认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。"
+        ],
+        [
+          "X-Agc-Trace-Id",
+          "String",
+          "O",
+          "单个文件请求的Traceid。可不填或者随机生成，用于日志打印跟踪。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-listfile-0000001498518878#section17216134314169"
+    },
+    {
+      "location": "query",
+      "rows": [
+        [
+          "参数",
+          "类型",
+          "必选(M)/可选(O)",
+          "说明"
+        ],
+        [
+          "max-keys",
+          "String",
+          "O",
+          "指定返回文件个数的最大值，默认值为50，取值范围为[1,1000]。 超出范围时，按照默认值进行处理。 如果因为max-keys的设置无法一次完成列举，返回结果会附加NextMarker元素作为下一次列举的marker。"
+        ],
+        [
+          "marker",
+          "String",
+          "O",
+          "指定返回哪个标识符之后的文件，按照文件Key的UTF-8字典顺序排序。"
+        ],
+        [
+          "prefix",
+          "String",
+          "O",
+          "列举以指定的字符串prefix开头的文件。"
+        ],
+        [
+          "delimiter",
+          "String",
+          "O",
+          "将文件名按照特定字符分割的分割符。 注意 当前仅支持传空值或正斜杠（/），正斜杠（/）编码后为%2F。 如果指定了prefix参数，按delimiter对所有文件名进行分割，多个文件分割后从prefix到第一个delimiter之间相同的部分会形成一条CommonPrefixes。 如果未携带prefix参数，按delimiter对所有文件名进行分割，多个文件分割后从文件名开始到第一个delimiter之间相同的部分形成一条CommonPrefixes。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-listfile-0000001498518878#section233813595165"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数",
+          "类型",
+          "必选(M)/可选(O)",
+          "说明"
+        ],
+        [
+          "status",
+          "Integer",
+          "M",
+          "HTTP响应码，200表示成功。"
+        ],
+        [
+          "X-Agc-Trace-Id",
+          "String",
+          "O",
+          "单个文件请求的Traceid，与请求参数X-Agc-Trace-Id保持一致。"
+        ],
+        [
+          "productId",
+          "String",
+          "M",
+          "项目ID。"
+        ],
+        [
+          "bucket",
+          "String",
+          "M",
+          "存储实例名称。"
+        ],
+        [
+          "nextMarker",
+          "String",
+          "O",
+          "如果本次没有返回全部结果，响应请求中将包含此字段，用于标明本次请求列举到的最后一个文件。后续请求可以指定Marker等于该值来列举剩余的文件。"
+        ],
+        [
+          "isTruncated",
+          "Boolean",
+          "M",
+          "表明是否本次返回的ListBucketResult结果列表被截断。 true：表示本次没有返回全部结果。 false：表示本次已经返回了全部结果。"
+        ],
+        [
+          "contents",
+          "Content[]",
+          "M",
+          "存储实例中的文件列表。"
+        ],
+        [
+          "contentType",
+          "String",
+          "M",
+          "文件类型，告诉客户端实际返回内容的类型。"
+        ],
+        [
+          "commonPrefixes",
+          "CommonPrefix[]",
+          "O",
+          "请求中带delimiter参数时返回的CommonPrefixes分组信息。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-listfile-0000001498518878#section1787523414439"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数",
+          "类型",
+          "必选(M)/可选(O)",
+          "说明"
+        ],
+        [
+          "key",
+          "String",
+          "M",
+          "文件名"
+        ],
+        [
+          "size",
+          "String",
+          "M",
+          "文件大小"
+        ],
+        [
+          "lastModified",
+          "String",
+          "M",
+          "文件最后修改时间"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-listfile-0000001498518878#section1787523414439"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数",
+          "类型",
+          "必选(M)/可选(O)",
+          "说明"
+        ],
+        [
+          "prefix",
+          "String",
+          "O",
+          "请求中带delimiter参数时返回的分组信息前缀"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-listfile-0000001498518878#section1787523414439"
+    }
+  ],
+  "title": "列举文件",
+  "updatedAt": "2026-10-22 14:56",
+  "captureTool": "Computer Use; scripts/browser-capture-reference.mjs-compatible merged-cell capture"
+}

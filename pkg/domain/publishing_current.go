@@ -240,7 +240,10 @@ func currentPublishingEndpoint(id, name, method, path, sourceURL string, paramet
 		}
 	}
 	e.Body = inferBody(method, parameters)
-	return e
+	e = applyReferenceParameters(e)
+	e = applyPublishingAgreementModels(e)
+	e = applyPublishingMetadataModels(e)
+	return applyPublishingQualificationModels(e)
 }
 
 func init() {

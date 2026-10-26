@@ -1,0 +1,22 @@
+[
+  {
+    "name": "projectId",
+    "in": "path",
+    "type": "string",
+    "required": true,
+    "description": "需要查询的项目ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryprojectdetail-0000001158365067#section35551630174017"
+  },
+  {
+    "name": "queryFlag",
+    "in": "query",
+    "type": "string",
+    "required": false,
+    "description": "是否需要查询项目下的应用信息。 0：不需要 1：需要 如果不传，默认值：0，响应参数中将不会返回appList。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryprojectdetail-0000001158365067#section886219295206",
+    "enum": [
+      "0",
+      "1"
+    ]
+  }
+]

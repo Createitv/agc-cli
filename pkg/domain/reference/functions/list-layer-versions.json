@@ -1,0 +1,463 @@
+{
+  "title": "list-layer-versions",
+  "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+  "checkedAt": "2026-10-26",
+  "status": "vendor-source-reviewed",
+  "package": "@hw-agconnect/agc-cli",
+  "version": "1.12.0",
+  "sourceFiles": [
+    {
+      "packagePath": "commands/cloudfunction/api/layerApi.js",
+      "sha256": "e83075d25be8e16deb438b9dbc070fa3d110c96ec62c129d5d78662f62329f5d",
+      "source": "import consts from\"../constants/constants.js\";import{newArgError,newAgcGwError}from\"../error/errors.js\";import{processEdgeError}from\"./common.js\";import{locale}from\"../util/locale.js\";import output from\"../util/output.js\";async function queryLayerList(e,r){const s=`${e.storage.getProjectBaseUrl()}/api/wisefunction/serverless/v1/layers`;return new Promise(((t,o)=>{e.edge.get(s,{params:{layerName:r.layerName,pageSize:r.pageSize?r.pageSize:consts.DEFAULT_FUNCTION_PAGE_SIZE,pageIndex:r.pageIndex?r.pageIndex:consts.DEFAULT_FUNCTION_PAGE_INDEX,ownerFlag:r.ownerFlag,compatibleRuntime:r.compatibleRuntime}}).then((e=>{t(e.result)})).catch((e=>{o(processEdgeError(e))}))}))}async function queryLayerVersionList(e,r,s,t,o){const a=`${e.storage.getProjectBaseUrl()}/api/wisefunction/serverless/v1/layers/${r}/versions`;return new Promise(((r,n)=>{e.edge.get(a,{params:{compatibleRuntime:s,pageSize:o||consts.DEFAULT_FUNCTION_PAGE_SIZE,pageIndex:t||consts.DEFAULT_FUNCTION_PAGE_INDEX}}).then((e=>{r(e.result)})).catch((e=>{n(processEdgeError(e))}))}))}async function queryLayerInfo(e,r,s){s||(s=\"1\");const t=`${e.storage.getProjectBaseUrl()}/api/wisefunction/serverless/v1/layers/${r}/versions/${s}`;return new Promise(((o,a)=>{e.edge.get(t,{params:{}}).then((e=>{e&&0===e.code&&e.result?o(e.result):a(newArgError(output.strFormat(locale(consts.ERR_MSG_LAYER_UNEXIST),{layer:`${r}:${s}`})))})).catch((e=>{a(processEdgeError(e))}))}))}async function createLayer(e,r,s){const t=`${e.storage.getProjectBaseUrl()}/api/wisefunction/serverless/v1/layers/${r}/versions`;return new Promise(((r,o)=>{e.edge({url:t,method:\"POST\",data:s,maxContentLength:1/0,maxBodyLength:1/0}).then((e=>{r(e)})).catch((e=>{\"ERR_FR_MAX_BODY_LENGTH_EXCEEDED\"===e.code?o(newAgcGwError(consts.AGC_GW_FILE_TOO_BIGGER_CODE,e.code)):o(processEdgeError(e))}))}))}export default{createLayer:createLayer,queryLayerVersionList:queryLayerVersionList,queryLayerList:queryLayerList,queryLayerInfo:queryLayerInfo};"
+    },
+    {
+      "packagePath": "commands/cloudfunction/option/verify.js",
+      "sha256": "a556f80bf7d8ba67a06940875219a962d883de944606f216c8ab5f3a9c956f18",
+      "source": "import constants from\"../constants/constants.js\";import{newArgError}from\"../error/errors.js\";import fs from\"fs\";import path from\"path\";import{isEmpty,getStringWidth}from\"../util/tools.js\";import verifyTools from\"./tools.js\";import{locale}from\"../util/locale.js\";import output from\"../util/output.js\";import{validateTypeMinutesHourDayMonthWeekExpression,validateTypeEveryExpression}from\"./cronExpressionValidator.js\";const runtimes=[\"nodejs14.x\",\"java1.8\",\"python3\",\"custom-runtime\"],Owners=[\"all\",\"self\",\"other\"],memories=[500,1e3,2e3,4e3],layerShares=[\"business\",\"tenant\"],layerMaxSize=52428800;class Verifier{constructor(r){this.options=r,this.optionFns=[]}addVerifyOptionFunc(r,e,n){return this.optionFns.push({fn:r,optionName:e,required:n}),this}done(){for(let{fn:r,optionName:e=\"\",required:n}of this.optionFns)(e in this.options||n)&&r(this.options)}}function verifyFunctionName(r){let{functionName:e}=r;baseVerifyFunctionName(e)}function verifyNameOptionInFunctionCmd(r){let{name:e}=r;baseVerifyFunctionName(e)}function baseVerifyFunctionName(r){if(isEmpty(r))throw newArgError(locale(constants.ARG_ERR_FUNCTION_NAME_EMPTY));if(r.length<2)throw newArgError(locale(constants.ARG_ERR_FUNCTION_NAME_LENTH_SHORT));if(r.length>32)throw newArgError(locale(constants.ARG_ERR_FUNCTION_NAME_LENTH_LONGER));if(!new RegExp(\"^[a-z][a-z0-9-]*[a-z0-9]$\").test(r))throw newArgError(locale(constants.ARG_ERR_FUNCTION_NAME_ILLEGAL))}function verifyExclusionEnvironmentOption(r){if(r.environment&&r.environmentFile)throw newArgError(locale(constants.ARG_ERR_EXCLUSION_ENVIRONMENT_OPTION))}function verifyExclusionTriggerConfigOption(r,e){if(r.configFile)for(let n of e)if(r[n])throw newArgError(locale(constants.ARG_ERR_EXCLUSION_TRIGGER_CONFIG_OPTION))}const HttpTriggerAuthTypeList=[\"apigw-client\",\"cloudgw-client\"];function verifyHTTPTriggerAuthType(r){if(!r.authType)throw newArgError(locale(constants.ARG_ERR_HTTP_TRIGGER_AUTH_TYPE_EMPTY));if(-1===HttpTriggerAuthTypeList.indexOf(r.authType))throw newArgError(locale(constants.ARG_ERR_HTTP_TRIGGER_AUTH_TYPE_ILLEGAL))}const HttpTriggerEnableUrlDecodeList=[\"true\",\"false\"];function verifyHTTPTriggerEnableUrlDecode(r){if(!r.enableUrlDecode)throw newArgError(locale(constants.ARG_ERR_HTTP_TRIGGER_ENABLE_URL_DECODE_EMPTY));if(-1===HttpTriggerEnableUrlDecodeList.indexOf(r.enableUrlDecode))throw newArgError(locale(constants.ARG_ERR_HTTP_TRIGGER_ENABLE_URL_DECODE_ILLEGAL))}function verifyTriggerId(r){if(isEmpty(r.triggerId))throw newArgError(locale(constants.INPUT_TRIGGER_ID_EMPTY))}function verifyTriggerSwitch(r){if(!isEmpty(r.triggerSwitch)&&\"true\"!==r.triggerSwitch&&\"false\"!==r.triggerSwitch)throw newArgError(locale(constants.INPUT_TRIGGER_SWITCH_ERROR))}let CronTriggerModeList=[\"ASync\",\"Sync\"];function verifyCronTriggerMode(r){if(!r.triggerMode)throw newArgError(locale(constants.ARG_ERR_CRON_TRIGGER_MODE_EMPTY));if(-1===CronTriggerModeList.indexOf(r.triggerMode))throw newArgError(locale(constants.ARG_ERR_CRON_TRIGGER_MODE_ILLEGAL))}function verifyAliasName(r){let{aliasName:e}=r;baseVerifyAliasName(e)}function verifyFuzzyName(r){if(isEmpty(r.fuzzyName))throw newArgError(locale(constants.ARG_ERR_FUZZY_NAME_EMPTY));if(r.fuzzyName.length>32)throw newArgError(locale(constants.ARG_ERR_FUZZY_NAME_LENTH_SHORT));if(!new RegExp(\"^[0-9a-z-]\").test(r.fuzzyName))throw newArgError(locale(constants.ARG_ERR_FUZZY_NAME_ILLEGAL))}function verifyNameOptionInAliasCmd(r){let{name:e}=r;baseVerifyAliasName(e)}function baseVerifyAliasName(r){if(isEmpty(r))throw newArgError(locale(constants.ARG_ERR_ALIAS_EMPTY));if(r.length<2)throw newArgError(locale(constants.ARG_ERR_ALIAS_LENTH_SHORT));if(r.length>16)throw newArgError(locale(constants.ARG_ERR_ALIAS_LENTH_LONGER));if(!new RegExp(\"^[a-z][a-z0-9-]*[a-z0-9]$\").test(r))throw newArgError(locale(constants.ARG_ERR_ALIAS_ILLEGAL))}function verifyRuntime(r){let{runtime:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_RUNTIME_EMPTY));if(-1===runtimes.indexOf(e))throw newArgError(locale(constants.ARG_ERR_RUNTIME_ILLEGAL))}function verifyFunctionCodePath(r){let{codePath:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_FUNCTION_CODE_PATH_EMPTY));if(!fs.existsSync(e))throw newArgError(locale(constants.ARG_ERR_FUNCTION_CODE_PATH_UNEXIST));if(\".zip\"!==path.extname(e))throw newArgError(locale(constants.ARG_ERR_FUNCTION_CODE_PATH_FORMAT_ILLEGAL));if(fs.statSync(e).size>=52428800)throw newArgError(locale(constants.ARG_ERR_FUNCTION_CODE_CONTENT_SIZE_TOO_BIGGER))}function verifyMemory(r){let{memory:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_MEMORY_EMPTY));if(!verifyTools.isInteger(e)&&(e=Number(e),isNaN(e)))throw newArgError(locale(constants.ARG_ERR_MEMORY_VALUE_NOT_SUPPORTED));if(-1===memories.indexOf(e))throw newArgError(output.strFormat(locale(constants.ARG_ERR_MEMORY_VALUE_NOT_SUPPORTED),{memories:memories.join(\",\")}))}function verifyTimeout(r){let{timeout:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_TIMEOUT_EMPTY));if(verifyTools.isNumber(e)||(e=Number(e)),isNaN(e)||!verifyTools.isInteger(e))throw newArgError(locale(constants.ARG_ERR_TIMEOUT_TYPE_ILLEGAL));if(e<1||e>1800)throw newArgError(locale(constants.ARG_ERR_TIMEOUT_VALUE_NOT_SUPPORTED))}function verifyInstanceConcurrency(r){let{instanceConcurrency:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_INSTANCE_CONCURRENCY_EMPTY));if(verifyTools.isNumber(e)||(e=Number(e)),isNaN(e)||!verifyTools.isInteger(e))throw newArgError(locale(constants.ARG_ERR_INSTANCE_CONCURRENCY_TYPE_ILLEGAL));if(e<1||e>1e3)throw newArgError(locale(constants.ARG_ERR_INSTANCE_CONCURRENCY_VALUE_NOT_SUPPORTED))}function verifyDescription(r){let{description:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_DESCRIPTION_EMPTY));if(!verifyTools.isString(e))throw newArgError(locale(constants.ARG_ERR_DESCRIPTION_ILLEGAL));if(getStringWidth(e)>64)throw newArgError(locale(constants.ARG_ERR_DESCRIPTION_LONGER))}function verifyVersionDescription(r){let{versionDescription:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_VERSION_DESCRIPTION_EMPTY));if(!verifyTools.isString(e))throw newArgError(locale(constants.ARG_ERR_VERSION_DESCRIPTION_ILLEGAL));if(getStringWidth(e)>64)throw newArgError(locale(constants.ARG_ERR_VERSION_DESCRIPTION_LONGER))}function verifyEnvironment(r){let{environment:e}=r;if(isEmpty(r.environment))throw newArgError(locale(constants.ARG_ERR_ENVIRONMENT_EMPTY));checkEnvironmentContent(e)}function verifyEnvironmentFile(r){let{environmentFile:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_ENVIRONMENT_FILE_EMPTY));if(!fs.existsSync(e))throw newArgError(locale(constants.ARG_ERR_ENVIRONMENT_FILE_PATH_UNEXIST));if(\".json\"!==path.extname(e))throw newArgError(locale(constants.ARG_ERR_ENVIRONMENT_FILE_PATH_FORMAT_ILLEGAL));if(fs.statSync(e).size>=3145728)throw newArgError(locale(constants.ARG_ERR_ENVIRONMENT_FILE_CONTENT_SIZE_TOO_BIGGER));checkEnvironmentContent(fs.readFileSync(e))}function checkEnvironmentContent(r){if(r.length>=3145728)throw newArgError(locale(constants.ARG_ERR_FUNCTION_CODE_CONTENT_SIZE_TOO_BIGGER));let e=null;try{e=JSON.parse(r)}catch(r){throw newArgError(locale(constants.ARG_ERR_ENVIRONMENT_ILLEGAL))}for(let r in e)if(Object.prototype.hasOwnProperty.call(e,r)){if(r.length>64)throw newArgError(locale(constants.ARG_ERR_ENVIRONMENT_KEY_LONGER));if(!new RegExp(\"^[-._a-zA-Z][-._a-zA-Z0-9]*$\").test(r))throw newArgError(locale(constants.ARG_ERR_ENVIRONMENT_KEY_ILLEGAL));if(e[r].length>2048)throw newArgError(locale(constants.ARG_ERR_ENVIRONMENT_VALUE_LONGER))}}function verifyLayers(r){let{layers:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_LAYER_EMPTY));if(isEmpty(e)||!verifyTools.isArray(e))throw newArgError(locale(constants.ARG_ERR_LAYER_ILLEGAL));if(e.join().length<4)throw newArgError(locale(constants.ARG_ERR_LAYER_ILLEGAL));if(e.join(\" \").substring(1,e.join().length-1).split(\",\").length>5)throw newArgError(locale(constants.ARG_ERR_LAYER_TOO_MANY))}function verifyPayload(r){let{payload:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_PAYLOAD_EMPTY));try{JSON.parse(e)}catch(r){throw newArgError(locale(constants.ARG_ERR_PAYLOAD_ILLEGAL))}}function verifySchedule(r){if(isEmpty(r.schedule))throw newArgError(locale(constants.ARG_ERR_SCHEDULE_EMPTY));if(!validateTypeEveryExpression(r.schedule)&&!validateTypeMinutesHourDayMonthWeekExpression(r.schedule))throw newArgError(locale(constants.ARG_ERR_SCHEDULE_ILLEGAL))}function verifyPayloadFile(r){let{payloadFile:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_PAYLOAD_FILE_EMPTY));if(!fs.existsSync(e))throw newArgError(locale(constants.ARG_ERR_PAYLOAD_FILE_UNEXIST));if(\".json\"!==path.extname(e))throw newArgError(locale(constants.ARG_ERR_PAYLOAD_FILE_FORMAT_ILLEGAL));if(fs.statSync(e).size>=4194304)throw newArgError(locale(constants.ARG_ERR_PAYLOAD_FILE_CONTENT_TOO_BIGGER));let n=fs.readFileSync(e);try{JSON.parse(n)}catch(r){throw newArgError(locale(constants.ARG_ERR_PAYLOAD_FLE_CONTENT_ILLEGAL))}}function verifyVersionOptionInFunctionCmd(r){let{version:e}=r;baseVerifyFunctionVersion(e)}function verifyFunctionVersion(r){let{functionVersion:e}=r;baseVerifyFunctionVersion(e)}function baseVerifyFunctionVersion(r){if(isEmpty(r))throw newArgError(locale(constants.ARG_ERR_FUNCTION_VERSION_EMPTY));if(\"$latest\"===r)return;let e=Number(r);if(isNaN(e)||e<1)throw newArgError(locale(constants.ARG_ERR_FUNCTION_VERSION_NOT_SUPPORTED))}function verifyNameOptionInLayerCmd(r){let{name:e}=r;baseVerifyLayerName(e)}function verifyNameOptionInLayerVersionsListCmd(r){let{name:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_LAYER_NAME_EMPTY));let n=e.split(\":\");if(1!==n.length){if(6!==n.length)throw newArgError(locale(constants.ARG_ERR_LAYER_NAME_FORMAT_ILLEGAL_IN_LAYER_VERSIONS_LIST_CMD))}else baseVerifyLayerName(e)}function verifyLayerName(r){let{layerName:e}=r;baseVerifyLayerName(e)}function baseVerifyLayerName(r){if(isEmpty(r))throw newArgError(locale(constants.ARG_ERR_LAYER_NAME_EMPTY));if(r.length<2)throw newArgError(locale(constants.ARG_ERR_LAYER_NAME_LENTH_SHORT));if(r.length>32)throw newArgError(locale(constants.ARG_ERR_LAYER_NAME_LENTH_LONGER));if(!new RegExp(\"^[a-z][a-z0-9-]*[a-z0-9]$\").test(r))throw newArgError(locale(constants.ARG_ERR_LAYER_NAME_ILLEGAL))}function verifyLayerCodePath(r){let{codePath:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_LAYER_FILE_EMPTY));if(!fs.existsSync(e))throw newArgError(locale(constants.ARG_ERR_LAYER_FILE_UNEXIST));if(\".zip\"!==path.extname(e))throw newArgError(locale(constants.ARG_ERR_LAYER_FILE_FORMAT_ILLEGAL));if(fs.statSync(e).size>=52428800)throw newArgError(locale(constants.ARG_ERR_LAYER_FILE_SIZE_TOO_BIGGER))}function verifyJsonFileDestinationPath(r){let{destination:e}=r;if(!fs.existsSync(e))throw newArgError(locale(constants.ARG_ERR_LAYER_FILE_UNEXIST))}function verifyJsonFileSourcePath(r){let{source:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_JSON_SOURCE_EMPTY));if(!fs.existsSync(e))throw newArgError(locale(constants.ARG_ERR_JSON_SOURCE_NOT_EXIST));if(\".json\"!==path.extname(e))throw newArgError(locale(constants.ARG_ERR_JSON_PATH_FORMAT_ILLEGAL))}function verifyLayerDescription(r){let{description:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_LAYER_DESCRIPTION_EMPTY));if(e.length>1024)throw newArgError(locale(constants.ARG_ERR_LAYER_DESCRIPTION_LONGER))}function verifyLayerOwnerFlag(r){let{ownerFlag:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_LAYER_OWNER_EMPTY));if(-1===Owners.indexOf(e))throw newArgError(locale(constants.ARG_ERR_LAYER_OWNER_NOT_SUPPORTED))}function verifyLayerSharedScope(r){let{sharedScope:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_LAYER_SHARE_SCOPE_EMPTY));if(!isEmpty(e)&&-1===layerShares.indexOf(e))throw newArgError(output.strFormat(locale(constants.ARG_ERR_LAYER_SHARE_SCOPE_NOT_SUPPORTED),{layerShares:layerShares.join(\",\")}))}function verifyCompatibleRuntimes(r){let{compatibleRuntimes:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_COMPATIBLE_RUNTIMES_EMPTY));let n=[];for(let r of e){if(-1===runtimes.indexOf(r))throw newArgError(locale(constants.ARG_ERR_COMPATIBLE_RUNTIMES_NOT_SUPPORTED));if(-1!==n.indexOf(r))throw newArgError(locale(constants.ARG_ERR_COMPATIBLE_RUNTIMES_REPEAT));n.push(r)}}function verifyCompatibleRuntime(r){let{compatibleRuntime:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_COMPATIBLE_RUNTIME_EMPTY));if(-1===runtimes.indexOf(e))throw newArgError(locale(constants.ARG_ERR_COMPATIBLE_RUNTIME_ILLEGAL))}function verifyLayerVersion(r){let{layerVersion:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_LAYER_VERSION_EMPTY));let n=Number(e);if(isNaN(n)||n<1)throw newArgError(locale(constants.ARG_ERR_LAYER_VERSION_NOT_SUPPORTED))}function verifyLicenseInfo(r){let{licenseInfo:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_LICENSE_EMPTY));if(!verifyTools.isString(e))throw newArgError(locale(constants.ARG_ERR_LICENSE_ILLEGAL));if(getStringWidth(e)>64)throw newArgError(locale(constants.ARG_ERR_LICENSE_LENTH_LONGER))}function verifyTriggerConfigFile(r){let{configFile:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_TRIGGER_CONFIG_FILE_EMPTY));if(!fs.existsSync(e))throw newArgError(locale(constants.ARG_ERR_TRIGGER_CONFIG_FILE_UNEXIST));if(\".json\"!==path.extname(e))throw newArgError(locale(constants.ARG_ERR_TRIGGER_CONFIG_FILE_FORMAT_ILLEGAL));if(fs.statSync(e).size>=1048576)throw newArgError(locale(constants.ARG_ERR_TRIGGER_CONFIG_CONTENT_SIZE_TOO_BIGGER));let n=fs.readFileSync(e);try{JSON.parse(n)}catch(r){throw newArgError(locale(constants.ARG_ERR_TRIGGER_CONFIG_FILE_CONTENT_ILLEGAL))}}function verifyCronPayload(r){if(!isEmpty(r.payload))try{JSON.parse(r.payload)}catch(r){throw newArgError(locale(constants.INPUT_PAYLOAD_SHOULD_BE_JSON))}}function verifyListOutput(r){let{output:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_LIST_OUTPUT_UNEXIST));if(-1===[\"json\",\"table\"].indexOf(e))throw newArgError(locale(constants.ARG_ERR_LIST_OUTPUT_ILLEGAL))}function verifyPageSize(r){let{pageSize:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_PAGE_SIZE_UNEXIST));if(verifyTools.isNumber(e)||(e=Number(e)),isNaN(e)||!verifyTools.isInteger(e))throw newArgError(locale(constants.ARG_ERR_PAGE_SIZE_TYPE_ILLEGAL));if(e<1)throw newArgError(locale(constants.ARG_ERR_PAGE_SIZE_VALUE_NOT_SUPPORTED));r.pageSize=e}function verifyPageIndex(r){let{pageIndex:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_PAGE_INDEX_UNEXIST));if(verifyTools.isNumber(e)||(e=Number(e)),isNaN(e)||!verifyTools.isInteger(e))throw newArgError(locale(constants.ARG_ERR_PAGE_INDEX_TYPE_ILLEGAL));if(e<1)throw newArgError(locale(constants.ARG_ERR_PAGE_INDEX_VALUE_NOT_SUPPORTED));r.pageIndex=e}export default{Verifier:Verifier,verifyNameOptionInFunctionCmd:verifyNameOptionInFunctionCmd,verifyFunctionName:verifyFunctionName,verifyRuntime:verifyRuntime,verifyFunctionCodePath:verifyFunctionCodePath,verifyMemory:verifyMemory,verifyTimeout:verifyTimeout,verifyInstanceConcurrency:verifyInstanceConcurrency,verifyDescription:verifyDescription,verifyVersionDescription:verifyVersionDescription,verifyEnvironment:verifyEnvironment,verifyEnvironmentFile:verifyEnvironmentFile,verifyExclusionEnvironmentOption:verifyExclusionEnvironmentOption,verifyLayers:verifyLayers,verifyPayload:verifyPayload,verifyPayloadFile:verifyPayloadFile,verifyFunctionVersion:verifyFunctionVersion,verifyVersionOptionInFunctionCmd:verifyVersionOptionInFunctionCmd,verifyNameOptionInAliasCmd:verifyNameOptionInAliasCmd,verifyAliasName:verifyAliasName,verifySchedule:verifySchedule,verifyFuzzyName:verifyFuzzyName,verifyNameOptionInLayerCmd:verifyNameOptionInLayerCmd,verifyNameOptionInLayerVersionsListCmd:verifyNameOptionInLayerVersionsListCmd,verifyLayerOwnerFlag:verifyLayerOwnerFlag,verifyLayerName:verifyLayerName,verifyLayerCodePath:verifyLayerCodePath,verifyLayerDescription:verifyLayerDescription,verifyLayerVersion:verifyLayerVersion,verifyCompatibleRuntimes:verifyCompatibleRuntimes,verifyCompatibleRuntime:verifyCompatibleRuntime,verifyLicenseInfo:verifyLicenseInfo,verifyLayerSharedScope:verifyLayerSharedScope,verifyCronPayload:verifyCronPayload,verifyTriggerId:verifyTriggerId,verifyTriggerSwitch:verifyTriggerSwitch,verifyCronTriggerMode:verifyCronTriggerMode,verifyTriggerConfigFile:verifyTriggerConfigFile,verifyHTTPTriggerAuthType:verifyHTTPTriggerAuthType,verifyHTTPTriggerEnableUrlDecode:verifyHTTPTriggerEnableUrlDecode,verifyExclusionTriggerConfigOption:verifyExclusionTriggerConfigOption,verifyListOutput:verifyListOutput,verifyPageSize:verifyPageSize,verifyPageIndex:verifyPageIndex,verifyJsonFileDestinationPath:verifyJsonFileDestinationPath,verifyJsonFileSourcePath:verifyJsonFileSourcePath};"
+    },
+    {
+      "packagePath": "commands/cloudfunction/cmd/layer/createLayerVersionCmd.js",
+      "sha256": "0a5c496d678c12b820d43528eb43eaa41a09a09fa087791bb91ebbc06650a4ca",
+      "source": "import common from\"./common.js\";import constants from\"../../constants/constants.js\";import fs from\"fs\";import verify from\"../../option/verify.js\";import layerApi from\"../../api/layerApi.js\";import output from\"../../util/output.js\";import{layerInfoTitles}from\"./titles.js\";import{OPTION,setOptional,setMandatory,getOptionWithDefaultValue}from\"../../option/options.js\";import{hasFunctionServicePermission}from\"../../util/tools.js\";import{locale}from\"../../util/locale.js\";import{checkFuncServiceEnabled}from\"../../util/validation.js\";import{checkIsLogin,checkSelectedProject}from\"../../../common/util/validation.js\";async function createLayerVersionCmd(e,t){const{logger:o}=e;if(!await hasFunctionServicePermission(e))return;try{new verify.Verifier(t).addVerifyOptionFunc(verify.verifyNameOptionInLayerCmd,\"name\",!0).addVerifyOptionFunc(verify.verifyLayerCodePath,\"codePath\",!0).addVerifyOptionFunc(verify.verifyLayerDescription,\"description\",!1).addVerifyOptionFunc(verify.verifyLayerSharedScope,\"sharedScope\",!0).addVerifyOptionFunc(verify.verifyLicenseInfo,\"licenseInfo\",!1).addVerifyOptionFunc(verify.verifyCompatibleRuntimes,\"compatibleRuntimes\",!1).done()}catch(e){return void output.outputError(constants.FAILED_CREATE_LAYER_VERSION_CMD,e)}try{if(!await layerApi.queryLayerInfo(e,t.name,\"1\"))return void output.outputError(constants.FAILED_CREATE_LAYER_VERSION_CMD,{message:locale(constants.ERR_MSG_LAYER_UNEXIST)})}catch(e){return void output.outputError(constants.FAILED_CREATE_LAYER_VERSION_CMD,e)}t.compatibleRuntimes||(t.compatibleRuntimes=[\"nodejs14.x\"]);let i={compatibleRuntimes:t.compatibleRuntimes,description:t.description,sharedScope:common.layerShares[t.sharedScope],licenseInfo:t.licenseInfo};if(t.codePath){let e=fs.readFileSync(t.codePath);i.zipFile=Buffer.from(e).toString(\"base64\")}try{let o=await layerApi.createLayer(e,t.name,i);common.processSharedScopeLayerInfo(o.result),output.outputInfo(layerInfoTitles,o.result)}catch(e){output.outputError(constants.FAILED_CREATE_LAYER_VERSION_CMD,e)}}function main(e){return{cmd:\"create-layer-version\",desc:locale(constants.DESC_CMD_CREATE_LAYER_VERSION),options:[setMandatory(OPTION.NameOptionInLayerCmd.option),setOptional(common.setCompatibleFakeDefaultValue(OPTION.CompatibleRuntimes.option)),setOptional(OPTION.LayerCode.option),setOptional(getOptionWithDefaultValue(OPTION.LayerSharedScope)),setOptional(OPTION.LayerDescription.option),setOptional(OPTION.LicenseInfo.option)],child:[],addHelpText:[[\"after\",\"\\nExample:\\n  agcli func create-layer-version --name test-layer --compatible-runtimes nodejs14.x --code-path ./layer.zip --shared-scope business\"]],action(t){createLayerVersionCmd(e,t)},beforeAction:async()=>{await checkIsLogin(e),await checkSelectedProject(e),await checkFuncServiceEnabled(e)}}}export default main;"
+    },
+    {
+      "packagePath": "modules/request/edge.js",
+      "sha256": "6a2890b78c14efe687c13810ec7aa1ed8d1c512d4e946c66ebb517f93a16782f",
+      "source": "import axios from\"axios\";import https from\"https\";import fs from\"fs\";import session from\"../session/index.js\";import{isObject,getHDDate}from\"../../util/helper.js\";import storage from\"../storage/index.js\";import Logger from\"../../util/logger.js\";import path from\"path\";import{getDirName}from\"../util/dir.js\";const logger=new Logger(\"Edge\"),edgeRequest=axios.create({withCredentials:!0,httpsAgent:new https.Agent({rejectUnauthorized:!1})});function setEdgeHeaders(e={}){const t={};if(!isObject(e))return t;for(let s in e)e[s]&&(t[s]=e[s]);return t}function createUserAgent(){const e=getDirName(import.meta.url),t=JSON.parse(fs.readFileSync(path.join(e,\"../../package.json\"),\"utf8\"));return`agc-cli-tool/${t.version} (${t.platform})`}const onConfig=async e=>{if(!await session.isSessionValid())return logger.warn(\"Run the agcli login command to sign in the user first.\"),e;e.headers[\"User-Agent\"]=createUserAgent(),e.headers[\"X-HD-DATE\"]=getHDDate();const{uid:t,accessToken:s}=session.getToken(),r=storage.getProjectId(),o=setEdgeHeaders({uid:t,oauth2Token:s,teamId:storage.getTeamId(),productId:r});return Object.assign(e.headers,o),e},onError=e=>Promise.reject(e);edgeRequest.interceptors.request.use(onConfig,onError),edgeRequest.interceptors.response.use((e=>200===e.status?e.data:Promise.reject(e)),(e=>Promise.reject(e)));const edgeRequestWithRawResponse=axios.create({httpsAgent:new https.Agent({rejectUnauthorized:!1})});edgeRequestWithRawResponse.interceptors.request.use(onConfig,onError),edgeRequestWithRawResponse.interceptors.response.use((e=>200===e.status?{data:e.data,headers:e.headers}:Promise.reject(e)),(e=>Promise.reject(e)));export{edgeRequest,edgeRequestWithRawResponse,setEdgeHeaders,createUserAgent};"
+    }
+  ],
+  "notes": [],
+  "reviewedPages": [
+    {
+      "captureTool": "Computer Use; merged-cell capture compatible with scripts/browser-capture-reference.mjs",
+      "checkedAt": "2026-10-26",
+      "examples": [
+        {
+          "section": "功能概述",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section14923122414189",
+          "text": "|---nodemodule.zip\n    |---相关配置项\n    |---node_modules\n        |---moment  //相关依赖项"
+        },
+        {
+          "section": "功能概述",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section14923122414189",
+          "text": "|---libdemo.zip\n    |---config\n        |---application.properties  //相关配置文件\n    |---lib\n        |---*.jar //相关jar依赖"
+        },
+        {
+          "section": "功能概述",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section14923122414189",
+          "text": "|---layer.zip\n    |---相关配置项"
+        }
+      ],
+      "links": [
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-management-0000001517922200",
+          "title": "函数管理"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section163581231182117",
+          "title": "删除层"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-flow-manage-0000001658598194",
+          "title": "流量治理"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-trigger-manage-0000001658717856",
+          "title": "触发器管理"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section14923122414189",
+          "title": "功能概述"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section11358162018572",
+          "title": "创建层"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section1788095013570",
+          "title": "更新层"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section35926165914",
+          "title": "删除层版本"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section163581231182117",
+          "title": "删除层"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section1281515482110",
+          "title": "查询层"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section377305318174",
+          "title": "将函数绑定层"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section725011614010",
+          "title": "将函数解绑层"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+          "title": "华为开发者联盟用户协议"
+        }
+      ],
+      "notes": [
+        {
+          "section": "功能概述",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section14923122414189",
+          "text": "此功能为可选功能，请开发者根据实际需要来选择使用。"
+        },
+        {
+          "section": "功能概述",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section14923122414189",
+          "text": "层是包含库和相关依赖项的ZIP存档包。通过为函数绑定层，您可以在函数中使用库，而不必将库包含在云函数的部署程序包中。"
+        },
+        {
+          "section": "功能概述",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section14923122414189",
+          "text": "云函数支持层的管理，为您提供公共依赖库的部署与发布能力。通过层来管理具有通用性或不变性的依赖、静态文件等，以此精炼云函数代码，从而达到缩小代码包大小与缩短部署时间的效果。"
+        },
+        {
+          "section": "功能概述",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section14923122414189",
+          "text": "云函数支持一个函数最多可以绑定5个层。"
+        },
+        {
+          "section": "功能概述",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section14923122414189",
+          "text": "上传的层包大小限制在150MB以内，解压后的层包大小限制在300MB以内。"
+        },
+        {
+          "section": "功能概述",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section14923122414189",
+          "text": "Node.js层结构：\n|---nodemodule.zip\n    |---相关配置项\n    |---node_modules\n        |---moment  //相关依赖项"
+        },
+        {
+          "section": "功能概述",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section14923122414189",
+          "text": "|---nodemodule.zip"
+        },
+        {
+          "section": "功能概述",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section14923122414189",
+          "text": "|---相关配置项"
+        },
+        {
+          "section": "功能概述",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section14923122414189",
+          "text": "|---node_modules"
+        },
+        {
+          "section": "功能概述",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section14923122414189",
+          "text": "|---moment  //相关依赖项"
+        },
+        {
+          "section": "功能概述",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section14923122414189",
+          "text": "Java层结构：\n|---libdemo.zip\n    |---config\n        |---application.properties  //相关配置文件\n    |---lib\n        |---*.jar //相关jar依赖"
+        },
+        {
+          "section": "功能概述",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section14923122414189",
+          "text": "|---libdemo.zip"
+        },
+        {
+          "section": "功能概述",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section14923122414189",
+          "text": "|---config"
+        },
+        {
+          "section": "功能概述",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section14923122414189",
+          "text": "|---application.properties  //相关配置文件"
+        },
+        {
+          "section": "功能概述",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section14923122414189",
+          "text": "|---lib"
+        },
+        {
+          "section": "功能概述",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section14923122414189",
+          "text": "|---*.jar //相关jar依赖"
+        },
+        {
+          "section": "功能概述",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section14923122414189",
+          "text": "Python层结构：\n|---layer.zip\n    |---相关配置项"
+        },
+        {
+          "section": "功能概述",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section14923122414189",
+          "text": "|---layer.zip"
+        },
+        {
+          "section": "功能概述",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section14923122414189",
+          "text": "|---相关配置项"
+        },
+        {
+          "section": "功能概述",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section14923122414189",
+          "text": "具体使用场景举例如下："
+        },
+        {
+          "section": "功能概述",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section14923122414189",
+          "text": "开发者开发云函数代码，通过相对路径的形式引用依赖。"
+        },
+        {
+          "section": "功能概述",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section14923122414189",
+          "text": "依赖打包：按照层文件要求，将依赖单独封装为一个zip包，创建层layer1时上传此zip包。"
+        },
+        {
+          "section": "功能概述",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section14923122414189",
+          "text": "函数打包：按照函数打包要求，将其余未打包的代码文件，单独封装成一个函数zip包，创建云函数并上传。"
+        },
+        {
+          "section": "功能概述",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section14923122414189",
+          "text": "开发创建第二个云函数，可直接引用层layer1中的依赖。一份依赖文件不需要在两个云函数的代码包中重复上传，从而减少了函数代码包的大小和部署时间。"
+        },
+        {
+          "section": "创建层",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section11358162018572",
+          "text": "在云函数主界面，选择“层”页签。"
+        },
+        {
+          "section": "创建层",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section11358162018572",
+          "text": "在层管理页面，点击“创建层”。"
+        },
+        {
+          "section": "创建层",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section11358162018572",
+          "text": "页面右侧抽屉式滑出“创建层”窗口，配置“层名称”、“层范围”等信息。\n\n参数\n\n\t\n\n说明\n\n\n\n\n层名称\n\n\t\n\n层的名称。重复时自动在同名的层中创建一个新版本。\n\n\n\n\n层描述\n\n\t\n\n对正在创建层的附加说明。\n\n\n\n\n层范围\n\n\t\n\n层的共享范围。\n\n团队内共享\n项目内共享\n\n\n\n兼容运行时\n\n\t\n\n层使用的语言环境。支持多选。\n\nnodejs\njava\npython\ncustom-runtime\n\n\n\n代码输入类型\n\n\t\n\n代码输入类型，仅支持上传zip文件。\n\n说明\n\nZIP包大小最大为150MB，解压后最大300MB，文件数最多不超过30000个。\n\n\n\n\n选择文件\n\n\t\n\n选择上传的zip文件。"
+        },
+        {
+          "section": "创建层",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section11358162018572",
+          "text": "点击右下角“创建层”，保存层信息，您已创建的层将展示在层列表中。"
+        },
+        {
+          "section": "更新层",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section1788095013570",
+          "text": "发布的层版本会按序累加，例如：最新的层版本是1，删除版本1后，再发布层版本，此时版本是2。"
+        },
+        {
+          "section": "更新层",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section1788095013570",
+          "text": "点击您已创建的层，进入层详情页面。"
+        },
+        {
+          "section": "更新层",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section1788095013570",
+          "text": "点击右侧“发布”，右侧抽屉式滑出“发布层版本”窗口。"
+        },
+        {
+          "section": "更新层",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section1788095013570",
+          "text": "在“发布层版本”窗口中配置“层范围”、“兼容运行时”、“代码输入类型”等信息。\n\n参数\n\n\t\n\n说明\n\n\n\n\n层描述\n\n\t\n\n对正在创建的层的附加说明。\n\n\n\n\n层范围\n\n\t\n\n层的共享范围。\n\n项目内共享\n团队内共享\n\n\n\n兼容运行时\n\n\t\n\n层使用的语言环境。支持多选。\n\nnodejs\njava\npython\ncustom-runtime\n\n\n\n代码输入类型\n\n\t\n\n代码输入的文件类型，zip文件。\n\n说明\n\nZIP包大小最大为150M，解压后最大300M，文件数最多不超过30000个。\n\n\n\n\n选择文件\n\n\t\n\n选择上传的zip文件。"
+        },
+        {
+          "section": "更新层",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section1788095013570",
+          "text": "点击右下角“发布层版本”，保存层的版本信息，您已创建的新版本层将展示在层详情页版本列表中。"
+        },
+        {
+          "section": "删除层版本",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section35926165914",
+          "text": "删除层版本，已经绑定在函数中的层不会失效。"
+        },
+        {
+          "section": "删除层版本",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section35926165914",
+          "text": "在您已创建的层列表中，找到待删除的层，点击层进入详情页。"
+        },
+        {
+          "section": "删除层版本",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section35926165914",
+          "text": "点击待删除层版本右侧“操作”列的“删除”，即可删除层版本。当所有层版本被删除时，层即被删除。"
+        },
+        {
+          "section": "删除层",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section163581231182117",
+          "text": "在您已创建的层列表中，找到待删除的层，点击右侧对应“操作”列的“删除”。"
+        },
+        {
+          "section": "删除层",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section163581231182117",
+          "text": "删除层将同步删除层中的所有版本，不可恢复，请您谨慎操作。"
+        },
+        {
+          "section": "查询层",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section1281515482110",
+          "text": "进入层列表管理页面，在搜索框中通过层名称进行模糊搜索。"
+        },
+        {
+          "section": "查询层",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section1281515482110",
+          "text": "如果您需要选择模糊搜索的范围，您可以通过点击“我的”和“共享”两个页签来进行过滤，在层列表中将展示相应的查询结果。\n我的：开发者自己创建的。\n共享：同项目+同团队下共享的。"
+        },
+        {
+          "section": "查询层",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section1281515482110",
+          "text": "我的：开发者自己创建的。"
+        },
+        {
+          "section": "查询层",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section1281515482110",
+          "text": "共享：同项目+同团队下共享的。"
+        },
+        {
+          "section": "将函数绑定层",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section377305318174",
+          "text": "在函数别表中点击函数名称，进入函数详情页面。选择“层配置”页签，点击右上角的“绑定层”。"
+        },
+        {
+          "section": "将函数绑定层",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section377305318174",
+          "text": "在右侧弹出的“绑定层”界面中，下拉框选择“层名称”和“版本”，“层范围”等信息根据层的配置将被自动填充，完成层绑定后点击“确定”。\n注意\n一个函数最多可以绑定5个层。\n选择层时，层的兼容运行时需与函数运行环境相符，否则系统报错，绑定层失败。\n\n参数\n\n\t\n\n说明\n\n\n\n\n层名称\n\n\t\n\n层的名称。重复时自动在同名的层中创建一个新版本。\n\n\n\n\n版本\n\n\t\n\n存在多个层版本时，选择函数绑定的层版本。\n\n\n\n\n层范围\n\n\t\n\n层的共享范围。\n\n项目内共享\n团队内共享\n\n\n\n兼容运行时\n\n\t\n\n层使用的语言环境。\n\nnodejs\njava\npython\ncustom-runtime\n\n\n\n层描述\n\n\t\n\n层的附加说明，长度不超过1024位。"
+        },
+        {
+          "section": "将函数绑定层",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section377305318174",
+          "text": "一个函数最多可以绑定5个层。"
+        },
+        {
+          "section": "将函数绑定层",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section377305318174",
+          "text": "选择层时，层的兼容运行时需与函数运行环境相符，否则系统报错，绑定层失败。"
+        },
+        {
+          "section": "将函数绑定层",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section377305318174",
+          "text": "返回到“层配置”界面，绑定成功的层将展示在层列表中。"
+        },
+        {
+          "section": "将函数解绑层",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section725011614010",
+          "text": "进入函数详情页，选择“层配置”页签。可在文本框中输入层名称进行模糊筛选。"
+        },
+        {
+          "section": "将函数解绑层",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section725011614010",
+          "text": "点击层名称对应“操作”列的“解绑”，然后在“提示”弹出框中点击“确定”，函数与层解绑成功。\n说明\n\n此处只是解除了函数与层的绑定关系，并没有真正删除层数据。如果您需要真正删除层数据，具体请参见删除层。"
+        },
+        {
+          "section": "将函数解绑层",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section725011614010",
+          "text": "此处只是解除了函数与层的绑定关系，并没有真正删除层数据。如果您需要真正删除层数据，具体请参见删除层。"
+        }
+      ],
+      "renderedText": "指南\n云函数\n函数管理\n层管理\n层管理\n更新时间: 2026-10-20 16:24\n功能概述\n注意\n\n此功能为可选功能，请开发者根据实际需要来选择使用。\n\n层是包含库和相关依赖项的ZIP存档包。通过为函数绑定层，您可以在函数中使用库，而不必将库包含在云函数的部署程序包中。\n\n云函数支持层的管理，为您提供公共依赖库的部署与发布能力。通过层来管理具有通用性或不变性的依赖、静态文件等，以此精炼云函数代码，从而达到缩小代码包大小与缩短部署时间的效果。\n\n云函数支持一个函数最多可以绑定5个层。\n\n注意\n\n上传的层包大小限制在150MB以内，解压后的层包大小限制在300MB以内。\n\nNode.js层结构：\n|---nodemodule.zip\n    |---相关配置项\n    |---node_modules\n        |---moment  //相关依赖项\nJava层结构：\n|---libdemo.zip\n    |---config\n        |---application.properties  //相关配置文件\n    |---lib\n        |---*.jar //相关jar依赖\nPython层结构：\n|---layer.zip\n    |---相关配置项\n\n具体使用场景举例如下：\n\n开发者开发云函数代码，通过相对路径的形式引用依赖。\n依赖打包：按照层文件要求，将依赖单独封装为一个zip包，创建层layer1时上传此zip包。\n函数打包：按照函数打包要求，将其余未打包的代码文件，单独封装成一个函数zip包，创建云函数并上传。\n开发创建第二个云函数，可直接引用层layer1中的依赖。一份依赖文件不需要在两个云函数的代码包中重复上传，从而减少了函数代码包的大小和部署时间。\n创建层\n在云函数主界面，选择“层”页签。\n在层管理页面，点击“创建层”。\n\n页面右侧抽屉式滑出“创建层”窗口，配置“层名称”、“层范围”等信息。\n\n参数\n\n\t\n\n说明\n\n\n\n\n层名称\n\n\t\n\n层的名称。重复时自动在同名的层中创建一个新版本。\n\n\n\n\n层描述\n\n\t\n\n对正在创建层的附加说明。\n\n\n\n\n层范围\n\n\t\n\n层的共享范围。\n\n团队内共享\n项目内共享\n\n\n\n兼容运行时\n\n\t\n\n层使用的语言环境。支持多选。\n\nnodejs\njava\npython\ncustom-runtime\n\n\n\n代码输入类型\n\n\t\n\n代码输入类型，仅支持上传zip文件。\n\n说明\n\nZIP包大小最大为150MB，解压后最大300MB，文件数最多不超过30000个。\n\n\n\n\n选择文件\n\n\t\n\n选择上传的zip文件。\n\n点击右下角“创建层”，保存层信息，您已创建的层将展示在层列表中。\n\n更新层\n\n发布的层版本会按序累加，例如：最新的层版本是1，删除版本1后，再发布层版本，此时版本是2。\n\n点击您已创建的层，进入层详情页面。\n点击右侧“发布”，右侧抽屉式滑出“发布层版本”窗口。\n在“发布层版本”窗口中配置“层范围”、“兼容运行时”、“代码输入类型”等信息。\n\n参数\n\n\t\n\n说明\n\n\n\n\n层描述\n\n\t\n\n对正在创建的层的附加说明。\n\n\n\n\n层范围\n\n\t\n\n层的共享范围。\n\n项目内共享\n团队内共享\n\n\n\n兼容运行时\n\n\t\n\n层使用的语言环境。支持多选。\n\nnodejs\njava\npython\ncustom-runtime\n\n\n\n代码输入类型\n\n\t\n\n代码输入的文件类型，zip文件。\n\n说明\n\nZIP包大小最大为150M，解压后最大300M，文件数最多不超过30000个。\n\n\n\n\n选择文件\n\n\t\n\n选择上传的zip文件。\n\n点击右下角“发布层版本”，保存层的版本信息，您已创建的新版本层将展示在层详情页版本列表中。\n\n删除层版本\n\n删除层版本，已经绑定在函数中的层不会失效。\n\n在您已创建的层列表中，找到待删除的层，点击层进入详情页。\n点击待删除层版本右侧“操作”列的“删除”，即可删除层版本。当所有层版本被删除时，层即被删除。\n\n删除层\n\n在您已创建的层列表中，找到待删除的层，点击右侧对应“操作”列的“删除”。\n\n注意\n\n删除层将同步删除层中的所有版本，不可恢复，请您谨慎操作。\n\n查询层\n进入层列表管理页面，在搜索框中通过层名称进行模糊搜索。\n如果您需要选择模糊搜索的范围，您可以通过点击“我的”和“共享”两个页签来进行过滤，在层列表中将展示相应的查询结果。\n我的：开发者自己创建的。\n共享：同项目+同团队下共享的。\n\n将函数绑定层\n在函数别表中点击函数名称，进入函数详情页面。选择“层配置”页签，点击右上角的“绑定层”。\n\n在右侧弹出的“绑定层”界面中，下拉框选择“层名称”和“版本”，“层范围”等信息根据层的配置将被自动填充，完成层绑定后点击“确定”。\n注意\n一个函数最多可以绑定5个层。\n选择层时，层的兼容运行时需与函数运行环境相符，否则系统报错，绑定层失败。\n\n参数\n\n\t\n\n说明\n\n\n\n\n层名称\n\n\t\n\n层的名称。重复时自动在同名的层中创建一个新版本。\n\n\n\n\n版本\n\n\t\n\n存在多个层版本时，选择函数绑定的层版本。\n\n\n\n\n层范围\n\n\t\n\n层的共享范围。\n\n项目内共享\n团队内共享\n\n\n\n兼容运行时\n\n\t\n\n层使用的语言环境。\n\nnodejs\njava\npython\ncustom-runtime\n\n\n\n层描述\n\n\t\n\n层的附加说明，长度不超过1024位。\n\n返回到“层配置”界面，绑定成功的层将展示在层列表中。\n\n将函数解绑层\n进入函数详情页，选择“层配置”页签。可在文本框中输入层名称进行模糊筛选。\n\n点击层名称对应“操作”列的“解绑”，然后在“提示”弹出框中点击“确定”，函数与层解绑成功。\n说明\n\n此处只是解除了函数与层的绑定关系，并没有真正删除层数据。如果您需要真正删除层数据，具体请参见删除层。\n\n流量治理\n触发器管理\n意见反馈\n以上内容对您是否有帮助？\n意见反馈\n如果您有其他疑问，您也可以通过开发者社区问答频道来和我们联系探讨。\n社区提问AI 助手提问\n本文导读\n功能概述\n创建层\n更新层\n删除层版本\n删除层\n查询层\n将函数绑定层\n将函数解绑层\n简体中文\n华为开发者联盟 版权所有 ©2026\n问题反馈\n使用条款\n华为开发者联盟用户协议\n关于华为开发者联盟与隐私的声明\nCookies\n开源软件声明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624",
+      "status": "browser-read",
+      "tables": [
+        {
+          "location": "",
+          "rows": [
+            [
+              "参数",
+              "说明"
+            ],
+            [
+              "层名称",
+              "层的名称。重复时自动在同名的层中创建一个新版本。"
+            ],
+            [
+              "层描述",
+              "对正在创建层的附加说明。"
+            ],
+            [
+              "层范围",
+              "层的共享范围。 团队内共享 项目内共享"
+            ],
+            [
+              "兼容运行时",
+              "层使用的语言环境。支持多选。 nodejs java python custom-runtime"
+            ],
+            [
+              "代码输入类型",
+              "代码输入类型，仅支持上传zip文件。 说明 ZIP包大小最大为150MB，解压后最大300MB，文件数最多不超过30000个。"
+            ],
+            [
+              "选择文件",
+              "选择上传的zip文件。"
+            ]
+          ],
+          "section": "创建层",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section11358162018572"
+        },
+        {
+          "location": "",
+          "rows": [
+            [
+              "参数",
+              "说明"
+            ],
+            [
+              "层描述",
+              "对正在创建的层的附加说明。"
+            ],
+            [
+              "层范围",
+              "层的共享范围。 项目内共享 团队内共享"
+            ],
+            [
+              "兼容运行时",
+              "层使用的语言环境。支持多选。 nodejs java python custom-runtime"
+            ],
+            [
+              "代码输入类型",
+              "代码输入的文件类型，zip文件。 说明 ZIP包大小最大为150M，解压后最大300M，文件数最多不超过30000个。"
+            ],
+            [
+              "选择文件",
+              "选择上传的zip文件。"
+            ]
+          ],
+          "section": "更新层",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section1788095013570"
+        },
+        {
+          "location": "",
+          "rows": [
+            [
+              "参数",
+              "说明"
+            ],
+            [
+              "层名称",
+              "层的名称。重复时自动在同名的层中创建一个新版本。"
+            ],
+            [
+              "版本",
+              "存在多个层版本时，选择函数绑定的层版本。"
+            ],
+            [
+              "层范围",
+              "层的共享范围。 项目内共享 团队内共享"
+            ],
+            [
+              "兼容运行时",
+              "层使用的语言环境。 nodejs java python custom-runtime"
+            ],
+            [
+              "层描述",
+              "层的附加说明，长度不超过1024位。"
+            ]
+          ],
+          "section": "将函数绑定层",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624#section377305318174"
+        }
+      ],
+      "title": "层管理"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+[
+  {
+    "name": "teamId",
+    "in": "header",
+    "type": "string",
+    "required": false,
+    "description": "开发者所在团队的团队ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-add-device-0000002236041498#section1323714041015",
+    "maxLength": 64
+  },
+  {
+    "name": "deviceList",
+    "in": "body",
+    "type": "array",
+    "required": true,
+    "description": "添加调试/测试设备的信息列表。 数组长度不超过1000。 说明 支持重新添加在过去一年内被删除的设备，只需输入新的deviceName，并输入原始的udid即可。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-add-device-0000002236041498#section16551174881019",
+    "itemsType": "object",
+    "maxItems": 1000,
+    "itemsProperties": [
+      {
+        "name": "deviceName",
+        "in": "body",
+        "type": "string",
+        "required": true,
+        "description": "设备名称。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-provision-api-data-adddeviceinfo-0000002236201314",
+        "maxLength": 100
+      },
+      {
+        "name": "udid",
+        "in": "body",
+        "type": "string",
+        "required": true,
+        "description": "设备UDID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-provision-api-data-adddeviceinfo-0000002236201314",
+        "maxLength": 64
+      },
+      {
+        "name": "deviceType",
+        "in": "body",
+        "type": "integer",
+        "required": true,
+        "description": "设备类型。 取值范围： 1：运动手表 2：智能手表 4：手机 5：平板 8：智慧屏 19：PC/2in1",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-provision-api-data-adddeviceinfo-0000002236201314",
+        "enum": [
+          "1",
+          "2",
+          "4",
+          "5",
+          "8",
+          "19"
+        ]
+      }
+    ]
+  }
+]

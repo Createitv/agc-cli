@@ -1,0 +1,55 @@
+[
+  {
+    "name": "appId",
+    "in": "header",
+    "type": "string",
+    "required": true,
+    "description": "应用ID，获取方法参考查看应用信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-test-group-user-0000002236201338#section1585011135518",
+    "maxLength": 32
+  },
+  {
+    "name": "teamId",
+    "in": "header",
+    "type": "integer",
+    "required": false,
+    "description": "开发者所在团队的团队ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-test-group-user-0000002236201338#section1585011135518"
+  },
+  {
+    "name": "groupId",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "测试群组ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-test-group-user-0000002236201338#section141117691213",
+    "maxLength": 32
+  },
+  {
+    "name": "nickName",
+    "in": "body",
+    "type": "string",
+    "required": false,
+    "description": "需要添加到测试群组的成员昵称。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-test-group-user-0000002236201338#section141117691213",
+    "maxLength": 64
+  },
+  {
+    "name": "hwAccount",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "测试群组成员的华为账号、邮箱或者手机号。 手机号格式为：国家码-手机号 内部群组手机号格式为：0086手机号 外部群组手机号格式为：86-手机号",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-test-group-user-0000002236201338#section141117691213",
+    "maxLength": 256
+  },
+  {
+    "name": "uid",
+    "in": "body",
+    "type": "string",
+    "required": false,
+    "description": "联盟账号id，内部群组添加成员必填。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-test-group-user-0000002236201338#section141117691213",
+    "maxLength": 128
+  }
+]

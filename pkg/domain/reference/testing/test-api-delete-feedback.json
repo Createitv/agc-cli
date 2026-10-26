@@ -1,0 +1,283 @@
+{
+  "examples": [
+    {
+      "section": "请求示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-delete-feedback-0000002634718668#section162251741185115",
+      "text": "请求示例\n DELETE /api/app-test/v1/mgmt/tester-feedback HTTP/1.1 \n Host: connect-api.cloud.huawei.com \n client_id: 4141******68 \n Content-Type: application/json \n Authorization: Bearer ******* \n appId:69175*******88965\n{\n  \"delFeedBackInfos\": [\n    {\n      \"problemId\": \"string\",\n      \"testerId\": \"string\"\n    }\n  ],\n  \"deleteMode\": 1\n}"
+    },
+    {
+      "section": "响应示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-delete-feedback-0000002634718668#section45981511195316",
+      "text": "响应示例\n{\n  \"rtnCode\": 0,\n  \"rtnDesc\": \"string\",\n  \"businessCode\": 0\n}"
+    }
+  ],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter#section195981215284",
+      "title": "了解新版目录"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-open-ability-0000002235710238",
+      "title": "AGC开放能力"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-0000002236015554",
+      "title": "AppGallery Connect API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-reference-0000002271000709",
+      "title": "Testing API参考"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-obtain-server-auth-0000002271134661",
+      "title": "获取服务端授权"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-obtain-server-auth-0000002271134661#section104621343151212",
+      "title": "通过Service Account方式获取授权"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-obtain-server-auth-0000002271134661#section103mcpsimp",
+      "title": "创建API客户端"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-obtain-server-auth-0000002271134661#section09831133141712",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-obtain-server-auth-0000002271134661#section949717114392",
+      "title": "获取用户授权码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-deletefeedbackrequest-0000002671009673",
+      "title": "deleteFeedbackRequest"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-query-feedback-0000002665117717",
+      "title": "查询测试问题反馈"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-data-0000002237336484",
+      "title": "数据模型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-delete-feedback-0000002634718668#section16817111413112",
+      "title": "功能介绍"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-delete-feedback-0000002634718668#section101651738121111",
+      "title": "接口原型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-delete-feedback-0000002634718668#section747013518115",
+      "title": "请求参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-delete-feedback-0000002634718668#section15707195611112",
+      "title": "Header"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-delete-feedback-0000002634718668#section6641436115716",
+      "title": "Body"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-delete-feedback-0000002634718668#section162251741185115",
+      "title": "请求示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-delete-feedback-0000002634718668#section9752647125217",
+      "title": "响应参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-delete-feedback-0000002634718668#section45981511195316",
+      "title": "响应示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-delete-feedback-0000002634718668#section16817111413112",
+      "text": "此接口用于删除测试问题反馈。"
+    },
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-delete-feedback-0000002634718668#section16817111413112",
+      "text": "接口调用者的角色：账号持有者、管理员、APP管理员、运营。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-delete-feedback-0000002634718668#section15707195611112",
+      "text": "本接口支持使用Service Account方式、API客户端方式和OAuth客户端方式，区别请参见获取服务端授权。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-delete-feedback-0000002634718668#section15707195611112",
+      "text": "Service Account方式："
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-delete-feedback-0000002634718668#section15707195611112",
+      "text": "API客户端方式："
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-delete-feedback-0000002634718668#section15707195611112",
+      "text": "OAuth客户端方式："
+    }
+  ],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-delete-feedback-0000002634718668",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "承载协议",
+          "HTTPS DELETE"
+        ],
+        [
+          "接口方向",
+          "开发者服务器 -> 华为服务器"
+        ],
+        [
+          "接口URL",
+          "https://connect-api.cloud.huawei.com/api/app-test/v1/mgmt/tester-feedback"
+        ],
+        [
+          "数据格式",
+          "请求：Content-Type: application/json 响应：Content-Type: application/json"
+        ]
+      ],
+      "section": "接口原型",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-delete-feedback-0000002634718668#section101651738121111"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "Authorization",
+          "M",
+          "String",
+          "认证信息，格式为“Authorization: Bearer ${JWT}”。JWT为通过Service Account方式获取授权中获取的鉴权令牌。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-delete-feedback-0000002634718668#section15707195611112"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "client_id",
+          "M",
+          "String",
+          "客户端ID，获取方法参考创建API客户端。"
+        ],
+        [
+          "Authorization",
+          "M",
+          "String",
+          "认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-delete-feedback-0000002634718668#section15707195611112"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "teamId",
+          "M",
+          "String(64)",
+          "开发者所在团队的团队ID。"
+        ],
+        [
+          "oauth2Token",
+          "M",
+          "String",
+          "认证信息，传入获取用户授权码中获取的Access Token。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-delete-feedback-0000002634718668#section15707195611112"
+    },
+    {
+      "location": "body",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "deleteFeedbackRequest",
+          "M",
+          "deleteFeedbackRequest",
+          "删除问题反馈请求。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-delete-feedback-0000002634718668#section6641436115716"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "rtnCode",
+          "M",
+          "Integer",
+          "返回码。 取值范围： 0：成功 1：参数校验不通过。 2：越权错误。 3：并发修改错误。 -1：内部异常。"
+        ],
+        [
+          "rtnDesc",
+          "O",
+          "String",
+          "错误描述。"
+        ],
+        [
+          "businessCode",
+          "O",
+          "Integer",
+          "业务错误码，非rtnCode的业务错误码在这个字段返回。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-delete-feedback-0000002634718668#section9752647125217"
+    }
+  ],
+  "title": "删除测试问题反馈",
+  "updatedAt": "2026-08-11 10:20",
+  "checkedAt": "2026-10-07T02:55:01.149Z",
+  "family": "testing",
+  "endpoint": "test-api-delete-feedback"
+}

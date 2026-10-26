@@ -1,0 +1,312 @@
+{
+  "examples": [],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-notify-release-0000001158245063",
+      "title": "回调结果通知"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-query-0000001158365045",
+      "title": "查询应用信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114",
+      "title": "使用入门"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114#section103mcpsimp",
+      "title": "创建API客户端"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain_token-0000001158365043",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-getteamlist-0000001158245075",
+      "title": "获取团队列表"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114#section949717114392",
+      "title": "获取用户授权码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-notify-release-0000001158245063",
+      "title": "回调结果通知"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-publishingapi-errorcode-0000001163523297",
+      "title": "错误码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-add-packageurl-0000001158245065#section39581727",
+      "title": "功能介绍"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-add-packageurl-0000001158245065#section133mcpsimp",
+      "title": "接口约束"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-add-packageurl-0000001158245065#section6932219103913",
+      "title": "接口原型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-add-packageurl-0000001158245065#section44860761",
+      "title": "请求参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-add-packageurl-0000001158245065#section236517415165",
+      "title": "Header"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-add-packageurl-0000001158245065#section164139546428",
+      "title": "Query"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-add-packageurl-0000001158245065#section15344132481910",
+      "title": "Body"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-add-packageurl-0000001158245065#section60996746",
+      "title": "响应参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-add-packageurl-0000001158245065#section8439614104314",
+      "title": "调用示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-add-packageurl-0000001158245065#section311913164588",
+      "title": "Postman调试"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-add-packageurl-0000001158245065#section39581727",
+      "text": "如果您将软件包保存在自己的服务器上，可以直接调用本接口将软件包提交到AppGallery Connect服务器。华为服务器会自动从下载地址中下载软件包后提交，不会关联版本。本操作只提交软件包，不发布软件包。接口调用者的角色：账号持有者、管理员、APP管理员。"
+    },
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-add-packageurl-0000001158245065#section39581727",
+      "text": "该接口需要在华为侧下载软件包并处理后上传，耗时较长，为异步接口。接口会立即响应成功，但这并不意味着最终发布成功。"
+    },
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-add-packageurl-0000001158245065#section39581727",
+      "text": "您可以遵循回调结果通知接口的约束， 开发并提供回调能力，通过本接口的callbackAddr参数传入回调地址，用于接收软件包处理结果。"
+    },
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-add-packageurl-0000001158245065#section39581727",
+      "text": "您也可以自行调用查询应用信息接口判断应用是否已经提交审核成功（releaseState为4），或者登录AppGallery Connect官网查看提审状态。"
+    },
+    {
+      "section": "接口约束",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-add-packageurl-0000001158245065#section133mcpsimp",
+      "text": "非中国大陆开发者如需使用该API，应用发布地区必须包含中国大陆。中国大陆开发者无限制。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-add-packageurl-0000001158245065#section236517415165",
+      "text": "API客户端方式和OAuth客户端方式的区别请参见使用入门。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-add-packageurl-0000001158245065#section236517415165",
+      "text": "API客户端方式："
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-add-packageurl-0000001158245065#section236517415165",
+      "text": "OAuth客户端方式："
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-add-packageurl-0000001158245065#section15344132481910",
+      "text": "请求Body中使用JSON格式携带详细的发布信息，参数如下表所示。"
+    },
+    {
+      "section": "Postman调试",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-add-packageurl-0000001158245065#section311913164588",
+      "text": "您可以使用Postman在线调试此接口。"
+    }
+  ],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-add-packageurl-0000001158245065",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "承载协议",
+          "HTTPS POST"
+        ],
+        [
+          "接口方向",
+          "开发者服务器 -> 华为服务器"
+        ],
+        [
+          "接口URL",
+          "https://connect-api.cloud.huawei.com/api/publish/v2/app-package-file/by-url"
+        ],
+        [
+          "数据格式",
+          "请求：Content-Type: application/json 响应：Content-Type: application/json"
+        ]
+      ],
+      "section": "接口原型",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-add-packageurl-0000001158245065#section6932219103913"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "client_id",
+          "M",
+          "String",
+          "客户端ID，获取方法参考创建API客户端。"
+        ],
+        [
+          "Authorization",
+          "M",
+          "String",
+          "认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-add-packageurl-0000001158245065#section236517415165"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "teamId",
+          "M",
+          "String",
+          "开发者所在团队的团队ID，可通过获取团队列表接口获取。"
+        ],
+        [
+          "oauth2Token",
+          "M",
+          "String",
+          "认证信息，传入获取用户授权码中获取的Access Token。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-add-packageurl-0000001158245065#section236517415165"
+    },
+    {
+      "location": "query",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "appId",
+          "M",
+          "String",
+          "应用ID。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-add-packageurl-0000001158245065#section164139546428"
+    },
+    {
+      "location": "body",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "downloadUrl",
+          "M",
+          "String(256)",
+          "由您自行提供的软件包下载地址。 APK：不超过4GB。 RPK：快应用不超过20MB，快游戏不超过30MB。 AAB：不超过150MB。 EXE（Windows应用）：不超过4GB。"
+        ],
+        [
+          "downloadFileName",
+          "M",
+          "String(64)",
+          "与downloadUrl配套的文件名，包括后缀。"
+        ],
+        [
+          "callbackAddr",
+          "O",
+          "String(256)",
+          "回调地址，由您自行配置。软件包提交完成后由华为服务器调用回调结果通知接口通过该URL回调给您的开发者服务器。"
+        ],
+        [
+          "requestId",
+          "M",
+          "String(64)",
+          "您自定义请求字符串，必须唯一标识此请求。结果回调时会携带该字段。"
+        ],
+        [
+          "versionName",
+          "O",
+          "String(255)",
+          "Windows应用的软件包版本号。 文件类型为exe软件包时必选。"
+        ],
+        [
+          "displayName",
+          "O",
+          "String(255)",
+          "注册表显示名称，用于唯一标识Windows应用。 文件类型为exe软件包时必选。"
+        ],
+        [
+          "packageType",
+          "O",
+          "Integer(32)",
+          "软件包类型。 1：APK 2：RPK 8：EXE（Windows应用）"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-add-packageurl-0000001158245065#section15344132481910"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "ret",
+          "M",
+          "String(100)",
+          "包含返回码及描述信息的JSON字符串，格式为{\"code\":retcode, \"msg\": \"description\"}，retcode为返回码，description为返回码描述信息。返回码请参见错误码。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-add-packageurl-0000001158245065#section60996746"
+    }
+  ],
+  "title": "通过下载方式提交软件包",
+  "updatedAt": "2026-01-21 16:29",
+  "checkedAt": "2026-10-07T02:51:52.049Z",
+  "family": "publishing",
+  "endpoint": "add-packageurl"
+}

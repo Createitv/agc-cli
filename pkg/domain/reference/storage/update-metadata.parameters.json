@@ -1,0 +1,98 @@
+[
+  {
+    "name": "object_name",
+    "in": "path",
+    "type": "string",
+    "required": true,
+    "description": "Storage instance or object path; percent-encoded exactly once.",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-changemetadata-0000001549198553"
+  },
+  {
+    "name": "bucket_name",
+    "in": "path",
+    "type": "string",
+    "required": true,
+    "description": "Storage instance or object path; percent-encoded exactly once.",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-changemetadata-0000001549198553"
+  },
+  {
+    "name": "Authorization",
+    "type": "string",
+    "required": false,
+    "description": "认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-changemetadata-0000001549198553#section17216134314169",
+    "in": "header"
+  },
+  {
+    "name": "client_id",
+    "type": "string",
+    "required": false,
+    "description": "客户端ID，获取方法参考创建API客户端。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-changemetadata-0000001549198553#section17216134314169",
+    "in": "header"
+  },
+  {
+    "name": "productId",
+    "type": "string",
+    "required": true,
+    "description": "项目ID，查询方法可参见查询项目ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-changemetadata-0000001549198553#section17216134314169",
+    "in": "header"
+  },
+  {
+    "name": "X-Agc-Trace-Id",
+    "type": "string",
+    "required": false,
+    "description": "单个文件请求的Traceid。可不填或者随机生成，用于日志打印跟踪。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-changemetadata-0000001549198553#section17216134314169",
+    "in": "header"
+  },
+  {
+    "name": "X-Agc-Content-Type",
+    "type": "string",
+    "required": false,
+    "description": "文件类型。 默认值：application/octet-stream",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-changemetadata-0000001549198553#section17216134314169",
+    "in": "header"
+  },
+  {
+    "name": "X-Agc-Content-Disposition",
+    "type": "string",
+    "required": false,
+    "description": "文件打开方式。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-changemetadata-0000001549198553#section17216134314169",
+    "in": "header"
+  },
+  {
+    "name": "X-Agc-Content-Encoding",
+    "type": "string",
+    "required": false,
+    "description": "HTTP标准头部Content-Encoding。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-changemetadata-0000001549198553#section17216134314169",
+    "in": "header"
+  },
+  {
+    "name": "X-Agc-Cache-Control",
+    "type": "string",
+    "required": false,
+    "description": "HTTP标准头部Cache-Control。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-changemetadata-0000001549198553#section17216134314169",
+    "in": "header"
+  },
+  {
+    "name": "X-Agc-Content-Language",
+    "type": "string",
+    "required": false,
+    "description": "HTTP标准头部Content-Language。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-changemetadata-0000001549198553#section17216134314169",
+    "in": "header"
+  },
+  {
+    "name": "X-Agc-meta-*",
+    "type": "string",
+    "required": false,
+    "description": "可以在请求中加入以“X-Agc-meta-”开头的消息头，用于加入自定义的元数据，以便对文件进行自定义管理。当用户获取此文件或查询此文件元数据时，加入的自定义元数据将会在返回消息的头中出现。 示例：X-Agc-meta-test: test metadata 保存实例为：test: test metadata 说明 元数据名称相同则覆盖。自定义的部署不区分大小写，最后记录均为小写的方式。X-Agc-meta-仅标记此header是传递元数据，并非元数据key的一部分。 目录对象不支持自定义元数据，所以此接口不支持目录对象。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-changemetadata-0000001549198553#section17216134314169",
+    "in": "header"
+  }
+]

@@ -5,6 +5,7 @@ import (
 	"errors"
 	"net/http"
 	"net/http/httptest"
+	"strings"
 	"testing"
 
 	"github.com/Createitv/agc-cli/pkg/domain"
@@ -14,6 +15,7 @@ func TestInvokeEndpointBusinessErrors(t *testing.T) {
 	for _, tc := range []struct{ name, body, code, message string }{
 		{"ret numeric", `{"ret":{"code":204144703,"msg":"permission denied"},"appList":null}`, "204144703", "permission denied"},
 		{"ret string", `{"ret":{"code":"204144703","msg":"permission denied"}}`, "204144703", "permission denied"},
+		{"JSON string ret", `{"ret":"{\"code\":123,\"msg\":\"fingerprint denied\"}"}`, "123", "fingerprint denied"},
 		{"testing", `{"rtnCode":123,"rtnDesc":"testing denied"}`, "123", "testing denied"},
 		{"PMS", `{"error":{"errorCode":"123","errorMsg":"PMS denied"}}`, "123", "PMS denied"},
 		{"flat", `{"code":123,"message":"denied"}`, "123", "denied"},
@@ -39,7 +41,7 @@ func TestInvokeEndpointBusinessErrors(t *testing.T) {
 }
 
 func TestInvokeEndpointBusinessSuccess(t *testing.T) {
-	for _, body := range []string{`{"ret":{"code":0}}`, `{"ret":{"code":"0"}}`, `{"rtnCode":"0"}`, `{"error":{"errorCode":0}}`, `{"code":0}`, `{"data":[]}`, `{"code":null}`, "binary\x00data"} {
+	for _, body := range []string{`{"ret":{"code":0}}`, `{"ret":{"code":"0"}}`, `{"ret":"{\"code\":0}"}`, `{"rtnCode":"0"}`, `{"error":{"errorCode":0}}`, `{"code":0}`, `{"data":[]}`, `{"code":null}`, "binary\x00data"} {
 		t.Run(body, func(t *testing.T) {
 			server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) { w.Write([]byte(body)) }))
 			defer server.Close()
@@ -48,5 +50,27 @@ func TestInvokeEndpointBusinessSuccess(t *testing.T) {
 				t.Fatalf("unexpected failure: %v", err)
 			}
 		})
+	}
+}
+
+func TestBusinessErrorRetainsCodeProvenance(t *testing.T) {
+	for _, tc := range []struct{ body, field string }{
+		{`{"rtnCode":2,"businessCode":0,"rtnDesc":"denied"}`, "rtnCode"},
+		{`{"rtnCode":0,"businessCode":2,"rtnDesc":"denied"}`, "businessCode"},
+	} {
+		err := ParseAGCError(200, []byte(tc.body))
+		if err.Code != "2" || err.CodeField != tc.field || len(err.ResultCodes) != 2 {
+			t.Fatalf("code origin lost: %#v", err)
+		}
+	}
+}
+
+func TestCodeWithoutDescriptionDoesNotEchoWholeResponse(t *testing.T) {
+	err := ParseAGCError(200, []byte(`{"rtnCode":0,"businessCode":2,"invitationCode":"raw-secret"}`))
+	if strings.Contains(err.Message, "raw-secret") {
+		t.Fatal("raw response exposed through error message")
+	}
+	if err.Code != "2" {
+		t.Fatal("upstream code lost")
 	}
 }

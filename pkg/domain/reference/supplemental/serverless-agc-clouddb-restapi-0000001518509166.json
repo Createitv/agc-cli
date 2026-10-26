@@ -1,0 +1,676 @@
+{
+  "checkedAt": "2026-10-26",
+  "examples": [],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-enable-service-0000001274125746",
+      "title": "开通认证服务"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-obtaintoken-rest-0000001446607602",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#ZH-CN_TOPIC_0000002764927439__li230415547508",
+      "title": "3"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-obtaintoken-rest-0000001446607602",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-signin-rest-0000001496447669",
+      "title": "用户登录"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573",
+      "title": "查询数据"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706",
+      "title": "更新数据"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714",
+      "title": "删除数据"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcli-0000001180535238",
+      "title": "通过命令行使用云数据库"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-app-data-migration-0000001496843917",
+      "title": "通过Server SDK将三方数据库内容迁移至云数据库"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section129829555317",
+      "title": "开发前准备"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section18502104612500",
+      "title": "获取客户端API授权"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section61082205110",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section433263513517",
+      "title": "用户登录"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section576571165218",
+      "title": "查询数据"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section19276145625218",
+      "title": "更新数据"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section11307144411533",
+      "title": "删除数据"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "文档说明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166",
+      "text": "云数据库提供了REST API接口，您只需要访问相关URL，构造相关请求体即可调用该接口，完成数据管理的操作。"
+    },
+    {
+      "section": "开发前准备",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section129829555317",
+      "text": "使用REST API管理数据，需要完成以下准备工作："
+    },
+    {
+      "section": "开发前准备",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section129829555317",
+      "text": "示例应用使用了认证用户的相关权限，需要开通认证服务中“匿名账号”服务，详细请参见开通认证服务。"
+    },
+    {
+      "section": "获取客户端API授权",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section18502104612500",
+      "text": "访问端侧网关的客户端需要具备有效的Client ID以及Client Secret，才能通过端侧网关的鉴权校验并对业务接口发起有效调用。"
+    },
+    {
+      "section": "获取客户端API授权",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section18502104612500",
+      "text": "登录HarmonyOS 开发者中心，进入“开发者管理”页面。"
+    },
+    {
+      "section": "获取客户端API授权",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section18502104612500",
+      "text": "左侧导航栏选择“ID、证书和Profile > APP ID”，选择“项目管理”页签。"
+    },
+    {
+      "section": "获取客户端API授权",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section18502104612500",
+      "text": "点开“项目”下拉列表，选择目标项目。"
+    },
+    {
+      "section": "获取客户端API授权",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section18502104612500",
+      "text": "记录“项目”栏下的“Client ID”和“Client Secret”。"
+    },
+    {
+      "section": "获取客户端API授权",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section18502104612500",
+      "text": "调用获取Token接口，获取访问客户端REST API的Access Token。您在3中记录的“Client ID”和“Client Secret”将作为请求参数在调用时传入。"
+    },
+    {
+      "section": "获取Token",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section61082205110",
+      "text": "您可使用客户端REST API调用获取Token接口，通过华为开放平台进行鉴权，并获取认证通过后的Token。"
+    },
+    {
+      "section": "获取Token",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section61082205110",
+      "text": "根据请求参数获取对应参数值，构造获取Token请求体。 POST /agc/apigw/oauth2/v1/token Host: connect-drcn.dbankcloud.cn Content-Type: application/json { \"useJwt\":\"1\", \"grant_type\":\"client_credentials\", \"client_id\":\"26********20\", \"client_secret\":\"************************\" }"
+    },
+    {
+      "section": "获取Token",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section61082205110",
+      "text": "POST /agc/apigw/oauth2/v1/token Host: connect-drcn.dbankcloud.cn Content-Type: application/json { \"useJwt\":\"1\", \"grant_type\":\"client_credentials\", \"client_id\":\"26********20\", \"client_secret\":\"************************\" }"
+    },
+    {
+      "section": "获取Token",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section61082205110",
+      "text": "POST /agc/apigw/oauth2/v1/token"
+    },
+    {
+      "section": "获取Token",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section61082205110",
+      "text": "Host: connect-drcn.dbankcloud.cn"
+    },
+    {
+      "section": "获取Token",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section61082205110",
+      "text": "Content-Type: application/json"
+    },
+    {
+      "section": "获取Token",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section61082205110",
+      "text": "{"
+    },
+    {
+      "section": "获取Token",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section61082205110",
+      "text": "\"useJwt\":\"1\","
+    },
+    {
+      "section": "获取Token",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section61082205110",
+      "text": "\"grant_type\":\"client_credentials\","
+    },
+    {
+      "section": "获取Token",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section61082205110",
+      "text": "\"client_id\":\"26********20\","
+    },
+    {
+      "section": "获取Token",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section61082205110",
+      "text": "\"client_secret\":\"************************\""
+    },
+    {
+      "section": "获取Token",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section61082205110",
+      "text": "}"
+    },
+    {
+      "section": "获取Token",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section61082205110",
+      "text": "发送获取Token请求，收到请求响应体。 HTTP/1.1 200 OK Content-Type: application/json; charset=utf-8 { \"access_token\": \"eyJhbGciOiJIUzU****************\", \"expires_in\": 172800 }"
+    },
+    {
+      "section": "获取Token",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section61082205110",
+      "text": "HTTP/1.1 200 OK Content-Type: application/json; charset=utf-8 { \"access_token\": \"eyJhbGciOiJIUzU****************\", \"expires_in\": 172800 }"
+    },
+    {
+      "section": "获取Token",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section61082205110",
+      "text": "HTTP/1.1 200 OK"
+    },
+    {
+      "section": "获取Token",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section61082205110",
+      "text": "Content-Type: application/json; charset=utf-8"
+    },
+    {
+      "section": "获取Token",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section61082205110",
+      "text": "\"access_token\": \"eyJhbGciOiJIUzU****************\","
+    },
+    {
+      "section": "获取Token",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section61082205110",
+      "text": "\"expires_in\": 172800"
+    },
+    {
+      "section": "用户登录",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section433263513517",
+      "text": "您可使用客户端REST API调用用户登录接口，根据客户端认证Token和用户名密码登录，并获取登录通过后的用户认证accessToken。"
+    },
+    {
+      "section": "用户登录",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section433263513517",
+      "text": "根据请求参数获取对应参数值，构造用户登录请求体。 POST agc/apigw/oauth2/third/v1/user-signin content-type: application/json productId: 99************83 client_id: 680************560 Authorization: Bearer *** host: connect-drcn.dbankcloud.cn { \"provider\": 0, \"token\": \"string\", \"extraData\": \"string\", \"autoCreateUser\": 0, \"useJwt\": 1, \"channelId\": \"string\", \"aaId\": \"string\" }"
+    },
+    {
+      "section": "用户登录",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section433263513517",
+      "text": "POST agc/apigw/oauth2/third/v1/user-signin content-type: application/json productId: 99************83 client_id: 680************560 Authorization: Bearer *** host: connect-drcn.dbankcloud.cn { \"provider\": 0, \"token\": \"string\", \"extraData\": \"string\", \"autoCreateUser\": 0, \"useJwt\": 1, \"channelId\": \"string\", \"aaId\": \"string\" }"
+    },
+    {
+      "section": "用户登录",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section433263513517",
+      "text": "POST agc/apigw/oauth2/third/v1/user-signin"
+    },
+    {
+      "section": "用户登录",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section433263513517",
+      "text": "content-type: application/json"
+    },
+    {
+      "section": "用户登录",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section433263513517",
+      "text": "productId: 99************83"
+    },
+    {
+      "section": "用户登录",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section433263513517",
+      "text": "client_id: 680************560"
+    },
+    {
+      "section": "用户登录",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section433263513517",
+      "text": "Authorization: Bearer ***"
+    },
+    {
+      "section": "用户登录",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section433263513517",
+      "text": "host: connect-drcn.dbankcloud.cn"
+    },
+    {
+      "section": "用户登录",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section433263513517",
+      "text": "\"provider\": 0,"
+    },
+    {
+      "section": "用户登录",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section433263513517",
+      "text": "\"token\": \"string\","
+    },
+    {
+      "section": "用户登录",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section433263513517",
+      "text": "\"extraData\": \"string\","
+    },
+    {
+      "section": "用户登录",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section433263513517",
+      "text": "\"autoCreateUser\": 0,"
+    },
+    {
+      "section": "用户登录",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section433263513517",
+      "text": "\"useJwt\": 1,"
+    },
+    {
+      "section": "用户登录",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section433263513517",
+      "text": "\"channelId\": \"string\","
+    },
+    {
+      "section": "用户登录",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section433263513517",
+      "text": "\"aaId\": \"string\""
+    },
+    {
+      "section": "用户登录",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section433263513517",
+      "text": "发送用户登录请求，收到请求响应体。 { \"ret\": { \"code\": 0, \"msg\": \"string\" }, \"accessToken\": { \"token\": \"string\", \"validPeriod\": 0 }, \"refreshToken\": { \"token\": \"string\", \"validPeriod\": 0 }, \"userInfo\": { \"uid\": \"string\", \"importUid\": \"string\", \"displayName\": \"string\", \"photoUrl\": \"string\", \"provider\": 0, \"emailVerified\": 0, \"passwordSetted\": 0, \"email\": \"string\", \"phone\": \"string\" }, \"providers\": [{ \"uid\": \"string\", \"displayName\": \"string\", \"photoUrl\": \"string\", \"provider\": 0, \"openId\": \"string\", \"email\": \"string\", \"phone\": \"string\", \"extId\": \"string\" }] }"
+    },
+    {
+      "section": "用户登录",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section433263513517",
+      "text": "{ \"ret\": { \"code\": 0, \"msg\": \"string\" }, \"accessToken\": { \"token\": \"string\", \"validPeriod\": 0 }, \"refreshToken\": { \"token\": \"string\", \"validPeriod\": 0 }, \"userInfo\": { \"uid\": \"string\", \"importUid\": \"string\", \"displayName\": \"string\", \"photoUrl\": \"string\", \"provider\": 0, \"emailVerified\": 0, \"passwordSetted\": 0, \"email\": \"string\", \"phone\": \"string\" }, \"providers\": [{ \"uid\": \"string\", \"displayName\": \"string\", \"photoUrl\": \"string\", \"provider\": 0, \"openId\": \"string\", \"email\": \"string\", \"phone\": \"string\", \"extId\": \"string\" }] }"
+    },
+    {
+      "section": "用户登录",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section433263513517",
+      "text": "\"ret\": {"
+    },
+    {
+      "section": "用户登录",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section433263513517",
+      "text": "\"code\": 0,"
+    },
+    {
+      "section": "用户登录",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section433263513517",
+      "text": "\"msg\": \"string\""
+    },
+    {
+      "section": "用户登录",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section433263513517",
+      "text": "},"
+    },
+    {
+      "section": "用户登录",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section433263513517",
+      "text": "\"accessToken\": {"
+    },
+    {
+      "section": "用户登录",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section433263513517",
+      "text": "\"validPeriod\": 0"
+    },
+    {
+      "section": "用户登录",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section433263513517",
+      "text": "\"refreshToken\": {"
+    },
+    {
+      "section": "用户登录",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section433263513517",
+      "text": "\"userInfo\": {"
+    },
+    {
+      "section": "用户登录",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section433263513517",
+      "text": "\"uid\": \"string\","
+    },
+    {
+      "section": "用户登录",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section433263513517",
+      "text": "\"importUid\": \"string\","
+    },
+    {
+      "section": "用户登录",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section433263513517",
+      "text": "\"displayName\": \"string\","
+    },
+    {
+      "section": "用户登录",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section433263513517",
+      "text": "\"photoUrl\": \"string\","
+    },
+    {
+      "section": "用户登录",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section433263513517",
+      "text": "\"emailVerified\": 0,"
+    },
+    {
+      "section": "用户登录",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section433263513517",
+      "text": "\"passwordSetted\": 0,"
+    },
+    {
+      "section": "用户登录",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section433263513517",
+      "text": "\"email\": \"string\","
+    },
+    {
+      "section": "用户登录",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section433263513517",
+      "text": "\"phone\": \"string\""
+    },
+    {
+      "section": "用户登录",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section433263513517",
+      "text": "\"providers\": [{"
+    },
+    {
+      "section": "用户登录",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section433263513517",
+      "text": "\"openId\": \"string\","
+    },
+    {
+      "section": "用户登录",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section433263513517",
+      "text": "\"phone\": \"string\","
+    },
+    {
+      "section": "用户登录",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section433263513517",
+      "text": "\"extId\": \"string\""
+    },
+    {
+      "section": "用户登录",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section433263513517",
+      "text": "}]"
+    },
+    {
+      "section": "查询数据",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section576571165218",
+      "text": "REST API通过构造HTTP请求的方式查询数据，并提供了丰富的谓词查询，比如equalTo、notEqualTo、in等。通过单个或者多个链式过滤条件，您可以从云侧数据库查询到满足特定条件的对象，也可以通过限定查询返回数量谓词限定查询结果返回的数量，还可以支持聚合查询，例如查询平均值、最大值、最小值等。"
+    },
+    {
+      "section": "查询数据",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section576571165218",
+      "text": "示例代码："
+    },
+    {
+      "section": "查询数据",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section576571165218",
+      "text": "POST agc/apigw/clouddb/clouddbservice/sync/query?_v=4 content-type: application/json client_id: 74************40 Authorization: Bearer *** productId: 24************51 access_token: ****** host: connect-drcn.dbankcloud.cn { \"msgInfo\": { \"type\": 5, \"opStore\": { \"storeName\": \"cloudDBZone\" } }, \"clientInfo\": { \"appVer\": 1 }, \"queryReqMsg\": { \"queryType\" : 0, \"queryTable\" : \"StudentInfo\", \"queryCond\" : \"{\\\"queryConditions\\\":[{\\\"conditionType\\\":\\\"EqualTo\\\",\\\"fieldName\\\":\\\"id\\\",\\\"value\\\":\\\"1\\\"},{\\\"conditionType\\\":\\\"Limit\\\",\\\"value\\\":{\\\"number\\\":10,\\\"offset\\\":0}}]}\" } }"
+    },
+    {
+      "section": "查询数据",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section576571165218",
+      "text": "POST agc/apigw/clouddb/clouddbservice/sync/query?_v=4"
+    },
+    {
+      "section": "查询数据",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section576571165218",
+      "text": "client_id: 74************40"
+    },
+    {
+      "section": "查询数据",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section576571165218",
+      "text": "productId: 24************51"
+    },
+    {
+      "section": "查询数据",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section576571165218",
+      "text": "access_token: ******"
+    },
+    {
+      "section": "查询数据",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section576571165218",
+      "text": "\"msgInfo\": {"
+    },
+    {
+      "section": "查询数据",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section576571165218",
+      "text": "\"type\": 5,"
+    },
+    {
+      "section": "查询数据",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section576571165218",
+      "text": "\"opStore\": {"
+    },
+    {
+      "section": "查询数据",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section576571165218",
+      "text": "\"storeName\": \"cloudDBZone\""
+    },
+    {
+      "section": "查询数据",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section576571165218",
+      "text": "\"clientInfo\": {"
+    },
+    {
+      "section": "查询数据",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section576571165218",
+      "text": "\"appVer\": 1"
+    },
+    {
+      "section": "查询数据",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section576571165218",
+      "text": "\"queryReqMsg\": {"
+    },
+    {
+      "section": "查询数据",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section576571165218",
+      "text": "\"queryType\" : 0,"
+    },
+    {
+      "section": "查询数据",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section576571165218",
+      "text": "\"queryTable\" : \"StudentInfo\","
+    },
+    {
+      "section": "查询数据",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section576571165218",
+      "text": "\"queryCond\" : \"{\\\"queryConditions\\\":[{\\\"conditionType\\\":\\\"EqualTo\\\",\\\"fieldName\\\":\\\"id\\\",\\\"value\\\":\\\"1\\\"},{\\\"conditionType\\\":\\\"Limit\\\",\\\"value\\\":{\\\"number\\\":10,\\\"offset\\\":0}}]}\""
+    },
+    {
+      "section": "更新数据",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section19276145625218",
+      "text": "REST API通过构造HTTP请求的方式更新数据，支持数据的新增和更新。若更新数据时，如果在Cloud DB zone已经存在主键值相同的对象，则更新已有的对象；如果不存在，则写入一个新的对象。"
+    },
+    {
+      "section": "更新数据",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section19276145625218",
+      "text": "构造更新数据请求。在存储区为cloudDBZone，对象类型为StudentInfo中新增一条“id”为1的数据对象。"
+    },
+    {
+      "section": "更新数据",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section19276145625218",
+      "text": "POST agc/apigw/clouddb/clouddbservice/sync/upsert?_v=4 content-type: application/json client_id: 74************40 Authorization: Bearer *** productId: 99************83 access_token: *** host: connect-drcn.dbankcloud.cn { \"msgInfo\": { \"type\": 3, \"opStore\": { \"storeName\": \"cloudDBZone\" } }, \"clientInfo\": { \"appVer\": 1 }, \"schemas\": [ { \"n\": \"StudentInfo\", \"fs\": [ { \"n\": \"id\", \"t\": \"TYPE_INT32\" }, { \"n\": \"name\", \"t\": \"TYPE_STRING\" }, { \"n\": \"age\", \"t\": \"TYPE_INT32\" }, { \"n\": \"naturalbase_version\", \"t\": \"TYPE_LONG\" }, { \"n\": \"naturalbase_deleted\", \"t\": \"TYPE_BOOLEAN\" } ] } ], \"opData\": [ { \"os\": [ { \"fs\": [ { \"i\": 1 }, { \"s\": \"string\" }, { \"i\": 18 }, { \"l\": null }, { \"bl\": false } ] } ], \"t\": 1 } ] }"
+    },
+    {
+      "section": "更新数据",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section19276145625218",
+      "text": "POST agc/apigw/clouddb/clouddbservice/sync/upsert?_v=4"
+    },
+    {
+      "section": "更新数据",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section19276145625218",
+      "text": "access_token: ***"
+    },
+    {
+      "section": "更新数据",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section19276145625218",
+      "text": "\"type\": 3,"
+    },
+    {
+      "section": "更新数据",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section19276145625218",
+      "text": "\"schemas\": ["
+    },
+    {
+      "section": "更新数据",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section19276145625218",
+      "text": "\"n\": \"StudentInfo\","
+    },
+    {
+      "section": "更新数据",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section19276145625218",
+      "text": "\"fs\": ["
+    },
+    {
+      "section": "更新数据",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section19276145625218",
+      "text": "\"n\": \"id\","
+    },
+    {
+      "section": "更新数据",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section19276145625218",
+      "text": "\"t\": \"TYPE_INT32\""
+    },
+    {
+      "section": "更新数据",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section19276145625218",
+      "text": "\"n\": \"name\","
+    },
+    {
+      "section": "更新数据",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section19276145625218",
+      "text": "\"t\": \"TYPE_STRING\""
+    },
+    {
+      "section": "更新数据",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section19276145625218",
+      "text": "\"n\": \"age\","
+    },
+    {
+      "section": "更新数据",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section19276145625218",
+      "text": "\"n\": \"naturalbase_version\","
+    },
+    {
+      "section": "更新数据",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section19276145625218",
+      "text": "\"t\": \"TYPE_LONG\""
+    },
+    {
+      "section": "更新数据",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section19276145625218",
+      "text": "\"n\": \"naturalbase_deleted\","
+    },
+    {
+      "section": "更新数据",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section19276145625218",
+      "text": "\"t\": \"TYPE_BOOLEAN\""
+    },
+    {
+      "section": "更新数据",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section19276145625218",
+      "text": "]"
+    },
+    {
+      "section": "更新数据",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section19276145625218",
+      "text": "],"
+    },
+    {
+      "section": "更新数据",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section19276145625218",
+      "text": "\"opData\": ["
+    },
+    {
+      "section": "更新数据",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section19276145625218",
+      "text": "\"os\": ["
+    },
+    {
+      "section": "更新数据",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section19276145625218",
+      "text": "\"i\": 1"
+    },
+    {
+      "section": "更新数据",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section19276145625218",
+      "text": "\"s\": \"string\""
+    },
+    {
+      "section": "更新数据",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section19276145625218",
+      "text": "\"i\": 18"
+    },
+    {
+      "section": "更新数据",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section19276145625218",
+      "text": "\"l\": null"
+    },
+    {
+      "section": "更新数据",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section19276145625218",
+      "text": "\"bl\": false"
+    },
+    {
+      "section": "更新数据",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section19276145625218",
+      "text": "\"t\": 1"
+    },
+    {
+      "section": "删除数据",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section11307144411533",
+      "text": "REST API通过构造HTTP请求的方式删除数据。删除数据时，请求接口会根据传入对象主键删除相应的数据，不会比对该对象其他属性与存储的数据是否一致。"
+    },
+    {
+      "section": "删除数据",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section11307144411533",
+      "text": "删除数据对象时，该组中的对象必须属于同一个对象类型，否则会导致删除失败。"
+    },
+    {
+      "section": "删除数据",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section11307144411533",
+      "text": "构造删除数据请求。删除存储区为cloudDBZone，对象类型为StudentInfo中的，删除一条“id”为1的数据对象。"
+    },
+    {
+      "section": "删除数据",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section11307144411533",
+      "text": "POST agc/apigw/clouddb/clouddbservice/sync/upsert?_v=4 content-type: application/json client_id: 74************40 Authorization: Bearer *** productId: 99************83 access_token: *** host: connect-drcn.dbankcloud.cn { \"msgInfo\": { \"type\": 3, \"opStore\": { \"storeName\": \"cloudDBZone\" } }, \"clientInfo\": { \"appVer\": 1 }, \"schemas\": [ { \"n\": \"StudentInfo\", \"fs\": [ { \"n\": \"id\", \"t\": \"TYPE_INT32\" }, { \"n\": \"naturalbase_version\", \"t\": \"TYPE_LONG\" }, { \"n\": \"naturalbase_deleted\", \"t\": \"TYPE_BOOLEAN\" } ] } ], \"opData\": [ { \"i\": 0, \"os\": [ { \"fs\": [ { \"i\": 1 }, { \"l\": null }, { \"bl\": true } ], \"i\": 0 } ], \"t\": 1 } ] }"
+    },
+    {
+      "section": "删除数据",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section11307144411533",
+      "text": "\"i\": 0,"
+    },
+    {
+      "section": "删除数据",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section11307144411533",
+      "text": "\"bl\": true"
+    },
+    {
+      "section": "删除数据",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section11307144411533",
+      "text": "\"i\": 0"
+    }
+  ],
+  "renderedText": "指南\n云数据库 for Object\n通过REST API接口使用云数据库\n通过REST API接口使用云数据库\n更新时间: 2026-10-21 17:20\n\n云数据库提供了REST API接口，您只需要访问相关URL，构造相关请求体即可调用该接口，完成数据管理的操作。\n\n开发前准备\n\n使用REST API管理数据，需要完成以下准备工作：\n\n示例应用使用了认证用户的相关权限，需要开通认证服务中“匿名账号”服务，详细请参见开通认证服务。\n\n获取客户端API授权\n\n访问端侧网关的客户端需要具备有效的Client ID以及Client Secret，才能通过端侧网关的鉴权校验并对业务接口发起有效调用。\n\n登录HarmonyOS 开发者中心，进入“开发者管理”页面。\n左侧导航栏选择“ID、证书和Profile > APP ID”，选择“项目管理”页签。\n点开“项目”下拉列表，选择目标项目。\n\n记录“项目”栏下的“Client ID”和“Client Secret”。\n\n调用获取Token接口，获取访问客户端REST API的Access Token。您在3中记录的“Client ID”和“Client Secret”将作为请求参数在调用时传入。\n获取Token\n\n您可使用客户端REST API调用获取Token接口，通过华为开放平台进行鉴权，并获取认证通过后的Token。\n\n根据请求参数获取对应参数值，构造获取Token请求体。\nPOST /agc/apigw/oauth2/v1/token\nHost: connect-drcn.dbankcloud.cn\nContent-Type: application/json\n{\n   \"useJwt\":\"1\",\n   \"grant_type\":\"client_credentials\",\n   \"client_id\":\"26********20\",\n   \"client_secret\":\"************************\"\n}\n发送获取Token请求，收到请求响应体。\nHTTP/1.1 200 OK\nContent-Type: application/json; charset=utf-8\n{\n    \"access_token\": \"eyJhbGciOiJIUzU****************\",\n    \"expires_in\": 172800\n}\n用户登录\n\n您可使用客户端REST API调用用户登录接口，根据客户端认证Token和用户名密码登录，并获取登录通过后的用户认证accessToken。\n\n根据请求参数获取对应参数值，构造用户登录请求体。\nPOST agc/apigw/oauth2/third/v1/user-signin\ncontent-type: application/json\nproductId: 99************83\nclient_id: 680************560\nAuthorization: Bearer ***\nhost: connect-drcn.dbankcloud.cn\n{\n    \"provider\": 0,\n    \"token\": \"string\",\n    \"extraData\": \"string\",\n    \"autoCreateUser\": 0,\n    \"useJwt\": 1,\n    \"channelId\": \"string\",\n    \"aaId\": \"string\"\n}\n发送用户登录请求，收到请求响应体。\n{\n    \"ret\": {\n        \"code\": 0,\n        \"msg\": \"string\"\n    },\n    \"accessToken\": {\n        \"token\": \"string\",\n        \"validPeriod\": 0\n    },\n    \"refreshToken\": {\n        \"token\": \"string\",\n        \"validPeriod\": 0\n    },\n    \"userInfo\": {\n        \"uid\": \"string\",\n        \"importUid\": \"string\",\n        \"displayName\": \"string\",\n        \"photoUrl\": \"string\",\n        \"provider\": 0,\n        \"emailVerified\": 0,\n        \"passwordSetted\": 0,\n        \"email\": \"string\",\n        \"phone\": \"string\"\n    },\n    \"providers\": [{\n        \"uid\": \"string\",\n        \"displayName\": \"string\",\n        \"photoUrl\": \"string\",\n        \"provider\": 0,\n        \"openId\": \"string\",\n        \"email\": \"string\",\n        \"phone\": \"string\",\n        \"extId\": \"string\"\n    }]\n}\n查询数据\n\nREST API通过构造HTTP请求的方式查询数据，并提供了丰富的谓词查询，比如equalTo、notEqualTo、in等。通过单个或者多个链式过滤条件，您可以从云侧数据库查询到满足特定条件的对象，也可以通过限定查询返回数量谓词限定查询结果返回的数量，还可以支持聚合查询，例如查询平均值、最大值、最小值等。\n\n示例代码：\n\n构造查询数据请求。查询存储区为cloudDBZone，对象类型为StudentInfo，“id”为1的数据对象。\nPOST agc/apigw/clouddb/clouddbservice/sync/query?_v=4\ncontent-type: application/json\nclient_id: 74************40\nAuthorization: Bearer ***\nproductId: 24************51\naccess_token: ******\nhost: connect-drcn.dbankcloud.cn\n{\n  \"msgInfo\": {\n    \"type\": 5,\n    \"opStore\": {\n      \"storeName\": \"cloudDBZone\"\n    }\n  },\n  \"clientInfo\": {\n    \"appVer\": 1\n  },\n  \"queryReqMsg\": {\n    \"queryType\" : 0,\n    \"queryTable\" : \"StudentInfo\",\n    \"queryCond\" : \"{\\\"queryConditions\\\":[{\\\"conditionType\\\":\\\"EqualTo\\\",\\\"fieldName\\\":\\\"id\\\",\\\"value\\\":\\\"1\\\"},{\\\"conditionType\\\":\\\"Limit\\\",\\\"value\\\":{\\\"number\\\":10,\\\"offset\\\":0}}]}\"\n  }\n}\n更新数据\n\nREST API通过构造HTTP请求的方式更新数据，支持数据的新增和更新。若更新数据时，如果在Cloud DB zone已经存在主键值相同的对象，则更新已有的对象；如果不存在，则写入一个新的对象。\n\n示例代码：\n\n构造更新数据请求。在存储区为cloudDBZone，对象类型为StudentInfo中新增一条“id”为1的数据对象。\n\nPOST agc/apigw/clouddb/clouddbservice/sync/upsert?_v=4\ncontent-type: application/json\nclient_id: 74************40\nAuthorization: Bearer ***\nproductId: 99************83\naccess_token: ***\nhost: connect-drcn.dbankcloud.cn\n{\n  \"msgInfo\": {\n    \"type\": 3,\n    \"opStore\": {\n      \"storeName\": \"cloudDBZone\"\n    }\n  },\n  \"clientInfo\": {\n    \"appVer\": 1\n  },\n  \"schemas\": [\n    {\n      \"n\": \"StudentInfo\",\n      \"fs\": [\n        {\n          \"n\": \"id\",\n          \"t\": \"TYPE_INT32\"\n        },\n        {\n          \"n\": \"name\",\n          \"t\": \"TYPE_STRING\"\n        },\n        {\n          \"n\": \"age\",\n          \"t\": \"TYPE_INT32\"\n        },\n        {\n          \"n\": \"naturalbase_version\",\n          \"t\": \"TYPE_LONG\"\n        },\n        {\n          \"n\": \"naturalbase_deleted\",\n          \"t\": \"TYPE_BOOLEAN\"\n        }\n      ]\n    }\n  ],\n  \"opData\": [\n    {\n      \"os\": [\n        {\n          \"fs\": [\n            {\n              \"i\": 1\n            },\n            {\n              \"s\": \"string\"\n            },\n            {\n              \"i\": 18\n            },\n            {\n              \"l\": null\n            },\n            {\n              \"bl\": false\n            }\n          ]\n        }\n      ],\n      \"t\": 1\n    }\n  ]\n}\n删除数据\n\nREST API通过构造HTTP请求的方式删除数据。删除数据时，请求接口会根据传入对象主键删除相应的数据，不会比对该对象其他属性与存储的数据是否一致。\n\n注意\n\n删除数据对象时，该组中的对象必须属于同一个对象类型，否则会导致删除失败。\n\n示例代码：\n\n构造删除数据请求。删除存储区为cloudDBZone，对象类型为StudentInfo中的，删除一条“id”为1的数据对象。\n\nPOST agc/apigw/clouddb/clouddbservice/sync/upsert?_v=4\ncontent-type: application/json\nclient_id: 74************40\nAuthorization: Bearer ***\nproductId: 99************83\naccess_token: ***\nhost: connect-drcn.dbankcloud.cn\n{\n  \"msgInfo\": {\n    \"type\": 3,\n    \"opStore\": {\n      \"storeName\": \"cloudDBZone\"\n    }\n  },\n  \"clientInfo\": {\n    \"appVer\": 1\n  },\n  \"schemas\": [\n    {\n      \"n\": \"StudentInfo\",\n      \"fs\": [\n        {\n          \"n\": \"id\",\n          \"t\": \"TYPE_INT32\"\n        },\n        {\n          \"n\": \"naturalbase_version\",\n          \"t\": \"TYPE_LONG\"\n        },\n        {\n          \"n\": \"naturalbase_deleted\",\n          \"t\": \"TYPE_BOOLEAN\"\n        }\n      ]\n    }\n  ],\n  \"opData\": [\n    {\n      \"i\": 0,\n      \"os\": [\n        {\n          \"fs\": [\n            {\n              \"i\": 1\n            },\n            {\n              \"l\": null\n            },\n            {\n              \"bl\": true\n            }\n          ],\n          \"i\": 0\n        }\n      ],\n      \"t\": 1\n    }\n  ]\n}\n通过命令行使用云数据库\n通过Server SDK将三方数据库内容迁移至云数据库\n意见反馈\n以上内容对您是否有帮助？\n意见反馈\n如果您有其他疑问，您也可以通过开发者社区问答频道来和我们联系探讨。\n社区提问AI 助手提问\n本文导读\n开发前准备\n获取客户端API授权\n获取Token\n用户登录\n查询数据\n更新数据\n删除数据\n简体中文\n华为开发者联盟 版权所有 ©2026\n问题反馈\n使用条款\n华为开发者联盟用户协议\n关于华为开发者联盟与隐私的声明\nCookies\n开源软件声明",
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166",
+  "status": "browser-read",
+  "tables": [],
+  "title": "通过REST API接口使用云数据库",
+  "updatedAt": "2026-10-21 17:20"
+}

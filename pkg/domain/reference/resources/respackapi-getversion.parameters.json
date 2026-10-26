@@ -1,0 +1,36 @@
+[
+  {
+    "name": "devId",
+    "in": "path",
+    "type": "integer",
+    "required": true,
+    "description": "开发者ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-getversion-0000002362274745#section119494174419"
+  },
+  {
+    "name": "appId",
+    "in": "query",
+    "type": "string",
+    "required": true,
+    "description": "游戏APP ID，获取方法参考查询应用信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-getversion-0000002362274745#section985411610234"
+  },
+  {
+    "name": "page",
+    "in": "query",
+    "type": "integer",
+    "required": false,
+    "description": "请求页码，默认值：1。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-getversion-0000002362274745#section985411610234"
+  },
+  {
+    "name": "limit",
+    "in": "query",
+    "type": "integer",
+    "required": false,
+    "description": "列表查询单页数量。取值范围[1,100]。 默认值：20。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-getversion-0000002362274745#section985411610234",
+    "minimum": 1,
+    "maximum": 100
+  }
+]

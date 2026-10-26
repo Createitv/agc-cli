@@ -1,0 +1,38 @@
+[
+  {
+    "id": "ai-service-types",
+    "kind": "required_if",
+    "field": "body.aiTypes",
+    "when": {
+      "field": "body.isAiGenerate",
+      "equals": "1"
+    },
+    "message": "涉及AI生成合成服务时必须提供 aiTypes。",
+    "suggestion": "添加 --field aiTypes=JSON数组，按官网填写实际涉及的服务类型。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-appinfo-update-0000002236201246#section17512144171520"
+  },
+  {
+    "id": "mainland-entity",
+    "kind": "required_if",
+    "field": "body.registeredEntity",
+    "when": {
+      "field": "body.registeredDclType",
+      "equals": "0"
+    },
+    "message": "APP服务器在中国大陆时必须填写主办单位。",
+    "suggestion": "根据实际账号主体关系填写 registeredEntity（1或2）。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-appinfo-update-0000002236201246#section17512144171520"
+  },
+  {
+    "id": "mainland-entity-name",
+    "kind": "required_if",
+    "field": "body.registeredEntityName",
+    "when": {
+      "field": "body.registeredDclType",
+      "equals": "0"
+    },
+    "message": "APP服务器在中国大陆时必须填写主办单位名称。",
+    "suggestion": "填写实际主办单位名称 registeredEntityName。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-appinfo-update-0000002236201246#section17512144171520"
+  }
+]

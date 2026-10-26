@@ -1,0 +1,17 @@
+{
+  "query.fromPage": {
+    "minimum": 1
+  },
+  "query.pageSize": {
+    "minimum": 1,
+    "maximum": 50
+  },
+  "query.languageCode": {
+    "maxLength": 20,
+    "enum": [
+      "zh_cn",
+      "en_us",
+      "ru_ru"
+    ]
+  }
+}

@@ -1,0 +1,413 @@
+{
+  "checkedAt": "2026-10-26",
+  "examples": [
+    {
+      "section": "请求示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-createsite-0000001216061466#section1981222217135",
+      "text": "请求示例\ncurl --location --request POST 'https://{domain}/api/cloudhosting/web/v1/site/create' \\\n--header 'productId: 4016977****9908702' \\\n--header 'requestid: test' \\\n--header 'client_id: 7261907****1591808' \\\n--header 'service: hosting' \\\n--header 'Content-Type: application/json' \\\n--header 'Authorization: Bearer eyJraWQiOiI1*************F13GUGkqY' \\\n--data-raw '{\n    \"siteName\": \"fly\",\n    \"description\": \"1.0.0\"\n}'"
+    },
+    {
+      "section": "响应示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-createsite-0000001216061466#section168171722121315",
+      "text": "响应示例\n成功示例\n{\n    \"site\": {\n        \"siteId\": \"7HfJOkoUSIm_RYsfHkljpg\",\n        \"siteName\": \"fly\",\n        \"tenantId\": \"401697704419908702\",\n        \"totalSize\": 0,\n        \"optCount\": 0,\n        \"status\": 1,\n        \"description\": \"1.0.0\",\n        \"createDate\": 1646901458642,\n        \"modifyDate\": 1646901458642,\n        \"versionCount\": 0,\n        \"businessType\": 0\n    },\n    \"siteDomains\": [\n        {\n            \"domain\": \"fly.hosting-drcn.agconnect.link\",\n            \"siteId\": \"7HfJOkoUSIm_RYsfHkljpg\",\n            \"siteName\": \"fly\",\n            \"tenantId\": \"401697704419908702\",\n            \"domainType\": 0,\n            \"bandwidth\": 0,\n            \"createDate\": 1646901458642,\n            \"modifyDate\": 1646901458642,\n            \"certExpireTime\": 0,\n            \"businessType\": 0\n        }\n    ],\n    \"rejected\": false,\n    \"secondLevelDomainSitesCount\": 0\n}\n鉴权失败示例\n{\n    \"ret\": {\n        \"code\": 205524993,\n        \"msg\": \"client token auth failed\"\n    }\n}"
+    }
+  ],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-restapi-0000001150409957",
+      "title": "RESTful API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-site-0000001260262901",
+      "title": "管理站点"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain_token-0000001158365043",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain_token-0000001158365043",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain_token-0000001158365043",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-get-developerid-projectid-0000001166543063",
+      "title": "查询开发者账号ID及项目ID"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloudhost-getstarted-0000001166760172#section14162113625516",
+      "title": "创建API客户端"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-createsite-0000001216061466#ZH-CN_TOPIC_0000002743352066__table1381252211130",
+      "title": "Site"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-createsite-0000001216061466#ZH-CN_TOPIC_0000002743352066__table381622281316",
+      "title": "siteDomain"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-site-0000001260262901",
+      "title": "管理站点"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-querysite-0000001166826430",
+      "title": "查询站点"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-createsite-0000001216061466#section10807102271311",
+      "title": "功能介绍"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-createsite-0000001216061466#section128071622171311",
+      "title": "使用约束"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-createsite-0000001216061466#section19807422151313",
+      "title": "接口原型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-createsite-0000001216061466#section11808112261315",
+      "title": "请求参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-createsite-0000001216061466#section580816227139",
+      "title": "Header"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-createsite-0000001216061466#section2809102219131",
+      "title": "Body"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-createsite-0000001216061466#section1981222217135",
+      "title": "请求示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-createsite-0000001216061466#section2812322121314",
+      "title": "响应参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-createsite-0000001216061466#section168171722121315",
+      "title": "响应示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-createsite-0000001216061466#section168171722181317",
+      "title": "成功示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-createsite-0000001216061466#section98171222181312",
+      "title": "鉴权失败示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-createsite-0000001216061466#section10807102271311",
+      "text": "此接口用于创建泛域名站点。"
+    },
+    {
+      "section": "使用约束",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-createsite-0000001216061466#section128071622171311",
+      "text": "无"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-createsite-0000001216061466#section2812322121314",
+      "text": "Site"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-createsite-0000001216061466#section2812322121314",
+      "text": "siteDomain"
+    }
+  ],
+  "renderedText": "API参考\n云托管\nRESTful API\n管理站点\n创建站点\n创建站点\n更新时间: 2026-10-23 16:56\n功能介绍\n\n此接口用于创建泛域名站点。\n\n使用约束\n\n无\n\n接口原型\n\n承载协议\n\n\t\n\nHTTPS POST\n\n\n\n\n接口方向\n\n\t\n\n开发者服务器 -> 华为服务器\n\n\n\n\n接口URL\n\n\t\n\nhttps://{domain}/api/cloudhosting/web/v1/site/create\n\n其中{domain}依站点区分：\n\n中国：connect-api.cloud.huawei.com\n德国：connect-api-dre.cloud.huawei.com\n新加坡：connect-api-dra.cloud.huawei.com\n俄罗斯：connect-api-drru.cloud.huawei.com\n注意\n\n调用获取Token接口时使用的域名必须与本接口域名保持一致，例如欧洲站点使用“connect-api-dre.cloud.huawei.com”，则调用获取Token接口必须使用“https://connect-api-dre.cloud.huawei.com/api/oauth2/v1/token”。\n\n\n\n\n数据格式\n\n\t\n\n请求：Content-Type: application/json\n\n响应：Content-Type: application/json\n\n请求参数\nHeader\n\n参数名称\n\n\t\n\n必选(M)/可选(O)\n\n\t\n\n类型\n\n\t\n\n参数说明\n\n\n\n\nAuthorization\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n\n认证鉴权信息。\n\n认证方式：Bearer token。\n\n格式:“Authorization: Bearer ${access_token}”。\n\naccess_token为获取Token中获取的access_token。\n\n\n\n\nproductId\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n\n项目ID，获取方法参考查询开发者账号ID及项目ID。\n\n\n\n\nrequestid\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n\n自定义的请求字符串，必须唯一标识此请求。\n\n\n\n\nclient_id\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n\n客户端ID，获取方法参考创建API客户端。\n\n\n\n\nservice\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n\nAPI业务标识。固定值：hosting。\n\nBody\n\n参数名称\n\n\t\n\n必选(M)/可选(O)\n\n\t\n\n类型\n\n\t\n\n参数说明\n\n\n\n\nsiteName\n\n\t\n\nM\n\n\t\n\nString(30)\n\n\t\n\n站点名。\n\n\n\n\ndescription\n\n\t\n\nO\n\n\t\n\nString(1000)\n\n\t\n\n站点描述信息。\n\n请求示例\ncurl --location --request POST 'https://{domain}/api/cloudhosting/web/v1/site/create' \\\n--header 'productId: 4016977****9908702' \\\n--header 'requestid: test' \\\n--header 'client_id: 7261907****1591808' \\\n--header 'service: hosting' \\\n--header 'Content-Type: application/json' \\\n--header 'Authorization: Bearer eyJraWQiOiI1*************F13GUGkqY' \\\n--data-raw '{\n    \"siteName\": \"fly\",\n    \"description\": \"1.0.0\"\n}'\n响应参数\n\n参数名称\n\n\t\n\n必选(M)/可选(O)\n\n\t\n\n类型\n\n\t\n\n参数说明\n\n\n\n\nret\n\n\t\n\nO\n\n\t\n\nString\n\n\t\n\n包含返回码及描述信息的JSON字符串，格式为{\"code\":retcode, \"msg\": \"description\"}，retcode为返回码，description为返回码描述信息。\n\n\n\n\nsite\n\n\t\n\nO\n\n\t\n\nSite\n\n\t\n\n站点信息。\n\n\n\n\nsiteDomains\n\n\t\n\nO\n\n\t\n\nsiteDomain\n\n\t\n\n域名模型。\n\n\n\n\nrejected\n\n\t\n\nO\n\n\t\n\nBoolean\n\n\t\n\n创建站点是否被拒绝。\n\n\n\n\nsecondLevelDomainSitesCount\n\n\t\n\nO\n\n\t\n\nInteger\n\n\t\n\n二级域名下子域名数量（泛域名忽略此字段）。\n\nSite\n\n参数名称\n\n\t\n\n必选(M)/可选(O)\n\n\t\n\n类型\n\n\t\n\n参数说明\n\n\n\n\nsiteId\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n\n站点ID。\n\n\n\n\nsiteName\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n\n站点名称。\n\n\n\n\ntenantId\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n\n租户ID，与项目ID一致。\n\n\n\n\ntotalSize\n\n\t\n\nM\n\n\t\n\nInteger\n\n\t\n\n站点内版本压缩包总大小。\n\n\n\n\nstatus\n\n\t\n\nM\n\n\t\n\nInteger\n\n\t\n\n站点状态。\n\n\n\n\ncurVersion\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n\n当前版本号。\n\n\n\n\ndescription\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n\n描述。\n\n\n\n\ncreateDate\n\n\t\n\nM\n\n\t\n\nLong\n\n\t\n\n创建时间。\n\n\n\n\nmodifyDate\n\n\t\n\nM\n\n\t\n\nLong\n\n\t\n\n修改时间。\n\n\n\n\nbusinessType\n\n\t\n\nM\n\n\t\n\nInteger\n\n\t\n\n托管类型：0-网站托管。\n\nsiteDomain\n\n参数名称\n\n\t\n\n必选(M)/可选(O)\n\n\t\n\n类型\n\n\t\n\n参数说明\n\n\n\n\ndomain\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n\n域名。\n\n\n\n\nsiteId\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n\n站点ID。\n\n\n\n\nsiteName\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n\n站点名称。\n\n\n\n\ntenantId\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n\n租户ID，与项目ID一致。\n\n\n\n\ndomainType\n\n\t\n\nM\n\n\t\n\nInteger\n\n\t\n\n域名类型：0-泛域名。\n\n\n\n\ncreateDate\n\n\t\n\nM\n\n\t\n\nLong\n\n\t\n\n创建时间。\n\n\n\n\nmodifyDate\n\n\t\n\nM\n\n\t\n\nLong\n\n\t\n\n修改时间。\n\n\n\n\ncertExpireTime\n\n\t\n\nM\n\n\t\n\nLong\n\n\t\n\n域名证书过期时间。\n\n\n\n\nbusinessType\n\n\t\n\nM\n\n\t\n\nInteger\n\n\t\n\n托管类型：0-网站托管。\n\n响应示例\n成功示例\n{\n    \"site\": {\n        \"siteId\": \"7HfJOkoUSIm_RYsfHkljpg\",\n        \"siteName\": \"fly\",\n        \"tenantId\": \"401697704419908702\",\n        \"totalSize\": 0,\n        \"optCount\": 0,\n        \"status\": 1,\n        \"description\": \"1.0.0\",\n        \"createDate\": 1646901458642,\n        \"modifyDate\": 1646901458642,\n        \"versionCount\": 0,\n        \"businessType\": 0\n    },\n    \"siteDomains\": [\n        {\n            \"domain\": \"fly.hosting-drcn.agconnect.link\",\n            \"siteId\": \"7HfJOkoUSIm_RYsfHkljpg\",\n            \"siteName\": \"fly\",\n            \"tenantId\": \"401697704419908702\",\n            \"domainType\": 0,\n            \"bandwidth\": 0,\n            \"createDate\": 1646901458642,\n            \"modifyDate\": 1646901458642,\n            \"certExpireTime\": 0,\n            \"businessType\": 0\n        }\n    ],\n    \"rejected\": false,\n    \"secondLevelDomainSitesCount\": 0\n}\n鉴权失败示例\n{\n    \"ret\": {\n        \"code\": 205524993,\n        \"msg\": \"client token auth failed\"\n    }\n}\n管理站点\n查询站点\n意见反馈\n以上内容对您是否有帮助？\n意见反馈\n如果您有其他疑问，您也可以通过开发者社区问答频道来和我们联系探讨。\n社区提问AI 助手提问\n本文导读\n功能介绍\n使用约束\n接口原型\n请求参数\nHeader\nBody\n请求示例\n响应参数\n响应示例\n成功示例\n鉴权失败示例\n简体中文\n华为开发者联盟 版权所有 ©2026\n问题反馈\n使用条款\n华为开发者联盟用户协议\n关于华为开发者联盟与隐私的声明\nCookies\n开源软件声明",
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-createsite-0000001216061466",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "承载协议",
+          "HTTPS POST"
+        ],
+        [
+          "接口方向",
+          "开发者服务器 -> 华为服务器"
+        ],
+        [
+          "接口URL",
+          "https://{domain}/api/cloudhosting/web/v1/site/create 其中{domain}依站点区分： 中国：connect-api.cloud.huawei.com 德国：connect-api-dre.cloud.huawei.com 新加坡：connect-api-dra.cloud.huawei.com 俄罗斯：connect-api-drru.cloud.huawei.com 注意 调用获取Token接口时使用的域名必须与本接口域名保持一致，例如欧洲站点使用“connect-api-dre.cloud.huawei.com”，则调用获取Token接口必须使用“https://connect-api-dre.cloud.huawei.com/api/oauth2/v1/token”。"
+        ],
+        [
+          "数据格式",
+          "请求：Content-Type: application/json 响应：Content-Type: application/json"
+        ]
+      ],
+      "section": "接口原型",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-createsite-0000001216061466#section19807422151313"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "Authorization",
+          "M",
+          "String",
+          "认证鉴权信息。 认证方式：Bearer token。 格式:“Authorization: Bearer ${access_token}”。 access_token为获取Token中获取的access_token。"
+        ],
+        [
+          "productId",
+          "M",
+          "String",
+          "项目ID，获取方法参考查询开发者账号ID及项目ID。"
+        ],
+        [
+          "requestid",
+          "M",
+          "String",
+          "自定义的请求字符串，必须唯一标识此请求。"
+        ],
+        [
+          "client_id",
+          "M",
+          "String",
+          "客户端ID，获取方法参考创建API客户端。"
+        ],
+        [
+          "service",
+          "M",
+          "String",
+          "API业务标识。固定值：hosting。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-createsite-0000001216061466#section580816227139"
+    },
+    {
+      "location": "body",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "siteName",
+          "M",
+          "String(30)",
+          "站点名。"
+        ],
+        [
+          "description",
+          "O",
+          "String(1000)",
+          "站点描述信息。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-createsite-0000001216061466#section2809102219131"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "ret",
+          "O",
+          "String",
+          "包含返回码及描述信息的JSON字符串，格式为{\"code\":retcode, \"msg\": \"description\"}，retcode为返回码，description为返回码描述信息。"
+        ],
+        [
+          "site",
+          "O",
+          "Site",
+          "站点信息。"
+        ],
+        [
+          "siteDomains",
+          "O",
+          "siteDomain",
+          "域名模型。"
+        ],
+        [
+          "rejected",
+          "O",
+          "Boolean",
+          "创建站点是否被拒绝。"
+        ],
+        [
+          "secondLevelDomainSitesCount",
+          "O",
+          "Integer",
+          "二级域名下子域名数量（泛域名忽略此字段）。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-createsite-0000001216061466#section2812322121314"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "siteId",
+          "M",
+          "String",
+          "站点ID。"
+        ],
+        [
+          "siteName",
+          "M",
+          "String",
+          "站点名称。"
+        ],
+        [
+          "tenantId",
+          "M",
+          "String",
+          "租户ID，与项目ID一致。"
+        ],
+        [
+          "totalSize",
+          "M",
+          "Integer",
+          "站点内版本压缩包总大小。"
+        ],
+        [
+          "status",
+          "M",
+          "Integer",
+          "站点状态。"
+        ],
+        [
+          "curVersion",
+          "M",
+          "String",
+          "当前版本号。"
+        ],
+        [
+          "description",
+          "M",
+          "String",
+          "描述。"
+        ],
+        [
+          "createDate",
+          "M",
+          "Long",
+          "创建时间。"
+        ],
+        [
+          "modifyDate",
+          "M",
+          "Long",
+          "修改时间。"
+        ],
+        [
+          "businessType",
+          "M",
+          "Integer",
+          "托管类型：0-网站托管。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-createsite-0000001216061466#section2812322121314"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "domain",
+          "M",
+          "String",
+          "域名。"
+        ],
+        [
+          "siteId",
+          "M",
+          "String",
+          "站点ID。"
+        ],
+        [
+          "siteName",
+          "M",
+          "String",
+          "站点名称。"
+        ],
+        [
+          "tenantId",
+          "M",
+          "String",
+          "租户ID，与项目ID一致。"
+        ],
+        [
+          "domainType",
+          "M",
+          "Integer",
+          "域名类型：0-泛域名。"
+        ],
+        [
+          "createDate",
+          "M",
+          "Long",
+          "创建时间。"
+        ],
+        [
+          "modifyDate",
+          "M",
+          "Long",
+          "修改时间。"
+        ],
+        [
+          "certExpireTime",
+          "M",
+          "Long",
+          "域名证书过期时间。"
+        ],
+        [
+          "businessType",
+          "M",
+          "Integer",
+          "托管类型：0-网站托管。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-createsite-0000001216061466#section2812322121314"
+    }
+  ],
+  "title": "创建站点",
+  "updatedAt": "2026-10-23 16:56",
+  "captureTool": "Computer Use; scripts/browser-capture-reference.mjs-compatible merged-cell capture"
+}

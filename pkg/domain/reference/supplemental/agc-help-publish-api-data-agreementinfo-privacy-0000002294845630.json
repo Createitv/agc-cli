@@ -1,0 +1,124 @@
+{
+  "examples": [],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter#section195981215284",
+      "title": "了解新版目录"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-open-ability-0000002235710238",
+      "title": "AGC开放能力"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-0000002236015554",
+      "title": "AppGallery Connect API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-reference-0000002271160565",
+      "title": "Publishing API参考"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-0000002236201266",
+      "title": "数据模型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/publish-api-agreementbaseinfo-privacy-0000002328924929",
+      "title": "AgreementBaseInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-personalinfo-0000002328805173",
+      "title": "PersonalInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-devicepermission-0000002294845674",
+      "title": "DevicePermission"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-thirdsdkinfo-0000002328805217",
+      "title": "ThirdSdkInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-thirdsharedinfo-0000002294845678",
+      "title": "ThirdSharedInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-extendinfo-0000002328924981",
+      "title": "ExtendInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-agreementinfo-user-0000002236041482",
+      "title": "AgreementInfo（用户协议）"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-allpermission-0000002295046904",
+      "title": "AllPermission"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-agreementinfo-privacy-0000002294845630",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "lang",
+          "M",
+          "String(20)",
+          "语种。 取值范围： zh：简体中文 en：英语 ug：维吾尔语 bo：藏语 zh-Hant-HK：繁体中文（中国香港特别行政区） zh-Hant-TW：繁体中文（中国台湾）"
+        ],
+        [
+          "baseInfo",
+          "O",
+          "AgreementBaseInfo",
+          "隐私政策协议基础信息列表。"
+        ],
+        [
+          "personalInfo",
+          "O",
+          "PersonalInfo",
+          "个人信息详情。"
+        ],
+        [
+          "devicePermissions",
+          "O",
+          "List<DevicePermission>",
+          "设备权限信息。 数组长度不超过200。"
+        ],
+        [
+          "thirdSdkInfo",
+          "O",
+          "ThirdSdkInfo",
+          "三方SDK信息。"
+        ],
+        [
+          "thirdSharedInfos",
+          "O",
+          "List<ThirdSharedInfo>",
+          "三方共享信息。 数组长度不超过200。"
+        ],
+        [
+          "extInfo",
+          "O",
+          "ExtendInfo",
+          "扩展信息。"
+        ]
+      ],
+      "section": "",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-agreementinfo-privacy-0000002294845630"
+    }
+  ],
+  "title": "AgreementInfo（隐私政策协议）",
+  "updatedAt": "2026-06-25 19:52",
+  "checkedAt": "2026-10-07T05:06:46.319Z"
+}

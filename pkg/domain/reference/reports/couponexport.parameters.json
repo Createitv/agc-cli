@@ -1,0 +1,69 @@
+[
+  {
+    "name": "appId",
+    "in": "path",
+    "type": "string",
+    "required": true,
+    "description": "应用ID，获取方法参考查询应用信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-couponexport-0000001111845104#section1250171775311"
+  },
+  {
+    "name": "language",
+    "in": "query",
+    "type": "string",
+    "required": true,
+    "description": "查询语言，报表title会根据不同语言来展现，只支持简体中文（zh-CN），美式英文（en-US），俄文（ru-RU）。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-couponexport-0000001111845104#section886219295206",
+    "enum": [
+      "zh-CN",
+      "en-US",
+      "ru-RU"
+    ]
+  },
+  {
+    "name": "startTime",
+    "in": "query",
+    "type": "string",
+    "required": true,
+    "description": "查询开始时间，UTC时间，格式为YYYYMMDD。 startTime和endTime之间不超过180天。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-couponexport-0000001111845104#section886219295206"
+  },
+  {
+    "name": "endTime",
+    "in": "query",
+    "type": "string",
+    "required": true,
+    "description": "查询结束时间，UTC时间，格式为YYYYMMDD。 startTime和endTime之间不超过180天。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-couponexport-0000001111845104#section886219295206"
+  },
+  {
+    "name": "filterCondition",
+    "in": "query",
+    "type": "array",
+    "required": false,
+    "description": "过滤器，目前只支持“activityId”，表示基于活动过滤。如果不传此参数默认无过滤器。 URL示例：&filterCondition=activityId",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-couponexport-0000001111845104#section886219295206",
+    "itemsType": "string"
+  },
+  {
+    "name": "filterConditionValue",
+    "in": "query",
+    "type": "array",
+    "required": false,
+    "description": "过滤器对应的值，例如过滤器是“activityId”，此参数的取值为活动ID。目前只支持输入1个活动ID，不支持输入多个活动ID。 活动ID可在AppGallery Connect网站应用开发页面的“运营 > 活动运营 > 活动管理”页面查看。 URL示例：&filterConditionValue=123456",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-couponexport-0000001111845104#section886219295206",
+    "itemsType": "string"
+  },
+  {
+    "name": "exportType",
+    "in": "query",
+    "type": "string",
+    "required": false,
+    "description": "导出文件类型，取值范围： CSV：导出CSV文件格式 EXCEL：导出Excel文件格式 默认值：CSV。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-couponexport-0000001111845104#section886219295206",
+    "enum": [
+      "CSV",
+      "EXCEL"
+    ]
+  }
+]

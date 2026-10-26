@@ -1,0 +1,13 @@
+[
+  {
+    "id": "reply-target-exclusive",
+    "kind": "at_most_one",
+    "fields": [
+      "body.toReplyId",
+      "body.updateReplyId"
+    ],
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-reviewreply-0000001162548117#section739714276488",
+    "message": "toReplyId and updateReplyId cannot both be supplied.",
+    "suggestion": "Choose whether to reply to a user reply or modify an existing developer reply, and provide only its corresponding ID."
+  }
+]

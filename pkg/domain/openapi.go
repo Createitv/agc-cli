@@ -1,6 +1,9 @@
 package domain
 
-import "strings"
+import (
+	"strconv"
+	"strings"
+)
 
 func OpenAPISpec() map[string]any {
 	paths := map[string]any{
@@ -73,7 +76,12 @@ func endpointOperation(prefix string, endpoint Endpoint, summaryPrefix string, t
 	op["x-agc-command"] = endpoint.Command
 	op["x-huawei-method"] = endpoint.Method
 	op["x-huawei-path"] = endpoint.Path
+	op["x-huawei-default-base-url"] = endpoint.DefaultBaseURL
+	op["x-huawei-authentication"] = endpoint.Authentication
+	op["x-huawei-content-type"] = endpoint.RequestContentType
 	op["x-agc-parameters"] = endpoint.Parameters
+	op["x-agc-rules"] = endpoint.Rules
+	op["x-agc-documentation"] = endpoint.Documentation
 	if prefix == "invoke" {
 		op["requestBody"] = map[string]any{
 			"required": true,
@@ -86,6 +94,47 @@ func endpointOperation(prefix string, endpoint Endpoint, summaryPrefix string, t
 					},
 				},
 			},
+		}
+	}
+	if prefix == "invoke" {
+		schema := op["requestBody"].(map[string]any)["content"].(map[string]any)["application/json"].(map[string]any)["schema"].(map[string]any)
+		if (endpoint.FamilyID == "pms" && endpoint.ID == "resourcemanage-harmonyosnext") || (IsServerlessFamily(endpoint.FamilyID) && parameterFileRequired(endpoint)) {
+			if IsServerlessFamily(endpoint.FamilyID) {
+				schema["required"] = invokeRequiredContainers(endpoint)
+			} else {
+				schema["required"] = []string{"filePath"}
+			}
+		}
+		alternatives := []any{}
+		for _, parameter := range endpoint.Parameters {
+			if parameter.In != "query" || !parameter.Required {
+				continue
+			}
+			branches := []any{}
+			for _, container := range []string{"query", "queryValues"} {
+				branches = append(branches, map[string]any{"required": []string{container}, "properties": map[string]any{container: map[string]any{"required": []string{parameter.Name}}}})
+			}
+			alternatives = append(alternatives, map[string]any{"anyOf": branches})
+		}
+		if endpoint.Authentication == "agcli-user-oauth" {
+			required := []string{}
+			if endpoint.ID != "list-functions" {
+				required = append(required, "name")
+			}
+			if endpoint.ID == "create-function" || endpoint.ID == "update-function-code" {
+				required = append(required, "codePath")
+			}
+			if strings.Contains(endpoint.ID, "publish") {
+				required = append(required, "versionDescription")
+			}
+			schema["required"] = required
+			alternatives = append(alternatives, map[string]any{"if": map[string]any{"properties": map[string]any{"dryRun": map[string]any{"const": false}}, "required": []string{"dryRun"}}, "then": map[string]any{"required": []string{"sessionFile"}}})
+		}
+		if strings.HasPrefix(endpoint.Authentication, "agcli-management-") {
+			alternatives = append(alternatives, map[string]any{"if": map[string]any{"properties": map[string]any{"dryRun": map[string]any{"const": false}}, "required": []string{"dryRun"}}, "then": map[string]any{"required": []string{"sessionFile"}}})
+		}
+		if len(alternatives) > 0 {
+			schema["allOf"] = alternatives
 		}
 	}
 	return op
@@ -107,15 +156,22 @@ func operation(operationID, summary, description string, tags []string) map[stri
 }
 
 func invokeRequestSchemaProperties(endpoint Endpoint) map[string]any {
+	if endpoint.Authentication == "agcli-user-oauth" {
+		return FunctionSchema()["properties"].(map[string]any)
+	}
 	properties := map[string]any{
-		"baseUrl": map[string]string{"type": "string"},
-		"params":  map[string]any{"type": "object", "additionalProperties": map[string]string{"type": "string"}},
-		"query":   map[string]any{"type": "object", "additionalProperties": map[string]string{"type": "string"}},
-		"headers": map[string]any{"type": "object", "additionalProperties": map[string]string{"type": "string"}},
-		"fields":  map[string]any{"type": "object", "additionalProperties": map[string]string{"type": "string"}},
-		"body":    map[string]any{"description": "Raw JSON request body for the Huawei endpoint."},
-		"token":   map[string]string{"type": "string", "description": "Huawei upstream access token; separate from the local X-AGC-Server-Token header."},
-		"dryRun":  map[string]string{"type": "boolean"},
+		"sessionFile": map[string]any{"type": "string", "writeOnly": true, "description": "Explicit user management session file; not a publishing profile."},
+		"projectId":   map[string]any{"type": "string", "description": "Project must match the selected management session."},
+		"filePath":    map[string]string{"type": "string", "description": "Explicit local file path on the CLI server host for supported file-upload endpoints. Multipart metadata is supplied through fields or body."},
+		"queryValues": map[string]any{"type": "object", "description": "Ordered repeated upstream query keys. Each array replaces the scalar query entry with the same name.", "additionalProperties": map[string]any{"type": "array", "items": map[string]string{"type": "string"}}},
+		"baseUrl":     map[string]string{"type": "string"},
+		"params":      map[string]any{"type": "object", "additionalProperties": map[string]string{"type": "string"}},
+		"query":       map[string]any{"type": "object", "additionalProperties": map[string]string{"type": "string"}},
+		"headers":     map[string]any{"type": "object", "additionalProperties": map[string]string{"type": "string"}},
+		"fields":      map[string]any{"type": "object", "additionalProperties": map[string]string{"type": "string"}},
+		"body":        map[string]any{"description": "Raw JSON request body for the Huawei endpoint."},
+		"token":       map[string]string{"type": "string", "description": "Huawei upstream access token; separate from the local X-AGC-Server-Token header."},
+		"dryRun":      map[string]string{"type": "boolean"},
 	}
 	for _, parameter := range endpoint.Parameters {
 		container := ""
@@ -127,6 +183,9 @@ func invokeRequestSchemaProperties(endpoint Endpoint) map[string]any {
 		case "path":
 			container = "params"
 		case "file":
+			if (endpoint.FamilyID == "pms" && endpoint.ID == "resourcemanage-harmonyosnext") || IsServerlessFamily(endpoint.FamilyID) {
+				continue
+			}
 			container = "fields"
 		}
 		if container == "" {
@@ -146,7 +205,10 @@ func invokeRequestSchemaProperties(endpoint Endpoint) map[string]any {
 		if parameter.Format != "" {
 			known[parameter.Name].(map[string]any)["x-huawei-format"] = parameter.Format
 		}
-		if parameter.Required {
+		if parameter.Pattern != "" {
+			known[parameter.Name].(map[string]any)["pattern"] = parameter.Pattern
+		}
+		if parameter.Required && container != "query" {
 			required, _ := object["required"].([]string)
 			object["required"] = append(required, parameter.Name)
 		}
@@ -154,6 +216,15 @@ func invokeRequestSchemaProperties(endpoint Endpoint) map[string]any {
 	if methodNeedsBody(endpoint.Method) || endpoint.Body != "" {
 		bodySchema := map[string]any{
 			"description": "Raw JSON request body for " + endpoint.Method + " " + endpoint.Path + ".",
+		}
+		if endpoint.DynamicBody != nil {
+			child := invokeRequestSchemaProperties(Endpoint{Method: "POST", Parameters: endpoint.DynamicBody.Properties})["body"]
+			bodySchema["type"] = "object"
+			bodySchema["patternProperties"] = map[string]any{endpoint.DynamicBodyKeyPattern: child}
+			bodySchema["additionalProperties"] = false
+			if endpoint.DynamicBody.Required {
+				bodySchema["minProperties"] = 1
+			}
 		}
 		fields := map[string]any{}
 		required := []string{}
@@ -165,15 +236,103 @@ func invokeRequestSchemaProperties(endpoint Endpoint) map[string]any {
 			if parameter.Type != "" {
 				field["type"] = parameter.Type
 			}
+			if parameter.EncodedJSON != nil {
+				model := *parameter.EncodedJSON
+				model.Name = "value"
+				model.In = "body"
+				nested := invokeRequestSchemaProperties(Endpoint{Method: "POST", Parameters: []Parameter{model}})["body"].(map[string]any)["properties"].(map[string]any)["value"]
+				field["contentMediaType"] = "application/json"
+				field["contentSchema"] = nested
+			}
 			if parameter.Format != "" {
 				field["format"] = parameter.Format
+			}
+			if parameter.Pattern != "" {
+				field["pattern"] = parameter.Pattern
+			}
+			if parameter.MaxLength > 0 {
+				field["maxLength"] = parameter.MaxLength
+			}
+			if parameter.MinLength > 0 {
+				field["minLength"] = parameter.MinLength
+			}
+			if parameter.Minimum != nil {
+				field["minimum"] = *parameter.Minimum
+			}
+			if parameter.Maximum != nil {
+				field["maximum"] = *parameter.Maximum
+			}
+			if len(parameter.Enum) > 0 {
+				if parameter.Type == "integer" {
+					values := []int64{}
+					for _, text := range parameter.Enum {
+						if value, err := strconv.ParseInt(text, 10, 64); err == nil {
+							values = append(values, value)
+						}
+					}
+					field["enum"] = values
+				} else {
+					field["enum"] = parameter.Enum
+				}
 			}
 			if parameter.Type == "string" && parameter.Required && !parameter.AllowEmpty {
 				field["minLength"] = 1
 			}
+			if parameter.Type == "object" && len(parameter.Properties) > 0 {
+				nested := invokeRequestSchemaProperties(Endpoint{Method: "POST", Parameters: parameter.Properties})["body"].(map[string]any)
+				for name, value := range nested {
+					field[name] = value
+				}
+			}
+			if parameter.Type == "object" {
+				if parameter.MinProperties > 0 {
+					field["minProperties"] = parameter.MinProperties
+				}
+				if parameter.MaxProperties > 0 {
+					field["maxProperties"] = parameter.MaxProperties
+				}
+				if parameter.PropertyNamesPattern != "" {
+					field["propertyNames"] = map[string]any{"pattern": parameter.PropertyNamesPattern}
+				}
+				if parameter.AdditionalProperties != nil {
+					value := *parameter.AdditionalProperties
+					value.In = "body"
+					value.Name = "value"
+					value.Required = false
+					nested := invokeRequestSchemaProperties(Endpoint{Method: "POST", Parameters: []Parameter{value}})["body"].(map[string]any)["properties"].(map[string]any)["value"]
+					field["additionalProperties"] = nested
+				}
+			}
 			if parameter.Type == "array" {
 				if parameter.ItemsType != "" {
-					field["items"] = map[string]string{"type": parameter.ItemsType}
+					itemSchema := map[string]any{"type": parameter.ItemsType}
+					if len(parameter.ItemsEnum) > 0 {
+						if parameter.ItemsType == "integer" {
+							values := []int64{}
+							for _, text := range parameter.ItemsEnum {
+								if value, err := strconv.ParseInt(text, 10, 64); err == nil {
+									values = append(values, value)
+								}
+							}
+							itemSchema["enum"] = values
+						} else {
+							itemSchema["enum"] = parameter.ItemsEnum
+						}
+					}
+					if parameter.ItemsPattern != "" {
+						itemSchema["pattern"] = parameter.ItemsPattern
+					}
+					if parameter.ItemsMaxLength > 0 {
+						itemSchema["maxLength"] = parameter.ItemsMaxLength
+					}
+					field["items"] = itemSchema
+					if len(parameter.ItemsProperties) > 0 {
+						nested := invokeRequestSchemaProperties(Endpoint{Method: "POST", Parameters: parameter.ItemsProperties})
+						field["items"] = nested["body"]
+						if len(parameter.ItemsRules) > 0 {
+							field["items"].(map[string]any)["x-agc-rules"] = parameter.ItemsRules
+						}
+					}
 				}
 				if parameter.MinItems > 0 {
 					field["minItems"] = parameter.MinItems
@@ -215,6 +374,10 @@ func exportedID(id string) string {
 func invokeRequiredContainers(endpoint Endpoint) []string {
 	required := []string{}
 	seen := map[string]bool{}
+	if endpoint.DynamicBody != nil && endpoint.DynamicBody.Required {
+		required = append(required, "body")
+		seen["body"] = true
+	}
 	for _, parameter := range endpoint.Parameters {
 		if !parameter.Required {
 			continue
@@ -224,10 +387,14 @@ func invokeRequiredContainers(endpoint Endpoint) []string {
 		case "header":
 			container = "headers"
 		case "query":
-			container = "query"
+			continue
 		case "path":
 			container = "params"
 		case "file":
+			if IsServerlessFamily(endpoint.FamilyID) {
+				container = "filePath"
+				break
+			}
 			container = "fields"
 		case "body":
 			container = "body"
@@ -238,4 +405,13 @@ func invokeRequiredContainers(endpoint Endpoint) []string {
 		}
 	}
 	return required
+}
+
+func parameterFileRequired(e Endpoint) bool {
+	for _, p := range e.Parameters {
+		if p.In == "file" && p.Required {
+			return true
+		}
+	}
+	return false
 }

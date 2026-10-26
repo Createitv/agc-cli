@@ -2,6 +2,17 @@
 
 [项目首页](../README.md) · [English](CLI_USAGE.en.md)
 
+## 内置 Agent Skills
+
+```bash
+agc skills list --pretty
+agc skills show agc-cli --output markdown
+```
+
+这些指引内嵌于二进制，可离线读取，无需凭据；不会安装文件或查询远程技能库。默认输出 JSON，也支持 `--output table` 和 `--output markdown`。
+
+旧版 v0.3.0 不包含 `skills` 命令。源码修复需重新构建；已安装的发布版需在包含此修复的新版本发布后升级。
+
 ## 快速开始
 
 先准备 AppGallery Connect 中的应用 ID，以及 Service Account JSON 或 API Client 凭据。应用 ID 可从 [AppGallery Connect 控制台](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 的应用信息中查找。
@@ -198,6 +209,8 @@ agc endpoints --pretty
 
 ## 现行 Publishing API 命令
 
+各操作的用途、请求位置和协议操作流程见 [Publishing 使用与核验](PUBLISHING_WORKFLOWS.md)。
+
 官网现行 Publishing API 参考的 31 项操作全部有对应命令。Publishing 共 42 个条目，包含保留的旧版命令。HarmonyOS 资料更新与提交发布使用下表的 V3 命令；原有 V2 命令保持兼容。
 
 | 官网操作 | CLI 命令 |
@@ -348,3 +361,7 @@ make ci
 ## 许可证
 
 [MIT](../LICENSE)
+
+## 云开发（Serverless）
+
+新增认证、云数据库、云存储、云托管、云函数和模板回调共 55 项操作。查看 [云开发使用与验证边界](SERVERLESS.md)。默认 dry-run，云端操作需显式选择专用测试资源。

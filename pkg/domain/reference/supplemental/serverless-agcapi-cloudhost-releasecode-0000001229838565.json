@@ -1,0 +1,73 @@
+{
+  "checkedAt": "2026-10-26",
+  "examples": [],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-restapi-0000001150409957",
+      "title": "RESTful API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-version-0000001260142907",
+      "title": "管理版本"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-versioncode-0000001211707815",
+      "title": "版本状态码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-errorcode-0000001260940301",
+      "title": "状态码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [],
+  "renderedText": "API参考\n云托管\nRESTful API\n管理版本\n版本发布状态码\n版本发布状态码\n更新时间: 2026-10-23 16:56\n\n发布状态\n\n\t\n\n状态说明\n\n\n\n\nPRODUCTION_RELEASING\n\n\t\n\n上线中\n\n\n\n\nPRODUCTION_RELEASED\n\n\t\n\n生产\n\n\n\n\nOFFLINING\n\n\t\n\n下线中\n\n\n\n\nOFFLINING_FAILED\n\n\t\n\n下线失败\n\n\n\n\nSANDBOX_RELEASING\n\n\t\n\n沙箱发布中\n\n\n\n\nSANDBOX_RELEASED\n\n\t\n\n沙箱上线\n\n\n\n\nRELEASING_FAILED\n\n\t\n\n发布失败\n\n版本状态码\n状态码\n意见反馈\n以上内容对您是否有帮助？\n意见反馈\n如果您有其他疑问，您也可以通过开发者社区问答频道来和我们联系探讨。\n社区提问AI 助手提问\n简体中文\n华为开发者联盟 版权所有 ©2026\n问题反馈\n使用条款\n华为开发者联盟用户协议\n关于华为开发者联盟与隐私的声明\nCookies\n开源软件声明",
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-releasecode-0000001229838565",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "发布状态",
+          "状态说明"
+        ],
+        [
+          "PRODUCTION_RELEASING",
+          "上线中"
+        ],
+        [
+          "PRODUCTION_RELEASED",
+          "生产"
+        ],
+        [
+          "OFFLINING",
+          "下线中"
+        ],
+        [
+          "OFFLINING_FAILED",
+          "下线失败"
+        ],
+        [
+          "SANDBOX_RELEASING",
+          "沙箱发布中"
+        ],
+        [
+          "SANDBOX_RELEASED",
+          "沙箱上线"
+        ],
+        [
+          "RELEASING_FAILED",
+          "发布失败"
+        ]
+      ],
+      "section": "",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-releasecode-0000001229838565"
+    }
+  ],
+  "title": "版本发布状态码",
+  "updatedAt": "2026-10-23 16:56"
+}

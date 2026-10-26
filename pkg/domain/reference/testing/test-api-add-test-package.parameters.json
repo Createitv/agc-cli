@@ -1,0 +1,59 @@
+[
+  {
+    "name": "teamId",
+    "in": "header",
+    "type": "string",
+    "required": false,
+    "description": "开发者所在团队的团队ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-test-package-0000002236201330#section15707195611112",
+    "maxLength": 64
+  },
+  {
+    "name": "appId",
+    "in": "query",
+    "type": "string",
+    "required": true,
+    "description": "应用ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-test-package-0000002236201330#section6641436115716"
+  },
+  {
+    "name": "distributeMode",
+    "in": "body",
+    "type": "integer",
+    "required": false,
+    "description": "软件包分发方式。 取值范围： 1：测试专区 2：应用市场",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-test-package-0000002236201330#section141117691213",
+    "enum": [
+      "1",
+      "2"
+    ]
+  },
+  {
+    "name": "file",
+    "in": "body",
+    "type": "object",
+    "required": true,
+    "description": "文件信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-test-package-0000002236201330#section141117691213",
+    "properties": [
+      {
+        "name": "fileName",
+        "in": "body",
+        "type": "string",
+        "required": true,
+        "maxLength": 255,
+        "description": "文件名称，包括文件的后缀名。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-data-fileinfo-0000002272575549"
+      },
+      {
+        "name": "objectId",
+        "in": "body",
+        "type": "string",
+        "required": true,
+        "maxLength": 1024,
+        "description": "文件在文件服务器中的对象ID。 说明 objectId的获取流程：先调用获取上传文件地址接口，然后调用上传文件接口上传文件，最后得到获取上传文件地址接口返回的objectId。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-data-fileinfo-0000002272575549"
+      }
+    ]
+  }
+]

@@ -1,0 +1,13 @@
+[
+  {
+    "id": "new_identity",
+    "kind": "at_least_one",
+    "fields": [
+      "body.newPhone",
+      "body.newEmail"
+    ],
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-modify-phone-email-0000001347069197",
+    "message": "Supply a new phone or email.",
+    "suggestion": "Specify newPhone or newEmail and its verification code."
+  }
+]

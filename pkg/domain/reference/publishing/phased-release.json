@@ -1,0 +1,305 @@
+{
+  "examples": [
+    {
+      "section": "请求示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-phased-release-0000001111685204#section8865931192418",
+      "text": "请求示例\nPUT /api/publish/v2/phased-release?appId=10*****57 HTTP/1.1\nHost: connect-api.cloud.huawei.com\nclient_id: 41*****168\nContent-Type: application/json\nAuthorization: Bearer ******\n{\n    \"state\": \"RELEASE\",\n    \"phasedReleaseStartTime\":\"2015-01-01T01:01:01+0800\",\n    \"phasedReleaseEndTime\":\"2015-01-01T01:01:01+0800\",\n    \"phasedReleasePercent\":\"50.00\"\n}"
+    },
+    {
+      "section": "响应示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-phased-release-0000001111685204#section986256122516",
+      "text": "响应示例\n{\n    \"ret\": {\n        \"code\": 0,\n        \"msg\": \"success\"\n    }\n}"
+    }
+  ],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-publishing-api-0000002351880118",
+      "title": "Publishing API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-publishingapi-0000001150409957",
+      "title": "Android"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114",
+      "title": "使用入门"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114#section103mcpsimp",
+      "title": "创建API客户端"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain_token-0000001158365043",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-getteamlist-0000001158245075",
+      "title": "获取团队列表"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114#section949717114392",
+      "title": "获取用户授权码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-publishingapi-errorcode-0000001163523297",
+      "title": "错误码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-submit-with-file-0000001111845092",
+      "title": "通过下载方式提交发布"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-notify-release-0000001158245063",
+      "title": "回调结果通知"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-phased-release-0000001111685204#section21226547",
+      "title": "功能介绍"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-phased-release-0000001111685204#section6932219103913",
+      "title": "接口原型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-phased-release-0000001111685204#section44860761",
+      "title": "请求参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-phased-release-0000001111685204#section236517415165",
+      "title": "Header"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-phased-release-0000001111685204#section71521339132219",
+      "title": "Query"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-phased-release-0000001111685204#section1520919574201",
+      "title": "Body"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-phased-release-0000001111685204#section8865931192418",
+      "title": "请求示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-phased-release-0000001111685204#section16482284",
+      "title": "响应参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-phased-release-0000001111685204#section986256122516",
+      "title": "响应示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-phased-release-0000001111685204#section8439614104314",
+      "title": "调用示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-phased-release-0000001111685204#section15143105712518",
+      "title": "Postman调试"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-phased-release-0000001111685204#section21226547",
+      "text": "此接口用于将分阶段发布修改为全网发布，或者更新分阶段发布的设置。接口调用者的角色：账号持有者、管理员、APP管理员、运营。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-phased-release-0000001111685204#section236517415165",
+      "text": "API客户端方式和OAuth客户端方式的区别请参见使用入门。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-phased-release-0000001111685204#section236517415165",
+      "text": "API客户端方式："
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-phased-release-0000001111685204#section236517415165",
+      "text": "OAuth客户端方式："
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-phased-release-0000001111685204#section1520919574201",
+      "text": "请求Body中使用JSON格式携带分阶段发布信息，参数如下表所示。"
+    },
+    {
+      "section": "Postman调试",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-phased-release-0000001111685204#section15143105712518",
+      "text": "您可以使用Postman在线调试此接口。"
+    }
+  ],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-phased-release-0000001111685204",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "承载协议",
+          "HTTPS PUT"
+        ],
+        [
+          "接口方向",
+          "开发者服务器 -> 华为服务器"
+        ],
+        [
+          "接口URL",
+          "https://connect-api.cloud.huawei.com/api/publish/v2/phased-release"
+        ],
+        [
+          "数据格式",
+          "请求：Content-Type: application/json 响应：Content-Type: application/json"
+        ]
+      ],
+      "section": "接口原型",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-phased-release-0000001111685204#section6932219103913"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "client_id",
+          "M",
+          "String",
+          "客户端ID，获取方法参考创建API客户端。"
+        ],
+        [
+          "Authorization",
+          "M",
+          "String",
+          "认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-phased-release-0000001111685204#section236517415165"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "teamId",
+          "M",
+          "String",
+          "开发者所在团队的团队ID，可通过获取团队列表接口获取。"
+        ],
+        [
+          "oauth2Token",
+          "M",
+          "String",
+          "认证信息，传入获取用户授权码中获取的Access Token。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-phased-release-0000001111685204#section236517415165"
+    },
+    {
+      "location": "query",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "appId",
+          "M",
+          "String",
+          "应用ID。"
+        ],
+        [
+          "releaseType",
+          "O",
+          "Integer",
+          "需要修改的发布方式。支持将分阶段发布修改为全网发布。 取值范围： 1：全网。 说明 如果选择全网发布，Body请传空对象{}。 3：分阶段。 默认值：3"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-phased-release-0000001111685204#section71521339132219"
+    },
+    {
+      "location": "body",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "state",
+          "O",
+          "String",
+          "分阶段发布的状态。 取值范围： SUSPEND：暂停。 RELEASE：恢复为发布中。"
+        ],
+        [
+          "phasedReleaseStartTime",
+          "O",
+          "String(64)",
+          "分阶段发布生效开始时间，UTC时间格式：yyyy-MM-ddTHH:mm:ssZZ，例如“2015-01-01T01:01:01+0800”。已上架的分阶段发布应用，不允许修改开始时间。"
+        ],
+        [
+          "phasedReleaseEndTime",
+          "O",
+          "String(64)",
+          "分阶段发布生效结束时间，UTC时间格式：yyyy-MM-ddTHH:mm:ssZZ，例如“2015-01-01T01:01:01+0800”。"
+        ],
+        [
+          "phasedReleasePercent",
+          "O",
+          "String(10)",
+          "分阶段发布百分比。取值为大于0.00且小于100.00，必须精确到两位小数，不含百分号。"
+        ],
+        [
+          "phasedReleaseDescription",
+          "O",
+          "String(500)",
+          "分阶段发布说明。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-phased-release-0000001111685204#section1520919574201"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "ret",
+          "M",
+          "String(100)",
+          "包含返回码及描述信息的JSON字符串，格式为{\"code\":retcode, \"msg\": \"description\"}，retcode为返回码，description为返回码描述信息。返回码请参见错误码。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-phased-release-0000001111685204#section16482284"
+    }
+  ],
+  "title": "更新分阶段发布",
+  "updatedAt": "2025-08-25 13:48",
+  "checkedAt": "2026-10-07T02:52:55.198Z",
+  "family": "publishing",
+  "endpoint": "phased-release"
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "name": "appId",
+    "in": "header",
+    "type": "string",
+    "required": true,
+    "description": "应用ID，获取方法参考查询应用信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basicapplication-harmonyosnext-0000002131519928#section1146731320212"
+  },
+  {
+    "name": "purchaseType",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "商品类型。如果查多种商品类型，使用英文逗号分隔，取值如下： consumable：消耗型 auto_subscription：自动续期型 non_consumable：非消耗型 non_renewing_subscription：非续期订阅型",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basicapplication-harmonyosnext-0000002131519928#section48988321545"
+  },
+  {
+    "name": "appId",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "应用ID，获取方法参考查询应用信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basicapplication-harmonyosnext-0000002131519928#section48988321545"
+  }
+]

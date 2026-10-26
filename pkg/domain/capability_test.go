@@ -4,7 +4,7 @@ import "testing"
 
 func TestDecoratedCapabilitiesExposeAllOfficialFamilies(t *testing.T) {
 	capabilities := DecoratedCapabilities()
-	if got, want := len(capabilities), 13; got != want {
+	if got, want := len(capabilities), 21; got != want {
 		t.Fatalf("len(capabilities) = %d, want %d", got, want)
 	}
 	for _, capability := range capabilities {

@@ -1,0 +1,18 @@
+[
+  {
+    "name": "projectId",
+    "in": "query",
+    "type": "string",
+    "required": true,
+    "description": "应用所在的项目ID，可以通过获取应用简略信息接口获取。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryservice-0000001111845108#section886219295206"
+  },
+  {
+    "name": "appID",
+    "in": "query",
+    "type": "integer",
+    "required": true,
+    "description": "应用ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryservice-0000001111845108#section886219295206"
+  }
+]

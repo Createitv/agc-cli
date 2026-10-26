@@ -71,8 +71,8 @@ func TestCapabilitiesCommandReturnsAllFamilies(t *testing.T) {
 	if err := json.Unmarshal([]byte(out), &body); err != nil {
 		t.Fatal(err)
 	}
-	if len(body.Data) != 13 {
-		t.Fatalf("capabilities = %d, want 13", len(body.Data))
+	if len(body.Data) != 21 {
+		t.Fatalf("capabilities = %d, want 21", len(body.Data))
 	}
 }
 
@@ -165,6 +165,11 @@ func TestEndpointCommandShowsSpec(t *testing.T) {
 
 func TestEveryRegisteredEndpointCanDryRun(t *testing.T) {
 	for _, endpoint := range domain.AllEndpoints() {
+		if domain.IsServerlessFamily(endpoint.FamilyID) {
+			testServerlessOperationDryRun(t, endpoint)
+			continue
+		}
+
 		args := []string{endpoint.FamilyID, endpoint.ID, "--invoke", "--base-url", "https://example.com"}
 		for _, parameter := range endpoint.Parameters {
 			if !parameter.Required {
@@ -172,28 +177,47 @@ func TestEveryRegisteredEndpointCanDryRun(t *testing.T) {
 			}
 			switch parameter.In {
 			case "path":
-				value := "sample"
+				value := parameterFixture(parameter)
 				if parameter.Name == "callbackUrl" || parameter.Name == "uploadUrl" {
 					value = "https://callback.example.com/hook"
 				}
 				args = append(args, "--param", parameter.Name+"="+value)
 			case "query":
-				args = append(args, "--query", parameter.Name+"=sample")
+				args = append(args, "--query", parameter.Name+"="+parameterFixture(parameter))
 			case "header":
-				args = append(args, "--header", parameter.Name+"=sample")
-			case "body", "file":
-				value := "sample"
-				if parameter.Type == "integer" || parameter.Type == "number" {
-					value = "1"
+				args = append(args, "--header", parameter.Name+"="+parameterFixture(parameter))
+			case "file":
+				if endpoint.FamilyID == "pms" && endpoint.ID == "resourcemanage-harmonyosnext" {
+					file := filepath.Join(t.TempDir(), "fixture.png")
+					if err := os.WriteFile(file, []byte("offline-image"), 0600); err != nil {
+						t.Fatal(err)
+					}
+					args = append(args, "--file", file)
+					continue
 				}
-				if parameter.Type == "array" {
-					value = `["fixture"]`
-				}
-				if parameter.Type == "object" {
-					value = `{"key":"fixture"}`
-				}
+				args = append(args, "--field", parameter.Name+"="+parameterFixture(parameter))
+			case "body":
+				value := parameterFixture(parameter)
 				args = append(args, "--field", parameter.Name+"="+value)
 			}
+		}
+		if endpoint.DynamicBody != nil {
+			args = append(args, "--field", "additionalProp1="+parameterFixture(*endpoint.DynamicBody))
+		}
+		if endpoint.FamilyID == "resources" && endpoint.ID == "respackapi-queryfile" {
+			args = append(args, "--query", "versionId=1")
+		}
+		if endpoint.FamilyID == "projects" && endpoint.ID == "appbriefinfo" {
+			args = append(args, "--query", "packageNames=app.example.fixture")
+		}
+		if endpoint.FamilyID == "publishing" && endpoint.ID == "app-version-list" {
+			args = append(args, "--header", "appId=fixture")
+		}
+		if endpoint.FamilyID == "upload" && endpoint.ID == "obbfile-init" {
+			args = append(args, "--query", "fileType=1")
+		}
+		if endpoint.FamilyID == "publishing" && endpoint.ID == "app-create" {
+			args = append(args, "--field", "packageName=app.example.fixture")
 		}
 		out, err := execute(args...)
 		if err != nil {
@@ -265,8 +289,9 @@ func TestEndpointCommandWritesRawResponseToOutFile(t *testing.T) {
 		"--invoke",
 		"--dry-run=false",
 		"--param", "appId=123",
-		"--query", "from=2026-08-01",
-		"--query", "to=2026-08-11",
+		"--query", "language=en-US",
+		"--query", "startTime=20260801",
+		"--query", "endTime=20260811",
 		"--base-url", server.URL,
 		"--token", "token",
 		"--out", outFile,
@@ -293,7 +318,7 @@ func TestEndpointCommandRequiresCallbackURL(t *testing.T) {
 }
 
 func TestEndpointCommandAcceptsBodyFieldAndHeader(t *testing.T) {
-	out, err := execute("publishing", "add-packageurl", "--invoke", "--field", "appId=123", "--field", "packageUrl=https://example.com/app.app", "--header", "client_id=client", "--base-url", "https://example.com")
+	out, err := execute("publishing", "add-packageurl", "--invoke", "--query", "appId=123", "--field", "downloadUrl=https://example.com/app.apk", "--field", "downloadFileName=app.apk", "--field", "requestId=offline-fixture", "--header", "client_id=client", "--base-url", "https://example.com")
 	if err != nil {
 		t.Fatal(err)
 	}

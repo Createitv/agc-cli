@@ -1,0 +1,178 @@
+{
+  "examples": [],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pmsapi-0000001162548121",
+      "title": "PMS API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pmsapi-android-0000002131508240",
+      "title": "HarmonyOS 3.1/4.0及以下、Android"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-data-android-0000002135929332",
+      "title": "数据模型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-addproductgroup-android-0000002135929308",
+      "title": "创建商品订阅分组信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/distribution/app/agc-help-supported-countries-overview-0000001146718725",
+      "title": "国家/地区、语言、币种列表"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-dppriceinfo-android-0000002171407033",
+      "title": "DefaultProductPriceInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-pdlanguageinfo-android-0000002171407041",
+      "title": "ProductLanguageInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-pdlanguageinfo-android-0000002171407041",
+      "title": "ProductLanguageInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-ppriceinfo-android-0000002171288645",
+      "title": "ProductPriceInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-dppriceinfo-android-0000002171407033",
+      "title": "DefaultProductPriceInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-promotioninfo-android-0000002136087440",
+      "title": "PromotionInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-productinfo-android-0000002171288637",
+      "title": "ProductInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-pierrorinfo-android-0000002136087432",
+      "title": "ProductImportErrorInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-pimportinfo-android-0000002135929344",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "productNo",
+          "M",
+          "String",
+          "开发者自定义商品标识，和appId唯一确定一个商品。 必须以大小写字母或数字开头，并且只能由大小写字母 (A-Z,a-z)、数字 (0-9)、下划线 (_) 和句点 (.) 组成。同一个应用内商品标识不能重复。 更新时不能修改。"
+        ],
+        [
+          "status",
+          "O",
+          "String",
+          "商品状态，支持创建active和inactive状态的商品默认值：inactive。取值如下： active：上线 inactive：下线"
+        ],
+        [
+          "productName",
+          "M",
+          "String(55)",
+          "商品名称，支持多语言配置，根据defaultLocale配置此处的商品名称。不支持特殊字符|。"
+        ],
+        [
+          "productDesc",
+          "M",
+          "String(100)",
+          "默认商品描述信息。不支持特殊字符|。"
+        ],
+        [
+          "purchaseType",
+          "M",
+          "String",
+          "商品类型，取值范围： consumable：消耗型 auto_subscription：自动续期型 non_consumable：非消耗型 更新时不能修改。"
+        ],
+        [
+          "subGroupId",
+          "O",
+          "String",
+          "订阅分组ID，purchaseType为auto_subscription时必须传入，依赖于已调用创建商品订阅分组信息接口创建订阅分组。更新时不能修改。"
+        ],
+        [
+          "subPeriod",
+          "O",
+          "String",
+          "订购周期，purchaseType为auto_subscription时必须传入。更新时不能修改。"
+        ],
+        [
+          "subPeriodUnit",
+          "O",
+          "String",
+          "订购周期单位，purchaseType为auto_subscription时必须传入。采用ISO 8601格式指定，取值范围： D：天 W：周 M：月 Y：年 可选值： 1周 1个月 2个月 3个月 6个月 1年 30天（上次订阅日期+30天） 31天（上次订阅日期+31天） 例如：订阅周期为2个月，则subPeriod=2， subPeriodUnit=M。 更新时不能修改。 说明 当前仅purchaseType为\"auto_subscription\"的自动续期型商品需要维护。"
+        ],
+        [
+          "force",
+          "O",
+          "Integer",
+          "自动续期型商品，价格变更之后，对于已订阅用户是否强制涨价。不传默认值：0。 0：不强制 1：强制"
+        ],
+        [
+          "defaultLocale",
+          "M",
+          "String",
+          "默认语言环境，请参见国家/地区、语言、币种列表。 例如：zh_CN、en_US。"
+        ],
+        [
+          "defaultPriceInfo",
+          "O",
+          "DefaultProductPriceInfo",
+          "默认价格信息。如果未传入，则会默认设置此对象中的Country为CN，Currency为CNY。"
+        ],
+        [
+          "languages",
+          "O",
+          "List<ProductLanguageInfo>",
+          "商品多语言信息。 如果未传值，则通过默认的productName、productDesc和defaultLocale构造。 如果传入了该列表，当列表内某一ProductLanguageInfo对象的locale的值等于当前ProductImportInfo内defaultLocale的值时，需保证该对象内productName和productDesc的值分别与当前ProductImportInfo内productName和productDesc的值一致。"
+        ],
+        [
+          "prices",
+          "O",
+          "List<ProductPriceInfo>",
+          "自定义价格。如果传入了该列表，则必须传入DefaultProductPriceInfo对象中的price字段。 说明 更新场景时，仅更新该列表中的价格，不自动刷新其他国家价格。"
+        ],
+        [
+          "promotion",
+          "O",
+          "PromotionInfo",
+          "促销信息。"
+        ],
+        [
+          "salesCountry",
+          "O",
+          "List<String>",
+          "销售国家/地区。"
+        ],
+        [
+          "autoAddSaleCountry",
+          "O",
+          "Integer",
+          "是否启用自动添加销售国家或地区，默认值：0。 1：是 0：否"
+        ]
+      ],
+      "section": "",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-pimportinfo-android-0000002135929344"
+    }
+  ],
+  "title": "ProductImportInfo",
+  "updatedAt": "2025-08-15 09:52",
+  "checkedAt": "2026-10-07T03:13:20.140Z"
+}

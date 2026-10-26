@@ -1,0 +1,86 @@
+[
+  {
+    "name": "client_id",
+    "type": "string",
+    "required": false,
+    "description": "客户端ID，获取方法参考获取客户端API授权。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-register-0000001346709109#section1271295172910",
+    "in": "header"
+  },
+  {
+    "name": "Authorization",
+    "type": "string",
+    "required": false,
+    "description": "认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-register-0000001346709109#section1271295172910",
+    "in": "header"
+  },
+  {
+    "name": "productId",
+    "type": "string",
+    "required": true,
+    "description": "项目ID，查询方法可参见查询项目ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-register-0000001346709109#section3324145832711",
+    "in": "query"
+  },
+  {
+    "name": "phone",
+    "type": "string",
+    "required": false,
+    "description": "手机号，包括国家码，以“+”开头，例如中国大陆的手机号以“+86”开头。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-register-0000001346709109#section1041827152910",
+    "in": "body"
+  },
+  {
+    "name": "email",
+    "type": "string",
+    "required": false,
+    "description": "电子邮箱。 电子邮箱和手机号码二者必填一个。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-register-0000001346709109#section1041827152910",
+    "in": "body"
+  },
+  {
+    "name": "verifyCode",
+    "type": "string",
+    "required": false,
+    "description": "验证码，传入手机号时必填。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-register-0000001346709109#section1041827152910",
+    "in": "body"
+  },
+  {
+    "name": "password",
+    "type": "string",
+    "required": false,
+    "description": "登录密码。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-register-0000001346709109#section1041827152910",
+    "in": "body"
+  },
+  {
+    "name": "useJwt",
+    "type": "integer",
+    "required": false,
+    "description": "是否使用自有账号凭据JWT(Json Web Token)： 0：不使用，默认为0。 1：使用。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-register-0000001346709109#section1041827152910",
+    "in": "body",
+    "enum": [
+      "0",
+      "1"
+    ]
+  },
+  {
+    "name": "channelId",
+    "type": "string",
+    "required": false,
+    "description": "渠道标识，当前渠道划分为华为渠道、AppStore渠道以及GooglePlay渠道。当从这些渠道SDK登录时，该参数有值。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-register-0000001346709109#section1041827152910",
+    "in": "body"
+  },
+  {
+    "name": "aaId",
+    "type": "string",
+    "required": false,
+    "description": "应用实例唯一编号。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-register-0000001346709109#section1041827152910",
+    "in": "body"
+  }
+]

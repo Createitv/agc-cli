@@ -1,0 +1,976 @@
+{
+  "examples": [
+    {
+      "section": "请求样例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-query-0000001158365045#section423141017508",
+      "text": "请求样例\nGET /api/publish/v2/app-info?appId=10*****57 HTTP/1.1\nHost: connect-api.cloud.huawei.com\nclient_id: 41*****7168\nAuthorization: Bearer ******"
+    },
+    {
+      "section": "响应示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-query-0000001158365045#section585524622518",
+      "text": "响应示例\n{\n    \"ret\": {\n        \"code\": 0,\n        \"msg\": \"success\"\n    },\n    \"appInfo\": {\n        \"releaseState\": 11,\n        \"defaultLang\": \"zh-CN\",\n        \"parentType\": 13,\n        \"childType\": 26,\n        \"grandChildType\": 10041,\n        \"privacyPolicy\": \"https://*****.link\",\n        \n        \"isFree\": 1,\n        \"price\": \"{\\\"CN\\\":\\\"0\\\"}\",\n        \"priceDetail\": \"[]\",\n        \"publishCountry\": \"AF,AE,OM,PK,PS,BH,QA,KW,LB,SA,IQ,IL,JO,AU,MO,PG,PF,PH,FJ,KR,KH,CK,LA,MV,MY,AS,BD,MM,NR,NP,JP,LK,SB,TW,TH,TO,VU,BN,HK,SG,NZ,IN,ID,VN,AZ,GE,KZ,KG,MN,TJ,TM,UZ,AM,ALL,CN,AL,IE,EE,AD,AT,BG,BE,IS,BA,PL,DK,DE,RU,FR,FO,VA,FI,GL,NL,ME,CZ,HR,LV,LT,LI,LU,RO,MT,MK,MD,MC,NO,PT,SE,CH,RS,CY,SM,SK,SI,UA,ES,GR,HU,IT,GB,GI,BY,TR,DZ,EG,ET,AO,BJ,BW,BF,BI,GQ,TG,ER,CV,GM,CG,CD,DJ,GN,GW,GH,GA,ZW,CM,KM,CI,KE,LS,LR,LY,RE,RW,MG,MW,ML,YT,MU,MR,MA,MZ,NA,ZA,SS,NE,NG,SL,SN,SC,ST,SZ,SO,TZ,TN,UG,YE,ZM,TD,CF,AR,AW,AI,AG,BB,BS,PY,PA,BR,PR,BO,BZ,DO,EC,GF,CO,CR,GD,GP,GY,HT,AN,HN,KY,MQ,MS,PE,MX,NI,SV,LC,VC,SR,TT,GT,VE,UY,JM,VG,CL,CA\",\n        \"contentRate\": \"{\\\"HW\\\":\\\"3+\\\"}\",\n        \"hispaceAutoDown\": 0,\n        \"appTariffType\": \"6\",\n        \"developerNameCn\": \"****\",\n        \"developerNameEn\": \"****\",\n        \"developerAddr\": \"\",\n        \"developerEmail\": \"\",\n        \"developerPhone\": \"\",\n        \"developerWebsite\": \"\",\n        \"certificateURLs\": \"https://***5819F41A7F216EF87637667B4E33C.jpg\",\n        \"publicationURLs\": \"[\\\"\\\"]\",\n        \"cultureRecordURLs\": \"[null]\",\n        \"updateTime\": \"2021-03-26 07:47:39\",\n        \"versionNumber\": \"6.5.0.300\",\n        \"familyShareTag\": 0,\n        \"deviceTypes\": [\n            {\n                \"deviceType\": 4,\n                \"appAdapters\": \"4,5\"\n            }\n        ]\n    },\n    \"auditInfo\": {\n        \"auditOpinion\": \"\"\n    },\n    \"languages\": [\n        {\n            \"lang\": \"en-US\",\n            \"appName\": \"PhotoPlaza-en\",\n            \"appDesc\": \"*****\",\n            \"briefInfo\": \"*****\",\n            \"newFeatures\": \"*****\",\n            \"icon\": \"https://****D.png\",\n            \"showType\": 0,\n            \"videoShowType\": 1,\n            \"introPic\": \"https://*****D0.jpg\",\n            \"deviceMaterials\": [\n                {\n                    \"deviceType\": 4,\n                    \"appIcon\": \"https://****8D.png\",\n                    \"screenShots\": [\n                        \"https://****1B.jpg\",\n                        \"https://****BA.jpg\",\n                        \"https://****CA.jpg\",\n                        \"https://****D0.jpg\"\n                    ],\n                    \"showType\": 0,\n                    \"vrCoverLayeredImage\": [],\n                    \"vrRecomGraphic4to3\": [],\n                    \"vrRecomGraphic1to1\": [],\n                    \"promoGraphics\": [],\n                    \"videoShowType\": 1\n                }\n            ]\n        },\n        {\n            \"lang\": \"zh-CN\",\n            \"appName\": \"PhotoPlaza\",\n            \"appDesc\": \"****\",\n            \"briefInfo\": \"****\",\n            \"newFeatures\": \"****\",\n            \"icon\": \"****8D.png\",\n            \"showType\": 0,\n            \"videoShowType\": 1,\n            \"introPic\": \"https://****D0.jpg\",\n            \"rcmdPic\": \",,,\",\n            \"deviceMaterials\": [\n                {\n                    \"deviceType\": 4,\n                    \"appIcon\": \"https://****8D.png\",\n                    \"screenShots\": [\n                        \"https://****1B.jpg\",\n                        \"https://****BA.jpg\",\n                        \"https://****CA.jpg\",\n                        \"https://****D0.jpg\"\n                    ],\n                    \"showType\": 0,\n                    \"vrCoverLayeredImage\": [],\n                    \"vrRecomGraphic4to3\": [],\n                    \"vrRecomGraphic1to1\": [],\n                    \"promoGraphics\": [],\n                    \"rcmdPics\": \",,,\",\n                    \"videoShowType\": 1\n                }\n            ]\n        }\n    ]\n}"
+    }
+  ],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-publishing-api-0000002351880118",
+      "title": "Publishing API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-publishingapi-0000001150409957",
+      "title": "Android"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114",
+      "title": "使用入门"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114#section103mcpsimp",
+      "title": "创建API客户端"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain_token-0000001158365043",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-getteamlist-0000001158245075",
+      "title": "获取团队列表"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114#section949717114392",
+      "title": "获取用户授权码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/agcapi-reference-langtype-0000001158245079",
+      "title": "语言类型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-publishingapi-errorcode-0000001163523297",
+      "title": "错误码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-query-0000001158365045#ZH-CN_TOPIC_0000001158365045__zh-cn_topic_0000001057964443_p30604375",
+      "title": "AppInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-query-0000001158365045#ZH-CN_TOPIC_0000001158365045__zh-cn_topic_0000001057964443_p54343776",
+      "title": "AuditInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-query-0000001158365045#ZH-CN_TOPIC_0000001158365045__zh-cn_topic_0000001057964443_p50510538",
+      "title": "LanguageInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-query-0000001158365045#ZH-CN_TOPIC_0000001158365045__zh-cn_topic_0000001057964443_p113887247191",
+      "title": "PhasedReleaseInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-query-0000001158365045#ZH-CN_TOPIC_0000001158365045__p1188514919140",
+      "title": "全网版本状态流转说明"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-reference-langtype-0000001158245079",
+      "title": "语言类型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-reference-apptype-0000001158365069",
+      "title": "应用游戏分类"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-reference-apptype-0000001158365069",
+      "title": "应用游戏分类"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-reference-apptype-0000001158365069",
+      "title": "应用游戏分类"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-query-0000001158365045#ZH-CN_TOPIC_0000001158365045__zh-cn_topic_0000001057964443_p17819165272318",
+      "title": "DeviceTypeInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-reference-langtype-0000001158245079",
+      "title": "语言类型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-query-0000001158365045#ZH-CN_TOPIC_0000001158365045__zh-cn_topic_0000001057964443_p1150115221462",
+      "title": "DeviceMaterial"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-appid-list-0000001111845086",
+      "title": "查询应用包名对应的appid"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198",
+      "title": "更新应用基本信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-query-0000001158365045#section48249874",
+      "title": "功能介绍"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-query-0000001158365045#section6932219103913",
+      "title": "接口原型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-query-0000001158365045#section9113718",
+      "title": "请求参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-query-0000001158365045#section236517415165",
+      "title": "Header"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-query-0000001158365045#section420734618165",
+      "title": "Query"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-query-0000001158365045#section423141017508",
+      "title": "请求样例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-query-0000001158365045#section14914606",
+      "title": "响应参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-query-0000001158365045#section585524622518",
+      "title": "响应示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-query-0000001158365045#section8439614104314",
+      "title": "调用示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-query-0000001158365045#section19113171794011",
+      "title": "Postman调试"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-query-0000001158365045#section48249874",
+      "text": "此接口用于根据指定语言和应用ID查询应用的详细信息。接口调用者的角色：账号持有者、管理员、APP管理员、运营。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-query-0000001158365045#section236517415165",
+      "text": "API客户端方式和OAuth客户端方式的区别请参见使用入门。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-query-0000001158365045#section236517415165",
+      "text": "API客户端方式："
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-query-0000001158365045#section236517415165",
+      "text": "OAuth客户端方式："
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-query-0000001158365045#section14914606",
+      "text": "AppInfo"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-query-0000001158365045#section14914606",
+      "text": "全网版本状态流转说明"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-query-0000001158365045#section14914606",
+      "text": "DeviceTypeInfo"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-query-0000001158365045#section14914606",
+      "text": "LanguageInfo"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-query-0000001158365045#section14914606",
+      "text": "DeviceMaterial"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-query-0000001158365045#section14914606",
+      "text": "AuditInfo"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-query-0000001158365045#section14914606",
+      "text": "PhasedReleaseInfo"
+    },
+    {
+      "section": "Postman调试",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-query-0000001158365045#section19113171794011",
+      "text": "您可以使用Postman在线调试此接口。"
+    }
+  ],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-query-0000001158365045",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "承载协议",
+          "HTTPS GET"
+        ],
+        [
+          "接口方向",
+          "开发者服务器 -> 华为服务器"
+        ],
+        [
+          "接口URL",
+          "https://connect-api.cloud.huawei.com/api/publish/v2/app-info"
+        ],
+        [
+          "数据格式",
+          "请求：Content-Type: application/json 响应：Content-Type: application/json"
+        ]
+      ],
+      "section": "接口原型",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-query-0000001158365045#section6932219103913"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "client_id",
+          "M",
+          "String",
+          "客户端ID，获取方法参考创建API客户端。"
+        ],
+        [
+          "Authorization",
+          "M",
+          "String",
+          "认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-query-0000001158365045#section236517415165"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "teamId",
+          "M",
+          "String",
+          "开发者所在团队的团队ID，可通过获取团队列表接口获取。"
+        ],
+        [
+          "oauth2Token",
+          "M",
+          "String",
+          "认证信息，传入获取用户授权码中获取的Access Token。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-query-0000001158365045#section236517415165"
+    },
+    {
+      "location": "query",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "appId",
+          "M",
+          "String",
+          "需要查询的应用ID。"
+        ],
+        [
+          "lang",
+          "O",
+          "String",
+          "需要查询的语言，取值参考语言类型。不传该参数则查询全部语言的应用信息。"
+        ],
+        [
+          "releaseType",
+          "O",
+          "Integer",
+          "应用发布方式。 取值范围： 1：全网 3：分阶段 默认值：1"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-query-0000001158365045#section420734618165"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "ret",
+          "M",
+          "String(100)",
+          "包含返回码及描述信息的JSON字符串，格式为{\"code\":retcode, \"msg\": \"description\"}，retcode为返回码，description为返回码描述信息。返回码请参见错误码。"
+        ],
+        [
+          "appInfo",
+          "O",
+          "AppInfo",
+          "应用基本信息。"
+        ],
+        [
+          "auditInfo",
+          "O",
+          "AuditInfo",
+          "审核意见信息。"
+        ],
+        [
+          "languages",
+          "M",
+          "List<LanguageInfo>",
+          "包含多种语言的应用信息。 如果查询时传递了语言类型，则返回当前语言的应用信息。 如果查询时未传递语言类型，则返回所有语言的应用信息。 如果查询时设置了异常的语言数据（例如不存在的语言类型），则返回空数组。"
+        ],
+        [
+          "phasedReleaseInfo",
+          "O",
+          "PhasedReleaseInfo",
+          "分阶段发布信息。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-query-0000001158365045#section14914606"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "releaseState",
+          "O",
+          "Integer(4)",
+          "应用状态。 releaseType为1时，状态含义如下。各状态间的转换请参见全网版本状态流转说明。 0：已上架 1：上架审核不通过 2：已下架（含强制下架） 3：待上架，预约上架 4：审核中 5：升级审核中 6：申请下架 7：草稿 8：升级审核不通过 9：下架审核不通过 10：应用被开发者下架 11：撤销上架 12：预审中 13：预审不通过"
+        ],
+        [
+          "defaultLang",
+          "O",
+          "String(64)",
+          "应用的默认语言，取值参见语言类型。"
+        ],
+        [
+          "parentType",
+          "M",
+          "Integer(4)",
+          "应用的一级分类，固定ID，取值参见应用游戏分类。"
+        ],
+        [
+          "childType",
+          "M",
+          "Integer(4)",
+          "应用的二级分类，固定ID，取值参见应用游戏分类。"
+        ],
+        [
+          "grandChildType",
+          "M",
+          "Integer(4)",
+          "应用的三级分类，固定ID，取值参见应用游戏分类。"
+        ],
+        [
+          "privacyPolicy",
+          "M",
+          "String(255)",
+          "隐私政策声明的网页地址。 该网址会在应用的详情页面添加隐私政策跳转，可帮助用户清楚地了解您如何处理敏感的用户数据和设备数据。 隐私政策必须完整说明您的应用如何收集、使用和分享用户数据，包含但不限于如下情况建议提供： 面向儿童的App。 包含账户注册或需要访问用户的现有账户，或由法律另行规定。 对于收集用户或设备相关数据的App。"
+        ],
+        [
+          "appNetType",
+          "O",
+          "Integer(1)",
+          "应用联网类型。 取值范围： 1：单机 2：网游 说明 此参数只支持游戏类应用。"
+        ],
+        [
+          "isFree",
+          "O",
+          "Integer(1)",
+          "应用付费类型。 取值范围： 1：免费 0：付费"
+        ],
+        [
+          "price",
+          "O",
+          "String(256)",
+          "应用价格，格式为{\"countryCode\":\"price\"}。countryCode为国家码，price为应用的价格。"
+        ],
+        [
+          "priceDetail",
+          "O",
+          "String(8192)",
+          "应用在不同国家或地区的价格，json数组格式，不同国家和地区之间使用逗号分隔，例如：[{\"country\":\"CN\",\"currency\":\"CNY\",\"price\":\"18.00\"},{\"country\":\"DE\",\"currency\":\"EUR\",\"price\":\"2.50\"}]。 其中，country为国家码，currency为国家码所对应的币种，price为应用价格。"
+        ],
+        [
+          "publishCountry",
+          "O",
+          "String(256)",
+          "应用发布国家的国家码，多个国家以英文逗号分隔，例如：“CN,DE,MC”。"
+        ],
+        [
+          "contentRate",
+          "O",
+          "String(256)",
+          "应用分级，Json格式，例如{\"HW\":\"3+\"}。"
+        ],
+        [
+          "isAppForcedUpdate",
+          "O",
+          "Integer(1)",
+          "应用是否强制升级。 取值范围： 0：不强制 1：强制"
+        ],
+        [
+          "sensitivePermissionDesc",
+          "O",
+          "String(256)",
+          "敏感权限说明。"
+        ],
+        [
+          "hispaceAutoDown",
+          "O",
+          "Integer(1)",
+          "是否允许华为应用市场抓包。 取值范围： 0：不允许 1：允许"
+        ],
+        [
+          "appTariffType",
+          "O",
+          "String(16)",
+          "应用内付费道具类型。 取值范围： 1：激活收费 2：道具收费 3：关卡收费 4：购买虚拟币 5：部分章节收费（图书阅读类） 6：其他的 7：课程收费 8：会员收费 返回多个表示具备多个类型，例如“1,2,3”。"
+        ],
+        [
+          "publicationNumber",
+          "O",
+          "String(50)",
+          "版号信息。"
+        ],
+        [
+          "cultureRecordNumber",
+          "O",
+          "String(50)",
+          "文化部备案编号。"
+        ],
+        [
+          "developerWebsite",
+          "O",
+          "String(255)",
+          "开发者官网。"
+        ],
+        [
+          "developerNameCn",
+          "O",
+          "String(64)",
+          "开发者中文名称。"
+        ],
+        [
+          "developerNameEn",
+          "O",
+          "String(64)",
+          "开发者英文名称。"
+        ],
+        [
+          "elecCertificateUrl",
+          "O",
+          "String(256)",
+          "电子版权证书PDF地址。"
+        ],
+        [
+          "certificateURLs",
+          "M",
+          "String(256)",
+          "应用版权证书或代理证书图片地址列表，逗号分隔，最多5个。"
+        ],
+        [
+          "publicationURLs",
+          "O",
+          "String(1024)",
+          "版号证明，逗号分隔的地址，可以为图片或者PDF，最多3个。"
+        ],
+        [
+          "cultureRecordURLs",
+          "O",
+          "String(256)",
+          "文化部备案证明地址，图片或者PDF。"
+        ],
+        [
+          "updateTime",
+          "O",
+          "String(32)",
+          "更新时间，UTC时间格式：yyyy-mm-dd hh:mm:ss。"
+        ],
+        [
+          "versionNumber",
+          "O",
+          "String(32)",
+          "版本号。"
+        ],
+        [
+          "versionCode",
+          "O",
+          "Integer(64)",
+          "对应软件包中的versionCode。"
+        ],
+        [
+          "versionId",
+          "O",
+          "String(32)",
+          "版本ID。"
+        ],
+        [
+          "onShelfVersionNumber",
+          "O",
+          "String(32)",
+          "在架版本版本号。"
+        ],
+        [
+          "onShelfVersionCode",
+          "O",
+          "Integer(64)",
+          "在架版本versionCode，对应软件包中的versionCode。"
+        ],
+        [
+          "onShelfVersionId",
+          "O",
+          "String(32)",
+          "在架版本版本ID。"
+        ],
+        [
+          "shareLink",
+          "O",
+          "String(1024)",
+          "分享链接。"
+        ],
+        [
+          "familyShareTag",
+          "O",
+          "Integer(1)",
+          "是否可以家庭共享。0：不可以；1：可以。只有分发区域包含中国大陆的应用返回1。"
+        ],
+        [
+          "deviceTypes",
+          "M",
+          "List<DeviceTypeInfo>",
+          "应用的设备类型信息，数组长度不超过6。"
+        ],
+        [
+          "webGameFlag",
+          "O",
+          "Integer",
+          "该应用是否为网页游戏。 取值范围： 0：否 1：是"
+        ],
+        [
+          "privacyRightsUrl",
+          "O",
+          "String(256)",
+          "隐私权利网址，即关于您的用户实施其权利的网站地址，如用户删除、修改、导出其个人数据的入口。"
+        ],
+        [
+          "isSignedCommitment",
+          "M",
+          "Integer",
+          "是否签署合规承诺函。 说明 当前仅元服务涉及签署合规承诺函。 取值范围： 空：表示未签署 1：表示已签署 默认值：空"
+        ],
+        [
+          "registeredIdType",
+          "O",
+          "Integer(32)",
+          "备案证件类型。 取值范围： -1：清空数据，同时也会清空registeredIdNumber的内容。 1：面向企业，备案证件为社会信用 2：面向个人，备案证件为身份证 3：面向机构，备案证件为机构代码"
+        ],
+        [
+          "registeredIdNumber",
+          "O",
+          "String(64)",
+          "备案证件号码。 取值范围： registeredIdType为1时，对应社会信用代码 registeredIdType为2时，对应身份证号码 registeredIdType为3时，对应机构代码"
+        ],
+        [
+          "privacyAgreementId",
+          "O",
+          "String(32)",
+          "隐私协议ID。"
+        ],
+        [
+          "userAgreementUrl",
+          "O",
+          "String(512)",
+          "用户协议URL。"
+        ],
+        [
+          "invitationCount",
+          "O",
+          "Integer",
+          "邀请量。 如果是邀请测试，返回的是参与测试的用户数。 如果是公开测试，返回的是下载安装次数。"
+        ],
+        [
+          "downloadCount",
+          "O",
+          "Integer",
+          "下载量。该版本启动下载的累计次数。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-query-0000001158365045#section14914606"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "deviceType",
+          "M",
+          "Integer",
+          "设备类型。 取值范围： 4：手机 6：VR 7：手表 8：大屏 9：路由器 10：车机"
+        ],
+        [
+          "appAdapters",
+          "O",
+          "String",
+          "适配设备类型，多个类型以英文逗号分隔。 取值范围： 1：荣耀立方（路由器） 4：手机 5：平板 6：VR 7：手表 8：大屏 9：路由器 11：儿童表 12：智能手表 13：带屏音响"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-query-0000001158365045#section14914606"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "lang",
+          "O",
+          "String(64)",
+          "当前语言，取值参考语言类型。"
+        ],
+        [
+          "appName",
+          "O",
+          "String(64)",
+          "当前语言的应用名称。"
+        ],
+        [
+          "appDesc",
+          "O",
+          "String(8000)",
+          "当前语言的应用描述。"
+        ],
+        [
+          "briefInfo",
+          "O",
+          "String(60)",
+          "当前语言的一句话简介。"
+        ],
+        [
+          "newFeatures",
+          "O",
+          "String(1000)",
+          "当前语言的新版本简介。"
+        ],
+        [
+          "icon",
+          "O",
+          "String(256)",
+          "当前语言的图标地址。"
+        ],
+        [
+          "showType",
+          "O",
+          "Integer(1)",
+          "当前语言的截图展现方式。 取值范围： 0：竖屏 1：横屏"
+        ],
+        [
+          "videoShowType",
+          "O",
+          "Integer(1)",
+          "当前语言的视频展现方式。 取值范围： 0：竖屏 1：横屏"
+        ],
+        [
+          "introPic",
+          "O",
+          "String(4096)",
+          "应用介绍的截图地址，多个地址以逗号隔开，最多不超过10个地址。"
+        ],
+        [
+          "introVideo",
+          "O",
+          "String(4096)",
+          "应用的介绍视频地址和视频截图地址，最多5个视频，每个视频必须对应截图。例如：[{\"videoUrl\":\"XXX/app/000/000/375/20160512143416.mp4\",\"frameUrl\":\"XXX/app/000/000/375/20160512143416.68439491.jpg\"},{\"videoUrl\":\"/app/000/000/376/20160512143416.mp4\",\"frameUrl\":\"/app/000/000/376/20160512143416.68439491.jpg\"}]"
+        ],
+        [
+          "rcmdPic",
+          "O",
+          "String(4096)",
+          "应用的推荐截图地址，多个地址以逗号隔开，最多不超过10个地址。"
+        ],
+        [
+          "rcmdVideo",
+          "O",
+          "String(4096)",
+          "应用的推荐视频地址以及视频截图地址，最多5个视频，每个视频必须对应截图。例如：[{\"videoUrl\":\"XXX/app/000/000/375/20160512143416.mp4\",\"frameUrl\":\"XXX/app/000/000/375/20160512143416.68439491.jpg\"},{\"videoUrl\":\"/app/000/000/376/20160512143416.mp4\",\"frameUrl\":\"/app/000/000/376/20160512143416.68439491.jpg\"}]"
+        ],
+        [
+          "deviceMaterials",
+          "O",
+          "List<DeviceMaterial>",
+          "设备相关的素材，包括图片、视频，数组长度不超过6。 应用为多设备时，只显示手机的相关素材信息。应用为单设备时，显示对应设备相关的素材信息。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-query-0000001158365045#section14914606"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选（M）/可选（O）",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "deviceType",
+          "M",
+          "Integer(1)",
+          "设备类型。 取值范围： 4：手机 6：VR 7：手表 8：大屏 9：路由器 10：车机"
+        ],
+        [
+          "appIcon",
+          "O",
+          "String(256)",
+          "应用图标下载地址。"
+        ],
+        [
+          "screenShots",
+          "O",
+          "String(2560)",
+          "应用截屏地址，多个地址以英文逗号隔开，最多不超过10个地址。"
+        ],
+        [
+          "banner",
+          "O",
+          "String(255)",
+          "高清大图地址。"
+        ],
+        [
+          "showType",
+          "O",
+          "Integer(1）",
+          "截图展现方式。 取值范围： 0：竖屏 1：横屏"
+        ],
+        [
+          "vrCover",
+          "O",
+          "String(255)",
+          "VR封面图片下载地址。"
+        ],
+        [
+          "vrShots",
+          "O",
+          "String(1280)",
+          "VR应用截屏地址，多个地址以英文逗号隔开，最多不超过5个地址。"
+        ],
+        [
+          "vrRecomGraphic",
+          "O",
+          "String(255)",
+          "VR推荐图片下载地址。"
+        ],
+        [
+          "vrCoverLayeredImage",
+          "O",
+          "String(512)",
+          "VR封面分层图片地址，固定要求两个地址，使用英文逗号分隔。第一个为前景图，第二个为背景图。"
+        ],
+        [
+          "vrRecomGraphic4to3",
+          "O",
+          "String(512)",
+          "VR 4:3推荐图片地址，固定要求两个地址，使用英文逗号分隔。第一个为前景图，第二个为背景图。"
+        ],
+        [
+          "vrRecomGraphic1to1",
+          "O",
+          "String(512)",
+          "VR 1:1推荐图片地址，固定要求两个地址，使用英文逗号分隔。第一个为前景图，第二个为背景图。"
+        ],
+        [
+          "vrApplicationPanorama",
+          "O",
+          "String(255)",
+          "VR应用全景图地址。"
+        ],
+        [
+          "introVedios",
+          "O",
+          "String(1300)",
+          "介绍视频，Json字符串格式，含有vedioUrl、frameUrl两个字段，数组长度最多5个。 示例： \"introVedios\": [\"{\\\"frameUrl\\\":\\\"https://**.cn:18445/FileServer/D11.jpeg\\\",\\\"vedioUrl\\\":\\\"https://*.*.cn:18445/82C.mp4\\\"}\" ]"
+        ],
+        [
+          "rcmdVedios",
+          "O",
+          "String(1300)",
+          "推荐视频，Json字符串格式，含有vedioUrl、frameUrl两个字段。数组长度最多5个。 示例： \"rcmdVedios\": [\"{\\\"frameUrl\\\":\\\"https://*.*.cn:18445/5D7.jpeg\\\",\\\"vedioUrl\\\":\\\"https://*.*.cn:18445/97A.mp4\\\"}\""
+        ],
+        [
+          "promoGraphics",
+          "O",
+          "String(2560)",
+          "宣传图片地址，多个地址以英文逗号隔开，最多不超过10个地址。"
+        ],
+        [
+          "rcmdPics",
+          "O",
+          "String(1280)",
+          "推荐图片地址，多个地址以英文逗号隔开，最多不超过10个地址。"
+        ],
+        [
+          "videoShowType",
+          "O",
+          "Integer(1)",
+          "视频展现方式。 取值范围： 0：竖屏 1：横屏"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-query-0000001158365045#section14914606"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "auditOpinion",
+          "M",
+          "String(1024)",
+          "应用整体审核意见。"
+        ],
+        [
+          "copyRightAuditResult",
+          "O",
+          "Integer(4)",
+          "版权审核结果。 取值范围： 0：通过 1：不通过 只有在中国大陆地区发布的应用才会返回。"
+        ],
+        [
+          "copyRightAuditOpinion",
+          "O",
+          "String(1024)",
+          "版权审核意见。 只有在中国大陆地区发布的应用才会返回。"
+        ],
+        [
+          "copyRightCodeAuditResult",
+          "O",
+          "Integer(4)",
+          "版号审核结果。 取值范围： 0：通过 1：不通过 只有在中国大陆地区发布的应用才会返回。"
+        ],
+        [
+          "copyRightCodeAuditOpinion",
+          "O",
+          "String(1024)",
+          "版号审核意见。 只有在中国大陆地区发布的应用才会返回。"
+        ],
+        [
+          "recordAuditResult",
+          "O",
+          "Integer(4)",
+          "备案审核结果。 取值范围： 0：通过 1：不通过 只有在中国大陆地区发布的应用才会返回。"
+        ],
+        [
+          "recordAuditOpinion",
+          "O",
+          "String(1024)",
+          "备案审核意见。 只有在中国大陆地区发布的应用才会返回。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-query-0000001158365045#section14914606"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "state",
+          "M",
+          "String",
+          "分阶段发布状态。 取值范围： SUSPEND：暂停 RELEASE：发布中 CANCEL：取消 DRAFT：草稿"
+        ],
+        [
+          "phasedReleaseStartTime",
+          "M",
+          "String(64)",
+          "分阶段发布生效开始时间，UTC时间格式：yyyy-MM-ddTHH:mm:ssZZ，例如“2015-01-01T01:01:01+0800”。"
+        ],
+        [
+          "phasedReleaseEndTime",
+          "M",
+          "String(64)",
+          "分阶段发布生效结束时间，UTC时间格式: yyyy-MM-ddTHH:mm:ssZZ，例如“2015-01-01T01:01:01+0800”。"
+        ],
+        [
+          "phasedReleasePercent",
+          "M",
+          "String(10)",
+          "分阶段发布百分比，取值范围为0.00到100.00，必须精确到两位小数，不含百分号。"
+        ],
+        [
+          "phasedReleaseDescription",
+          "M",
+          "String(500)",
+          "分阶段发布说明。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-query-0000001158365045#section14914606"
+    }
+  ],
+  "title": "查询应用信息",
+  "updatedAt": "2025-11-21 17:52",
+  "checkedAt": "2026-10-07T02:52:24.177Z",
+  "family": "publishing",
+  "endpoint": "app-info-query"
+}

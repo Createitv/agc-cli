@@ -1,0 +1,14 @@
+[
+  {
+    "id": "application-package-name",
+    "kind": "required_if",
+    "field": "body.packageName",
+    "when": {
+      "field": "body.installationFree",
+      "equals": "0"
+    },
+    "message": "HarmonyOS应用 installationFree=0 时必须提供 packageName。",
+    "suggestion": "添加 --field packageName=你的唯一包名；元服务 installationFree=1 不需要包名。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-provision-api-create-appid-0000002526543939#section16551174881019"
+  }
+]

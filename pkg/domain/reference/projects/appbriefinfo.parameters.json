@@ -1,0 +1,92 @@
+[
+  {
+    "name": "oauth2Token",
+    "in": "header",
+    "type": "string",
+    "required": true,
+    "description": "认证信息，传入获取用户授权码中获取的Access Token。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-appbriefinfo-0000001111845106#section236517415165"
+  },
+  {
+    "name": "userID",
+    "in": "header",
+    "type": "integer",
+    "required": true,
+    "description": "主账号用户id，即团队ID。通过获取团队列表接口获取。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-appbriefinfo-0000001111845106#section236517415165"
+  },
+  {
+    "name": "appId",
+    "in": "query",
+    "type": "string",
+    "required": false,
+    "description": "需要查询的应用ID列表，多个值间以半角逗号分隔。 appId和packageNames必须传一个，如果同时存在则以appId为准。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-appbriefinfo-0000001111845106#section423141017508"
+  },
+  {
+    "name": "packageNames",
+    "in": "query",
+    "type": "string",
+    "required": false,
+    "description": "需要查询的应用包名，多个包名用逗号分隔，最大100个。 appId和packageNames必须传一个，如果同时存在则以appId为准。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-appbriefinfo-0000001111845106#section423141017508"
+  },
+  {
+    "name": "appType",
+    "in": "query",
+    "type": "string",
+    "required": false,
+    "description": "应用类型。 1：移动应用(包括普通应用和游戏) 2：电视应用 4：路由器应用 8：华为VR应用 9：手表应用 19：RPK应用 23：大屏快应用 27：车机应用 28：车机快应用 29：运动手表 30：云游戏 9998：ios应用 9999：web应用",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-appbriefinfo-0000001111845106#section423141017508",
+    "enum": [
+      "1",
+      "2",
+      "4",
+      "8",
+      "9",
+      "19",
+      "23",
+      "27",
+      "28",
+      "29",
+      "30",
+      "9998",
+      "9999"
+    ]
+  },
+  {
+    "name": "appDistStatus",
+    "in": "query",
+    "type": "string",
+    "required": false,
+    "description": "应用分发状态列表，多个值间以半角逗号分隔。 -999：审核中 -995：升级中 0：不通过 1：已下架（含强制下架） 62：待上架 101：已上架（含升级不通过，申请下架失败） 99999：申请下架 9998：草稿 9997：已删除",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-appbriefinfo-0000001111845106#section423141017508",
+    "pattern": "^(?:-999|-995|0|1|62|101|99999|9998|9997)(?:,(?:-999|-995|0|1|62|101|99999|9998|9997))*$"
+  },
+  {
+    "name": "fromRecCount",
+    "in": "query",
+    "type": "integer",
+    "required": false,
+    "description": "起始页数。从1开始，表示第1个。如果不传，默认值：1。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-appbriefinfo-0000001111845106#section423141017508",
+    "minimum": 1
+  },
+  {
+    "name": "maxReqCount",
+    "in": "query",
+    "type": "integer",
+    "required": false,
+    "description": "每页返回条数；缺省20（最大1000）。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-appbriefinfo-0000001111845106#section423141017508",
+    "maximum": 1000
+  },
+  {
+    "name": "sortType",
+    "in": "query",
+    "type": "string",
+    "required": false,
+    "description": "排序方式。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-appbriefinfo-0000001111845106#section423141017508"
+  }
+]

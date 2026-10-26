@@ -1,0 +1,27 @@
+[
+  {
+    "name": "appId",
+    "in": "header",
+    "type": "string",
+    "required": true,
+    "description": "应用ID，获取方法参考查询应用信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchdeactproduct-android-0000002135929320#section62221212714"
+  },
+  {
+    "name": "requestId",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "请求序列，开发者自定义唯一标识符。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchdeactproduct-android-0000002135929320#section32521047636"
+  },
+  {
+    "name": "products",
+    "in": "body",
+    "type": "array",
+    "required": true,
+    "description": "商品标识，只有上线状态的商品才能被去激活。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchdeactproduct-android-0000002135929320#section32521047636",
+    "itemsType": "string"
+  }
+]

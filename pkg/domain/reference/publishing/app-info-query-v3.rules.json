@@ -1,0 +1,14 @@
+[
+  {
+    "id": "test-version-id",
+    "kind": "required_if",
+    "field": "query.versionId",
+    "when": {
+      "field": "query.releaseType",
+      "equals": "6"
+    },
+    "message": "查询HarmonyOS测试版本时必须提供 versionId。",
+    "suggestion": "先用 app-version-list 查询真实版本 ID，再添加 --query versionId=该ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-appinfo-query-0000002236041422#section420734618165"
+  }
+]

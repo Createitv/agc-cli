@@ -1,0 +1,355 @@
+{
+  "title": "list-triggers",
+  "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+  "checkedAt": "2026-10-26",
+  "status": "vendor-source-reviewed",
+  "package": "@hw-agconnect/agc-cli",
+  "version": "1.12.0",
+  "sourceFiles": [
+    {
+      "packagePath": "commands/cloudfunction/api/triggerApi.js",
+      "sha256": "fdfd34f00e851f4c0fe3859bbd68c5f3212c184aa63be556e2311708d374a197",
+      "source": "import{isEmpty,getAliasOrVersion}from\"../util/tools.js\";import functionApi from\"./functionApi.js\";async function getFunctionId(e,r,t){let i=(await functionApi.queryFunctionVersion(e,r,t)).function.id,n=i.split(\":\");return n.pop(),n.push(t),i=n.join(\":\"),i}function callCreateCronTriggerService(e,r){return new Promise(((t,i)=>{e.edge({url:`${e.storage.getProjectBaseUrl()}/api/wisefunction/serverless/v1/triggers`,method:\"POST\",data:r}).then((e=>{t(e.result)})).catch((e=>{i(functionApi.processEdgeError(e))}))}))}async function createCronTrigger(e,r){let t,i=await getFunctionId(e,r.functionName,getAliasOrVersion(r,\"aliasName\",\"functionVersion\"));isEmpty(r.payload)||\"string\"!=typeof r.payload?isEmpty(r.payload)||(t=r.payload):t=JSON.parse(r.payload);return callCreateCronTriggerService(e,{funcId:i,triggerType:\"Cron\",triggerMode:r.triggerMode,triggerSwitch:!1,spec:{schedule:r.schedule,payload:t}})}const authTypeList=[\"apigw-client\",\"cloudgw-client\",\"internal-auth\"];function callCreateHttpTriggerService(e,r){return new Promise(((t,i)=>{e.edge({url:`${e.storage.getProjectBaseUrl()}/api/wisefunction/serverless/v1/trigger`,method:\"POST\",data:r}).then((e=>{t(e.result)})).catch((e=>{i(functionApi.processEdgeError(e))}))}))}async function createHttpTrigger(e,r){let t,i=await getFunctionId(e,r.functionName,getAliasOrVersion(r,\"aliasName\",\"functionVersion\"));t=authTypeList.includes(r.authType)?r.authType:\"apigw-client\";return callCreateHttpTriggerService(e,{mode:\"NO_PATH\",funcId:i,authFlag:!0,authAlgor:\"HDA-SYSTEM\",authType:t,enableUrlDecode:\"false\"!==r.enableUrlDecode})}async function updateCronTrigger(e,r,t,i){let n={funcId:r.funcId,triggerMode:r.triggerMode,triggerSwitch:\"true\"===i,spec:r.spec,revisionId:r.revisionId},o=`${e.storage.getProjectBaseUrl()}/api/wisefunction/serverless/v1/triggers/${t}`;return e.edge({url:o,method:\"PUT\",data:n}).then((e=>e.result)).catch((e=>{throw functionApi.processEdgeError(e)}))}async function getTriggerById(e,r){return new Promise(((t,i)=>{e.edge.get(r).then((e=>{t(e.result)})).catch((e=>{i(functionApi.processEdgeError(e))}))}))}async function deleteTriggerById(e,r){return new Promise(((t,i)=>{e.edge.delete(r).then((e=>{t(e.result)})).catch((e=>{i(functionApi.processEdgeError(e))}))}))}async function queryOtherTrigger(e,r){const t=`${e.storage.getProjectBaseUrl()}/api/wisefunction/serverless/v1/triggers/${r}`;return getTriggerById(e,t)}async function deleteOtherTrigger(e,r){const t=`${e.storage.getProjectBaseUrl()}/api/wisefunction/serverless/v1/triggers/${r}`;return deleteTriggerById(e,t)}async function queryHttpTrigger(e,r){const t=`${e.storage.getProjectBaseUrl()}/api/wisefunction/serverless/v1/trigger/${r}`;return getTriggerById(e,t)}async function deleteHttpTrigger(e,r){const t=`${e.storage.getProjectBaseUrl()}/api/wisefunction/serverless/v1/trigger/${r}`;return deleteTriggerById(e,t)}async function getPolicyRevisionId(e,r,t){return e.edge.get(`${e.storage.getProjectBaseUrl()}/api/wisefunction/serverless/v1/functions/${r}/policy`,{params:{qualifier:t}}).then((e=>isEmpty(e.result.revisionId)?\"\":e.result.revisionId)).catch((e=>\"\"))}async function createPolicy(e,r,t,i){let n={effect:\"Allow\",action:\"InvokeFunction\",sourceProvider:t,sourceId:i,revisionId:await getPolicyRevisionId(e,r.functionName,getAliasOrVersion(r,\"aliasName\",\"functionVersion\"))};const o=`${e.storage.getProjectBaseUrl()}/api/wisefunction/serverless/v1/functions/${r.functionName}/policy`;return e.edge({url:o,method:\"POST\",params:{qualifier:getAliasOrVersion(r,\"aliasName\",\"functionVersion\")},data:n}).then((e=>e)).catch((e=>{throw functionApi.processEdgeError(e)}))}export{getTriggerById,createPolicy,getFunctionId,callCreateCronTriggerService,createCronTrigger,callCreateHttpTriggerService,createHttpTrigger,queryOtherTrigger,queryHttpTrigger,updateCronTrigger,deleteHttpTrigger,deleteOtherTrigger};"
+    },
+    {
+      "packagePath": "commands/cloudfunction/option/verify.js",
+      "sha256": "a556f80bf7d8ba67a06940875219a962d883de944606f216c8ab5f3a9c956f18",
+      "source": "import constants from\"../constants/constants.js\";import{newArgError}from\"../error/errors.js\";import fs from\"fs\";import path from\"path\";import{isEmpty,getStringWidth}from\"../util/tools.js\";import verifyTools from\"./tools.js\";import{locale}from\"../util/locale.js\";import output from\"../util/output.js\";import{validateTypeMinutesHourDayMonthWeekExpression,validateTypeEveryExpression}from\"./cronExpressionValidator.js\";const runtimes=[\"nodejs14.x\",\"java1.8\",\"python3\",\"custom-runtime\"],Owners=[\"all\",\"self\",\"other\"],memories=[500,1e3,2e3,4e3],layerShares=[\"business\",\"tenant\"],layerMaxSize=52428800;class Verifier{constructor(r){this.options=r,this.optionFns=[]}addVerifyOptionFunc(r,e,n){return this.optionFns.push({fn:r,optionName:e,required:n}),this}done(){for(let{fn:r,optionName:e=\"\",required:n}of this.optionFns)(e in this.options||n)&&r(this.options)}}function verifyFunctionName(r){let{functionName:e}=r;baseVerifyFunctionName(e)}function verifyNameOptionInFunctionCmd(r){let{name:e}=r;baseVerifyFunctionName(e)}function baseVerifyFunctionName(r){if(isEmpty(r))throw newArgError(locale(constants.ARG_ERR_FUNCTION_NAME_EMPTY));if(r.length<2)throw newArgError(locale(constants.ARG_ERR_FUNCTION_NAME_LENTH_SHORT));if(r.length>32)throw newArgError(locale(constants.ARG_ERR_FUNCTION_NAME_LENTH_LONGER));if(!new RegExp(\"^[a-z][a-z0-9-]*[a-z0-9]$\").test(r))throw newArgError(locale(constants.ARG_ERR_FUNCTION_NAME_ILLEGAL))}function verifyExclusionEnvironmentOption(r){if(r.environment&&r.environmentFile)throw newArgError(locale(constants.ARG_ERR_EXCLUSION_ENVIRONMENT_OPTION))}function verifyExclusionTriggerConfigOption(r,e){if(r.configFile)for(let n of e)if(r[n])throw newArgError(locale(constants.ARG_ERR_EXCLUSION_TRIGGER_CONFIG_OPTION))}const HttpTriggerAuthTypeList=[\"apigw-client\",\"cloudgw-client\"];function verifyHTTPTriggerAuthType(r){if(!r.authType)throw newArgError(locale(constants.ARG_ERR_HTTP_TRIGGER_AUTH_TYPE_EMPTY));if(-1===HttpTriggerAuthTypeList.indexOf(r.authType))throw newArgError(locale(constants.ARG_ERR_HTTP_TRIGGER_AUTH_TYPE_ILLEGAL))}const HttpTriggerEnableUrlDecodeList=[\"true\",\"false\"];function verifyHTTPTriggerEnableUrlDecode(r){if(!r.enableUrlDecode)throw newArgError(locale(constants.ARG_ERR_HTTP_TRIGGER_ENABLE_URL_DECODE_EMPTY));if(-1===HttpTriggerEnableUrlDecodeList.indexOf(r.enableUrlDecode))throw newArgError(locale(constants.ARG_ERR_HTTP_TRIGGER_ENABLE_URL_DECODE_ILLEGAL))}function verifyTriggerId(r){if(isEmpty(r.triggerId))throw newArgError(locale(constants.INPUT_TRIGGER_ID_EMPTY))}function verifyTriggerSwitch(r){if(!isEmpty(r.triggerSwitch)&&\"true\"!==r.triggerSwitch&&\"false\"!==r.triggerSwitch)throw newArgError(locale(constants.INPUT_TRIGGER_SWITCH_ERROR))}let CronTriggerModeList=[\"ASync\",\"Sync\"];function verifyCronTriggerMode(r){if(!r.triggerMode)throw newArgError(locale(constants.ARG_ERR_CRON_TRIGGER_MODE_EMPTY));if(-1===CronTriggerModeList.indexOf(r.triggerMode))throw newArgError(locale(constants.ARG_ERR_CRON_TRIGGER_MODE_ILLEGAL))}function verifyAliasName(r){let{aliasName:e}=r;baseVerifyAliasName(e)}function verifyFuzzyName(r){if(isEmpty(r.fuzzyName))throw newArgError(locale(constants.ARG_ERR_FUZZY_NAME_EMPTY));if(r.fuzzyName.length>32)throw newArgError(locale(constants.ARG_ERR_FUZZY_NAME_LENTH_SHORT));if(!new RegExp(\"^[0-9a-z-]\").test(r.fuzzyName))throw newArgError(locale(constants.ARG_ERR_FUZZY_NAME_ILLEGAL))}function verifyNameOptionInAliasCmd(r){let{name:e}=r;baseVerifyAliasName(e)}function baseVerifyAliasName(r){if(isEmpty(r))throw newArgError(locale(constants.ARG_ERR_ALIAS_EMPTY));if(r.length<2)throw newArgError(locale(constants.ARG_ERR_ALIAS_LENTH_SHORT));if(r.length>16)throw newArgError(locale(constants.ARG_ERR_ALIAS_LENTH_LONGER));if(!new RegExp(\"^[a-z][a-z0-9-]*[a-z0-9]$\").test(r))throw newArgError(locale(constants.ARG_ERR_ALIAS_ILLEGAL))}function verifyRuntime(r){let{runtime:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_RUNTIME_EMPTY));if(-1===runtimes.indexOf(e))throw newArgError(locale(constants.ARG_ERR_RUNTIME_ILLEGAL))}function verifyFunctionCodePath(r){let{codePath:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_FUNCTION_CODE_PATH_EMPTY));if(!fs.existsSync(e))throw newArgError(locale(constants.ARG_ERR_FUNCTION_CODE_PATH_UNEXIST));if(\".zip\"!==path.extname(e))throw newArgError(locale(constants.ARG_ERR_FUNCTION_CODE_PATH_FORMAT_ILLEGAL));if(fs.statSync(e).size>=52428800)throw newArgError(locale(constants.ARG_ERR_FUNCTION_CODE_CONTENT_SIZE_TOO_BIGGER))}function verifyMemory(r){let{memory:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_MEMORY_EMPTY));if(!verifyTools.isInteger(e)&&(e=Number(e),isNaN(e)))throw newArgError(locale(constants.ARG_ERR_MEMORY_VALUE_NOT_SUPPORTED));if(-1===memories.indexOf(e))throw newArgError(output.strFormat(locale(constants.ARG_ERR_MEMORY_VALUE_NOT_SUPPORTED),{memories:memories.join(\",\")}))}function verifyTimeout(r){let{timeout:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_TIMEOUT_EMPTY));if(verifyTools.isNumber(e)||(e=Number(e)),isNaN(e)||!verifyTools.isInteger(e))throw newArgError(locale(constants.ARG_ERR_TIMEOUT_TYPE_ILLEGAL));if(e<1||e>1800)throw newArgError(locale(constants.ARG_ERR_TIMEOUT_VALUE_NOT_SUPPORTED))}function verifyInstanceConcurrency(r){let{instanceConcurrency:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_INSTANCE_CONCURRENCY_EMPTY));if(verifyTools.isNumber(e)||(e=Number(e)),isNaN(e)||!verifyTools.isInteger(e))throw newArgError(locale(constants.ARG_ERR_INSTANCE_CONCURRENCY_TYPE_ILLEGAL));if(e<1||e>1e3)throw newArgError(locale(constants.ARG_ERR_INSTANCE_CONCURRENCY_VALUE_NOT_SUPPORTED))}function verifyDescription(r){let{description:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_DESCRIPTION_EMPTY));if(!verifyTools.isString(e))throw newArgError(locale(constants.ARG_ERR_DESCRIPTION_ILLEGAL));if(getStringWidth(e)>64)throw newArgError(locale(constants.ARG_ERR_DESCRIPTION_LONGER))}function verifyVersionDescription(r){let{versionDescription:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_VERSION_DESCRIPTION_EMPTY));if(!verifyTools.isString(e))throw newArgError(locale(constants.ARG_ERR_VERSION_DESCRIPTION_ILLEGAL));if(getStringWidth(e)>64)throw newArgError(locale(constants.ARG_ERR_VERSION_DESCRIPTION_LONGER))}function verifyEnvironment(r){let{environment:e}=r;if(isEmpty(r.environment))throw newArgError(locale(constants.ARG_ERR_ENVIRONMENT_EMPTY));checkEnvironmentContent(e)}function verifyEnvironmentFile(r){let{environmentFile:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_ENVIRONMENT_FILE_EMPTY));if(!fs.existsSync(e))throw newArgError(locale(constants.ARG_ERR_ENVIRONMENT_FILE_PATH_UNEXIST));if(\".json\"!==path.extname(e))throw newArgError(locale(constants.ARG_ERR_ENVIRONMENT_FILE_PATH_FORMAT_ILLEGAL));if(fs.statSync(e).size>=3145728)throw newArgError(locale(constants.ARG_ERR_ENVIRONMENT_FILE_CONTENT_SIZE_TOO_BIGGER));checkEnvironmentContent(fs.readFileSync(e))}function checkEnvironmentContent(r){if(r.length>=3145728)throw newArgError(locale(constants.ARG_ERR_FUNCTION_CODE_CONTENT_SIZE_TOO_BIGGER));let e=null;try{e=JSON.parse(r)}catch(r){throw newArgError(locale(constants.ARG_ERR_ENVIRONMENT_ILLEGAL))}for(let r in e)if(Object.prototype.hasOwnProperty.call(e,r)){if(r.length>64)throw newArgError(locale(constants.ARG_ERR_ENVIRONMENT_KEY_LONGER));if(!new RegExp(\"^[-._a-zA-Z][-._a-zA-Z0-9]*$\").test(r))throw newArgError(locale(constants.ARG_ERR_ENVIRONMENT_KEY_ILLEGAL));if(e[r].length>2048)throw newArgError(locale(constants.ARG_ERR_ENVIRONMENT_VALUE_LONGER))}}function verifyLayers(r){let{layers:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_LAYER_EMPTY));if(isEmpty(e)||!verifyTools.isArray(e))throw newArgError(locale(constants.ARG_ERR_LAYER_ILLEGAL));if(e.join().length<4)throw newArgError(locale(constants.ARG_ERR_LAYER_ILLEGAL));if(e.join(\" \").substring(1,e.join().length-1).split(\",\").length>5)throw newArgError(locale(constants.ARG_ERR_LAYER_TOO_MANY))}function verifyPayload(r){let{payload:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_PAYLOAD_EMPTY));try{JSON.parse(e)}catch(r){throw newArgError(locale(constants.ARG_ERR_PAYLOAD_ILLEGAL))}}function verifySchedule(r){if(isEmpty(r.schedule))throw newArgError(locale(constants.ARG_ERR_SCHEDULE_EMPTY));if(!validateTypeEveryExpression(r.schedule)&&!validateTypeMinutesHourDayMonthWeekExpression(r.schedule))throw newArgError(locale(constants.ARG_ERR_SCHEDULE_ILLEGAL))}function verifyPayloadFile(r){let{payloadFile:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_PAYLOAD_FILE_EMPTY));if(!fs.existsSync(e))throw newArgError(locale(constants.ARG_ERR_PAYLOAD_FILE_UNEXIST));if(\".json\"!==path.extname(e))throw newArgError(locale(constants.ARG_ERR_PAYLOAD_FILE_FORMAT_ILLEGAL));if(fs.statSync(e).size>=4194304)throw newArgError(locale(constants.ARG_ERR_PAYLOAD_FILE_CONTENT_TOO_BIGGER));let n=fs.readFileSync(e);try{JSON.parse(n)}catch(r){throw newArgError(locale(constants.ARG_ERR_PAYLOAD_FLE_CONTENT_ILLEGAL))}}function verifyVersionOptionInFunctionCmd(r){let{version:e}=r;baseVerifyFunctionVersion(e)}function verifyFunctionVersion(r){let{functionVersion:e}=r;baseVerifyFunctionVersion(e)}function baseVerifyFunctionVersion(r){if(isEmpty(r))throw newArgError(locale(constants.ARG_ERR_FUNCTION_VERSION_EMPTY));if(\"$latest\"===r)return;let e=Number(r);if(isNaN(e)||e<1)throw newArgError(locale(constants.ARG_ERR_FUNCTION_VERSION_NOT_SUPPORTED))}function verifyNameOptionInLayerCmd(r){let{name:e}=r;baseVerifyLayerName(e)}function verifyNameOptionInLayerVersionsListCmd(r){let{name:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_LAYER_NAME_EMPTY));let n=e.split(\":\");if(1!==n.length){if(6!==n.length)throw newArgError(locale(constants.ARG_ERR_LAYER_NAME_FORMAT_ILLEGAL_IN_LAYER_VERSIONS_LIST_CMD))}else baseVerifyLayerName(e)}function verifyLayerName(r){let{layerName:e}=r;baseVerifyLayerName(e)}function baseVerifyLayerName(r){if(isEmpty(r))throw newArgError(locale(constants.ARG_ERR_LAYER_NAME_EMPTY));if(r.length<2)throw newArgError(locale(constants.ARG_ERR_LAYER_NAME_LENTH_SHORT));if(r.length>32)throw newArgError(locale(constants.ARG_ERR_LAYER_NAME_LENTH_LONGER));if(!new RegExp(\"^[a-z][a-z0-9-]*[a-z0-9]$\").test(r))throw newArgError(locale(constants.ARG_ERR_LAYER_NAME_ILLEGAL))}function verifyLayerCodePath(r){let{codePath:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_LAYER_FILE_EMPTY));if(!fs.existsSync(e))throw newArgError(locale(constants.ARG_ERR_LAYER_FILE_UNEXIST));if(\".zip\"!==path.extname(e))throw newArgError(locale(constants.ARG_ERR_LAYER_FILE_FORMAT_ILLEGAL));if(fs.statSync(e).size>=52428800)throw newArgError(locale(constants.ARG_ERR_LAYER_FILE_SIZE_TOO_BIGGER))}function verifyJsonFileDestinationPath(r){let{destination:e}=r;if(!fs.existsSync(e))throw newArgError(locale(constants.ARG_ERR_LAYER_FILE_UNEXIST))}function verifyJsonFileSourcePath(r){let{source:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_JSON_SOURCE_EMPTY));if(!fs.existsSync(e))throw newArgError(locale(constants.ARG_ERR_JSON_SOURCE_NOT_EXIST));if(\".json\"!==path.extname(e))throw newArgError(locale(constants.ARG_ERR_JSON_PATH_FORMAT_ILLEGAL))}function verifyLayerDescription(r){let{description:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_LAYER_DESCRIPTION_EMPTY));if(e.length>1024)throw newArgError(locale(constants.ARG_ERR_LAYER_DESCRIPTION_LONGER))}function verifyLayerOwnerFlag(r){let{ownerFlag:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_LAYER_OWNER_EMPTY));if(-1===Owners.indexOf(e))throw newArgError(locale(constants.ARG_ERR_LAYER_OWNER_NOT_SUPPORTED))}function verifyLayerSharedScope(r){let{sharedScope:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_LAYER_SHARE_SCOPE_EMPTY));if(!isEmpty(e)&&-1===layerShares.indexOf(e))throw newArgError(output.strFormat(locale(constants.ARG_ERR_LAYER_SHARE_SCOPE_NOT_SUPPORTED),{layerShares:layerShares.join(\",\")}))}function verifyCompatibleRuntimes(r){let{compatibleRuntimes:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_COMPATIBLE_RUNTIMES_EMPTY));let n=[];for(let r of e){if(-1===runtimes.indexOf(r))throw newArgError(locale(constants.ARG_ERR_COMPATIBLE_RUNTIMES_NOT_SUPPORTED));if(-1!==n.indexOf(r))throw newArgError(locale(constants.ARG_ERR_COMPATIBLE_RUNTIMES_REPEAT));n.push(r)}}function verifyCompatibleRuntime(r){let{compatibleRuntime:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_COMPATIBLE_RUNTIME_EMPTY));if(-1===runtimes.indexOf(e))throw newArgError(locale(constants.ARG_ERR_COMPATIBLE_RUNTIME_ILLEGAL))}function verifyLayerVersion(r){let{layerVersion:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_LAYER_VERSION_EMPTY));let n=Number(e);if(isNaN(n)||n<1)throw newArgError(locale(constants.ARG_ERR_LAYER_VERSION_NOT_SUPPORTED))}function verifyLicenseInfo(r){let{licenseInfo:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_LICENSE_EMPTY));if(!verifyTools.isString(e))throw newArgError(locale(constants.ARG_ERR_LICENSE_ILLEGAL));if(getStringWidth(e)>64)throw newArgError(locale(constants.ARG_ERR_LICENSE_LENTH_LONGER))}function verifyTriggerConfigFile(r){let{configFile:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_TRIGGER_CONFIG_FILE_EMPTY));if(!fs.existsSync(e))throw newArgError(locale(constants.ARG_ERR_TRIGGER_CONFIG_FILE_UNEXIST));if(\".json\"!==path.extname(e))throw newArgError(locale(constants.ARG_ERR_TRIGGER_CONFIG_FILE_FORMAT_ILLEGAL));if(fs.statSync(e).size>=1048576)throw newArgError(locale(constants.ARG_ERR_TRIGGER_CONFIG_CONTENT_SIZE_TOO_BIGGER));let n=fs.readFileSync(e);try{JSON.parse(n)}catch(r){throw newArgError(locale(constants.ARG_ERR_TRIGGER_CONFIG_FILE_CONTENT_ILLEGAL))}}function verifyCronPayload(r){if(!isEmpty(r.payload))try{JSON.parse(r.payload)}catch(r){throw newArgError(locale(constants.INPUT_PAYLOAD_SHOULD_BE_JSON))}}function verifyListOutput(r){let{output:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_LIST_OUTPUT_UNEXIST));if(-1===[\"json\",\"table\"].indexOf(e))throw newArgError(locale(constants.ARG_ERR_LIST_OUTPUT_ILLEGAL))}function verifyPageSize(r){let{pageSize:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_PAGE_SIZE_UNEXIST));if(verifyTools.isNumber(e)||(e=Number(e)),isNaN(e)||!verifyTools.isInteger(e))throw newArgError(locale(constants.ARG_ERR_PAGE_SIZE_TYPE_ILLEGAL));if(e<1)throw newArgError(locale(constants.ARG_ERR_PAGE_SIZE_VALUE_NOT_SUPPORTED));r.pageSize=e}function verifyPageIndex(r){let{pageIndex:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_PAGE_INDEX_UNEXIST));if(verifyTools.isNumber(e)||(e=Number(e)),isNaN(e)||!verifyTools.isInteger(e))throw newArgError(locale(constants.ARG_ERR_PAGE_INDEX_TYPE_ILLEGAL));if(e<1)throw newArgError(locale(constants.ARG_ERR_PAGE_INDEX_VALUE_NOT_SUPPORTED));r.pageIndex=e}export default{Verifier:Verifier,verifyNameOptionInFunctionCmd:verifyNameOptionInFunctionCmd,verifyFunctionName:verifyFunctionName,verifyRuntime:verifyRuntime,verifyFunctionCodePath:verifyFunctionCodePath,verifyMemory:verifyMemory,verifyTimeout:verifyTimeout,verifyInstanceConcurrency:verifyInstanceConcurrency,verifyDescription:verifyDescription,verifyVersionDescription:verifyVersionDescription,verifyEnvironment:verifyEnvironment,verifyEnvironmentFile:verifyEnvironmentFile,verifyExclusionEnvironmentOption:verifyExclusionEnvironmentOption,verifyLayers:verifyLayers,verifyPayload:verifyPayload,verifyPayloadFile:verifyPayloadFile,verifyFunctionVersion:verifyFunctionVersion,verifyVersionOptionInFunctionCmd:verifyVersionOptionInFunctionCmd,verifyNameOptionInAliasCmd:verifyNameOptionInAliasCmd,verifyAliasName:verifyAliasName,verifySchedule:verifySchedule,verifyFuzzyName:verifyFuzzyName,verifyNameOptionInLayerCmd:verifyNameOptionInLayerCmd,verifyNameOptionInLayerVersionsListCmd:verifyNameOptionInLayerVersionsListCmd,verifyLayerOwnerFlag:verifyLayerOwnerFlag,verifyLayerName:verifyLayerName,verifyLayerCodePath:verifyLayerCodePath,verifyLayerDescription:verifyLayerDescription,verifyLayerVersion:verifyLayerVersion,verifyCompatibleRuntimes:verifyCompatibleRuntimes,verifyCompatibleRuntime:verifyCompatibleRuntime,verifyLicenseInfo:verifyLicenseInfo,verifyLayerSharedScope:verifyLayerSharedScope,verifyCronPayload:verifyCronPayload,verifyTriggerId:verifyTriggerId,verifyTriggerSwitch:verifyTriggerSwitch,verifyCronTriggerMode:verifyCronTriggerMode,verifyTriggerConfigFile:verifyTriggerConfigFile,verifyHTTPTriggerAuthType:verifyHTTPTriggerAuthType,verifyHTTPTriggerEnableUrlDecode:verifyHTTPTriggerEnableUrlDecode,verifyExclusionTriggerConfigOption:verifyExclusionTriggerConfigOption,verifyListOutput:verifyListOutput,verifyPageSize:verifyPageSize,verifyPageIndex:verifyPageIndex,verifyJsonFileDestinationPath:verifyJsonFileDestinationPath,verifyJsonFileSourcePath:verifyJsonFileSourcePath};"
+    },
+    {
+      "packagePath": "commands/cloudfunction/boundary/triggerService.js",
+      "sha256": "295bf48da5487467f559e5adcc1d8be29abfc62196a5dd4af61ca0aab58762a9",
+      "source": "import{getFunctionId}from\"../api/triggerApi.js\";import{getAliasOrVersion,isEmpty}from\"../util/tools.js\";import types from\"../types/type.js\";import output from\"../util/output.js\";import{locale}from\"../util/locale.js\";import constants from\"../constants/constants.js\";async function writeTriggerList(t,e,r,g){const{triggerResult:i,httpTriggerResult:o}=await getTriggerList(t,e,r,g);let s=addTriggerInfo(i,o),a=1;switch(i&&i.total>0&&(a=i.total),r.output){case\"table\":{let e=[\"TriggerType\",\"TriggerId\"],i=new types.ListInfo(e,null,s),o=new types.PageFuncInfo(g,t,r,r.pageIndex,a);output.outputListCmd(t.logger,output.strFormat(locale(constants.SUCCEED_LIST_TRIGGER_CMD),{functionName:r.functionName,version:getAliasOrVersion(r,\"aliasName\",\"functionVersion\")}),i,o);break}default:s=mergeTriggerJSONResult(i,o,r.pageSize,r.pageIndex),PRINT(JSON.stringify(s,null,\"\\t\"))}}async function getTriggerListAsJson(t,e,r){r.pageSize=99,r.pageIndex=1;const{triggerResult:g,httpTriggerResult:i}=await getTriggerList(t,e,r);return mergeTriggerJSONResult(g,i,r.pageSize,r.pageIndex)}async function getTriggerList(t,e,r){try{let g=await getFunctionId(t,e.functionName,getAliasOrVersion(e,\"aliasName\",\"functionVersion\"));const i=`${t.storage.getProjectBaseUrl()}/api/wisefunction/serverless/v1/trigger/list/${g}`,o=`${t.storage.getProjectBaseUrl()}/api/wisefunction/serverless/v1/triggers/list/${g}`,s=await getTrigger(o,t,r.pageSize,r.pageIndex);return{triggerResult:s,httpTriggerResult:await getTrigger(i,t,r.pageSize,r.pageIndex)}}catch(t){output.outputError(constants.FAILED_LIST_TRIGGER_CMD,t)}}function mergeTriggerJSONResult(t,e,r,g){let i={},o={pageSize:r,pageIndex:g,total:0};if(i.pageInfo=o,e&&e.count&&e.count>0){o.total=e.count,i.httptrigger=[];for(let t of e.triggers)isEmpty(t.triggerId)||i.httptrigger.push({triggerId:t.triggerId,method:t.method,authFlag:t.authFlag,authAlgor:t.authAlgor,authType:t.authType,enableUrlDecode:t.enableUrlDecode,triggerUrl:t.triggerUrl,createTime:t.createTime,updateTime:t.updateTime})}if(t&&t.total&&t.total>0){o.total+=t.total,i.crontrigger=[];for(let e of t.triggers)isEmpty(e.triggerId)||isEmpty(e.triggerType)||i.crontrigger.push({triggerId:e.triggerId,triggerType:e.triggerType,triggerSwitch:e.triggerSwitch,triggerMode:e.triggerMode,spec:e.spec,createTime:e.createTime})}return i}function addTriggerInfo(t,e){let r=[];if(e&&e.count&&e.count>0)for(let t of e.triggers)isEmpty(t.triggerId)||r.push({TriggerId:t.triggerId,TriggerType:\"HTTP\"});if(t&&t.total&&t.total>0)for(let e of t.triggers)isEmpty(e.triggerId)||isEmpty(e.triggerType)||r.push({TriggerId:e.triggerId,TriggerType:e.triggerType});return r}async function getTrigger(t,e,r,g){return e.edge.get(t,{params:{pageSize:r||constants.DEFAULT_FUNCTION_PAGE_SIZE,pageIndex:g||constants.DEFAULT_FUNCTION_PAGE_INDEX}}).then((t=>{if(t&&0===t.code&&0!==t.result.count&&0!==t.result.total)return t.result})).catch((()=>{}))}export{writeTriggerList,getTriggerListAsJson};"
+    },
+    {
+      "packagePath": "commands/cloudfunction/api/functionApi.js",
+      "sha256": "0c6381043b1c59276591f681335d987010ea5cc274f84e3deaf1bfbd916c76b3",
+      "source": "import constants from\"../constants/constants.js\";import FormData from\"form-data\";import{processEdgeError,makeTraceId}from\"./common.js\";import parse from\"../option/parse.js\";import{readFunctionCodeFile,getLayerVersionUrns,isEmpty}from\"../util/tools.js\";async function invokeFunction(e,n,r,t){const s=`${e.storage.getProjectBaseUrl()}/api/wisefunction/serverless/v1/functions/${n}/invocations`;let o=makeTraceId();\"{}\"===JSON.stringify(t)&&(t=null);let a={url:s,method:\"POST\",headers:{\"x-trace-id\":o},params:{qualifier:r||\"$latest\"},data:t};return new Promise(((n,r)=>{e.edgeWithRawResponse(a).then((e=>{n({traceId:o,response:e})})).catch((e=>r(processEdgeError(e))))}))}async function listFunctions(e,n,r,t){const s=`${e.storage.getProjectBaseUrl()}/api/wisefunction/serverless/v1/functions`;return new Promise(((o,a)=>{e.edge.get(s,{params:{pageSize:r||constants.DEFAULT_FUNCTION_PAGE_SIZE,pageIndex:t||constants.DEFAULT_FUNCTION_PAGE_INDEX,qualifier:\"$latest\",name:n,status:1}}).then((e=>{o(e)})).catch((e=>{a(processEdgeError(e))}))}))}async function publishFunction(e,n,r,t){const s=`${e.storage.getProjectBaseUrl()}/api/wisefunction/serverless/v1/functions/${n}/versions`;let o=makeTraceId();return new Promise(((n,a)=>{e.edge({url:s,method:\"POST\",headers:{\"x-trace-id\":o},data:{versionDesc:r,revisionId:t}}).then((e=>{n(e)})).catch((e=>{a(processEdgeError(e))}))}))}async function queryFunctionVersion(e,n,r){isEmpty(r)&&(r=\"$latest\");const t=`${e.storage.getProjectBaseUrl()}/api/wisefunction/serverless/v1/functions/${n}`;return new Promise(((n,s)=>{e.edge.get(t,{params:{qualifier:r}}).then((e=>{n(e)})).catch((e=>{s(processEdgeError(e))}))}))}async function listFunctionVersions(e,n,r,t){const s=`${e.storage.getProjectBaseUrl()}/api/wisefunction/serverless/v1/functions/${n}/versions`;return new Promise(((n,o)=>{e.edge.get(s,{params:{pageSize:r||constants.DEFAULT_FUNCTION_PAGE_SIZE,pageIndex:t||constants.DEFAULT_FUNCTION_PAGE_INDEX}}).then((e=>{n(e)})).catch((e=>{o(processEdgeError(e))}))}))}async function createFunction(e,n,r){const t=`${e.storage.getProjectBaseUrl()}/api/wisefunction/serverless/v1/functions`;return new Promise(((s,o)=>{e.edge({url:t,method:\"POST\",headers:n,data:r,maxContentLength:1/0,maxBodyLength:1/0}).then((e=>{s(e)})).catch((e=>{o(processEdgeError(e))}))}))}async function updateFunction(e,n,r,t){let s=new FormData;s.append(\"revisionId\",t);let o=s.getHeaders();o.accept=\"application/json\";let a=new parse.Parser(n).addParseOptionFunc(parse.parseEnvironment).addParseOptionFunc(parse.parseEnvironmentFile).addParseOptionFunc(parse.parseInstanceConcurrency).addParseOptionFunc(parse.parseMemory).addParseOptionFunc(parse.parseTimeout).addParseOptionFunc(parse.parseHandler).addParseOptionFunc(parse.parseVersionDescription,\"versionDesc\").done();!a.environment&&r.environment&&(a.environment=JSON.stringify(r.environment)),!a.layers&&r.layers&&(a.layers=JSON.stringify(r.layers)),a.handler||(a.handler=r.handler);for(let e in a)Object.prototype.hasOwnProperty.call(a,e)&&s.append(e,a[e]);if(n.codePath){let{codeSize:e,sha256:r,fileStream:t}=await readFunctionCodeFile(n.codePath);o[\"x-file-digest\"]=e,o[\"x-file-digest-sha256\"]=r,s.append(\"file\",t)}if(n.layers){let r=await getLayerVersionUrns(e,n.layers);s.append(\"layers\",JSON.stringify(r))}const i=`${e.storage.getProjectBaseUrl()}/api/wisefunction/serverless/v1/functions/${n.name}`;return new Promise(((n,r)=>{e.edge({url:i,method:\"PUT\",headers:o,data:s,maxContentLength:1/0,maxBodyLength:1/0}).then((e=>{n(e)})).catch((e=>{r(processEdgeError(e))}))}))}export default{createFunction:createFunction,invokeFunction:invokeFunction,listFunctions:listFunctions,listFunctionVersions:listFunctionVersions,publishFunction:publishFunction,queryFunctionVersion:queryFunctionVersion,updateFunction:updateFunction,processEdgeError:processEdgeError};"
+    },
+    {
+      "packagePath": "modules/request/edge.js",
+      "sha256": "6a2890b78c14efe687c13810ec7aa1ed8d1c512d4e946c66ebb517f93a16782f",
+      "source": "import axios from\"axios\";import https from\"https\";import fs from\"fs\";import session from\"../session/index.js\";import{isObject,getHDDate}from\"../../util/helper.js\";import storage from\"../storage/index.js\";import Logger from\"../../util/logger.js\";import path from\"path\";import{getDirName}from\"../util/dir.js\";const logger=new Logger(\"Edge\"),edgeRequest=axios.create({withCredentials:!0,httpsAgent:new https.Agent({rejectUnauthorized:!1})});function setEdgeHeaders(e={}){const t={};if(!isObject(e))return t;for(let s in e)e[s]&&(t[s]=e[s]);return t}function createUserAgent(){const e=getDirName(import.meta.url),t=JSON.parse(fs.readFileSync(path.join(e,\"../../package.json\"),\"utf8\"));return`agc-cli-tool/${t.version} (${t.platform})`}const onConfig=async e=>{if(!await session.isSessionValid())return logger.warn(\"Run the agcli login command to sign in the user first.\"),e;e.headers[\"User-Agent\"]=createUserAgent(),e.headers[\"X-HD-DATE\"]=getHDDate();const{uid:t,accessToken:s}=session.getToken(),r=storage.getProjectId(),o=setEdgeHeaders({uid:t,oauth2Token:s,teamId:storage.getTeamId(),productId:r});return Object.assign(e.headers,o),e},onError=e=>Promise.reject(e);edgeRequest.interceptors.request.use(onConfig,onError),edgeRequest.interceptors.response.use((e=>200===e.status?e.data:Promise.reject(e)),(e=>Promise.reject(e)));const edgeRequestWithRawResponse=axios.create({httpsAgent:new https.Agent({rejectUnauthorized:!1})});edgeRequestWithRawResponse.interceptors.request.use(onConfig,onError),edgeRequestWithRawResponse.interceptors.response.use((e=>200===e.status?{data:e.data,headers:e.headers}:Promise.reject(e)),(e=>Promise.reject(e)));export{edgeRequest,edgeRequestWithRawResponse,setEdgeHeaders,createUserAgent};"
+    }
+  ],
+  "notes": [
+    "Listing path is also reviewed in boundary/triggerService.js."
+  ],
+  "reviewedPages": [
+    {
+      "captureTool": "Computer Use; merged-cell capture compatible with scripts/browser-capture-reference.mjs",
+      "checkedAt": "2026-10-26",
+      "examples": [],
+      "links": [
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/trigger-introduction-0000001706837165",
+          "title": "概述"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloudfunction-httptrigger-0000001706957925",
+          "title": "HTTP触发器"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloudfunction-clouddbtrigger-0000001658558540",
+          "title": "云数据库触发器"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloudfunction-authtrigger-0000001658717860",
+          "title": "认证服务触发器"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloudfunction-cloudstorage-trigger-0000001706837169",
+          "title": "云存储触发器"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloudfunction-remoteconfig-trigger-0000001658558544",
+          "title": "远程配置触发器"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloudfunction-crontrigger-0000001658717864",
+          "title": "定时触发器"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloudfunction-deletetrigger-0000001706837173",
+          "title": "删除触发器"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloudfunction-trigger-event-0000001620581529",
+          "title": "event对象"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-layer-0000001517762624",
+          "title": "层管理"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/trigger-introduction-0000001706837165",
+          "title": "概述"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+          "title": "华为开发者联盟用户协议"
+        }
+      ],
+      "notes": [
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-trigger-manage-0000001658717856",
+          "text": "概述"
+        },
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-trigger-manage-0000001658717856",
+          "text": "HTTP触发器"
+        },
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-trigger-manage-0000001658717856",
+          "text": "云数据库触发器"
+        },
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-trigger-manage-0000001658717856",
+          "text": "认证服务触发器"
+        },
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-trigger-manage-0000001658717856",
+          "text": "云存储触发器"
+        },
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-trigger-manage-0000001658717856",
+          "text": "远程配置触发器"
+        },
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-trigger-manage-0000001658717856",
+          "text": "定时触发器"
+        },
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-trigger-manage-0000001658717856",
+          "text": "删除触发器"
+        },
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-trigger-manage-0000001658717856",
+          "text": "event对象"
+        }
+      ],
+      "renderedText": "指南\n云函数\n触发器管理\n触发器管理\n更新时间: 2026-04-16 14:17\n概述\n\nHTTP触发器\n\n云数据库触发器\n\n认证服务触发器\n\n云存储触发器\n\n远程配置触发器\n\n定时触发器\n\n删除触发器\n\nevent对象\n\n层管理\n概述\n意见反馈\n以上内容对您是否有帮助？\n意见反馈\n如果您有其他疑问，您也可以通过开发者社区问答频道来和我们联系探讨。\n社区提问AI 助手提问\n简体中文\n华为开发者联盟 版权所有 ©2026\n问题反馈\n使用条款\n华为开发者联盟用户协议\n关于华为开发者联盟与隐私的声明\nCookies\n开源软件声明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-trigger-manage-0000001658717856",
+      "status": "browser-read",
+      "tables": [],
+      "title": "触发器管理"
+    },
+    {
+      "captureTool": "Computer Use; merged-cell capture compatible with scripts/browser-capture-reference.mjs",
+      "checkedAt": "2026-10-26",
+      "examples": [],
+      "links": [
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-trigger-manage-0000001658717856",
+          "title": "触发器管理"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/create-and-configure-func-andrioid-0000001665054330",
+          "title": "创建函数"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/trigger-introduction-0000001706837165",
+          "title": "概述"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloudfunction-clouddbtrigger-0000001658558540",
+          "title": "云数据库触发器"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloudfunction-httptrigger-0000001706957925#section1569311183819",
+          "title": "前提条件"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloudfunction-httptrigger-0000001706957925#section797692814338",
+          "title": "创建HTTP触发器"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+          "title": "华为开发者联盟用户协议"
+        }
+      ],
+      "notes": [
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloudfunction-httptrigger-0000001706957925",
+          "text": "您可以为云函数配置HTTP触发器，配置完成后会生成触发URL，在您向该URL发起HTTP请求时将触发云函数。"
+        },
+        {
+          "section": "前提条件",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloudfunction-httptrigger-0000001706957925#section1569311183819",
+          "text": "您已创建函数。"
+        },
+        {
+          "section": "创建HTTP触发器",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloudfunction-httptrigger-0000001706957925#section797692814338",
+          "text": "在函数列表中点击函数名称进入函数详情页面。如果点击函数名称右侧“操作”列的“别名”，则在别名列表中点击别名名称，进入别名详情页。"
+        },
+        {
+          "section": "创建HTTP触发器",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloudfunction-httptrigger-0000001706957925#section797692814338",
+          "text": "点击“触发器”页签下的“添加触发器”，右侧弹出触发器创建界面。"
+        },
+        {
+          "section": "创建HTTP触发器",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloudfunction-httptrigger-0000001706957925#section797692814338",
+          "text": "在“添加触发器”弹出框中，“触发器类型”选择“HTTP触发器”，并配置“请求方式”和“认证类型”。\n\n参数\n\n\t\n\n说明\n\n\n\n\n触发器类型\n\n\t\n\nHTTP触发器。\n\n\n\n\n请求方式\n\n\t\n\nHTTP触发器目前仅支持POST请求方式。\n\n\n\n\n认证类型\n\n\t\n\nHTTP触发器的认证类型。\n\nAPI客户端鉴权（Client适用）：端侧网关认证，适用于来自APP客户端侧（即本地应用或者项目）的函数调用。\nAPI客户端鉴权（Server适用）：云侧网关认证，适用于来自APP服务器侧（即云函数）的函数调用。\n\n\n\n启用decode\n\n\t\n\n通过HTTP触发器触发函数时，对于contentType为“application/x-www-form-urlencoded”的触发请求，是否使用URLDecoder对请求body进行解码再传入到函数中。"
+        },
+        {
+          "section": "创建HTTP触发器",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloudfunction-httptrigger-0000001706957925#section797692814338",
+          "text": "触发器配置完成后点击“确定”保存触发器，则回到触发器列表，可看到HTTP触发器图框。"
+        }
+      ],
+      "renderedText": "指南\n云函数\n触发器管理\nHTTP触发器\nHTTP触发器\n更新时间: 2025-12-05 15:25\n\n您可以为云函数配置HTTP触发器，配置完成后会生成触发URL，在您向该URL发起HTTP请求时将触发云函数。\n\n前提条件\n\n您已创建函数。\n\n创建HTTP触发器\n在函数列表中点击函数名称进入函数详情页面。如果点击函数名称右侧“操作”列的“别名”，则在别名列表中点击别名名称，进入别名详情页。\n\n点击“触发器”页签下的“添加触发器”，右侧弹出触发器创建界面。\n在“添加触发器”弹出框中，“触发器类型”选择“HTTP触发器”，并配置“请求方式”和“认证类型”。\n\n参数\n\n\t\n\n说明\n\n\n\n\n触发器类型\n\n\t\n\nHTTP触发器。\n\n\n\n\n请求方式\n\n\t\n\nHTTP触发器目前仅支持POST请求方式。\n\n\n\n\n认证类型\n\n\t\n\nHTTP触发器的认证类型。\n\nAPI客户端鉴权（Client适用）：端侧网关认证，适用于来自APP客户端侧（即本地应用或者项目）的函数调用。\nAPI客户端鉴权（Server适用）：云侧网关认证，适用于来自APP服务器侧（即云函数）的函数调用。\n\n\n\n启用decode\n\n\t\n\n通过HTTP触发器触发函数时，对于contentType为“application/x-www-form-urlencoded”的触发请求，是否使用URLDecoder对请求body进行解码再传入到函数中。\n\n触发器配置完成后点击“确定”保存触发器，则回到触发器列表，可看到HTTP触发器图框。\n概述\n云数据库触发器\n意见反馈\n以上内容对您是否有帮助？\n意见反馈\n如果您有其他疑问，您也可以通过开发者社区问答频道来和我们联系探讨。\n社区提问AI 助手提问\n本文导读\n前提条件\n创建HTTP触发器\n简体中文\n华为开发者联盟 版权所有 ©2026\n问题反馈\n使用条款\n华为开发者联盟用户协议\n关于华为开发者联盟与隐私的声明\nCookies\n开源软件声明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloudfunction-httptrigger-0000001706957925",
+      "status": "browser-read",
+      "tables": [
+        {
+          "location": "",
+          "rows": [
+            [
+              "参数",
+              "说明"
+            ],
+            [
+              "触发器类型",
+              "HTTP触发器。"
+            ],
+            [
+              "请求方式",
+              "HTTP触发器目前仅支持POST请求方式。"
+            ],
+            [
+              "认证类型",
+              "HTTP触发器的认证类型。 API客户端鉴权（Client适用）：端侧网关认证，适用于来自APP客户端侧（即本地应用或者项目）的函数调用。 API客户端鉴权（Server适用）：云侧网关认证，适用于来自APP服务器侧（即云函数）的函数调用。"
+            ],
+            [
+              "启用decode",
+              "通过HTTP触发器触发函数时，对于contentType为“application/x-www-form-urlencoded”的触发请求，是否使用URLDecoder对请求body进行解码再传入到函数中。"
+            ]
+          ],
+          "section": "创建HTTP触发器",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloudfunction-httptrigger-0000001706957925#section797692814338"
+        }
+      ],
+      "title": "HTTP触发器"
+    },
+    {
+      "captureTool": "Computer Use; merged-cell capture compatible with scripts/browser-capture-reference.mjs",
+      "checkedAt": "2026-10-26",
+      "examples": [],
+      "links": [
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-trigger-manage-0000001658717856",
+          "title": "触发器管理"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/cron-create-and-config-func-0000001664968592",
+          "title": "创建函数"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloudfunction-remoteconfig-trigger-0000001658558544",
+          "title": "远程配置触发器"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloudfunction-deletetrigger-0000001706837173",
+          "title": "删除触发器"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloudfunction-crontrigger-0000001658717864#section1569311183819",
+          "title": "前提条件"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloudfunction-crontrigger-0000001658717864#section176113174550",
+          "title": "创建定时触发器"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+          "title": "华为开发者联盟用户协议"
+        }
+      ],
+      "notes": [
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloudfunction-crontrigger-0000001658717864",
+          "text": "您可以为云函数配置定时触发器，在指定的时间点触发云函数。"
+        },
+        {
+          "section": "前提条件",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloudfunction-crontrigger-0000001658717864#section1569311183819",
+          "text": "您已创建函数。"
+        },
+        {
+          "section": "创建定时触发器",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloudfunction-crontrigger-0000001658717864#section176113174550",
+          "text": "在函数列表中点击函数名称进入函数详情页面。如果点击函数名称右侧“操作”列的“别名”，则在别名列表中点击别名名称，进入别名详情页。"
+        },
+        {
+          "section": "创建定时触发器",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloudfunction-crontrigger-0000001658717864#section176113174550",
+          "text": "点击“触发器”页签下的“添加触发器”，显示触发器创建界面。"
+        },
+        {
+          "section": "创建定时触发器",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloudfunction-crontrigger-0000001658717864#section176113174550",
+          "text": "在“添加触发器”页面，“触发器类型”选择“定时触发器”，并配置“触发器名称”、“日程表”、“调用方式”和“启用”状态等信息。\n\n参数\n\n\t\n\n说明\n\n\n\n\n触发器类型\n\n\t\n\n定时触发器。\n\n\n\n\n触发器名称\n\n\t\n\n触发器的名称，仅起到显示作用。\n\n\n\n\n事件值\n\n\t\n\n触发函数时传入的事件，即函数的入参。格式为JSON字符串。\n\n\n\n\n日程表\n\n\t\n\n触发函数的时间计划。支持如下两种格式：\n\nEvery表达式\n\n@every value unit格式，其中value为一个正整数，unit可以为“s”、“m”、“h”，表示每隔value unit的时间触发一次函数。例如，“@every 6m” 表示每隔6分钟触发一次函数。\n\nCron表达式\ncron(Minute Hour Day-of-month Month-of-year Day-of-week)格式，即kubernetes cronjob支持的标准的cron表达式的形式\nMinutes：值范围0-59，支持括号内的特殊字符（, - * /）\nHours：值范围0-23，支持括号内的特殊字符（, - * /）\nDay-of-month：值范围1-31，支持括号内的特殊字符（, - * /）\nMonth-of-year：值范围1-12或JAN-DEC，支持括号内的特殊字符（, - * /）\nDay-of-week：值范围0-6或SUN-SAT，支持括号内的特殊字符（, - * ）\n说明\n\ncron在欧洲站点以UTC时间运行，在非欧洲站点以北京时间运行。\n\n\n\n\n调用方式\n\n\t\n\n支持同步调用和异步调用。\n\n\n\n\n启用\n\n\t\n\n是否启用该触发器，默认为不启用。由于定时触发器配置完成后暂不支持修改启用状态，请配置为“是”以启用触发器。"
+        },
+        {
+          "section": "创建定时触发器",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloudfunction-crontrigger-0000001658717864#section176113174550",
+          "text": "触发器配置完成后点击“确定”保存触发器，则回到触发器列表，可看到定时触发器图框。"
+        }
+      ],
+      "renderedText": "指南\n云函数\n触发器管理\n定时触发器\n定时触发器\n更新时间: 2025-12-05 15:25\n\n您可以为云函数配置定时触发器，在指定的时间点触发云函数。\n\n前提条件\n\n您已创建函数。\n\n创建定时触发器\n在函数列表中点击函数名称进入函数详情页面。如果点击函数名称右侧“操作”列的“别名”，则在别名列表中点击别名名称，进入别名详情页。\n\n点击“触发器”页签下的“添加触发器”，显示触发器创建界面。\n在“添加触发器”页面，“触发器类型”选择“定时触发器”，并配置“触发器名称”、“日程表”、“调用方式”和“启用”状态等信息。\n\n参数\n\n\t\n\n说明\n\n\n\n\n触发器类型\n\n\t\n\n定时触发器。\n\n\n\n\n触发器名称\n\n\t\n\n触发器的名称，仅起到显示作用。\n\n\n\n\n事件值\n\n\t\n\n触发函数时传入的事件，即函数的入参。格式为JSON字符串。\n\n\n\n\n日程表\n\n\t\n\n触发函数的时间计划。支持如下两种格式：\n\nEvery表达式\n\n@every value unit格式，其中value为一个正整数，unit可以为“s”、“m”、“h”，表示每隔value unit的时间触发一次函数。例如，“@every 6m” 表示每隔6分钟触发一次函数。\n\nCron表达式\ncron(Minute Hour Day-of-month Month-of-year Day-of-week)格式，即kubernetes cronjob支持的标准的cron表达式的形式\nMinutes：值范围0-59，支持括号内的特殊字符（, - * /）\nHours：值范围0-23，支持括号内的特殊字符（, - * /）\nDay-of-month：值范围1-31，支持括号内的特殊字符（, - * /）\nMonth-of-year：值范围1-12或JAN-DEC，支持括号内的特殊字符（, - * /）\nDay-of-week：值范围0-6或SUN-SAT，支持括号内的特殊字符（, - * ）\n说明\n\ncron在欧洲站点以UTC时间运行，在非欧洲站点以北京时间运行。\n\n\n\n\n调用方式\n\n\t\n\n支持同步调用和异步调用。\n\n\n\n\n启用\n\n\t\n\n是否启用该触发器，默认为不启用。由于定时触发器配置完成后暂不支持修改启用状态，请配置为“是”以启用触发器。\n\n触发器配置完成后点击“确定”保存触发器，则回到触发器列表，可看到定时触发器图框。\n\n远程配置触发器\n删除触发器\n意见反馈\n以上内容对您是否有帮助？\n意见反馈\n如果您有其他疑问，您也可以通过开发者社区问答频道来和我们联系探讨。\n社区提问AI 助手提问\n本文导读\n前提条件\n创建定时触发器\n简体中文\n华为开发者联盟 版权所有 ©2026\n问题反馈\n使用条款\n华为开发者联盟用户协议\n关于华为开发者联盟与隐私的声明\nCookies\n开源软件声明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloudfunction-crontrigger-0000001658717864",
+      "status": "browser-read",
+      "tables": [
+        {
+          "location": "",
+          "rows": [
+            [
+              "参数",
+              "说明"
+            ],
+            [
+              "触发器类型",
+              "定时触发器。"
+            ],
+            [
+              "触发器名称",
+              "触发器的名称，仅起到显示作用。"
+            ],
+            [
+              "事件值",
+              "触发函数时传入的事件，即函数的入参。格式为JSON字符串。"
+            ],
+            [
+              "日程表",
+              "触发函数的时间计划。支持如下两种格式： Every表达式 @every value unit格式，其中value为一个正整数，unit可以为“s”、“m”、“h”，表示每隔value unit的时间触发一次函数。例如，“@every 6m” 表示每隔6分钟触发一次函数。 Cron表达式 cron(Minute Hour Day-of-month Month-of-year Day-of-week)格式，即kubernetes cronjob支持的标准的cron表达式的形式 Minutes：值范围0-59，支持括号内的特殊字符（, - * /） Hours：值范围0-23，支持括号内的特殊字符（, - * /） Day-of-month：值范围1-31，支持括号内的特殊字符（, - * /） Month-of-year：值范围1-12或JAN-DEC，支持括号内的特殊字符（, - * /） Day-of-week：值范围0-6或SUN-SAT，支持括号内的特殊字符（, - * ） 说明 cron在欧洲站点以UTC时间运行，在非欧洲站点以北京时间运行。"
+            ],
+            [
+              "调用方式",
+              "支持同步调用和异步调用。"
+            ],
+            [
+              "启用",
+              "是否启用该触发器，默认为不启用。由于定时触发器配置完成后暂不支持修改启用状态，请配置为“是”以启用触发器。"
+            ]
+          ],
+          "section": "创建定时触发器",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloudfunction-crontrigger-0000001658717864#section176113174550"
+        }
+      ],
+      "title": "定时触发器"
+    }
+  ]
+}

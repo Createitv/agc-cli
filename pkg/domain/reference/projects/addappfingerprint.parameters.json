@@ -1,0 +1,45 @@
+[
+  {
+    "name": "oauth2Token",
+    "in": "header",
+    "type": "string",
+    "required": true,
+    "description": "认证信息，传入获取用户授权码中获取的Access Token。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-addappfingerprint-0000001111685218#section236517415165"
+  },
+  {
+    "name": "uid",
+    "in": "header",
+    "type": "string",
+    "required": true,
+    "description": "开发者账号ID，可通过查询开发者账号ID查询。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-addappfingerprint-0000001111685218#section236517415165"
+  },
+  {
+    "name": "teamId",
+    "in": "header",
+    "type": "string",
+    "required": true,
+    "description": "应用归属的团队账号ID，可以通过获取应用简略信息接口获取。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-addappfingerprint-0000001111685218#section236517415165"
+  },
+  {
+    "name": "appId",
+    "in": "path",
+    "type": "string",
+    "required": true,
+    "description": "应用ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-addappfingerprint-0000001111685218#section886219295206"
+  },
+  {
+    "name": "addCertFingerprints",
+    "in": "body",
+    "type": "array",
+    "required": true,
+    "description": "需要添加的证书指纹，证书指纹中不能包含冒号。 1个应用最多只能有5个证书指纹。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-addappfingerprint-0000001111685218#section843129163214",
+    "itemsType": "string",
+    "maxItems": 5,
+    "itemsPattern": "^[^:]*$"
+  }
+]

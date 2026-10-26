@@ -1,0 +1,109 @@
+[
+  {
+    "name": "requestId",
+    "in": "header",
+    "type": "string",
+    "required": true,
+    "description": "请求ID，最大长度128个字符，必须唯一。开发者自定义，用于鉴别是否是重复请求。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadapplyfor-0000002328236376#section119494174419",
+    "maxLength": 128
+  },
+  {
+    "name": "devId",
+    "in": "path",
+    "type": "integer",
+    "required": true,
+    "description": "开发者ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadapplyfor-0000002328236376#section6704618182019"
+  },
+  {
+    "name": "appId",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "游戏APP ID，获取方法参考查询应用信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadapplyfor-0000002328236376#section985411610234"
+  },
+  {
+    "name": "versionId",
+    "in": "body",
+    "type": "integer",
+    "required": true,
+    "description": "资源包版本ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadapplyfor-0000002328236376#section985411610234"
+  },
+  {
+    "name": "fileName",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "应用包文件名称，最大长度为255个字符，且名称不能包含特殊字符（|）、（:）、（/）、（\\）、（*）、（?）、（\"）、（<）、（>）。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadapplyfor-0000002328236376#section985411610234",
+    "maxLength": 255,
+    "pattern": "^[^|:/\\\\*?\"<>]+$"
+  },
+  {
+    "name": "fileSHA256",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "升级包文件SHA256值。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadapplyfor-0000002328236376#section985411610234"
+  },
+  {
+    "name": "fileLength",
+    "in": "body",
+    "type": "integer",
+    "required": true,
+    "description": "升级包文件大小（字节数）。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadapplyfor-0000002328236376#section985411610234"
+  },
+  {
+    "name": "fileType",
+    "in": "body",
+    "type": "integer",
+    "required": true,
+    "description": "升级包文件类型： 0：apk-resource",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadapplyfor-0000002328236376#section985411610234",
+    "enum": [
+      "0"
+    ]
+  },
+  {
+    "name": "filePartApplyInfo",
+    "in": "body",
+    "type": "array",
+    "required": false,
+    "description": "分段上传信息，分段数取值[0,1000]。 要求待上传的资源包文件不能低于5MB。 若待上传的资源包文件超过5GB，建议分段上传文件。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadapplyfor-0000002328236376#section985411610234",
+    "itemsType": "object",
+    "maxItems": 1000,
+    "itemsProperties": [
+      {
+        "name": "partNo",
+        "in": "body",
+        "type": "string",
+        "required": false,
+        "description": "分段序号。最大长度为1024个字符。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadapplyfor-0000002328236376#section985411610234",
+        "maxLength": 1024
+      },
+      {
+        "name": "fileSHA256",
+        "in": "body",
+        "type": "string",
+        "required": false,
+        "description": "分段升级包文件SHA256值。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadapplyfor-0000002328236376#section985411610234"
+      },
+      {
+        "name": "fileLength",
+        "in": "body",
+        "type": "integer",
+        "required": false,
+        "description": "分段升级包文件大小（字节数）。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadapplyfor-0000002328236376#section985411610234"
+      }
+    ]
+  }
+]

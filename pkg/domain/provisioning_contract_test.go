@@ -4,7 +4,7 @@ import "testing"
 
 func TestProvisioningLifecycleRequiredContracts(t *testing.T) {
 	cases := []struct{ id, name, location, kind string }{
-		{"provision-api-add-fingerprints", "appId", "header", ""},
+		{"provision-api-add-fingerprints", "appId", "header", "string"},
 		{"provision-api-add-fingerprints", "fingerprintList", "body", "array"},
 		{"provision-api-delete-fingerprints", "fingerprintList", "body", "array"},
 		{"provision-api-apply-cent", "csr", "body", "string"},
@@ -18,7 +18,7 @@ func TestProvisioningLifecycleRequiredContracts(t *testing.T) {
 		{"provision-api-delete-provision", "id", "query", "string"},
 		{"provision-api-update-provision", "provisionId", "body", "string"},
 		{"provision-api-update-provision", "deviceIdList", "body", "array"},
-		{"provision-api-query-provision", "appId", "header", ""},
+		{"provision-api-query-provision", "appId", "header", "string"},
 	}
 	for _, c := range cases {
 		t.Run(c.id+"/"+c.name, func(t *testing.T) {

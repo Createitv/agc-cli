@@ -1,0 +1,34 @@
+[
+  {
+    "name": "client_id",
+    "type": "string",
+    "required": false,
+    "description": "客户端ID，获取方法参考获取客户端API授权。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-userdelete-0000001294069360#section6802739131316",
+    "in": "header"
+  },
+  {
+    "name": "Authorization",
+    "type": "string",
+    "required": false,
+    "description": "认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-userdelete-0000001294069360#section6802739131316",
+    "in": "header"
+  },
+  {
+    "name": "access_token",
+    "type": "string",
+    "required": true,
+    "description": "认证凭据。用户登录成功后，在登录接口的响应参数“accessToken”中获取。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-userdelete-0000001294069360#section6802739131316",
+    "in": "header"
+  },
+  {
+    "name": "productId",
+    "type": "string",
+    "required": true,
+    "description": "项目ID，查询方法可参见查询项目ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-userdelete-0000001294069360#section1636433517133",
+    "in": "query"
+  }
+]

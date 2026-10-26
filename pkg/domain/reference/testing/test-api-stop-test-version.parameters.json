@@ -1,0 +1,28 @@
+[
+  {
+    "name": "teamId",
+    "in": "header",
+    "type": "string",
+    "required": false,
+    "description": "开发者所在团队的团队ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-stop-test-version-0000002236041542#section15707195611112",
+    "maxLength": 64
+  },
+  {
+    "name": "appId",
+    "in": "query",
+    "type": "string",
+    "required": true,
+    "description": "应用ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-stop-test-version-0000002236041542#section6641436115716"
+  },
+  {
+    "name": "versionId",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "测试版本ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-stop-test-version-0000002236041542#section141117691213",
+    "maxLength": 32
+  }
+]

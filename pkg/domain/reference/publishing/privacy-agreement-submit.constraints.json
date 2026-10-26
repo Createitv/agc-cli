@@ -1,0 +1,14 @@
+{
+  "header.appId": {
+    "maxLength": 32
+  },
+  "body.id": {
+    "maxLength": 32
+  },
+  "body.requireConfirm": {
+    "enum": [
+      "1",
+      "0"
+    ]
+  }
+}

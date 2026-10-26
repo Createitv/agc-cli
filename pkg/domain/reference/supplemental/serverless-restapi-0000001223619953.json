@@ -1,0 +1,102 @@
+{
+  "checkedAt": "2026-10-26",
+  "examples": [],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-0000001054967271",
+      "title": "Server"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-uploadfile-0000001549318457",
+      "title": "上传文件"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-getfile-0000001498998530",
+      "title": "下载文件"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-deletefile-0000001549478405",
+      "title": "删除文件"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-getmetadata-0000001549518573",
+      "title": "获取文件元数据"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-changemetadata-0000001549198553",
+      "title": "修改文件元数据"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-listfile-0000001498518878",
+      "title": "列举文件"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-datatypes-0000001498678718",
+      "title": "数据类型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-error-0000001765362989",
+      "title": "错误码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/uploadresponse-0000001057373944",
+      "title": "UploadResponse"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-uploadfile-0000001549318457",
+      "title": "上传文件"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "文档说明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/restapi-0000001223619953",
+      "text": "上传文件"
+    },
+    {
+      "section": "文档说明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/restapi-0000001223619953",
+      "text": "下载文件"
+    },
+    {
+      "section": "文档说明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/restapi-0000001223619953",
+      "text": "删除文件"
+    },
+    {
+      "section": "文档说明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/restapi-0000001223619953",
+      "text": "获取文件元数据"
+    },
+    {
+      "section": "文档说明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/restapi-0000001223619953",
+      "text": "修改文件元数据"
+    },
+    {
+      "section": "文档说明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/restapi-0000001223619953",
+      "text": "列举文件"
+    },
+    {
+      "section": "文档说明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/restapi-0000001223619953",
+      "text": "数据类型"
+    },
+    {
+      "section": "文档说明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/restapi-0000001223619953",
+      "text": "错误码"
+    }
+  ],
+  "renderedText": "API参考\n云存储\nServer\nREST API\nREST API\n更新时间: 2026-10-22 14:56\n上传文件\n\n下载文件\n\n删除文件\n\n获取文件元数据\n\n修改文件元数据\n\n列举文件\n\n数据类型\n\n错误码\n\nUploadResponse\n上传文件\n意见反馈\n以上内容对您是否有帮助？\n意见反馈\n如果您有其他疑问，您也可以通过开发者社区问答频道来和我们联系探讨。\n社区提问AI 助手提问\n简体中文\n华为开发者联盟 版权所有 ©2026\n问题反馈\n使用条款\n华为开发者联盟用户协议\n关于华为开发者联盟与隐私的声明\nCookies\n开源软件声明",
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/restapi-0000001223619953",
+  "status": "browser-read",
+  "tables": [],
+  "title": "REST API",
+  "updatedAt": "2026-10-22 14:56"
+}

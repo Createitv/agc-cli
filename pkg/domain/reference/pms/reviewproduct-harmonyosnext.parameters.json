@@ -1,0 +1,28 @@
+[
+  {
+    "name": "appId",
+    "in": "header",
+    "type": "string",
+    "required": true,
+    "description": "应用ID，获取方法参考查询应用信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-reviewproduct-harmonyosnext-0000002166681241#section1146731320212"
+  },
+  {
+    "name": "requestId",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "请求序列。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-reviewproduct-harmonyosnext-0000002166681241#section48988321545",
+    "maxLength": 64
+  },
+  {
+    "name": "productIdList",
+    "in": "body",
+    "type": "array",
+    "required": true,
+    "description": "待审核商品列表，一次最多提交20个商品审核。商品ID是系统生成的ID,非用户指定，商品ID可以通过查询商品详情接口进行查询。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-reviewproduct-harmonyosnext-0000002166681241#section48988321545",
+    "itemsType": "string"
+  }
+]

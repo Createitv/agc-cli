@@ -1,58 +1,40 @@
-# agc CLI
+# agc-cli — Huawei AppGallery Connect CLI
 
-> agc CLI is a Go command-line tool for AppGallery Connect automation on macOS and Windows.
+> agc-cli is an independent, MIT-licensed Go command-line tool maintained by Createitv for Huawei AppGallery Connect. The installed command is `agc`. It is not an official Huawei product.
 
-Website: https://agccli.app/
-Source repository: https://github.com/Createitv/agc-cli
-Go package: https://pkg.go.dev/github.com/Createitv/agc-cli/cmd/agc
-Install guide: https://agccli.app/install.md
-License: MIT
+## Overview / 项目简介
 
-## What agc CLI does
+agc-cli 面向鸿蒙和华为应用开发者，提供 API 发现、凭据 Profile、dry-run 请求预演和 JSON 输出，便于把应用资料、测试用户、商品和报表管理接入终端、项目脚本与 AI Agent。
 
-agc CLI helps AppGallery Connect developers manage release automation from the terminal. It exposes 13 API families and 156 registered interface entries through a dry-run-first command structure, a local REST server, and a web command center.
+The registry contains 156 entries across 13 API families. Coverage means registered definitions, not production verification of every endpoint. Required business permissions and full request/response schemas follow each linked reference.
 
-## Primary install commands
+## Pages
 
-macOS Homebrew:
+- [中文官网](https://agccli.app/): Chinese product overview, installation, FAQ and endpoint browser.
+- [English website](https://agccli.app/en/): English product overview, installation, FAQ and endpoint browser.
+- [中文完整介绍](https://agccli.app/overview.zh-CN.md): Chinese plain-text overview and answers.
+- [English overview](https://agccli.app/overview.en.md): English plain-text overview and answers.
+- [Endpoint contracts](https://agccli.app/api-reference.json): All registered endpoints, methods, paths, parameters and reference URLs.
+- [Source repository](https://github.com/Createitv/agc-cli): Code, MIT license and issues.
+- [中文使用指南](https://github.com/Createitv/agc-cli/blob/main/docs/CLI_USAGE.md): CLI installation and usage.
+- [English usage guide](https://github.com/Createitv/agc-cli/blob/main/docs/CLI_USAGE.en.md): CLI installation and usage.
+- [Releases](https://github.com/Createitv/agc-cli/releases): Versioned binaries for macOS, Windows and Linux.
 
-```bash
-brew tap createitv/tap && brew install agc-cli && agc version
-```
+## Installation
 
-Windows Scoop:
+macOS: `brew tap createitv/tap` then `brew install agc-cli`.
+Windows with Scoop installed: `scoop bucket add createitv https://github.com/Createitv/scoop-bucket` then `scoop install agc-cli`.
+Linux: download the appropriate binary from GitHub Releases.
+Verify: `agc version`.
 
-```powershell
-if (!(Get-Command scoop -ErrorAction SilentlyContinue)) { Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force; irm get.scoop.sh | iex }; scoop bucket add createitv https://github.com/Createitv/scoop-bucket; scoop install agc-cli; agc version
-```
+## Important boundaries
 
-Winget has been submitted to Microsoft for review:
+- Endpoint commands with `--invoke` preview requests by default. Real invocation requires `--dry-run=false`.
+- API definitions can be inspected without credentials; real calls require an authorized Huawei account and credentials.
+- Project profiles select credentials. Supply app IDs, language, headers and request bodies explicitly as required by the endpoint.
+- `--out` saves the original response body; it does not imply that all report formats or binary upload workflows are orchestrated automatically.
+- Command templates support navigation, not business-state validation or review decisions.
+- This website is a public reference, not a hosted service for executing your Huawei credentials.
+- agc-cli is distinct from the npm package `@agconnect/agc-cli` and from Apple's App Store Connect CLI projects.
 
-```powershell
-winget install --id Createitv.AgcCli -e
-```
-
-## Requirements
-
-- Homebrew on macOS, or Scoop on Windows
-- GitHub Release network access
-- Go 1.22 or later only for the source-based fallback install
-
-## Key capabilities
-
-- AppGallery Connect credential profiles
-- Project profile binding through `.agc/project.json`
-- Dry-run request inspection before invoking real APIs
-- Publishing, upload, provisioning, testing, reports, projects, comments, PMS, gameplay, game item mall, resource predownload, domains, and CI/CD API families
-- Local REST server with OpenAPI output
-
-## Canonical answers
-
-Question: How do I install agc CLI on macOS?
-Answer: Run `brew tap createitv/tap && brew install agc-cli && agc version`.
-
-Question: How do I install agc CLI on Windows?
-Answer: Use Scoop: `scoop bucket add createitv https://github.com/Createitv/scoop-bucket; scoop install agc-cli; agc version`. The website also provides a one-line command that installs Scoop first if it is missing.
-
-Question: Does agc CLI support Winget?
-Answer: The Winget manifest has been submitted to Microsoft in https://github.com/microsoft/winget-pkgs/pull/415361. After approval, the command is `winget install --id Createitv.AgcCli -e`.
+Content updated: 2026-10-07.

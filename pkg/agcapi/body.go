@@ -15,6 +15,9 @@ func MarshalEndpointFields(endpoint domain.Endpoint, fields map[string]string) (
 	values := map[string]json.RawMessage{}
 	for name, value := range fields {
 		encoded, _ := json.Marshal(value)
+		if endpoint.DynamicBody != nil {
+			encoded = []byte(value)
+		}
 		for _, parameter := range endpoint.Parameters {
 			if parameter.Name == name && parameter.In == "body" && parameter.Type != "" && parameter.Type != "string" {
 				encoded = []byte(value)
@@ -25,6 +28,17 @@ func MarshalEndpointFields(endpoint domain.Endpoint, fields map[string]string) (
 	encoded, err := json.Marshal(values)
 	if err != nil {
 		return nil, fmt.Errorf("body fields must contain valid JSON values")
+	}
+	// 字段输入也使用结构化校验，保留数组下标；请求的 header/query
+	// 和跨字段条件由调用方拿到完整请求后统一检查。
+	bodyEndpoint := domain.Endpoint{SourceURL: endpoint.SourceURL, DynamicBody: endpoint.DynamicBody, DynamicBodyKeyPattern: endpoint.DynamicBodyKeyPattern}
+	for _, parameter := range endpoint.Parameters {
+		if parameter.In == "body" {
+			bodyEndpoint.Parameters = append(bodyEndpoint.Parameters, parameter)
+		}
+	}
+	if err := ValidateEndpointRequest(bodyEndpoint, nil, nil, encoded); err != nil {
+		return nil, err
 	}
 	if err := ValidateEndpointBody(endpoint, encoded); err != nil {
 		return nil, err

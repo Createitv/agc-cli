@@ -12,7 +12,14 @@ type ErrorEnvelope struct {
 }
 
 type ErrorDetail struct {
-	Code    string `json:"code"`
-	Message string `json:"message"`
-	Details string `json:"details,omitempty"`
+	CodeField            string            `json:"codeField,omitempty"`
+	ResultCodes          map[string]string `json:"resultCodes,omitempty"`
+	Endpoint             string            `json:"endpoint,omitempty"`
+	SourceURL            string            `json:"sourceUrl,omitempty"`
+	Suggestion           string            `json:"suggestion,omitempty"`
+	DocumentationCommand string            `json:"documentationCommand,omitempty"`
+	Violations           []InputViolation  `json:"violations,omitempty"`
+	Code                 string            `json:"code"`
+	Message              string            `json:"message"`
+	Details              string            `json:"details,omitempty"`
 }

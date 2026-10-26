@@ -1,0 +1,335 @@
+{
+  "examples": [],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter#section195981215284",
+      "title": "了解新版目录"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-open-ability-0000002235710238",
+      "title": "AGC开放能力"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-0000002236015554",
+      "title": "AppGallery Connect API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-appendix-0000002271000741",
+      "title": "附录"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-pi-appendix-pricechange-0000002236201366",
+      "title": "价格换算规则"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-appendix-application-status-0000002240477940",
+      "title": "应用状态说明"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-appendix-requirement-0000002271160693#section105771837135714",
+      "title": "HarmonyOS应用"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-appendix-requirement-0000002271160693#section14145104111518",
+      "title": "元服务"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-appendix-requirement-0000002271160693",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "文件类型",
+          "说明",
+          "支持设备",
+          "文件大小",
+          "分辨率",
+          "支持格式"
+        ],
+        [
+          "应用图标",
+          "只能1个图标",
+          "手机",
+          "PNG最大3MB，WEBP最大100KB",
+          "216*216或1024*1024",
+          "PNG/WEBP"
+        ],
+        [
+          "应用图标",
+          "只能1个图标",
+          "平板",
+          "PNG最大3MB，WEBP最大100KB",
+          "216*216或1024*1024",
+          "PNG/WEBP"
+        ],
+        [
+          "应用图标",
+          "只能1个图标",
+          "PC/2in1",
+          "最大3MB",
+          "216*216或1024*1024",
+          "PNG"
+        ],
+        [
+          "应用图标",
+          "只能1个图标",
+          "智慧屏",
+          "PNG/JPG/JPEG最大3MB，WEBP最大100KB",
+          "1024*1024",
+          "JPG/JPEG/PNG/WEBP"
+        ],
+        [
+          "应用图标",
+          "只能1个图标",
+          "手表",
+          "PNG最大3MB，WEBP最大100KB",
+          "216*216或1024*1024",
+          "PNG/WEBP"
+        ],
+        [
+          "应用介绍视频",
+          "最多3个视频",
+          "手机",
+          "最大500MB，视频时长15秒-2分钟",
+          "竖屏：720*1280或1080*1920 横屏：1280*720或1920*1080",
+          "MOV/MP4"
+        ],
+        [
+          "应用介绍视频",
+          "最多3个视频",
+          "平板",
+          "最大500MB，视频时长15秒-2分钟",
+          "竖屏：1280*1920 横屏：1920*1280",
+          "MOV/MP4"
+        ],
+        [
+          "应用介绍视频",
+          "最多3个视频",
+          "PC/2in1、智慧屏、手表",
+          "不支持",
+          "不支持",
+          "不支持"
+        ],
+        [
+          "应用介绍视频对应海报",
+          "视频海报与应用介绍视频的数量需要一致，且必须按照xx1.mp4，xx1.png，xx2.mp4，xx2.png这样的顺序才能成功上传",
+          "手机、平板",
+          "PNG/JPG/JPEG最大2MB，WEBP最大100KB",
+          "竖屏：450*800 横屏：800*450",
+          "JPG/JPEG/PNG/WEBP"
+        ],
+        [
+          "应用介绍视频对应海报",
+          "视频海报与应用介绍视频的数量需要一致，且必须按照xx1.mp4，xx1.png，xx2.mp4，xx2.png这样的顺序才能成功上传",
+          "PC/2in1、智慧屏、手表",
+          "不支持",
+          "不支持",
+          "不支持"
+        ],
+        [
+          "应用介绍截图",
+          "应用介绍截图",
+          "手机",
+          "PNG/JPG/JPEG最大5MB，WEBP最大200KB，3-10张",
+          "竖屏：1080*1920 横屏：1920*1080",
+          "JPG/JPEG/PNG/WEBP"
+        ],
+        [
+          "应用介绍截图",
+          "应用介绍截图",
+          "平板",
+          "PNG/JPG/JPEG最大5MB，WEBP最大200KB，3-10张",
+          "竖屏：1280*1920 横屏：1920*1280",
+          "JPG/JPEG/PNG/WEBP"
+        ],
+        [
+          "应用介绍截图",
+          "应用介绍截图",
+          "PC/2in1",
+          "最大5MB，3-10张",
+          "1920*1280",
+          "JPG/JPEG/PNG"
+        ],
+        [
+          "应用介绍截图",
+          "应用介绍截图",
+          "智慧屏",
+          "PNG/JPG/JPEG最大2MB，WEBP最大100KB，5-8张",
+          "1920*1080",
+          "JPG/JPEG/PNG/WEBP"
+        ],
+        [
+          "应用介绍截图",
+          "应用介绍截图",
+          "手表",
+          "PNG/JPG/JPEG最大2MB，WEBP最大100KB，4-8张",
+          "840*840",
+          "JPG/JPEG/PNG/WEBP"
+        ],
+        [
+          "推荐视频",
+          "推荐视频将展示在应用详情页的顶部，仅开放给联运等项目开发者使用",
+          "手机、平板",
+          "最大500MB，视频时长15秒-2分钟",
+          "1600*1200或1200*900",
+          "MOV/MP4"
+        ],
+        [
+          "推荐视频",
+          "推荐视频将展示在应用详情页的顶部，仅开放给联运等项目开发者使用",
+          "PC/2in1、智慧屏、手表",
+          "不支持",
+          "不支持",
+          "不支持"
+        ],
+        [
+          "推荐视频对应的海报",
+          "推荐视频对应的海报，海报个数与视频个数一致",
+          "手机、平板",
+          "PNG/JPG/JPEG最大2MB，WEBP最大100KB",
+          "不小于960*720，宽高比为4:3",
+          "JPG/JPEG/PNG/WEBP"
+        ],
+        [
+          "推荐视频对应的海报",
+          "推荐视频对应的海报，海报个数与视频个数一致",
+          "PC/2in1、智慧屏、手表",
+          "不支持",
+          "不支持",
+          "不支持"
+        ],
+        [
+          "推荐图片",
+          "应用的推荐图片",
+          "智慧屏",
+          "PNG/JPG/JPEG最大2MB，WEBP最大100KB，4张",
+          "分辨率必须按照396*223、414*573、1920*1080、880*494的顺序更新",
+          "JPG/JPEG/PNG/WEBP"
+        ],
+        [
+          "推荐图片",
+          "应用的推荐图片",
+          "手机、平板、PC/2in1、手表",
+          "不支持",
+          "不支持",
+          "不支持"
+        ],
+        [
+          "更新截图",
+          "截图将在应用详情页最近更新模块展示",
+          "手机、平板、PC/2in1",
+          "PNG/JPG/JPEG最大5MB，WEBP最大200KB",
+          "1920*1080",
+          "JPG/JPEG/PNG/WEBP"
+        ],
+        [
+          "更新截图",
+          "截图将在应用详情页最近更新模块展示",
+          "智慧屏、手表",
+          "不支持",
+          "不支持",
+          "不支持"
+        ],
+        [
+          "更新视频",
+          "视频将在应用详情页最近更新模块展示",
+          "手机、平板、PC/2in1",
+          "最大500MB，视频时长15秒-2分钟",
+          "1920*1080",
+          "MOV/MP4"
+        ],
+        [
+          "更新视频",
+          "视频将在应用详情页最近更新模块展示",
+          "智慧屏、手表",
+          "不支持",
+          "不支持",
+          "不支持"
+        ],
+        [
+          "软件包",
+          "应用软件包",
+          "所有",
+          "APP最大4GB。",
+          "不涉及",
+          "APP"
+        ],
+        [
+          "应用版权证书或代理证书",
+          "《免责函》、《计算机软件著作权证书》和其他资质文件，最多10张",
+          "手机、平板、PC/2in1、智慧屏、手表",
+          "最大15MB",
+          "无要求",
+          "JPG/PNG/BMP"
+        ],
+        [
+          "电子证书PDF文件",
+          "包含电子版权证书",
+          "所有",
+          "最大5MB",
+          "不涉及",
+          "PDF"
+        ],
+        [
+          "文化部版号截图",
+          "游戏版号信息、版号证明，最多5张",
+          "手机、平板、PC/2in1、智慧屏、手表",
+          "最大4MB",
+          "无要求",
+          "JPG/JPEG/PNG/PDF"
+        ],
+        [
+          "HarmonyOS应用受限权限使用说明视频",
+          "1个",
+          "手机、平板、PC/2in1、智慧屏、手表",
+          "最大500MB",
+          "不涉及",
+          "MOV/MP4"
+        ]
+      ],
+      "section": "HarmonyOS应用",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-appendix-requirement-0000002271160693#section105771837135714"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "文件类型",
+          "说明",
+          "支持设备",
+          "文件大小",
+          "分辨率",
+          "支持格式"
+        ],
+        [
+          "应用图标",
+          "只能1个图标",
+          "手机、平板、PC/2in1、手表",
+          "最大500KB",
+          "216*216",
+          "PNG"
+        ],
+        [
+          "应用图标",
+          "只能1个图标",
+          "智慧屏",
+          "最大3MB",
+          "1024*1024",
+          "JPG/JPEG/PNG"
+        ]
+      ],
+      "section": "元服务",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-appendix-requirement-0000002271160693#section14145104111518"
+    }
+  ],
+  "title": "应用文件要求",
+  "updatedAt": "2026-07-09 10:15",
+  "checkedAt": "2026-10-07T03:08:01.011Z"
+}

@@ -1,0 +1,76 @@
+{
+  "examples": [],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter#section195981215284",
+      "title": "了解新版目录"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-open-ability-0000002235710238",
+      "title": "AGC开放能力"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-0000002236015554",
+      "title": "AppGallery Connect API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-provision-api-reference-0000002236041494",
+      "title": "Provisioning API参考"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-provision-api-data-0000002271160637",
+      "title": "数据模型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-provision-api-data-0000002271160637",
+      "title": "数据模型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-provision-api-data-adddeviceresult-0000002271160641",
+      "title": "AddDeviceResult"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-provision-api-data-adddeviceinfo-0000002236201314",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "deviceName",
+          "M",
+          "String(100)",
+          "设备名称。"
+        ],
+        [
+          "udid",
+          "M",
+          "String(64)",
+          "设备UDID。"
+        ],
+        [
+          "deviceType",
+          "M",
+          "Integer(32)",
+          "设备类型。 取值范围： 1：运动手表 2：智能手表 4：手机 5：平板 8：智慧屏 19：PC/2in1"
+        ]
+      ],
+      "section": "",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-provision-api-data-adddeviceinfo-0000002236201314"
+    }
+  ],
+  "title": "AddDeviceInfo",
+  "updatedAt": "2026-06-25 19:52",
+  "checkedAt": "2026-10-07T03:47:56.701Z"
+}

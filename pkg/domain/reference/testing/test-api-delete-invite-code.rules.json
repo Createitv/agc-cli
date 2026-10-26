@@ -1,0 +1,13 @@
+[
+  {
+    "id": "oauth-team",
+    "kind": "required_with",
+    "field": "header.teamId",
+    "fields": [
+      "header.oauth2Token"
+    ],
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-delete-invite-code-0000002634878570#section9736184114188",
+    "message": "OAuth authorization requires its selected teamId.",
+    "suggestion": "Supply the selected OAuth team ID in the teamId header."
+  }
+]

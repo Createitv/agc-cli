@@ -1,0 +1,38 @@
+[
+  {
+    "name": "appId",
+    "in": "header",
+    "type": "string",
+    "required": true,
+    "description": "应用ID，获取方法参考查询应用信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchdeactpromotion-harmonyosnext-0000002131350720#section1146731320212"
+  },
+  {
+    "name": "requestId",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "请求序列。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchdeactpromotion-harmonyosnext-0000002131350720#section48988321545",
+    "maxLength": 64
+  },
+  {
+    "name": "promotions",
+    "in": "body",
+    "type": "array",
+    "required": true,
+    "description": "商品促销ID列表，促销ID长度最大32字符，列表中不超过100个促销ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchdeactpromotion-harmonyosnext-0000002131350720#section48988321545",
+    "itemsType": "string",
+    "maxItems": 100
+  },
+  {
+    "name": "immediateEnd",
+    "in": "body",
+    "type": "string",
+    "required": false,
+    "description": "值为1标识促销立即结束，更新促销结束时间，不传或者其它值不更新促销结束时间。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchdeactpromotion-harmonyosnext-0000002131350720#section48988321545",
+    "maxLength": 2
+  }
+]
