@@ -8,6 +8,7 @@ import (
 	"crypto/x509"
 	"encoding/json"
 	"encoding/pem"
+	"github.com/Createitv/agc-cli/internal/managementtest"
 	"net/http"
 	"net/http/httptest"
 	"os"
@@ -23,7 +24,8 @@ import (
 
 // Tests must never inherit a developer's real local credentials.
 func TestMain(m *testing.M) {
-	for _, name := range []string{"AGC_PROFILE", "AGC_CLIENT_ID", "AGC_CLIENT_KEY", "AGC_CLIENT_SECRET", "AGC_SERVICE_ACCOUNT_FILE", "AGC_CREDENTIALS_PATH", "AGC_ACCESS_TOKEN", "AGC_SERVER_TOKEN"} {
+	managementtest.ExitIfHDCStub()
+	for _, name := range []string{"AGC_PROFILE", "AGC_CLIENT_ID", "AGC_CLIENT_KEY", "AGC_CLIENT_SECRET", "AGC_SERVICE_ACCOUNT_FILE", "AGC_CREDENTIALS_PATH", "AGC_ACCESS_TOKEN", "AGC_OAUTH2_TOKEN", "AGC_SERVER_TOKEN"} {
 		if err := os.Unsetenv(name); err != nil {
 			os.Exit(1)
 		}

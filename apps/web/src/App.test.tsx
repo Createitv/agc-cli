@@ -39,9 +39,33 @@ describe('App', () => {
     fireEvent.click(screen.getByRole('button', { name: '安装' }));
 
     expect(screen.getByRole('dialog', { name: '像普通 CLI 工具一样安装 agc。' })).toBeInTheDocument();
-    expect(screen.getAllByText(/brew install agc-cli/).length).toBeGreaterThan(1);
+    expect(screen.getAllByText(/npm install --global @createitv\/agc-cli/).length).toBeGreaterThan(1);
+    expect(screen.getAllByText(/brew install agc-cli/).length).toBeGreaterThan(0);
     expect(screen.getAllByText(/scoop install agc-cli/).length).toBeGreaterThan(0);
     expect(document.documentElement).toHaveAttribute('lang', 'zh-CN');
+  });
+
+  it('presents NPM as the default cross-platform CI installation', () => {
+    render(<App />);
+    expect(screen.getByText('Windows · macOS · Linux CI')).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: 'Install' }));
+    expect(screen.getByRole('tab', { name: 'NPM · all platforms' })).toHaveAttribute('aria-selected', 'true');
+    expect(screen.getByRole('dialog')).toHaveTextContent('npm install --global @createitv/agc-cli && agc version');
+    expect(screen.getByText(/without lifecycle install scripts/i)).toBeInTheDocument();
+  });
+
+  it('lists downloadable Agent Skills and copyable install commands', () => {
+    render(<App />);
+    expect(screen.getByText('Give your coding agent a map of AppGallery Connect.')).toBeInTheDocument();
+    expect(screen.getByText('agc-publishing')).toBeInTheDocument();
+    expect(screen.getAllByText(/agc skills install --name/)).toHaveLength(6);
+    expect(screen.getAllByRole('link', { name: 'Download SKILL.md' })).toHaveLength(6);
+    expect(screen.getByRole('link', { name: /Contribute a Skill/ })).toHaveAttribute('href', 'https://github.com/Createitv/agc-cli/blob/main/CONTRIBUTING.md');
+    expect(screen.getByRole('heading', { name: 'Agent-readable documentation' })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /Agent usage guide/ })).toHaveAttribute('href', '/agent-guide.en.md');
+    expect(screen.getByRole('link', { name: /Skills index/ })).toHaveAttribute('href', '/skills.md');
+    expect(screen.getByRole('link', { name: /Full AI context/ })).toHaveAttribute('href', '/llms-full.txt');
+    expect(screen.getByRole('link', { name: /API contract JSON/ })).toHaveAttribute('href', '/api-reference.json');
   });
 
   it('shows the complete selected family without a local API server', async () => {
@@ -67,4 +91,12 @@ describe('App', () => {
     expect(document.documentElement).toHaveAttribute('lang', 'en');
     expect(document.querySelectorAll('.endpointEntry')).toHaveLength(12);
   });
+
+ it('selects the bundled cache family when the API is unavailable', () => {
+  window.history.replaceState({}, '', '/en/reference/cache');
+  render(<App />);
+  expect(screen.getAllByText(/Cloud Cache/).length).toBeGreaterThan(0);
+  expect(screen.getAllByText(/286/).length).toBeGreaterThan(0);
+ });
+
 });

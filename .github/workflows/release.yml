@@ -112,4 +112,19 @@ jobs:
             echo '```powershell'
             echo "winget install --id Createitv.AgcCli -e"
             echo '```'
+            echo
+            echo "Windows, macOS, and Linux with Node.js 18+:"
+            echo '```bash'
+            echo "npm install --global @createitv/agc-cli && agc version"
+            echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
+
+  npm:
+    if: ${{ !contains(github.ref_name, '-') }}
+    needs: release
+    uses: ./.github/workflows/npm.yml
+    with:
+      tag: ${{ github.ref_name }}
+    permissions:
+      contents: read
+      id-token: write

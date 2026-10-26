@@ -1,0 +1,4 @@
+interface:
+  display_name: "AGC Publishing"
+  short_description: "Prepare and verify AppGallery Connect releases"
+  default_prompt: "Use $agc-publishing to inspect the app release state, preview the required agc commands, and execute only the authorized publishing operation."

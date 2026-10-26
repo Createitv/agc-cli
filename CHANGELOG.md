@@ -4,7 +4,27 @@
 
 User-visible changes are listed here. Published binaries and versions are available in [GitHub Releases](https://github.com/Createitv/agc-cli/releases).
 
+## [0.3.2] - 2026-10-26
+
+- Add reviewed cloud development management, schema, cache, function resources and create-only SAM deployment.
+- Expand local contract validation, offline documentation discovery and regression coverage.
+- Preserve account identity, Agent Skills installation and package publication workflows.
+- Live Huawei write operations remain unverified; documented unsupported operations remain explicit.
+
 ## Unreleased
+
+### Added
+
+- 按 ASC Skills 的任务分层模式增加鉴权、发布、邀请测试、报表和 CI/CD Skills，并增加 `agc skills list/install` 便捷安装命令。/ Added task-oriented authentication, publishing, testing, reports, and CI/CD Skills following the ASC Skills pattern, plus `agc skills list/install` convenience commands.
+- 增加 `agc auth whoami`，安全显示当前凭据身份；完成华为 OAuth Client 用户授权后，可通过 `AGC_OAUTH2_TOKEN` 与 `--teams` 查询官方团队账号列表。/ Added `agc auth whoami` for secret-free local identity output and optional official team-account lookup through `AGC_OAUTH2_TOKEN` and `--teams` after Huawei OAuth Client user authorization.
+
+## v0.3.0 — 2026-10-13
+
+### Added
+
+- 提供跨 macOS、Linux、Windows 的 `@createitv/agc-cli` NPM 安装包，在官网提供安装入口，并在发布前后校验各平台安装版本与包完整性。/ Added a script-free `@createitv/agc-cli` npm package for macOS, Linux, and Windows, exposed it on the website, and verified platform installs and package integrity before and after publishing.
+- 增加 GitHub Sponsors 项目入口和中英文赞助说明。/ Added GitHub Sponsors project metadata and bilingual sponsorship guidance.
+- 增加可供 Codex、Claude Code 等 Agent 安装的 `agc-cli-usage` Skill 和双语安装说明。/ Added an installable `agc-cli-usage` skill for Codex, Claude Code, and other agents, with bilingual installation guidance.
 
 ## v0.2.0 — 2026-10-07
 

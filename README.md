@@ -7,6 +7,7 @@
 [![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Linux%20%7C%20Windows-blue)](https://github.com/Createitv/agc-cli/releases)
 [![Release](https://img.shields.io/github/v/release/Createitv/agc-cli)](https://github.com/Createitv/agc-cli/releases)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+[![Sponsor](https://img.shields.io/badge/GitHub-Sponsor-ea4aaa?logo=githubsponsors)](https://github.com/sponsors/Createitv)
 
 **简体中文** · [English](README.en.md) · [官网](https://agccli.app/)
 
@@ -14,12 +15,14 @@
 
 ## 快速开始
 
-需要应用 ID 和 Service Account JSON，可在 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 管理应用和凭据。macOS 使用 Homebrew：
+需要应用 ID 和 Service Account JSON，可在 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 管理应用和凭据。macOS 可使用 Homebrew；已安装 Node.js 18+ 的 Windows、macOS、Linux CI 也可使用 NPM：
 
 ```bash
 brew tap createitv/tap && brew install agc-cli
+# 跨平台 CI：npm install --global @createitv/agc-cli
 
 agc auth login --service-account-file ~/.agc/service-account.json --name production
+agc auth whoami
 agc init --app-id YOUR_APP_ID --default-profile production
 
 # 预览查询；添加 --dry-run=false 才会发送请求
@@ -48,6 +51,8 @@ agc publishing app-info-query --invoke --query appId=YOUR_APP_ID --query lang=zh
 
 默认 JSON；人工浏览可加 `--output table` 或 `--output markdown`。`agc web-server` 提供本地 REST API。命令模板需要补齐参数，当前不会根据远程业务状态判断能否提交。详见 [Agent 与 REST 使用说明](docs/CLI_USAGE.md#json-与-agent-支持)。
 
+仓库还提供可供 Codex、Claude Code 等 Agent 安装的[任务型 Agent Skills](docs/AGENT_SKILLS.md)，涵盖通用使用、鉴权、发布、邀请测试、报表和 CI/CD。
+
 ## 功能覆盖
 
 | 领域 | 可以做什么 |
@@ -62,7 +67,7 @@ agc publishing app-info-query --invoke --query appId=YOUR_APP_ID --query lang=zh
 | **游戏与资源包** | 查看游戏回调协议和资源包预下载接口 → `agc gameplay` / `agc game-items` / `agc resources` |
 | **REST 与 Web** | 浏览接口注册表，预览和调用本地 REST，导出 OpenAPI → [本地使用](docs/CLI_USAGE.md#webrest-与-openapi) |
 
-注册表包含 19 个 API 家族、239 个条目，支持通用请求构建与调用；各接口的字段、权限和前置条件以其 `sourceUrl` 华为文档为准。签名文件上传支持 `--file`，本地 Hvigor 构建支持实际执行并返回 HAP 元数据；全部接口的真实验证仍在进行。
+注册表包含 13 个 API 家族、159 个条目，支持通用请求构建与调用；各接口的字段、权限和前置条件以其 `sourceUrl` 华为文档为准。上传编排和本地 Hvigor 构建执行器尚未完成。
 
 所有文档见[文档索引](docs/README.md)。所有命令与参数用 `agc --help`、`agc <家族> <接口> --help` 查看；`agc endpoints --pretty` 列出接口定义和官方参考链接。
 
@@ -73,18 +78,14 @@ agc publishing app-info-query --invoke --query appId=YOUR_APP_ID --query lang=zh
 - [变更日志](CHANGELOG.md) · [Release 下载](https://github.com/Createitv/agc-cli/releases)
 - [反馈问题](https://github.com/Createitv/agc-cli/issues) — 附版本、脱敏命令和错误信息
 
-## 支持项目
+## 赞助
 
-agc-cli 的持续维护需要接口适配、跨平台验证和文档更新。如果它帮你减少了 AppGallery Connect 的重复操作，欢迎关注并支持项目。
-
-agc-cli 由[林逍遥（Createitv）](https://github.com/Createitv)维护。你可以通过[维护者的 GitHub Sponsors 主页](https://github.com/sponsors/Createitv)支持他的开源工作，包括本项目的持续维护。该主页属于维护者个人账号，当前已提交审核，尚未公开上线或开放收款。
-
-现在也可以通过[提交问题](https://github.com/Createitv/agc-cli/issues)、分享使用经验或贡献代码帮助项目。详见[赞助说明](docs/SPONSORSHIP.md)。
+如果 agc-cli 为你的开发或自动化工作节省了时间，可以通过 [GitHub Sponsors](https://github.com/sponsors/Createitv) 支持项目的持续维护、跨平台测试和文档更新。
 
 ## 许可证
 
 [MIT](LICENSE)。
 
-## 云开发（Serverless）
+## Cloud development management
 
-工作区云开发覆盖 102 项操作，包含认证、数据库、存储、托管、函数、缓存、SAM 部署及预加载调试，支持 CLI、REST、OpenAPI 与 `--docs`。使用、源码适配和验证边界见 [云开发文档](docs/SERVERLESS.md)及[管理扩展](docs/SERVERLESS_MANAGEMENT.md)。本地构建使用 `./bin/agc`；已安装版本需另行升级。
+The CLI exposes 102 cloud-development operations, including reviewed management contracts. See [management usage and limitations](docs/SERVERLESS_MANAGEMENT.md). Huawei live write validation remains pending.

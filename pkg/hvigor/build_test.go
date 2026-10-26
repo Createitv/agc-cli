@@ -4,6 +4,7 @@ import (
 	"archive/zip"
 	"context"
 	"encoding/json"
+	"fmt"
 	"os"
 	"path/filepath"
 	"strings"
@@ -15,10 +16,7 @@ func TestBuildReturnsOnlySelectedProductOutputArtifacts(t *testing.T) {
 	if err := os.WriteFile(filepath.Join(project, "build-profile.json5"), []byte("{}"), 0600); err != nil {
 		t.Fatal(err)
 	}
-	executable := filepath.Join(project, "hvigorw")
-	if err := os.WriteFile(executable, []byte("#!/bin/sh\nexit 0\n"), 0700); err != nil {
-		t.Fatal(err)
-	}
+	executable := offlineHvigor(t, false)
 	selected := filepath.Join(project, "entry", "build", "default", "outputs", "default", "entry.hap")
 	for _, path := range []string{selected, filepath.Join(project, "entry", "build", "other", "outputs", "other", "entry.hap"), filepath.Join(project, "unrelated.hap")} {
 		if err := os.MkdirAll(filepath.Dir(path), 0700); err != nil {
@@ -57,10 +55,7 @@ func TestAppBuildSelectsProjectAPPInsteadOfModuleHAP(t *testing.T) {
 	if err := os.WriteFile(filepath.Join(project, "build-profile.json5"), []byte("{}"), 0600); err != nil {
 		t.Fatal(err)
 	}
-	executable := filepath.Join(project, "hvigorw")
-	if err := os.WriteFile(executable, []byte("#!/bin/sh\nexit 0\n"), 0700); err != nil {
-		t.Fatal(err)
-	}
+	executable := offlineHvigor(t, false)
 	for _, relative := range []string{"build/outputs/default/fixture.app", "entry/build/default/outputs/default/entry.hap", "build/outputs/other/fixture.app"} {
 		path := filepath.Join(project, relative)
 		if err := os.MkdirAll(filepath.Dir(path), 0700); err != nil {
@@ -105,10 +100,7 @@ func TestBuildDoesNotAcceptSuccessfulProcessWithoutArtifact(t *testing.T) {
 	if err := os.WriteFile(filepath.Join(project, "build-profile.json5"), []byte("{}"), 0600); err != nil {
 		t.Fatal(err)
 	}
-	executable := filepath.Join(project, "hvigorw")
-	if err := os.WriteFile(executable, []byte("#!/bin/sh\nexit 0\n"), 0700); err != nil {
-		t.Fatal(err)
-	}
+	executable := offlineHvigor(t, false)
 	_, err := Build(context.Background(), Request{Project: project, Executable: executable})
 	if err == nil || !strings.Contains(err.Error(), "no HAP") {
 		t.Fatalf("expected missing artifact error, got %v", err)
@@ -118,10 +110,32 @@ func TestBuildDoesNotAcceptSuccessfulProcessWithoutArtifact(t *testing.T) {
 func TestBuildFailureDoesNotExposeBuildOutput(t *testing.T) {
 	project := t.TempDir()
 	os.WriteFile(filepath.Join(project, "build-profile.json5"), []byte("{}"), 0600)
-	executable := filepath.Join(project, "hvigorw")
-	os.WriteFile(executable, []byte("#!/bin/sh\necho SECRET_SIGNING_CONFIGURATION >&2\nexit 1\n"), 0700)
+	executable := offlineHvigor(t, true)
 	_, err := Build(context.Background(), Request{Project: project, Executable: executable})
 	if err == nil || strings.Contains(err.Error(), "SECRET") {
 		t.Fatalf("expected sanitized build failure: %v", err)
 	}
+}
+
+func offlineHvigor(t *testing.T, fail bool) string {
+	t.Helper()
+	t.Setenv("AGC_OFFLINE_HVIGOR_STUB", "success")
+	if fail {
+		t.Setenv("AGC_OFFLINE_HVIGOR_STUB", "failure")
+	}
+	executable, err := os.Executable()
+	if err != nil {
+		t.Fatal(err)
+	}
+	return executable
+}
+func TestMain(m *testing.M) {
+	if len(os.Args) > 1 && os.Args[1] == "--mode" && os.Getenv("AGC_OFFLINE_HVIGOR_STUB") != "" {
+		if os.Getenv("AGC_OFFLINE_HVIGOR_STUB") == "failure" {
+			fmt.Fprintln(os.Stderr, "SECRET_SIGNING_CONFIGURATION")
+			os.Exit(1)
+		}
+		os.Exit(0)
+	}
+	os.Exit(m.Run())
 }

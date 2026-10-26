@@ -3,8 +3,7 @@ package agcapi
 import (
 	"context"
 	"encoding/json"
-	"os"
-	"path/filepath"
+	"github.com/Createitv/agc-cli/internal/managementtest"
 	"strings"
 	"testing"
 
@@ -16,11 +15,7 @@ func TestPrefetchDeviceUsesExplicitDeviceWithoutShellInterpolation(t *testing.T)
 	if !ok {
 		t.Fatal("documented device command missing")
 	}
-	p := filepath.Join(t.TempDir(), "hdc")
-	// A test-owned executable proves the exact argv; no handset is contacted.
-	if err := os.WriteFile(p, []byte("#!/bin/sh\nprintf '%s\\n' \"$@\"\n"), 0700); err != nil {
-		t.Fatal(err)
-	}
+	p := managementtest.HDCFile(t)
 	b, _ := json.Marshal(map[string]string{"bundleName": "com.example.offline", "deviceId": "offline-device", "hdcPath": p})
 	got, err := InvokeEndpoint(context.Background(), nil, InvokeRequest{Endpoint: e, Body: b})
 	if err != nil {

@@ -2,17 +2,6 @@
 
 [项目首页](../README.md) · [English](CLI_USAGE.en.md)
 
-## 内置 Agent Skills
-
-```bash
-agc skills list --pretty
-agc skills show agc-cli --output markdown
-```
-
-这些指引内嵌于二进制，可离线读取，无需凭据；不会安装文件或查询远程技能库。默认输出 JSON，也支持 `--output table` 和 `--output markdown`。
-
-旧版 v0.3.0 不包含 `skills` 命令。源码修复需重新构建；已安装的发布版需在包含此修复的新版本发布后升级。
-
 ## 快速开始
 
 先准备 AppGallery Connect 中的应用 ID，以及 Service Account JSON 或 API Client 凭据。应用 ID 可从 [AppGallery Connect 控制台](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 的应用信息中查找。
@@ -27,7 +16,7 @@ brew install agc-cli
 agc version
 ```
 
-Windows 和 Linux 用户见[安装与升级](#安装与升级)。使用发布版安装包不需要 Go 或 Node.js。
+Windows 和 Linux 用户见[安装与升级](#安装与升级)。NPM 安装需要 Node.js 18+；其他发布版安装方式不需要 Go 或 Node.js。
 
 ### 2. 保存凭据
 
@@ -35,10 +24,10 @@ Windows 和 Linux 用户见[安装与升级](#安装与升级)。使用发布版
 
 ```bash
 agc auth login --service-account-file ~/.agc/service-account.json --name production
-agc auth check
+agc auth whoami
 ```
 
-`auth check` 显示当前本地凭据配置；它不验证华为服务器是否接受该凭据。其他登录方式见[鉴权与多账号](#鉴权与多账号)。
+`auth whoami` 显示当前本地凭据身份，不输出密钥。`auth check --remote` 可验证令牌和可用的应用或项目读取权限。其他登录方式见[鉴权与多账号](#鉴权与多账号)。
 
 ### 3. 绑定项目
 
@@ -68,11 +57,11 @@ agc publishing app-info-query --invoke --query appId=YOUR_APP_ID --query lang=zh
 
 ## 功能与当前状态
 
-当前注册 **184 个接口条目**：181 个华为官方接口/回调、2 个上传 URL handoff 操作、1 个本地 Hvigor bridge 条目。注册表示可以发现接口并构建通用请求，不表示每个接口都已通过生产验证。
+当前注册 **159 个接口条目**：156 个华为官方接口/回调、2 个上传 URL handoff 操作、1 个本地 Hvigor bridge 条目。注册表示可以发现接口并构建通用请求，不表示每个接口都已通过生产验证。
 
 | 你要做什么 | 命令入口 | 注册条目 |
 | --- | --- | ---: |
-| 查询/更新应用资料、多语言描述，构建提交审核请求 | `agc publishing` | 42 |
+| 查询/更新应用资料、多语言描述，构建提交审核请求 | `agc publishing` | 14 |
 | 查看上传地址、分片上传和确认上传接口 | `agc upload` | 6 |
 | 管理鸿蒙证书、Provisioning Profile、设备和指纹 | `agc provisioning` | 17 |
 | 查询和更新元服务域名配置 | `agc domains` | 5 |
@@ -85,7 +74,7 @@ agc publishing app-info-query --invoke --query appId=YOUR_APP_ID --query lang=zh
 | 查看资源包预下载接口 | `agc resources` | 8 |
 | 查看本地 Hvigor 构建接口定义 | `agc cicd` | 1 |
 
-目前支持接口发现、凭据选择、请求构建、通用 HTTP 调用、本地 REST 与 OpenAPI。签名上传通过 `--file` 发送二进制文件，分片上传需按初始化、获取地址、上传、合并顺序调用。本地构建可执行 `agc --timeout 180s cicd build-hvigor --invoke --dry-run=false --field project=/absolute/project/path`，成功后返回产物路径、大小与 SHA-256；本地构建不需要华为授权。`--field hvigorPath=/absolute/hvigorw/path` 可覆盖构建工具，`product` 默认 default，`buildMode` 默认 debug，也可设为 release。`--field task=assembleApp` 构建用于上传的项目 `.app` 包，默认任务 assembleHap 构建模块 `.hap`。产物是否签名取决于项目签名配置；构建成功不代表远端解析、审核或发布成功。构建输出包含敏感配置的可能性较高，因此 API 不返回原始工具日志。真实接口验证进度见 `docs/verification/goal-progress.json`。
+目前可用的是接口发现、凭据选择、请求构建、通用 HTTP 调用、本地 REST 与 OpenAPI。文件上传尚未封装为完整的二进制/multipart 上传流程；Hvigor 条目也尚未接入本地构建执行器。
 
 ## 按任务查找文档
 
@@ -128,6 +117,17 @@ scoop update agc-cli
 
 Winget 发布记录见 [manifest PR](https://github.com/microsoft/winget-pkgs/pull/415361)。使用前可运行 `winget search --id Createitv.AgcCli -e` 确认可用性。
 
+### Windows / macOS / Linux：NPM
+
+适合已统一安装 Node.js 18+ 的无人值守 CI 环境：
+
+```bash
+npm install --global @createitv/agc-cli
+agc version
+```
+
+需要固定版本时使用 `npm install --global @createitv/agc-cli@1.2.3`。该包不运行 `postinstall`，也不会在安装阶段另行访问 GitHub；五个受支持平台的官方二进制均包含在同一个 NPM 包中，因此可使用企业 NPM 镜像或预热的 NPM 缓存。当前支持 macOS/Linux amd64、arm64 和 Windows amd64。
+
 ### macOS / Linux / Windows：Release 安装包
 
 在 [Releases](https://github.com/Createitv/agc-cli/releases) 选择与你的系统和架构匹配的文件，按该版本的 `checksums.txt` 校验后解压，将 `agc`（Windows 为 `agc.exe`）放到 PATH 中，再运行 `agc version`。升级时用新版本替换旧二进制。
@@ -169,9 +169,19 @@ agc --project ../another-app auth check
 | 环境变量 | 用途 |
 | --- | --- |
 | `AGC_ACCESS_TOKEN` | 接口调用的 Bearer token，优先级低于 `--token`，高于凭据 profile |
+| `AGC_OAUTH2_TOKEN` | 华为 OAuth Client 用户授权令牌，仅供 `agc auth whoami --teams` 查询官方团队账号列表 |
 | `AGC_CREDENTIALS_PATH` | 覆盖默认凭据文件 `~/.agc/credentials.json`；低于 `--credentials-path` |
 
-`agc auth token` 输出令牌。当前 `auth login`、`auth list`、`auth check` 在 API Client 模式下可能输出 `clientKey`；这些输出不应直接上传到 Issue 或公开 CI 日志。凭据文件、Service Account 私钥和访问令牌应保存在本机或 CI secret store 中。
+查询当前身份：
+
+```bash
+agc auth whoami
+AGC_OAUTH2_TOKEN="$HUAWEI_USER_TOKEN" agc auth whoami --teams
+```
+
+普通调用显示 profile、API Client ID、Service Account `sub_account` 和本地项目上下文，不输出 Client Key 或私钥。华为[项目管理 API](https://developer.huawei.com/consumer/cn/doc/appgallery-connect-Guides/agcapi-project-overview-0000001111685232) 规定团队账号列表仅支持 OAuth Client 模式；Service Account 与 API Client 不能直接读取开发者/团队名称。完成用户 OAuth 授权后，将访问令牌临时放入 `AGC_OAUTH2_TOKEN` 并添加 `--teams`，命令会请求官方团队列表。不要将令牌写入命令参数、仓库、Issue 或公开 CI 日志。
+
+`agc auth token` 会将令牌输出到终端；凭据文件、Service Account 私钥和所有访问令牌都应保存在本机或 CI secret store 中。
 
 ## 命令发现与请求参数
 
@@ -199,66 +209,17 @@ agc endpoints --pretty
 | `--param key=value` | 路径参数，可重复 |
 | `--query key=value` | 查询参数，可重复 |
 | `--header key=value` | HTTP 请求头，可重复 |
-| `--field key=value` | JSON 字段，可重复；已声明的整数、数组和对象按相应 JSON 类型编码 |
+| `--field key=value` | JSON 字段，可重复；值按字符串编码 |
 | `--body request.json` | 读取完整请求体文件；优先于 `--field` |
 | `--token TOKEN` | 显式提供 Bearer token |
 | `--out response.json` | 将原始响应体保存到文件，不转换文件格式 |
 | `--timeout 120s` | 调整请求超时，默认 60 秒 |
 
-已声明类型的字段可通过 `--field` 传入整数、数组或对象；复杂嵌套请求也可使用 `--body`。dry-run 不展示完整 headers/body，也不校验全部华为业务字段；发送前需要自行核对请求文件、权限和官方协议。
+包含数组、对象、数字或布尔值的请求请使用 `--body`。dry-run 不展示完整 headers/body，也不校验全部华为业务字段；发送前需要自行核对请求文件、权限和官方协议。
 
 ## 现行 Publishing API 命令
 
-各操作的用途、请求位置和协议操作流程见 [Publishing 使用与核验](PUBLISHING_WORKFLOWS.md)。
-
-官网现行 Publishing API 参考的 31 项操作全部有对应命令。Publishing 共 42 个条目，包含保留的旧版命令。HarmonyOS 资料更新与提交发布使用下表的 V3 命令；原有 V2 命令保持兼容。
-
-| 官网操作 | CLI 命令 |
-| --- | --- |
-| 创建APP ID | `agc publishing app-create` |
-| 查询应用包名对应的appid | `agc publishing appid-list` |
-| 查询团队账号下的成员角色列表 | `agc publishing members-role-list` |
-| 查询应用信息 | `agc publishing app-info-query-v3` |
-| 更新应用基本信息 | `agc publishing app-info-update-v3` |
-| 更新应用语言信息 | `agc publishing language-info-update-v3` |
-| 删除应用语言信息 | `agc publishing language-info-delete` |
-| 更新应用文件信息 | `agc publishing app-file-info-v3` |
-| 更新应用软件包信息 | `agc publishing app-package-info-update` |
-| 更新版本上架时间 | `agc publishing update-releasetime` |
-| 更新分阶段发布 | `agc publishing phased-release-update` |
-| 查询应用软件包信息 | `agc publishing app-package-info-query` |
-| 查询软件包编译状态 | `agc publishing package-compile-status-v3` |
-| 查询应用所有版本类型的版本列表 | `agc publishing app-version-list` |
-| 查询应用未处理的问题工单 | `agc publishing app-version-voc` |
-| 查询需要上传的资质文件信息 | `agc publishing tag-qual-dependent` |
-| 提交资质审核任务 | `agc publishing qualification-review-create` |
-| 查询资质审核任务详情 | `agc publishing qualification-review-query` |
-| 修改资质审核任务 | `agc publishing qualification-review-update` |
-| 撤销资质审核任务 | `agc publishing qualification-review-cancel` |
-| 删除资质审核任务 | `agc publishing qualification-review-delete` |
-| 新建用户协议 | `agc publishing user-agreement-create` |
-| 查询用户协议列表 | `agc publishing user-agreement-list` |
-| 更新用户协议 | `agc publishing user-agreement-update` |
-| 提交隐私政策协议 | `agc publishing privacy-agreement-submit` |
-| 查询隐私政策协议列表 | `agc publishing privacy-agreement-list` |
-| 更新隐私政策协议 | `agc publishing privacy-agreement-update` |
-| 申请年龄分级 | `agc publishing app-age-rating` |
-| 提交发布 | `agc publishing app-submit-v3` |
-| 撤销审核 | `agc publishing on-shelf-cancel` |
-| 下架应用 | `agc publishing app-shelf-off` |
-
-执行 `agc publishing 命令名 --pretty` 可查看 HTTP 方法、路径、参数位置、必填性、类型和官方链接。`--query`、`--header` 接收字符串；`--field` 的整数值直接填写数字，数组与对象填写带引号的 JSON；完整嵌套结构可使用 `--body request.json`。协议列表支持 `--field name=` 空名称筛选。POST 查询类接口可直接调用；删除资质审核任务通过 JSON Body 传 `tagIds`。
-
-```bash
-agc --profile default publishing app-info-query-v3 --invoke --dry-run=false --query appId=YOUR_APP_ID
-agc --profile default publishing app-version-list --invoke --dry-run=false --header appId=YOUR_APP_ID
-agc --profile default publishing user-agreement-list --invoke --dry-run=false --header appId=YOUR_APP_ID --field name= --field type=2
-agc publishing app-package-info-update --invoke --query appId=YOUR_APP_ID --field fileName=app-release.app --field objectId=UPLOADED_OBJECT_ID
-agc publishing app-info-update-v3 --invoke --query appId=YOUR_APP_ID --body app-info.json
-agc publishing app-submit-v3 --invoke --query appId=YOUR_APP_ID --body submission.json
-```
-
-最后三条示例默认预览请求，增加 `--dry-run=false` 即执行对应操作。旧版 `app-info-update`、`language-info-update`、`app-file-info`、`app-submit` 继续保留，其现行 V3 命令增加 `-v3` 后缀。
+通过 `agc endpoints --family publishing` 查询接口，并使用 `--docs --pretty` 阅读参数契约。
 
 ## 应用发布流程
 
@@ -356,12 +317,8 @@ make ci
 
 主要目录：`cmd/agc/command`（CLI）、`pkg/agcapi`（鉴权与 HTTP）、`pkg/domain`（接口注册表）、`pkg/server`（本地 REST）、`apps/web`（网站）。欢迎通过 [Pull Request](https://github.com/Createitv/agc-cli/pulls) 改进命令、文档和测试。
 
-工具自身的发布配置见 [.goreleaser.yaml](../.goreleaser.yaml) 和 [Release workflow](../.github/workflows/release.yml)：`v*` tag 触发发布，配置包含 Release 安装包与校验文件、Homebrew、Scoop、Winget manifest PR 和 GHCR 镜像。Homebrew/Scoop/Winget 发布需要 `TAP_GITHUB_TOKEN`。实际发布结果以 Actions 和 Release 页面为准。
+工具自身的发布配置见 [.goreleaser.yaml](../.goreleaser.yaml)、[Release workflow](../.github/workflows/release.yml) 和 [NPM workflow](../.github/workflows/npm.yml)：`v*` tag 触发 Release，稳定版发布完成后再从已校验的 Release 资产构建 NPM 包。Homebrew/Scoop/Winget 发布需要 `TAP_GITHUB_TOKEN`；NPM 使用 npm Trusted Publishing。实际发布结果以 Actions、Release 页面和 npm registry 回读为准。
 
 ## 许可证
 
 [MIT](../LICENSE)
-
-## 云开发（Serverless）
-
-新增认证、云数据库、云存储、云托管、云函数和模板回调共 55 项操作。查看 [云开发使用与验证边界](SERVERLESS.md)。默认 dry-run，云端操作需显式选择专用测试资源。

@@ -5,9 +5,11 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"io"
 	"net"
 	"net/http"
 	"os"
+	"os/exec"
 	"strings"
 	"time"
 
@@ -31,6 +33,21 @@ type options struct {
 	timeout time.Duration
 	profile string
 	project string
+}
+
+type serviceAccountIdentity struct {
+	ProjectID  string `json:"projectId,omitempty"`
+	SubAccount string `json:"subAccount"`
+}
+
+type authIdentity struct {
+	Credential     *agcapi.CredentialView  `json:"credential,omitempty"`
+	ServiceAccount *serviceAccountIdentity `json:"serviceAccount,omitempty"`
+	Project        *project.Config         `json:"project,omitempty"`
+	Teams          []map[string]any        `json:"teams,omitempty"`
+	TeamResult     json.RawMessage         `json:"teamResult,omitempty"`
+	TeamLookup     string                  `json:"teamLookup"`
+	Message        string                  `json:"message,omitempty"`
 }
 
 func NewRootCommand() *cobra.Command {
@@ -58,6 +75,60 @@ func NewRootCommand() *cobra.Command {
 	for _, capability := range domain.DecoratedCapabilities() {
 		cmd.AddCommand(moduleCommand(opts, capability))
 	}
+	return cmd
+}
+
+var runSkillsCLI = func(ctx context.Context, stdout, stderr io.Writer, args ...string) error {
+	command := exec.CommandContext(ctx, "npx", args...)
+	command.Stdout = stdout
+	command.Stderr = stderr
+	command.Stdin = os.Stdin
+	if err := command.Run(); err != nil {
+		if execError, ok := err.(*exec.Error); ok && execError.Err == exec.ErrNotFound {
+			return fmt.Errorf("npx is required to manage Agent Skills; install Node.js and try again")
+		}
+		return fmt.Errorf("run Agent Skills installer: %w", err)
+	}
+	return nil
+}
+
+func remoteSkillsCommand() *cobra.Command {
+	const repository = "Createitv/agc-cli"
+	cmd := &cobra.Command{
+		Use:   "skills",
+		Short: "Browse and install agc-cli Agent Skills",
+	}
+	list := &cobra.Command{
+		Use:   "list",
+		Short: "List Agent Skills published by agc-cli",
+		RunE: func(cmd *cobra.Command, args []string) error {
+			return runSkillsCLI(cmd.Context(), cmd.OutOrStdout(), cmd.ErrOrStderr(), "--yes", "skills", "add", repository, "--list")
+		},
+	}
+	var name string
+	var agent string
+	var global bool
+	install := &cobra.Command{
+		Use:   "install",
+		Short: "Install one or all agc-cli Agent Skills",
+		RunE: func(cmd *cobra.Command, args []string) error {
+			installerArgs := []string{"--yes", "skills", "add", repository}
+			if name != "" {
+				installerArgs = append(installerArgs, "--skill", name)
+			}
+			if agent != "" {
+				installerArgs = append(installerArgs, "--agent", agent)
+			}
+			if global {
+				installerArgs = append(installerArgs, "--global")
+			}
+			return runSkillsCLI(cmd.Context(), cmd.OutOrStdout(), cmd.ErrOrStderr(), installerArgs...)
+		},
+	}
+	install.Flags().StringVar(&name, "name", "", "Install only the named skill; omit to install all skills")
+	install.Flags().StringVar(&agent, "agent", "", "Target agent supported by the skills installer, for example codex or claude-code")
+	install.Flags().BoolVar(&global, "global", false, "Install into the selected agent's global skill directory")
+	cmd.AddCommand(list, install)
 	return cmd
 }
 
@@ -121,6 +192,8 @@ func authCommand(opts *options) *cobra.Command {
 	var credentialsPath string
 	var remote bool
 	var checkBaseURL string
+	var includeTeams bool
+	var whoamiBaseURL string
 	cmd := &cobra.Command{Use: "auth", Short: "Manage AppGallery Connect credentials"}
 	login := &cobra.Command{
 		Use:   "login",
@@ -271,6 +344,68 @@ func authCommand(opts *options) *cobra.Command {
 	check.Flags().StringVar(&credentialsPath, "credentials-path", "", "Override credentials file path")
 	check.Flags().BoolVar(&remote, "remote", false, "Verify token and available app or project read permission")
 	check.Flags().StringVar(&checkBaseURL, "base-url", "https://connect-api.cloud.huawei.com", "Connect API base URL for remote verification")
+	whoami := &cobra.Command{
+		Use:   "whoami",
+		Short: "Show the current credential identity and optional Huawei team accounts",
+		RunE: func(cmd *cobra.Command, args []string) error {
+			path, err := credentialPath(credentialsPath)
+			if err != nil {
+				return err
+			}
+			store, err := agcapi.LoadCredentials(path)
+			if err != nil {
+				return err
+			}
+			credential, ok, err := resolveCredential(opts, store)
+			if err != nil {
+				return err
+			}
+			identity := authIdentity{
+				TeamLookup: "oauth-required",
+				Message:    "Huawei team account names require OAuth client authorization; set AGC_OAUTH2_TOKEN and pass --teams.",
+			}
+			if ok {
+				view := credential.View()
+				identity.Credential = &view
+				if credential.Mode == "service-account" {
+					account, err := agcapi.LoadServiceAccount(credential.ServiceAccountFile)
+					if err != nil {
+						return err
+					}
+					identity.ServiceAccount = &serviceAccountIdentity{ProjectID: account.ProjectID, SubAccount: account.SubAccount}
+				}
+			}
+			config, err := project.Load(opts.project)
+			if err != nil && !os.IsNotExist(err) {
+				return fmt.Errorf("load project context: %w", err)
+			}
+			if err == nil {
+				identity.Project = &config
+			}
+			if includeTeams {
+				oauth2Token := os.Getenv("AGC_OAUTH2_TOKEN")
+				if oauth2Token == "" {
+					return fmt.Errorf("--teams requires AGC_OAUTH2_TOKEN from a Huawei OAuth client authorization")
+				}
+				ctx, cancel := context.WithTimeout(cmd.Context(), opts.timeout)
+				defer cancel()
+				teamList, err := agcapi.UserTeamList(ctx, nil, whoamiBaseURL, oauth2Token)
+				if err != nil {
+					return fmt.Errorf("query Huawei team accounts: %w", err)
+				}
+				identity.Teams = teamList.Teams
+				identity.TeamResult = teamList.Ret
+				identity.TeamLookup = "verified"
+				identity.Message = ""
+			} else if !ok {
+				return fmt.Errorf("no active credential profile; run agc auth login or use AGC_OAUTH2_TOKEN with --teams")
+			}
+			return output.Write(cmd.OutOrStdout(), domain.Envelope[authIdentity]{Data: identity}, output.Format(opts.output), opts.pretty)
+		},
+	}
+	whoami.Flags().StringVar(&credentialsPath, "credentials-path", "", "Override credentials file path")
+	whoami.Flags().BoolVar(&includeTeams, "teams", false, "Query Huawei's OAuth-only team account list using AGC_OAUTH2_TOKEN")
+	whoami.Flags().StringVar(&whoamiBaseURL, "base-url", "https://connect-api.cloud.huawei.com", "Connect API base URL")
 	token := &cobra.Command{
 		Use:   "token",
 		Short: "Create an AppGallery Connect authorization token for the active credential",
@@ -300,7 +435,7 @@ func authCommand(opts *options) *cobra.Command {
 		},
 	}
 	token.Flags().StringVar(&credentialsPath, "credentials-path", "", "Override credentials file path")
-	cmd.AddCommand(login, list, check, token)
+	cmd.AddCommand(login, list, check, whoami, token)
 	return cmd
 }
 

@@ -1,0 +1,4 @@
+interface:
+  display_name: "AGC Reports"
+  short_description: "Collect AppGallery Connect reports safely"
+  default_prompt: "Use $agc-reports to discover the correct report endpoint, preview its request, and retrieve only the authorized report data."

@@ -7,6 +7,7 @@
 [![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Linux%20%7C%20Windows-blue)](https://github.com/Createitv/agc-cli/releases)
 [![Release](https://img.shields.io/github/v/release/Createitv/agc-cli)](https://github.com/Createitv/agc-cli/releases)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+[![Sponsor](https://img.shields.io/badge/GitHub-Sponsor-ea4aaa?logo=githubsponsors)](https://github.com/sponsors/Createitv)
 
 [简体中文](README.md) · **English** · [Website](https://agccli.app/)
 
@@ -14,12 +15,14 @@ A Go CLI for AppGallery Connect: query apps, build publishing requests, and invo
 
 ## Quick Start
 
-You need an app ID and a Service Account JSON file. Manage your apps and credentials in [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html). On macOS, install with Homebrew:
+You need an app ID and a Service Account JSON file. Manage your apps and credentials in [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html). Use Homebrew on macOS, or NPM with Node.js 18+ in Windows, macOS, and Linux CI:
 
 ```bash
 brew tap createitv/tap && brew install agc-cli
+# Cross-platform CI: npm install --global @createitv/agc-cli
 
 agc auth login --service-account-file ~/.agc/service-account.json --name production
+agc auth whoami
 agc init --app-id YOUR_APP_ID --default-profile production
 
 # Preview the query; add --dry-run=false to send it
@@ -48,6 +51,8 @@ Endpoint definitions include `affordances` command templates and `_links` REST r
 
 JSON is the default; add `--output table` or `--output markdown` for people. `agc web-server` exposes a local REST API. Templates require parameters and currently do not check remote business state to determine submission readiness. More in the [agent and REST guide](docs/CLI_USAGE.en.md#json-and-agents).
 
+The repository also ships installable [task-oriented Agent Skills](docs/AGENT_SKILLS.md) for Codex, Claude Code, and other agents, covering general usage, authentication, publishing, testing, reports, and CI/CD.
+
 ## What It Covers
 
 | Area | What you can do |
@@ -62,7 +67,7 @@ JSON is the default; add `--output table` or `--output markdown` for people. `ag
 | **Games & Resources** | Inspect game callback contracts and resource predownload endpoints → `agc gameplay` / `agc game-items` / `agc resources` |
 | **REST & Web** | Browse the registry, preview/invoke local REST requests, export OpenAPI → [local usage](docs/CLI_USAGE.en.md#web-rest-and-openapi) |
 
-The registry contains 19 API families and 239 entries with generic request construction/invocation. Follow each endpoint's Huawei `sourceUrl` for fields, permissions, and prerequisites. Upload orchestration and local Hvigor execution are not yet implemented.
+The registry contains 13 API families and 159 entries with generic request construction/invocation. Follow each endpoint's Huawei `sourceUrl` for fields, permissions, and prerequisites. Upload orchestration and local Hvigor execution are not yet implemented.
 
 All guides: [docs index](docs/README.md). Every command and flag: `agc --help` or `agc <family> <endpoint> --help`. Run `agc endpoints --pretty` for definitions and official references.
 
@@ -73,18 +78,14 @@ All guides: [docs index](docs/README.md). Every command and flag: `agc --help` o
 - [Changelog](CHANGELOG.md) · [Release downloads](https://github.com/Createitv/agc-cli/releases)
 - [Issues](https://github.com/Createitv/agc-cli/issues) — include your version, a redacted command, and error details
 
-## Support the project
+## Sponsor
 
-Maintaining agc-cli involves adapting API contracts, validating cross-platform behavior, and improving documentation. If it saves you time working with AppGallery Connect, consider supporting its continued development.
-
-agc-cli is maintained by [lingxiaoyao (Createitv)](https://github.com/Createitv). You can support the maintainer's open-source work, including this project, through [GitHub Sponsors](https://github.com/sponsors/Createitv). This is a personal account profile, currently pending approval and not yet live or accepting payments.
-
-You can already help by [reporting issues](https://github.com/Createitv/agc-cli/issues), sharing your experience, or contributing code. See [sponsorship details](docs/SPONSORSHIP.md#english).
+If agc-cli saves you time in development or automation, you can support ongoing maintenance, cross-platform testing, and documentation through [GitHub Sponsors](https://github.com/sponsors/Createitv).
 
 ## License
 
 [MIT](LICENSE).
 
-## Serverless
+## Cloud development management
 
-The workspace supports 102 cloud development operations, including source-reviewed management, SAM deployment and prefetch debugging. See [usage and verification boundaries](docs/SERVERLESS.md) and [management extensions](docs/SERVERLESS_MANAGEMENT.md). Use the rebuilt `./bin/agc`; installed packages are not automatically upgraded.
+The CLI exposes 102 cloud-development operations, including reviewed management contracts. See [management usage and limitations](docs/SERVERLESS_MANAGEMENT.md). Huawei live write validation remains pending.

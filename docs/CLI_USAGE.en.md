@@ -2,17 +2,6 @@
 
 [Project README](../README.en.md) · [简体中文](CLI_USAGE.md)
 
-## Bundled agent skills
-
-```bash
-agc skills list --pretty
-agc skills show agc-cli --output markdown
-```
-
-Guides are embedded in the binary and work offline without credentials. These commands do not install files or query a remote registry. Output defaults to JSON; table and Markdown formats are also supported.
-
-The original v0.3.0 does not include this command. Rebuild from updated source, or upgrade after a release containing this fix is published.
-
 ## Quick start
 
 You need an AppGallery Connect app ID and either a Service Account JSON file or API Client credentials. Find your app ID in the app information section of the [AppGallery Connect console](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html).
@@ -27,7 +16,7 @@ brew install agc-cli
 agc version
 ```
 
-For Windows and Linux, see [installation and upgrades](#installation-and-upgrades). Release binaries require neither Go nor Node.js.
+For Windows and Linux, see [installation and upgrades](#installation-and-upgrades). NPM installation requires Node.js 18+; the other release methods require neither Go nor Node.js.
 
 ### 2. Save credentials
 
@@ -35,10 +24,10 @@ Keep your Service Account JSON at a stable local path:
 
 ```bash
 agc auth login --service-account-file ~/.agc/service-account.json --name production
-agc auth check
+agc auth whoami
 ```
 
-`auth check` displays local credential configuration. It does not verify that Huawei accepts those credentials. See [authentication and multiple accounts](#authentication-and-multiple-accounts) for alternatives.
+`auth whoami` displays the current local credential identity without secret material. `auth check --remote` verifies the token and an available app or project read permission. See [authentication and multiple accounts](#authentication-and-multiple-accounts) for alternatives.
 
 ### 3. Bind your project
 
@@ -68,11 +57,11 @@ If the endpoint requires a `client_id` header, add `--header client_id=YOUR_CLIE
 
 ## Features and implementation status
 
-The registry contains **184 entries**: 181 Huawei official endpoints/callbacks, two upload URL handoff operations, and one local Hvigor bridge entry. Registration means discovery and generic request construction are available; it does not mean every endpoint has been verified in production.
+The registry contains **159 entries**: 156 Huawei official endpoints/callbacks, two upload URL handoff operations, and one local Hvigor bridge entry. Registration means discovery and generic request construction are available; it does not mean every endpoint has been verified in production.
 
 | Task | Command | Entries |
 | --- | --- | ---: |
-| Query/update app metadata, localizations, and submission requests | `agc publishing` | 42 |
+| Query/update app metadata, localizations, and submission requests | `agc publishing` | 14 |
 | Discover upload URL, multipart, and upload confirmation endpoints | `agc upload` | 6 |
 | Manage HarmonyOS certificates, provisioning profiles, devices, and fingerprints | `agc provisioning` | 17 |
 | Query/update atomic service domains | `agc domains` | 5 |
@@ -128,6 +117,17 @@ scoop update agc-cli
 
 See the [Winget manifest PR](https://github.com/microsoft/winget-pkgs/pull/415361) for its publishing history. Check availability with `winget search --id Createitv.AgcCli -e` before using it.
 
+### Windows / macOS / Linux: NPM
+
+For unattended CI environments that already provide Node.js 18 or later:
+
+```bash
+npm install --global @createitv/agc-cli
+agc version
+```
+
+Pin a release with `npm install --global @createitv/agc-cli@1.2.3`. The package has no `postinstall` script and makes no separate GitHub request during installation. It contains the official binaries for all five supported targets, so an internal npm mirror or pre-warmed npm cache can serve it. Supported targets are macOS/Linux amd64 and arm64, plus Windows amd64.
+
 ### macOS / Linux / Windows: release archives
 
 Choose the archive matching your OS and architecture from [Releases](https://github.com/Createitv/agc-cli/releases). Verify it against that release's `checksums.txt`, extract it, place `agc` (`agc.exe` on Windows) on PATH, and run `agc version`. Replace the binary to upgrade.
@@ -169,9 +169,19 @@ agc --project ../another-app auth check
 | Environment variable | Purpose |
 | --- | --- |
 | `AGC_ACCESS_TOKEN` | Bearer token for endpoint requests; below `--token`, above profile credentials |
+| `AGC_OAUTH2_TOKEN` | Huawei OAuth Client user token used only by `agc auth whoami --teams` for the official team account list |
 | `AGC_CREDENTIALS_PATH` | Override `~/.agc/credentials.json`; below `--credentials-path` |
 
-`agc auth token` outputs a token. Currently, API Client output from `auth login`, `auth list`, and `auth check` may include `clientKey`. Do not publish that output in issues or public CI logs. Keep credential files, Service Account private keys, and access tokens locally or in CI secret storage.
+Inspect the current identity:
+
+```bash
+agc auth whoami
+AGC_OAUTH2_TOKEN="$HUAWEI_USER_TOKEN" agc auth whoami --teams
+```
+
+The normal command reports the profile, API Client ID, Service Account `sub_account`, and local project context without Client Key or private-key material. Huawei's [Project Management API](https://developer.huawei.com/consumer/en/doc/appgallery-connect-Guides/agcapi-project-overview-0000001111685232) makes its team account list OAuth Client-only; Service Account and API Client credentials cannot directly disclose the developer or team name. After user OAuth authorization, place the access token temporarily in `AGC_OAUTH2_TOKEN` and add `--teams` to query the official team list. Never put that token in command arguments, a repository, an issue, or public CI logs.
+
+`agc auth token` prints a token to the terminal. Keep credential files, Service Account private keys, and all access tokens locally or in CI secret storage.
 
 ## Command discovery and request flags
 
@@ -199,64 +209,13 @@ Each endpoint's `sourceUrl` links to its official Huawei reference, such as [que
 | `--param key=value` | Repeatable path parameter |
 | `--query key=value` | Repeatable query parameter |
 | `--header key=value` | Repeatable HTTP header |
-| `--field key=value` | Repeatable JSON field; known integers, arrays, and objects use their declared JSON types |
+| `--field key=value` | Repeatable JSON field, encoded as a string |
 | `--body request.json` | Read the full request body; takes precedence over `--field` |
 | `--token TOKEN` | Explicit Bearer token |
 | `--out response.json` | Save the raw response without format conversion |
 | `--timeout 120s` | Request timeout; defaults to 60 seconds |
 
 Use `--body` for arrays, objects, numbers, or booleans. Dry-run does not display full headers/body or validate all Huawei business fields. Inspect request files, permissions, and the official protocol before sending.
-
-## Current Publishing API commands
-
-All 31 operations in the current Huawei Publishing API reference are available. The Publishing family has 42 entries including retained legacy commands. Use the V3 commands below for HarmonyOS metadata and submission; existing V2 command names retain their old behavior.
-
-| Official operation | CLI command |
-| --- | --- |
-| 创建APP ID | `agc publishing app-create` |
-| 查询应用包名对应的appid | `agc publishing appid-list` |
-| 查询团队账号下的成员角色列表 | `agc publishing members-role-list` |
-| 查询应用信息 | `agc publishing app-info-query-v3` |
-| 更新应用基本信息 | `agc publishing app-info-update-v3` |
-| 更新应用语言信息 | `agc publishing language-info-update-v3` |
-| 删除应用语言信息 | `agc publishing language-info-delete` |
-| 更新应用文件信息 | `agc publishing app-file-info-v3` |
-| 更新应用软件包信息 | `agc publishing app-package-info-update` |
-| 更新版本上架时间 | `agc publishing update-releasetime` |
-| 更新分阶段发布 | `agc publishing phased-release-update` |
-| 查询应用软件包信息 | `agc publishing app-package-info-query` |
-| 查询软件包编译状态 | `agc publishing package-compile-status-v3` |
-| 查询应用所有版本类型的版本列表 | `agc publishing app-version-list` |
-| 查询应用未处理的问题工单 | `agc publishing app-version-voc` |
-| 查询需要上传的资质文件信息 | `agc publishing tag-qual-dependent` |
-| 提交资质审核任务 | `agc publishing qualification-review-create` |
-| 查询资质审核任务详情 | `agc publishing qualification-review-query` |
-| 修改资质审核任务 | `agc publishing qualification-review-update` |
-| 撤销资质审核任务 | `agc publishing qualification-review-cancel` |
-| 删除资质审核任务 | `agc publishing qualification-review-delete` |
-| 新建用户协议 | `agc publishing user-agreement-create` |
-| 查询用户协议列表 | `agc publishing user-agreement-list` |
-| 更新用户协议 | `agc publishing user-agreement-update` |
-| 提交隐私政策协议 | `agc publishing privacy-agreement-submit` |
-| 查询隐私政策协议列表 | `agc publishing privacy-agreement-list` |
-| 更新隐私政策协议 | `agc publishing privacy-agreement-update` |
-| 申请年龄分级 | `agc publishing app-age-rating` |
-| 提交发布 | `agc publishing app-submit-v3` |
-| 撤销审核 | `agc publishing on-shelf-cancel` |
-| 下架应用 | `agc publishing app-shelf-off` |
-
-Run `agc publishing COMMAND --pretty` to inspect the HTTP method, path, parameter locations, required fields, types, and source URL. `--query` and `--header` values are strings. Typed `--field` integers use bare numbers; arrays and objects use quoted JSON. Use `--body request.json` for complete nested payloads. Agreement lists accept `--field name=` as an empty search filter. Read operations using POST are supported. Qualification deletion sends a JSON body with `tagIds`.
-
-```bash
-agc --profile default publishing app-info-query-v3 --invoke --dry-run=false --query appId=YOUR_APP_ID
-agc --profile default publishing app-version-list --invoke --dry-run=false --header appId=YOUR_APP_ID
-agc --profile default publishing user-agreement-list --invoke --dry-run=false --header appId=YOUR_APP_ID --field name= --field type=2
-agc publishing app-package-info-update --invoke --query appId=YOUR_APP_ID --field fileName=app-release.app --field objectId=UPLOADED_OBJECT_ID
-agc publishing app-info-update-v3 --invoke --query appId=YOUR_APP_ID --body app-info.json
-agc publishing app-submit-v3 --invoke --query appId=YOUR_APP_ID --body submission.json
-```
-
-The final three examples preview requests. Add `--dry-run=false` to perform the selected operation. Legacy `app-info-update`, `language-info-update`, `app-file-info`, and `app-submit` remain available; their V3 counterparts use the `-v3` suffix.
 
 ## App release workflow
 
@@ -356,12 +315,8 @@ make ci
 
 Key directories: `cmd/agc/command` (CLI), `pkg/agcapi` (auth/HTTP), `pkg/domain` (registry), `pkg/server` (local REST), and `apps/web` (website). Contributions through [pull requests](https://github.com/Createitv/agc-cli/pulls) are welcome.
 
-For releases of the CLI itself, see [.goreleaser.yaml](../.goreleaser.yaml) and the [Release workflow](../.github/workflows/release.yml). A `v*` tag triggers publishing. Configuration includes release archives/checksums, Homebrew, Scoop, a Winget manifest PR, and GHCR images. Homebrew/Scoop/Winget publishing requires `TAP_GITHUB_TOKEN`. Actions and release pages show actual publishing results.
+For releases of the CLI itself, see [.goreleaser.yaml](../.goreleaser.yaml), the [Release workflow](../.github/workflows/release.yml), and the [NPM workflow](../.github/workflows/npm.yml). A `v*` tag triggers the Release; after a stable Release is published, the NPM workflow builds from its checksum-verified assets. Homebrew/Scoop/Winget publishing requires `TAP_GITHUB_TOKEN`; NPM uses npm Trusted Publishing. Check Actions, the Release page, and npm registry readback for actual publishing results.
 
 ## License
 
 [MIT](../LICENSE)
-
-## Serverless
-
-Six families expose 46 documented HTTP/callback operations and nine native Go function workflows. See [Serverless usage and verification boundaries](SERVERLESS.md). Offline verification is separate from dedicated-resource live verification.

@@ -14,6 +14,8 @@ test:
 
 # 离线测试：不读取真实华为授权，不调用华为服务器。
 test-scripts:
+	python3 scripts/test_npm_package.py
+	node --test packaging/npm/test/agc.test.cjs
 	python3 scripts/test_coverage_isolation.py
 	python3 scripts/test_ci_report.py
 	python3 scripts/test_api_suite.py

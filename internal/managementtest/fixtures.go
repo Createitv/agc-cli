@@ -5,6 +5,7 @@ package managementtest
 import (
 	"archive/zip"
 	"encoding/json"
+	"fmt"
 	"io"
 	"net/http"
 	"net/http/httptest"
@@ -151,8 +152,9 @@ func Deployment(t *testing.T) (*httptest.Server, map[string]any) {
 
 func HDCFile(t *testing.T) string {
 	t.Helper()
-	p := filepath.Join(t.TempDir(), "hdc")
-	if err := os.WriteFile(p, []byte("#!/bin/sh\nprintf 'offline debug command completed\\n'\n"), 0700); err != nil {
+	t.Setenv("AGC_OFFLINE_HDC_STUB", "1")
+	p, err := os.Executable()
+	if err != nil {
 		t.Fatal(err)
 	}
 	return p
@@ -184,5 +186,13 @@ func AssertRequest(t *testing.T, r *http.Request, f Fixture) {
 	}
 	if r.Header.Get("oauth2Token") != "offline-oauth" || r.Header.Get("Authorization") != "" {
 		t.Error("wrong authentication branch")
+	}
+}
+
+// ExitIfHDCStub handles only the explicit offline device command in a child test process.
+func ExitIfHDCStub() {
+	if os.Getenv("AGC_OFFLINE_HDC_STUB") == "1" && len(os.Args) == 8 && os.Args[1] == "-t" && os.Args[3] == "shell" && os.Args[4] == "cf_prefetch" && os.Args[5] == "getcache" && os.Args[6] == "-m" {
+		fmt.Println(strings.Join(os.Args[1:], "\n"))
+		os.Exit(0)
 	}
 }
