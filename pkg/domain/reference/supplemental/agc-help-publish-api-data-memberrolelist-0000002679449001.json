@@ -1,0 +1,92 @@
+{
+  "examples": [],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter#section195981215284",
+      "title": "了解新版目录"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-open-ability-0000002235710238",
+      "title": "AGC开放能力"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-0000002236015554",
+      "title": "AppGallery Connect API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-reference-0000002271160565",
+      "title": "Publishing API参考"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-0000002236201266",
+      "title": "数据模型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-role-0000002679289169",
+      "title": "Role"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-managepersionalinfo-0000002328924985",
+      "title": "ManagePersonalInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-opentestinfo-0000002678282119",
+      "title": "OpenTestInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-memberrolelist-0000002679449001",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "uid",
+          "O",
+          "String",
+          "团队成员的账号ID。"
+        ],
+        [
+          "huaweiAccountName",
+          "O",
+          "String",
+          "团队成员的华为账号名称。"
+        ],
+        [
+          "memberNickName",
+          "O",
+          "String",
+          "团队成员的昵称。"
+        ],
+        [
+          "memberState",
+          "O",
+          "Integer",
+          "团队成员的状态。 取值范围： 1：邀请中 2：邀请过期 3：生效中 4：过期"
+        ],
+        [
+          "roles",
+          "O",
+          "List<Role>",
+          "团队成员的角色。"
+        ]
+      ],
+      "section": "",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-memberrolelist-0000002679449001"
+    }
+  ],
+  "title": "MemberRoleList",
+  "updatedAt": "2026-07-31 17:44",
+  "checkedAt": "2026-10-07T04:45:52.006Z"
+}

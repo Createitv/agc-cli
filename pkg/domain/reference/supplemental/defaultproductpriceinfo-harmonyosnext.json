@@ -1,0 +1,76 @@
+{
+  "examples": [],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pmsapi-0000001162548121",
+      "title": "PMS API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pmsapi-harmonyosnext-0000002166747989",
+      "title": "HarmonyOS 5.0及以上"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-data-harmonyosnext-0000002166748621",
+      "title": "数据模型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/distribution/app/agc-help-supported-countries-overview-0000001146718725",
+      "title": "国家/地区、语言、币种列表"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/distribution/app/agc-help-supported-countries-overview-0000001146718725",
+      "title": "国家/地区、语言、币种列表"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-cpriceinfo-harmonyosnext-0000002166670153",
+      "title": "CountryPriceInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-errorresult-harmonyosnext-0000002131350724",
+      "title": "ErrorResult"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-dppriceinfo-harmonyosnext-0000002131508864",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "country",
+          "M",
+          "String",
+          "国家码，具体请参见国家/地区、语言、币种列表，默认值CN。"
+        ],
+        [
+          "price",
+          "O",
+          "String",
+          "商品原始价格，如果商品为上线状态，则此字段不能为空。"
+        ],
+        [
+          "currency",
+          "M",
+          "String",
+          "用于支付的币种，请参见国家/地区、语言、币种列表。 例如：USD、CNY、MYR。"
+        ]
+      ],
+      "section": "",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-dppriceinfo-harmonyosnext-0000002131508864"
+    }
+  ],
+  "title": "DefaultProductPriceInfo",
+  "updatedAt": "2025-08-06 18:02",
+  "checkedAt": "2026-10-07T03:14:39.084Z"
+}

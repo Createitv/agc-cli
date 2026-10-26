@@ -1,0 +1,405 @@
+{
+  "examples": [],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-publishing-api-0000002351880118",
+      "title": "Publishing API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-publishingapi-0000001150409957",
+      "title": "Android"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114",
+      "title": "使用入门"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114#section103mcpsimp",
+      "title": "创建API客户端"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain_token-0000001158365043",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-getteamlist-0000001158245075",
+      "title": "获取团队列表"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114#section949717114392",
+      "title": "获取用户授权码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-publishingapi-errorcode-0000001163523297",
+      "title": "错误码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obbfile-package-list-0000001111685210#ZH-CN_TOPIC_0000001111685210__zh-cn_topic_0000001059070160_p592719917156",
+      "title": "PackageInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obbfile-package-list-0000001111685210#ZH-CN_TOPIC_0000001111685210__zh-cn_topic_0000001059070160_p20608193610292",
+      "title": "ObbInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obbfile-package-list-0000001111685210#ZH-CN_TOPIC_0000001111685210__zh-cn_topic_0000001059070160_p20608193610292",
+      "title": "ObbInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-add-packageurl-0000001158245065",
+      "title": "通过下载方式提交软件包"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-publishingapi-errorcode-0000001163523297",
+      "title": "错误码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obbfile-package-list-0000001111685210#section992664711544",
+      "title": "功能介绍"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obbfile-package-list-0000001111685210#section6932219103913",
+      "title": "接口原型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obbfile-package-list-0000001111685210#section44860761",
+      "title": "请求参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obbfile-package-list-0000001111685210#section236517415165",
+      "title": "Header"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obbfile-package-list-0000001111685210#section1087614283237",
+      "title": "Query"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obbfile-package-list-0000001111685210#section138422239113",
+      "title": "响应参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obbfile-package-list-0000001111685210#section38431523014",
+      "title": "调用示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obbfile-package-list-0000001111685210#section992664711544",
+      "text": "此接口用于查询应用当前关联的软件包列表信息。接口调用者的角色：账号持有者、管理员、APP管理员、运营。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obbfile-package-list-0000001111685210#section236517415165",
+      "text": "API客户端方式和OAuth客户端方式的区别请参见使用入门。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obbfile-package-list-0000001111685210#section236517415165",
+      "text": "API客户端方式："
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obbfile-package-list-0000001111685210#section236517415165",
+      "text": "OAuth客户端方式："
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obbfile-package-list-0000001111685210#section138422239113",
+      "text": "PackageInfo"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obbfile-package-list-0000001111685210#section138422239113",
+      "text": "ObbInfo"
+    }
+  ],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obbfile-package-list-0000001111685210",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "承载协议",
+          "HTTPS GET"
+        ],
+        [
+          "接口方向",
+          "开发者服务器 -> 华为服务器"
+        ],
+        [
+          "接口URL",
+          "https://connect-api.cloud.huawei.com/api/publish/v2/package-list"
+        ],
+        [
+          "数据格式",
+          "请求：Content-Type: application/json 响应：Content-Type: application/json"
+        ]
+      ],
+      "section": "接口原型",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obbfile-package-list-0000001111685210#section6932219103913"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "client_id",
+          "M",
+          "String",
+          "客户端ID，获取方法参考创建API客户端。"
+        ],
+        [
+          "Authorization",
+          "M",
+          "String",
+          "认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obbfile-package-list-0000001111685210#section236517415165"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "teamId",
+          "M",
+          "String",
+          "开发者所在团队的团队ID，可通过获取团队列表接口获取。"
+        ],
+        [
+          "oauth2Token",
+          "M",
+          "String",
+          "认证信息，传入获取用户授权码中获取的Access Token。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obbfile-package-list-0000001111685210#section236517415165"
+    },
+    {
+      "location": "query",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "appId",
+          "M",
+          "String",
+          "应用ID。"
+        ],
+        [
+          "fromRecCount",
+          "O",
+          "Integer",
+          "查询起始记录号。 默认值：1"
+        ],
+        [
+          "maxReqCount",
+          "O",
+          "Integer",
+          "请求查询的软件包数。 取值范围：最大为100 默认值：10"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obbfile-package-list-0000001111685210#section1087614283237"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "ret",
+          "M",
+          "String(100)",
+          "包含返回码及描述信息的JSON字符串，格式为{\"code\":retcode, \"msg\": \"description\"}，retcode为返回码，description为返回码描述信息。返回码请参见错误码。"
+        ],
+        [
+          "retCount",
+          "M",
+          "Integer",
+          "返回的软件包数量。"
+        ],
+        [
+          "totalCount",
+          "M",
+          "Integer",
+          "软件包总数量。"
+        ],
+        [
+          "pkgList",
+          "M",
+          "List<PackageInfo>",
+          "软件包列表信息。"
+        ],
+        [
+          "packagePath",
+          "O",
+          "String",
+          "APK上传后的下载URL（有效期为5分钟），是一个完整的地址。"
+        ],
+        [
+          "abisType",
+          "O",
+          "Integer",
+          "CPU架构类型。 取值范围： 1：32位（armeabi-v7a|armeabi|x86|mips） 2：64位（armeabi-v8a|x86_64|mips64） 3：同时支持32位和64位 默认值：3"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obbfile-package-list-0000001111685210#section138422239113"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "pkgVersion",
+          "M",
+          "String",
+          "软件包唯一标识。"
+        ],
+        [
+          "fileName",
+          "M",
+          "String",
+          "应用软件包文件名称。"
+        ],
+        [
+          "versionCode",
+          "M",
+          "Integer",
+          "版本号，对应软件包中的versionCode。"
+        ],
+        [
+          "versionName",
+          "O",
+          "String",
+          "版本描述，对应软件包中的versionName。"
+        ],
+        [
+          "packageSize",
+          "M",
+          "Integer",
+          "软件包实体大小，从软件包中解析获得。"
+        ],
+        [
+          "uploadTime",
+          "M",
+          "Integer",
+          "软件包上传时间。"
+        ],
+        [
+          "shaCode",
+          "O",
+          "String",
+          "软件包SHA256摘要。"
+        ],
+        [
+          "packageType",
+          "M",
+          "Integer",
+          "软件包类型。当前仅支持1，表示APK软件包。"
+        ],
+        [
+          "mainObb",
+          "O",
+          "ObbInfo",
+          "APK软件包关联的主OBB文件。"
+        ],
+        [
+          "patchObb",
+          "O",
+          "ObbInfo",
+          "APK软件包关联的补丁OBB文件。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obbfile-package-list-0000001111685210#section138422239113"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "obbId",
+          "M",
+          "String",
+          "OBB文件ID。"
+        ],
+        [
+          "obbType",
+          "M",
+          "Integer",
+          "OBB文件类型。 取值范围： 1：主扩展文件 2：补丁扩展文件"
+        ],
+        [
+          "fileName",
+          "M",
+          "String",
+          "文件名称，OBB文件上传后服务器会对OBB文件按以下规则重新命名： main|patch.apkVersion.packageName.obb main表示主扩展文件，patch表示补丁扩展文件。apkVersion为APK包的版本号，packageName为APK包名。例如“main.314159.com.example.app.obb”。"
+        ],
+        [
+          "sha256",
+          "O",
+          "String",
+          "OBB文件的SHA256摘要。"
+        ],
+        [
+          "fileSize",
+          "M",
+          "Integer",
+          "OBB文件大小。"
+        ],
+        [
+          "uploadTime",
+          "M",
+          "String",
+          "OBB文件上传时间。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obbfile-package-list-0000001111685210#section138422239113"
+    }
+  ],
+  "title": "查询软件包列表",
+  "updatedAt": "2025-08-06 18:02",
+  "checkedAt": "2026-10-07T02:52:53.792Z",
+  "family": "publishing",
+  "endpoint": "obbfile-package-list"
+}

@@ -1,0 +1,84 @@
+{
+  "examples": [],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pmsapi-0000001162548121",
+      "title": "PMS API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pmsapi-harmonyosnext-0000002166747989",
+      "title": "HarmonyOS 5.0及以上"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-data-harmonyosnext-0000002166748621",
+      "title": "数据模型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/distribution/app/agc-help-supported-countries-overview-0000001146718725",
+      "title": "国家/地区、语言、币种列表"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-pqueryinfo-harmonyosnext-0000002131508876",
+      "title": "ProductsQueryInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-perrorinfo-harmonyosnext-0000002166748637",
+      "title": "PromotionErrorInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-ppriceinfo-harmonyosnext-0000002131350736",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "country",
+          "M",
+          "String",
+          "国家码，请参见国家/地区、语言、币种列表，例如CN。 默认值CN。"
+        ],
+        [
+          "price",
+          "M",
+          "String",
+          "定价，单位为分。 例如：1.99元此参数需要传入199。"
+        ],
+        [
+          "startDate",
+          "M",
+          "Long",
+          "价格调整开始时间。默认值：当前时间。 说明 价格调整计划必须连续，开始时间必须等于上一个调整计划的结束时间。"
+        ],
+        [
+          "endDate",
+          "O",
+          "Long",
+          "价格调整结束时间。若不填写结束时间，则默认值：永久。"
+        ],
+        [
+          "tag",
+          "M",
+          "String",
+          "价格调整标识。"
+        ]
+      ],
+      "section": "",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-ppriceinfo-harmonyosnext-0000002131350736"
+    }
+  ],
+  "title": "ProductPriceInfo",
+  "updatedAt": "2025-08-06 18:02",
+  "checkedAt": "2026-10-07T03:14:41.968Z"
+}

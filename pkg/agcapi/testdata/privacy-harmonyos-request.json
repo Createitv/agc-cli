@@ -1,0 +1,58 @@
+{
+  "id": "fixture-privacy-policy",
+  "defaultLang": "zh",
+  "agreementInfos": [
+    {
+      "lang": "zh",
+      "baseInfo": {
+        "name": "应用的隐私政策协议示例",
+        "appName": "应用名称",
+        "companyName": "公司名称",
+        "briefDesc": "产品说明",
+        "effectiveTime": 1719216501000
+      },
+      "personalInfo": {
+        "fullServiceMode": {
+          "selectPath": "我的-设置",
+          "personalCollectType": "1",
+          "basicServiceType": "设置",
+          "extraServiceType": "支付"
+        }
+      },
+      "extInfo": {
+        "contactInfo": {
+          "phoneNum": [
+            "0086-13700000000"
+          ]
+        },
+        "storageInfo": {
+          "storagePeriod": "-1",
+          "country": "中国境内",
+          "isCrossBorder": false
+        },
+        "childPrivacyUrl": "",
+        "versionChangeDescs": [],
+        "abstracts": "",
+        "managePersonalInfo": {
+          "infoAccess": {},
+          "infoModify": {},
+          "infoDelete": {},
+          "infoCancel": {},
+          "serviceStop": {},
+          "selectedKeys": []
+        },
+        "customInfo": {
+          "customInfos": []
+        },
+        "extFieldCustomInfo": {
+          "childPrivacyTitle": "",
+          "childPrivacyCustomInfoDesc": ""
+        }
+      },
+      "thirdSdkInfo": {
+        "sdkInfos": []
+      },
+      "thirdSharedInfos": []
+    }
+  ]
+}

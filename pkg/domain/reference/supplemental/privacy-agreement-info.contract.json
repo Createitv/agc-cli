@@ -1,0 +1,1775 @@
+{
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-agreementinfo-privacy-0000002294845630",
+  "parameters": [
+    {
+      "name": "lang",
+      "in": "body",
+      "required": true,
+      "description": "语种。 取值范围： zh：简体中文 en：英语 ug：维吾尔语 bo：藏语 zh-Hant-HK：繁体中文（中国香港特别行政区） zh-Hant-TW：繁体中文（中国台湾）",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-agreementinfo-privacy-0000002294845630",
+      "maxLength": 20,
+      "type": "string",
+      "enum": [
+        "zh",
+        "en",
+        "ug",
+        "bo",
+        "zh-Hant-HK",
+        "zh-Hant-TW"
+      ]
+    },
+    {
+      "name": "baseInfo",
+      "in": "body",
+      "required": false,
+      "description": "隐私政策协议基础信息列表。",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-agreementinfo-privacy-0000002294845630",
+      "properties": [
+        {
+          "name": "name",
+          "in": "body",
+          "required": true,
+          "description": "隐私政策协议名称。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/publish-api-agreementbaseinfo-privacy-0000002328924929",
+          "maxLength": 100,
+          "type": "string"
+        },
+        {
+          "name": "appName",
+          "in": "body",
+          "required": false,
+          "description": "应用名称。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/publish-api-agreementbaseinfo-privacy-0000002328924929",
+          "maxLength": 255,
+          "type": "string"
+        },
+        {
+          "name": "companyName",
+          "in": "body",
+          "required": false,
+          "description": "公司名称。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/publish-api-agreementbaseinfo-privacy-0000002328924929",
+          "maxLength": 1024,
+          "type": "string"
+        },
+        {
+          "name": "briefDesc",
+          "in": "body",
+          "required": false,
+          "description": "产品简介。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/publish-api-agreementbaseinfo-privacy-0000002328924929",
+          "maxLength": 500,
+          "type": "string"
+        },
+        {
+          "name": "effectiveTime",
+          "in": "body",
+          "required": false,
+          "description": "隐私政策协议生效时间与1970年1月1日午夜之间的差值，以毫秒为单位。例如：1733555215000。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/publish-api-agreementbaseinfo-privacy-0000002328924929",
+          "type": "integer"
+        }
+      ],
+      "type": "object"
+    },
+    {
+      "name": "personalInfo",
+      "in": "body",
+      "required": false,
+      "description": "个人信息详情。",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-agreementinfo-privacy-0000002294845630",
+      "properties": [
+        {
+          "name": "requiredInfo",
+          "in": "body",
+          "required": false,
+          "description": "请求信息。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-personalinfo-0000002328805173",
+          "properties": [
+            {
+              "name": "sceneItems",
+              "in": "body",
+              "required": false,
+              "description": "收集的请求信息。 数组长度不超过200。",
+              "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-requiredinfo-0000002295005294",
+              "itemsProperties": [
+                {
+                  "name": "dataItems",
+                  "in": "body",
+                  "required": false,
+                  "description": "数据信息。 数组长度不超过200。",
+                  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                  "itemsProperties": [
+                    {
+                      "name": "itemId",
+                      "in": "body",
+                      "required": false,
+                      "description": "数据ID。",
+                      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-dataitem-0000002328924933",
+                      "maxLength": 64,
+                      "type": "string"
+                    },
+                    {
+                      "name": "itemDesc",
+                      "in": "body",
+                      "required": false,
+                      "description": "数据描述。",
+                      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-dataitem-0000002328924933",
+                      "maxLength": 500,
+                      "type": "string"
+                    },
+                    {
+                      "name": "sensitiveData",
+                      "in": "body",
+                      "required": false,
+                      "description": "是否为敏感数据。 取值范围： 0：非敏感数据 1：敏感数据 默认值：0",
+                      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-dataitem-0000002328924933",
+                      "type": "integer",
+                      "enum": [
+                        "0",
+                        "1"
+                      ]
+                    }
+                  ],
+                  "type": "array",
+                  "itemsType": "object",
+                  "maxItems": 200
+                },
+                {
+                  "name": "sceneId",
+                  "in": "body",
+                  "required": false,
+                  "description": "收集项用途ID。",
+                  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                  "maxLength": 64,
+                  "type": "string"
+                },
+                {
+                  "name": "sceneReason",
+                  "in": "body",
+                  "required": false,
+                  "description": "收集项用途描述。",
+                  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                  "maxLength": 500,
+                  "type": "string"
+                },
+                {
+                  "name": "collectModeId",
+                  "in": "body",
+                  "required": false,
+                  "description": "收集方式ID。",
+                  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                  "maxLength": 64,
+                  "type": "string"
+                },
+                {
+                  "name": "collectMode",
+                  "in": "body",
+                  "required": false,
+                  "description": "收集方式描述。",
+                  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                  "maxLength": 500,
+                  "type": "string"
+                },
+                {
+                  "name": "legalBasisId",
+                  "in": "body",
+                  "required": false,
+                  "description": "法律基础ID。",
+                  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                  "maxLength": 64,
+                  "type": "string"
+                },
+                {
+                  "name": "legalBasis",
+                  "in": "body",
+                  "required": false,
+                  "description": "法律基础描述。",
+                  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                  "maxLength": 500,
+                  "type": "string"
+                },
+                {
+                  "name": "remark",
+                  "in": "body",
+                  "required": false,
+                  "description": "补充说明。",
+                  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                  "maxLength": 500,
+                  "type": "string"
+                }
+              ],
+              "type": "array",
+              "itemsType": "object",
+              "maxItems": 200
+            }
+          ],
+          "type": "object"
+        },
+        {
+          "name": "recommendInfo",
+          "in": "body",
+          "required": false,
+          "description": "推荐信息。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-personalinfo-0000002328805173",
+          "properties": [
+            {
+              "name": "sceneItems",
+              "in": "body",
+              "required": false,
+              "description": "收集的数据信息。 数组长度不超过200。",
+              "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-recommendinfo-0000002328805177",
+              "itemsProperties": [
+                {
+                  "name": "dataItems",
+                  "in": "body",
+                  "required": false,
+                  "description": "数据信息。 数组长度不超过200。",
+                  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                  "itemsProperties": [
+                    {
+                      "name": "itemId",
+                      "in": "body",
+                      "required": false,
+                      "description": "数据ID。",
+                      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-dataitem-0000002328924933",
+                      "maxLength": 64,
+                      "type": "string"
+                    },
+                    {
+                      "name": "itemDesc",
+                      "in": "body",
+                      "required": false,
+                      "description": "数据描述。",
+                      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-dataitem-0000002328924933",
+                      "maxLength": 500,
+                      "type": "string"
+                    },
+                    {
+                      "name": "sensitiveData",
+                      "in": "body",
+                      "required": false,
+                      "description": "是否为敏感数据。 取值范围： 0：非敏感数据 1：敏感数据 默认值：0",
+                      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-dataitem-0000002328924933",
+                      "type": "integer",
+                      "enum": [
+                        "0",
+                        "1"
+                      ]
+                    }
+                  ],
+                  "type": "array",
+                  "itemsType": "object",
+                  "maxItems": 200
+                },
+                {
+                  "name": "sceneId",
+                  "in": "body",
+                  "required": false,
+                  "description": "收集项用途ID。",
+                  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                  "maxLength": 64,
+                  "type": "string"
+                },
+                {
+                  "name": "sceneReason",
+                  "in": "body",
+                  "required": false,
+                  "description": "收集项用途描述。",
+                  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                  "maxLength": 500,
+                  "type": "string"
+                },
+                {
+                  "name": "collectModeId",
+                  "in": "body",
+                  "required": false,
+                  "description": "收集方式ID。",
+                  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                  "maxLength": 64,
+                  "type": "string"
+                },
+                {
+                  "name": "collectMode",
+                  "in": "body",
+                  "required": false,
+                  "description": "收集方式描述。",
+                  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                  "maxLength": 500,
+                  "type": "string"
+                },
+                {
+                  "name": "legalBasisId",
+                  "in": "body",
+                  "required": false,
+                  "description": "法律基础ID。",
+                  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                  "maxLength": 64,
+                  "type": "string"
+                },
+                {
+                  "name": "legalBasis",
+                  "in": "body",
+                  "required": false,
+                  "description": "法律基础描述。",
+                  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                  "maxLength": 500,
+                  "type": "string"
+                },
+                {
+                  "name": "remark",
+                  "in": "body",
+                  "required": false,
+                  "description": "补充说明。",
+                  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                  "maxLength": 500,
+                  "type": "string"
+                }
+              ],
+              "type": "array",
+              "itemsType": "object",
+              "maxItems": 200
+            },
+            {
+              "name": "closeSetting",
+              "in": "body",
+              "required": false,
+              "description": "关闭设置。",
+              "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-recommendinfo-0000002328805177",
+              "maxLength": 500,
+              "type": "string"
+            }
+          ],
+          "type": "object"
+        },
+        {
+          "name": "adsInfo",
+          "in": "body",
+          "required": false,
+          "description": "广告信息。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-personalinfo-0000002328805173",
+          "properties": [
+            {
+              "name": "sceneItems",
+              "in": "body",
+              "required": false,
+              "description": "收集的数据信息。 数组长度不超过200。",
+              "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-adsinfo-0000002295005298",
+              "itemsProperties": [
+                {
+                  "name": "dataItems",
+                  "in": "body",
+                  "required": false,
+                  "description": "数据信息。 数组长度不超过200。",
+                  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                  "itemsProperties": [
+                    {
+                      "name": "itemId",
+                      "in": "body",
+                      "required": false,
+                      "description": "数据ID。",
+                      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-dataitem-0000002328924933",
+                      "maxLength": 64,
+                      "type": "string"
+                    },
+                    {
+                      "name": "itemDesc",
+                      "in": "body",
+                      "required": false,
+                      "description": "数据描述。",
+                      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-dataitem-0000002328924933",
+                      "maxLength": 500,
+                      "type": "string"
+                    },
+                    {
+                      "name": "sensitiveData",
+                      "in": "body",
+                      "required": false,
+                      "description": "是否为敏感数据。 取值范围： 0：非敏感数据 1：敏感数据 默认值：0",
+                      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-dataitem-0000002328924933",
+                      "type": "integer",
+                      "enum": [
+                        "0",
+                        "1"
+                      ]
+                    }
+                  ],
+                  "type": "array",
+                  "itemsType": "object",
+                  "maxItems": 200
+                },
+                {
+                  "name": "sceneId",
+                  "in": "body",
+                  "required": false,
+                  "description": "收集项用途ID。",
+                  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                  "maxLength": 64,
+                  "type": "string"
+                },
+                {
+                  "name": "sceneReason",
+                  "in": "body",
+                  "required": false,
+                  "description": "收集项用途描述。",
+                  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                  "maxLength": 500,
+                  "type": "string"
+                },
+                {
+                  "name": "collectModeId",
+                  "in": "body",
+                  "required": false,
+                  "description": "收集方式ID。",
+                  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                  "maxLength": 64,
+                  "type": "string"
+                },
+                {
+                  "name": "collectMode",
+                  "in": "body",
+                  "required": false,
+                  "description": "收集方式描述。",
+                  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                  "maxLength": 500,
+                  "type": "string"
+                },
+                {
+                  "name": "legalBasisId",
+                  "in": "body",
+                  "required": false,
+                  "description": "法律基础ID。",
+                  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                  "maxLength": 64,
+                  "type": "string"
+                },
+                {
+                  "name": "legalBasis",
+                  "in": "body",
+                  "required": false,
+                  "description": "法律基础描述。",
+                  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                  "maxLength": 500,
+                  "type": "string"
+                },
+                {
+                  "name": "remark",
+                  "in": "body",
+                  "required": false,
+                  "description": "补充说明。",
+                  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                  "maxLength": 500,
+                  "type": "string"
+                }
+              ],
+              "type": "array",
+              "itemsType": "object",
+              "maxItems": 200
+            },
+            {
+              "name": "pushContent",
+              "in": "body",
+              "required": false,
+              "description": "推送内容。",
+              "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-adsinfo-0000002295005298",
+              "maxLength": 500,
+              "type": "string"
+            },
+            {
+              "name": "closeSetting",
+              "in": "body",
+              "required": false,
+              "description": "关闭设置。",
+              "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-adsinfo-0000002295005298",
+              "maxLength": 500,
+              "type": "string"
+            }
+          ],
+          "type": "object"
+        },
+        {
+          "name": "fullServiceMode",
+          "in": "body",
+          "required": false,
+          "description": "服务方式。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-personalinfo-0000002328805173",
+          "properties": [
+            {
+              "name": "selectPath",
+              "in": "body",
+              "required": false,
+              "description": "选择路径。",
+              "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-fullservicemode-0000002294845638",
+              "maxLength": 500,
+              "type": "string"
+            },
+            {
+              "name": "personalCollectType",
+              "in": "body",
+              "required": false,
+              "description": "个人信息采集类型。",
+              "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-fullservicemode-0000002294845638",
+              "maxLength": 500,
+              "type": "string"
+            },
+            {
+              "name": "basicServiceType",
+              "in": "body",
+              "required": false,
+              "description": "提供的基本功能。",
+              "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-fullservicemode-0000002294845638",
+              "maxLength": 500,
+              "type": "string"
+            },
+            {
+              "name": "extraServiceType",
+              "in": "body",
+              "required": false,
+              "description": "提供的附加功能。",
+              "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-fullservicemode-0000002294845638",
+              "maxLength": 500,
+              "type": "string"
+            }
+          ],
+          "type": "object"
+        },
+        {
+          "name": "contractObligationMode",
+          "in": "body",
+          "required": false,
+          "description": "合同义务模式。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-personalinfo-0000002328805173",
+          "properties": [
+            {
+              "name": "serviceType",
+              "in": "body",
+              "required": false,
+              "description": "产品功能。",
+              "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-contractobligationmode-0000002328924941",
+              "maxLength": 500,
+              "type": "string"
+            },
+            {
+              "name": "personalCollectReason",
+              "in": "body",
+              "required": false,
+              "description": "个人信息采集用途。",
+              "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-contractobligationmode-0000002328924941",
+              "maxLength": 500,
+              "type": "string"
+            },
+            {
+              "name": "serviceTypeInfos",
+              "in": "body",
+              "required": false,
+              "description": "产品提供的功能。 数组长度不超过100。",
+              "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-contractobligationmode-0000002328924941",
+              "itemsProperties": [
+                {
+                  "name": "serviceType",
+                  "in": "body",
+                  "required": false,
+                  "description": "产品功能。",
+                  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-servicetypeinfo-0000002328805213",
+                  "maxLength": 100,
+                  "type": "string"
+                },
+                {
+                  "name": "sceneItems",
+                  "in": "body",
+                  "required": false,
+                  "description": "产品收集的信息。 数组长度不超过200。",
+                  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-servicetypeinfo-0000002328805213",
+                  "itemsProperties": [
+                    {
+                      "name": "dataItems",
+                      "in": "body",
+                      "required": false,
+                      "description": "数据信息。 数组长度不超过200。",
+                      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                      "itemsProperties": [
+                        {
+                          "name": "itemId",
+                          "in": "body",
+                          "required": false,
+                          "description": "数据ID。",
+                          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-dataitem-0000002328924933",
+                          "maxLength": 64,
+                          "type": "string"
+                        },
+                        {
+                          "name": "itemDesc",
+                          "in": "body",
+                          "required": false,
+                          "description": "数据描述。",
+                          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-dataitem-0000002328924933",
+                          "maxLength": 500,
+                          "type": "string"
+                        },
+                        {
+                          "name": "sensitiveData",
+                          "in": "body",
+                          "required": false,
+                          "description": "是否为敏感数据。 取值范围： 0：非敏感数据 1：敏感数据 默认值：0",
+                          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-dataitem-0000002328924933",
+                          "type": "integer",
+                          "enum": [
+                            "0",
+                            "1"
+                          ]
+                        }
+                      ],
+                      "type": "array",
+                      "itemsType": "object",
+                      "maxItems": 200
+                    },
+                    {
+                      "name": "sceneId",
+                      "in": "body",
+                      "required": false,
+                      "description": "收集项用途ID。",
+                      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                      "maxLength": 64,
+                      "type": "string"
+                    },
+                    {
+                      "name": "sceneReason",
+                      "in": "body",
+                      "required": false,
+                      "description": "收集项用途描述。",
+                      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                      "maxLength": 500,
+                      "type": "string"
+                    },
+                    {
+                      "name": "collectModeId",
+                      "in": "body",
+                      "required": false,
+                      "description": "收集方式ID。",
+                      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                      "maxLength": 64,
+                      "type": "string"
+                    },
+                    {
+                      "name": "collectMode",
+                      "in": "body",
+                      "required": false,
+                      "description": "收集方式描述。",
+                      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                      "maxLength": 500,
+                      "type": "string"
+                    },
+                    {
+                      "name": "legalBasisId",
+                      "in": "body",
+                      "required": false,
+                      "description": "法律基础ID。",
+                      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                      "maxLength": 64,
+                      "type": "string"
+                    },
+                    {
+                      "name": "legalBasis",
+                      "in": "body",
+                      "required": false,
+                      "description": "法律基础描述。",
+                      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                      "maxLength": 500,
+                      "type": "string"
+                    },
+                    {
+                      "name": "remark",
+                      "in": "body",
+                      "required": false,
+                      "description": "补充说明。",
+                      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                      "maxLength": 500,
+                      "type": "string"
+                    }
+                  ],
+                  "type": "array",
+                  "itemsType": "object",
+                  "maxItems": 200
+                }
+              ],
+              "type": "array",
+              "itemsType": "object",
+              "maxItems": 100
+            }
+          ],
+          "type": "object"
+        },
+        {
+          "name": "lawRegulationMode",
+          "in": "body",
+          "required": false,
+          "description": "法律规则模式。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-personalinfo-0000002328805173",
+          "properties": [
+            {
+              "name": "serviceTypeInfos",
+              "in": "body",
+              "required": false,
+              "description": "产品提供的功能。 数组长度不超过100。",
+              "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-lawregulationmode-0000002295005342",
+              "itemsProperties": [
+                {
+                  "name": "serviceType",
+                  "in": "body",
+                  "required": false,
+                  "description": "产品功能。",
+                  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-servicetypeinfo-0000002328805213",
+                  "maxLength": 100,
+                  "type": "string"
+                },
+                {
+                  "name": "sceneItems",
+                  "in": "body",
+                  "required": false,
+                  "description": "产品收集的信息。 数组长度不超过200。",
+                  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-servicetypeinfo-0000002328805213",
+                  "itemsProperties": [
+                    {
+                      "name": "dataItems",
+                      "in": "body",
+                      "required": false,
+                      "description": "数据信息。 数组长度不超过200。",
+                      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                      "itemsProperties": [
+                        {
+                          "name": "itemId",
+                          "in": "body",
+                          "required": false,
+                          "description": "数据ID。",
+                          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-dataitem-0000002328924933",
+                          "maxLength": 64,
+                          "type": "string"
+                        },
+                        {
+                          "name": "itemDesc",
+                          "in": "body",
+                          "required": false,
+                          "description": "数据描述。",
+                          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-dataitem-0000002328924933",
+                          "maxLength": 500,
+                          "type": "string"
+                        },
+                        {
+                          "name": "sensitiveData",
+                          "in": "body",
+                          "required": false,
+                          "description": "是否为敏感数据。 取值范围： 0：非敏感数据 1：敏感数据 默认值：0",
+                          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-dataitem-0000002328924933",
+                          "type": "integer",
+                          "enum": [
+                            "0",
+                            "1"
+                          ]
+                        }
+                      ],
+                      "type": "array",
+                      "itemsType": "object",
+                      "maxItems": 200
+                    },
+                    {
+                      "name": "sceneId",
+                      "in": "body",
+                      "required": false,
+                      "description": "收集项用途ID。",
+                      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                      "maxLength": 64,
+                      "type": "string"
+                    },
+                    {
+                      "name": "sceneReason",
+                      "in": "body",
+                      "required": false,
+                      "description": "收集项用途描述。",
+                      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                      "maxLength": 500,
+                      "type": "string"
+                    },
+                    {
+                      "name": "collectModeId",
+                      "in": "body",
+                      "required": false,
+                      "description": "收集方式ID。",
+                      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                      "maxLength": 64,
+                      "type": "string"
+                    },
+                    {
+                      "name": "collectMode",
+                      "in": "body",
+                      "required": false,
+                      "description": "收集方式描述。",
+                      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                      "maxLength": 500,
+                      "type": "string"
+                    },
+                    {
+                      "name": "legalBasisId",
+                      "in": "body",
+                      "required": false,
+                      "description": "法律基础ID。",
+                      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                      "maxLength": 64,
+                      "type": "string"
+                    },
+                    {
+                      "name": "legalBasis",
+                      "in": "body",
+                      "required": false,
+                      "description": "法律基础描述。",
+                      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                      "maxLength": 500,
+                      "type": "string"
+                    },
+                    {
+                      "name": "remark",
+                      "in": "body",
+                      "required": false,
+                      "description": "补充说明。",
+                      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                      "maxLength": 500,
+                      "type": "string"
+                    }
+                  ],
+                  "type": "array",
+                  "itemsType": "object",
+                  "maxItems": 200
+                }
+              ],
+              "type": "array",
+              "itemsType": "object",
+              "maxItems": 100
+            }
+          ],
+          "type": "object"
+        }
+      ],
+      "type": "object"
+    },
+    {
+      "name": "devicePermissions",
+      "in": "body",
+      "required": false,
+      "description": "设备权限信息。 数组长度不超过200。",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-agreementinfo-privacy-0000002294845630",
+      "itemsProperties": [
+        {
+          "name": "permissions",
+          "in": "body",
+          "required": false,
+          "description": "权限详情。 数组长度为1~200。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-devicepermission-0000002294845674",
+          "itemsProperties": [
+            {
+              "name": "permissionName",
+              "in": "body",
+              "required": false,
+              "description": "权限名称。",
+              "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-permission-0000002328924977",
+              "maxLength": 100,
+              "type": "string"
+            },
+            {
+              "name": "permissionDesc",
+              "in": "body",
+              "required": false,
+              "description": "权限描述。",
+              "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-permission-0000002328924977",
+              "maxLength": 500,
+              "type": "string"
+            }
+          ],
+          "type": "array",
+          "itemsType": "object",
+          "minItems": 1,
+          "maxItems": 200
+        },
+        {
+          "name": "reasonId",
+          "in": "body",
+          "required": false,
+          "description": "权限理由ID。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-devicepermission-0000002294845674",
+          "maxLength": 64,
+          "type": "string"
+        },
+        {
+          "name": "reason",
+          "in": "body",
+          "required": false,
+          "description": "权限理由描述。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-devicepermission-0000002294845674",
+          "maxLength": 500,
+          "type": "string"
+        },
+        {
+          "name": "groupId",
+          "in": "body",
+          "required": false,
+          "description": "权限groupId。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-devicepermission-0000002294845674",
+          "maxLength": 100,
+          "type": "string"
+        },
+        {
+          "name": "groupName",
+          "in": "body",
+          "required": false,
+          "description": "权限groupName。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-devicepermission-0000002294845674",
+          "maxLength": 256,
+          "type": "string"
+        }
+      ],
+      "type": "array",
+      "itemsType": "object",
+      "maxItems": 200
+    },
+    {
+      "name": "thirdSdkInfo",
+      "in": "body",
+      "required": false,
+      "description": "三方SDK信息。",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-agreementinfo-privacy-0000002294845630",
+      "properties": [
+        {
+          "name": "sdkInfos",
+          "in": "body",
+          "required": false,
+          "description": "SDK详细信息。 数组长度不超过50。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-thirdsdkinfo-0000002328805217",
+          "itemsProperties": [
+            {
+              "name": "name",
+              "in": "body",
+              "required": false,
+              "description": "SDK名称。",
+              "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sdkinfo-0000002295005346",
+              "maxLength": 100,
+              "type": "string"
+            },
+            {
+              "name": "providerName",
+              "in": "body",
+              "required": false,
+              "description": "SDK提供方名称。",
+              "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sdkinfo-0000002295005346",
+              "maxLength": 100,
+              "type": "string"
+            },
+            {
+              "name": "version",
+              "in": "body",
+              "required": false,
+              "description": "SDK版本号。",
+              "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sdkinfo-0000002295005346",
+              "maxLength": 100,
+              "type": "string"
+            },
+            {
+              "name": "privacyDeclare",
+              "in": "body",
+              "required": false,
+              "description": "SDK隐私声明。",
+              "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sdkinfo-0000002295005346",
+              "maxLength": 512,
+              "type": "string"
+            },
+            {
+              "name": "privacyLabels",
+              "in": "body",
+              "required": false,
+              "description": "SDK收集的信息。 数组长度不超过200。",
+              "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sdkinfo-0000002295005346",
+              "itemsProperties": [
+                {
+                  "name": "dataItems",
+                  "in": "body",
+                  "required": false,
+                  "description": "数据信息。 数组长度不超过200。",
+                  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                  "itemsProperties": [
+                    {
+                      "name": "itemId",
+                      "in": "body",
+                      "required": false,
+                      "description": "数据ID。",
+                      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-dataitem-0000002328924933",
+                      "maxLength": 64,
+                      "type": "string"
+                    },
+                    {
+                      "name": "itemDesc",
+                      "in": "body",
+                      "required": false,
+                      "description": "数据描述。",
+                      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-dataitem-0000002328924933",
+                      "maxLength": 500,
+                      "type": "string"
+                    },
+                    {
+                      "name": "sensitiveData",
+                      "in": "body",
+                      "required": false,
+                      "description": "是否为敏感数据。 取值范围： 0：非敏感数据 1：敏感数据 默认值：0",
+                      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-dataitem-0000002328924933",
+                      "type": "integer",
+                      "enum": [
+                        "0",
+                        "1"
+                      ]
+                    }
+                  ],
+                  "type": "array",
+                  "itemsType": "object",
+                  "maxItems": 200
+                },
+                {
+                  "name": "sceneId",
+                  "in": "body",
+                  "required": false,
+                  "description": "收集项用途ID。",
+                  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                  "maxLength": 64,
+                  "type": "string"
+                },
+                {
+                  "name": "sceneReason",
+                  "in": "body",
+                  "required": false,
+                  "description": "收集项用途描述。",
+                  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                  "maxLength": 500,
+                  "type": "string"
+                },
+                {
+                  "name": "collectModeId",
+                  "in": "body",
+                  "required": false,
+                  "description": "收集方式ID。",
+                  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                  "maxLength": 64,
+                  "type": "string"
+                },
+                {
+                  "name": "collectMode",
+                  "in": "body",
+                  "required": false,
+                  "description": "收集方式描述。",
+                  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                  "maxLength": 500,
+                  "type": "string"
+                },
+                {
+                  "name": "legalBasisId",
+                  "in": "body",
+                  "required": false,
+                  "description": "法律基础ID。",
+                  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                  "maxLength": 64,
+                  "type": "string"
+                },
+                {
+                  "name": "legalBasis",
+                  "in": "body",
+                  "required": false,
+                  "description": "法律基础描述。",
+                  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                  "maxLength": 500,
+                  "type": "string"
+                },
+                {
+                  "name": "remark",
+                  "in": "body",
+                  "required": false,
+                  "description": "补充说明。",
+                  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                  "maxLength": 500,
+                  "type": "string"
+                }
+              ],
+              "type": "array",
+              "itemsType": "object",
+              "maxItems": 200
+            },
+            {
+              "name": "scene",
+              "in": "body",
+              "required": false,
+              "description": "使用场景。",
+              "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sdkinfo-0000002295005346",
+              "maxLength": 200,
+              "type": "string"
+            },
+            {
+              "name": "collectType",
+              "in": "body",
+              "required": false,
+              "description": "收集方式。",
+              "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sdkinfo-0000002295005346",
+              "maxLength": 100,
+              "type": "string"
+            },
+            {
+              "name": "purpose",
+              "in": "body",
+              "required": false,
+              "description": "使用目的。",
+              "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sdkinfo-0000002295005346",
+              "maxLength": 500,
+              "type": "string"
+            }
+          ],
+          "type": "array",
+          "itemsType": "object",
+          "maxItems": 50
+        }
+      ],
+      "type": "object"
+    },
+    {
+      "name": "thirdSharedInfos",
+      "in": "body",
+      "required": false,
+      "description": "三方共享信息。 数组长度不超过200。",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-agreementinfo-privacy-0000002294845630",
+      "itemsProperties": [
+        {
+          "name": "name",
+          "in": "body",
+          "required": false,
+          "description": "第三方名称。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-thirdsharedinfo-0000002294845678",
+          "maxLength": 100,
+          "type": "string"
+        },
+        {
+          "name": "purpose",
+          "in": "body",
+          "required": false,
+          "description": "使用目的。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-thirdsharedinfo-0000002294845678",
+          "maxLength": 500,
+          "type": "string"
+        },
+        {
+          "name": "personalType",
+          "in": "body",
+          "required": false,
+          "description": "涉及个人信息的种类。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-thirdsharedinfo-0000002294845678",
+          "maxLength": 500,
+          "type": "string"
+        },
+        {
+          "name": "officialPrivacyUrl",
+          "in": "body",
+          "required": false,
+          "description": "第三方的官网链接和隐私政策链接。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-thirdsharedinfo-0000002294845678",
+          "maxLength": 1024,
+          "type": "string"
+        },
+        {
+          "name": "serviceType",
+          "in": "body",
+          "required": false,
+          "description": "共享信息的服务类型。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-thirdsharedinfo-0000002294845678",
+          "maxLength": 100,
+          "type": "string"
+        },
+        {
+          "name": "scene",
+          "in": "body",
+          "required": false,
+          "description": "使用场景。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-thirdsharedinfo-0000002294845678",
+          "maxLength": 200,
+          "type": "string"
+        },
+        {
+          "name": "shareType",
+          "in": "body",
+          "required": false,
+          "description": "共享方式。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-thirdsharedinfo-0000002294845678",
+          "maxLength": 100,
+          "type": "string"
+        },
+        {
+          "name": "dataItems",
+          "in": "body",
+          "required": false,
+          "description": "第三方数据信息。 数组长度不超过200。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-thirdsharedinfo-0000002294845678",
+          "itemsProperties": [
+            {
+              "name": "itemId",
+              "in": "body",
+              "required": false,
+              "description": "数据ID。",
+              "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-dataitem-0000002328924933",
+              "maxLength": 64,
+              "type": "string"
+            },
+            {
+              "name": "itemDesc",
+              "in": "body",
+              "required": false,
+              "description": "数据描述。",
+              "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-dataitem-0000002328924933",
+              "maxLength": 500,
+              "type": "string"
+            },
+            {
+              "name": "sensitiveData",
+              "in": "body",
+              "required": false,
+              "description": "是否为敏感数据。 取值范围： 0：非敏感数据 1：敏感数据 默认值：0",
+              "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-dataitem-0000002328924933",
+              "type": "integer",
+              "enum": [
+                "0",
+                "1"
+              ]
+            }
+          ],
+          "type": "array",
+          "itemsType": "object",
+          "maxItems": 200
+        }
+      ],
+      "type": "array",
+      "itemsType": "object",
+      "maxItems": 200
+    },
+    {
+      "name": "extInfo",
+      "in": "body",
+      "required": false,
+      "description": "扩展信息。",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-agreementinfo-privacy-0000002294845630",
+      "properties": [
+        {
+          "name": "contactInfo",
+          "in": "body",
+          "required": false,
+          "description": "联系方式详情。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-extendinfo-0000002328924981",
+          "properties": [
+            {
+              "name": "email",
+              "in": "body",
+              "required": false,
+              "description": "商业邮箱。 数组长度不超过10。",
+              "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-contactinfo-0000002328805225",
+              "itemsMaxLength": 100,
+              "type": "array",
+              "itemsType": "string",
+              "maxItems": 10
+            },
+            {
+              "name": "phoneNum",
+              "in": "body",
+              "required": false,
+              "description": "商业手机号码。 数组长度不超过10。",
+              "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-contactinfo-0000002328805225",
+              "itemsMaxLength": 31,
+              "type": "array",
+              "itemsType": "string",
+              "maxItems": 10
+            },
+            {
+              "name": "companyAddress",
+              "in": "body",
+              "required": false,
+              "description": "商业公司地址。",
+              "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-contactinfo-0000002328805225",
+              "maxLength": 512,
+              "type": "string"
+            },
+            {
+              "name": "customContactInfo",
+              "in": "body",
+              "required": false,
+              "description": "自定义联系方式。",
+              "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-contactinfo-0000002328805225",
+              "maxLength": 500,
+              "type": "string"
+            }
+          ],
+          "type": "object"
+        },
+        {
+          "name": "storageInfo",
+          "in": "body",
+          "required": false,
+          "description": "存储信息。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-extendinfo-0000002328924981",
+          "properties": [
+            {
+              "name": "storagePeriod",
+              "in": "body",
+              "required": false,
+              "description": "开发者对信息的存储期限。 取值范围： -1：表示最短期限。 其他取值表示由开发者填写。",
+              "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-storageinfo-0000002295005350",
+              "maxLength": 512,
+              "type": "string"
+            },
+            {
+              "name": "country",
+              "in": "body",
+              "required": false,
+              "description": "服务器所在国家。 示例：中国境内",
+              "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-storageinfo-0000002295005350",
+              "maxLength": 100,
+              "type": "string"
+            },
+            {
+              "name": "isCrossBorder",
+              "in": "body",
+              "required": false,
+              "description": "是否跨境。 取值范围： true：表示跨境 false：表示未跨境",
+              "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-storageinfo-0000002295005350",
+              "type": "boolean"
+            },
+            {
+              "name": "crossBorderReason",
+              "in": "body",
+              "required": false,
+              "description": "跨境处理原因。",
+              "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-storageinfo-0000002295005350",
+              "maxLength": 500,
+              "type": "string"
+            },
+            {
+              "name": "crossBorderReceiveName",
+              "in": "body",
+              "required": false,
+              "description": "跨境接收方名称/姓名。",
+              "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-storageinfo-0000002295005350",
+              "maxLength": 100,
+              "type": "string"
+            },
+            {
+              "name": "crossBorderDeclarations",
+              "in": "body",
+              "required": false,
+              "description": "跨境收集的信息。 数组长度不超过200。",
+              "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-storageinfo-0000002295005350",
+              "itemsProperties": [
+                {
+                  "name": "dataItems",
+                  "in": "body",
+                  "required": false,
+                  "description": "数据信息。 数组长度不超过200。",
+                  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                  "itemsProperties": [
+                    {
+                      "name": "itemId",
+                      "in": "body",
+                      "required": false,
+                      "description": "数据ID。",
+                      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-dataitem-0000002328924933",
+                      "maxLength": 64,
+                      "type": "string"
+                    },
+                    {
+                      "name": "itemDesc",
+                      "in": "body",
+                      "required": false,
+                      "description": "数据描述。",
+                      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-dataitem-0000002328924933",
+                      "maxLength": 500,
+                      "type": "string"
+                    },
+                    {
+                      "name": "sensitiveData",
+                      "in": "body",
+                      "required": false,
+                      "description": "是否为敏感数据。 取值范围： 0：非敏感数据 1：敏感数据 默认值：0",
+                      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-dataitem-0000002328924933",
+                      "type": "integer",
+                      "enum": [
+                        "0",
+                        "1"
+                      ]
+                    }
+                  ],
+                  "type": "array",
+                  "itemsType": "object",
+                  "maxItems": 200
+                },
+                {
+                  "name": "sceneId",
+                  "in": "body",
+                  "required": false,
+                  "description": "收集项用途ID。",
+                  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                  "maxLength": 64,
+                  "type": "string"
+                },
+                {
+                  "name": "sceneReason",
+                  "in": "body",
+                  "required": false,
+                  "description": "收集项用途描述。",
+                  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                  "maxLength": 500,
+                  "type": "string"
+                },
+                {
+                  "name": "collectModeId",
+                  "in": "body",
+                  "required": false,
+                  "description": "收集方式ID。",
+                  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                  "maxLength": 64,
+                  "type": "string"
+                },
+                {
+                  "name": "collectMode",
+                  "in": "body",
+                  "required": false,
+                  "description": "收集方式描述。",
+                  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                  "maxLength": 500,
+                  "type": "string"
+                },
+                {
+                  "name": "legalBasisId",
+                  "in": "body",
+                  "required": false,
+                  "description": "法律基础ID。",
+                  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                  "maxLength": 64,
+                  "type": "string"
+                },
+                {
+                  "name": "legalBasis",
+                  "in": "body",
+                  "required": false,
+                  "description": "法律基础描述。",
+                  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                  "maxLength": 500,
+                  "type": "string"
+                },
+                {
+                  "name": "remark",
+                  "in": "body",
+                  "required": false,
+                  "description": "补充说明。",
+                  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+                  "maxLength": 500,
+                  "type": "string"
+                }
+              ],
+              "type": "array",
+              "itemsType": "object",
+              "maxItems": 200
+            },
+            {
+              "name": "crossBorderCountry",
+              "in": "body",
+              "required": false,
+              "description": "跨境之后存储的国家/地区。",
+              "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-storageinfo-0000002295005350",
+              "maxLength": 100,
+              "type": "string"
+            }
+          ],
+          "type": "object"
+        },
+        {
+          "name": "childPrivacyUrl",
+          "in": "body",
+          "required": false,
+          "description": "未成年人隐私保护url。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-extendinfo-0000002328924981",
+          "maxLength": 512,
+          "type": "string"
+        },
+        {
+          "name": "versionChangeDescs",
+          "in": "body",
+          "required": false,
+          "description": "版本变更说明。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-extendinfo-0000002328924981",
+          "itemsProperties": [
+            {
+              "name": "chapter",
+              "in": "body",
+              "required": false,
+              "description": "版本变更章节。",
+              "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-versionchangedesc-0000002294845686",
+              "maxLength": 50,
+              "type": "string"
+            },
+            {
+              "name": "desc",
+              "in": "body",
+              "required": false,
+              "description": "版本变更说明。",
+              "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-versionchangedesc-0000002294845686",
+              "maxLength": 500,
+              "type": "string"
+            }
+          ],
+          "type": "array",
+          "itemsType": "object"
+        },
+        {
+          "name": "abstracts",
+          "in": "body",
+          "required": false,
+          "description": "摘要信息。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-extendinfo-0000002328924981",
+          "maxLength": 300,
+          "type": "string"
+        },
+        {
+          "name": "managePersonalInfo",
+          "in": "body",
+          "required": false,
+          "description": "个人信息管理详情。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-extendinfo-0000002328924981",
+          "properties": [
+            {
+              "name": "infoAccess",
+              "in": "body",
+              "required": false,
+              "description": "访问记录。",
+              "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-managepersionalinfo-0000002328924985",
+              "properties": [
+                {
+                  "name": "personalSettingPath",
+                  "in": "body",
+                  "required": false,
+                  "description": "访问路径。",
+                  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-infoaccess-0000002328805233",
+                  "maxLength": 500,
+                  "type": "string"
+                },
+                {
+                  "name": "personalType",
+                  "in": "body",
+                  "required": false,
+                  "description": "涉及个人信息种类。",
+                  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-infoaccess-0000002328805233",
+                  "maxLength": 500,
+                  "type": "string"
+                }
+              ],
+              "type": "object"
+            },
+            {
+              "name": "infoModify",
+              "in": "body",
+              "required": false,
+              "description": "修改记录。",
+              "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-managepersionalinfo-0000002328924985",
+              "properties": [
+                {
+                  "name": "personalSettingPath",
+                  "in": "body",
+                  "required": false,
+                  "description": "访问路径。",
+                  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-infomodify-0000002295005354",
+                  "maxLength": 500,
+                  "type": "string"
+                },
+                {
+                  "name": "personalType",
+                  "in": "body",
+                  "required": false,
+                  "description": "涉及个人信息种类。",
+                  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-infomodify-0000002295005354",
+                  "maxLength": 500,
+                  "type": "string"
+                }
+              ],
+              "type": "object"
+            },
+            {
+              "name": "infoDelete",
+              "in": "body",
+              "required": false,
+              "description": "删除记录。",
+              "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-managepersionalinfo-0000002328924985",
+              "properties": [
+                {
+                  "name": "personalSettingPath",
+                  "in": "body",
+                  "required": false,
+                  "description": "访问路径。",
+                  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-infodelete-0000002294845690",
+                  "maxLength": 500,
+                  "type": "string"
+                },
+                {
+                  "name": "personalType",
+                  "in": "body",
+                  "required": false,
+                  "description": "涉及个人信息种类。",
+                  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-infodelete-0000002294845690",
+                  "maxLength": 500,
+                  "type": "string"
+                }
+              ],
+              "type": "object"
+            },
+            {
+              "name": "infoCancel",
+              "in": "body",
+              "required": false,
+              "description": "撤销记录。",
+              "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-managepersionalinfo-0000002328924985",
+              "properties": [
+                {
+                  "name": "personalSettingPath",
+                  "in": "body",
+                  "required": false,
+                  "description": "访问路径。",
+                  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-infocancel-0000002328924989",
+                  "maxLength": 500,
+                  "type": "string"
+                },
+                {
+                  "name": "serviceType",
+                  "in": "body",
+                  "required": false,
+                  "description": "业务功能，业务类型。",
+                  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-infocancel-0000002328924989",
+                  "maxLength": 200,
+                  "type": "string"
+                }
+              ],
+              "type": "object"
+            },
+            {
+              "name": "serviceStop",
+              "in": "body",
+              "required": false,
+              "description": "服务暂停记录。",
+              "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-managepersionalinfo-0000002328924985",
+              "properties": [
+                {
+                  "name": "personalSettingPath",
+                  "in": "body",
+                  "required": false,
+                  "description": "访问路径。",
+                  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-servicestop-0000002328805237",
+                  "maxLength": 500,
+                  "type": "string"
+                }
+              ],
+              "type": "object"
+            }
+          ],
+          "type": "object"
+        },
+        {
+          "name": "customInfo",
+          "in": "body",
+          "required": false,
+          "description": "自定义章节详情。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-extendinfo-0000002328924981",
+          "properties": [
+            {
+              "name": "title",
+              "in": "body",
+              "required": false,
+              "description": "自定义章节标题。",
+              "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-custominfo-0000002295005358",
+              "maxLength": 100,
+              "type": "string"
+            },
+            {
+              "name": "customInfoDesc",
+              "in": "body",
+              "required": false,
+              "description": "自定义章节内容。",
+              "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-custominfo-0000002295005358",
+              "maxLength": 5000,
+              "type": "string"
+            },
+            {
+              "name": "customInfos",
+              "in": "body",
+              "required": false,
+              "description": "额外的自定义章节详情。 数组长度不超过5。",
+              "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-custominfo-0000002295005358",
+              "itemsProperties": [
+                {
+                  "name": "title",
+                  "in": "body",
+                  "required": false,
+                  "description": "额外的自定义章节标题。",
+                  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-customchapter-0000002294845694",
+                  "maxLength": 100,
+                  "type": "string"
+                },
+                {
+                  "name": "customInfoDesc",
+                  "in": "body",
+                  "required": false,
+                  "description": "额外的自定义章节内容。",
+                  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-customchapter-0000002294845694",
+                  "maxLength": 3000,
+                  "type": "string"
+                }
+              ],
+              "type": "array",
+              "itemsType": "object",
+              "maxItems": 5
+            }
+          ],
+          "type": "object"
+        },
+        {
+          "name": "extField",
+          "in": "body",
+          "required": false,
+          "description": "扩展字段。 说明 扩展字段的value不允许为空字符串，空字符串表示删除此扩展字段。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-extendinfo-0000002328924981",
+          "maxLength": 8192,
+          "type": "string"
+        },
+        {
+          "name": "extFieldCustomInfo",
+          "in": "body",
+          "required": false,
+          "description": "儿童隐私详情。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-extendinfo-0000002328924981",
+          "properties": [
+            {
+              "name": "childPrivacyTitle",
+              "in": "body",
+              "required": false,
+              "description": "儿童隐私自定义标题。",
+              "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-extfieldcustominfo-0000002328924997",
+              "maxLength": 512,
+              "type": "string"
+            },
+            {
+              "name": "childPrivacyCustomInfoDesc",
+              "in": "body",
+              "required": false,
+              "description": "儿童隐私自定义内容。",
+              "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-extfieldcustominfo-0000002328924997",
+              "maxLength": 5000,
+              "type": "string"
+            }
+          ],
+          "type": "object"
+        }
+      ],
+      "type": "object"
+    }
+  ]
+}

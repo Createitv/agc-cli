@@ -1,0 +1,54 @@
+{
+  "title": "FileInfo",
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-data-fileinfo-0000002272575549",
+  "updatedAt": "2026-06-25 19:52",
+  "status": "browser-read",
+  "tables": [
+    {
+      "section": "",
+      "location": "",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-data-fileinfo-0000002272575549",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "fileName",
+          "M",
+          "String(255)",
+          "文件名称，包括文件的后缀名。"
+        ],
+        [
+          "objectId",
+          "M",
+          "String(1024)",
+          "文件在文件服务器中的对象ID。 说明 objectId的获取流程：先调用获取上传文件地址接口，然后调用上传文件接口上传文件，最后得到获取上传文件地址接口返回的objectId。"
+        ]
+      ]
+    }
+  ],
+  "notes": [],
+  "examples": [],
+  "links": [
+    {
+      "title": "获取上传文件地址",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-upload-api-upload-url-0000002236201294"
+    },
+    {
+      "title": "上传文件",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-upload-api-upload-file-0000002271160621"
+    },
+    {
+      "title": "获取上传文件地址",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-upload-api-upload-url-0000002236201294"
+    },
+    {
+      "title": "华为开发者联盟用户协议",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825"
+    }
+  ],
+  "checkedAt": "2026-10-07T04:38:48.485Z"
+}

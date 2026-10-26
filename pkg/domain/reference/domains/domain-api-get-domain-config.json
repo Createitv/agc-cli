@@ -1,0 +1,300 @@
+{
+  "examples": [
+    {
+      "section": "请求示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-domain-api-get-domain-config-0000002236201326#section162251741185115",
+      "text": "请求示例\n GET /api/dms/domain-manage/v1/app/domain/config?appId=10*****57 HTTP/1.1 \n Host: connect-api.cloud.huawei.com \n client_id: 4141******68 \n Content-Type: application/json \n Authorization: Bearer *******"
+    },
+    {
+      "section": "响应示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-domain-api-get-domain-config-0000002236201326#section14178457143617",
+      "text": "响应示例\n{\n  \"ret\": {\n    \"code\": 0,\n    \"msg\": \"success\"\n  },\n  \"configs\": [\n    {\n      \"appId\": \"string\",\n      \"appName\": \"string\",\n      \"modifyCounts\": 0,\n      \"serverDomainCounts\": 0,\n      \"businessDomainCounts\": 0,\n      \"updateTime\": 0\n    }\n  ]\n}"
+    }
+  ],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter#section195981215284",
+      "title": "了解新版目录"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-open-ability-0000002235710238",
+      "title": "AGC开放能力"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-0000002236015554",
+      "title": "AppGallery Connect API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-domain-api-reference-0000002271160649",
+      "title": "Domain Management API参考"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-obtain-server-auth-0000002271134661",
+      "title": "获取服务端授权"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-obtain-server-auth-0000002271134661#section104621343151212",
+      "title": "通过Service Account方式获取授权"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-obtain-server-auth-0000002271134661#section103mcpsimp",
+      "title": "创建API客户端"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-obtain-server-auth-0000002271134661#section09831133141712",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-domain-api-data-connectret-0000002272462489",
+      "title": "ConnectRet"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-domain-api-data-appdomainconfig-0000002237503148",
+      "title": "AppDomainConfig"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-domain-api-post-domain-0000002236041522",
+      "title": "新增/更新元服务的域名配置信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-domain-api-download-domain-config-0000002271160653",
+      "title": "下载域名配置文件"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-domain-api-get-domain-config-0000002236201326#section16817111413112",
+      "title": "功能介绍"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-domain-api-get-domain-config-0000002236201326#section1572199315",
+      "title": "服务器域名配置约束与限制"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-domain-api-get-domain-config-0000002236201326#section5605815161218",
+      "title": "业务域名配置约束与限制"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-domain-api-get-domain-config-0000002236201326#section101651738121111",
+      "title": "接口原型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-domain-api-get-domain-config-0000002236201326#section747013518115",
+      "title": "请求参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-domain-api-get-domain-config-0000002236201326#section119494174419",
+      "title": "Header"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-domain-api-get-domain-config-0000002236201326#section886219295206",
+      "title": "Query"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-domain-api-get-domain-config-0000002236201326#section162251741185115",
+      "title": "请求示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-domain-api-get-domain-config-0000002236201326#section9752647125217",
+      "title": "响应参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-domain-api-get-domain-config-0000002236201326#section14178457143617",
+      "title": "响应示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-domain-api-get-domain-config-0000002236201326#section16817111413112",
+      "text": "此接口用于查询域名修改次数、配置上限等信息。"
+    },
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-domain-api-get-domain-config-0000002236201326#section16817111413112",
+      "text": "接口调用者的角色：账号持有者、管理员、APP管理员、运营。"
+    },
+    {
+      "section": "服务器域名配置约束与限制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-domain-api-get-domain-config-0000002236201326#section1572199315",
+      "text": "同一个元服务每个自然月服务器域名修改次数，默认为50次。"
+    },
+    {
+      "section": "服务器域名配置约束与限制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-domain-api-get-domain-config-0000002236201326#section1572199315",
+      "text": "单项服务器域名配置数量最多不超过200个。"
+    },
+    {
+      "section": "服务器域名配置约束与限制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-domain-api-get-domain-config-0000002236201326#section1572199315",
+      "text": "域名只支持HTTPS和WSS协议。"
+    },
+    {
+      "section": "服务器域名配置约束与限制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-domain-api-get-domain-config-0000002236201326#section1572199315",
+      "text": "域名不能使用IP地址或localhost。"
+    },
+    {
+      "section": "服务器域名配置约束与限制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-domain-api-get-domain-config-0000002236201326#section1572199315",
+      "text": "不可配置全局禁止清单内的域名。"
+    },
+    {
+      "section": "业务域名配置约束与限制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-domain-api-get-domain-config-0000002236201326#section5605815161218",
+      "text": "同一个元服务每个自然月业务域名修改次数，默认为50次。"
+    },
+    {
+      "section": "业务域名配置约束与限制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-domain-api-get-domain-config-0000002236201326#section5605815161218",
+      "text": "同一个APPID下，最多支持配置100个业务域名；同一个业务域名最多可配置100个APPID。"
+    },
+    {
+      "section": "业务域名配置约束与限制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-domain-api-get-domain-config-0000002236201326#section5605815161218",
+      "text": "域名只支持HTTPS协议。"
+    },
+    {
+      "section": "业务域名配置约束与限制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-domain-api-get-domain-config-0000002236201326#section5605815161218",
+      "text": "网页内iframe的域名也需要配置。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-domain-api-get-domain-config-0000002236201326#section119494174419",
+      "text": "本接口支持使用Service Account方式和API客户端方式，二者区别请参见获取服务端授权。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-domain-api-get-domain-config-0000002236201326#section119494174419",
+      "text": "Service Account方式："
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-domain-api-get-domain-config-0000002236201326#section119494174419",
+      "text": "API客户端方式："
+    }
+  ],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-domain-api-get-domain-config-0000002236201326",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "承载协议",
+          "HTTPS GET"
+        ],
+        [
+          "接口方向",
+          "开发者服务器 -> 华为服务器"
+        ],
+        [
+          "接口URL",
+          "https://connect-api.cloud.huawei.com/api/dms/domain-manage/v1/app/domain/config"
+        ],
+        [
+          "数据格式",
+          "请求：Content-Type: application/json 响应：Content-Type: application/json"
+        ]
+      ],
+      "section": "接口原型",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-domain-api-get-domain-config-0000002236201326#section101651738121111"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "Authorization",
+          "M",
+          "String",
+          "认证信息，格式为“Authorization: Bearer ${JWT}”。JWT为通过Service Account方式获取授权中获取的鉴权令牌。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-domain-api-get-domain-config-0000002236201326#section119494174419"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "client_id",
+          "M",
+          "String",
+          "客户端ID，获取方法参考创建API客户端。"
+        ],
+        [
+          "Authorization",
+          "M",
+          "String",
+          "认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-domain-api-get-domain-config-0000002236201326#section119494174419"
+    },
+    {
+      "location": "query",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "appId",
+          "M",
+          "String(32)",
+          "元服务的应用ID。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-domain-api-get-domain-config-0000002236201326#section886219295206"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "ret",
+          "M",
+          "ConnectRet",
+          "包含返回码及描述信息的结果。"
+        ],
+        [
+          "configs",
+          "O",
+          "List<AppDomainConfig>",
+          "元服务的域名配置信息。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-domain-api-get-domain-config-0000002236201326#section9752647125217"
+    }
+  ],
+  "title": "查询域名修改次数/配置上限",
+  "updatedAt": "2026-06-25 19:52",
+  "checkedAt": "2026-10-07T02:54:18.730Z",
+  "family": "domains",
+  "endpoint": "domain-api-get-domain-config"
+}

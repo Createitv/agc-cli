@@ -1,0 +1,235 @@
+{
+  "checkedAt": "2026-10-26",
+  "examples": [
+    {
+      "section": "请求示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-get-id-0000001296645276#section624414128367",
+      "text": "请求示例\nPOST https://your_auth_url\nContent-Type: application/json; charset=utf-8\n{\n       \"accessToken\":\"eyJhbGciOiJIUzU****************\",\n       \"appId\":\"102***218\"\n}"
+    },
+    {
+      "section": "响应示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-get-id-0000001296645276#section1424604118480",
+      "text": "响应示例\nHTTP/1.1 200 OK\nContent-Type: application/json; charset=utf-8\n{\n    \"ret\": {\n        \"code\": 0,\n        \"msg\": \"common success\"\n    },\n    \"data\": {\n        \"playerId\": \"10****01\"\n    }\n}"
+    }
+  ],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-game-leaderboard-0000001349245017",
+      "title": "游戏排行榜模板API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/distribution/app/agc-help-appinfo-0000001100014694",
+      "title": "查看应用基本信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-serverless-leaderboards-returncode-0000001323309633",
+      "title": "返回码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-get-id-0000001296645276#ZH-CN_TOPIC_0000001296645276__li1171741871918",
+      "title": "ret参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-get-id-0000001296645276#ZH-CN_TOPIC_0000001296645276__li8176052152215",
+      "title": "data参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-game-leaderboard-0000001349245017",
+      "title": "游戏排行榜模板API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-get-id-0000001296645276#section112501947114611",
+      "title": "功能介绍"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-get-id-0000001296645276#section1849073954215",
+      "title": "使用约束"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-get-id-0000001296645276#section6932219103913",
+      "title": "接口原型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-get-id-0000001296645276#section128mcpsimp",
+      "title": "请求参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-get-id-0000001296645276#section624414128367",
+      "title": "请求示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-get-id-0000001296645276#section129mcpsimp",
+      "title": "响应参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-get-id-0000001296645276#section1424604118480",
+      "title": "响应示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-get-id-0000001296645276#section112501947114611",
+      "text": "通过accessToken获取游戏排行榜的用户ID。"
+    },
+    {
+      "section": "使用约束",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-get-id-0000001296645276#section1849073954215",
+      "text": "必须使用https协议。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-get-id-0000001296645276#section128mcpsimp",
+      "text": "请求参数以JSON格式传入，包含参数如下。"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-get-id-0000001296645276#section129mcpsimp",
+      "text": "返回值为JSON格式的字符串，包含参数如下。"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-get-id-0000001296645276#section129mcpsimp",
+      "text": "返回码使用标准HTTP状态码，详情请参考返回码。"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-get-id-0000001296645276#section129mcpsimp",
+      "text": "ret参数 参数名称 必选(M)/可选(O) 数据类型 参数说明 code M Integer 返回码： 0：成功。 403：accessToken无效，鉴权失败。 msg O String 返回码的描述信息。"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-get-id-0000001296645276#section129mcpsimp",
+      "text": "data参数 参数名称 必选(M)/可选(O) 数据类型 参数说明 playerId M String(200) 用户ID。"
+    }
+  ],
+  "renderedText": "API参考\nServerless模板\n游戏排行榜模板API\n获取玩家ID\n获取玩家ID\n更新时间: 2024-06-18 18:08\n功能介绍\n\n通过accessToken获取游戏排行榜的用户ID。\n\n使用约束\n\n必须使用https协议。\n\n接口原型\n\n承载协议\n\n\t\n\nHTTPS POST\n\n\n\n\n接口方向\n\n\t\n\n华为服务器 -> 开发者服务器\n\n\n\n\n接口URL\n\n\t\n\n您提供的用户认证接口URL，必须为https协议，格式为https://your_auth_url。\n\n\n\n\n数据格式\n\n\t\n\n请求：Content-Type: application/json\n\n响应：Content-Type: application/json\n\n请求参数\n\n请求参数以JSON格式传入，包含参数如下。\n\n参数名称\n\n\t\n\n必选(M)/可选(O)\n\n\t\n\n数据类型\n\n\t\n\n参数说明\n\n\n\n\nappId\n\n\t\n\nM\n\n\t\n\nString(64)\n\n\t\n\n应用ID，获取方法参考查看应用基本信息。\n\n\n\n\naccessToken\n\n\t\n\nM\n\n\t\n\nString(2048)\n\n\t\n\n玩家ID的认证凭据，来自于您调用函数接口时带的参数值。\n\n请求示例\nPOST https://your_auth_url\nContent-Type: application/json; charset=utf-8\n{\n       \"accessToken\":\"eyJhbGciOiJIUzU****************\",\n       \"appId\":\"102***218\"\n}\n响应参数\n\n返回值为JSON格式的字符串，包含参数如下。\n\n说明\n\n返回码使用标准HTTP状态码，详情请参考返回码。\n\n参数名称\n\n\t\n\n必选(M)/可选(O)\n\n\t\n\n数据类型\n\n\t\n\n参数说明\n\n\n\n\nret\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n\n获取Token失败时返回的错误信息，包含错误码及描述信息的JSON字符串，格式为{\"code\":retcode, \"msg\": \"description\"}，详情请参见ret参数。\n\n\n\n\ndata\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n\nJSONObject字符串的信息，格式为{\"playerId\": \"string\"}，详情请参见data参数。\n\nret参数\n\n参数名称\n\n\t\n\n必选(M)/可选(O)\n\n\t\n\n数据类型\n\n\t\n\n参数说明\n\n\n\n\ncode\n\n\t\n\nM\n\n\t\n\nInteger\n\n\t\n\n返回码：\n\n0：成功。\n403：accessToken无效，鉴权失败。\n\n\n\nmsg\n\n\t\n\nO\n\n\t\n\nString\n\n\t\n\n返回码的描述信息。\n\ndata参数\n\n参数名称\n\n\t\n\n必选(M)/可选(O)\n\n\t\n\n数据类型\n\n\t\n\n参数说明\n\n\n\n\nplayerId\n\n\t\n\nM\n\n\t\n\nString(200)\n\n\t\n\n用户ID。\n\n响应示例\nHTTP/1.1 200 OK\nContent-Type: application/json; charset=utf-8\n{\n    \"ret\": {\n        \"code\": 0,\n        \"msg\": \"common success\"\n    },\n    \"data\": {\n        \"playerId\": \"10****01\"\n    }\n}\n游戏排行榜模板API\n意见反馈\n以上内容对您是否有帮助？\n意见反馈\n如果您有其他疑问，您也可以通过开发者社区问答频道来和我们联系探讨。\n社区提问AI 助手提问\n本文导读\n功能介绍\n使用约束\n接口原型\n请求参数\n请求示例\n响应参数\n响应示例\n简体中文\n华为开发者联盟 版权所有 ©2026\n问题反馈\n使用条款\n华为开发者联盟用户协议\n关于华为开发者联盟与隐私的声明\nCookies\n开源软件声明",
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-get-id-0000001296645276",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "承载协议",
+          "HTTPS POST"
+        ],
+        [
+          "接口方向",
+          "华为服务器 -> 开发者服务器"
+        ],
+        [
+          "接口URL",
+          "您提供的用户认证接口URL，必须为https协议，格式为https://your_auth_url。"
+        ],
+        [
+          "数据格式",
+          "请求：Content-Type: application/json 响应：Content-Type: application/json"
+        ]
+      ],
+      "section": "接口原型",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-get-id-0000001296645276#section6932219103913"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "数据类型",
+          "参数说明"
+        ],
+        [
+          "appId",
+          "M",
+          "String(64)",
+          "应用ID，获取方法参考查看应用基本信息。"
+        ],
+        [
+          "accessToken",
+          "M",
+          "String(2048)",
+          "玩家ID的认证凭据，来自于您调用函数接口时带的参数值。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-get-id-0000001296645276#section128mcpsimp"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "数据类型",
+          "参数说明"
+        ],
+        [
+          "ret",
+          "M",
+          "String",
+          "获取Token失败时返回的错误信息，包含错误码及描述信息的JSON字符串，格式为{\"code\":retcode, \"msg\": \"description\"}，详情请参见ret参数。"
+        ],
+        [
+          "data",
+          "M",
+          "String",
+          "JSONObject字符串的信息，格式为{\"playerId\": \"string\"}，详情请参见data参数。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-get-id-0000001296645276#section129mcpsimp"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "数据类型",
+          "参数说明"
+        ],
+        [
+          "code",
+          "M",
+          "Integer",
+          "返回码： 0：成功。 403：accessToken无效，鉴权失败。"
+        ],
+        [
+          "msg",
+          "O",
+          "String",
+          "返回码的描述信息。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-get-id-0000001296645276#section129mcpsimp"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "数据类型",
+          "参数说明"
+        ],
+        [
+          "playerId",
+          "M",
+          "String(200)",
+          "用户ID。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-get-id-0000001296645276#section129mcpsimp"
+    }
+  ],
+  "title": "获取玩家ID",
+  "updatedAt": "2024-06-18 18:08",
+  "captureTool": "Computer Use; scripts/browser-capture-reference.mjs-compatible merged-cell capture"
+}

@@ -2,6 +2,7 @@ package agcapi
 
 import (
 	"context"
+	"encoding/json"
 	"io"
 	"net/http"
 	"net/http/httptest"
@@ -22,6 +23,7 @@ func TestInvokeEndpointStreamsUploadFile(t *testing.T) {
 		for _, contentType := range []string{"", "application/vnd.android.package-archive"} {
 			t.Run(id+contentType, func(t *testing.T) {
 				server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+					w.Header().Set("ETag", `"server-content-hash"`)
 					data, err := io.ReadAll(r.Body)
 					if err != nil {
 						t.Error(err)
@@ -44,9 +46,15 @@ func TestInvokeEndpointStreamsUploadFile(t *testing.T) {
 					}
 				}))
 				defer server.Close()
-				_, err := InvokeEndpoint(context.Background(), server.Client(), InvokeRequest{Endpoint: domain.Endpoint{ID: id, Method: "PUT", Path: "{uploadUrl}"}, Params: map[string]string{"uploadUrl": server.URL}, FilePath: file, AccessToken: "test-token", Headers: map[string]string{"Content-Type": contentType}})
+				result, err := InvokeEndpoint(context.Background(), server.Client(), InvokeRequest{Endpoint: domain.Endpoint{ID: id, Method: "PUT", Path: "{uploadUrl}"}, Params: map[string]string{"uploadUrl": server.URL}, FilePath: file, AccessToken: "test-token", Headers: map[string]string{"Content-Type": contentType}})
 				if err != nil {
 					t.Fatal(err)
+				}
+				encoded, _ := json.Marshal(result)
+				var decoded map[string]any
+				_ = json.Unmarshal(encoded, &decoded)
+				if decoded["etag"] != `"server-content-hash"` {
+					t.Fatal("服务端 ETag 校验值未透传给 CLI")
 				}
 			})
 		}

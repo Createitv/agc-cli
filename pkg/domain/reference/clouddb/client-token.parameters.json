@@ -1,0 +1,41 @@
+[
+  {
+    "name": "useJwt",
+    "type": "integer",
+    "required": true,
+    "description": "使用账号凭据JWT(Json Web Token)，固定传入“1”。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-obtaintoken-rest-0000001446607602#section128mcpsimp",
+    "in": "body",
+    "enum": [
+      "0",
+      "1"
+    ]
+  },
+  {
+    "name": "grant_type",
+    "type": "string",
+    "required": true,
+    "description": "固定传入“client_credentials”。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-obtaintoken-rest-0000001446607602#section128mcpsimp",
+    "in": "body",
+    "enum": [
+      "client_credentials"
+    ]
+  },
+  {
+    "name": "client_id",
+    "type": "string",
+    "required": true,
+    "description": "客户端ID，即获取客户端API授权中的“Client ID”。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-obtaintoken-rest-0000001446607602#section128mcpsimp",
+    "in": "body"
+  },
+  {
+    "name": "client_secret",
+    "type": "string",
+    "required": true,
+    "description": "客户端密钥，即获取客户端API授权中的“Client Secret”。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-obtaintoken-rest-0000001446607602#section128mcpsimp",
+    "in": "body"
+  }
+]

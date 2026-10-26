@@ -1,0 +1,368 @@
+{
+  "checkedAt": "2026-10-26",
+  "examples": [
+    {
+      "section": "请求示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryfile-0000001211627869#section2382162510250",
+      "text": "请求示例\ncurl --location --request POST 'https://10.31.26.167:18062/api/cloudhosting/web/v1/version/queryFiles' \\\n--header 'productId: 258779603740930923' \\\n--header 'Authorization: Bearer eyJraWQiOiJJQXNyUj*******************9889S7yAXIhRP-nU' \\\n--header 'requestid: 876456' \\\n--header 'client_id: 7261907****1591808' \\\n--header 'service: hosting' \\\n--header 'Content-Type: application/json' \\\n--data-raw '{\n   \"siteId\":\"KCM647QqTvyk7AqvH49jqQ\",\n   \"version\":\"1VPshibmSymQkRedDJvxPQ\",\n   \"pageInfo\":{\n       \"queryIndex\":0,\n       \"querySize\":100\n   }\n}'"
+    },
+    {
+      "section": "响应示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryfile-0000001211627869#section69231586289",
+      "text": "响应示例\n成功示例\n{\n    \"pageInfo\": {\n        \"queryIndex\": 0,\n        \"querySize\": 10,\n        \"totalSize\": 4\n    },\n    \"versionFileMetataList\": [\n        {\n            \"filePath\": \"/css/move.css\",\n            \"fileSha256\": \"ea50caa661c30cbe614e0571a5ef2778e2ccfd0e0fbf8168570c781c81241127\",\n            \"fileSize\": 0\n        },\n        {\n            \"filePath\": \"/index.html\",\n            \"fileSha256\": \"7ba3327dce84a80f373b69a58de2b95f7245237ece6c784ea79dc6b149c9190e\",\n            \"fileSize\": 0\n        },\n        {\n            \"filePath\": \"/js/dot.js\",\n            \"fileSha256\": \"5a3dc75a7acbda6e5afb1c91e55e0d2f061de9bdcd1a7141c662805de8967740\",\n            \"fileSize\": 0\n        },\n        {\n            \"filePath\": \"/js/raffle2.js\",\n            \"fileSha256\": \"42acaaeea9382e678380b5a2b8dbe433fce3100c07caa30f65c1e2489604e165\",\n            \"fileSize\": 0\n        }\n    ],\n    \"code\": \"0\",\n    \"message\": \"success to query version files\"\n}\n鉴权失败示例\n{\n    \"ret\": {\n        \"code\": 205524993,\n        \"msg\": \"client token auth failed\"\n    }\n}"
+    }
+  ],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-restapi-0000001150409957",
+      "title": "RESTful API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-version-0000001260142907",
+      "title": "管理版本"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain_token-0000001158365043",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain_token-0000001158365043",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain_token-0000001158365043",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-get-developerid-projectid-0000001166543063",
+      "title": "查询开发者账号ID及项目ID"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloudhost-getstarted-0000001166760172#section14162113625516",
+      "title": "创建API客户端"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryfile-0000001211627869#ZH-CN_TOPIC_0000002743352064__table4808103772018",
+      "title": "pageInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-errorcode-0000001260940301",
+      "title": "状态码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryfile-0000001211627869#ZH-CN_TOPIC_0000002743352064__table0913114153220",
+      "title": "VersionFileMetata"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryfile-0000001211627869#ZH-CN_TOPIC_0000002743352064__table1527212065616",
+      "title": "pageInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryversion-0000001166507920",
+      "title": "查询版本列表"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-deleteversion-0000001166347944",
+      "title": "删除版本"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryfile-0000001211627869#section15494260",
+      "title": "功能介绍"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryfile-0000001211627869#section5230614",
+      "title": "使用约束"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryfile-0000001211627869#section6932219103913",
+      "title": "接口原型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryfile-0000001211627869#section55021827",
+      "title": "请求参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryfile-0000001211627869#section236517415165",
+      "title": "Header"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryfile-0000001211627869#section17512144171520",
+      "title": "Body"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryfile-0000001211627869#section2382162510250",
+      "title": "请求示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryfile-0000001211627869#section25434396",
+      "title": "响应参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryfile-0000001211627869#section69231586289",
+      "title": "响应示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryfile-0000001211627869#section1961417391324",
+      "title": "成功示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryfile-0000001211627869#section224505812316",
+      "title": "鉴权失败示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryfile-0000001211627869#section15494260",
+      "text": "此接口用于查询已归档版本的归档文件信息，为创建和修改版本提供基线版本内容的查询。"
+    },
+    {
+      "section": "使用约束",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryfile-0000001211627869#section5230614",
+      "text": "仅支持对一个月内已归档的版本进行查询。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryfile-0000001211627869#section17512144171520",
+      "text": "pageInfo"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryfile-0000001211627869#section25434396",
+      "text": "VersionFileMetata"
+    }
+  ],
+  "renderedText": "API参考\n云托管\nRESTful API\n管理版本\n查询归档版本文件\n查询归档版本文件\n更新时间: 2026-10-23 16:56\n功能介绍\n\n此接口用于查询已归档版本的归档文件信息，为创建和修改版本提供基线版本内容的查询。\n\n使用约束\n\n仅支持对一个月内已归档的版本进行查询。\n\n接口原型\n\n承载协议\n\n\t\n\nHTTPS POST\n\n\n\n\n接口方向\n\n\t\n\n开发者服务器 -> 华为服务器\n\n\n\n\n接口URL\n\n\t\n\nhttps://{domain}/api/cloudhosting/web/v1/version/queryFiles\n\n其中{domain}依站点区分：\n中国：connect-api.cloud.huawei.com\n德国：connect-api-dre.cloud.huawei.com\n新加坡：connect-api-dra.cloud.huawei.com\n俄罗斯：connect-api-drru.cloud.huawei.com\n注意\n\n调用获取Token接口时使用的域名必须与本接口域名保持一致，例如欧洲站点使用“connect-api-dre.cloud.huawei.com”，则调用获取Token接口必须使用“https://connect-api-dre.cloud.huawei.com/api/oauth2/v1/token”。\n\n\n\n\n数据格式\n\n\t\n\n请求：Content-Type: application/json\n\n响应：Content-Type: application/json\n\n请求参数\nHeader\n\n参数名称\n\n\t\n\n必选(M)/可选(O)\n\n\t\n\n类型\n\n\t\n\n参数说明\n\n\n\n\nAuthorization\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n\n认证鉴权信息。\n\n认证方式：Bearer token。\n\n格式:“Authorization: Bearer ${access_token}”。\n\naccess_token为获取Token中获取的access_token。\n\n\n\n\nproductId\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n\n项目ID，获取方法参考查询开发者账号ID及项目ID。\n\n\n\n\nrequestid\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n\n自定义的请求字符串，必须唯一标识此请求。\n\n\n\n\nclient_id\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n\n客户端ID，获取方法参考创建API客户端。\n\n\n\n\nservice\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n\nAPI业务标识。固定值：hosting。\n\nBody\n\n参数名称\n\n\t\n\n必选(M)/可选(O)\n\n\t\n\n类型\n\n\t\n\n参数说明\n\n\n\n\nsiteId\n\n\t\n\nM\n\n\t\n\nString(64)\n\n\t\n\n云托管版本所在站点ID。\n\n\n\n\nversion\n\n\t\n\nM\n\n\t\n\nString(64)\n\n\t\n\n站点版本ID。\n\n\n\n\npageInfo\n\n\t\n\nM\n\n\t\n\npageInfo\n\n\t\n\n分页模型。\n\npageInfo\n\n参数名称\n\n\t\n\n必选(M)/可选(O)\n\n\t\n\n类型\n\n\t\n\n参数说明\n\n\n\n\nqueryIndex\n\n\t\n\nO\n\n\t\n\nInteger\n\n\t\n\n索引查询，默认值为0。\n\n\n\n\nquerySize\n\n\t\n\nO\n\n\t\n\nInteger\n\n\t\n\n每页查询数量，默认值为1000，最大值为1000。\n\n请求示例\ncurl --location --request POST 'https://10.31.26.167:18062/api/cloudhosting/web/v1/version/queryFiles' \\\n--header 'productId: 258779603740930923' \\\n--header 'Authorization: Bearer eyJraWQiOiJJQXNyUj*******************9889S7yAXIhRP-nU' \\\n--header 'requestid: 876456' \\\n--header 'client_id: 7261907****1591808' \\\n--header 'service: hosting' \\\n--header 'Content-Type: application/json' \\\n--data-raw '{\n   \"siteId\":\"KCM647QqTvyk7AqvH49jqQ\",\n   \"version\":\"1VPshibmSymQkRedDJvxPQ\",\n   \"pageInfo\":{\n       \"queryIndex\":0,\n       \"querySize\":100\n   }\n}'\n响应参数\n\n参数名称\n\n\t\n\n必选(M)/可选(O)\n\n\t\n\n类型\n\n\t\n\n参数说明\n\n\n\n\nret\n\n\t\n\nO\n\n\t\n\nString\n\n\t\n\n包含返回码及描述信息的JSON字符串，格式为{\"code\":retcode, \"msg\": \"description\"}，retcode为返回码，description为返回码描述信息。\n\n\n\n\ncode\n\n\t\n\nO\n\n\t\n\nString\n\n\t\n\n查询结果状态码，参考状态码。\n\n\n\n\nmessage\n\n\t\n\nO\n\n\t\n\nString\n\n\t\n\n查询结果描述。\n\n\n\n\nversionFileMetataList\n\n\t\n\nO\n\n\t\n\nList<VersionFileMetata>\n\n\t\n\n版本文件列表。\n\n\n\n\npageInfo\n\n\t\n\nO\n\n\t\n\npageInfo\n\n\t\n\n分页模型。\n\nVersionFileMetata\n\n参数名称\n\n\t\n\n必选(M)/可选(O)\n\n\t\n\n类型\n\n\t\n\n参数说明\n\n\n\n\nfilePath\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n\n版本文件的绝对路径。\n\n\n\n\nfileSha256\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n\n版本文件的Hash值。\n\npageInfo\n\n参数名称\n\n\t\n\n必选(M)/可选(O)\n\n\t\n\n类型\n\n\t\n\n参数说明\n\n\n\n\nqueryIndex\n\n\t\n\nM\n\n\t\n\nInteger\n\n\t\n\n索引查询，默认值为0。\n\n\n\n\nquerySize\n\n\t\n\nM\n\n\t\n\nInteger\n\n\t\n\n每页数量，默认为1000，最大值为1000。\n\n\n\n\ntotalSize\n\n\t\n\nM\n\n\t\n\nInteger\n\n\t\n\n总记录数。\n\n响应示例\n成功示例\n{\n    \"pageInfo\": {\n        \"queryIndex\": 0,\n        \"querySize\": 10,\n        \"totalSize\": 4\n    },\n    \"versionFileMetataList\": [\n        {\n            \"filePath\": \"/css/move.css\",\n            \"fileSha256\": \"ea50caa661c30cbe614e0571a5ef2778e2ccfd0e0fbf8168570c781c81241127\",\n            \"fileSize\": 0\n        },\n        {\n            \"filePath\": \"/index.html\",\n            \"fileSha256\": \"7ba3327dce84a80f373b69a58de2b95f7245237ece6c784ea79dc6b149c9190e\",\n            \"fileSize\": 0\n        },\n        {\n            \"filePath\": \"/js/dot.js\",\n            \"fileSha256\": \"5a3dc75a7acbda6e5afb1c91e55e0d2f061de9bdcd1a7141c662805de8967740\",\n            \"fileSize\": 0\n        },\n        {\n            \"filePath\": \"/js/raffle2.js\",\n            \"fileSha256\": \"42acaaeea9382e678380b5a2b8dbe433fce3100c07caa30f65c1e2489604e165\",\n            \"fileSize\": 0\n        }\n    ],\n    \"code\": \"0\",\n    \"message\": \"success to query version files\"\n}\n鉴权失败示例\n{\n    \"ret\": {\n        \"code\": 205524993,\n        \"msg\": \"client token auth failed\"\n    }\n}\n查询版本列表\n删除版本\n意见反馈\n以上内容对您是否有帮助？\n意见反馈\n如果您有其他疑问，您也可以通过开发者社区问答频道来和我们联系探讨。\n社区提问AI 助手提问\n本文导读\n功能介绍\n使用约束\n接口原型\n请求参数\nHeader\nBody\n请求示例\n响应参数\n响应示例\n成功示例\n鉴权失败示例\n简体中文\n华为开发者联盟 版权所有 ©2026\n问题反馈\n使用条款\n华为开发者联盟用户协议\n关于华为开发者联盟与隐私的声明\nCookies\n开源软件声明",
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryfile-0000001211627869",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "承载协议",
+          "HTTPS POST"
+        ],
+        [
+          "接口方向",
+          "开发者服务器 -> 华为服务器"
+        ],
+        [
+          "接口URL",
+          "https://{domain}/api/cloudhosting/web/v1/version/queryFiles 其中{domain}依站点区分： 中国：connect-api.cloud.huawei.com 德国：connect-api-dre.cloud.huawei.com 新加坡：connect-api-dra.cloud.huawei.com 俄罗斯：connect-api-drru.cloud.huawei.com 注意 调用获取Token接口时使用的域名必须与本接口域名保持一致，例如欧洲站点使用“connect-api-dre.cloud.huawei.com”，则调用获取Token接口必须使用“https://connect-api-dre.cloud.huawei.com/api/oauth2/v1/token”。"
+        ],
+        [
+          "数据格式",
+          "请求：Content-Type: application/json 响应：Content-Type: application/json"
+        ]
+      ],
+      "section": "接口原型",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryfile-0000001211627869#section6932219103913"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "Authorization",
+          "M",
+          "String",
+          "认证鉴权信息。 认证方式：Bearer token。 格式:“Authorization: Bearer ${access_token}”。 access_token为获取Token中获取的access_token。"
+        ],
+        [
+          "productId",
+          "M",
+          "String",
+          "项目ID，获取方法参考查询开发者账号ID及项目ID。"
+        ],
+        [
+          "requestid",
+          "M",
+          "String",
+          "自定义的请求字符串，必须唯一标识此请求。"
+        ],
+        [
+          "client_id",
+          "M",
+          "String",
+          "客户端ID，获取方法参考创建API客户端。"
+        ],
+        [
+          "service",
+          "M",
+          "String",
+          "API业务标识。固定值：hosting。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryfile-0000001211627869#section236517415165"
+    },
+    {
+      "location": "body",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "siteId",
+          "M",
+          "String(64)",
+          "云托管版本所在站点ID。"
+        ],
+        [
+          "version",
+          "M",
+          "String(64)",
+          "站点版本ID。"
+        ],
+        [
+          "pageInfo",
+          "M",
+          "pageInfo",
+          "分页模型。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryfile-0000001211627869#section17512144171520"
+    },
+    {
+      "location": "body",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "queryIndex",
+          "O",
+          "Integer",
+          "索引查询，默认值为0。"
+        ],
+        [
+          "querySize",
+          "O",
+          "Integer",
+          "每页查询数量，默认值为1000，最大值为1000。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryfile-0000001211627869#section17512144171520"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "ret",
+          "O",
+          "String",
+          "包含返回码及描述信息的JSON字符串，格式为{\"code\":retcode, \"msg\": \"description\"}，retcode为返回码，description为返回码描述信息。"
+        ],
+        [
+          "code",
+          "O",
+          "String",
+          "查询结果状态码，参考状态码。"
+        ],
+        [
+          "message",
+          "O",
+          "String",
+          "查询结果描述。"
+        ],
+        [
+          "versionFileMetataList",
+          "O",
+          "List<VersionFileMetata>",
+          "版本文件列表。"
+        ],
+        [
+          "pageInfo",
+          "O",
+          "pageInfo",
+          "分页模型。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryfile-0000001211627869#section25434396"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "filePath",
+          "M",
+          "String",
+          "版本文件的绝对路径。"
+        ],
+        [
+          "fileSha256",
+          "M",
+          "String",
+          "版本文件的Hash值。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryfile-0000001211627869#section25434396"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "queryIndex",
+          "M",
+          "Integer",
+          "索引查询，默认值为0。"
+        ],
+        [
+          "querySize",
+          "M",
+          "Integer",
+          "每页数量，默认为1000，最大值为1000。"
+        ],
+        [
+          "totalSize",
+          "M",
+          "Integer",
+          "总记录数。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-queryfile-0000001211627869#section25434396"
+    }
+  ],
+  "title": "查询归档版本文件",
+  "updatedAt": "2026-10-23 16:56",
+  "captureTool": "Computer Use; scripts/browser-capture-reference.mjs-compatible merged-cell capture"
+}

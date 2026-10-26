@@ -1,0 +1,77 @@
+[
+  {
+    "name": "appId",
+    "in": "path",
+    "type": "string",
+    "required": true,
+    "description": "应用ID，获取方法参考查询应用信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-appdownloadexport-0000001158365059#section1250171775311"
+  },
+  {
+    "name": "language",
+    "in": "query",
+    "type": "string",
+    "required": true,
+    "description": "查询语言，报表title会根据不同语言来展现，只支持简体中文（zh-CN），美式英文（en-US），俄文（ru-RU）。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-appdownloadexport-0000001158365059#section886219295206",
+    "enum": [
+      "zh-CN",
+      "en-US",
+      "ru-RU"
+    ]
+  },
+  {
+    "name": "startTime",
+    "in": "query",
+    "type": "string",
+    "required": true,
+    "description": "查询开始时间，UTC时间，格式为YYYYMMDD。startTime和endTime之间不超过180天。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-appdownloadexport-0000001158365059#section886219295206"
+  },
+  {
+    "name": "endTime",
+    "in": "query",
+    "type": "string",
+    "required": true,
+    "description": "查询结束时间，UTC时间，格式为YYYYMMDD。startTime和endTime之间不超过180天。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-appdownloadexport-0000001158365059#section886219295206"
+  },
+  {
+    "name": "filterCondition",
+    "in": "query",
+    "type": "array",
+    "required": false,
+    "description": "过滤器。 取值范围： countryId：按国家过滤。 businessType：按业务类型过滤。 appVersion：按应用版本过滤。 如果不传，默认无过滤器。 支持countryId、businessType和appVersion同时使用，URL示例：&filterCondition=countryId&filterCondition=businessType&filterCondition=appVersion",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-appdownloadexport-0000001158365059#section886219295206",
+    "itemsType": "string"
+  },
+  {
+    "name": "filterConditionValue",
+    "in": "query",
+    "type": "array",
+    "required": false,
+    "description": "过滤器对应的值。 如果过滤器为countryId，此参数的取值为国家码的字符串数组，例如“CN, AL, AD, AT”。具体国家码列表参考国家码。传入“all”表示查询全球。传入“others”表示仅查询“US,CU,IR,SD,SY”（美国,古巴,伊朗,苏丹,叙利亚），获取的数据作为一个整体展示，例如“CN,AL,others”。“all”和“others”不区分大小写。 如果过滤器为businessType，此参数的取值为业务类型，取值范围为： ALL：所有业务 AppGallery：华为应用市场 AppTouch：AppTouch业务 取值区分大小写。 如果过滤器为appVersion，此参数的取值为应用版本，多个版本以英文逗号分隔，如：“1.0.0,2.0.0”。“all”表示查询所有应用版本，“all”不区分大小写。 如果传入多个过滤器，使用多个filterConditionValue表示，顺序必须与filterCondition中过滤器的顺序一致。URL示例：&filterConditionValue=CN&filterConditionValue=AppGallery。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-appdownloadexport-0000001158365059#section886219295206",
+    "itemsType": "string"
+  },
+  {
+    "name": "groupBy",
+    "in": "query",
+    "type": "string",
+    "required": false,
+    "description": "数据统计的分组信息，支持按如下依据分组。 取值范围： date：按日期分组 countryId：按国家分组 businessType：按业务类型分组 appVersion：按应用版本分组 默认值：date",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-appdownloadexport-0000001158365059#section886219295206"
+  },
+  {
+    "name": "exportType",
+    "in": "query",
+    "type": "string",
+    "required": false,
+    "description": "导出文件类型。 取值范围： CSV：导出CSV文件格式 EXCEL：导出Excel文件格式 默认值：CSV",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-appdownloadexport-0000001158365059#section886219295206",
+    "enum": [
+      "CSV",
+      "EXCEL"
+    ]
+  }
+]

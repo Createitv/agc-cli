@@ -1,0 +1,83 @@
+[
+  {
+    "name": "appId",
+    "in": "header",
+    "type": "string",
+    "required": true,
+    "description": "应用ID，获取方法参考查看应用信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-query-feedback-0000002665117717#section7338205532",
+    "maxLength": 32
+  },
+  {
+    "name": "startTime",
+    "in": "body",
+    "type": "integer",
+    "required": false,
+    "description": "时间戳，开始时间，不填默认近一年。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-feedbacklistrequest-0000002671389861"
+  },
+  {
+    "name": "endTime",
+    "in": "body",
+    "type": "integer",
+    "required": false,
+    "description": "时间戳，结束时间，不填默认近一年。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-feedbacklistrequest-0000002671389861"
+  },
+  {
+    "name": "appVersions",
+    "in": "body",
+    "type": "array",
+    "required": false,
+    "description": "应用版本。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-feedbacklistrequest-0000002671389861",
+    "itemsType": "string",
+    "itemsMaxLength": 64
+  },
+  {
+    "name": "models",
+    "in": "body",
+    "type": "array",
+    "required": false,
+    "description": "模型。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-feedbacklistrequest-0000002671389861",
+    "itemsType": "string",
+    "itemsMaxLength": 64
+  },
+  {
+    "name": "deviceVersions",
+    "in": "body",
+    "type": "array",
+    "required": false,
+    "description": "设备版本。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-feedbacklistrequest-0000002671389861",
+    "itemsType": "string",
+    "itemsMaxLength": 64
+  },
+  {
+    "name": "machineTypes",
+    "in": "body",
+    "type": "array",
+    "required": false,
+    "description": "机器类型。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-feedbacklistrequest-0000002671389861",
+    "itemsType": "string",
+    "itemsMaxLength": 64
+  },
+  {
+    "name": "currentPage",
+    "in": "body",
+    "type": "integer",
+    "required": false,
+    "description": "当前页。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-feedbacklistrequest-0000002671389861"
+  },
+  {
+    "name": "pageSize",
+    "in": "body",
+    "type": "integer",
+    "required": false,
+    "description": "每页数量。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-feedbacklistrequest-0000002671389861"
+  }
+]

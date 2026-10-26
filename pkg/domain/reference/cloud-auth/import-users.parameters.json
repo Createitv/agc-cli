@@ -1,0 +1,182 @@
+[
+  {
+    "name": "productId",
+    "type": "string",
+    "required": true,
+    "description": "项目ID，查询方法可参见查询项目ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-import-0000001136020892#section17216134314169",
+    "in": "header"
+  },
+  {
+    "name": "Authorization",
+    "type": "string",
+    "required": false,
+    "description": "认证信息，格式为“Authorization: Bearer ${JWT}”。JWT为通过Service Account方式获取授权中获取的鉴权令牌。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-import-0000001136020892#section17216134314169",
+    "in": "header"
+  },
+  {
+    "name": "client_id",
+    "type": "string",
+    "required": false,
+    "description": "客户端ID，获取方法参考创建API客户端。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-import-0000001136020892#section17216134314169",
+    "in": "header"
+  },
+  {
+    "name": "users",
+    "type": "array",
+    "required": true,
+    "description": "第三方的认证信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-import-0000001136020892#section12304113241318",
+    "in": "body",
+    "itemsType": "object",
+    "itemsProperties": [
+      {
+        "name": "importUid",
+        "type": "string",
+        "required": true,
+        "description": "用户ID，唯一标识。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-import-0000001136020892#section12304113241318",
+        "in": "body",
+        "maxLength": 1024
+      },
+      {
+        "name": "displayName",
+        "type": "string",
+        "required": false,
+        "description": "用户昵称。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-import-0000001136020892#section12304113241318",
+        "in": "body",
+        "maxLength": 1024
+      },
+      {
+        "name": "photoUrl",
+        "type": "string",
+        "required": false,
+        "description": "头像地址。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-import-0000001136020892#section12304113241318",
+        "in": "body",
+        "maxLength": 2048
+      },
+      {
+        "name": "email",
+        "type": "string",
+        "required": false,
+        "description": "用户邮箱地址。 第三方的认证信息providers中的providerId为12的时候不能为空。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-import-0000001136020892#section12304113241318",
+        "in": "body",
+        "maxLength": 512
+      },
+      {
+        "name": "emailVerified",
+        "type": "boolean",
+        "required": false,
+        "description": "邮箱是否需要验证，值为true或者false。 第三方的认证信息providers中的providerId为12的时候不能为空。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-import-0000001136020892#section12304113241318",
+        "in": "body"
+      },
+      {
+        "name": "phone",
+        "type": "string",
+        "required": false,
+        "description": "手机号。格式: +国家码-手机号，示例+86-18260096275。 第三方的认证信息providers中的providerId为11的时候不能为空。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-import-0000001136020892#section12304113241318",
+        "in": "body",
+        "maxLength": 32
+      },
+      {
+        "name": "createTime",
+        "type": "string",
+        "required": true,
+        "description": "创建时间，距离1970年1月1日毫秒数。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-import-0000001136020892#section12304113241318",
+        "in": "body",
+        "maxLength": 20
+      },
+      {
+        "name": "lastLoginTime",
+        "type": "string",
+        "required": false,
+        "description": "上次登入时间，距离1970年1月1日的毫秒数。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-import-0000001136020892#section12304113241318",
+        "in": "body",
+        "maxLength": 20
+      },
+      {
+        "name": "passwordHash",
+        "type": "string",
+        "required": false,
+        "description": "明文密码经过PBKDF2WithSHA256后的结果，迭代次数10000，盐值对应passwordSalt。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-import-0000001136020892#section12304113241318",
+        "in": "body",
+        "maxLength": 8192
+      },
+      {
+        "name": "passwordSalt",
+        "type": "string",
+        "required": false,
+        "description": "密码算法的盐值。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-import-0000001136020892#section12304113241318",
+        "in": "body",
+        "maxLength": 8192
+      },
+      {
+        "name": "providers",
+        "type": "array",
+        "required": true,
+        "description": "第三方的认证信息。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-import-0000001136020892#section12304113241318",
+        "in": "body",
+        "itemsType": "object",
+        "maxItems": 32,
+        "itemsProperties": [
+          {
+            "name": "provider",
+            "type": "string",
+            "required": true,
+            "description": "认证方式类型: 0：匿名账号 1：华为账号 2: FACEBOOK* 3. TWITTER* 4：微信 5：华为游戏 6：QQ 7：微博 8：GOOGLE* 9: GOOGLE_PLAY_GAME* 10：自建账号 11：手机 12：邮箱 13：苹果账号 18：支付宝账号 说明 *星号标记的账号类型仅在海外站点支持，当您选择数据处理位置为德国、新加坡或俄罗斯时可以使用这些认证方式。",
+            "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-import-0000001136020892#section12304113241318",
+            "in": "body"
+          },
+          {
+            "name": "providerUid",
+            "type": "string",
+            "required": true,
+            "description": "用户唯一标识，由三方系统分配。",
+            "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-import-0000001136020892#section12304113241318",
+            "in": "body",
+            "maxLength": 1024
+          },
+          {
+            "name": "photoUrl",
+            "type": "string",
+            "required": false,
+            "description": "头像地址。",
+            "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-import-0000001136020892#section12304113241318",
+            "in": "body",
+            "maxLength": 2048
+          },
+          {
+            "name": "displayName",
+            "type": "string",
+            "required": false,
+            "description": "用户昵称。",
+            "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-import-0000001136020892#section12304113241318",
+            "in": "body",
+            "maxLength": 1024
+          },
+          {
+            "name": "openId",
+            "type": "string",
+            "required": false,
+            "description": "发送者唯一标识，例如微信openId。",
+            "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-import-0000001136020892#section12304113241318",
+            "in": "body",
+            "maxLength": 1024
+          }
+        ]
+      }
+    ]
+  }
+]

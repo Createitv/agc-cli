@@ -1,0 +1,411 @@
+{
+  "examples": [
+    {
+      "section": "请求示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section1168614731019",
+      "text": "请求示例\nPOST /gameservice/api/gbClientApi\nHost: jos-open-api.cloud.huawei.com\nContent-Type: application/x-www-form-urlencoded\nmethod=external.hms.gs.syncGameResources&appId=135***568&resources=[{\"index\":\"123445667\",\"name\":\"皮肤-彩虹大聪明\",\"type\":1,\"url\":\"https://***example.jpg\",\"updateTime\":1716349620000,\"resourceHash\":\"AKHSJ******AHDO\",\"operType\":0}]&ts=1670841860308&sign=**************"
+    },
+    {
+      "section": "响应示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section239825451012",
+      "text": "响应示例\nHTTP/1.1 200 OK \nContent-Type: application/json;charset=UTF-8 \n{\n    \"rtnCode\": \"0\"\n}"
+    }
+  ],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-playing-api-0000001985465934",
+      "title": "在玩服务"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/distribution/app/agc-help-appinfo-0000001100014694",
+      "title": "查看应用基本信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#ZH-CN_TOPIC_0000002022105725__zh-cn_topic_0000001900949436_p1228021816231",
+      "title": "Resources"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section16341195442212",
+      "title": "签名机制"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/query-game-info-0000001050164346",
+      "title": "获取游戏服务信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-role-info-0000002075016173",
+      "title": "批量查询玩家角色信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-summary-0000002022225249",
+      "title": "查询游戏概要信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section19331230181011",
+      "title": "功能介绍"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section8751936131014",
+      "title": "接口原型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section133671740131017",
+      "title": "请求参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section8202184551317",
+      "title": "Body参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section1168614731019",
+      "title": "请求示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section4102155161010",
+      "title": "响应参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section239825451012",
+      "title": "响应示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section16341195442212",
+      "title": "签名机制"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section19331230181011",
+      "text": "开发者服务器调用此接口同步华为服务器的游戏资源，用于上传或下架“在玩”页面上的图片或视频。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section8202184551317",
+      "text": "Resources"
+    },
+    {
+      "section": "签名机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section16341195442212",
+      "text": "为了确保HTTPS传输的安全性，防止请求参数被篡改，应用需要在调用接口时携带请求参数的签名字符串，用于华为服务器对请求参数进行校验。签名字符串的生成规则如下所示："
+    },
+    {
+      "section": "签名机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section16341195442212",
+      "text": "将请求参数Body中除sign以外的参数，按参数名首字母的ASCII码将参数升序排序。若遇到相同首字母，则比较第二个字母，以此类推。"
+    },
+    {
+      "section": "签名机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section16341195442212",
+      "text": "排序完成之后，将所有参与签名的参数值进行urlencode之后以“&”字符连接成字符串，例如“a=xxxxxx&b=xxxxxxx&c=xxxxxx”，此字符串便是待签名字符串。 Java示例代码如下： // 组装body内除sign以外的参数，此处参数值仅为示例 Map<String, String> paramsMap = new HashMap<>(); paramsMap.put(\"appId\", \"appId\"); paramsMap.put(\"reqId\", \"reqId\"); paramsMap.put(\"status\", \"1\"); paramsMap.put(\"ts\", \"111111111\"); // 对参数进行字典序排序 Map<String, String> tempMap = new TreeMap<>(params); // 拼接参数 for (Map.Entry<String, String> entry : tempMap.entrySet()) { String key = entry.getKey(); String value = entry.getValue(); base.append(key).append('=').append(null == value ? '' : URLEncoder.encode(value, \"UTF-8\")).append('&'); } if (base.length() > 0) { base.deleteCharAt(base.length() - 1); }"
+    },
+    {
+      "section": "签名机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section16341195442212",
+      "text": "// 组装body内除sign以外的参数，此处参数值仅为示例"
+    },
+    {
+      "section": "签名机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section16341195442212",
+      "text": "Map<String, String> paramsMap = new HashMap<>();"
+    },
+    {
+      "section": "签名机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section16341195442212",
+      "text": "paramsMap.put(\"appId\", \"appId\");"
+    },
+    {
+      "section": "签名机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section16341195442212",
+      "text": "paramsMap.put(\"reqId\", \"reqId\");"
+    },
+    {
+      "section": "签名机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section16341195442212",
+      "text": "paramsMap.put(\"status\", \"1\");"
+    },
+    {
+      "section": "签名机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section16341195442212",
+      "text": "paramsMap.put(\"ts\", \"111111111\");"
+    },
+    {
+      "section": "签名机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section16341195442212",
+      "text": "// 对参数进行字典序排序"
+    },
+    {
+      "section": "签名机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section16341195442212",
+      "text": "Map<String, String> tempMap = new TreeMap<>(params);"
+    },
+    {
+      "section": "签名机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section16341195442212",
+      "text": "// 拼接参数"
+    },
+    {
+      "section": "签名机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section16341195442212",
+      "text": "for (Map.Entry<String, String> entry : tempMap.entrySet()) {"
+    },
+    {
+      "section": "签名机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section16341195442212",
+      "text": "String key = entry.getKey();"
+    },
+    {
+      "section": "签名机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section16341195442212",
+      "text": "String value = entry.getValue();"
+    },
+    {
+      "section": "签名机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section16341195442212",
+      "text": "base.append(key).append('=').append(null == value ? '' : URLEncoder.encode(value, \"UTF-8\")).append('&');"
+    },
+    {
+      "section": "签名机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section16341195442212",
+      "text": "}"
+    },
+    {
+      "section": "签名机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section16341195442212",
+      "text": "if (base.length() > 0) {"
+    },
+    {
+      "section": "签名机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section16341195442212",
+      "text": "base.deleteCharAt(base.length() - 1);"
+    },
+    {
+      "section": "签名机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section16341195442212",
+      "text": "将待签名字符串使用游戏私钥按照RSA算法（SHA256WithRSA/PSS）进行签名，将签名后的字符串经过Base64编码，得到的字符串即为签名字符串。 说明 游戏私钥在开通游戏服务后生成，获取请参见获取游戏服务信息。 golang默认使用PSSSaltLengthAuto，需换成PSSSaltLengthEqualsHash。 Java示例代码如下： // 获取签名私钥，具体实现方法由开发者自行决定，此处仅为接口示例 String privateKey = \"xxxxxx\"; // 加签，BouncyCastleProvider的创建较耗费性能，建议写成单例 byte[] keyBytes = Base64.decodeBase64(privateKey); PKCS8EncodedKeySpec pkcs8KeySpec = new PKCS8EncodedKeySpec(keyBytes); KeyFactory keyFactory = KeyFactory.getInstance(\"RSA\"); PrivateKey privateK = keyFactory.generatePrivate(pkcs8KeySpec); Signature signature = Signature.getInstance(\"SHA256withRSA/PSS\", new BouncyCastleProvider()); signature.initSign(privateK); signature.update(sortedParams.getBytes(StandardCharsets.UTF_8)); String sign = Base64.encodeBase64String(signature.sign());"
+    },
+    {
+      "section": "签名机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section16341195442212",
+      "text": "游戏私钥在开通游戏服务后生成，获取请参见获取游戏服务信息。"
+    },
+    {
+      "section": "签名机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section16341195442212",
+      "text": "golang默认使用PSSSaltLengthAuto，需换成PSSSaltLengthEqualsHash。"
+    },
+    {
+      "section": "签名机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section16341195442212",
+      "text": "Java示例代码如下："
+    },
+    {
+      "section": "签名机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section16341195442212",
+      "text": "// 获取签名私钥，具体实现方法由开发者自行决定，此处仅为接口示例"
+    },
+    {
+      "section": "签名机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section16341195442212",
+      "text": "String privateKey = \"xxxxxx\";"
+    },
+    {
+      "section": "签名机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section16341195442212",
+      "text": "// 加签，BouncyCastleProvider的创建较耗费性能，建议写成单例"
+    },
+    {
+      "section": "签名机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section16341195442212",
+      "text": "byte[] keyBytes = Base64.decodeBase64(privateKey);"
+    },
+    {
+      "section": "签名机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section16341195442212",
+      "text": "PKCS8EncodedKeySpec pkcs8KeySpec = new PKCS8EncodedKeySpec(keyBytes);"
+    },
+    {
+      "section": "签名机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section16341195442212",
+      "text": "KeyFactory keyFactory = KeyFactory.getInstance(\"RSA\");"
+    },
+    {
+      "section": "签名机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section16341195442212",
+      "text": "PrivateKey privateK = keyFactory.generatePrivate(pkcs8KeySpec);"
+    },
+    {
+      "section": "签名机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section16341195442212",
+      "text": "Signature signature = Signature.getInstance(\"SHA256withRSA/PSS\", new BouncyCastleProvider());"
+    },
+    {
+      "section": "签名机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section16341195442212",
+      "text": "signature.initSign(privateK);"
+    },
+    {
+      "section": "签名机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section16341195442212",
+      "text": "signature.update(sortedParams.getBytes(StandardCharsets.UTF_8));"
+    },
+    {
+      "section": "签名机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section16341195442212",
+      "text": "String sign = Base64.encodeBase64String(signature.sign());"
+    }
+  ],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "承载协议",
+          "HTTPS POST"
+        ],
+        [
+          "接口方向",
+          "开发者服务器 -> 华为游戏服务器"
+        ],
+        [
+          "接口URL",
+          "https://jos-open-api.cloud.huawei.com/gameservice/api/gbClientApi"
+        ],
+        [
+          "数据格式",
+          "请求：Content-Type: application/x-www-form-urlencoded（表单方式） 响应：Content-Type: application/json"
+        ]
+      ],
+      "section": "接口原型",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section8751936131014"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数",
+          "是否必选",
+          "类型",
+          "说明"
+        ],
+        [
+          "method",
+          "是",
+          "String(64)",
+          "固定传入“external.hms.gs.syncGameResources”。"
+        ],
+        [
+          "appId",
+          "是",
+          "String(32)",
+          "游戏在AppGallery Connect中生成的APP ID，获取方法请参见查看应用基本信息。"
+        ],
+        [
+          "resources",
+          "是",
+          "String(300000)",
+          "图片或视频资源，JSON字符串，JSON类型List<Resources>，最大支持50个资源。"
+        ],
+        [
+          "ts",
+          "是",
+          "Long",
+          "当前时间的时间戳，即距离GMT时间1970年1月1号0时0分0秒所差的毫秒数。"
+        ],
+        [
+          "sign",
+          "是",
+          "String(1024)",
+          "用于华为游戏服务器对请求参数验签的签名字符串。 为防止请求被篡改，游戏需要根据签名机制中的方法生成签名字符串，华为服务器在收到请求后会对签名字符串进行验签，验签成功后才会进行后续处理，否则将返回失败错误码。请求中除sign、resources以外的所有Body参数均参与签名。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section8202184551317"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数",
+          "是否必选",
+          "类型",
+          "说明"
+        ],
+        [
+          "index",
+          "是",
+          "String(128)",
+          "资源索引，取值由开发者定义，在该游戏内必须全局唯一。"
+        ],
+        [
+          "name",
+          "是",
+          "String(128)",
+          "资源名称。"
+        ],
+        [
+          "type",
+          "是",
+          "Integer",
+          "资源类型。 1：图片，大小不超过500KB，格式支持jpg、jpeg、bmp、png。 2：视频，大小不超过500MB，格式支持mp4、avi、mov。 说明 请按要求上传如下特殊位置的图片，否则页面展示可能会失真： 要求各勋章图片均保持相同的尺寸和1:1的宽高比。 用于战绩信息背景的皮肤要求大小不超过500KB，尺寸为1080*1440。"
+        ],
+        [
+          "url",
+          "否",
+          "String(2048)",
+          "可以公网访问的资源地址，需支持资源下载。 说明 上传游戏资源时，此参数必填。要求url中必须携带文件的后缀，并且图片地址需要https格式，例如https://test.abc.com/testPath/test.png。"
+        ],
+        [
+          "updateTime",
+          "否",
+          "Long",
+          "更新时间的时间戳，即距离GMT时间1970年1月1号0时0分0秒所差的毫秒数。"
+        ],
+        [
+          "resourceHash",
+          "否",
+          "String(64)",
+          "图片资源的SHA256值。 说明 resourceHash和updateTime二选一，建议优先使用updateTime。如果资源的更新时间无法获取，则再传图片的散列值。"
+        ],
+        [
+          "operType",
+          "是",
+          "Integer",
+          "对资源的操作。 0：上传资源 1：下架资源"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section8202184551317"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数",
+          "是否必选",
+          "类型",
+          "说明"
+        ],
+        [
+          "rtnCode",
+          "是",
+          "String",
+          "服务端结果说明。 0：成功 -1：失败 1：接口鉴权失败"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725#section4102155161010"
+    }
+  ],
+  "title": "上传/下架游戏资源",
+  "updatedAt": "2025-08-06 18:02",
+  "checkedAt": "2026-10-07T02:59:54.087Z",
+  "family": "gameplay",
+  "endpoint": "resources"
+}

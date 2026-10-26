@@ -1,0 +1,2 @@
+# Embedded Markdown must retain identical bytes on Windows and Unix.
+*.md text eol=lf

@@ -1,0 +1,313 @@
+{
+  "examples": [
+    {
+      "section": "请求样例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-appinfo-query-0000002236041422#section423141017508",
+      "text": "请求样例\nGET /api/publish/v3/app-info?appId=10*****57 HTTP/1.1\nHost: connect-api.cloud.huawei.com\nclient_id: 41*****7168\nAuthorization: Bearer ******"
+    },
+    {
+      "section": "响应示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-appinfo-query-0000002236041422#section585524622518",
+      "text": "响应示例\n{\n  \"ret\": {\n    \"code\": 0,\n    \"msg\": \"success\"\n  },\n  \"appInfo\": {\n    \"releaseState\": 4,\n    \"defaultLang\": \"zh-CN\",\n    \"parentType\": 13,\n    \"harmonyChildType\": 10000014,\n    \"kindMainTag\": 30000017,\n    \"kindSubTags\": [\n       30000017,\n       30000018\n    ],\n    \"privacyPolicy\": \"https://*****.link\",\n    \"appNetType\": 0,\n    \"publishCountry\": \"CN\",\n    \"contentRate\": \"{\\\"HW\\\":\\\"3+\\\"}\",\n    \"appTariffType\": \"6\",\n    \"publicationNumber\": \"*****\",\n    \"developerNameCn\": \"******\",\n    \"developerNameEn\": \"******\",\n    \"developerWebsite\": \"https://****.****test.cn/consumer/cn/service/josp/***/index.html\",\n    \"customInfo\": {\n      \"phone\": \"0086-137xxxxxxxx\",\n      \"email\": \"137*****@***.com\",\n      \"qqNum\": \"137*****\",\n      \"internalPath\": \"华为应用市场 > 我的 > 帮助与客服\"\n    },\n    \"elecCertificateUrl\": \"******\",\n    \"certificateURLs\": \"https://***5819F41A7F216EF87637667B4E33C.jpg\",\n    \"publicationURLs\": \"\",\n    \"updateTime\": \"2024-11-12 02:14:50\",\n    \"versionNumber\": \"1.0.0\",\n    \"versionCode\": 1000000,\n    \"buildVersion\": \"100.100.100\",\n    \"versionId\": \"155236****020262400\",\n    \"onShelfVersionNumber\": \"1.0.0\",\n    \"onShelfVersionCode\": 1000000,\n    \"onShelfVersionId\": \"155236****020262400\",\n    \"shareLink\": \"string\",\n    \"sensitivePermissionDesc\": \"string\",\n    \"familyShareTag\": 0,\n    \"deviceTypes\": [\n      {\n        \"deviceType\": 4,\n        \"appAdapters\": \"\"\n      }\n    ],\n    \"restrictedPermissionVideo\": \"\",\n    \"privacyRightsUrl\": \"\",\n    \"projectId\": \"2448791****2652411\",\n    \"registeredIdType\": 2,\n    \"registeredIdNumber\": \"12342220****544487\",\n    \"privacyAgreementId\": \"17******56\",\n    \"userAgreementUrl\": \"https://docs.p***e.com/baike/328370\",\n    \"userAgreementIds\": [\n      \"12***************89\",\n      \"23***************78\",\n      \"34***************67\"\n    ],\n    \"encrypted\": 0,\n    \"invitationCount\": 1000,\n    \"downloadCount\": 900,\n    \"isAiGenerate\": 1,\n    \"aiTypes\": [\n      1\n    ],\n    \"testUserName\": \"*****\",\n    \"testUserPassword\": \"*****\",\n    \"appRemark\": \"*****\",\n    \"selfTestVideos\": \"{\"CN/2025102002/********.mp4\":\"文件名1\"}\",\n    \"appReviewPhoneInfo\": {\n      \"account\": \"137********\"\n    },\n   \"appReviewEmailInfo\": {\n      \"account\": \"137*****@***.com\"\n    },\n    \"appReviewName\": \"*****\",\n    \"versionVocs\": [\n      {\n        \"versionId\": \"10*****528\",\n        \"packageId\": \"1573*******5952\",\n        \"vocId\": \"18******24\",\n      }\n    ],\n    \"reviewState\": 2,\n    \"releaseTime\": \"2025-09-10 08:40:32\"\n  },\n  \"auditInfo\": {\n    \"auditOpinion\": \"\"\n  },\n  \"languages\": [\n    {\n      \"lang\": \"zh-CN\",\n      \"appName\": \"PhotoPlaza\",\n      \"appDesc\": \"****\",\n      \"briefInfo\": \"****\",\n      \"newFeatures\": \"****\",\n      \"icon\": \"https://****\",\n      \"showType\": 1,\n      \"videoShowType\": 1,\n      \"introPic\": \"https://****\",\n      \"introVideo\": \"\",\n      \"rcmdPic\": \"\",\n      \"rcmdVideo\": \"\",\n      \"deviceMaterials\": [\n        {\n          \"deviceType\": 4,\n          \"appIcon\": \"https://****\",\n          \"screenShots\": [\n                  \"https://****\",\n                  \"https://****\",\n                  \"https://****\",\n                  \"https://****\"\n          ],\n          \"banner\": \"****\",\n          \"showType\": 1,\n          \"introVideos\": [\n            \"****\"\n          ],\n          \"rcmdVideos\": [\n            \"****\"\n          ],\n          \"promoGraphics\": [\n            \"****\"\n          ],\n          \"rcmdPics\": \"****\",\n          \"videoShowType\": 0\n        }\n      ]\n    }\n  ],\n  \"phasedReleaseInfo\": {\n    \"state\": \"SUSPEND\",\n    \"description\": \"****\",\n    \"releaseTime\": 1748591413000,\n    \"latestSuspendTime\": 1748933392000,\n    \"totalSuspendDays\": 1,\n    \"currentPhaseDay\": 5\n  },\n  \"openTestInfo\": {\n    \"startTime\": 1716*****000,\n    \"endTime\": 1717*****000,\n    \"testDesc\": \"版本描述demo\",\n    \"testTaskInfo\": {\n      \"groupInfos\": [\n        {\n          \"groupId\": \"761e*****************008\",\n          \"groupName\": \"string\",\n          \"addedTesterNum\": 0,\n          \"bind\": 0\n        }\n      ],\n    \"needShareLink\": 0,\n    \"displayArea\": \"1\",\n    \"needNotify\": 0\n    }\n  }\n}"
+    }
+  ],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter#section195981215284",
+      "title": "了解新版目录"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-open-ability-0000002235710238",
+      "title": "AGC开放能力"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-0000002236015554",
+      "title": "AppGallery Connect API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-reference-0000002271160565",
+      "title": "Publishing API参考"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-obtain-server-auth-0000002271134661",
+      "title": "获取服务端授权"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-obtain-server-auth-0000002271134661#section104621343151212",
+      "title": "通过Service Account方式获取授权"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-obtain-server-auth-0000002271134661#section103mcpsimp",
+      "title": "创建API客户端"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-obtain-server-auth-0000002271134661#section09831133141712",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-appendix-langtype-0000002236041558",
+      "title": "语言类型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-connectret-0000002271160589",
+      "title": "ConnectRet"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-appinfo-0000002236041454",
+      "title": "AppInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-auditinfo-0000002271000649",
+      "title": "AuditInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-languageinfo-0000002236041462",
+      "title": "LanguageInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-phasedreleaseinfo-0000002271160597",
+      "title": "PhasedReleaseInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-opentestinfo-0000002678282119",
+      "title": "OpenTestInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-teamid-member-list-0000002679253743",
+      "title": "查询团队账号下的成员角色列表"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-appinfo-update-0000002236201246",
+      "title": "更新应用基本信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-appinfo-query-0000002236041422#section37920632",
+      "title": "功能介绍"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-appinfo-query-0000002236041422#section6932219103913",
+      "title": "接口原型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-appinfo-query-0000002236041422#section62398251",
+      "title": "请求参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-appinfo-query-0000002236041422#section119494174419",
+      "title": "Header"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-appinfo-query-0000002236041422#section420734618165",
+      "title": "Query"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-appinfo-query-0000002236041422#section423141017508",
+      "title": "请求样例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-appinfo-query-0000002236041422#section74011072310",
+      "title": "响应参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-appinfo-query-0000002236041422#section585524622518",
+      "title": "响应示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-appinfo-query-0000002236041422#section1151919326110",
+      "title": "调用示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-appinfo-query-0000002236041422#section37920632",
+      "text": "此接口用于根据指定语言和应用ID查询HarmonyOS应用/元服务的详细信息。"
+    },
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-appinfo-query-0000002236041422#section37920632",
+      "text": "接口调用者的角色：账号持有者、管理员、APP管理员、运营。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-appinfo-query-0000002236041422#section119494174419",
+      "text": "本接口支持使用Service Account方式和API客户端方式，二者区别请参见获取服务端授权。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-appinfo-query-0000002236041422#section119494174419",
+      "text": "Service Account方式："
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-appinfo-query-0000002236041422#section119494174419",
+      "text": "API客户端方式："
+    }
+  ],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-appinfo-query-0000002236041422",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "承载协议",
+          "HTTPS GET"
+        ],
+        [
+          "接口方向",
+          "开发者服务器 -> 华为服务器"
+        ],
+        [
+          "接口URL",
+          "https://connect-api.cloud.huawei.com/api/publish/v3/app-info"
+        ],
+        [
+          "数据格式",
+          "请求：Content-Type: application/json 响应：Content-Type: application/json"
+        ]
+      ],
+      "section": "接口原型",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-appinfo-query-0000002236041422#section6932219103913"
+    },
+    {
+      "authenticationBranch": "Service Account方式：",
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "Authorization",
+          "M",
+          "String",
+          "认证信息，格式为“Authorization: Bearer ${JWT}”。JWT为通过Service Account方式获取授权中获取的鉴权令牌。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-appinfo-query-0000002236041422#section119494174419"
+    },
+    {
+      "authenticationBranch": "API客户端方式：",
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "client_id",
+          "M",
+          "String",
+          "客户端ID，获取方法参考创建API客户端。"
+        ],
+        [
+          "Authorization",
+          "M",
+          "String",
+          "认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-appinfo-query-0000002236041422#section119494174419"
+    },
+    {
+      "location": "query",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "appId",
+          "M",
+          "String(32)",
+          "需要查询的应用ID。"
+        ],
+        [
+          "lang",
+          "O",
+          "String(16)",
+          "需要查询的语言。 说明 取值参考语言类型。 不传该参数，则查询全部语言的应用信息。"
+        ],
+        [
+          "releaseType",
+          "O",
+          "Integer",
+          "应用发布方式。 取值范围： 1：全网 6：HarmonyOS测试发布方式（API>=10） 默认值：1"
+        ],
+        [
+          "versionId",
+          "O",
+          "String",
+          "需要查询的版本ID。 注意 releaseType为6，该字段必填。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-appinfo-query-0000002236041422#section420734618165"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "ret",
+          "M",
+          "ConnectRet",
+          "包含返回码及描述信息的结果。"
+        ],
+        [
+          "appInfo",
+          "O",
+          "AppInfo",
+          "应用基本信息。"
+        ],
+        [
+          "auditInfo",
+          "O",
+          "AuditInfo",
+          "审核意见信息。"
+        ],
+        [
+          "languages",
+          "M",
+          "List<LanguageInfo>",
+          "包含多种语言的应用信息。 如果查询时传递了语言类型，则返回当前语言的应用信息。 如果查询时未传递语言类型，则返回所有语言的应用信息。 如果查询时设置了异常的语言数据，例如不存在的语言类型，则返回空数组。"
+        ],
+        [
+          "phasedReleaseInfo",
+          "O",
+          "PhasedReleaseInfo",
+          "分阶段发布信息。"
+        ],
+        [
+          "openTestInfo",
+          "O",
+          "OpenTestInfo",
+          "测试版本信息，包含测试版本开始时间和结束时间。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-appinfo-query-0000002236041422#section74011072310"
+    }
+  ],
+  "title": "查询应用信息",
+  "updatedAt": "2026-07-31 17:44",
+  "checkedAt": "2026-10-07T05:11:36.198Z"
+}

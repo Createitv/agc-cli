@@ -1,0 +1,94 @@
+{
+  "examples": [],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter#section195981215284",
+      "title": "了解新版目录"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-open-ability-0000002235710238",
+      "title": "AGC开放能力"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-0000002236015554",
+      "title": "AppGallery Connect API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-reference-0000002271160565",
+      "title": "Publishing API参考"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-0000002236201266",
+      "title": "数据模型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-personalinfo-0000002328805173",
+      "title": "PersonalInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-qualificationfileinfo-0000002271160609",
+      "title": "QualificationFileInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-phasedreleaseinfo-0000002271160597",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "state",
+          "O",
+          "String(32)",
+          "分阶段发布状态。 取值范围： DRAFT：草稿 SUSPEND：暂停 RELEASE：发布中 CANCEL：取消 更新分阶段发布信息时，此字段不可更改；更改分阶段发布状态时，此字段可更改。"
+        ],
+        [
+          "description",
+          "O",
+          "String(500)",
+          "分阶段发布说明。"
+        ],
+        [
+          "releaseTime",
+          "O",
+          "Integer(64)",
+          "分阶段发布时间与1970年1月1日午夜之间的差值，以毫秒为单位。例如：1675992294335"
+        ],
+        [
+          "latestSuspendTime",
+          "O",
+          "Integer(64)",
+          "分阶段发布最近暂停时间与1970年1月1日午夜之间的差值，以毫秒为单位。例如：1675992294335"
+        ],
+        [
+          "totalSuspendDays",
+          "O",
+          "Integer(32)",
+          "分阶段发布累计暂停天数。"
+        ],
+        [
+          "currentPhaseDay",
+          "O",
+          "Integer(32)",
+          "当前分阶段天数，第N天。 取值范围1、2、3、4、5、6、7，对应分阶段发布百分比为1%、2%、5%、10%、20%、50%、100%。"
+        ]
+      ],
+      "section": "",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-phasedreleaseinfo-0000002271160597"
+    }
+  ],
+  "title": "PhasedReleaseInfo",
+  "updatedAt": "2026-06-25 19:52",
+  "checkedAt": "2026-10-07T04:52:37.294Z"
+}

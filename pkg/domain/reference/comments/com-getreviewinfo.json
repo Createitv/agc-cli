@@ -1,0 +1,252 @@
+{
+  "examples": [
+    {
+      "section": "请求示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-getreviewinfo-0000001116028248#section19934722144316",
+      "text": "请求示例\nGET https://connect-api.cloud.huawei.com/api/reviews/v1/manage/dev/reviews/9f43c56228854d66a65921938199c0ce?appid=300148173\nContent-Type: application/json\nclient_id: ***\nAuthorization: Bearer ***"
+    },
+    {
+      "section": "响应示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-getreviewinfo-0000001116028248#section1977011318413",
+      "text": "响应示例\n{\n    \"ret\": {\n        \"rtnCode\": 0,\n        \"rtnDesc\": \"success\"\n    },\n    \"data\": {\n        \"review\": {\n            \"content\": \"Comment content......\",\n            \"reviewId\": \"9f43c56228854d66a65921938199c0ce\",\n            \"apkVersion\": \"10.5.3\",\n            \"phoneType\": \"HONOR8-LITE\",\n            \"rating\": 3,\n            \"likes\": 0,\n            \"replies\": 2,\n            \"dateline\": 1590564388000,\n            \"auditState\": \"3\",\n            \"devReplyContent\": \"Reply content......\",\n            \"countryCode\": \"CN\"\n        },\n        \"replyList\": [\n            {\n                \"lang\": \"zh_CN\",\n                \"appId\": \"C300148173\",\n                \"reviewId\": \"9f43c56228854d66a65921938199c0ce\",\n                \"devReplyContent\": \"Reply to replay content......\",\n                \"countryCode\": \"CN\",\n                \"toReplyId\": \"8ae4bb4b338d4c6791e8ef797ac691a3\"\n            },\n            {\n                \"lang\": \"zh_CN\",\n                \"appId\": \"C300148173\",\n                \"reviewId\": \"9f43c56228854d66a65921938199c0ce\",\n                \"devReplyContent\": \"Reply content......\",\n                \"countryCode\": \"CN\"\n\n\n            }\n        ],\n        \"hasNext\": 0,\n        \"total\": 2\n    }\n}"
+    }
+  ],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-commentapi-0000001115868340",
+      "title": "Comments API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-comment-api-0000002502827151",
+      "title": "HarmonyOS 3.1/4.0及以下、Android"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain_token-0000001158365043",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain_token-0000001158365043",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/appgallery_queryappinfo",
+      "title": "查询应用信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114#section103mcpsimp",
+      "title": "创建API客户端"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain_token-0000001158365043",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-cbresult-0000001162468141",
+      "title": "CommentBaseResult"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-gdrrdata-0000001116028250",
+      "title": "GetDevReviewRspData"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-comapi-getreviews-0000001162468139",
+      "title": "查询评论列表"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-reviewreply-0000001162548117",
+      "title": "回复评论和回复"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-getreviewinfo-0000001116028248#section11985185416211",
+      "title": "功能介绍"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-getreviewinfo-0000001116028248#section5189239225",
+      "title": "使用约束"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-getreviewinfo-0000001116028248#section2862142512223",
+      "title": "接口原型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-getreviewinfo-0000001116028248#section482745132215",
+      "title": "请求参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-getreviewinfo-0000001116028248#section3861044135212",
+      "title": "Path"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-getreviewinfo-0000001116028248#section1268762644313",
+      "title": "Query"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-getreviewinfo-0000001116028248#section39301550194610",
+      "title": "Header"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-getreviewinfo-0000001116028248#section19934722144316",
+      "title": "请求示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-getreviewinfo-0000001116028248#section4770825143714",
+      "title": "响应参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-getreviewinfo-0000001116028248#section1977011318413",
+      "title": "响应示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-getreviewinfo-0000001116028248#section145575382294",
+      "title": "调用示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-getreviewinfo-0000001116028248#section11985185416211",
+      "text": "获取单个评论详情。"
+    },
+    {
+      "section": "使用约束",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-getreviewinfo-0000001116028248#section5189239225",
+      "text": "接口调用者的角色：账号持有者、管理员、APP管理员、运营。"
+    }
+  ],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-getreviewinfo-0000001116028248",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "承载协议",
+          "HTTPS GET"
+        ],
+        [
+          "接口方向",
+          "开发者服务器->应用市场服务端"
+        ],
+        [
+          "接口URL",
+          "https://{domain}/api/reviews/v1/manage/dev/reviews/{reviewId}?appId={appId}&page={page}&limit={limit} 中国站点的domain：connect-api.cloud.huawei.com 德国站点的domain：connect-api-dre.cloud.huawei.com 新加坡站点的domain：connect-api-dra.cloud.huawei.com 俄罗斯站点的domain：connect-api-drru.cloud.huawei.com 注意 调用获取Token接口时使用的域名必须与本接口域名保持一致，例如本接口使用“connect-api-dre.cloud.huawei.com”，则调用获取Token接口必须使用“https://connect-api-dre.cloud.huawei.com/api/oauth2/v1/token”。"
+        ],
+        [
+          "数据格式",
+          "请求消息：Content-Type: application/json 响应消息：Content-Type: application/json"
+        ]
+      ],
+      "section": "接口原型",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-getreviewinfo-0000001116028248#section2862142512223"
+    },
+    {
+      "location": "path",
+      "rows": [
+        [
+          "参数",
+          "必选(M)/可选(O)",
+          "参数类型",
+          "描述"
+        ],
+        [
+          "reviewId",
+          "M",
+          "String",
+          "评论ID。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-getreviewinfo-0000001116028248#section3861044135212"
+    },
+    {
+      "location": "query",
+      "rows": [
+        [
+          "参数",
+          "必选(M)/可选(O)",
+          "参数类型",
+          "描述"
+        ],
+        [
+          "appId",
+          "M",
+          "String",
+          "应用ID，获取方法参考查询应用信息。"
+        ],
+        [
+          "page",
+          "O",
+          "Integer",
+          "请求页码，默认1。"
+        ],
+        [
+          "limit",
+          "O",
+          "Integer",
+          "每页请求数目，最大100条每页，默认20条。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-getreviewinfo-0000001116028248#section1268762644313"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数",
+          "必选(M)/可选(O)",
+          "类型",
+          "描述"
+        ],
+        [
+          "client_id",
+          "M",
+          "String",
+          "客户端ID，获取方法参考创建API客户端。"
+        ],
+        [
+          "Authorization",
+          "M",
+          "String",
+          "认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-getreviewinfo-0000001116028248#section39301550194610"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "ret",
+          "M",
+          "CommentBaseResult",
+          "包含返回码及描述信息的JSON字符串。"
+        ],
+        [
+          "data",
+          "M",
+          "GetDevReviewRspData",
+          "返回评论列表详情。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-getreviewinfo-0000001116028248#section4770825143714"
+    }
+  ],
+  "title": "查询单个评论详情",
+  "updatedAt": "2025-10-24 16:14",
+  "checkedAt": "2026-10-07T02:56:39.782Z",
+  "family": "comments",
+  "endpoint": "com-getreviewinfo"
+}

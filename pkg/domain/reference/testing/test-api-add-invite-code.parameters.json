@@ -1,0 +1,44 @@
+[
+  {
+    "name": "appId",
+    "in": "header",
+    "type": "string",
+    "required": true,
+    "description": "应用ID，获取方法参考查看应用信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-invite-code-0000002236201342#section1929055974115",
+    "maxLength": 32
+  },
+  {
+    "name": "teamId",
+    "in": "header",
+    "type": "integer",
+    "required": false,
+    "description": "开发者所在团队的团队ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-invite-code-0000002236201342#section1929055974115"
+  },
+  {
+    "name": "groupId",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "测试群组ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-invite-code-0000002236201342#section141117691213",
+    "maxLength": 32
+  },
+  {
+    "name": "invitationCodeValidDays",
+    "in": "body",
+    "type": "integer",
+    "required": true,
+    "description": "邀请码有效期。 单位：天 邀请码仅支持30天有效。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-invite-code-0000002236201342#section141117691213"
+  },
+  {
+    "name": "invitationCodeInviteLimit",
+    "in": "body",
+    "type": "integer",
+    "required": true,
+    "description": "邀请码可邀请人数上限。 最大值10000。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-invite-code-0000002236201342#section141117691213"
+  }
+]

@@ -1,0 +1,11 @@
+[
+  {
+    "name": "appId",
+    "in": "header",
+    "type": "string",
+    "required": true,
+    "description": "应用ID，获取方法参考查看应用信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-get-fingerprints-0000002431361316#section236517415165",
+    "maxLength": 32
+  }
+]

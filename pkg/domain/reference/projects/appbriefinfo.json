@@ -1,0 +1,320 @@
+{
+  "examples": [],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pmapi-0000001158245053",
+      "title": "Project Management API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114#section949717114392",
+      "title": "获取用户授权码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-getteamlist-0000001158245075",
+      "title": "获取团队列表"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-appbriefinfo-0000001111845106#ZH-CN_TOPIC_0000001111845106__p15218928192818",
+      "title": "AppBriefInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-appbriefinfo-0000001111845106#ZH-CN_TOPIC_0000001111845106__p1663313164299",
+      "title": "DeviceTypeInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-getteamlist-0000001158245075",
+      "title": "获取团队列表"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-getconfigfile-0000001158365065",
+      "title": "获取配置文件"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-appbriefinfo-0000001111845106#section49483413",
+      "title": "功能介绍"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-appbriefinfo-0000001111845106#section6932219103913",
+      "title": "接口原型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-appbriefinfo-0000001111845106#section62398251",
+      "title": "请求参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-appbriefinfo-0000001111845106#section236517415165",
+      "title": "Header"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-appbriefinfo-0000001111845106#section423141017508",
+      "title": "Query"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-appbriefinfo-0000001111845106#section4770825143714",
+      "title": "响应参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-appbriefinfo-0000001111845106#section19541434122811",
+      "title": "调用示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-appbriefinfo-0000001111845106#section49483413",
+      "text": "批量查询应用简略信息。接口调用者的角色：账号持有者、管理员、App管理员、开发。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-appbriefinfo-0000001111845106#section236517415165",
+      "text": "本接口只支持OAuth客户端方式。"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-appbriefinfo-0000001111845106#section4770825143714",
+      "text": "AppBriefInfo"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-appbriefinfo-0000001111845106#section4770825143714",
+      "text": "DeviceTypeInfo"
+    }
+  ],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-appbriefinfo-0000001111845106",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "承载协议",
+          "HTTPS GET"
+        ],
+        [
+          "接口方向",
+          "开发者服务器 -> 华为服务器"
+        ],
+        [
+          "接口URL",
+          "https://connect-api.cloud.huawei.com/api/cds/app-distirbution/v1/all/app-brief-info/list"
+        ],
+        [
+          "数据格式",
+          "请求：Content-Type: application/json 响应：Content-Type: application/json"
+        ]
+      ],
+      "section": "接口原型",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-appbriefinfo-0000001111845106#section6932219103913"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "oauth2Token",
+          "M",
+          "String",
+          "认证信息，传入获取用户授权码中获取的Access Token。"
+        ],
+        [
+          "userID",
+          "M",
+          "Integer",
+          "主账号用户id，即团队ID。通过获取团队列表接口获取。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-appbriefinfo-0000001111845106#section236517415165"
+    },
+    {
+      "location": "query",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "appId",
+          "O",
+          "String",
+          "需要查询的应用ID列表，多个值间以半角逗号分隔。 appId和packageNames必须传一个，如果同时存在则以appId为准。"
+        ],
+        [
+          "packageNames",
+          "O",
+          "String",
+          "需要查询的应用包名，多个包名用逗号分隔，最大100个。 appId和packageNames必须传一个，如果同时存在则以appId为准。"
+        ],
+        [
+          "appType",
+          "O",
+          "String",
+          "应用类型。 1：移动应用(包括普通应用和游戏) 2：电视应用 4：路由器应用 8：华为VR应用 9：手表应用 19：RPK应用 23：大屏快应用 27：车机应用 28：车机快应用 29：运动手表 30：云游戏 9998：ios应用 9999：web应用"
+        ],
+        [
+          "appDistStatus",
+          "O",
+          "String",
+          "应用分发状态列表，多个值间以半角逗号分隔。 -999：审核中 -995：升级中 0：不通过 1：已下架（含强制下架） 62：待上架 101：已上架（含升级不通过，申请下架失败） 99999：申请下架 9998：草稿 9997：已删除"
+        ],
+        [
+          "fromRecCount",
+          "O",
+          "Integer",
+          "起始页数。从1开始，表示第1个。如果不传，默认值：1。"
+        ],
+        [
+          "maxReqCount",
+          "O",
+          "Integer",
+          "每页返回条数；缺省20（最大1000）。"
+        ],
+        [
+          "sortType",
+          "O",
+          "String",
+          "排序方式。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-appbriefinfo-0000001111845106#section423141017508"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "appInfos",
+          "M",
+          "List<AppBriefInfo>",
+          "应用简略信息列表。"
+        ],
+        [
+          "notExistIDs",
+          "M",
+          "String",
+          "不存在的应用ID列表，多个间以逗号分隔。"
+        ],
+        [
+          "ret",
+          "M",
+          "String",
+          "包含返回码及描述信息的JSON字符串，格式为{\"code\":retcode, \"msg\": \"description\"}，retcode为返回码，description为返回码描述信息。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-appbriefinfo-0000001111845106#section4770825143714"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "prodSerialNo",
+          "M",
+          "Integer",
+          "应用序列号。"
+        ],
+        [
+          "appID",
+          "M",
+          "String",
+          "应用ID。"
+        ],
+        [
+          "appName",
+          "M",
+          "String",
+          "应用名称。"
+        ],
+        [
+          "projectId",
+          "M",
+          "String",
+          "项目ID。"
+        ],
+        [
+          "appType",
+          "M",
+          "String",
+          "应用类型。 1：移动应用(包括普通应用和游戏) 2：电视应用 4：路由器应用 8：华为VR应用 9：手表应用 19：RPK应用 23：大屏快应用 27：车机应用 28：车机快应用 29：运动手表 30：云游戏 9998：ios应用 9999：web应用"
+        ],
+        [
+          "packageName",
+          "M",
+          "String",
+          "应用包名。"
+        ],
+        [
+          "teamId",
+          "M",
+          "String",
+          "应用归属的团队账号id。"
+        ],
+        [
+          "packageType",
+          "M",
+          "Integer",
+          "软件包类型。 1：APK 2：RPK 3：WPK 4：EXE（云应用）"
+        ],
+        [
+          "deviceTypes",
+          "M",
+          "List<DeviceTypeInfo>",
+          "应用的设备类型。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-appbriefinfo-0000001111845106#section4770825143714"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "deviceType",
+          "M",
+          "Integer",
+          "设备类型。 4：手机 6：VR 7：手表 8：大屏 9：路由器 10：车机"
+        ],
+        [
+          "appAdapters",
+          "M",
+          "String",
+          "适配设备类型，多个间逗号分隔。 1：荣耀立方（路由器） 4：手机 5：平板 6：VR 7：手表（智能表Android wear系统） 8：TV 9：路由器 11：儿童手表 12：智能手表 13：带屏音箱"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-appbriefinfo-0000001111845106#section4770825143714"
+    }
+  ],
+  "title": "获取应用简略信息",
+  "updatedAt": "2025-08-06 18:02",
+  "checkedAt": "2026-10-07T05:24:11.249Z"
+}

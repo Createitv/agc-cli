@@ -1,0 +1,73 @@
+[
+  {
+    "name": "teamId",
+    "in": "header",
+    "type": "string",
+    "required": false,
+    "description": "开发者所在团队的团队ID，可通过获取团队列表接口获取。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-phased-release-0000001111685204#section236517415165"
+  },
+  {
+    "name": "appId",
+    "in": "query",
+    "type": "string",
+    "required": true,
+    "description": "应用ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-phased-release-0000001111685204#section71521339132219"
+  },
+  {
+    "name": "releaseType",
+    "in": "query",
+    "type": "integer",
+    "required": false,
+    "description": "需要修改的发布方式。支持将分阶段发布修改为全网发布。 取值范围： 1：全网。 说明 如果选择全网发布，Body请传空对象{}。 3：分阶段。 默认值：3",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-phased-release-0000001111685204#section71521339132219",
+    "enum": [
+      "1"
+    ]
+  },
+  {
+    "name": "state",
+    "in": "body",
+    "type": "string",
+    "required": false,
+    "description": "分阶段发布的状态。 取值范围： SUSPEND：暂停。 RELEASE：恢复为发布中。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-phased-release-0000001111685204#section1520919574201"
+  },
+  {
+    "name": "phasedReleaseStartTime",
+    "in": "body",
+    "type": "string",
+    "required": false,
+    "description": "分阶段发布生效开始时间，UTC时间格式：yyyy-MM-ddTHH:mm:ssZZ，例如“2015-01-01T01:01:01+0800”。已上架的分阶段发布应用，不允许修改开始时间。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-phased-release-0000001111685204#section1520919574201",
+    "maxLength": 64
+  },
+  {
+    "name": "phasedReleaseEndTime",
+    "in": "body",
+    "type": "string",
+    "required": false,
+    "description": "分阶段发布生效结束时间，UTC时间格式：yyyy-MM-ddTHH:mm:ssZZ，例如“2015-01-01T01:01:01+0800”。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-phased-release-0000001111685204#section1520919574201",
+    "maxLength": 64
+  },
+  {
+    "name": "phasedReleasePercent",
+    "in": "body",
+    "type": "string",
+    "required": false,
+    "description": "分阶段发布百分比。取值为大于0.00且小于100.00，必须精确到两位小数，不含百分号。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-phased-release-0000001111685204#section1520919574201",
+    "maxLength": 10
+  },
+  {
+    "name": "phasedReleaseDescription",
+    "in": "body",
+    "type": "string",
+    "required": false,
+    "description": "分阶段发布说明。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-phased-release-0000001111685204#section1520919574201",
+    "maxLength": 500
+  }
+]

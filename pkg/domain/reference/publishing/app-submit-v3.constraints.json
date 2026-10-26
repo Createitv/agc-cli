@@ -1,0 +1,25 @@
+{
+  "query.appId": {
+    "maxLength": 32
+  },
+  "body.releaseTime": {
+    "maxLength": 64
+  },
+  "body.remark": {
+    "maxLength": 300
+  },
+  "body.releaseType": {
+    "enum": [
+      "1"
+    ]
+  },
+  "body.releasePhase": {
+    "enum": [
+      "0",
+      "3"
+    ]
+  },
+  "body.phasedReleaseDescription": {
+    "maxLength": 500
+  }
+}

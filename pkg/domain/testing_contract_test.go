@@ -73,22 +73,12 @@ func TestVersionListAllowsTestDraftReadback(t *testing.T) {
 
 func TestDedicatedAppCreationContract(t *testing.T) {
 	ep, ok := EndpointByID("publishing", "app-create")
-	if !ok || ep.Path != "/api/publish/v3/app" || ep.Method != "POST" {
-		t.Fatal("缺少专用测试应用创建接口")
-	}
+	if !ok || ep.Path != "/api/publish/v3/app" || ep.Method != "POST" { t.Fatal("缺少专用测试应用创建接口") }
 	for _, name := range []string{"appName", "parentType", "installationFree"} {
 		found := false
-		for _, p := range ep.Parameters {
-			if p.Name == name && p.In == "body" && p.Required {
-				found = true
-			}
-		}
-		if !found {
-			t.Fatalf("缺少创建应用字段 %s", name)
-		}
+		for _, p := range ep.Parameters { if p.Name == name && p.In == "body" && p.Required { found = true } }
+		if !found { t.Fatalf("缺少创建应用字段 %s", name) }
 	}
 	info, ok := EndpointByID("publishing", "app-info-query-v3")
-	if !ok || info.Path != "/api/publish/v3/app-info" {
-		t.Fatal("缺少 HarmonyOS V3 应用信息读回")
-	}
+	if !ok || info.Path != "/api/publish/v3/app-info" { t.Fatal("缺少 HarmonyOS V3 应用信息读回") }
 }

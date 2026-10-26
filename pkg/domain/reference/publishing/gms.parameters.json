@@ -1,0 +1,30 @@
+[
+  {
+    "name": "teamId",
+    "in": "header",
+    "type": "string",
+    "required": false,
+    "description": "开发者所在团队的团队ID，可通过获取团队列表接口获取。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-gms-0000001111845094#section236517415165"
+  },
+  {
+    "name": "appId",
+    "in": "query",
+    "type": "string",
+    "required": true,
+    "description": "应用ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-gms-0000001111845094#section165302018915"
+  },
+  {
+    "name": "needGms",
+    "in": "body",
+    "type": "integer",
+    "required": true,
+    "description": "应用是否依赖GMS。 取值范围： 0：不依赖 1：依赖",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-gms-0000001111845094#section19652137562",
+    "enum": [
+      "0",
+      "1"
+    ]
+  }
+]

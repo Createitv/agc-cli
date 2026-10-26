@@ -1,0 +1,13 @@
+[
+  {
+    "id": "oauth-team",
+    "kind": "required_with",
+    "field": "header.teamId",
+    "fields": [
+      "header.oauth2Token"
+    ],
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-get-test-grouplist-0000002271000717#section523365814351",
+    "message": "OAuth authorization requires its selected teamId.",
+    "suggestion": "Supply the selected OAuth team ID in the teamId header."
+  }
+]

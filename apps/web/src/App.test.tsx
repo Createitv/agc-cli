@@ -91,4 +91,12 @@ describe('App', () => {
     expect(document.documentElement).toHaveAttribute('lang', 'en');
     expect(document.querySelectorAll('.endpointEntry')).toHaveLength(12);
   });
+
+ it('selects the bundled cache family when the API is unavailable', () => {
+  window.history.replaceState({}, '', '/en/reference/cache');
+  render(<App />);
+  expect(screen.getAllByText(/Cloud Cache/).length).toBeGreaterThan(0);
+  expect(screen.getAllByText(/286/).length).toBeGreaterThan(0);
+ });
+
 });

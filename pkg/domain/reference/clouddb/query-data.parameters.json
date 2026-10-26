@@ -1,0 +1,171 @@
+[
+  {
+    "name": "client_id",
+    "type": "string",
+    "required": false,
+    "description": "客户端ID，获取方法参考获取客户端API授权。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section1191513141413",
+    "in": "header"
+  },
+  {
+    "name": "Authorization",
+    "type": "string",
+    "required": false,
+    "description": "认证信息。格式为“Authorization: Bearer ${client_token}”。 client_token为获取Token中获取的access_token。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section1191513141413",
+    "in": "header"
+  },
+  {
+    "name": "productId",
+    "type": "string",
+    "required": true,
+    "description": "项目ID，查询方法可参见查询项目ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section1191513141413",
+    "in": "header"
+  },
+  {
+    "name": "access_token",
+    "type": "string",
+    "required": false,
+    "description": "认证凭据。用户登录成功后，在登录接口的响应参数“accessToken”中获取。该值为空时，则表示匿名账号登录。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section1191513141413",
+    "in": "header"
+  },
+  {
+    "name": "_v",
+    "type": "integer",
+    "required": true,
+    "description": "数据版本类型，入参需为“4”表示protobuf v2 版本类型的json字符串。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section88414213129",
+    "in": "query",
+    "enum": [
+      "4"
+    ]
+  },
+  {
+    "name": "msgInfo",
+    "type": "object",
+    "required": true,
+    "description": "消息的基本信息，具体请参见MsgInfo。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section2069774871410",
+    "in": "body",
+    "properties": [
+      {
+        "name": "type",
+        "type": "integer",
+        "required": true,
+        "description": "查询请求。入参需为“5”。 “3”：更新数据或删除数据请求。 “5”：查询数据请求。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section42449327218",
+        "in": "body",
+        "enum": [
+          "5"
+        ]
+      },
+      {
+        "name": "opStore",
+        "type": "object",
+        "required": true,
+        "description": "JSON字符串。格式为{\"storeName\": \"cloudDBZone\"}。 cloudDBZone为存储区名。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section42449327218",
+        "in": "body",
+        "properties": [
+          {
+            "name": "storeName",
+            "in": "body",
+            "type": "string",
+            "required": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "clientInfo",
+    "type": "object",
+    "required": true,
+    "description": "客户端的基本信息，具体请参见ClientInfo。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section2069774871410",
+    "in": "body",
+    "properties": [
+      {
+        "name": "appVer",
+        "type": "integer",
+        "required": true,
+        "description": "对象类型对应的版本号，获取请参考导出对象类型步骤4中的版本号。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section448214662111",
+        "in": "body"
+      }
+    ]
+  },
+  {
+    "name": "queryReqMsg",
+    "type": "object",
+    "required": true,
+    "description": "查询请求的基本信息，具体请参见QueryRequestMessage。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section2069774871410",
+    "in": "body",
+    "properties": [
+      {
+        "name": "queryType",
+        "type": "integer",
+        "required": true,
+        "description": "查询类型。涉及到的查询值类型如下： 0：默认值，普通查询。 1：AVG、Average，平均值查询。 2：SUM，总和查询。 3：MAX，最大值查询。 4：MIN，最小值查询。 5：COUNT，计数查询。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section18423962213",
+        "in": "body",
+        "enum": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "name": "queryTable",
+        "type": "string",
+        "required": true,
+        "description": "查询的对象类型名称。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section18423962213",
+        "in": "body"
+      },
+      {
+        "name": "queryCond",
+        "type": "string",
+        "required": true,
+        "description": "查询条件。Json格式的字符串，例如：\"{\\\"queryConditions\\\":[{\\\"conditionType\\\":\\\"EqualTo\\\",\\\"fieldName\\\":\\\"id\\\",\\\"value\\\":\\\"3\\\"},{\\\"conditionType\\\":\\\"Limit\\\",\\\"value\\\":{\\\"number\\\":10,\\\"offset\\\":0}}]}\" 说明 当queryType不为0时，queryCond的conditionType参数必须设置为与queryType取值一致的查询条件，否则会导致接口返回错误。 例如：queryType取值为2时，conditionType必须设置为SUM。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section18423962213",
+        "in": "body",
+        "encodedJson": {
+          "type": "object",
+          "properties": [
+            {
+              "name": "queryConditions",
+              "in": "body",
+              "type": "array",
+              "required": true,
+              "itemsType": "object",
+              "itemsProperties": [
+                {
+                  "name": "conditionType",
+                  "in": "body",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "name": "fieldName",
+                  "in": "body",
+                  "type": "string"
+                },
+                {
+                  "name": "value",
+                  "in": "body"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

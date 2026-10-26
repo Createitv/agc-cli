@@ -1,0 +1,53 @@
+[
+  {
+    "name": "appId",
+    "in": "header",
+    "type": "string",
+    "required": true,
+    "description": "应用ID，获取方法参考查看应用信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-query-test-user-0000002664997773#section18864141115296",
+    "maxLength": 32
+  },
+  {
+    "name": "teamId",
+    "in": "header",
+    "type": "integer",
+    "required": false,
+    "description": "开发者所在团队的团队ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-query-test-user-0000002664997773#section18864141115296"
+  },
+  {
+    "name": "groupId",
+    "in": "query",
+    "type": "string",
+    "required": true,
+    "description": "测试群组ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-query-test-user-0000002664997773#section141117691213",
+    "maxLength": 32
+  },
+  {
+    "name": "appId",
+    "in": "query",
+    "type": "string",
+    "required": true,
+    "description": "应用ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-query-test-user-0000002664997773#section141117691213",
+    "maxLength": 32
+  },
+  {
+    "name": "current",
+    "in": "query",
+    "type": "integer",
+    "required": false,
+    "description": "当前页。 默认值：1",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-query-test-user-0000002664997773#section141117691213"
+  },
+  {
+    "name": "pageSize",
+    "in": "query",
+    "type": "integer",
+    "required": false,
+    "description": "每页数。 默认值：25",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-query-test-user-0000002664997773#section141117691213"
+  }
+]

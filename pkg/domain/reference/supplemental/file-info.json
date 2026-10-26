@@ -1,0 +1,88 @@
+{
+  "examples": [],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter#section195981215284",
+      "title": "了解新版目录"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-open-ability-0000002235710238",
+      "title": "AGC开放能力"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-0000002236015554",
+      "title": "AppGallery Connect API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-reference-0000002271160565",
+      "title": "Publishing API参考"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-0000002236201266",
+      "title": "数据模型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-upload-api-upload-url-0000002236201294",
+      "title": "获取上传文件地址"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-upload-api-upload-file-0000002271160621",
+      "title": "上传文件"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-upload-api-upload-url-0000002236201294",
+      "title": "获取上传文件地址"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-extfieldcustominfo-0000002328924997",
+      "title": "ExtFieldCustomInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-fullservicemode-0000002294845638",
+      "title": "FullServiceMode"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-fileinfo-0000002236041466",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "deviceType",
+          "M",
+          "Integer(32)",
+          "设备类型。 取值范围： 4：手机 5：平板 8：智慧屏 12：智能手表 14：运动手表 19：PC/2in1"
+        ],
+        [
+          "objectIdList",
+          "M",
+          "List<String(512)>",
+          "文件在OBS上的objectId。 说明 objectId的获取流程：先调用获取上传文件地址接口，然后调用上传文件接口上传文件，最后得到获取上传文件地址接口返回的objectId。 数组长度不超过10。 说明 如果是应用介绍视频，最多3个视频以及对应海报。files中必须先传视频再传海报，且视频和海报必须交替上传，即先传第1组的视频再传对应的海报，再传下一组视频和海报。 如果是推荐视频，1个推荐视频以及对应海报。files中必须先传视频再传海报。"
+        ],
+        [
+          "showType",
+          "O",
+          "Integer",
+          "当前语言的截图展现方式。 取值范围： 0：竖屏 1：横屏"
+        ]
+      ],
+      "section": "",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-fileinfo-0000002236041466"
+    }
+  ],
+  "title": "FileInfo",
+  "updatedAt": "2026-06-25 19:52",
+  "checkedAt": "2026-10-07T03:08:59.060Z"
+}

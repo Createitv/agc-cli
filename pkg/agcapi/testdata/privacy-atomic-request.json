@@ -1,0 +1,86 @@
+{
+  "id": "fixture-privacy-policy",
+  "defaultLang": "zh",
+  "agreementInfos": [
+    {
+      "lang": "zh",
+      "baseInfo": {
+        "name": "元服务的隐私政策协议示例",
+        "appName": "应用名称",
+        "companyName": "公司名称",
+        "briefDesc": "产品说明",
+        "effectiveTime": 1743392449000
+      },
+      "personalInfo": {
+        "requiredInfo": {
+          "sceneItems": [
+            {
+              "dataItems": [
+                {
+                  "itemId": "D0***07",
+                  "itemDesc": "地址",
+                  "sensitiveData": 0
+                }
+              ],
+              "sceneId": "1001",
+              "sceneReason": "实现应用功能",
+              "collectModeId": "1201",
+              "collectMode": "在后台运行时",
+              "legalBasisId": "1101",
+              "legalBasis": "在获取您的同意后",
+              "remark": "修改"
+            }
+          ]
+        },
+        "adsInfo": {
+          "sceneItems": [
+            {
+              "dataItems": [
+                {
+                  "itemId": "D001007",
+                  "itemDesc": "地址",
+                  "sensitiveData": 0
+                }
+              ]
+            }
+          ],
+          "pushContent": "活动和中奖",
+          "closeSetting": "设置-广告营销"
+        }
+      },
+      "extInfo": {
+        "contactInfo": {
+          "phoneNum": [
+            "0086-13700000000"
+          ]
+        },
+        "storageInfo": {
+          "storagePeriod": "-1",
+          "country": "中国境内",
+          "isCrossBorder": false
+        },
+        "childPrivacyUrl": "",
+        "versionChangeDescs": [],
+        "abstracts": "",
+        "managePersonalInfo": {
+          "infoAccess": {},
+          "infoModify": {},
+          "infoDelete": {},
+          "infoCancel": {},
+          "serviceStop": {}
+        },
+        "customInfo": {
+          "customInfos": []
+        },
+        "extFieldCustomInfo": {
+          "childPrivacyTitle": "",
+          "childPrivacyCustomInfoDesc": ""
+        }
+      },
+      "thirdSdkInfo": {
+        "sdkInfos": []
+      },
+      "thirdSharedInfos": []
+    }
+  ]
+}

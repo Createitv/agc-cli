@@ -1,0 +1,271 @@
+{
+  "examples": [
+    {
+      "section": "请求示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-updateproduct-android-0000002136087404#section19934722144316",
+      "text": "请求示例\n\n以API Client为例：\n\nPUT https://connect-api.cloud.huawei.com/api/pms/product-price-service/v1/manage/product \nContent-Type: application/json \nclient_id: *** \nAuthorization: Bearer *** \nappId: 1000001 \n \n{ \n    \"requestId\": \"8700018795\", \n    \"resource\": { \n        \"productNo\": \"manageproductput5\", \n        \"appId\": \"30140205131\", \n        \"productName\": \"创建商品定义信息1000002\", \n        \"purchaseType\": \"consumable\", \n        \"status\": \"inactive\", \n        \"defaultPrice\": \"1000002\", \n        \"currency\": \"CNY\", \n        \"country\": \"CN\", \n        \"defaultLocale\": \"zh-CN\", \n        \"productDesc\": \"测试商品描述1000002\", \n        \"languages\": [{ \n            \"locale\": \"zh_CN\", \n            \"productName\": \"创建商品定义信息1000002\", \n            \"productDesc\": \"测试商品描述1000002\" \n        }], \n         \"salesCountry\": [\n            \"LK\",\"TW\",\"TJ\",\"TH\",\"TR\",\"TM\",\"AE\",\"UZ\",\"VN\",\"YE\",\"MN\",\"MM\",\"NP\",\"OM\",\"PK\",\"PS\",\"PH\",\n            \"QA\",\"SA\",\"SG\",\"KZ\",\"KW\",\"KG\",\"LA\",\"LB\",\"MO\",\"MY\",\"MV\",\"CN\",\"CY\",\"GE\",\"HK\",\"ID\",\"IQ\",\n            \"IL\",\"JP\",\"JO\",\"AM\",\"AZ\",\"BH\",\"BD\",\"BN\",\"KH\",\"SL\",\"ZA\",\"TZ\",\"TG\",\"TN\",\"UG\",\"ZM\",\"ZW\",\n            \"MR\",\"MU\",\"YT\",\"MA\",\"MZ\",\"NA\",\"NE\",\"NG\",\"RE\",\"RW\",\"ST\",\"SN\",\"GM\",\"GH\",\"GN\",\"GW\",\"KE\",\n            \"LS\",\"LR\",\"LY\",\"MG\",\"MW\",\"ML\",\"KM\",\"CG\",\"CD\",\"CI\",\"DJ\",\"EG\",\"GQ\",\"ER\",\"SZ\",\"ET\",\"GA\",\n            \"DZ\",\"AO\",\"BJ\",\"BW\",\"BF\",\"CM\",\"CV\",\"CF\",\"TD\",\"PA\",\"PY\",\"PE\",\"PR\",\"LC\",\"TT\",\"UY\",\"VE\",\n            \"GD\",\"GP\",\"GT\",\"GY\",\"HT\",\"HN\",\"JM\",\"MX\",\"NI\",\"CA\",\"KY\",\"CL\",\"CO\",\"CR\",\"DO\",\"EC\",\"SV\",\n            \"GF\",\"AI\",\"AR\",\"AW\",\"BS\",\"BO\",\"BR\",\"VG\",\"SK\",\"SI\",\"ES\",\"SE\",\"CH\",\"UA\",\"GB\",\"VA\",\"MC\",\n            \"ME\",\"NL\",\"MK\",\"NO\",\"PL\",\"PT\",\"RO\",\"RU\",\"SM\",\"RS\",\"MT\",\"MD\",\"LI\",\"LT\",\"LU\",\"IT\",\"LV\",\n            \"HU\",\"IS\",\"IE\",\"FI\",\"FR\",\"DE\",\"GI\",\"GR\",\"GL\",\"BG\",\"HR\",\"CZ\",\"DK\",\"EE\",\"FO\",\"AL\",\"AD\",\n            \"AT\",\"BY\",\"BE\",\"BA\",\"AU\",\"CK\",\"FJ\",\"PF\", \"NR\",\"NZ\",\"PG\",\"SB\",\"TO\"\n        ],\n        \"autoAddSaleCountry\": 1,\n        \"prices\": [{ \n            \"country\": \"CN\", \n            \"price\": \"1000002\" \n        }] ,\n        \"startDate\":1748244395917,\n        \"endDate\":1748620800000,\n        \"tag\":\"优惠活动\"\n    } \n}"
+    },
+    {
+      "section": "响应示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-updateproduct-android-0000002136087404#section288313163912",
+      "text": "响应示例\n{\n    \"error\": {\n        \"errorCode\": 0,\n        \"errorMsg\": \"success\"\n    }\n}"
+    }
+  ],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pmsapi-0000001162548121",
+      "title": "PMS API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pmsapi-android-0000002131508240",
+      "title": "HarmonyOS 3.1/4.0及以下、Android"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-updateproduct-harmonyosnext-0000002166670141",
+      "title": "HarmonyOS 5.0及以上 V2版本接口"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114",
+      "title": "使用入门"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114#section103mcpsimp",
+      "title": "创建API客户端"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain_token-0000001158365043",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/appgallery_queryappinfo",
+      "title": "查询应用信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114#section949717114392",
+      "title": "获取用户授权码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/appgallery_queryappinfo",
+      "title": "查询应用信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-productinfo-android-0000002171288637",
+      "title": "ProductInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-errorresult-android-0000002171288633",
+      "title": "ErrorResult"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetproductinfo-android-0000002135929316",
+      "title": "按条件查询商品信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchupdateproduct-android-0000002171407013",
+      "title": "批量更新商品"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-updateproduct-android-0000002136087404#section8711909",
+      "title": "功能介绍"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-updateproduct-android-0000002136087404#section5189239225",
+      "title": "使用约束"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-updateproduct-android-0000002136087404#section2862142512223",
+      "title": "接口原型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-updateproduct-android-0000002136087404#section482745132215",
+      "title": "请求参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-updateproduct-android-0000002136087404#section11332165616018",
+      "title": "Header"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-updateproduct-android-0000002136087404#section1692522315316",
+      "title": "Body"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-updateproduct-android-0000002136087404#section19934722144316",
+      "title": "请求示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-updateproduct-android-0000002136087404#section49198053",
+      "title": "响应参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-updateproduct-android-0000002136087404#section288313163912",
+      "title": "响应示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-updateproduct-android-0000002136087404#section77276431240",
+      "title": "调用示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-updateproduct-android-0000002136087404#section8711909",
+      "text": "此接口用于更新商品定义信息，包含商品价格，展示语言和商品状态。"
+    },
+    {
+      "section": "使用约束",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-updateproduct-android-0000002136087404#section5189239225",
+      "text": "接口调用者的角色：账号持有者、管理员、APP管理员、运营。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-updateproduct-android-0000002136087404#section11332165616018",
+      "text": "API Client和OAuth Client区别参见使用入门。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-updateproduct-android-0000002136087404#section11332165616018",
+      "text": "API Client方式"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-updateproduct-android-0000002136087404#section11332165616018",
+      "text": "OAuth Client方式"
+    }
+  ],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-updateproduct-android-0000002136087404",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "承载协议",
+          "HTTPS PUT"
+        ],
+        [
+          "接口方向",
+          "开发者服务器->数字商品服务器"
+        ],
+        [
+          "接口URL",
+          "https://connect-api.cloud.huawei.com/api/pms/product-price-service/v1/manage/product"
+        ],
+        [
+          "数据格式",
+          "请求消息：Content-Type: application/json 响应消息：Content-Type: application/json"
+        ]
+      ],
+      "section": "接口原型",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-updateproduct-android-0000002136087404#section2862142512223"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数",
+          "必选(M)/可选(O)",
+          "类型",
+          "描述"
+        ],
+        [
+          "client_id",
+          "M",
+          "String",
+          "客户端ID，获取方法参考创建API客户端。"
+        ],
+        [
+          "Authorization",
+          "M",
+          "String",
+          "认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。"
+        ],
+        [
+          "appId",
+          "M",
+          "String",
+          "应用ID，获取方法参考查询应用信息。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-updateproduct-android-0000002136087404#section11332165616018"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "oauth2Token",
+          "M",
+          "String",
+          "认证信息，传入获取用户授权码中获取的Access Token。"
+        ],
+        [
+          "appId",
+          "M",
+          "String",
+          "应用ID，获取方法参考查询应用信息。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-updateproduct-android-0000002136087404#section11332165616018"
+    },
+    {
+      "location": "body",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "requestId",
+          "M",
+          "String(64)",
+          "请求序列，开发者自定义唯一标识符。"
+        ],
+        [
+          "resource",
+          "M",
+          "ProductInfo",
+          "商品信息。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-updateproduct-android-0000002136087404#section1692522315316"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "error",
+          "M",
+          "ErrorResult",
+          "包含返回码及描述信息的JSON字符串。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-updateproduct-android-0000002136087404#section49198053"
+    }
+  ],
+  "title": "更新商品信息",
+  "updatedAt": "2025-08-06 18:02",
+  "checkedAt": "2026-10-07T02:59:35.451Z",
+  "family": "pms",
+  "endpoint": "updateproduct-android"
+}

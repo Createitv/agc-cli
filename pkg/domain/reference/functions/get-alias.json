@@ -1,0 +1,259 @@
+{
+  "title": "get-alias",
+  "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+  "checkedAt": "2026-10-26",
+  "status": "vendor-source-reviewed",
+  "package": "@hw-agconnect/agc-cli",
+  "version": "1.12.0",
+  "sourceFiles": [
+    {
+      "packagePath": "commands/cloudfunction/api/aliasApi.js",
+      "sha256": "3340b3b361b3805c80ec197b547653f88a83322bc7a3d57f10e8f901c35e4814",
+      "source": "import constants from\"../constants/constants.js\";import{isEmpty}from\"../util/tools.js\";import{newArgError,newOtherErrorWithMessage}from\"../error/errors.js\";import output from\"../util/output.js\";import{locale}from\"../util/locale.js\";import functionApi from\"./functionApi.js\";function assembleAliasInfo(t,e,n){return{functionVersion:e.result.functionVersion,revisionId:e.result.revisionId,description:isEmpty(t.description)?e.result.description:t.description,routingConfig:isEmpty(t.routingConfig)?e.result.routingConfig:n}}async function checkRoutingConfig(t,e,n){let r,o=await functionApi.listFunctionVersions(t,e.functionName,10,1);r=n?n.result.functionVersion:e.functionVersion;let s=getLatestPublishedVersion(o),i={};if(isEmpty(e.routingConfig))return i[r]=100,i;try{i=JSON.parse(e.routingConfig)}catch(t){throw newArgError(locale(constants.ROUTING_CONFIG_NOT_JSON))}let a=Object.keys(i).length;if(a>2)throw newArgError(locale(constants.ROUTING_CONFIG_OVER_MAX_VERSION));if(2===a)return i;if(1===a){for(let t in i)if(Object.prototype.hasOwnProperty.call(i,t)){if(100===i[t])return i}if(r===s&&r in i){if(100===i[r])return i;throw newArgError(locale(constants.ROUTING_CONFIG_ONLY_LATEST_VERSION))}if(r in i){for(let t in i)if(Object.prototype.hasOwnProperty.call(i,t)){let e=i[t];if(e<0||e>100)throw newArgError(locale(constants.ROUTING_CONFIG_OVER_WEIGHT));i[s]=100-e}}else for(let t in i)if(Object.prototype.hasOwnProperty.call(i,t)){let e=i[t];if(e<0||e>100)throw newArgError(locale(constants.ROUTING_CONFIG_OVER_WEIGHT));i[r]=100-e}}return i}function getLatestPublishedVersion(t){if(0===t.functions.length)throw newArgError(locale(constants.FUNCTION_LIST_EMPTY));return 1===t.functions.length?t.functions[0].versionNumber:t.functions.length>=2?\"$latest\"!==t.functions[0].versionNumber?t.functions[0].versionNumber:t.functions[1].versionNumber:void 0}async function listAliases(t,e,n,r,o,s){const i=`${t.storage.getProjectBaseUrl()}/api/wisefunction/serverless/v1/functions/${e}/aliases`;return new Promise(((a,c)=>{t.edge({url:i,method:\"GET\",params:{pageIndex:r||constants.DEFAULT_FUNCTION_PAGE_INDEX,pageSize:o||constants.DEFAULT_FUNCTION_PAGE_SIZE,functionVersion:n}}).then((t=>t?0===t.code?t.result.total&&0!==t.result.total?void a(t):s?void a({result:{aliases:[]}}):void c(newOtherErrorWithMessage(output.strFormat(locale(constants.FAILED_LIST_ANY_ALIAS),{functionName:e}))):void c(newOtherErrorWithMessage(output.strFormat(locale(constants.FAILED_LIST_ALIAS_REASON_CMD),{message:t.message}))):s?void a({result:{aliases:[]}}):void c(newOtherErrorWithMessage(output.strFormat(locale(constants.FAILED_LIST_ALIAS_CMD),{message:constants.UNKNOWN_REASON}))))).catch((t=>{c(functionApi.processEdgeError(t))}))}))}async function createAlias(t,e,n){let r=await checkRoutingConfig(t,e,null),o=`${t.storage.getProjectBaseUrl()}/api/wisefunction/serverless/v1/functions/${e.functionName}/aliases`;return new Promise(((n,s)=>{t.edge({url:o,method:\"POST\",data:{name:e.name,functionVersion:e.functionVersion,description:e.description,routingConfig:r}}).then((t=>{n(t.result)})).catch((t=>{s(functionApi.processEdgeError(t))}))}))}async function updateAlias(t,e,n){let r,o,s=`${t.storage.getProjectBaseUrl()}/api/wisefunction/serverless/v1/functions/${e.functionName}/aliases/${e.name}`,i=await queryAliasInfo(t,e.functionName,e.name);return isEmpty(e.routingConfig)||(o=await checkRoutingConfig(t,e,i)),r=assembleAliasInfo(e,i,o),t.edge({url:s,method:\"PUT\",data:r}).then((t=>t.result)).catch((t=>{throw functionApi.processEdgeError(t)}))}async function queryAliasInfo(t,e,n){return t.edge({url:`${t.storage.getProjectBaseUrl()}/api/wisefunction/serverless/v1/functions/${e}/aliases/${n}`,method:\"GET\"}).then((t=>t)).catch((t=>{throw functionApi.processEdgeError(t)}))}async function deleteAliasInfo(t,e,n){return t.edge({url:`${t.storage.getProjectBaseUrl()}/api/wisefunction/serverless/v1/functions/${e}/aliases/${n}`,method:\"DELETE\"}).then((t=>t)).catch((t=>{throw functionApi.processEdgeError(t)}))}export{queryAliasInfo,listAliases,createAlias,updateAlias,deleteAliasInfo};"
+    },
+    {
+      "packagePath": "commands/cloudfunction/option/verify.js",
+      "sha256": "a556f80bf7d8ba67a06940875219a962d883de944606f216c8ab5f3a9c956f18",
+      "source": "import constants from\"../constants/constants.js\";import{newArgError}from\"../error/errors.js\";import fs from\"fs\";import path from\"path\";import{isEmpty,getStringWidth}from\"../util/tools.js\";import verifyTools from\"./tools.js\";import{locale}from\"../util/locale.js\";import output from\"../util/output.js\";import{validateTypeMinutesHourDayMonthWeekExpression,validateTypeEveryExpression}from\"./cronExpressionValidator.js\";const runtimes=[\"nodejs14.x\",\"java1.8\",\"python3\",\"custom-runtime\"],Owners=[\"all\",\"self\",\"other\"],memories=[500,1e3,2e3,4e3],layerShares=[\"business\",\"tenant\"],layerMaxSize=52428800;class Verifier{constructor(r){this.options=r,this.optionFns=[]}addVerifyOptionFunc(r,e,n){return this.optionFns.push({fn:r,optionName:e,required:n}),this}done(){for(let{fn:r,optionName:e=\"\",required:n}of this.optionFns)(e in this.options||n)&&r(this.options)}}function verifyFunctionName(r){let{functionName:e}=r;baseVerifyFunctionName(e)}function verifyNameOptionInFunctionCmd(r){let{name:e}=r;baseVerifyFunctionName(e)}function baseVerifyFunctionName(r){if(isEmpty(r))throw newArgError(locale(constants.ARG_ERR_FUNCTION_NAME_EMPTY));if(r.length<2)throw newArgError(locale(constants.ARG_ERR_FUNCTION_NAME_LENTH_SHORT));if(r.length>32)throw newArgError(locale(constants.ARG_ERR_FUNCTION_NAME_LENTH_LONGER));if(!new RegExp(\"^[a-z][a-z0-9-]*[a-z0-9]$\").test(r))throw newArgError(locale(constants.ARG_ERR_FUNCTION_NAME_ILLEGAL))}function verifyExclusionEnvironmentOption(r){if(r.environment&&r.environmentFile)throw newArgError(locale(constants.ARG_ERR_EXCLUSION_ENVIRONMENT_OPTION))}function verifyExclusionTriggerConfigOption(r,e){if(r.configFile)for(let n of e)if(r[n])throw newArgError(locale(constants.ARG_ERR_EXCLUSION_TRIGGER_CONFIG_OPTION))}const HttpTriggerAuthTypeList=[\"apigw-client\",\"cloudgw-client\"];function verifyHTTPTriggerAuthType(r){if(!r.authType)throw newArgError(locale(constants.ARG_ERR_HTTP_TRIGGER_AUTH_TYPE_EMPTY));if(-1===HttpTriggerAuthTypeList.indexOf(r.authType))throw newArgError(locale(constants.ARG_ERR_HTTP_TRIGGER_AUTH_TYPE_ILLEGAL))}const HttpTriggerEnableUrlDecodeList=[\"true\",\"false\"];function verifyHTTPTriggerEnableUrlDecode(r){if(!r.enableUrlDecode)throw newArgError(locale(constants.ARG_ERR_HTTP_TRIGGER_ENABLE_URL_DECODE_EMPTY));if(-1===HttpTriggerEnableUrlDecodeList.indexOf(r.enableUrlDecode))throw newArgError(locale(constants.ARG_ERR_HTTP_TRIGGER_ENABLE_URL_DECODE_ILLEGAL))}function verifyTriggerId(r){if(isEmpty(r.triggerId))throw newArgError(locale(constants.INPUT_TRIGGER_ID_EMPTY))}function verifyTriggerSwitch(r){if(!isEmpty(r.triggerSwitch)&&\"true\"!==r.triggerSwitch&&\"false\"!==r.triggerSwitch)throw newArgError(locale(constants.INPUT_TRIGGER_SWITCH_ERROR))}let CronTriggerModeList=[\"ASync\",\"Sync\"];function verifyCronTriggerMode(r){if(!r.triggerMode)throw newArgError(locale(constants.ARG_ERR_CRON_TRIGGER_MODE_EMPTY));if(-1===CronTriggerModeList.indexOf(r.triggerMode))throw newArgError(locale(constants.ARG_ERR_CRON_TRIGGER_MODE_ILLEGAL))}function verifyAliasName(r){let{aliasName:e}=r;baseVerifyAliasName(e)}function verifyFuzzyName(r){if(isEmpty(r.fuzzyName))throw newArgError(locale(constants.ARG_ERR_FUZZY_NAME_EMPTY));if(r.fuzzyName.length>32)throw newArgError(locale(constants.ARG_ERR_FUZZY_NAME_LENTH_SHORT));if(!new RegExp(\"^[0-9a-z-]\").test(r.fuzzyName))throw newArgError(locale(constants.ARG_ERR_FUZZY_NAME_ILLEGAL))}function verifyNameOptionInAliasCmd(r){let{name:e}=r;baseVerifyAliasName(e)}function baseVerifyAliasName(r){if(isEmpty(r))throw newArgError(locale(constants.ARG_ERR_ALIAS_EMPTY));if(r.length<2)throw newArgError(locale(constants.ARG_ERR_ALIAS_LENTH_SHORT));if(r.length>16)throw newArgError(locale(constants.ARG_ERR_ALIAS_LENTH_LONGER));if(!new RegExp(\"^[a-z][a-z0-9-]*[a-z0-9]$\").test(r))throw newArgError(locale(constants.ARG_ERR_ALIAS_ILLEGAL))}function verifyRuntime(r){let{runtime:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_RUNTIME_EMPTY));if(-1===runtimes.indexOf(e))throw newArgError(locale(constants.ARG_ERR_RUNTIME_ILLEGAL))}function verifyFunctionCodePath(r){let{codePath:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_FUNCTION_CODE_PATH_EMPTY));if(!fs.existsSync(e))throw newArgError(locale(constants.ARG_ERR_FUNCTION_CODE_PATH_UNEXIST));if(\".zip\"!==path.extname(e))throw newArgError(locale(constants.ARG_ERR_FUNCTION_CODE_PATH_FORMAT_ILLEGAL));if(fs.statSync(e).size>=52428800)throw newArgError(locale(constants.ARG_ERR_FUNCTION_CODE_CONTENT_SIZE_TOO_BIGGER))}function verifyMemory(r){let{memory:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_MEMORY_EMPTY));if(!verifyTools.isInteger(e)&&(e=Number(e),isNaN(e)))throw newArgError(locale(constants.ARG_ERR_MEMORY_VALUE_NOT_SUPPORTED));if(-1===memories.indexOf(e))throw newArgError(output.strFormat(locale(constants.ARG_ERR_MEMORY_VALUE_NOT_SUPPORTED),{memories:memories.join(\",\")}))}function verifyTimeout(r){let{timeout:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_TIMEOUT_EMPTY));if(verifyTools.isNumber(e)||(e=Number(e)),isNaN(e)||!verifyTools.isInteger(e))throw newArgError(locale(constants.ARG_ERR_TIMEOUT_TYPE_ILLEGAL));if(e<1||e>1800)throw newArgError(locale(constants.ARG_ERR_TIMEOUT_VALUE_NOT_SUPPORTED))}function verifyInstanceConcurrency(r){let{instanceConcurrency:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_INSTANCE_CONCURRENCY_EMPTY));if(verifyTools.isNumber(e)||(e=Number(e)),isNaN(e)||!verifyTools.isInteger(e))throw newArgError(locale(constants.ARG_ERR_INSTANCE_CONCURRENCY_TYPE_ILLEGAL));if(e<1||e>1e3)throw newArgError(locale(constants.ARG_ERR_INSTANCE_CONCURRENCY_VALUE_NOT_SUPPORTED))}function verifyDescription(r){let{description:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_DESCRIPTION_EMPTY));if(!verifyTools.isString(e))throw newArgError(locale(constants.ARG_ERR_DESCRIPTION_ILLEGAL));if(getStringWidth(e)>64)throw newArgError(locale(constants.ARG_ERR_DESCRIPTION_LONGER))}function verifyVersionDescription(r){let{versionDescription:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_VERSION_DESCRIPTION_EMPTY));if(!verifyTools.isString(e))throw newArgError(locale(constants.ARG_ERR_VERSION_DESCRIPTION_ILLEGAL));if(getStringWidth(e)>64)throw newArgError(locale(constants.ARG_ERR_VERSION_DESCRIPTION_LONGER))}function verifyEnvironment(r){let{environment:e}=r;if(isEmpty(r.environment))throw newArgError(locale(constants.ARG_ERR_ENVIRONMENT_EMPTY));checkEnvironmentContent(e)}function verifyEnvironmentFile(r){let{environmentFile:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_ENVIRONMENT_FILE_EMPTY));if(!fs.existsSync(e))throw newArgError(locale(constants.ARG_ERR_ENVIRONMENT_FILE_PATH_UNEXIST));if(\".json\"!==path.extname(e))throw newArgError(locale(constants.ARG_ERR_ENVIRONMENT_FILE_PATH_FORMAT_ILLEGAL));if(fs.statSync(e).size>=3145728)throw newArgError(locale(constants.ARG_ERR_ENVIRONMENT_FILE_CONTENT_SIZE_TOO_BIGGER));checkEnvironmentContent(fs.readFileSync(e))}function checkEnvironmentContent(r){if(r.length>=3145728)throw newArgError(locale(constants.ARG_ERR_FUNCTION_CODE_CONTENT_SIZE_TOO_BIGGER));let e=null;try{e=JSON.parse(r)}catch(r){throw newArgError(locale(constants.ARG_ERR_ENVIRONMENT_ILLEGAL))}for(let r in e)if(Object.prototype.hasOwnProperty.call(e,r)){if(r.length>64)throw newArgError(locale(constants.ARG_ERR_ENVIRONMENT_KEY_LONGER));if(!new RegExp(\"^[-._a-zA-Z][-._a-zA-Z0-9]*$\").test(r))throw newArgError(locale(constants.ARG_ERR_ENVIRONMENT_KEY_ILLEGAL));if(e[r].length>2048)throw newArgError(locale(constants.ARG_ERR_ENVIRONMENT_VALUE_LONGER))}}function verifyLayers(r){let{layers:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_LAYER_EMPTY));if(isEmpty(e)||!verifyTools.isArray(e))throw newArgError(locale(constants.ARG_ERR_LAYER_ILLEGAL));if(e.join().length<4)throw newArgError(locale(constants.ARG_ERR_LAYER_ILLEGAL));if(e.join(\" \").substring(1,e.join().length-1).split(\",\").length>5)throw newArgError(locale(constants.ARG_ERR_LAYER_TOO_MANY))}function verifyPayload(r){let{payload:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_PAYLOAD_EMPTY));try{JSON.parse(e)}catch(r){throw newArgError(locale(constants.ARG_ERR_PAYLOAD_ILLEGAL))}}function verifySchedule(r){if(isEmpty(r.schedule))throw newArgError(locale(constants.ARG_ERR_SCHEDULE_EMPTY));if(!validateTypeEveryExpression(r.schedule)&&!validateTypeMinutesHourDayMonthWeekExpression(r.schedule))throw newArgError(locale(constants.ARG_ERR_SCHEDULE_ILLEGAL))}function verifyPayloadFile(r){let{payloadFile:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_PAYLOAD_FILE_EMPTY));if(!fs.existsSync(e))throw newArgError(locale(constants.ARG_ERR_PAYLOAD_FILE_UNEXIST));if(\".json\"!==path.extname(e))throw newArgError(locale(constants.ARG_ERR_PAYLOAD_FILE_FORMAT_ILLEGAL));if(fs.statSync(e).size>=4194304)throw newArgError(locale(constants.ARG_ERR_PAYLOAD_FILE_CONTENT_TOO_BIGGER));let n=fs.readFileSync(e);try{JSON.parse(n)}catch(r){throw newArgError(locale(constants.ARG_ERR_PAYLOAD_FLE_CONTENT_ILLEGAL))}}function verifyVersionOptionInFunctionCmd(r){let{version:e}=r;baseVerifyFunctionVersion(e)}function verifyFunctionVersion(r){let{functionVersion:e}=r;baseVerifyFunctionVersion(e)}function baseVerifyFunctionVersion(r){if(isEmpty(r))throw newArgError(locale(constants.ARG_ERR_FUNCTION_VERSION_EMPTY));if(\"$latest\"===r)return;let e=Number(r);if(isNaN(e)||e<1)throw newArgError(locale(constants.ARG_ERR_FUNCTION_VERSION_NOT_SUPPORTED))}function verifyNameOptionInLayerCmd(r){let{name:e}=r;baseVerifyLayerName(e)}function verifyNameOptionInLayerVersionsListCmd(r){let{name:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_LAYER_NAME_EMPTY));let n=e.split(\":\");if(1!==n.length){if(6!==n.length)throw newArgError(locale(constants.ARG_ERR_LAYER_NAME_FORMAT_ILLEGAL_IN_LAYER_VERSIONS_LIST_CMD))}else baseVerifyLayerName(e)}function verifyLayerName(r){let{layerName:e}=r;baseVerifyLayerName(e)}function baseVerifyLayerName(r){if(isEmpty(r))throw newArgError(locale(constants.ARG_ERR_LAYER_NAME_EMPTY));if(r.length<2)throw newArgError(locale(constants.ARG_ERR_LAYER_NAME_LENTH_SHORT));if(r.length>32)throw newArgError(locale(constants.ARG_ERR_LAYER_NAME_LENTH_LONGER));if(!new RegExp(\"^[a-z][a-z0-9-]*[a-z0-9]$\").test(r))throw newArgError(locale(constants.ARG_ERR_LAYER_NAME_ILLEGAL))}function verifyLayerCodePath(r){let{codePath:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_LAYER_FILE_EMPTY));if(!fs.existsSync(e))throw newArgError(locale(constants.ARG_ERR_LAYER_FILE_UNEXIST));if(\".zip\"!==path.extname(e))throw newArgError(locale(constants.ARG_ERR_LAYER_FILE_FORMAT_ILLEGAL));if(fs.statSync(e).size>=52428800)throw newArgError(locale(constants.ARG_ERR_LAYER_FILE_SIZE_TOO_BIGGER))}function verifyJsonFileDestinationPath(r){let{destination:e}=r;if(!fs.existsSync(e))throw newArgError(locale(constants.ARG_ERR_LAYER_FILE_UNEXIST))}function verifyJsonFileSourcePath(r){let{source:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_JSON_SOURCE_EMPTY));if(!fs.existsSync(e))throw newArgError(locale(constants.ARG_ERR_JSON_SOURCE_NOT_EXIST));if(\".json\"!==path.extname(e))throw newArgError(locale(constants.ARG_ERR_JSON_PATH_FORMAT_ILLEGAL))}function verifyLayerDescription(r){let{description:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_LAYER_DESCRIPTION_EMPTY));if(e.length>1024)throw newArgError(locale(constants.ARG_ERR_LAYER_DESCRIPTION_LONGER))}function verifyLayerOwnerFlag(r){let{ownerFlag:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_LAYER_OWNER_EMPTY));if(-1===Owners.indexOf(e))throw newArgError(locale(constants.ARG_ERR_LAYER_OWNER_NOT_SUPPORTED))}function verifyLayerSharedScope(r){let{sharedScope:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_LAYER_SHARE_SCOPE_EMPTY));if(!isEmpty(e)&&-1===layerShares.indexOf(e))throw newArgError(output.strFormat(locale(constants.ARG_ERR_LAYER_SHARE_SCOPE_NOT_SUPPORTED),{layerShares:layerShares.join(\",\")}))}function verifyCompatibleRuntimes(r){let{compatibleRuntimes:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_COMPATIBLE_RUNTIMES_EMPTY));let n=[];for(let r of e){if(-1===runtimes.indexOf(r))throw newArgError(locale(constants.ARG_ERR_COMPATIBLE_RUNTIMES_NOT_SUPPORTED));if(-1!==n.indexOf(r))throw newArgError(locale(constants.ARG_ERR_COMPATIBLE_RUNTIMES_REPEAT));n.push(r)}}function verifyCompatibleRuntime(r){let{compatibleRuntime:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_COMPATIBLE_RUNTIME_EMPTY));if(-1===runtimes.indexOf(e))throw newArgError(locale(constants.ARG_ERR_COMPATIBLE_RUNTIME_ILLEGAL))}function verifyLayerVersion(r){let{layerVersion:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_LAYER_VERSION_EMPTY));let n=Number(e);if(isNaN(n)||n<1)throw newArgError(locale(constants.ARG_ERR_LAYER_VERSION_NOT_SUPPORTED))}function verifyLicenseInfo(r){let{licenseInfo:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_LICENSE_EMPTY));if(!verifyTools.isString(e))throw newArgError(locale(constants.ARG_ERR_LICENSE_ILLEGAL));if(getStringWidth(e)>64)throw newArgError(locale(constants.ARG_ERR_LICENSE_LENTH_LONGER))}function verifyTriggerConfigFile(r){let{configFile:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_TRIGGER_CONFIG_FILE_EMPTY));if(!fs.existsSync(e))throw newArgError(locale(constants.ARG_ERR_TRIGGER_CONFIG_FILE_UNEXIST));if(\".json\"!==path.extname(e))throw newArgError(locale(constants.ARG_ERR_TRIGGER_CONFIG_FILE_FORMAT_ILLEGAL));if(fs.statSync(e).size>=1048576)throw newArgError(locale(constants.ARG_ERR_TRIGGER_CONFIG_CONTENT_SIZE_TOO_BIGGER));let n=fs.readFileSync(e);try{JSON.parse(n)}catch(r){throw newArgError(locale(constants.ARG_ERR_TRIGGER_CONFIG_FILE_CONTENT_ILLEGAL))}}function verifyCronPayload(r){if(!isEmpty(r.payload))try{JSON.parse(r.payload)}catch(r){throw newArgError(locale(constants.INPUT_PAYLOAD_SHOULD_BE_JSON))}}function verifyListOutput(r){let{output:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_LIST_OUTPUT_UNEXIST));if(-1===[\"json\",\"table\"].indexOf(e))throw newArgError(locale(constants.ARG_ERR_LIST_OUTPUT_ILLEGAL))}function verifyPageSize(r){let{pageSize:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_PAGE_SIZE_UNEXIST));if(verifyTools.isNumber(e)||(e=Number(e)),isNaN(e)||!verifyTools.isInteger(e))throw newArgError(locale(constants.ARG_ERR_PAGE_SIZE_TYPE_ILLEGAL));if(e<1)throw newArgError(locale(constants.ARG_ERR_PAGE_SIZE_VALUE_NOT_SUPPORTED));r.pageSize=e}function verifyPageIndex(r){let{pageIndex:e}=r;if(isEmpty(e))throw newArgError(locale(constants.ARG_ERR_PAGE_INDEX_UNEXIST));if(verifyTools.isNumber(e)||(e=Number(e)),isNaN(e)||!verifyTools.isInteger(e))throw newArgError(locale(constants.ARG_ERR_PAGE_INDEX_TYPE_ILLEGAL));if(e<1)throw newArgError(locale(constants.ARG_ERR_PAGE_INDEX_VALUE_NOT_SUPPORTED));r.pageIndex=e}export default{Verifier:Verifier,verifyNameOptionInFunctionCmd:verifyNameOptionInFunctionCmd,verifyFunctionName:verifyFunctionName,verifyRuntime:verifyRuntime,verifyFunctionCodePath:verifyFunctionCodePath,verifyMemory:verifyMemory,verifyTimeout:verifyTimeout,verifyInstanceConcurrency:verifyInstanceConcurrency,verifyDescription:verifyDescription,verifyVersionDescription:verifyVersionDescription,verifyEnvironment:verifyEnvironment,verifyEnvironmentFile:verifyEnvironmentFile,verifyExclusionEnvironmentOption:verifyExclusionEnvironmentOption,verifyLayers:verifyLayers,verifyPayload:verifyPayload,verifyPayloadFile:verifyPayloadFile,verifyFunctionVersion:verifyFunctionVersion,verifyVersionOptionInFunctionCmd:verifyVersionOptionInFunctionCmd,verifyNameOptionInAliasCmd:verifyNameOptionInAliasCmd,verifyAliasName:verifyAliasName,verifySchedule:verifySchedule,verifyFuzzyName:verifyFuzzyName,verifyNameOptionInLayerCmd:verifyNameOptionInLayerCmd,verifyNameOptionInLayerVersionsListCmd:verifyNameOptionInLayerVersionsListCmd,verifyLayerOwnerFlag:verifyLayerOwnerFlag,verifyLayerName:verifyLayerName,verifyLayerCodePath:verifyLayerCodePath,verifyLayerDescription:verifyLayerDescription,verifyLayerVersion:verifyLayerVersion,verifyCompatibleRuntimes:verifyCompatibleRuntimes,verifyCompatibleRuntime:verifyCompatibleRuntime,verifyLicenseInfo:verifyLicenseInfo,verifyLayerSharedScope:verifyLayerSharedScope,verifyCronPayload:verifyCronPayload,verifyTriggerId:verifyTriggerId,verifyTriggerSwitch:verifyTriggerSwitch,verifyCronTriggerMode:verifyCronTriggerMode,verifyTriggerConfigFile:verifyTriggerConfigFile,verifyHTTPTriggerAuthType:verifyHTTPTriggerAuthType,verifyHTTPTriggerEnableUrlDecode:verifyHTTPTriggerEnableUrlDecode,verifyExclusionTriggerConfigOption:verifyExclusionTriggerConfigOption,verifyListOutput:verifyListOutput,verifyPageSize:verifyPageSize,verifyPageIndex:verifyPageIndex,verifyJsonFileDestinationPath:verifyJsonFileDestinationPath,verifyJsonFileSourcePath:verifyJsonFileSourcePath};"
+    },
+    {
+      "packagePath": "modules/request/edge.js",
+      "sha256": "6a2890b78c14efe687c13810ec7aa1ed8d1c512d4e946c66ebb517f93a16782f",
+      "source": "import axios from\"axios\";import https from\"https\";import fs from\"fs\";import session from\"../session/index.js\";import{isObject,getHDDate}from\"../../util/helper.js\";import storage from\"../storage/index.js\";import Logger from\"../../util/logger.js\";import path from\"path\";import{getDirName}from\"../util/dir.js\";const logger=new Logger(\"Edge\"),edgeRequest=axios.create({withCredentials:!0,httpsAgent:new https.Agent({rejectUnauthorized:!1})});function setEdgeHeaders(e={}){const t={};if(!isObject(e))return t;for(let s in e)e[s]&&(t[s]=e[s]);return t}function createUserAgent(){const e=getDirName(import.meta.url),t=JSON.parse(fs.readFileSync(path.join(e,\"../../package.json\"),\"utf8\"));return`agc-cli-tool/${t.version} (${t.platform})`}const onConfig=async e=>{if(!await session.isSessionValid())return logger.warn(\"Run the agcli login command to sign in the user first.\"),e;e.headers[\"User-Agent\"]=createUserAgent(),e.headers[\"X-HD-DATE\"]=getHDDate();const{uid:t,accessToken:s}=session.getToken(),r=storage.getProjectId(),o=setEdgeHeaders({uid:t,oauth2Token:s,teamId:storage.getTeamId(),productId:r});return Object.assign(e.headers,o),e},onError=e=>Promise.reject(e);edgeRequest.interceptors.request.use(onConfig,onError),edgeRequest.interceptors.response.use((e=>200===e.status?e.data:Promise.reject(e)),(e=>Promise.reject(e)));const edgeRequestWithRawResponse=axios.create({httpsAgent:new https.Agent({rejectUnauthorized:!1})});edgeRequestWithRawResponse.interceptors.request.use(onConfig,onError),edgeRequestWithRawResponse.interceptors.response.use((e=>200===e.status?{data:e.data,headers:e.headers}:Promise.reject(e)),(e=>Promise.reject(e)));export{edgeRequest,edgeRequestWithRawResponse,setEdgeHeaders,createUserAgent};"
+    }
+  ],
+  "notes": [],
+  "reviewedPages": [
+    {
+      "captureTool": "Computer Use; merged-cell capture compatible with scripts/browser-capture-reference.mjs",
+      "checkedAt": "2026-10-26",
+      "examples": [],
+      "links": [
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-aliasname-0000001568841949#section173761114132110",
+          "title": "基于别名的灰度能力"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-aliasname-0000001568841949#section1546919259159",
+          "title": "功能概述"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-aliasname-0000001568841949#section92991051103413",
+          "title": "创建别名"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-aliasname-0000001568841949#section203872584342",
+          "title": "查看别名列表"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-aliasname-0000001568841949#section1393987193515",
+          "title": "删除别名"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-aliasname-0000001568841949#section173761114132110",
+          "title": "基于别名的灰度能力"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-aliasname-0000001568841949#section15783432183",
+          "title": "权重策略"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-aliasname-0000001568841949#section8669202315446",
+          "title": "规则策略"
+        }
+      ],
+      "notes": [
+        {
+          "section": "功能概述",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-aliasname-0000001568841949#section1546919259159",
+          "text": "此功能为可选功能，请开发者根据实际需要来选择使用。"
+        },
+        {
+          "section": "功能概述",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-aliasname-0000001568841949#section1546919259159",
+          "text": "别名是可以指向一个或两个版本的指针，是函数的一种资源，且别名无法脱离函数或版本单独存在。云函数支持别名管理功能，基于云函数的版本功能，管理调用云函数的流量控制。开发者可通过创建的别名来控制要访问的云函数版本，基于别名来管理函数调用，避免了切换版本时要反复修改调用云函数部分的代码。"
+        },
+        {
+          "section": "功能概述",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-aliasname-0000001568841949#section1546919259159",
+          "text": "具体使用场景举例如下："
+        },
+        {
+          "section": "功能概述",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-aliasname-0000001568841949#section1546919259159",
+          "text": "发布版本1\n\n在创建函数（$latest 版本）后，先发布版本1，然后创建名为alias1且指向版本1的别名。\n开发者开发客户端代码，通过使用别名alias1的方式，访问函数的版本1，开始提供服务。"
+        },
+        {
+          "section": "功能概述",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-aliasname-0000001568841949#section1546919259159",
+          "text": "在创建函数（$latest 版本）后，先发布版本1，然后创建名为alias1且指向版本1的别名。"
+        },
+        {
+          "section": "功能概述",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-aliasname-0000001568841949#section1546919259159",
+          "text": "开发者开发客户端代码，通过使用别名alias1的方式，访问函数的版本1，开始提供服务。"
+        },
+        {
+          "section": "功能概述",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-aliasname-0000001568841949#section1546919259159",
+          "text": "发布版本2\n\n当函数需要升级时，先更新$latest 版本，发布更新后的稳定版本（版本 2），将alias1别名从指向版本1变更为指向版本2，开发者（调用方）无需变动调用函数的代码即可完成版本切换。\n如果发现问题，可以通过将alias1别名重新指向版本1，即可轻松将版本回滚到版本1。"
+        },
+        {
+          "section": "功能概述",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-aliasname-0000001568841949#section1546919259159",
+          "text": "当函数需要升级时，先更新$latest 版本，发布更新后的稳定版本（版本 2），将alias1别名从指向版本1变更为指向版本2，开发者（调用方）无需变动调用函数的代码即可完成版本切换。"
+        },
+        {
+          "section": "功能概述",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-aliasname-0000001568841949#section1546919259159",
+          "text": "如果发现问题，可以通过将alias1别名重新指向版本1，即可轻松将版本回滚到版本1。"
+        },
+        {
+          "section": "创建别名",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-aliasname-0000001568841949#section92991051103413",
+          "text": "在函数列表中点击函数名称，进入函数详情页面。选择“别名”页签，点击“创建”。"
+        },
+        {
+          "section": "创建别名",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-aliasname-0000001568841949#section92991051103413",
+          "text": "在右侧抽屉式滑出的“创建别名”界面中，输入别名的名称、描述、路由方法与关联版本，完成后点击“创建”。\n名称：别名名称，此函数下必须唯一。\n描述：别名描述，长度不超过64个字符。\n主版本：别名指向的主版本，创建后支持修改。\n路由方法：支持权重（按配置的权重比例来分配流量）和规则（按配置的特定规则来分配流量）两种。\n灰度版本：别名支持两个版本间的灰度能力，通过权重或者规则配置，将别名上的流量按比例或者按规则在两个版本之间转移，具体参见基于别名的灰度能力。"
+        },
+        {
+          "section": "创建别名",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-aliasname-0000001568841949#section92991051103413",
+          "text": "名称：别名名称，此函数下必须唯一。"
+        },
+        {
+          "section": "创建别名",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-aliasname-0000001568841949#section92991051103413",
+          "text": "描述：别名描述，长度不超过64个字符。"
+        },
+        {
+          "section": "创建别名",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-aliasname-0000001568841949#section92991051103413",
+          "text": "主版本：别名指向的主版本，创建后支持修改。"
+        },
+        {
+          "section": "创建别名",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-aliasname-0000001568841949#section92991051103413",
+          "text": "路由方法：支持权重（按配置的权重比例来分配流量）和规则（按配置的特定规则来分配流量）两种。"
+        },
+        {
+          "section": "创建别名",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-aliasname-0000001568841949#section92991051103413",
+          "text": "灰度版本：别名支持两个版本间的灰度能力，通过权重或者规则配置，将别名上的流量按比例或者按规则在两个版本之间转移，具体参见基于别名的灰度能力。"
+        },
+        {
+          "section": "创建别名",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-aliasname-0000001568841949#section92991051103413",
+          "text": "创建别名后，在别名列表中点击别名名称进入别名详情页，可在不同页签下修改别名描述、关联版本、路由方法，以及在别名上配置触发器。"
+        },
+        {
+          "section": "查看别名列表",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-aliasname-0000001568841949#section203872584342",
+          "text": "查看别名列表有两种方式："
+        },
+        {
+          "section": "查看别名列表",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-aliasname-0000001568841949#section203872584342",
+          "text": "方式一：在函数列表中点击函数名称右侧“操作”列的“别名”，直接跳转至别名详情页面，可以查看函数的别名列表及关联的版本信息。"
+        },
+        {
+          "section": "查看别名列表",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-aliasname-0000001568841949#section203872584342",
+          "text": "方式二：在函数列表中点击函数名称，进入函数详情页面。选择“别名”页签，可以查看函数的别名列表及关联的版本信息。"
+        },
+        {
+          "section": "删除别名",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-aliasname-0000001568841949#section1393987193515",
+          "text": "在函数详情页面，选择“别名”页签。在文本框中输入需要删除的别名关联的主版本，对别名进行筛选。"
+        },
+        {
+          "section": "删除别名",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-aliasname-0000001568841949#section1393987193515",
+          "text": "点击右侧“操作”列的“删除”即可删除别名。"
+        },
+        {
+          "section": "基于别名的灰度能力",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-aliasname-0000001568841949#section173761114132110",
+          "text": "别名支持版本间的灰度能力，您可以为别名指向的两个版本配置路由策略，别名上的流量将按您配置的策略流向不同版本，帮助您轻松实现发布、回滚以及灰度发布等需求。"
+        },
+        {
+          "section": "权重策略",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-aliasname-0000001568841949#section15783432183",
+          "text": "通过权重配置，将别名上的流量按比例指向不同版本，满足业务实现版本灰度上线与版本流量切换的场景。"
+        },
+        {
+          "section": "权重策略",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-aliasname-0000001568841949#section15783432183",
+          "text": "在函数详情页面，选择“别名”页签。在别名列表中，点击需要配置的别名，进入编译别名页面。"
+        },
+        {
+          "section": "权重策略",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-aliasname-0000001568841949#section15783432183",
+          "text": "选择“路由”页签，“路由方法”选择“权重”，“灰度版本”选中需要转移流量的版本，通过为两个版本配置“权重”实现转移流量的目标。\n\n图中所示，alias1别名指向版本1，同时分流百分之20的流量到版本$latest上。配置完成后点击“保存”。"
+        },
+        {
+          "section": "权重策略",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-aliasname-0000001568841949#section15783432183",
+          "text": "图中所示，alias1别名指向版本1，同时分流百分之20的流量到版本$latest上。配置完成后点击“保存”。"
+        },
+        {
+          "section": "规则策略",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-aliasname-0000001568841949#section8669202315446",
+          "text": "通过规则配置，将别名上的流量按灰度规则指向特定版本，满足业务特定灰度场景。"
+        },
+        {
+          "section": "规则策略",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-aliasname-0000001568841949#section8669202315446",
+          "text": "在函数详情页面，选择“别名”页签。在别名列表中，点击需要配置的别名，进入编译别名页面。"
+        },
+        {
+          "section": "规则策略",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-aliasname-0000001568841949#section8669202315446",
+          "text": "选择“路由”页签，“路由方法”选择“规则”。当存在多个配置子项时，可通过“配置子项关系”配置匹配方式。规则信息可直接编辑，也可选择或者新增灰度规则模板。\n直接编辑灰度规则\n\n“灰度规则模板”保持为空，选择“配置子项关系”，设置请求头header的userid为“1001“，符合此条件的数据请求会灰度到函数版本1。\n\n新建灰度规则模板，且支持再编辑\n“灰度规则模板”选择“新建模板”。\n\n在右侧弹出的“创建灰度规则模板”页面中，选择“配置子项关系”，配置规则子项，比如设置请求头header的userid为“1002“，然后点击“创建”完成模板定义。\n\n返回到“路由策略”页签，“灰度规则模板”选择“tep1”，规则子项将被自动填充，且可点击子项右边的添加新的规则子项，符合条件的数据请求会灰度到函数版本1。"
+        },
+        {
+          "section": "规则策略",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-aliasname-0000001568841949#section8669202315446",
+          "text": "直接编辑灰度规则\n\n“灰度规则模板”保持为空，选择“配置子项关系”，设置请求头header的userid为“1001“，符合此条件的数据请求会灰度到函数版本1。"
+        },
+        {
+          "section": "规则策略",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-aliasname-0000001568841949#section8669202315446",
+          "text": "“灰度规则模板”保持为空，选择“配置子项关系”，设置请求头header的userid为“1001“，符合此条件的数据请求会灰度到函数版本1。"
+        },
+        {
+          "section": "规则策略",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-aliasname-0000001568841949#section8669202315446",
+          "text": "新建灰度规则模板，且支持再编辑\n“灰度规则模板”选择“新建模板”。\n\n在右侧弹出的“创建灰度规则模板”页面中，选择“配置子项关系”，配置规则子项，比如设置请求头header的userid为“1002“，然后点击“创建”完成模板定义。\n\n返回到“路由策略”页签，“灰度规则模板”选择“tep1”，规则子项将被自动填充，且可点击子项右边的添加新的规则子项，符合条件的数据请求会灰度到函数版本1。"
+        },
+        {
+          "section": "规则策略",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-aliasname-0000001568841949#section8669202315446",
+          "text": "“灰度规则模板”选择“新建模板”。"
+        },
+        {
+          "section": "规则策略",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-aliasname-0000001568841949#section8669202315446",
+          "text": "在右侧弹出的“创建灰度规则模板”页面中，选择“配置子项关系”，配置规则子项，比如设置请求头header的userid为“1002“，然后点击“创建”完成模板定义。"
+        },
+        {
+          "section": "规则策略",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-aliasname-0000001568841949#section8669202315446",
+          "text": "返回到“路由策略”页签，“灰度规则模板”选择“tep1”，规则子项将被自动填充，且可点击子项右边的添加新的规则子项，符合条件的数据请求会灰度到函数版本1。"
+        },
+        {
+          "section": "规则策略",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-aliasname-0000001568841949#section8669202315446",
+          "text": "配置完成后，点击“保存”。"
+        }
+      ],
+      "renderedText": "别名管理\n更新时间: 2026-10-20 16:24\n功能概述\n注意\n\n此功能为可选功能，请开发者根据实际需要来选择使用。\n\n别名是可以指向一个或两个版本的指针，是函数的一种资源，且别名无法脱离函数或版本单独存在。云函数支持别名管理功能，基于云函数的版本功能，管理调用云函数的流量控制。开发者可通过创建的别名来控制要访问的云函数版本，基于别名来管理函数调用，避免了切换版本时要反复修改调用云函数部分的代码。\n\n具体使用场景举例如下：\n\n发布版本1\n\n在创建函数（$latest 版本）后，先发布版本1，然后创建名为alias1且指向版本1的别名。\n开发者开发客户端代码，通过使用别名alias1的方式，访问函数的版本1，开始提供服务。\n发布版本2\n\n当函数需要升级时，先更新$latest 版本，发布更新后的稳定版本（版本 2），将alias1别名从指向版本1变更为指向版本2，开发者（调用方）无需变动调用函数的代码即可完成版本切换。\n如果发现问题，可以通过将alias1别名重新指向版本1，即可轻松将版本回滚到版本1。\n创建别名\n在函数列表中点击函数名称，进入函数详情页面。选择“别名”页签，点击“创建”。\n\n在右侧抽屉式滑出的“创建别名”界面中，输入别名的名称、描述、路由方法与关联版本，完成后点击“创建”。\n名称：别名名称，此函数下必须唯一。\n描述：别名描述，长度不超过64个字符。\n主版本：别名指向的主版本，创建后支持修改。\n路由方法：支持权重（按配置的权重比例来分配流量）和规则（按配置的特定规则来分配流量）两种。\n灰度版本：别名支持两个版本间的灰度能力，通过权重或者规则配置，将别名上的流量按比例或者按规则在两个版本之间转移，具体参见基于别名的灰度能力。\n\n创建别名后，在别名列表中点击别名名称进入别名详情页，可在不同页签下修改别名描述、关联版本、路由方法，以及在别名上配置触发器。\n\n查看别名列表\n\n查看别名列表有两种方式：\n\n方式一：在函数列表中点击函数名称右侧“操作”列的“别名”，直接跳转至别名详情页面，可以查看函数的别名列表及关联的版本信息。\n\n方式二：在函数列表中点击函数名称，进入函数详情页面。选择“别名”页签，可以查看函数的别名列表及关联的版本信息。\n\n删除别名\n在函数详情页面，选择“别名”页签。在文本框中输入需要删除的别名关联的主版本，对别名进行筛选。\n点击右侧“操作”列的“删除”即可删除别名。\n\n基于别名的灰度能力\n\n别名支持版本间的灰度能力，您可以为别名指向的两个版本配置路由策略，别名上的流量将按您配置的策略流向不同版本，帮助您轻松实现发布、回滚以及灰度发布等需求。\n\n权重策略\n\n通过权重配置，将别名上的流量按比例指向不同版本，满足业务实现版本灰度上线与版本流量切换的场景。\n\n在函数详情页面，选择“别名”页签。在别名列表中，点击需要配置的别名，进入编译别名页面。\n\n选择“路由”页签，“路由方法”选择“权重”，“灰度版本”选中需要转移流量的版本，通过为两个版本配置“权重”实现转移流量的目标。\n\n图中所示，alias1别名指向版本1，同时分流百分之20的流量到版本$latest上。配置完成后点击“保存”。\n\n规则策略\n\n通过规则配置，将别名上的流量按灰度规则指向特定版本，满足业务特定灰度场景。\n\n在函数详情页面，选择“别名”页签。在别名列表中，点击需要配置的别名，进入编译别名页面。\n\n选择“路由”页签，“路由方法”选择“规则”。当存在多个配置子项时，可通过“配置子项关系”配置匹配方式。规则信息可直接编辑，也可选择或者新增灰度规则模板。\n直接编辑灰度规则\n\n“灰度规则模板”保持为空，选择“配置子项关系”，设置请求头header的userid为“1001“，符合此条件的数据请求会灰度到函数版本1。\n\n新建灰度规则模板，且支持再编辑\n“灰度规则模板”选择“新建模板”。\n\n在右侧弹出的“创建灰度规则模板”页面中，选择“配置子项关系”，配置规则子项，比如设置请求头header的userid为“1002“，然后点击“创建”完成模板定义。\n\n返回到“路由策略”页签，“灰度规则模板”选择“tep1”，规则子项将被自动填充，且可点击子项右边的添加新的规则子项，符合条件的数据请求会灰度到函数版本1。\n\n配置完成后，点击“保存”。\n意见反馈\n以上内容对您是否有帮助？\n意见反馈\n如果您有其他疑问，您也可以通过开发者社区问答频道来和我们联系探讨。\n社区提问AI 助手提问\n本文导读\n功能概述\n创建别名\n查看别名列表\n删除别名\n基于别名的灰度能力\n权重策略\n规则策略\n简体中文",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloud-function-aliasname-0000001568841949",
+      "status": "browser-read",
+      "tables": [],
+      "title": "别名管理"
+    }
+  ]
+}

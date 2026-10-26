@@ -1,0 +1,27 @@
+[
+  {
+    "name": "appId",
+    "in": "header",
+    "type": "string",
+    "required": true,
+    "description": "应用ID，获取方法参考查询应用信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchupdateproduct-harmonyosnext-0000002131508852#section167891815112"
+  },
+  {
+    "name": "requestId",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "请求序列ID，开发者自定义唯一标识符。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchupdateproduct-harmonyosnext-0000002131508852#section13500173412311"
+  },
+  {
+    "name": "products",
+    "in": "body",
+    "type": "array",
+    "required": true,
+    "description": "商品列表信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchupdateproduct-harmonyosnext-0000002131508852#section13500173412311",
+    "itemsType": "object"
+  }
+]

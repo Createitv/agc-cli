@@ -1,0 +1,86 @@
+{
+  "examples": [],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter#section195981215284",
+      "title": "了解新版目录"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-open-ability-0000002235710238",
+      "title": "AGC开放能力"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-0000002236015554",
+      "title": "AppGallery Connect API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-reference-0000002271000709",
+      "title": "Testing API参考"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-data-0000002237336484",
+      "title": "数据模型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-data-testtaskinfo-0000002272455649",
+      "title": "TestTaskInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-data-invitationcodeinfo-0000002237496324",
+      "title": "InvitationCodeInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-data-packagepermissionintrovideo-0000002237496316",
+      "title": "PackagePermissionIntroVideo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-data-opentestinfo-0000002272575553",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "startTime",
+          "M",
+          "Integer(64)",
+          "测试版本开始时间。 时间是与1970年1月1日午夜之间的差值。 单位：毫秒 示例：1704211200000"
+        ],
+        [
+          "endTime",
+          "M",
+          "Integer(64)",
+          "测试版本结束时间。 时间是与1970年1月1日午夜之间的差值。 单位：毫秒 示例：1704211200000"
+        ],
+        [
+          "testDesc",
+          "O",
+          "String(50)",
+          "测试版本描述。"
+        ],
+        [
+          "testTaskInfo",
+          "O",
+          "TestTaskInfo",
+          "测试发布信息。"
+        ]
+      ],
+      "section": "",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-data-opentestinfo-0000002272575553"
+    }
+  ],
+  "title": "OpenTestInfo",
+  "updatedAt": "2026-06-25 19:52",
+  "checkedAt": "2026-10-07T04:52:29.841Z"
+}

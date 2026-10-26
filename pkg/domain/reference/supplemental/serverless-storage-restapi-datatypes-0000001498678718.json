@@ -1,0 +1,39 @@
+{
+  "checkedAt": "2026-10-26",
+  "examples": [],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-0000001054967271",
+      "title": "Server"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/restapi-0000001223619953",
+      "title": "REST API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-fileinfo-0000001498838610",
+      "title": "FileInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-listfile-0000001498518878",
+      "title": "列举文件"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-fileinfo-0000001498838610",
+      "title": "FileInfo"
+    }
+  ],
+  "notes": [
+    {
+      "section": "文档说明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-datatypes-0000001498678718",
+      "text": "FileInfo"
+    }
+  ],
+  "renderedText": "API参考\n云存储\nServer\nREST API\n数据类型\n数据类型\n更新时间: 2026-10-22 14:56\n\nFileInfo\n\n列举文件\nFileInfo\n意见反馈\n以上内容对您是否有帮助？\n意见反馈\n如果您有其他疑问，您也可以通过开发者社区问答频道来和我们联系探讨。\n社区提问AI 助手提问\n简体中文",
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-datatypes-0000001498678718",
+  "status": "browser-read",
+  "tables": [],
+  "title": "数据类型",
+  "updatedAt": "2026-10-22 14:56"
+}

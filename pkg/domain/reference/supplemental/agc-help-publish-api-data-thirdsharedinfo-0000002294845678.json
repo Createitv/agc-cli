@@ -1,0 +1,110 @@
+{
+  "examples": [],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter#section195981215284",
+      "title": "了解新版目录"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-open-ability-0000002235710238",
+      "title": "AGC开放能力"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-0000002236015554",
+      "title": "AppGallery Connect API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-reference-0000002271160565",
+      "title": "Publishing API参考"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-0000002236201266",
+      "title": "数据模型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-dataitem-0000002328924933",
+      "title": "DataItem"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-thirdsdkinfo-0000002328805217",
+      "title": "ThirdSdkInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-versionchangedesc-0000002294845686",
+      "title": "VersionChangeDesc"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-thirdsharedinfo-0000002294845678",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "name",
+          "O",
+          "String(100)",
+          "第三方名称。"
+        ],
+        [
+          "purpose",
+          "O",
+          "String(500)",
+          "使用目的。"
+        ],
+        [
+          "personalType",
+          "O",
+          "String(500)",
+          "涉及个人信息的种类。"
+        ],
+        [
+          "officialPrivacyUrl",
+          "O",
+          "String(1024)",
+          "第三方的官网链接和隐私政策链接。"
+        ],
+        [
+          "serviceType",
+          "O",
+          "String(100)",
+          "共享信息的服务类型。"
+        ],
+        [
+          "scene",
+          "O",
+          "String(200)",
+          "使用场景。"
+        ],
+        [
+          "shareType",
+          "O",
+          "String(100)",
+          "共享方式。"
+        ],
+        [
+          "dataItems",
+          "O",
+          "List<DataItem>",
+          "第三方数据信息。 数组长度不超过200。"
+        ]
+      ],
+      "section": "",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-thirdsharedinfo-0000002294845678"
+    }
+  ],
+  "title": "ThirdSharedInfo",
+  "updatedAt": "2026-06-25 19:52",
+  "checkedAt": "2026-10-07T04:54:48.263Z"
+}

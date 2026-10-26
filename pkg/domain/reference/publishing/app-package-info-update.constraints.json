@@ -1,0 +1,19 @@
+{
+  "query.releaseType": {
+    "enum": [
+      "1"
+    ]
+  },
+  "query.releasePhase": {
+    "enum": [
+      "0",
+      "3"
+    ]
+  },
+  "body.fileName": {
+    "maxLength": 255
+  },
+  "body.objectId": {
+    "maxLength": 512
+  }
+}

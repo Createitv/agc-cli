@@ -1,0 +1,114 @@
+[
+  {
+    "name": "appId",
+    "in": "query",
+    "type": "string",
+    "required": true,
+    "description": "应用ID，获取方法参考查询应用信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-comapi-getreviews-0000001162468139#section126711053144817"
+  },
+  {
+    "name": "content",
+    "in": "query",
+    "type": "string",
+    "required": false,
+    "description": "评论内容的关键词，支持模糊匹配。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-comapi-getreviews-0000001162468139#section126711053144817"
+  },
+  {
+    "name": "beginTime",
+    "in": "query",
+    "type": "integer",
+    "required": true,
+    "description": "开始时间的时间戳，从1970/01/01 08:00:00开始计算的毫秒数。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-comapi-getreviews-0000001162468139#section126711053144817",
+    "format": "int64"
+  },
+  {
+    "name": "endTime",
+    "in": "query",
+    "type": "integer",
+    "required": true,
+    "description": "结束时间的时间戳，从1970/01/01 08:00:00开始计算的毫秒数。 beginTime和endTime不能超过6个月的跨度。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-comapi-getreviews-0000001162468139#section126711053144817",
+    "format": "int64"
+  },
+  {
+    "name": "countries",
+    "in": "query",
+    "type": "string",
+    "required": true,
+    "description": "国家码（例如：CN），多个国家码使用英文逗号分隔，但一次只能查询同一站点内的国家。取值请参考国家码。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-comapi-getreviews-0000001162468139#section126711053144817"
+  },
+  {
+    "name": "ratings",
+    "in": "query",
+    "type": "string",
+    "required": false,
+    "description": "评分（1~5），该参数不设置时默认查询所有评分的评论内容，否则请设置具体评分，查询多个评分的评论内容时使用英文逗号分隔。 例如： 如果传递参数“5”为查询所有评分为5的评论。 如果传递参数“4,5”为查询所有评分为4和5的评论。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-comapi-getreviews-0000001162468139#section126711053144817"
+  },
+  {
+    "name": "apkVersions",
+    "in": "query",
+    "type": "string",
+    "required": false,
+    "description": "应用版本（例：a.b.c），为应用市场中应用显示的版本号。该参数不设置时默认查询所有版本的评论内容，否则请设置具体版本，查询多个版本的评论内容时使用英文逗号分隔。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-comapi-getreviews-0000001162468139#section126711053144817"
+  },
+  {
+    "name": "auditStates",
+    "in": "query",
+    "type": "string",
+    "required": false,
+    "description": "已废弃。 审核状态，该参数不设置时默认查询所有审核状态的评论内容。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-comapi-getreviews-0000001162468139#section126711053144817"
+  },
+  {
+    "name": "devReplyStates",
+    "in": "query",
+    "type": "string",
+    "required": false,
+    "description": "答复状态，该参数不设置时默认查询所有答复状态的评论内容。 0：未答复，用户提交评论后的状态。 1：已答复，开发者已针对该评论发表了答复。 6：用户追加回复开发者，用户针对开发者的答复内容进行了追加回复。 3：答复内容被回复，开发者针对用户追加的回复进行了答复。 可以查询多个答复状态的评论数据，多个答复状态之间使用英文逗号分隔。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-comapi-getreviews-0000001162468139#section126711053144817"
+  },
+  {
+    "name": "langs",
+    "in": "query",
+    "type": "string",
+    "required": false,
+    "description": "语言（例：zh_CN），由语言（采用ISO-639-1标准）和国家/地区代码（参考国家码）中间加下划线\"_\"组成。 该参数不设置时默认查询所有语言类型的评论内容，否则请设置具体语言，查询多个语言的评论内容时使用英文逗号分隔。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-comapi-getreviews-0000001162468139#section126711053144817"
+  },
+  {
+    "name": "sort",
+    "in": "query",
+    "type": "integer",
+    "required": false,
+    "description": "排序方式，默认值：0。 0：BYTIME，按时间排序。 1：BYSCOREDESC，按分数降序。 2：BYSCOREASC，按分数排序。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-comapi-getreviews-0000001162468139#section126711053144817",
+    "enum": [
+      "0",
+      "1",
+      "2"
+    ]
+  },
+  {
+    "name": "page",
+    "in": "query",
+    "type": "integer",
+    "required": false,
+    "description": "请求查询的页码，默认1。 例如，查询时page配置为2，limit配置为20，表示返回时每页显示20条评论数据，当前查询第2页。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-comapi-getreviews-0000001162468139#section126711053144817"
+  },
+  {
+    "name": "limit",
+    "in": "query",
+    "type": "integer",
+    "required": false,
+    "description": "每页请求数目，最大100条每页，默认20条。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-comapi-getreviews-0000001162468139#section126711053144817",
+    "maximum": 100
+  }
+]

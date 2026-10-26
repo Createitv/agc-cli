@@ -1,0 +1,13 @@
+[
+  {
+    "id": "account_identity",
+    "kind": "at_least_one",
+    "fields": [
+      "body.phone",
+      "body.email"
+    ],
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-verifycode-0000001294228992",
+    "message": "Supply a phone or email identity.",
+    "suggestion": "Provide phone with country code, or email."
+  }
+]

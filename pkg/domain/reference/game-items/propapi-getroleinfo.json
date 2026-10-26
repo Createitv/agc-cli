@@ -1,0 +1,804 @@
+{
+  "examples": [
+    {
+      "section": "请求示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section44892321176",
+      "text": "请求示例\nPOST {第三方应用服务器url} HTTP/1.1\nContent Type : application/x-www-form-urlencoded ; charset=UTF-8\nuserIdType=1&userId=*****&sign=***&ts=****"
+    },
+    {
+      "section": "响应示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section136271029195216",
+      "text": "响应示例\nHTTP/1.1 200 OK\nContent Type : application/json ; charset=UTF-8\n{\n    \"result\":0,\n    \"roleList\":[\n    {\"zoneId\":\"****\",\"zoneName\":\"****\",\"roleId\":\"****\",\"roleName\":\"****\",\"sign\":\"****\"},\n    {\"zoneId\":\"****\",\"zoneName\":\"****\",\"roleId\":\"****\",\"roleName\":\"****\",\"sign\":\"****\"}]\n}"
+    }
+  ],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-0000002355134701",
+      "title": "游戏道具商城"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/game-center-prop-mall-0000002302937820#section21502017134016",
+      "title": "接入配置"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section1751519509527",
+      "title": "签名机制"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#ZH-CN_TOPIC_0000002355255377__li1818916227122",
+      "title": "RoleInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section1751519509527",
+      "title": "签名机制"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-prop-overview-0000002321821228#section714665315115",
+      "title": "查询游戏服务信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-prop-overview-0000002321821228#section204081625185415",
+      "title": "游戏私钥"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-prop-overview-0000002321821228#section204081625185415",
+      "title": "游戏私钥"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section13836111115817",
+      "title": "生成签名字符串"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-prop-overview-0000002321821228#section714665315115",
+      "title": "查询游戏服务信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-prop-overview-0000002321821228#section204081625185415",
+      "title": "游戏公钥"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-prop-overview-0000002321821228#section204081625185415",
+      "title": "游戏公钥"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-0000002355134701",
+      "title": "游戏道具商城"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-order-0000002321296666",
+      "title": "下单"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section556562310512",
+      "title": "功能介绍"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section1499072135210",
+      "title": "接口原型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section1764512695513",
+      "title": "请求参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section44892321176",
+      "title": "请求示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section8195101404419",
+      "title": "响应参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section136271029195216",
+      "title": "响应示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section1751519509527",
+      "title": "检验签名"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section13836111115817",
+      "title": "生成签名字符串"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section117734312219",
+      "title": "校验签名"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "title": "服务端示例代码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section556562310512",
+      "text": "此接口用于查询玩家区服角色信息。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section1764512695513",
+      "text": "Body参数："
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section8195101404419",
+      "text": "返回码：200"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section8195101404419",
+      "text": "RoleInfo 参数名称 必选(M)/可选(O) 类型 参数说明 zoneId M String(64) 游戏区服ID。 zoneName M String(64) 游戏区服名称。 roleId M String(64) 游戏角色ID。 roleName M String(64) 游戏角色名称。 sign M String(8192) 待签名字符串： roleId=****&roleName=******&zoneId=*****&zoneName=***** RSA签名（使用游戏服务私钥进行签名，待验签内容生成方法参见签名机制）。"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section13836111115817",
+      "text": "以如下参数数组为例："
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section13836111115817",
+      "text": "userIdType =1&userId=144***50&sign=XXX&ts=174***64"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section13836111115817",
+      "text": "将请求参数中需要参与签名的参数，按参数名首字母的ASCII码将参数升序排序，若遇到相同首字母，则比较第二个字母，以此类推。需要参与签名的参数是指接口说明中“是否参与签名”列为“是”的参数。 注意 没有值（包括null和“”情况）的参数如果出现在请求中也需要包含到待签名数据中，参与签名的格式如下： parametername = 只有出现在接口中的参数需要参与验签，没有出现的不参与。"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section13836111115817",
+      "text": "没有值（包括null和“”情况）的参数如果出现在请求中也需要包含到待签名数据中，参与签名的格式如下： parametername ="
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section13836111115817",
+      "text": "parametername ="
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section13836111115817",
+      "text": "只有出现在接口中的参数需要参与验签，没有出现的不参与。"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section13836111115817",
+      "text": "排序完成之后，将所有数组值（value非空）进行urlencode。"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section13836111115817",
+      "text": "将urlencode之后的所有参数名和参数值的键值对以“&”字符连接起来，此字符串便是待签名字符串，如下列字符串所示： sign=XXX&ts=174***64&userId=144***50&userIdType=1 生成待签名字符串的Java示例代码如下： public static String buildSortedSignData(Map<String, String> params) throws UnsupportedEncodingException { StringBuilder targetParamStr = new StringBuilder(); Map<String, String> sortedParamMap = new TreeMap<>(params); for (Map.Entry<String, String> param : sortedParamMap.entrySet()) { String key = param.getKey(); String value = param.getValue(); targetParamStr.append(key) .append(\"=\") .append(null == value ? \"\" : URLEncoder.encode(value, \"UTF-8\")) .append(\"&\"); } return targetParamStr.substring(0, targetParamStr.toString().length() - 1); }"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section13836111115817",
+      "text": "sign=XXX&ts=174***64&userId=144***50&userIdType=1"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section13836111115817",
+      "text": "public static String buildSortedSignData(Map<String, String> params) throws UnsupportedEncodingException {"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section13836111115817",
+      "text": "StringBuilder targetParamStr = new StringBuilder();"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section13836111115817",
+      "text": "Map<String, String> sortedParamMap = new TreeMap<>(params);"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section13836111115817",
+      "text": "for (Map.Entry<String, String> param : sortedParamMap.entrySet()) {"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section13836111115817",
+      "text": "String key = param.getKey();"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section13836111115817",
+      "text": "String value = param.getValue();"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section13836111115817",
+      "text": "targetParamStr.append(key)"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section13836111115817",
+      "text": ".append(\"=\")"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section13836111115817",
+      "text": ".append(null == value ? \"\" : URLEncoder.encode(value, \"UTF-8\"))"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section13836111115817",
+      "text": ".append(\"&\");"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section13836111115817",
+      "text": "}"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section13836111115817",
+      "text": "return targetParamStr.substring(0, targetParamStr.toString().length() - 1);"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section13836111115817",
+      "text": "将待签名字符串使用游戏私钥按照RSA算法（SHA256WithRSA/PSS）进行签名，将签名后的字符串经过Base64编码，得到的字符串即为签名字符串。 说明 游戏私钥在开通游戏服务后生成，查询方法参见查询游戏服务信息。 正式上线时，示例代码中的privateKey请务必替换为AppGallery Connect上的游戏私钥；在自行验证时，亦可将代码中的privateKey在本地代码中替换为AppGallery Connect上的游戏私钥，用于自验证验签逻辑。 sign在RSA签名后需要进行Base64编码。 生成签名字符串的Java示例代码如下： public static String signWithRSA(byte[] data, String privateKey) throws Exception { byte[] keyBytes = Base64.decodeBase64(privateKey); PKCS8EncodedKeySpec pkcs8KeySpec = new PKCS8EncodedKeySpec(keyBytes); KeyFactory keyFactory = KeyFactory.getInstance(\"RSA\"); PrivateKey privateK = keyFactory.generatePrivate(pkcs8KeySpec); Signature signature = Signature.getInstance(\"SHA256WithRSA/PSS\"); signature.initSign(privateK); signature.update(data); return Base64.encodeBase64String(signature.sign()); }"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section13836111115817",
+      "text": "游戏私钥在开通游戏服务后生成，查询方法参见查询游戏服务信息。"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section13836111115817",
+      "text": "正式上线时，示例代码中的privateKey请务必替换为AppGallery Connect上的游戏私钥；在自行验证时，亦可将代码中的privateKey在本地代码中替换为AppGallery Connect上的游戏私钥，用于自验证验签逻辑。"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section13836111115817",
+      "text": "sign在RSA签名后需要进行Base64编码。"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section13836111115817",
+      "text": "public static String signWithRSA(byte[] data, String privateKey) throws Exception {"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section13836111115817",
+      "text": "byte[] keyBytes = Base64.decodeBase64(privateKey);"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section13836111115817",
+      "text": "PKCS8EncodedKeySpec pkcs8KeySpec = new PKCS8EncodedKeySpec(keyBytes);"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section13836111115817",
+      "text": "KeyFactory keyFactory = KeyFactory.getInstance(\"RSA\");"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section13836111115817",
+      "text": "PrivateKey privateK = keyFactory.generatePrivate(pkcs8KeySpec);"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section13836111115817",
+      "text": "Signature signature = Signature.getInstance(\"SHA256WithRSA/PSS\");"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section13836111115817",
+      "text": "signature.initSign(privateK);"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section13836111115817",
+      "text": "signature.update(data);"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section13836111115817",
+      "text": "return Base64.encodeBase64String(signature.sign());"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section117734312219",
+      "text": "获取请求参数，生成签名字符串。"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section117734312219",
+      "text": "使用游戏公钥对签名字符串进行验证。 说明 游戏公钥在开通游戏服务后生成，查询方法参见查询游戏服务信息。 正式上线时，示例代码中的publicKey请务必替换为AppGallery Connect上的游戏公钥；在自行验证时，亦可将代码中的publicKey在本地代码中替换为AppGallery Connect上的游戏公钥，用于自验证验签逻辑。 校验签名的Java示例代码如下： public static boolean verify(byte[] data, String publicKey, String sign) throws Exception { byte[] keyBytes = Base64.decodeBase64(publicKey); X509EncodedKeySpec keySpec = new X509EncodedKeySpec(keyBytes); KeyFactory keyFactory = KeyFactory.getInstance(\"RSA\"); PublicKey publicK = keyFactory.generatePublic(keySpec); Signature signature = Signature.getInstance(\"SHA256WithRSA/PSS\"); signature.initVerify(publicK); signature.update(data); return signature.verify(Base64.decodeBase64(sign)); }"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section117734312219",
+      "text": "游戏公钥在开通游戏服务后生成，查询方法参见查询游戏服务信息。"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section117734312219",
+      "text": "正式上线时，示例代码中的publicKey请务必替换为AppGallery Connect上的游戏公钥；在自行验证时，亦可将代码中的publicKey在本地代码中替换为AppGallery Connect上的游戏公钥，用于自验证验签逻辑。"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section117734312219",
+      "text": "校验签名的Java示例代码如下："
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section117734312219",
+      "text": "public static boolean verify(byte[] data, String publicKey, String sign) throws Exception {"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section117734312219",
+      "text": "byte[] keyBytes = Base64.decodeBase64(publicKey);"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section117734312219",
+      "text": "X509EncodedKeySpec keySpec = new X509EncodedKeySpec(keyBytes);"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section117734312219",
+      "text": "PublicKey publicK = keyFactory.generatePublic(keySpec);"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section117734312219",
+      "text": "signature.initVerify(publicK);"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section117734312219",
+      "text": "return signature.verify(Base64.decodeBase64(sign));"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "验签示例代码 JAVA package com.huawei.game.domain.develop.test; import org.apache.commons.codec.binary.Base64; import java.io.UnsupportedEncodingException; import java.net.URLEncoder; import java.nio.charset.StandardCharsets; import java.security.KeyFactory; import java.security.PublicKey; import java.security.Signature; import java.security.spec.X509EncodedKeySpec; import java.util.HashMap; import java.util.Map; import java.util.TreeMap; public class SecretVerifyTest { public static void main(String[] args) throws Exception { // 以下公钥和私钥为临时生成，以供展示代码示例，正式环境请替换 String publicKey = \"MIIBIjANBgkqh*****AB\"; String privateKey = \"MIIEvAIBADANB*****==\"; System.out.println(\"公钥：\" + publicKey); System.out.println(\"私钥：\" + privateKey); // 模拟入参 HashMap<String, String> reqMap = new HashMap<>(); // 验签步骤 // 1. 从请求中取出sign属性，注意：待验签的字符串不包含sign属性，此时需要从Map中取出。 String reqSign = reqMap.remove(\"sign\"); System.out.println(\"加签结果：\" + reqSign); // 2. 生成待验签的字符串。 String targetStr = buildSortedSignData(reqMap); System.out.println(\"加签的字符串：\" + targetStr); // 3. 进行验签，注意：此处验签的公钥需要修改为AGC管理台上的公钥。 boolean result = verify(targetStr.getBytes(StandardCharsets.UTF_8), publicKey, reqSign); System.out.println(\"验签结果为：\" + result); } /** * 生成待签名的字符串 * * @param params 入参 * @return 待签名的字符串 */ public static String buildSortedSignData(Map<String, String> params) throws UnsupportedEncodingException { StringBuilder targetParamStr = new StringBuilder(); Map<String, String> sortedParamMap = new TreeMap<>(params); for (Map.Entry<String, String> param : sortedParamMap.entrySet()) { String key = param.getKey(); String value = param.getValue(); targetParamStr.append(key) .append(\"=\") .append(null == value ? \"\" : URLEncoder.encode(value, \"UTF-8\")) .append(\"&\"); } return targetParamStr.substring(0, targetParamStr.toString().length() - 1); } /** * 验签结果 * * @param data 待验签的字符串 * @param publicKey 公钥 * @param sign 签名字符串 * @return 验签结果 */ public static boolean verify(byte[] data, String publicKey, String sign) throws Exception { byte[] keyBytes = Base64.decodeBase64(publicKey); X509EncodedKeySpec keySpec = new X509EncodedKeySpec(keyBytes); KeyFactory keyFactory = KeyFactory.getInstance(\"RSA\"); PublicKey publicK = keyFactory.generatePublic(keySpec); Signature signature = Signature.getInstance(\"SHA256WithRSA/PSS\"); signature.initVerify(publicK); signature.update(data); return signature.verify(Base64.decodeBase64(sign)); } }"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "package com.huawei.game.domain.develop.test;"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "import org.apache.commons.codec.binary.Base64;"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "import java.io.UnsupportedEncodingException;"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "import java.net.URLEncoder;"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "import java.nio.charset.StandardCharsets;"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "import java.security.KeyFactory;"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "import java.security.PublicKey;"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "import java.security.Signature;"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "import java.security.spec.X509EncodedKeySpec;"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "import java.util.HashMap;"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "import java.util.Map;"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "import java.util.TreeMap;"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "public class SecretVerifyTest {"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "public static void main(String[] args) throws Exception {"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "// 以下公钥和私钥为临时生成，以供展示代码示例，正式环境请替换"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "String publicKey = \"MIIBIjANBgkqh*****AB\";"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "String privateKey = \"MIIEvAIBADANB*****==\";"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "System.out.println(\"公钥：\" + publicKey);"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "System.out.println(\"私钥：\" + privateKey);"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "// 模拟入参"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "HashMap<String, String> reqMap = new HashMap<>();"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "// 验签步骤"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "// 1. 从请求中取出sign属性，注意：待验签的字符串不包含sign属性，此时需要从Map中取出。"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "String reqSign = reqMap.remove(\"sign\");"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "System.out.println(\"加签结果：\" + reqSign);"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "// 2. 生成待验签的字符串。"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "String targetStr = buildSortedSignData(reqMap);"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "System.out.println(\"加签的字符串：\" + targetStr);"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "// 3. 进行验签，注意：此处验签的公钥需要修改为AGC管理台上的公钥。"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "boolean result = verify(targetStr.getBytes(StandardCharsets.UTF_8), publicKey, reqSign);"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "System.out.println(\"验签结果为：\" + result);"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "/**"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "* 生成待签名的字符串"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "*"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "* @param params 入参"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "* @return 待签名的字符串"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "*/"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "* 验签结果"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "* @param data 待验签的字符串"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "* @param publicKey 公钥"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "* @param sign 签名字符串"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "* @return 验签结果"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "验签测试代码 JAVA package com.huawei.game.domain.develop.test; import org.apache.commons.codec.binary.Base64; import java.io.UnsupportedEncodingException; import java.net.URLEncoder; import java.nio.charset.StandardCharsets; import java.security.KeyFactory; import java.security.PrivateKey; import java.security.Signature; import java.security.spec.PKCS8EncodedKeySpec; import java.util.HashMap; import java.util.Map; import java.util.TreeMap; public class SecretCreateSignTest { public static void main(String[] args) throws Exception { // 以下公钥和私钥为临时生成，以供展示代码示例，正式环境请替换 String publicKey = \"MIIBIjANBgkqh*****AB\"; String privateKey = \"MIIEvAIBADANB*****==\"; System.out.println(\"公钥：\" + publicKey); System.out.println(\"私钥：\" + privateKey); HashMap<String, String> reqMap = new HashMap<>(); reqMap.put(\"userIdType\", \"1\"); reqMap.put(\"userId\", \"144***50\"); reqMap.put(\"ts\", \"174***64\"); // 待加签的字符串 String str = buildSortedSignData(reqMap); // 加签的字符串 String sign = signWithRSA(str.getBytes(StandardCharsets.UTF_8), privateKey); reqMap.put(\"sign\", sign); System.out.println(\"加签结果：\" + sign); } /** * 生成待签名的字符串 * * @param params 入参 * @return 待签名的字符串 */ public static String buildSortedSignData(Map<String, String> params) throws UnsupportedEncodingException { StringBuilder targetParamStr = new StringBuilder(); Map<String, String> sortedParamMap = new TreeMap<>(params); for (Map.Entry<String, String> param : sortedParamMap.entrySet()) { String key = param.getKey(); String value = param.getValue(); targetParamStr.append(key) .append(\"=\") .append(null == value ? \"\" : URLEncoder.encode(value, \"UTF-8\")) .append(\"&\"); } return targetParamStr.substring(0, targetParamStr.toString().length() - 1); } /** * 签名结果 * * @param data 待签名的字符串 * @param privateKey 私钥 * @return 签名结果 */ public static String signWithRSA(byte[] data, String privateKey) throws Exception { byte[] keyBytes = Base64.decodeBase64(privateKey); PKCS8EncodedKeySpec pkcs8KeySpec = new PKCS8EncodedKeySpec(keyBytes); KeyFactory keyFactory = KeyFactory.getInstance(\"RSA\"); PrivateKey privateK = keyFactory.generatePrivate(pkcs8KeySpec); Signature signature = Signature.getInstance(\"SHA256WithRSA/PSS\"); signature.initSign(privateK); signature.update(data); return Base64.encodeBase64String(signature.sign()); } }"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "import java.security.PrivateKey;"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "import java.security.spec.PKCS8EncodedKeySpec;"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "public class SecretCreateSignTest {"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "reqMap.put(\"userIdType\", \"1\");"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "reqMap.put(\"userId\", \"144***50\");"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "reqMap.put(\"ts\", \"174***64\");"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "// 待加签的字符串"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "String str = buildSortedSignData(reqMap);"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "// 加签的字符串"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "String sign = signWithRSA(str.getBytes(StandardCharsets.UTF_8), privateKey);"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "reqMap.put(\"sign\", sign);"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "System.out.println(\"加签结果：\" + sign);"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "* 签名结果"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "* @param data 待签名的字符串"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "* @param privateKey 私钥"
+    },
+    {
+      "section": "检验签名",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section189643201134",
+      "text": "* @return 签名结果"
+    }
+  ],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "承载协议",
+          "HTTPS POST"
+        ],
+        [
+          "接口方向",
+          "华为服务器 -> 三方应用服务器"
+        ],
+        [
+          "性能指标",
+          "TPS>500"
+        ],
+        [
+          "最大响应时间",
+          "<100ms"
+        ],
+        [
+          "接口URL",
+          "URL从AGC中接入配置获取。"
+        ]
+      ],
+      "section": "接口原型",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section1499072135210"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数",
+          "必选（M）/可选（O）",
+          "类型",
+          "说明"
+        ],
+        [
+          "userId",
+          "M",
+          "String(256)",
+          "华为账号登录游戏后生成的玩家标识。"
+        ],
+        [
+          "userIdType",
+          "M",
+          "Int",
+          "玩家标识类型： 1：playerId 2：openId 3：unionId 4：gamePlayerId 5：teamPlayerId 6：thirdUserId 说明 userId和userIdType配套使用，userId是值，userIdType是类型。"
+        ],
+        [
+          "ts",
+          "M",
+          "Long",
+          "当前时间（单位为：milliseconds），由System.currentTimeMillis()获取。"
+        ],
+        [
+          "sign",
+          "M",
+          "String(8192)",
+          "RSA签名（使用游戏服务公钥进行验签，待验签内容生成方法见签名机制）。 签名算法SHA256WithRSA/PSS。 注意 考虑到自选参数格式多样化，本参数在\"utf-8\" urlencode后发送。 Java中request的getParameter()方法会隐含进行urldecode。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section1764512695513"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数",
+          "必选（M）/可选（O）",
+          "类型",
+          "说明"
+        ],
+        [
+          "result",
+          "M",
+          "Int",
+          "操作结果： 0：成功 1：验签失败 2：业务信息错误 3：IP白名单限制，开发者拒绝服务（禁止开发者设置白名单，错误码仅仅用于异常监控） 99：其他错误"
+        ],
+        [
+          "roleList",
+          "O",
+          "List<RoleInfo>",
+          "玩家角色信息列表。根据角色最近登录时间倒序。 说明 当根据playerId查询不存在角色信息时，请返回空的集合： { \"result\":0, \"roleList\":[] }"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section8195101404419"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "zoneId",
+          "M",
+          "String(64)",
+          "游戏区服ID。"
+        ],
+        [
+          "zoneName",
+          "M",
+          "String(64)",
+          "游戏区服名称。"
+        ],
+        [
+          "roleId",
+          "M",
+          "String(64)",
+          "游戏角色ID。"
+        ],
+        [
+          "roleName",
+          "M",
+          "String(64)",
+          "游戏角色名称。"
+        ],
+        [
+          "sign",
+          "M",
+          "String(8192)",
+          "待签名字符串： roleId=****&roleName=******&zoneId=*****&zoneName=***** RSA签名（使用游戏服务私钥进行签名，待验签内容生成方法参见签名机制）。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section8195101404419"
+    }
+  ],
+  "title": "查询玩家区服角色",
+  "updatedAt": "2026-02-11 14:07",
+  "checkedAt": "2026-10-07T03:00:00.519Z",
+  "family": "game-items",
+  "endpoint": "propapi-getroleinfo"
+}

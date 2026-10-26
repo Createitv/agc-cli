@@ -1,0 +1,306 @@
+{
+  "checkedAt": "2026-10-26",
+  "examples": [
+    {
+      "section": "请求示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-getmetadata-0000001549518573#section111611358426",
+      "text": "请求示例\nGET /v0/testagc-02reg/test.jpg\nclient_id: 849033****232064\nproductId: 73643****61998\nContent-Type: application/json\nAuthorization: Bearer ****\nUser-Agent: PostmanRuntime/7.6.0\nAccept: */*\nHost: ops-server-drcn.agcstorage.link\naccept-encoding: gzip, deflate"
+    },
+    {
+      "section": "响应示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-getmetadata-0000001549518573#section4608111864818",
+      "text": "响应示例\nHTTP/1.1 200\nstatus: 200\nDate: Mon, 27 Mar 2023 03:01:32 GMT\nContent-Type: text/plain\nTransfer-Encoding: chunked\nConnection: keep-alive\nX-Agc-Trace-Id: 98b5dbf2-d7ad-4c13-9858-c829480cf3ba\nServer: elb\n{\"name\":\"test.jpg\",\"metadata\":{},\"createTime\":\"2022-12-10T10:13:46Z\",\"updateTime\":\"2022-12-10T10:13:46Z\",\"storageArea\":\"CN\",\"size\":29797,\"storageRegion\":\"cn-north-4\",\"productId\":\"736430****1998\",\"storageType\":\"STANDARD\",\"bucket\":\"testagc-02reg\",\"contentType\":\"image\\/jpeg\"}"
+    }
+  ],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-0000001054967271",
+      "title": "Server"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/restapi-0000001223619953",
+      "title": "REST API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/agcapi-obtain-token-project-0000001477336048",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/agcapi-obtain-token-project-0000001477336048",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/agcapi-obtain-token-project-0000001477336048",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-storage-getapicredentials-0000001498508514#section8727185210538",
+      "title": "创建API客户端"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-get-developerid-projectid-0000001166543063",
+      "title": "查询项目ID"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-deletefile-0000001549478405",
+      "title": "删除文件"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-changemetadata-0000001549198553",
+      "title": "修改文件元数据"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-getmetadata-0000001549518573#section15408512141113",
+      "title": "功能介绍"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-getmetadata-0000001549518573#section17667171510253",
+      "title": "接口原型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-getmetadata-0000001549518573#section98801710132813",
+      "title": "请求参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-getmetadata-0000001549518573#section17216134314169",
+      "title": "Header"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-getmetadata-0000001549518573#section111611358426",
+      "title": "请求示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-getmetadata-0000001549518573#section1787523414439",
+      "title": "响应参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-getmetadata-0000001549518573#section15416103225912",
+      "title": "Header"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-getmetadata-0000001549518573#section68100472599",
+      "title": "Body"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-getmetadata-0000001549518573#section4608111864818",
+      "title": "响应示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-getmetadata-0000001549518573#section778723271920",
+      "title": "调用示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-getmetadata-0000001549518573#section15408512141113",
+      "text": "此接口用于获取文件元数据。"
+    }
+  ],
+  "renderedText": "API参考\n云存储\nServer\nREST API\n获取文件元数据\n获取文件元数据\n更新时间: 2026-10-22 14:56\n功能介绍\n\n此接口用于获取文件元数据。\n\n接口原型\n\n承载协议\n\n\t\n\nHTTPS GET\n\n\n\n\n接口方向\n\n\t\n\n开发者服务器->华为服务器\n\n\n\n\n接口URL\n\n\t\n\nhttps://{domain}/{bucket_name}/{object_name}?metadata=query\n\n注意\n{bucket_name}为当前存储实例名称，{object_name}为文件名称。\n{domain}为接口域名。\n中国站点的域名：ops-server-drcn.agcstorage.link/v0\n德国站点的域名：ops-server-dre.agcstorage.link/v0\n新加坡站点的域名：ops-server-dra.agcstorage.link/v0\n俄罗斯站点的域名：ops-server-drru.agcstorage.link/v0\n调用获取Token接口时使用的站点必须与本接口使用的站点保持一致。例如本接口使用的站点是德国，即接口域名为“ops-server-dre.agcstorage.link/v0”，则调用获取Token接口也必须使用德国站点，其接口域名需为“connect-api-dre.cloud.huawei.com”。\n\n\n\n数据格式\n\n\t\n\n请求：Content-Type: application/json\n\n响应：Content-Type: application/json\n\n请求参数\nHeader\n\n参数\n\n\t\n\n类型\n\n\t\n\n必选(M)/可选(O)\n\n\t\n\n说明\n\n\n\n\nAuthorization\n\n\t\n\nString\n\n\t\n\nM\n\n\t\n\n认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。\n\n\n\n\nclient_id\n\n\t\n\nString\n\n\t\n\nM\n\n\t\n\n客户端ID，获取方法参考创建API客户端。\n\n\n\n\nproductId\n\n\t\n\nString\n\n\t\n\nM\n\n\t\n\n项目ID，查询方法可参见查询项目ID。\n\n\n\n\nX-Agc-Trace-Id\n\n\t\n\nString\n\n\t\n\nO\n\n\t\n\n单个文件请求的Traceid。可不填或者随机生成，用于日志打印跟踪。\n\n请求示例\nGET /v0/testagc-02reg/test.jpg\nclient_id: 849033****232064\nproductId: 73643****61998\nContent-Type: application/json\nAuthorization: Bearer ****\nUser-Agent: PostmanRuntime/7.6.0\nAccept: */*\nHost: ops-server-drcn.agcstorage.link\naccept-encoding: gzip, deflate\n响应参数\nHeader\n\n参数\n\n\t\n\n类型\n\n\t\n\n必选(M)/可选(O)\n\n\t\n\n说明\n\n\n\n\nstatus\n\n\t\n\nInteger\n\n\t\n\nM\n\n\t\n\nHTTP响应码，200表示成功。\n\n\n\n\nX-Agc-Trace-Id\n\n\t\n\nString\n\n\t\n\nO\n\n\t\n\n单个文件请求的Traceid，与请求参数X-Agc-Trace-Id保持一致。\n\nBody\n\n属性\n\n\t\n\n类型\n\n\t\n\n必选(M)/可选(O)\n\n\t\n\n说明\n\n\n\n\nproductId\n\n\t\n\nString\n\n\t\n\nM\n\n\t\n\n项目ID。\n\n\n\n\nname\n\n\t\n\nString\n\n\t\n\nM\n\n\t\n\n文件名称。\n\n\n\n\nbucket\n\n\t\n\nString\n\n\t\n\nM\n\n\t\n\n存储实例名称。\n\n\n\n\nstorageArea\n\n\t\n\nString\n\n\t\n\nM\n\n\t\n\n存储区域名称。\n\n\n\n\nstorageRegion\n\n\t\n\nString\n\n\t\n\nM\n\n\t\n\n后端OBS存储站点。\n\n\n\n\nstorageType\n\n\t\n\nString\n\n\t\n\nM\n\n\t\n\n存储类型。\n\n\n\n\ncontentType\n\n\t\n\nString\n\n\t\n\nM\n\n\t\n\n文件类型。Content-Type标头告诉客户端实际返回的内容类型。\n\n\n\n\ncontentDisposition\n\n\t\n\nString\n\n\t\n\nO\n\n\t\n\n文件打开方式，响应头指示回复的内容该以何种形式展示，是以内联的形式（即网页的一部分），还是以附件的形式下载并保存到本地。\n\n\n\n\ncacheControl\n\n\t\n\nString\n\n\t\n\nO\n\n\t\n\n标准HTTP请求头字段Cache-Control。\n\npublic：文件可缓存到任何位置。\nprivate：文件可以缓存到请求者的本地缓存中。\nno-cache：文件可以缓存，但有请求发出时，缓存会将此请求发到服务器，服务器验证请求中所描述的缓存是否过期，若未过期，返回304，缓存可使用，否则不可使用。\nno-store：缓存中不得存储任何关于客户端请求和服务端响应的内容。\nmax-age=TIME_IN_SECONDS：文件可缓存的时长。\n\n\n\ncontentEncoding\n\n\t\n\nString\n\n\t\n\nO\n\n\t\n\n标准HTTP请求头Content-Encoding，是一个实体消息首部，用于对特定媒体类型的数据进行压缩。当这个首部出现的时候，它的值表示消息主体进行了何种方式的内容编码转换。\n\n\n\n\ncontentLanguage\n\n\t\n\nString\n\n\t\n\nO\n\n\t\n\n标准HTTP请求头 Content-Language，用来说明访问者希望采用的语言或语言组合，这样的话用户就可以根据自己偏好的语言来定制不同的内容。\n\n\n\n\nsha256\n\n\t\n\nString\n\n\t\n\nO\n\n\t\n\n文件SHA256值。\n\n\n\n\nsize\n\n\t\n\nlong\n\n\t\n\nM\n\n\t\n\n文件大小。\n\n\n\n\ncreateTime\n\n\t\n\nString\n\n\t\n\nM\n\n\t\n\n上传时间，时间日期格式:yyyy-MM-ddTHH:mm:ssZ。\n\n\n\n\nupdateTime\n\n\t\n\nString\n\n\t\n\nM\n\n\t\n\n更新时间，时间日期格式:yyyy-MM-ddTHH:mm:ssZ。\n\n\n\n\nmetadata\n\n\t\n\nMap<String,String>\n\n\t\n\nO\n\n\t\n\n元数据，用户自定义元数据。\n\n响应示例\nHTTP/1.1 200\nstatus: 200\nDate: Mon, 27 Mar 2023 03:01:32 GMT\nContent-Type: text/plain\nTransfer-Encoding: chunked\nConnection: keep-alive\nX-Agc-Trace-Id: 98b5dbf2-d7ad-4c13-9858-c829480cf3ba\nServer: elb\n{\"name\":\"test.jpg\",\"metadata\":{},\"createTime\":\"2022-12-10T10:13:46Z\",\"updateTime\":\"2022-12-10T10:13:46Z\",\"storageArea\":\"CN\",\"size\":29797,\"storageRegion\":\"cn-north-4\",\"productId\":\"736430****1998\",\"storageType\":\"STANDARD\",\"bucket\":\"testagc-02reg\",\"contentType\":\"image\\/jpeg\"}\n调用示例\nimport com.alibaba.fastjson.JSON;\nimport com.alibaba.fastjson.JSONObject;\n\n\nimport lombok.Builder;\nimport lombok.Getter;\nimport lombok.Setter;\nimport lombok.ToString;\nimport lombok.extern.slf4j.Slf4j;\n\n\nimport org.apache.commons.collections4.MapUtils;\nimport org.apache.http.Consts;\nimport org.apache.http.HttpStatus;\nimport org.apache.http.client.methods.CloseableHttpResponse;\nimport org.apache.http.client.methods.HttpGet;\nimport org.apache.http.client.utils.URIBuilder;\nimport org.apache.http.impl.client.CloseableHttpClient;\nimport org.apache.http.impl.client.HttpClients;\nimport org.junit.Ignore;\n\n\nimport java.io.BufferedReader;\nimport java.io.InputStreamReader;\nimport java.util.HashMap;\nimport java.util.Map;\n\n\n/**\n * 元数据管理REST API示例代码\n */\n@Slf4j\npublic class MetadataManagingTest {\n\n\n    /**\n     * 查询元数据信息\n     *\n     * @param storageUrl 云存储url\n     * @param param 查询元数据接口入参\n     * @return 元数据信息\n     * @throws Exception 异常\n     */\n    public static ObjectMetadata getObjectMetadata(String storageUrl, ObjectMetadataParam param) throws Exception {\n        URIBuilder uriBuilder =\n            new URIBuilder(storageUrl + param.getBucketName() + \"/\" + param.getObjectName() + \"?metadata=query\");\n        HttpGet get = new HttpGet(uriBuilder.build());\n        get.setHeader(\"productId\", param.getProjectId());\n        get.setHeader(\"client_id\", param.getClientId());\n        get.setHeader(\"Authorization\", \"Bearer \" + param.getToken());\n\n\n        CloseableHttpClient httpClient = HttpClients.createDefault();\n        CloseableHttpResponse httpResponse = httpClient.execute(get);\n        int statusCode = httpResponse.getStatusLine().getStatusCode();\n        if (statusCode == HttpStatus.SC_OK) {\n            BufferedReader br =\n                new BufferedReader(new InputStreamReader(httpResponse.getEntity().getContent(), Consts.UTF_8));\n            String result = br.readLine();\n            JSONObject object = JSON.parseObject(result);\n            log.info(\"getObjectMetadata result:{}\", object.toJSONString());\n            return JSONObject.toJavaObject(object, ObjectMetadata.class);\n        } else {\n            log.error(\"getObjectMetadata error, statusCode:{}\", statusCode);\n            return null;\n        }\n    }\n\n\n    public void client() throws Exception {\n        String clientToken = TokenServiceTest.getToken(\"https://connect-api.cloud.huawei.com/api/\", \"84903XXXXXX32064\",\n            \"00E5CCADB655891XXXXXXXXXXXX8CDCC83ACF22\");\n        ObjectMetadataParam param = ObjectMetadataParam.builder()\n            .projectId(\"73643XXXXXX61998\")\n            .clientId(\"84903XXXXXX32064\")\n            .token(clientToken)\n            .bucketName(\"test-q36q0\")\n            .objectName(\"sha256/test3.jpg\")\n            .build();\n        getObjectMetadata(\"https://ops-server-drcn.agcstorage.link/v0/\", param);\n    }\n\n\n    public static void main(String[] args) throws Exception {\n        new MetadataManagingTest().client();\n    }\n\n\n    @Builder\n    @Getter\n    static class ObjectMetadataParam {\n        // 项目ID\n        String projectId;\n\n\n        // 客户端ID\n        String clientId;\n\n\n        // clientToken\n        String token;\n\n\n        // 云存储实例名\n        String bucketName;\n\n\n        // 待下载的文件的对象名，需要携带路径。\n        String objectName;\n\n\n        Map<String, String> metadata;\n    }\n\n\n    /**\n     * 文件的元数据\n     */\n    @Getter\n    @Setter\n    @ToString\n    static class ObjectMetadata {\n        // 项目Id\n        private String productId;\n\n\n        // 存储的实例名\n        private String bucket;\n\n\n        // 存储的区域\n        private String storageArea;\n\n\n        // 后端OBS存储站点\n        private String storageRegion;\n\n\n        // 存储的类型\n        private String storageType;\n\n\n        // 文件名\n        private String name;\n\n\n        // 文件类型\n        private String contentType;\n\n\n        // 上传时间，时间日期格式:yyyy-MM-ddTHH:mm:ssZ\n        private String createTime;\n\n\n        // 更新时间，时间日期格式:yyyy-MM-ddTHH:mm:ssZ\n        private String updateTime;\n\n\n        // 文件大小\n        private long size;\n\n\n        // 可选，元数据，用户自定义元数据\n        private Map<String, String> metadata;\n\n\n        // 可选，标准HTTP请求头Content-Language\n        private String contentLanguage;\n\n\n        // 可选，标准HTTP请求头Content-Encoding\n        private String contentEncoding;\n\n\n        // 可选，标准HTTP请求头Cache-Control\n        private String cacheControl;\n\n\n        // 可选，文件打开方式\n        private String contentDisposition;\n    }\n}\n删除文件\n修改文件元数据\n意见反馈\n以上内容对您是否有帮助？\n意见反馈\n如果您有其他疑问，您也可以通过开发者社区问答频道来和我们联系探讨。\n社区提问AI 助手提问\n本文导读\n功能介绍\n接口原型\n请求参数\nHeader\n请求示例\n响应参数\nHeader\nBody\n响应示例\n调用示例\n简体中文\n华为开发者联盟 版权所有 ©2026\n问题反馈\n使用条款\n华为开发者联盟用户协议\n关于华为开发者联盟与隐私的声明\nCookies\n开源软件声明",
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-getmetadata-0000001549518573",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "承载协议",
+          "HTTPS GET"
+        ],
+        [
+          "接口方向",
+          "开发者服务器->华为服务器"
+        ],
+        [
+          "接口URL",
+          "https://{domain}/{bucket_name}/{object_name}?metadata=query 注意 {bucket_name}为当前存储实例名称，{object_name}为文件名称。 {domain}为接口域名。 中国站点的域名：ops-server-drcn.agcstorage.link/v0 德国站点的域名：ops-server-dre.agcstorage.link/v0 新加坡站点的域名：ops-server-dra.agcstorage.link/v0 俄罗斯站点的域名：ops-server-drru.agcstorage.link/v0 调用获取Token接口时使用的站点必须与本接口使用的站点保持一致。例如本接口使用的站点是德国，即接口域名为“ops-server-dre.agcstorage.link/v0”，则调用获取Token接口也必须使用德国站点，其接口域名需为“connect-api-dre.cloud.huawei.com”。"
+        ],
+        [
+          "数据格式",
+          "请求：Content-Type: application/json 响应：Content-Type: application/json"
+        ]
+      ],
+      "section": "接口原型",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-getmetadata-0000001549518573#section17667171510253"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数",
+          "类型",
+          "必选(M)/可选(O)",
+          "说明"
+        ],
+        [
+          "Authorization",
+          "String",
+          "M",
+          "认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。"
+        ],
+        [
+          "client_id",
+          "String",
+          "M",
+          "客户端ID，获取方法参考创建API客户端。"
+        ],
+        [
+          "productId",
+          "String",
+          "M",
+          "项目ID，查询方法可参见查询项目ID。"
+        ],
+        [
+          "X-Agc-Trace-Id",
+          "String",
+          "O",
+          "单个文件请求的Traceid。可不填或者随机生成，用于日志打印跟踪。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-getmetadata-0000001549518573#section17216134314169"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数",
+          "类型",
+          "必选(M)/可选(O)",
+          "说明"
+        ],
+        [
+          "status",
+          "Integer",
+          "M",
+          "HTTP响应码，200表示成功。"
+        ],
+        [
+          "X-Agc-Trace-Id",
+          "String",
+          "O",
+          "单个文件请求的Traceid，与请求参数X-Agc-Trace-Id保持一致。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-getmetadata-0000001549518573#section15416103225912"
+    },
+    {
+      "location": "body",
+      "rows": [
+        [
+          "属性",
+          "类型",
+          "必选(M)/可选(O)",
+          "说明"
+        ],
+        [
+          "productId",
+          "String",
+          "M",
+          "项目ID。"
+        ],
+        [
+          "name",
+          "String",
+          "M",
+          "文件名称。"
+        ],
+        [
+          "bucket",
+          "String",
+          "M",
+          "存储实例名称。"
+        ],
+        [
+          "storageArea",
+          "String",
+          "M",
+          "存储区域名称。"
+        ],
+        [
+          "storageRegion",
+          "String",
+          "M",
+          "后端OBS存储站点。"
+        ],
+        [
+          "storageType",
+          "String",
+          "M",
+          "存储类型。"
+        ],
+        [
+          "contentType",
+          "String",
+          "M",
+          "文件类型。Content-Type标头告诉客户端实际返回的内容类型。"
+        ],
+        [
+          "contentDisposition",
+          "String",
+          "O",
+          "文件打开方式，响应头指示回复的内容该以何种形式展示，是以内联的形式（即网页的一部分），还是以附件的形式下载并保存到本地。"
+        ],
+        [
+          "cacheControl",
+          "String",
+          "O",
+          "标准HTTP请求头字段Cache-Control。 public：文件可缓存到任何位置。 private：文件可以缓存到请求者的本地缓存中。 no-cache：文件可以缓存，但有请求发出时，缓存会将此请求发到服务器，服务器验证请求中所描述的缓存是否过期，若未过期，返回304，缓存可使用，否则不可使用。 no-store：缓存中不得存储任何关于客户端请求和服务端响应的内容。 max-age=TIME_IN_SECONDS：文件可缓存的时长。"
+        ],
+        [
+          "contentEncoding",
+          "String",
+          "O",
+          "标准HTTP请求头Content-Encoding，是一个实体消息首部，用于对特定媒体类型的数据进行压缩。当这个首部出现的时候，它的值表示消息主体进行了何种方式的内容编码转换。"
+        ],
+        [
+          "contentLanguage",
+          "String",
+          "O",
+          "标准HTTP请求头 Content-Language，用来说明访问者希望采用的语言或语言组合，这样的话用户就可以根据自己偏好的语言来定制不同的内容。"
+        ],
+        [
+          "sha256",
+          "String",
+          "O",
+          "文件SHA256值。"
+        ],
+        [
+          "size",
+          "long",
+          "M",
+          "文件大小。"
+        ],
+        [
+          "createTime",
+          "String",
+          "M",
+          "上传时间，时间日期格式:yyyy-MM-ddTHH:mm:ssZ。"
+        ],
+        [
+          "updateTime",
+          "String",
+          "M",
+          "更新时间，时间日期格式:yyyy-MM-ddTHH:mm:ssZ。"
+        ],
+        [
+          "metadata",
+          "Map<String,String>",
+          "O",
+          "元数据，用户自定义元数据。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-getmetadata-0000001549518573#section68100472599"
+    }
+  ],
+  "title": "获取文件元数据",
+  "updatedAt": "2026-10-22 14:56",
+  "captureTool": "Computer Use; scripts/browser-capture-reference.mjs-compatible merged-cell capture"
+}

@@ -1,0 +1,22 @@
+[
+  {
+    "name": "teamId",
+    "in": "header",
+    "type": "string",
+    "required": false,
+    "description": "开发者所在团队的团队ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-delete-device-0000002271160633#section1323714041015",
+    "maxLength": 64
+  },
+  {
+    "name": "deviceIdList",
+    "in": "body",
+    "type": "array",
+    "required": true,
+    "description": "待删除的设备ID列表。 数组长度不超过1000。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-delete-device-0000002271160633#section16551174881019",
+    "itemsType": "string",
+    "itemsMaxLength": 32,
+    "maxItems": 1000
+  }
+]

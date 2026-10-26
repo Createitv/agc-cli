@@ -1,0 +1,50 @@
+[
+  {
+    "name": "object_name",
+    "in": "path",
+    "type": "string",
+    "required": true,
+    "description": "Storage instance or object path; percent-encoded exactly once.",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-deletefile-0000001549478405"
+  },
+  {
+    "name": "bucket_name",
+    "in": "path",
+    "type": "string",
+    "required": true,
+    "description": "Storage instance or object path; percent-encoded exactly once.",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-deletefile-0000001549478405"
+  },
+  {
+    "name": "Authorization",
+    "type": "string",
+    "required": false,
+    "description": "认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-deletefile-0000001549478405#section17216134314169",
+    "in": "header"
+  },
+  {
+    "name": "client_id",
+    "type": "string",
+    "required": false,
+    "description": "客户端ID，获取方法参考创建API客户端。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-deletefile-0000001549478405#section17216134314169",
+    "in": "header"
+  },
+  {
+    "name": "productId",
+    "type": "string",
+    "required": true,
+    "description": "项目ID，查询方法可参见查询项目ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-deletefile-0000001549478405#section17216134314169",
+    "in": "header"
+  },
+  {
+    "name": "X-Agc-Trace-Id",
+    "type": "string",
+    "required": false,
+    "description": "单个文件请求的Traceid。可不填或者随机生成，用于日志打印跟踪。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-deletefile-0000001549478405#section17216134314169",
+    "in": "header"
+  }
+]

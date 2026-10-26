@@ -1,0 +1,141 @@
+{
+  "checkedAt": "2026-10-26",
+  "examples": [],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-0000001054967271",
+      "title": "Server"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/restapi-0000001223619953",
+      "title": "REST API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-datatypes-0000001498678718",
+      "title": "数据类型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-datatypes-0000001498678718",
+      "title": "数据类型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-error-0000001765362989",
+      "title": "错误码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [],
+  "renderedText": "API参考\n云存储\nServer\nREST API\n数据类型\nFileInfo\nFileInfo\n更新时间: 2026-10-22 14:56\n\n属性\n\n\t\n\n类型\n\n\t\n\n必选(M)/可选(O)\n\n\t\n\n说明\n\n\n\n\nname\n\n\t\n\nString\n\n\t\n\nM\n\n\t\n\n文件名称。\n\n\n\n\nbucket\n\n\t\n\nString\n\n\t\n\nM\n\n\t\n\n存储实例名称。\n\n\n\n\nstorageArea\n\n\t\n\nString\n\n\t\n\nM\n\n\t\n\n存储区域名称。\n\n\n\n\nstorageRegion\n\n\t\n\nString\n\n\t\n\nM\n\n\t\n\n后端OBS存储站点。\n\n\n\n\nstorageType\n\n\t\n\nString\n\n\t\n\nM\n\n\t\n\n存储类型。\n\n\n\n\ncontentType\n\n\t\n\nString\n\n\t\n\nM\n\n\t\n\n文件类型。Content-Type标头告诉客户端实际返回的内容类型。\n\n\n\n\ncontentDisposition\n\n\t\n\nString\n\n\t\n\nO\n\n\t\n\n文件打开方式，响应头指示回复的内容该以何种形式展示，是以内联的形式（即网页的一部分），还是以附件的形式下载并保存到本地。\n\n\n\n\ncacheControl\n\n\t\n\nString\n\n\t\n\nO\n\n\t\n\n标准HTTP请求头字段Cache-Control。\n\npublic：文件可缓存到任何位置。\nprivate：文件可以缓存到请求者的本地缓存中。\nno-cache：文件可以缓存，但有请求发出时，缓存会将此请求发到服务器，服务器验证请求中所描述的缓存是否过期，若未过期，返回304，缓存可使用，否则不可使用。\nno-store：缓存中不得存储任何关于客户端请求和服务端响应的内容。\nmax-age=TIME_IN_SECONDS：文件可缓存的时长。\n\n\n\ncontentEncoding\n\n\t\n\nString\n\n\t\n\nO\n\n\t\n\n标准HTTP请求头Content-Encoding，是一个实体消息首部，用于对特定媒体类型的数据进行压缩。当这个首部出现的时候，它的值表示消息主体进行了何种方式的内容编码转换。\n\n\n\n\ncontentLanguage\n\n\t\n\nString\n\n\t\n\nO\n\n\t\n\n标准HTTP请求头 Content-Language，用来说明访问者希望采用的语言或语言组合，这样的话用户就可以根据自己偏好的语言来定制不同的内容。\n\n\n\n\nsha256\n\n\t\n\nString\n\n\t\n\nO\n\n\t\n\n文件SHA256值。\n\n\n\n\nsize\n\n\t\n\nlong\n\n\t\n\nM\n\n\t\n\n文件大小。\n\n\n\n\ncreateTime\n\n\t\n\nString\n\n\t\n\nM\n\n\t\n\n上传时间，时间日期格式:yyyy-MM-ddTHH:mm:ssZ。\n\n\n\n\nupdateTime\n\n\t\n\nString\n\n\t\n\nM\n\n\t\n\n更新时间，时间日期格式:yyyy-MM-ddTHH:mm:ssZ。\n\n\n\n\nmetadata\n\n\t\n\nMap<String,String>\n\n\t\n\nO\n\n\t\n\n元数据，用户自定义元数据。\n\n数据类型\n错误码\n意见反馈\n以上内容对您是否有帮助？\n意见反馈\n如果您有其他疑问，您也可以通过开发者社区问答频道来和我们联系探讨。\n社区提问AI 助手提问\n简体中文\n华为开发者联盟 版权所有 ©2026\n问题反馈\n使用条款\n华为开发者联盟用户协议\n关于华为开发者联盟与隐私的声明\nCookies\n开源软件声明",
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-fileinfo-0000001498838610",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "属性",
+          "类型",
+          "必选(M)/可选(O)",
+          "说明"
+        ],
+        [
+          "name",
+          "String",
+          "M",
+          "文件名称。"
+        ],
+        [
+          "bucket",
+          "String",
+          "M",
+          "存储实例名称。"
+        ],
+        [
+          "storageArea",
+          "String",
+          "M",
+          "存储区域名称。"
+        ],
+        [
+          "storageRegion",
+          "String",
+          "M",
+          "后端OBS存储站点。"
+        ],
+        [
+          "storageType",
+          "String",
+          "M",
+          "存储类型。"
+        ],
+        [
+          "contentType",
+          "String",
+          "M",
+          "文件类型。Content-Type标头告诉客户端实际返回的内容类型。"
+        ],
+        [
+          "contentDisposition",
+          "String",
+          "O",
+          "文件打开方式，响应头指示回复的内容该以何种形式展示，是以内联的形式（即网页的一部分），还是以附件的形式下载并保存到本地。"
+        ],
+        [
+          "cacheControl",
+          "String",
+          "O",
+          "标准HTTP请求头字段Cache-Control。 public：文件可缓存到任何位置。 private：文件可以缓存到请求者的本地缓存中。 no-cache：文件可以缓存，但有请求发出时，缓存会将此请求发到服务器，服务器验证请求中所描述的缓存是否过期，若未过期，返回304，缓存可使用，否则不可使用。 no-store：缓存中不得存储任何关于客户端请求和服务端响应的内容。 max-age=TIME_IN_SECONDS：文件可缓存的时长。"
+        ],
+        [
+          "contentEncoding",
+          "String",
+          "O",
+          "标准HTTP请求头Content-Encoding，是一个实体消息首部，用于对特定媒体类型的数据进行压缩。当这个首部出现的时候，它的值表示消息主体进行了何种方式的内容编码转换。"
+        ],
+        [
+          "contentLanguage",
+          "String",
+          "O",
+          "标准HTTP请求头 Content-Language，用来说明访问者希望采用的语言或语言组合，这样的话用户就可以根据自己偏好的语言来定制不同的内容。"
+        ],
+        [
+          "sha256",
+          "String",
+          "O",
+          "文件SHA256值。"
+        ],
+        [
+          "size",
+          "long",
+          "M",
+          "文件大小。"
+        ],
+        [
+          "createTime",
+          "String",
+          "M",
+          "上传时间，时间日期格式:yyyy-MM-ddTHH:mm:ssZ。"
+        ],
+        [
+          "updateTime",
+          "String",
+          "M",
+          "更新时间，时间日期格式:yyyy-MM-ddTHH:mm:ssZ。"
+        ],
+        [
+          "metadata",
+          "Map<String,String>",
+          "O",
+          "元数据，用户自定义元数据。"
+        ]
+      ],
+      "section": "",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-fileinfo-0000001498838610"
+    }
+  ],
+  "title": "FileInfo",
+  "updatedAt": "2026-10-22 14:56"
+}

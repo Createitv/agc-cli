@@ -1,0 +1,108 @@
+[
+  {
+    "name": "appId",
+    "in": "header",
+    "type": "string",
+    "required": true,
+    "description": "应用ID，获取方法参考查询应用信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetproductinfo-android-0000002135929316#section9925175016016"
+  },
+  {
+    "name": "requestId",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "请求序列，开发者自定义唯一标识符。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetproductinfo-android-0000002135929316#section57323163316",
+    "maxLength": 64
+  },
+  {
+    "name": "productNo",
+    "in": "body",
+    "type": "string",
+    "required": false,
+    "description": "查询应用内指定商品标识的商品，如果不传值默认查询所有应用内商品。支持多个商品标识过滤查询，使用英文逗号分隔。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetproductinfo-android-0000002135929316#section57323163316"
+  },
+  {
+    "name": "productName",
+    "in": "body",
+    "type": "string",
+    "required": false,
+    "description": "待查询的商品名称，支持按关键字模糊查询。不支持特殊字符|。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetproductinfo-android-0000002135929316#section57323163316",
+    "maxLength": 55
+  },
+  {
+    "name": "purchaseType",
+    "in": "body",
+    "type": "string",
+    "required": false,
+    "description": "如果查多种商品类型，使用英文逗号分隔，取值如下： consumable：消耗型 auto_subscription：自动续期型 non_consumable：非消耗型",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetproductinfo-android-0000002135929316#section57323163316"
+  },
+  {
+    "name": "status",
+    "in": "body",
+    "type": "string",
+    "required": false,
+    "description": "如果查多种商品状态，使用英文逗号分隔，取值如下： active：在线 inactive：下线 delete：删除",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetproductinfo-android-0000002135929316#section57323163316"
+  },
+  {
+    "name": "orderBy",
+    "in": "body",
+    "type": "string",
+    "required": false,
+    "description": "按名称升序或者降序排序。配置JSON对象，key为属性名，value为排序规则。不传值时默认按照数据库中创建时间降序。 key取值范围为： price：价格 updateTime：更新时间 value取值desc降序或者asc升序 例如：按价格price升序，更新时间updateTime降序, 则配置为{\"price\": \"asc\",\"updateTime\": \"desc\"}",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetproductinfo-android-0000002135929316#section57323163316"
+  },
+  {
+    "name": "beginTime",
+    "in": "body",
+    "type": "string",
+    "required": false,
+    "description": "商品更新开始时间，格式为：yyyy-MM-dd HH:mm:ss。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetproductinfo-android-0000002135929316#section57323163316"
+  },
+  {
+    "name": "endTime",
+    "in": "body",
+    "type": "string",
+    "required": false,
+    "description": "商品更新结束时间，格式为：yyyy-MM-dd HH:mm:ss。 beginTime和endTime设置后可以查询出updateTime在此时间段内的商品。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetproductinfo-android-0000002135929316#section57323163316"
+  },
+  {
+    "name": "pageNum",
+    "in": "body",
+    "type": "integer",
+    "required": false,
+    "description": "请求查询的起始页码，默认值：1。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetproductinfo-android-0000002135929316#section57323163316"
+  },
+  {
+    "name": "pageSize",
+    "in": "body",
+    "type": "integer",
+    "required": false,
+    "description": "每页请求数目，默认每页20条，最大不能超过300。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetproductinfo-android-0000002135929316#section57323163316"
+  },
+  {
+    "name": "country",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "将商品价格转为该国家的价格进行展示。 请参见国家/地区、语言、币种列表，例如US、CN。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetproductinfo-android-0000002135929316#section57323163316"
+  },
+  {
+    "name": "groupId",
+    "in": "body",
+    "type": "string",
+    "required": false,
+    "description": "订阅组ID，如果不为空，则仅查询该组下商品。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetproductinfo-android-0000002135929316#section57323163316"
+  }
+]

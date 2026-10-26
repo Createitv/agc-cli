@@ -85,3 +85,7 @@ If agc-cli saves you time in development or automation, you can support ongoing 
 ## License
 
 [MIT](LICENSE).
+
+## Cloud development management
+
+The CLI exposes 102 cloud-development operations, including reviewed management contracts. See [management usage and limitations](docs/SERVERLESS_MANAGEMENT.md). Huawei live write validation remains pending.

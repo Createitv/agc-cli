@@ -1,0 +1,116 @@
+{
+  "examples": [],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter#section195981215284",
+      "title": "了解新版目录"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-open-ability-0000002235710238",
+      "title": "AGC开放能力"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-0000002236015554",
+      "title": "AppGallery Connect API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-reference-0000002271160565",
+      "title": "Publishing API参考"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-0000002236201266",
+      "title": "数据模型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-qualificationinfo-0000002236201286",
+      "title": "QualificationInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-qualificationinfo-0000002236201286",
+      "title": "QualificationInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-recommendinfo-0000002328805177",
+      "title": "RecommendInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-qualreviewtaskinfo-0000002271000665",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "appId",
+          "O",
+          "String(32)",
+          "应用ID。"
+        ],
+        [
+          "tagId",
+          "O",
+          "String(64)",
+          "标签ID。"
+        ],
+        [
+          "taskId",
+          "O",
+          "String(32)",
+          "资质审核任务ID。"
+        ],
+        [
+          "isMainTag",
+          "O",
+          "Integer(32)",
+          "是否为主标签。 取值范围： 0：否 1：是"
+        ],
+        [
+          "state",
+          "O",
+          "Integer(32)",
+          "资质审核任务状态。 取值范围： 0：待提交 1：待审核 2：已通过 3：未通过 4：已过期 5：已失效"
+        ],
+        [
+          "qualificationInfos",
+          "O",
+          "List<QualificationInfo>",
+          "标签对应的资质信息列表。 数组长度不超过10。"
+        ],
+        [
+          "lastAuditResult",
+          "O",
+          "String(10000)",
+          "资质审核意见。"
+        ],
+        [
+          "createTime",
+          "O",
+          "Integer(64)",
+          "资质审核提交时间。"
+        ],
+        [
+          "updateTime",
+          "O",
+          "Integer(64)",
+          "资质审核状态更新时间。"
+        ]
+      ],
+      "section": "",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-qualreviewtaskinfo-0000002271000665"
+    }
+  ],
+  "title": "QualReviewTaskInfo",
+  "updatedAt": "2026-06-25 19:52",
+  "checkedAt": "2026-10-07T04:53:23.370Z"
+}

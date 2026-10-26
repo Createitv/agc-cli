@@ -1,0 +1,1892 @@
+{
+  "captureTool": "Computer Use; merged-cell capture compatible with scripts/browser-capture-reference.mjs",
+  "checkedAt": "2026-10-26",
+  "examples": [
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "import axios from 'axios';\n\n\nlet myHandler = async function (event, context, callback, logger) {\n    logger.info(\"event:\" + JSON.stringify(event));\n    let env1 = context.env.env1; // 获取环境变量env1\n    logger.info(\"env1: \" + env1)\n    try {\n        let body = event.body ? JSON.parse(event.body) : event;\n        let appId = body.appId;\n\n\n        logger.info(\"appId: \" + appId);\n\n\n        // http请求示例，请按照实际业务修改\n        let url = 'https://example.com/prefetchApi';  // 页面资源数据的请求url\n        let headers = { 'k1': 'v1' };  // 请求header\n        let res;  // 返回数据\n        await axios.post(url, {}, { headers })  // http post请求\n            .then(response => {\n                res = response.data;\n            })\n        logger.info(\"--------Finished-------\");\n        callback(res);\n    } catch (error) {\n        logger.error(\"--------Error-------\");\n        logger.error(\"error: \" + error);\n        callback(error);\n    }\n};\n\n\nexport { myHandler };"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "import axios from 'axios';\n\n\nlet myHandler = async function (event, context, callback, logger) {\n    logger.info(\"event:\" + JSON.stringify(event));\n    let env1 = context.env.env1; // 获取环境变量env1\n    logger.info(\"env1: \" + env1)\n    try {\n        let body = event.body ? JSON.parse(event.body) : event;\n        let appId = body.appId;\n        let token = body.token;\n        let paramsStr = body.params; // 如果需要解析json结构paramsStr中的参数，需要使用 let params = JSON.parse(paramsStr);\n\n\n        logger.info(\"appId: \" + appId + \",token:\" + token + \",params:\" + paramsStr);\n\n\n        // http请求示例，请按照实际业务修改\n        let url = 'https://example.com/prefetchApi'; // 页面资源数据的请求url\n        let headers = { 'k1': 'v1' }; // 请求header\n        let res; // 返回数据\n        await axios.post(url, {}, { headers }) // http post请求\n            .then(response => {\n                res = response.data;\n            })\n        logger.info(\"--------Finished-------\");\n        callback(res);\n    } catch (error) {\n        logger.error(\"--------Error-------\");\n        logger.error(\"error: \" + error);\n        callback(error);\n    }\n};\n\n\nexport { myHandler };"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "import axios from 'axios';\n\n\nlet myHandler = async function (event, context, callback, logger) {\n    logger.info(\"event:\" + JSON.stringify(event));\n    let env1 = context.env.env1; // 获取环境变量env1\n    logger.info(\"env1: \" + env1)\n    try {\n        let body = event.body ? JSON.parse(event.body) : event;\n        let appId = body.appId;\n        let link = body.link; // 跳链安装预加载link信息\n\n\n        logger.info(\"appId: \" + appId + \",link:\" + link);\n\n\n        // http请求示例，请按照实际业务修改\n        let url = 'https://example.com/prefetchApi'; // 页面资源数据的请求url\n        let headers = { 'k1': 'v1' }; // 请求header\n        let res; // 返回数据\n        await axios.post(url, {}, { headers }) // http post请求\n            .then(response => {\n                res = response.data;\n            })\n        logger.info(\"--------Finished-------\");\n        callback(res);\n    } catch (error) {\n        logger.error(\"--------Error-------\");\n        logger.error(\"error: \" + error);\n        callback(error);\n    }\n};\n\n\nexport { myHandler };"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例-1",
+      "text": "https://www.example.com/prefetchData?appId=1234&token=xxxx&params=yyyy"
+    }
+  ],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter#section195981215284",
+      "title": "了解新版目录"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloud-foundation-kit-guide",
+      "title": "Cloud Foundation Kit（云开发服务）"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-service",
+      "title": "预加载"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-develop-function-nodejs",
+      "title": "开发函数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-create-and-config-function",
+      "title": "创建函数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-test-function",
+      "title": "测试函数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-getting-started/agc-help-view-app-info-0000002282674569",
+      "title": "查看应用信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-getting-started/agc-help-view-app-info-0000002282674569",
+      "title": "查看应用信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-getting-started/agc-help-view-app-info-0000002282674569",
+      "title": "查看应用信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-deveco-studio/agc-harmonyos-clouddev-funccoding",
+      "title": "端云一体化工程"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-getting-started/agc-help-view-app-info-0000002282674569",
+      "title": "查看应用信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-getting-started/agc-help-view-app-info-0000002282674569",
+      "title": "查看应用信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-getting-started/agc-help-view-app-info-0000002282674569",
+      "title": "查看应用信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config",
+      "title": "配置预加载"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-call",
+      "title": "调用预加载"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#%E4%BA%91%E5%87%BD%E6%95%B0",
+      "title": "云函数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#%E4%BA%91%E5%87%BD%E6%95%B0%E6%8E%A5%E5%8F%A3%E8%A7%84%E8%8C%83",
+      "title": "云函数接口规范"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#%E7%A4%BA%E4%BE%8B",
+      "title": "示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#%E5%BC%80%E5%8F%91%E8%80%85%E6%9C%8D%E5%8A%A1%E5%99%A8",
+      "title": "开发者服务器"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#%E5%BC%80%E5%8F%91%E8%80%85%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%8E%A5%E5%8F%A3%E8%A7%84%E8%8C%83",
+      "title": "开发者服务器接口规范"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#%E7%A4%BA%E4%BE%8B-1",
+      "title": "示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev",
+      "text": "您当前正在浏览新版开发者文档中心，目录分类和层级有所调整。点击左侧当前文档分类名称前的“☰”图标，可切换文档分类。 了解新版目录"
+    },
+    {
+      "section": "",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev",
+      "text": "使用预加载服务之前，开发者需要完成云侧接口的开发，以提供预加载所需的资源数据。华为提供两种方式供开发者选择：云函数和开发者服务器，开发者可根据实际业务需要进行选择。"
+    },
+    {
+      "section": "云函数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#云函数",
+      "text": "开发者需要先按照云函数接口规范开发函数，然后在AGC云端创建函数，并可测试函数运行是否正常。流程如下："
+    },
+    {
+      "section": "云函数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#云函数",
+      "text": "开发函数：按照云函数接口规范开发函数。"
+    },
+    {
+      "section": "云函数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#云函数",
+      "text": "开发函数：按照云函数接口规范开发函数。"
+    },
+    {
+      "section": "云函数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#云函数",
+      "text": "创建函数：函数业务代码开发完成后，即可在AGC云端创建函数。"
+    },
+    {
+      "section": "云函数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#云函数",
+      "text": "创建函数：函数业务代码开发完成后，即可在AGC云端创建函数。"
+    },
+    {
+      "section": "云函数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#云函数",
+      "text": "测试函数：对函数进行测试，以确保函数代码运行正常。"
+    },
+    {
+      "section": "云函数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#云函数",
+      "text": "测试函数：对函数进行测试，以确保函数代码运行正常。"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "端云一体化工程预加载云函数示例如下。其中，axios依赖库为网络请求库，需要在“cloudfunctions/云函数名称/package.json”的“dependencies”中添加axios的1.7.7或以上版本依赖。"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "安装预加载\n\nimport axios from 'axios';\n\n\nlet myHandler = async function (event, context, callback, logger) {\n    logger.info(\"event:\" + JSON.stringify(event));\n    let env1 = context.env.env1; // 获取环境变量env1\n    logger.info(\"env1: \" + env1)\n    try {\n        let body = event.body ? JSON.parse(event.body) : event;\n        let appId = body.appId;\n\n\n        logger.info(\"appId: \" + appId);\n\n\n        // http请求示例，请按照实际业务修改\n        let url = 'https://example.com/prefetchApi';  // 页面资源数据的请求url\n        let headers = { 'k1': 'v1' };  // 请求header\n        let res;  // 返回数据\n        await axios.post(url, {}, { headers })  // http post请求\n            .then(response => {\n                res = response.data;\n            })\n        logger.info(\"--------Finished-------\");\n        callback(res);\n    } catch (error) {\n        logger.error(\"--------Error-------\");\n        logger.error(\"error: \" + error);\n        callback(error);\n    }\n};\n\n\nexport { myHandler };\nhandler.js"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "安装预加载"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "import axios from 'axios';"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "let myHandler = async function (event, context, callback, logger) {"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "logger.info(\"event:\" + JSON.stringify(event));"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "let env1 = context.env.env1; // 获取环境变量env1"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "logger.info(\"env1: \" + env1)"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "try {"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "let body = event.body ? JSON.parse(event.body) : event;"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "let appId = body.appId;"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "logger.info(\"appId: \" + appId);"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "// http请求示例，请按照实际业务修改"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "let url = 'https://example.com/prefetchApi';  // 页面资源数据的请求url"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "let headers = { 'k1': 'v1' };  // 请求header"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "let res;  // 返回数据"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "await axios.post(url, {}, { headers })  // http post请求"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": ".then(response => {"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "res = response.data;"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "})"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "logger.info(\"--------Finished-------\");"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "callback(res);"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "} catch (error) {"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "logger.error(\"--------Error-------\");"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "logger.error(\"error: \" + error);"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "callback(error);"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "}"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "};"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "export { myHandler };"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "周期性预加载\n\nimport axios from 'axios';\n\n\nlet myHandler = async function (event, context, callback, logger) {\n    logger.info(\"event:\" + JSON.stringify(event));\n    let env1 = context.env.env1; // 获取环境变量env1\n    logger.info(\"env1: \" + env1)\n    try {\n        let body = event.body ? JSON.parse(event.body) : event;\n        let appId = body.appId;\n        let token = body.token;\n        let paramsStr = body.params; // 如果需要解析json结构paramsStr中的参数，需要使用 let params = JSON.parse(paramsStr);\n\n\n        logger.info(\"appId: \" + appId + \",token:\" + token + \",params:\" + paramsStr);\n\n\n        // http请求示例，请按照实际业务修改\n        let url = 'https://example.com/prefetchApi'; // 页面资源数据的请求url\n        let headers = { 'k1': 'v1' }; // 请求header\n        let res; // 返回数据\n        await axios.post(url, {}, { headers }) // http post请求\n            .then(response => {\n                res = response.data;\n            })\n        logger.info(\"--------Finished-------\");\n        callback(res);\n    } catch (error) {\n        logger.error(\"--------Error-------\");\n        logger.error(\"error: \" + error);\n        callback(error);\n    }\n};\n\n\nexport { myHandler };\nhandler.js"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "周期性预加载"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "import axios from 'axios';"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "let myHandler = async function (event, context, callback, logger) {"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "logger.info(\"event:\" + JSON.stringify(event));"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "let env1 = context.env.env1; // 获取环境变量env1"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "logger.info(\"env1: \" + env1)"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "try {"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "let body = event.body ? JSON.parse(event.body) : event;"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "let appId = body.appId;"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "let token = body.token;"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "let paramsStr = body.params; // 如果需要解析json结构paramsStr中的参数，需要使用 let params = JSON.parse(paramsStr);"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "logger.info(\"appId: \" + appId + \",token:\" + token + \",params:\" + paramsStr);"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "// http请求示例，请按照实际业务修改"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "let url = 'https://example.com/prefetchApi'; // 页面资源数据的请求url"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "let headers = { 'k1': 'v1' }; // 请求header"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "let res; // 返回数据"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "await axios.post(url, {}, { headers }) // http post请求"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": ".then(response => {"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "res = response.data;"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "})"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "logger.info(\"--------Finished-------\");"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "callback(res);"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "} catch (error) {"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "logger.error(\"--------Error-------\");"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "logger.error(\"error: \" + error);"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "callback(error);"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "}"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "};"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "export { myHandler };"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "跳链安装预加载\n\nimport axios from 'axios';\n\n\nlet myHandler = async function (event, context, callback, logger) {\n    logger.info(\"event:\" + JSON.stringify(event));\n    let env1 = context.env.env1; // 获取环境变量env1\n    logger.info(\"env1: \" + env1)\n    try {\n        let body = event.body ? JSON.parse(event.body) : event;\n        let appId = body.appId;\n        let link = body.link; // 跳链安装预加载link信息\n\n\n        logger.info(\"appId: \" + appId + \",link:\" + link);\n\n\n        // http请求示例，请按照实际业务修改\n        let url = 'https://example.com/prefetchApi'; // 页面资源数据的请求url\n        let headers = { 'k1': 'v1' }; // 请求header\n        let res; // 返回数据\n        await axios.post(url, {}, { headers }) // http post请求\n            .then(response => {\n                res = response.data;\n            })\n        logger.info(\"--------Finished-------\");\n        callback(res);\n    } catch (error) {\n        logger.error(\"--------Error-------\");\n        logger.error(\"error: \" + error);\n        callback(error);\n    }\n};\n\n\nexport { myHandler };\nhandler.js"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "跳链安装预加载"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "import axios from 'axios';"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "let myHandler = async function (event, context, callback, logger) {"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "logger.info(\"event:\" + JSON.stringify(event));"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "let env1 = context.env.env1; // 获取环境变量env1"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "logger.info(\"env1: \" + env1)"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "try {"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "let body = event.body ? JSON.parse(event.body) : event;"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "let appId = body.appId;"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "let link = body.link; // 跳链安装预加载link信息"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "logger.info(\"appId: \" + appId + \",link:\" + link);"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "// http请求示例，请按照实际业务修改"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "let url = 'https://example.com/prefetchApi'; // 页面资源数据的请求url"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "let headers = { 'k1': 'v1' }; // 请求header"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "let res; // 返回数据"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "await axios.post(url, {}, { headers }) // http post请求"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": ".then(response => {"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "res = response.data;"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "})"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "logger.info(\"--------Finished-------\");"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "callback(res);"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "} catch (error) {"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "logger.error(\"--------Error-------\");"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "logger.error(\"error: \" + error);"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "callback(error);"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "}"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "};"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例",
+      "text": "export { myHandler };"
+    },
+    {
+      "section": "开发者服务器",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#开发者服务器",
+      "text": "开发者使用自己的服务器自行开发和实现预加载资源接口，接口需遵循开发者服务器接口规范。"
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例-1",
+      "text": "定义名称为prefetchData的接口，示例如下："
+    },
+    {
+      "section": "示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#示例-1",
+      "text": "https://www.example.com/prefetchData?appId=1234&token=xxxx&params=yyyy"
+    }
+  ],
+  "renderedText": "您当前正在浏览新版开发者文档中心，目录分类和层级有所调整。点击左侧当前文档分类名称前的“☰”图标，可切换文档分类。 了解新版目录\n\n指南与API参考\n指南\n应用服务\nCloud Foundation Kit（云开发服务）\n预加载\n开发预加载资源接口\n开发预加载资源接口\n更新时间: 2026-09-01 11:59\n复制页面\n\n使用预加载服务之前，开发者需要完成云侧接口的开发，以提供预加载所需的资源数据。华为提供两种方式供开发者选择：云函数和开发者服务器，开发者可根据实际业务需要进行选择。\n\n云函数\n\n开发者需要先按照云函数接口规范开发函数，然后在AGC云端创建函数，并可测试函数运行是否正常。流程如下：\n\n开发函数：按照云函数接口规范开发函数。\n\n创建函数：函数业务代码开发完成后，即可在AGC云端创建函数。\n\n测试函数：对函数进行测试，以确保函数代码运行正常。\n\n云函数接口规范\n预加载类型\tAPI名称\t说明\t参数\t返回值\n安装预加载\t自定义\t获取预加载数据接口\tevent.body.appId：应用ID，获取方法请参见查看应用信息。\t自定义JSON字符串\n周期性预加载\t自定义\t获取预加载数据接口\t\n\n- event.body.appId：应用ID，获取方法请参见查看应用信息。\n\n- event.body.token：可选，注册周期性预加载任务时开发者自行传入的用户级认证信息，长度不超过2048个字符。\n\n- event.body.params：可选，注册周期性预加载任务时开发者自行传入的自定义参数，长度不超过1024个字符。\n\n\t自定义JSON字符串\n跳链安装预加载\t自定义\t获取预加载数据接口\t\n\n- event.body.appId：应用ID，获取方法请参见查看应用信息。\n\n- event.body.link：可选，跳链安装预加载延迟链接。\n\n\t自定义JSON字符串\n示例\n\n端云一体化工程预加载云函数示例如下。其中，axios依赖库为网络请求库，需要在“cloudfunctions/云函数名称/package.json”的“dependencies”中添加axios的1.7.7或以上版本依赖。\n\n安装预加载\n\nimport axios from 'axios';\n\n\nlet myHandler = async function (event, context, callback, logger) {\n    logger.info(\"event:\" + JSON.stringify(event));\n    let env1 = context.env.env1; // 获取环境变量env1\n    logger.info(\"env1: \" + env1)\n    try {\n        let body = event.body ? JSON.parse(event.body) : event;\n        let appId = body.appId;\n\n\n        logger.info(\"appId: \" + appId);\n\n\n        // http请求示例，请按照实际业务修改\n        let url = 'https://example.com/prefetchApi';  // 页面资源数据的请求url\n        let headers = { 'k1': 'v1' };  // 请求header\n        let res;  // 返回数据\n        await axios.post(url, {}, { headers })  // http post请求\n            .then(response => {\n                res = response.data;\n            })\n        logger.info(\"--------Finished-------\");\n        callback(res);\n    } catch (error) {\n        logger.error(\"--------Error-------\");\n        logger.error(\"error: \" + error);\n        callback(error);\n    }\n};\n\n\nexport { myHandler };\nhandler.js\n\n周期性预加载\n\nimport axios from 'axios';\n\n\nlet myHandler = async function (event, context, callback, logger) {\n    logger.info(\"event:\" + JSON.stringify(event));\n    let env1 = context.env.env1; // 获取环境变量env1\n    logger.info(\"env1: \" + env1)\n    try {\n        let body = event.body ? JSON.parse(event.body) : event;\n        let appId = body.appId;\n        let token = body.token;\n        let paramsStr = body.params; // 如果需要解析json结构paramsStr中的参数，需要使用 let params = JSON.parse(paramsStr);\n\n\n        logger.info(\"appId: \" + appId + \",token:\" + token + \",params:\" + paramsStr);\n\n\n        // http请求示例，请按照实际业务修改\n        let url = 'https://example.com/prefetchApi'; // 页面资源数据的请求url\n        let headers = { 'k1': 'v1' }; // 请求header\n        let res; // 返回数据\n        await axios.post(url, {}, { headers }) // http post请求\n            .then(response => {\n                res = response.data;\n            })\n        logger.info(\"--------Finished-------\");\n        callback(res);\n    } catch (error) {\n        logger.error(\"--------Error-------\");\n        logger.error(\"error: \" + error);\n        callback(error);\n    }\n};\n\n\nexport { myHandler };\nhandler.js\n\n跳链安装预加载\n\nimport axios from 'axios';\n\n\nlet myHandler = async function (event, context, callback, logger) {\n    logger.info(\"event:\" + JSON.stringify(event));\n    let env1 = context.env.env1; // 获取环境变量env1\n    logger.info(\"env1: \" + env1)\n    try {\n        let body = event.body ? JSON.parse(event.body) : event;\n        let appId = body.appId;\n        let link = body.link; // 跳链安装预加载link信息\n\n\n        logger.info(\"appId: \" + appId + \",link:\" + link);\n\n\n        // http请求示例，请按照实际业务修改\n        let url = 'https://example.com/prefetchApi'; // 页面资源数据的请求url\n        let headers = { 'k1': 'v1' }; // 请求header\n        let res; // 返回数据\n        await axios.post(url, {}, { headers }) // http post请求\n            .then(response => {\n                res = response.data;\n            })\n        logger.info(\"--------Finished-------\");\n        callback(res);\n    } catch (error) {\n        logger.error(\"--------Error-------\");\n        logger.error(\"error: \" + error);\n        callback(error);\n    }\n};\n\n\nexport { myHandler };\nhandler.js\n开发者服务器\n\n开发者使用自己的服务器自行开发和实现预加载资源接口，接口需遵循开发者服务器接口规范。\n\n开发者服务器接口规范\n预加载类型\tAPI/PATH名称\t说明\t参数\t请求方式\t返回值\n安装预加载\t自定义\t获取预加载数据接口\tappId：应用ID，获取方法请参见查看应用信息。\tGET\t自定义JSON字符串\n周期性预加载\t自定义\t获取预加载数据接口\t\n\n- appId：应用ID，获取方法请参见查看应用信息。\n\n- token：可选，注册周期性预加载任务时开发者自行传入的用户级认证信息，长度不超过2048个字符。\n\n- params：可选，注册周期性预加载任务时开发者自行传入的自定义参数，长度不超过1024个字符。\n\n\tGET\t自定义JSON字符串\n跳链安装预加载\t自定义\t获取预加载数据接口\t\n\n- appId：应用ID，获取方法请参见查看应用信息。\n\n- link：可选，跳链安装预加载延迟链接。\n\n\tGET\t自定义JSON字符串\n示例\n\n定义名称为prefetchData的接口，示例如下：\n\nhttps://www.example.com/prefetchData?appId=1234&token=xxxx&params=yyyy\n配置预加载\n调用预加载\n意见反馈\n以上内容对您是否有帮助？\n意见反馈\n如果您有其他疑问，您也可以通过开发者社区问答频道来和我们联系探讨。\n社区提问AI 助手提问\n本文导读\n云函数\n云函数接口规范\n示例\n开发者服务器\n开发者服务器接口规范\n示例\n华为开发者联盟 版权所有 ©2026\n问题反馈\n使用条款\n华为开发者联盟用户协议\n关于华为开发者联盟与隐私的声明\nCookies\n开源软件声明",
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "预加载类型",
+          "API名称",
+          "说明",
+          "参数",
+          "返回值"
+        ],
+        [
+          "安装预加载",
+          "自定义",
+          "获取预加载数据接口",
+          "event.body.appId：应用ID，获取方法请参见查看应用信息。",
+          "自定义JSON字符串"
+        ],
+        [
+          "周期性预加载",
+          "自定义",
+          "获取预加载数据接口",
+          "- event.body.appId：应用ID，获取方法请参见查看应用信息。 - event.body.token：可选，注册周期性预加载任务时开发者自行传入的用户级认证信息，长度不超过2048个字符。 - event.body.params：可选，注册周期性预加载任务时开发者自行传入的自定义参数，长度不超过1024个字符。",
+          "自定义JSON字符串"
+        ],
+        [
+          "跳链安装预加载",
+          "自定义",
+          "获取预加载数据接口",
+          "- event.body.appId：应用ID，获取方法请参见查看应用信息。 - event.body.link：可选，跳链安装预加载延迟链接。",
+          "自定义JSON字符串"
+        ]
+      ],
+      "section": "云函数接口规范",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#云函数接口规范"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "预加载类型",
+          "API/PATH名称",
+          "说明",
+          "参数",
+          "请求方式",
+          "返回值"
+        ],
+        [
+          "安装预加载",
+          "自定义",
+          "获取预加载数据接口",
+          "appId：应用ID，获取方法请参见查看应用信息。",
+          "GET",
+          "自定义JSON字符串"
+        ],
+        [
+          "周期性预加载",
+          "自定义",
+          "获取预加载数据接口",
+          "- appId：应用ID，获取方法请参见查看应用信息。 - token：可选，注册周期性预加载任务时开发者自行传入的用户级认证信息，长度不超过2048个字符。 - params：可选，注册周期性预加载任务时开发者自行传入的自定义参数，长度不超过1024个字符。",
+          "GET",
+          "自定义JSON字符串"
+        ],
+        [
+          "跳链安装预加载",
+          "自定义",
+          "获取预加载数据接口",
+          "- appId：应用ID，获取方法请参见查看应用信息。 - link：可选，跳链安装预加载延迟链接。",
+          "GET",
+          "自定义JSON字符串"
+        ]
+      ],
+      "section": "开发者服务器接口规范",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#开发者服务器接口规范"
+    }
+  ],
+  "title": "开发预加载资源接口",
+  "relatedDocuments": [
+    {
+      "captureTool": "Computer Use; merged-cell capture compatible with scripts/browser-capture-reference.mjs",
+      "checkedAt": "2026-10-26",
+      "examples": [],
+      "links": [
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter#section195981215284",
+          "title": "了解新版目录"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloud-foundation-kit-guide",
+          "title": "Cloud Foundation Kit（云开发服务）"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-service",
+          "title": "预加载"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-service",
+          "title": "预加载"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-devprocess",
+          "title": "开发流程"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-overview#%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86",
+          "title": "工作原理"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-overview#%E5%85%B8%E5%9E%8B%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF",
+          "title": "典型应用场景"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-overview#%E6%8F%90%E5%8D%87%E5%BA%94%E7%94%A8%E9%A6%96%E5%BC%80%E9%80%9F%E5%BA%A6",
+          "title": "提升应用首开速度"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-overview#%E5%AE%9E%E7%8E%B0%E8%8A%82%E6%97%A5%E4%B8%BB%E9%A2%98%E5%8D%B3%E5%8F%91%E5%8D%B3%E7%8E%B0",
+          "title": "实现节日主题即发即现"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-overview#%E7%BA%A6%E6%9D%9F%E4%B8%8E%E9%99%90%E5%88%B6",
+          "title": "约束与限制"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-overview#%E8%AE%BE%E5%A4%87%E9%99%90%E5%88%B6",
+          "title": "设备限制"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-overview#%E6%95%B0%E6%8D%AE%E9%99%90%E5%88%B6",
+          "title": "数据限制"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-overview#%E9%85%8D%E9%A2%9D%E9%99%90%E5%88%B6",
+          "title": "配额限制"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+          "title": "华为开发者联盟用户协议"
+        }
+      ],
+      "notes": [
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cloudfoundation-prefetch-overview",
+          "text": "您当前正在浏览新版开发者文档中心，目录分类和层级有所调整。点击左侧当前文档分类名称前的“☰”图标，可切换文档分类。 了解新版目录"
+        },
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cloudfoundation-prefetch-overview",
+          "text": "从5.0.3(15)版本开始，新增支持安装预加载和周期性预加载功能；从6.1.0(23)版本开始，新增支持跳链安装预加载功能。"
+        },
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cloudfoundation-prefetch-overview",
+          "text": "预加载是Cloud Foundation Kit提供的一种可提前加载所需资源的服务。通过预加载，可以将页面所需的文本、图片、音频、视频等资源数据提前加载到本地进行缓存，以提升应用页面加载速度。预加载仅以字符串数据形式进行缓存，应用使用预加载时不需要修改原有数据格式，获取缓存后可直接进行解析，并且可以对隐私、敏感数据进行加密。"
+        },
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cloudfoundation-prefetch-overview",
+          "text": "当前支持如下三种预加载类型："
+        },
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cloudfoundation-prefetch-overview",
+          "text": "安装预加载：适用于安装应用后首次打开，应用首页加载提速场景。在应用安装时下载云侧应用数据进行缓存，应用打开时直接获取本地首开页面缓存数据呈现内容。"
+        },
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cloudfoundation-prefetch-overview",
+          "text": "安装预加载：适用于安装应用后首次打开，应用首页加载提速场景。在应用安装时下载云侧应用数据进行缓存，应用打开时直接获取本地首开页面缓存数据呈现内容。"
+        },
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cloudfoundation-prefetch-overview",
+          "text": "周期性预加载：适用于任意页面加载提速的场景，可与安装预加载结合使用。系统每隔12h拉取一次指定页面（不局限首开页面）的云侧数据并将其缓存到本地，并可将静态资源放置到云端，减少包体大小。比较适合节日主题资源、H5离线包等场景。"
+        },
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cloudfoundation-prefetch-overview",
+          "text": "周期性预加载：适用于任意页面加载提速的场景，可与安装预加载结合使用。系统每隔12h拉取一次指定页面（不局限首开页面）的云侧数据并将其缓存到本地，并可将静态资源放置到云端，减少包体大小。比较适合节日主题资源、H5离线包等场景。"
+        },
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cloudfoundation-prefetch-overview",
+          "text": "跳链安装预加载：适用于被分享用户安装应用后首次打开，应用详情页加载提速场景，可与安装预加载、周期性预加载结合使用。在应用安装过程中，预加载结合App Linking Kit的延迟链接功能，可提前将用户之前点击的详情页数据缓存到本地。当用户首次打开应用时，即可直接跳转到相应的详情页，并即时加载本地缓存的数据呈现内容。\n\n说明\n\n跳链安装预加载仅支持在HarmonyOS应用中调用。"
+        },
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cloudfoundation-prefetch-overview",
+          "text": "跳链安装预加载：适用于被分享用户安装应用后首次打开，应用详情页加载提速场景，可与安装预加载、周期性预加载结合使用。在应用安装过程中，预加载结合App Linking Kit的延迟链接功能，可提前将用户之前点击的详情页数据缓存到本地。当用户首次打开应用时，即可直接跳转到相应的详情页，并即时加载本地缓存的数据呈现内容。"
+        },
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cloudfoundation-prefetch-overview",
+          "text": "跳链安装预加载仅支持在HarmonyOS应用中调用。"
+        },
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cloudfoundation-prefetch-overview",
+          "text": "同时还支持H5预加载组件FastWeb，它是基于Open Harmony基础组件开发的高性能Web容器，具有预启动、预渲染、预编译JavaScript生成字节码缓存、离线资源免拦截注入等能力，可为应用中Web页面的加载进行提速。H5预加载组件FastWeb无需使用Cloud Foundation Kit能力，详细使用方法可参考Web容器FastWeb。"
+        },
+        {
+          "section": "工作原理",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cloudfoundation-prefetch-overview#工作原理",
+          "text": "预加载服务根据配置的数据预加载策略从应用后台获取数据。"
+        },
+        {
+          "section": "工作原理",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cloudfoundation-prefetch-overview#工作原理",
+          "text": "预加载服务根据配置的数据预加载策略从应用后台获取数据。"
+        },
+        {
+          "section": "工作原理",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cloudfoundation-prefetch-overview#工作原理",
+          "text": "预加载服务将获取的数据在本地进行缓存。"
+        },
+        {
+          "section": "工作原理",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cloudfoundation-prefetch-overview#工作原理",
+          "text": "预加载服务将获取的数据在本地进行缓存。"
+        },
+        {
+          "section": "工作原理",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cloudfoundation-prefetch-overview#工作原理",
+          "text": "应用使用获取的缓存数据，进行页面渲染。"
+        },
+        {
+          "section": "工作原理",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cloudfoundation-prefetch-overview#工作原理",
+          "text": "应用使用获取的缓存数据，进行页面渲染。"
+        },
+        {
+          "section": "提升应用首开速度",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cloudfoundation-prefetch-overview#提升应用首开速度",
+          "text": "在应用启动前或初始化阶段，为避免出现首页内容加载慢、白屏等情况，开发者可以使用预加载将一些必要的资源，例如图片、音频、视频或数据文件，提前加载到本地进行缓存。用户首次访问应用时，可直接从缓存中获取数据，这样就减少了从服务器重新下载资源的时间，提升了应用首开速度，从而提高用户留存率。"
+        },
+        {
+          "section": "实现节日主题即发即现",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cloudfoundation-prefetch-overview#实现节日主题即发即现",
+          "text": "很多应用会在节日更换特定主题内容进行活动营销，用户打开应用时需要从服务器上获取相关资源来呈现内容，可能会造成页面加载速度较慢而导致用户体验不佳。开发者可以使用预加载，在节日活动开始前通过周期性的数据拉取提前将主题资源获取到本地，活动开始用户访问时直接从本地获取即可，减少了网络请求的时间和带宽消耗，从而能够更快地展示节日主题，实现即发即现的效果，提升用户体验。"
+        },
+        {
+          "section": "设备限制",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cloudfoundation-prefetch-overview#设备限制",
+          "text": "支持Phone、Tablet设备。并且从6.1.0(23)版本开始，新增支持PC/2in1设备。"
+        }
+      ],
+      "renderedText": "您当前正在浏览新版开发者文档中心，目录分类和层级有所调整。点击左侧当前文档分类名称前的“☰”图标，可切换文档分类。 了解新版目录\n\n指南与API参考\n指南\n应用服务\nCloud Foundation Kit（云开发服务）\n预加载\n概述\n概述\n更新时间: 2026-06-12 14:54\n复制页面\n\n从5.0.3(15)版本开始，新增支持安装预加载和周期性预加载功能；从6.1.0(23)版本开始，新增支持跳链安装预加载功能。\n\n预加载是Cloud Foundation Kit提供的一种可提前加载所需资源的服务。通过预加载，可以将页面所需的文本、图片、音频、视频等资源数据提前加载到本地进行缓存，以提升应用页面加载速度。预加载仅以字符串数据形式进行缓存，应用使用预加载时不需要修改原有数据格式，获取缓存后可直接进行解析，并且可以对隐私、敏感数据进行加密。\n\n当前支持如下三种预加载类型：\n\n安装预加载：适用于安装应用后首次打开，应用首页加载提速场景。在应用安装时下载云侧应用数据进行缓存，应用打开时直接获取本地首开页面缓存数据呈现内容。\n\n周期性预加载：适用于任意页面加载提速的场景，可与安装预加载结合使用。系统每隔12h拉取一次指定页面（不局限首开页面）的云侧数据并将其缓存到本地，并可将静态资源放置到云端，减少包体大小。比较适合节日主题资源、H5离线包等场景。\n\n跳链安装预加载：适用于被分享用户安装应用后首次打开，应用详情页加载提速场景，可与安装预加载、周期性预加载结合使用。在应用安装过程中，预加载结合App Linking Kit的延迟链接功能，可提前将用户之前点击的详情页数据缓存到本地。当用户首次打开应用时，即可直接跳转到相应的详情页，并即时加载本地缓存的数据呈现内容。\n\n说明\n\n跳链安装预加载仅支持在HarmonyOS应用中调用。\n\n同时还支持H5预加载组件FastWeb，它是基于Open Harmony基础组件开发的高性能Web容器，具有预启动、预渲染、预编译JavaScript生成字节码缓存、离线资源免拦截注入等能力，可为应用中Web页面的加载进行提速。H5预加载组件FastWeb无需使用Cloud Foundation Kit能力，详细使用方法可参考Web容器FastWeb。\n\n工作原理\n\n预加载服务根据配置的数据预加载策略从应用后台获取数据。\n\n预加载服务将获取的数据在本地进行缓存。\n\n应用使用获取的缓存数据，进行页面渲染。\n\n典型应用场景\n提升应用首开速度\n\n在应用启动前或初始化阶段，为避免出现首页内容加载慢、白屏等情况，开发者可以使用预加载将一些必要的资源，例如图片、音频、视频或数据文件，提前加载到本地进行缓存。用户首次访问应用时，可直接从缓存中获取数据，这样就减少了从服务器重新下载资源的时间，提升了应用首开速度，从而提高用户留存率。\n\n实现节日主题即发即现\n\n很多应用会在节日更换特定主题内容进行活动营销，用户打开应用时需要从服务器上获取相关资源来呈现内容，可能会造成页面加载速度较慢而导致用户体验不佳。开发者可以使用预加载，在节日活动开始前通过周期性的数据拉取提前将主题资源获取到本地，活动开始用户访问时直接从本地获取即可，减少了网络请求的时间和带宽消耗，从而能够更快地展示节日主题，实现即发即现的效果，提升用户体验。\n\n约束与限制\n设备限制\n\n支持Phone、Tablet设备。并且从6.1.0(23)版本开始，新增支持PC/2in1设备。\n\n数据限制\n限制项\t说明\n数据类型\t仅支持缓存文本、图片、音频、视频等静态资源数据，不支持代码、脚本等动态资源数据。\n配额限制\n配额类型\t配额\n安装预加载缓存大小\t2MB\n周期性预加载缓存大小\t3MB\n跳链安装预加载缓存大小\t3MB\n预加载\n开发流程\n意见反馈\n以上内容对您是否有帮助？\n意见反馈\n如果您有其他疑问，您也可以通过开发者社区问答频道来和我们联系探讨。\n社区提问AI 助手提问\n本文导读\n工作原理\n典型应用场景\n提升应用首开速度\n实现节日主题即发即现\n约束与限制\n设备限制\n数据限制\n配额限制\n华为开发者联盟 版权所有 ©2026\n问题反馈\n使用条款\n华为开发者联盟用户协议\n关于华为开发者联盟与隐私的声明\nCookies\n开源软件声明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cloudfoundation-prefetch-overview",
+      "status": "browser-read",
+      "tables": [
+        {
+          "location": "",
+          "rows": [
+            [
+              "限制项",
+              "说明"
+            ],
+            [
+              "数据类型",
+              "仅支持缓存文本、图片、音频、视频等静态资源数据，不支持代码、脚本等动态资源数据。"
+            ]
+          ],
+          "section": "数据限制",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cloudfoundation-prefetch-overview#数据限制"
+        },
+        {
+          "location": "",
+          "rows": [
+            [
+              "配额类型",
+              "配额"
+            ],
+            [
+              "安装预加载缓存大小",
+              "2MB"
+            ],
+            [
+              "周期性预加载缓存大小",
+              "3MB"
+            ],
+            [
+              "跳链安装预加载缓存大小",
+              "3MB"
+            ]
+          ],
+          "section": "配额限制",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cloudfoundation-prefetch-overview#配额限制"
+        }
+      ],
+      "title": "概述"
+    },
+    {
+      "captureTool": "Computer Use; merged-cell capture compatible with scripts/browser-capture-reference.mjs",
+      "checkedAt": "2026-10-26",
+      "examples": [],
+      "links": [
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter#section195981215284",
+          "title": "了解新版目录"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloud-foundation-kit-guide",
+          "title": "Cloud Foundation Kit（云开发服务）"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-service",
+          "title": "预加载"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config",
+          "title": "配置预加载"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev",
+          "title": "开发预加载资源接口"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-call-installprefetch",
+          "title": "调用预加载"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-overview",
+          "title": "概述"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config",
+          "title": "配置预加载"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+          "title": "华为开发者联盟用户协议"
+        }
+      ],
+      "notes": [
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-devprocess",
+          "text": "您当前正在浏览新版开发者文档中心，目录分类和层级有所调整。点击左侧当前文档分类名称前的“☰”图标，可切换文档分类。 了解新版目录"
+        },
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-devprocess",
+          "text": "开发预加载，总体流程如下："
+        },
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-devprocess",
+          "text": "配置预加载：在AGC云端预加载界面选择数据来源类型，并进行相关配置。"
+        },
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-devprocess",
+          "text": "配置预加载：在AGC云端预加载界面选择数据来源类型，并进行相关配置。"
+        },
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-devprocess",
+          "text": "开发预加载资源接口：根据选择的数据来源类型，开发对应的云侧接口，以提供预加载所需的资源数据。"
+        },
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-devprocess",
+          "text": "开发预加载资源接口：根据选择的数据来源类型，开发对应的云侧接口，以提供预加载所需的资源数据。"
+        },
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-devprocess",
+          "text": "调用预加载：在工程代码文件中调用预加载。"
+        },
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-devprocess",
+          "text": "调用预加载：在工程代码文件中调用预加载。"
+        }
+      ],
+      "renderedText": "您当前正在浏览新版开发者文档中心，目录分类和层级有所调整。点击左侧当前文档分类名称前的“☰”图标，可切换文档分类。 了解新版目录\n\n指南与API参考\n指南\n应用服务\nCloud Foundation Kit（云开发服务）\n预加载\n开发流程\n开发流程\n更新时间: 2026-04-20 14:34\n复制页面\n\n开发预加载，总体流程如下：\n\n配置预加载：在AGC云端预加载界面选择数据来源类型，并进行相关配置。\n\n开发预加载资源接口：根据选择的数据来源类型，开发对应的云侧接口，以提供预加载所需的资源数据。\n\n调用预加载：在工程代码文件中调用预加载。\n\n概述\n配置预加载\n意见反馈\n以上内容对您是否有帮助？\n意见反馈\n如果您有其他疑问，您也可以通过开发者社区问答频道来和我们联系探讨。\n社区提问AI 助手提问\n华为开发者联盟 版权所有 ©2026\n问题反馈\n使用条款\n华为开发者联盟用户协议\n关于华为开发者联盟与隐私的声明\nCookies\n开源软件声明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-devprocess",
+      "status": "browser-read",
+      "tables": [],
+      "title": "开发流程"
+    },
+    {
+      "captureTool": "Computer Use; merged-cell capture compatible with scripts/browser-capture-reference.mjs",
+      "checkedAt": "2026-10-26",
+      "examples": [],
+      "links": [
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter#section195981215284",
+          "title": "了解新版目录"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloud-foundation-kit-guide",
+          "title": "Cloud Foundation Kit（云开发服务）"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-service",
+          "title": "预加载"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-enable-prefetch",
+          "title": "开通预加载服务"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-create-and-config-function",
+          "title": "创建函数"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/applinking-deferredlink",
+          "title": "通过延迟链接跳转至应用详情页"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-enable-prefetch",
+          "title": "开通预加载服务"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/applinking-deferredlink",
+          "title": "通过延迟链接跳转至应用详情页"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev#%E5%BC%80%E5%8F%91%E8%80%85%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%8E%A5%E5%8F%A3%E8%A7%84%E8%8C%83",
+          "title": "开发者服务器接口规范"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-devprocess",
+          "title": "开发流程"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev",
+          "title": "开发预加载资源接口"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#%E6%95%B0%E6%8D%AE%E6%9D%A5%E6%BA%90%E4%B8%BA%E4%BA%91%E5%87%BD%E6%95%B0",
+          "title": "数据来源为云函数"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#%E5%89%8D%E6%8F%90%E6%9D%A1%E4%BB%B6",
+          "title": "前提条件"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#%E7%BB%91%E5%AE%9A%E4%BA%91%E5%87%BD%E6%95%B0",
+          "title": "绑定云函数"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#%E6%95%B0%E6%8D%AE%E6%9D%A5%E6%BA%90%E4%B8%BA%E5%BC%80%E5%8F%91%E8%80%85%E6%9C%8D%E5%8A%A1%E5%99%A8",
+          "title": "数据来源为开发者服务器"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#%E5%89%8D%E6%8F%90%E6%9D%A1%E4%BB%B6-1",
+          "title": "前提条件"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#%E9%85%8D%E7%BD%AE%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%9C%B0%E5%9D%80",
+          "title": "配置服务器地址"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+          "title": "华为开发者联盟用户协议"
+        }
+      ],
+      "notes": [
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config",
+          "text": "您当前正在浏览新版开发者文档中心，目录分类和层级有所调整。点击左侧当前文档分类名称前的“☰”图标，可切换文档分类。 了解新版目录"
+        },
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config",
+          "text": "安装预加载、周期性预加载和跳链安装预加载需分别进行配置，且三者均可通过云函数和开发者服务器（即HTTPS请求）两种数据来源方式来实现。"
+        },
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config",
+          "text": "对于不同类型的开发者，支持的数据来源方式有所不同："
+        },
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config",
+          "text": "个人开发者：数据来源默认选择云函数，且仅支持通过云函数来实现预加载。需要开通云函数服务并创建函数才可以配置。"
+        },
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config",
+          "text": "个人开发者：数据来源默认选择云函数，且仅支持通过云函数来实现预加载。需要开通云函数服务并创建函数才可以配置。"
+        },
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config",
+          "text": "非个人开发者：数据来源支持云函数和开发者服务器两种。可根据实际需要进行选择。"
+        },
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config",
+          "text": "非个人开发者：数据来源支持云函数和开发者服务器两种。可根据实际需要进行选择。"
+        },
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config",
+          "text": "下文介绍如何配置两种数据来源方式的预加载实现。"
+        },
+        {
+          "section": "前提条件",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#前提条件",
+          "text": "已开通预加载服务。"
+        },
+        {
+          "section": "前提条件",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#前提条件",
+          "text": "已开通预加载服务。"
+        },
+        {
+          "section": "前提条件",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#前提条件",
+          "text": "已创建函数。"
+        },
+        {
+          "section": "前提条件",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#前提条件",
+          "text": "已创建函数。"
+        },
+        {
+          "section": "绑定云函数",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#绑定云函数",
+          "text": "登录AppGallery Connect，点击“开发与服务”。"
+        },
+        {
+          "section": "绑定云函数",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#绑定云函数",
+          "text": "登录AppGallery Connect，点击“开发与服务”。"
+        },
+        {
+          "section": "绑定云函数",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#绑定云函数",
+          "text": "在项目列表中点击您的项目，在项目下的应用列表中选择需要配置预加载的HarmonyOS应用/元服务。"
+        },
+        {
+          "section": "绑定云函数",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#绑定云函数",
+          "text": "在项目列表中点击您的项目，在项目下的应用列表中选择需要配置预加载的HarmonyOS应用/元服务。"
+        },
+        {
+          "section": "绑定云函数",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#绑定云函数",
+          "text": "在左侧导航栏选择“云开发（Serverless）> 预加载”，进入预加载页面。"
+        },
+        {
+          "section": "绑定云函数",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#绑定云函数",
+          "text": "在左侧导航栏选择“云开发（Serverless）> 预加载”，进入预加载页面。"
+        },
+        {
+          "section": "绑定云函数",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#绑定云函数",
+          "text": "根据实际需要，在“周期性预加载”、“安装预加载”或者“跳链安装预加载”区域，“数据来源”选择“云函数”，然后点击“函数名称”后的“修改”。\n\n说明\n\n跳链安装预加载仅支持在HarmonyOS应用中调用。\n\n由于跳链安装预加载功能需要使用App Linking Kit提供的延迟链接能力，因此在配置跳链安装预加载之前，请务必先完成延迟链接的开发。具体请参见通过延迟链接跳转至应用详情页。"
+        },
+        {
+          "section": "绑定云函数",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#绑定云函数",
+          "text": "根据实际需要，在“周期性预加载”、“安装预加载”或者“跳链安装预加载”区域，“数据来源”选择“云函数”，然后点击“函数名称”后的“修改”。"
+        },
+        {
+          "section": "绑定云函数",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#绑定云函数",
+          "text": "跳链安装预加载仅支持在HarmonyOS应用中调用。"
+        },
+        {
+          "section": "绑定云函数",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#绑定云函数",
+          "text": "跳链安装预加载仅支持在HarmonyOS应用中调用。"
+        },
+        {
+          "section": "绑定云函数",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#绑定云函数",
+          "text": "由于跳链安装预加载功能需要使用App Linking Kit提供的延迟链接能力，因此在配置跳链安装预加载之前，请务必先完成延迟链接的开发。具体请参见通过延迟链接跳转至应用详情页。"
+        },
+        {
+          "section": "绑定云函数",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#绑定云函数",
+          "text": "由于跳链安装预加载功能需要使用App Linking Kit提供的延迟链接能力，因此在配置跳链安装预加载之前，请务必先完成延迟链接的开发。具体请参见通过延迟链接跳转至应用详情页。"
+        },
+        {
+          "section": "绑定云函数",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#绑定云函数",
+          "text": "以“周期性预加载”为例，在“函数名称”下拉框选择实现周期性预加载的函数名称。"
+        },
+        {
+          "section": "绑定云函数",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#绑定云函数",
+          "text": "以“周期性预加载”为例，在“函数名称”下拉框选择实现周期性预加载的函数名称。"
+        },
+        {
+          "section": "绑定云函数",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#绑定云函数",
+          "text": "点击“保存”完成周期性预加载配置。"
+        },
+        {
+          "section": "绑定云函数",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#绑定云函数",
+          "text": "点击“保存”完成周期性预加载配置。"
+        },
+        {
+          "section": "绑定云函数",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#绑定云函数",
+          "text": "若配置“安装预加载”或“跳链安装预加载”，重复步骤4-6即可。"
+        },
+        {
+          "section": "绑定云函数",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#绑定云函数",
+          "text": "若配置“安装预加载”或“跳链安装预加载”，重复步骤4-6即可。"
+        },
+        {
+          "section": "绑定云函数",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#绑定云函数",
+          "text": "（可选）若后续需要修改绑定的云函数，只需点击“函数名称”后的“修改”进行更新。"
+        },
+        {
+          "section": "绑定云函数",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#绑定云函数",
+          "text": "（可选）若后续需要修改绑定的云函数，只需点击“函数名称”后的“修改”进行更新。"
+        },
+        {
+          "section": "前提条件",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#前提条件-1",
+          "text": "已开通预加载服务。"
+        },
+        {
+          "section": "配置服务器地址",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#配置服务器地址",
+          "text": "登录AppGallery Connect，点击“开发与服务”。"
+        },
+        {
+          "section": "配置服务器地址",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#配置服务器地址",
+          "text": "登录AppGallery Connect，点击“开发与服务”。"
+        },
+        {
+          "section": "配置服务器地址",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#配置服务器地址",
+          "text": "在项目列表中点击您的项目，在项目下的应用列表中选择需要配置预加载的HarmonyOS应用/元服务。"
+        },
+        {
+          "section": "配置服务器地址",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#配置服务器地址",
+          "text": "在项目列表中点击您的项目，在项目下的应用列表中选择需要配置预加载的HarmonyOS应用/元服务。"
+        },
+        {
+          "section": "配置服务器地址",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#配置服务器地址",
+          "text": "在左侧导航栏选择“云开发（Serverless）> 预加载”，进入预加载页面。"
+        },
+        {
+          "section": "配置服务器地址",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#配置服务器地址",
+          "text": "在左侧导航栏选择“云开发（Serverless）> 预加载”，进入预加载页面。"
+        },
+        {
+          "section": "配置服务器地址",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#配置服务器地址",
+          "text": "根据实际需要，在“周期性预加载”、“安装预加载”或者“跳链安装预加载”区域，“数据来源”选择“开发者服务器”。\n\n说明\n\n跳链安装预加载仅支持在HarmonyOS应用中调用。\n\n由于跳链安装预加载功能需要使用App Linking Kit提供的延迟链接能力，因此在配置跳链安装预加载之前，请务必先完成延迟链接的开发。具体请参见通过延迟链接跳转至应用详情页。"
+        },
+        {
+          "section": "配置服务器地址",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#配置服务器地址",
+          "text": "根据实际需要，在“周期性预加载”、“安装预加载”或者“跳链安装预加载”区域，“数据来源”选择“开发者服务器”。"
+        },
+        {
+          "section": "配置服务器地址",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#配置服务器地址",
+          "text": "跳链安装预加载仅支持在HarmonyOS应用中调用。"
+        },
+        {
+          "section": "配置服务器地址",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#配置服务器地址",
+          "text": "跳链安装预加载仅支持在HarmonyOS应用中调用。"
+        },
+        {
+          "section": "配置服务器地址",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#配置服务器地址",
+          "text": "由于跳链安装预加载功能需要使用App Linking Kit提供的延迟链接能力，因此在配置跳链安装预加载之前，请务必先完成延迟链接的开发。具体请参见通过延迟链接跳转至应用详情页。"
+        },
+        {
+          "section": "配置服务器地址",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#配置服务器地址",
+          "text": "由于跳链安装预加载功能需要使用App Linking Kit提供的延迟链接能力，因此在配置跳链安装预加载之前，请务必先完成延迟链接的开发。具体请参见通过延迟链接跳转至应用详情页。"
+        },
+        {
+          "section": "配置服务器地址",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#配置服务器地址",
+          "text": "点击“下载地址”后的“修改”。"
+        },
+        {
+          "section": "配置服务器地址",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#配置服务器地址",
+          "text": "点击“下载地址”后的“修改”。"
+        },
+        {
+          "section": "配置服务器地址",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#配置服务器地址",
+          "text": "以“周期性预加载”为例，“下载地址”以“https://”开头，输入框中输入服务器地址，配置完成后点击“保存”。\n\n需要注意以下几点：\n\n仅支持填写一个服务器地址，需包含预加载资源接口路径，如图中示例：prefetchData。\n\n域名：须填写完整的域名。例如www.example.com，不可写为example.com。\n\nIP地址：须填写准确的IP地址，确保没有输入错误。\n\n端口号：如果要指定端口号，可在服务器地址后面以冒号分隔，例如https://www.example.com:443。HTTPS协议的默认端口号（443）可以省略。\n\n后续AGC会周期性地向该处配置的开发者服务器（即下载地址）发起一个HTTP GET请求，其中包含的query参数请参考开发者服务器接口规范，获取到数据后会将整个HTTP body缓存在本地。\n\n说明\n\n开发者服务器接口返回的数据内容需仅包含文本、图片、视频、音频等供页面展示的静态资源，不支持包含代码、脚本等动态数据。\n\n开发者服务器接口返回的数据类型为其自定义格式的JSON或字符串数据，大小需限定在3MB以内。"
+        },
+        {
+          "section": "配置服务器地址",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#配置服务器地址",
+          "text": "以“周期性预加载”为例，“下载地址”以“https://”开头，输入框中输入服务器地址，配置完成后点击“保存”。"
+        },
+        {
+          "section": "配置服务器地址",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#配置服务器地址",
+          "text": "需要注意以下几点："
+        },
+        {
+          "section": "配置服务器地址",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#配置服务器地址",
+          "text": "仅支持填写一个服务器地址，需包含预加载资源接口路径，如图中示例：prefetchData。"
+        },
+        {
+          "section": "配置服务器地址",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#配置服务器地址",
+          "text": "仅支持填写一个服务器地址，需包含预加载资源接口路径，如图中示例：prefetchData。"
+        },
+        {
+          "section": "配置服务器地址",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#配置服务器地址",
+          "text": "域名：须填写完整的域名。例如www.example.com，不可写为example.com。"
+        },
+        {
+          "section": "配置服务器地址",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#配置服务器地址",
+          "text": "域名：须填写完整的域名。例如www.example.com，不可写为example.com。"
+        },
+        {
+          "section": "配置服务器地址",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#配置服务器地址",
+          "text": "IP地址：须填写准确的IP地址，确保没有输入错误。"
+        },
+        {
+          "section": "配置服务器地址",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#配置服务器地址",
+          "text": "IP地址：须填写准确的IP地址，确保没有输入错误。"
+        },
+        {
+          "section": "配置服务器地址",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#配置服务器地址",
+          "text": "端口号：如果要指定端口号，可在服务器地址后面以冒号分隔，例如https://www.example.com:443。HTTPS协议的默认端口号（443）可以省略。"
+        },
+        {
+          "section": "配置服务器地址",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#配置服务器地址",
+          "text": "端口号：如果要指定端口号，可在服务器地址后面以冒号分隔，例如https://www.example.com:443。HTTPS协议的默认端口号（443）可以省略。"
+        },
+        {
+          "section": "配置服务器地址",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#配置服务器地址",
+          "text": "后续AGC会周期性地向该处配置的开发者服务器（即下载地址）发起一个HTTP GET请求，其中包含的query参数请参考开发者服务器接口规范，获取到数据后会将整个HTTP body缓存在本地。"
+        },
+        {
+          "section": "配置服务器地址",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#配置服务器地址",
+          "text": "开发者服务器接口返回的数据内容需仅包含文本、图片、视频、音频等供页面展示的静态资源，不支持包含代码、脚本等动态数据。"
+        },
+        {
+          "section": "配置服务器地址",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#配置服务器地址",
+          "text": "开发者服务器接口返回的数据内容需仅包含文本、图片、视频、音频等供页面展示的静态资源，不支持包含代码、脚本等动态数据。"
+        },
+        {
+          "section": "配置服务器地址",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#配置服务器地址",
+          "text": "开发者服务器接口返回的数据类型为其自定义格式的JSON或字符串数据，大小需限定在3MB以内。"
+        },
+        {
+          "section": "配置服务器地址",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#配置服务器地址",
+          "text": "开发者服务器接口返回的数据类型为其自定义格式的JSON或字符串数据，大小需限定在3MB以内。"
+        },
+        {
+          "section": "配置服务器地址",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#配置服务器地址",
+          "text": "若配置“安装预加载”，重复步骤4-6即可。"
+        },
+        {
+          "section": "配置服务器地址",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#配置服务器地址",
+          "text": "若配置“安装预加载”，重复步骤4-6即可。"
+        },
+        {
+          "section": "配置服务器地址",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#配置服务器地址",
+          "text": "（可选）若后续需要修改下载地址，只需点击“下载地址”后的“修改”进行更新。"
+        },
+        {
+          "section": "配置服务器地址",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config#配置服务器地址",
+          "text": "（可选）若后续需要修改下载地址，只需点击“下载地址”后的“修改”进行更新。"
+        }
+      ],
+      "renderedText": "您当前正在浏览新版开发者文档中心，目录分类和层级有所调整。点击左侧当前文档分类名称前的“☰”图标，可切换文档分类。 了解新版目录\n\n指南与API参考\n指南\n应用服务\nCloud Foundation Kit（云开发服务）\n预加载\n配置预加载\n配置预加载\n更新时间: 2026-04-24 16:10\n复制页面\n\n安装预加载、周期性预加载和跳链安装预加载需分别进行配置，且三者均可通过云函数和开发者服务器（即HTTPS请求）两种数据来源方式来实现。\n\n对于不同类型的开发者，支持的数据来源方式有所不同：\n\n个人开发者：数据来源默认选择云函数，且仅支持通过云函数来实现预加载。需要开通云函数服务并创建函数才可以配置。\n\n非个人开发者：数据来源支持云函数和开发者服务器两种。可根据实际需要进行选择。\n\n下文介绍如何配置两种数据来源方式的预加载实现。\n\n数据来源为云函数\n前提条件\n\n已开通预加载服务。\n\n已创建函数。\n\n绑定云函数\n\n登录AppGallery Connect，点击“开发与服务”。\n\n在项目列表中点击您的项目，在项目下的应用列表中选择需要配置预加载的HarmonyOS应用/元服务。\n\n在左侧导航栏选择“云开发（Serverless）> 预加载”，进入预加载页面。\n\n根据实际需要，在“周期性预加载”、“安装预加载”或者“跳链安装预加载”区域，“数据来源”选择“云函数”，然后点击“函数名称”后的“修改”。\n\n说明\n\n跳链安装预加载仅支持在HarmonyOS应用中调用。\n\n由于跳链安装预加载功能需要使用App Linking Kit提供的延迟链接能力，因此在配置跳链安装预加载之前，请务必先完成延迟链接的开发。具体请参见通过延迟链接跳转至应用详情页。\n\n以“周期性预加载”为例，在“函数名称”下拉框选择实现周期性预加载的函数名称。\n\n点击“保存”完成周期性预加载配置。\n\n若配置“安装预加载”或“跳链安装预加载”，重复步骤4-6即可。\n\n（可选）若后续需要修改绑定的云函数，只需点击“函数名称”后的“修改”进行更新。\n\n数据来源为开发者服务器\n前提条件\n\n已开通预加载服务。\n\n配置服务器地址\n\n登录AppGallery Connect，点击“开发与服务”。\n\n在项目列表中点击您的项目，在项目下的应用列表中选择需要配置预加载的HarmonyOS应用/元服务。\n\n在左侧导航栏选择“云开发（Serverless）> 预加载”，进入预加载页面。\n\n根据实际需要，在“周期性预加载”、“安装预加载”或者“跳链安装预加载”区域，“数据来源”选择“开发者服务器”。\n\n说明\n\n跳链安装预加载仅支持在HarmonyOS应用中调用。\n\n由于跳链安装预加载功能需要使用App Linking Kit提供的延迟链接能力，因此在配置跳链安装预加载之前，请务必先完成延迟链接的开发。具体请参见通过延迟链接跳转至应用详情页。\n\n点击“下载地址”后的“修改”。\n\n以“周期性预加载”为例，“下载地址”以“https://”开头，输入框中输入服务器地址，配置完成后点击“保存”。\n\n需要注意以下几点：\n\n仅支持填写一个服务器地址，需包含预加载资源接口路径，如图中示例：prefetchData。\n\n域名：须填写完整的域名。例如www.example.com，不可写为example.com。\n\nIP地址：须填写准确的IP地址，确保没有输入错误。\n\n端口号：如果要指定端口号，可在服务器地址后面以冒号分隔，例如https://www.example.com:443。HTTPS协议的默认端口号（443）可以省略。\n\n后续AGC会周期性地向该处配置的开发者服务器（即下载地址）发起一个HTTP GET请求，其中包含的query参数请参考开发者服务器接口规范，获取到数据后会将整个HTTP body缓存在本地。\n\n说明\n\n开发者服务器接口返回的数据内容需仅包含文本、图片、视频、音频等供页面展示的静态资源，不支持包含代码、脚本等动态数据。\n\n开发者服务器接口返回的数据类型为其自定义格式的JSON或字符串数据，大小需限定在3MB以内。\n\n若配置“安装预加载”，重复步骤4-6即可。\n\n（可选）若后续需要修改下载地址，只需点击“下载地址”后的“修改”进行更新。\n\n开发流程\n开发预加载资源接口\n意见反馈\n以上内容对您是否有帮助？\n意见反馈\n如果您有其他疑问，您也可以通过开发者社区问答频道来和我们联系探讨。\n社区提问AI 助手提问\n本文导读\n数据来源为云函数\n前提条件\n绑定云函数\n数据来源为开发者服务器\n前提条件\n配置服务器地址\n华为开发者联盟 版权所有 ©2026\n问题反馈\n使用条款\n华为开发者联盟用户协议\n关于华为开发者联盟与隐私的声明\nCookies\n开源软件声明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config",
+      "status": "browser-read",
+      "tables": [],
+      "title": "配置预加载"
+    },
+    {
+      "captureTool": "Computer Use; merged-cell capture compatible with scripts/browser-capture-reference.mjs",
+      "checkedAt": "2026-10-26",
+      "examples": [],
+      "links": [
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter#section195981215284",
+          "title": "了解新版目录"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloud-foundation-kit-guide",
+          "title": "Cloud Foundation Kit（云开发服务）"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-service",
+          "title": "预加载"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug",
+          "title": "调试周期性预加载"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-errorcode",
+          "title": "错误码"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-call-install-and-periodic-prefetch",
+          "title": "调用全部预加载"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug",
+          "title": "调试周期性预加载"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+          "title": "华为开发者联盟用户协议"
+        }
+      ],
+      "notes": [
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-debugging",
+          "text": "您当前正在浏览新版开发者文档中心，目录分类和层级有所调整。点击左侧当前文档分类名称前的“☰”图标，可切换文档分类。 了解新版目录"
+        },
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-debugging",
+          "text": "调试周期性预加载"
+        },
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-debugging",
+          "text": "错误码"
+        }
+      ],
+      "renderedText": "您当前正在浏览新版开发者文档中心，目录分类和层级有所调整。点击左侧当前文档分类名称前的“☰”图标，可切换文档分类。 了解新版目录\n\n指南与API参考\n指南\n应用服务\nCloud Foundation Kit（云开发服务）\n预加载\n（可选）使用命令行工具调试周期性预加载\n（可选）使用命令行工具调试周期性预加载\n更新时间: 2026-10-10 20:02\n复制页面\n调试周期性预加载\n\n错误码\n\n调用全部预加载\n调试周期性预加载\n意见反馈\n以上内容对您是否有帮助？\n意见反馈\n如果您有其他疑问，您也可以通过开发者社区问答频道来和我们联系探讨。\n社区提问AI 助手提问\n华为开发者联盟 版权所有 ©2026\n问题反馈\n使用条款\n华为开发者联盟用户协议\n关于华为开发者联盟与隐私的声明\nCookies\n开源软件声明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-debugging",
+      "status": "browser-read",
+      "tables": [],
+      "title": "（可选）使用命令行工具调试周期性预加载"
+    },
+    {
+      "captureTool": "Computer Use; merged-cell capture compatible with scripts/browser-capture-reference.mjs",
+      "checkedAt": "2026-10-26",
+      "examples": [
+        {
+          "section": "命令格式",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#命令格式",
+          "text": "cf_prefetch getcache -m <bundlename>"
+        }
+      ],
+      "links": [
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter#section195981215284",
+          "title": "了解新版目录"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloud-foundation-kit-guide",
+          "title": "Cloud Foundation Kit（云开发服务）"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-service",
+          "title": "预加载"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-debugging",
+          "title": "（可选）使用命令行工具调试周期性预加载"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#%E8%B0%83%E8%AF%95%E5%91%BD%E4%BB%A4",
+          "title": "getcache"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/registration-and-verification-0000001053628148",
+          "title": "账号注册认证"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-getting-started/agc-help-debug-cert-0000002283256797",
+          "title": "申请调试证书"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/hdc#%E8%AE%BE%E5%A4%87%E8%BF%9E%E6%8E%A5%E7%AE%A1%E7%90%86",
+          "title": "设备连接管理"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/hdc#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98",
+          "title": "常见问题"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#%E5%BC%82%E5%B8%B8%E5%9C%BA%E6%99%AF",
+          "title": "异常场景"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-debugging",
+          "title": "（可选）使用命令行工具调试周期性预加载"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-errorcode",
+          "title": "错误码"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#%E8%B0%83%E8%AF%95%E5%87%86%E5%A4%87",
+          "title": "调试准备"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#%E5%88%87%E6%8D%A2shell%E7%8E%AF%E5%A2%83",
+          "title": "切换shell环境"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#%E8%B0%83%E8%AF%95%E5%91%BD%E4%BB%A4",
+          "title": "调试命令"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#%E5%91%BD%E4%BB%A4%E6%A0%BC%E5%BC%8F",
+          "title": "命令格式"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#%E5%91%BD%E4%BB%A4%E9%80%89%E9%A1%B9",
+          "title": "命令选项"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#%E8%B0%83%E7%94%A8%E7%A4%BA%E4%BE%8B",
+          "title": "调用示例"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#%E6%AD%A3%E5%B8%B8%E5%9C%BA%E6%99%AF",
+          "title": "正常场景"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#%E5%BC%82%E5%B8%B8%E5%9C%BA%E6%99%AF",
+          "title": "异常场景"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+          "title": "华为开发者联盟用户协议"
+        }
+      ],
+      "notes": [
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug",
+          "text": "您当前正在浏览新版开发者文档中心，目录分类和层级有所调整。点击左侧当前文档分类名称前的“☰”图标，可切换文档分类。 了解新版目录"
+        },
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug",
+          "text": "prefetch_test_tool是为周期性预加载功能提供的一种命令行工具，开发者集成预加载服务后，使用该工具可以更方便、更高效地进行周期性预加载功能测试和调试，提高开发效率，同时确保预加载服务的平稳运行。"
+        },
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug",
+          "text": "当前命令行工具支持的命令集如下："
+        },
+        {
+          "section": "调试准备",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#调试准备",
+          "text": "使用命令行工具调试周期性预加载之前，需要完成以下准备工作："
+        },
+        {
+          "section": "调试准备",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#调试准备",
+          "text": "您已在开发者联盟官网注册账号并通过实名认证，详情请参见账号注册认证。"
+        },
+        {
+          "section": "调试准备",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#调试准备",
+          "text": "您已在开发者联盟官网注册账号并通过实名认证，详情请参见账号注册认证。"
+        },
+        {
+          "section": "调试准备",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#调试准备",
+          "text": "您已在本地安装DevEco Studio 5.0.3 Release及以上版本。"
+        },
+        {
+          "section": "调试准备",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#调试准备",
+          "text": "您已在本地安装DevEco Studio 5.0.3 Release及以上版本。"
+        },
+        {
+          "section": "调试准备",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#调试准备",
+          "text": "手机/平板终端设备的ROM版本已升级至HarmonyOS 6.0.0 Beta5及以上版本。"
+        },
+        {
+          "section": "调试准备",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#调试准备",
+          "text": "手机/平板终端设备的ROM版本已升级至HarmonyOS 6.0.0 Beta5及以上版本。"
+        },
+        {
+          "section": "调试准备",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#调试准备",
+          "text": "设置HAP包的“Build Mode”为“debug”，且已申请调试证书。"
+        },
+        {
+          "section": "调试准备",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#调试准备",
+          "text": "设置HAP包的“Build Mode”为“debug”，且已申请调试证书。"
+        },
+        {
+          "section": "切换shell环境",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#切换shell环境",
+          "text": "prefetch_test_tool命令行工具基于hdc shell调试，需要切换到hdc shell命令环境。"
+        },
+        {
+          "section": "切换shell环境",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#切换shell环境",
+          "text": "PC连接调试设备。连接方式请根据实际情况选择，详情请参见设备连接管理。"
+        },
+        {
+          "section": "切换shell环境",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#切换shell环境",
+          "text": "PC连接调试设备。连接方式请根据实际情况选择，详情请参见设备连接管理。"
+        },
+        {
+          "section": "切换shell环境",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#切换shell环境",
+          "text": "打开DevEco Studio，菜单栏选择“View > Tool Windows > Terminal”进入Terminal窗口。"
+        },
+        {
+          "section": "切换shell环境",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#切换shell环境",
+          "text": "打开DevEco Studio，菜单栏选择“View > Tool Windows > Terminal”进入Terminal窗口。"
+        },
+        {
+          "section": "切换shell环境",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#切换shell环境",
+          "text": "输入hdc shell，切换到hdc shell命令环境。切换过程中如果出现报错，请参见常见问题排查解决。"
+        },
+        {
+          "section": "切换shell环境",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#切换shell环境",
+          "text": "输入hdc shell，切换到hdc shell命令环境。切换过程中如果出现报错，请参见常见问题排查解决。"
+        },
+        {
+          "section": "调试命令",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#调试命令",
+          "text": "命令名“getcache”，提供获取周期性预加载数据的能力。"
+        },
+        {
+          "section": "命令格式",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#命令格式",
+          "text": "cf_prefetch getcache -m <bundlename>"
+        },
+        {
+          "section": "正常场景",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#正常场景",
+          "text": "输入cf_prefetch help，获取命令行工具的使用说明。"
+        },
+        {
+          "section": "正常场景",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#正常场景",
+          "text": "输入cf_prefetch help，获取命令行工具的使用说明。"
+        },
+        {
+          "section": "正常场景",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#正常场景",
+          "text": "输入cf_prefetch getcache -h，获取getcache命令支持的参数信息。"
+        },
+        {
+          "section": "正常场景",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#正常场景",
+          "text": "输入cf_prefetch getcache -h，获取getcache命令支持的参数信息。"
+        },
+        {
+          "section": "正常场景",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#正常场景",
+          "text": "输入cf_prefetch getcache -m <bundlename>，立即向云侧请求获取一次周期性预加载数据。\n\n说明\n\n如果返回结果中的“fetch data timestamp”不是当前时间，则表示仍为上一次成功拉取数据的时间戳，此次数据拉取失败，请参见异常场景排查。"
+        },
+        {
+          "section": "正常场景",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#正常场景",
+          "text": "输入cf_prefetch getcache -m <bundlename>，立即向云侧请求获取一次周期性预加载数据。"
+        },
+        {
+          "section": "正常场景",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#正常场景",
+          "text": "如果返回结果中的“fetch data timestamp”不是当前时间，则表示仍为上一次成功拉取数据的时间戳，此次数据拉取失败，请参见异常场景排查。"
+        },
+        {
+          "section": "异常场景",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#异常场景",
+          "text": "链路不通，例如无网络情况；或周期性预加载配置不正确。"
+        },
+        {
+          "section": "异常场景",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#异常场景",
+          "text": "链路不通，例如无网络情况；或周期性预加载配置不正确。"
+        },
+        {
+          "section": "异常场景",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#异常场景",
+          "text": "命令行工具内部错误。"
+        },
+        {
+          "section": "异常场景",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#异常场景",
+          "text": "命令行工具内部错误。"
+        },
+        {
+          "section": "异常场景",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#异常场景",
+          "text": "HAP包非debug调试模式。"
+        },
+        {
+          "section": "异常场景",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#异常场景",
+          "text": "HAP包非debug调试模式。"
+        },
+        {
+          "section": "异常场景",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#异常场景",
+          "text": "应用包名输入错误。"
+        },
+        {
+          "section": "异常场景",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#异常场景",
+          "text": "应用包名输入错误。"
+        }
+      ],
+      "renderedText": "您当前正在浏览新版开发者文档中心，目录分类和层级有所调整。点击左侧当前文档分类名称前的“☰”图标，可切换文档分类。 了解新版目录\n\n指南与API参考\n指南\n应用服务\nCloud Foundation Kit（云开发服务）\n预加载\n（可选）使用命令行工具调试周期性预加载\n调试周期性预加载\n调试周期性预加载\n更新时间: 2026-04-20 14:34\n复制页面\n\nprefetch_test_tool是为周期性预加载功能提供的一种命令行工具，开发者集成预加载服务后，使用该工具可以更方便、更高效地进行周期性预加载功能测试和调试，提高开发效率，同时确保预加载服务的平稳运行。\n\n当前命令行工具支持的命令集如下：\n\n命令名\t描述\ngetcache\t提供获取周期性预加载数据的能力。\n调试准备\n\n使用命令行工具调试周期性预加载之前，需要完成以下准备工作：\n\n您已在开发者联盟官网注册账号并通过实名认证，详情请参见账号注册认证。\n\n您已在本地安装DevEco Studio 5.0.3 Release及以上版本。\n\n手机/平板终端设备的ROM版本已升级至HarmonyOS 6.0.0 Beta5及以上版本。\n\n设置HAP包的“Build Mode”为“debug”，且已申请调试证书。\n\n切换shell环境\n\nprefetch_test_tool命令行工具基于hdc shell调试，需要切换到hdc shell命令环境。\n\nPC连接调试设备。连接方式请根据实际情况选择，详情请参见设备连接管理。\n\n打开DevEco Studio，菜单栏选择“View > Tool Windows > Terminal”进入Terminal窗口。\n\n输入hdc shell，切换到hdc shell命令环境。切换过程中如果出现报错，请参见常见问题排查解决。\n\n调试命令\n\n命令名“getcache”，提供获取周期性预加载数据的能力。\n\n命令格式\ncf_prefetch getcache -m <bundlename>\n命令选项\n命令选项\t必填(M)/选填(O)\t描述\t示例\n-m\tM\t应用包名。此处的包名需要与您在AppGallery Connect中创建应用时配置的包名保持一致。\tcf_prefetch getcache -m com.huawei.hms.xs.test\n调用示例\n正常场景\n\n输入cf_prefetch help，获取命令行工具的使用说明。\n\n输入cf_prefetch getcache -h，获取getcache命令支持的参数信息。\n\n输入cf_prefetch getcache -m <bundlename>，立即向云侧请求获取一次周期性预加载数据。\n\n说明\n\n如果返回结果中的“fetch data timestamp”不是当前时间，则表示仍为上一次成功拉取数据的时间戳，此次数据拉取失败，请参见异常场景排查。\n\n异常场景\n\n链路不通，例如无网络情况；或周期性预加载配置不正确。\n\n命令行工具内部错误。\n\nHAP包非debug调试模式。\n\n应用包名输入错误。\n\n（可选）使用命令行工具调试周期性预加载\n错误码\n意见反馈\n以上内容对您是否有帮助？\n意见反馈\n如果您有其他疑问，您也可以通过开发者社区问答频道来和我们联系探讨。\n社区提问AI 助手提问\n本文导读\n调试准备\n切换shell环境\n调试命令\n命令格式\n命令选项\n调用示例\n正常场景\n异常场景\n华为开发者联盟 版权所有 ©2026\n问题反馈\n使用条款\n华为开发者联盟用户协议\n关于华为开发者联盟与隐私的声明\nCookies\n开源软件声明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug",
+      "status": "browser-read",
+      "tables": [
+        {
+          "location": "",
+          "rows": [
+            [
+              "命令名",
+              "描述"
+            ],
+            [
+              "getcache",
+              "提供获取周期性预加载数据的能力。"
+            ]
+          ],
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug"
+        },
+        {
+          "location": "",
+          "rows": [
+            [
+              "命令选项",
+              "必填(M)/选填(O)",
+              "描述",
+              "示例"
+            ],
+            [
+              "-m",
+              "M",
+              "应用包名。此处的包名需要与您在AppGallery Connect中创建应用时配置的包名保持一致。",
+              "cf_prefetch getcache -m com.huawei.hms.xs.test"
+            ]
+          ],
+          "section": "命令选项",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug#命令选项"
+        }
+      ],
+      "title": "调试周期性预加载"
+    },
+    {
+      "captureTool": "Computer Use; merged-cell capture compatible with scripts/browser-capture-reference.mjs",
+      "checkedAt": "2026-10-26",
+      "examples": [],
+      "links": [
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter#section195981215284",
+          "title": "了解新版目录"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloud-foundation-kit-guide",
+          "title": "Cloud Foundation Kit（云开发服务）"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-service",
+          "title": "预加载"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-debugging",
+          "title": "（可选）使用命令行工具调试周期性预加载"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-config",
+          "title": "配置预加载"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug",
+          "title": "调试周期性预加载"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-emulator",
+          "title": "使用模拟器调试"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+          "title": "华为开发者联盟用户协议"
+        }
+      ],
+      "notes": [
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-errorcode",
+          "text": "您当前正在浏览新版开发者文档中心，目录分类和层级有所调整。点击左侧当前文档分类名称前的“☰”图标，可切换文档分类。 了解新版目录"
+        }
+      ],
+      "renderedText": "您当前正在浏览新版开发者文档中心，目录分类和层级有所调整。点击左侧当前文档分类名称前的“☰”图标，可切换文档分类。 了解新版目录\n\n指南与API参考\n指南\n应用服务\nCloud Foundation Kit（云开发服务）\n预加载\n（可选）使用命令行工具调试周期性预加载\n错误码\n错误码\n更新时间: 2026-04-20 14:34\n复制页面\n错误码\t描述\t解决方法\n1008200005\t周期性预加载执行失败。\t\n\n请从以下方面进行排查：\n\n- 检查设备网络连接情况。\n\n- 确保周期性预加载配置正确。若配置不正确，请参考配置预加载重新配置。\n\n- 确保云函数数据存储到中国境内（香港特别行政区、澳门特别行政区、中国台湾除外）。\n\n\n1008200009\t命令行工具内部错误。\t请通过在线工单系统联系技术支持人员定位问题。\n1008240000\tHAP包不在debug模式下。\t请确保HAP包的“Build Mode”设置为“debug”，且已申请调试证书。\n1008240007\t无法获取当前HAP包信息，例如APP ID等。\t请检查应用包名合法性，输入正确的应用包名。\n调试周期性预加载\n使用模拟器调试\n意见反馈\n以上内容对您是否有帮助？\n意见反馈\n如果您有其他疑问，您也可以通过开发者社区问答频道来和我们联系探讨。\n社区提问AI 助手提问\n华为开发者联盟 版权所有 ©2026\n问题反馈\n使用条款\n华为开发者联盟用户协议\n关于华为开发者联盟与隐私的声明\nCookies\n开源软件声明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-errorcode",
+      "status": "browser-read",
+      "tables": [
+        {
+          "location": "",
+          "rows": [
+            [
+              "错误码",
+              "描述",
+              "解决方法"
+            ],
+            [
+              "1008200005",
+              "周期性预加载执行失败。",
+              "请从以下方面进行排查： - 检查设备网络连接情况。 - 确保周期性预加载配置正确。若配置不正确，请参考配置预加载重新配置。 - 确保云函数数据存储到中国境内（香港特别行政区、澳门特别行政区、中国台湾除外）。"
+            ],
+            [
+              "1008200009",
+              "命令行工具内部错误。",
+              "请通过在线工单系统联系技术支持人员定位问题。"
+            ],
+            [
+              "1008240000",
+              "HAP包不在debug模式下。",
+              "请确保HAP包的“Build Mode”设置为“debug”，且已申请调试证书。"
+            ],
+            [
+              "1008240007",
+              "无法获取当前HAP包信息，例如APP ID等。",
+              "请检查应用包名合法性，输入正确的应用包名。"
+            ]
+          ],
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-errorcode"
+        }
+      ],
+      "title": "错误码"
+    }
+  ],
+  "implementationNotes": [
+    "Developer-server GET simulation; does not configure Huawei prefetch or prove device delivery. Never loads developer credentials. Installation response limit follows the overview quota of 2MiB; periodic and deferred responses are limited to 3MiB. The configuration guide gives a generic 3MB server-response limit; that does not override the smaller installation quota."
+  ]
+}

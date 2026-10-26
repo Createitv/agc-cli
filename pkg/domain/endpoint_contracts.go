@@ -23,12 +23,53 @@ func verifiedParameters(family, id string, inferred []Parameter) []Parameter {
 		return field
 	}
 	switch family + "/" + id {
+	case "projects/getteamlist":
+		// 官方仅支持 OAuth；不能将 Service Account JWT 或 API 客户端 token 当作 OAuth 用户授权。
+		return []Parameter{typed("oauth2Token", "header", "string", true, "OAuth 用户授权的 Access Token；仅支持 OAuth 客户端方式，以 oauth2Token 请求头传入。")}
+	case "publishing/package-compile-status-v3", "publishing/query-aabfile":
+		return []Parameter{appQuery, typed("pkgIds", "query", "string", true, "待查询的软件包 ID；多个 ID 以英文逗号分隔")}
+	case "pms/batchactproduct-harmonyosnext", "pms/batchactproduct-android", "pms/batchdeactproduct-harmonyosnext", "pms/batchdeactproduct-android":
+		return []Parameter{appHeader, typed("requestId", "body", "string", true, "开发者自定义唯一请求标识"), stringsArray("products", true, 0, 0, "待变更状态的商品标识列表；激活限已下线商品，去激活限已上线商品")}
+	case "pms/batchaddproduct-harmonyosnext", "pms/batchaddproduct-android", "pms/batchupdateproduct-harmonyosnext", "pms/batchupdateproduct-android":
+		products := typed("products", "body", "array", true, "商品列表；各条目遵循对应平台的 ProductImportInfo 模型")
+		products.ItemsType = "object"
+		return []Parameter{appHeader, typed("requestId", "body", "string", true, "开发者自定义唯一请求标识"), products}
+	case "pms/batchactpromotion-harmonyosnext", "pms/batchactpromotion-android", "pms/batchdeactpromotion-harmonyosnext", "pms/batchdeactpromotion-android":
+		request := typed("requestId", "body", "string", true, "开发者自定义唯一请求标识")
+		request.MaxLength = 64
+		parameters := []Parameter{appHeader, request, stringsArray("promotions", true, 0, 100, "促销 ID 列表，每个 ID 最长 32 字符")}
+		if id == "batchdeactpromotion-harmonyosnext" || id == "batchdeactpromotion-android" {
+			immediate := typed("immediateEnd", "body", "string", false, "1：立即结束促销；不传或其他值不更新促销结束时间")
+			immediate.MaxLength = 2
+			parameters = append(parameters, immediate)
+		}
+		return parameters
+	case "pms/addproduct-harmonyosnext":
+		// ProductInfo 的 status 是预留字段；创建成功不代表审核通过或已生效。
+		return []Parameter{appHeader, typed("requestId", "body", "string", true, "唯一请求序列，最长 64 字符"), typed("product", "body", "object", true, "商品定义；创建后需要审核才能上架生效")}
+	case "pms/addproductgroup-harmonyosnext", "pms/updateproductgroup-harmonyosnext", "pms/addproductgroup-android", "pms/updateproductgroup-android":
+		// 官方 ProductGroupInfo：创建时系统生成 groupId；groupName 必填。
+		return []Parameter{appHeader, typed("requestId", "body", "string", true, "开发者生成的唯一请求序列，最长 64 字符"), typed("resource", "body", "object", true, "商品订阅分组信息；groupName 必填，更新时 groupId 必填；状态约束以对应版本官方模型为准")}
+	case "pms/getproductgroup-harmonyosnext", "pms/getproductgroup-android":
+		return []Parameter{appHeader, typed("requestId", "body", "string", true, "唯一请求序列，最长 64 字符"), typed("pageNum", "body", "integer", false, "起始页，默认 1"), typed("pageSize", "body", "integer", false, "每页 1 至 300 条，默认 20"), typed("orderBy", "body", "string", false, "以 JSON 表示 name、createTime 或 updateTime 的 asc/desc 排序规则")}
+	case "cicd/build-hvigor":
+		return []Parameter{typed("project", "body", "string", true, "本地 HarmonyOS 项目目录"), typed("hvigorPath", "body", "string", false, "Hvigor 可执行文件路径；默认检测 DevEco Studio 或 PATH"), typed("product", "body", "string", false, "产品名，默认 default"), typed("buildMode", "body", "string", false, "debug 或 release，默认 debug"), typed("task", "body", "string", false, "assembleHap：模块 HAP；assembleApp：项目 APP，默认 assembleHap")}
+	case "upload/obbfile-init":
+		// 官方初始化接口在 Query 中传参，POST 并不表示这些字段在 Body。
+		return []Parameter{appQuery, typed("fileName", "query", "string", true, "带后缀的原始文件名"), typed("contentType", "query", "string", false, "对象 MIME 类型"), {Name: "fileType", In: "query", Type: "integer", Enum: []string{"1", "2", "3"}, Description: "1：HarmonyOS APP；2：OBB（默认）；3：APK/AAB。"}, {Name: "obbType", In: "query", Type: "integer", Enum: []string{"1", "2"}, Description: "OBB文件必填：1主扩展，2补丁扩展；非OBB文件不能传入。"}, typed("releaseType", "query", "integer", false, "1：商用；6：HarmonyOS 测试"), typed("chineseMainlandFlag", "query", "integer", false, "是否分发中国大陆：0 或 1")}
+	case "upload/obbfile-uploadurl", "upload/obbfile-compose":
+		// Body 是以 additionalProp1、additionalProp2 等编号为键的动态对象，不能将文档占位名 additionalPropX 设为必填字段。
+		return []Parameter{typed("objectId", "query", "string", true, "本次分片初始化返回的对象 ID"), typed("nspUploadId", "query", "string", true, "本次分片初始化返回的上传 ID")}
 	case "publishing/app-create":
 		return []Parameter{typed("projectId", "query", "string", false, "可选项目 ID；省略时创建专用同名项目"), typed("appName", "body", "string", true, "应用名称，最长 64 字符"), typed("packageName", "body", "string", false, "HarmonyOS 应用必填且包名唯一；元服务由系统生成"), typed("parentType", "body", "integer", true, "13：应用；2：游戏"), typed("installationFree", "body", "integer", true, "0：HarmonyOS 应用；1：元服务")}
 	case "publishing/app-info-query-v3":
 		return []Parameter{appQuery, typed("lang", "query", "string", false, "可选语言；不传则返回全部语言"), typed("releaseType", "query", "integer", false, "1：商用版本；6：HarmonyOS 测试版本"), typed("versionId", "query", "string", false, "releaseType=6 时必填的测试版本 ID")}
 	case "publishing/app-version-list":
 		return []Parameter{appHeader, typed("packageName", "body", "string", false, "应用包名；CLI 已要求 appId 请求头"), typed("state", "body", "string", false, "可选版本状态，多个状态以逗号分隔")}
+	case "publishing/language-info-update":
+		return []Parameter{appQuery, typed("lang", "body", "string", true, "目标语言；新建语言与更新语言使用相同入口"), typed("appName", "body", "string", false, "目标语言的应用名称"), typed("appDesc", "body", "string", false, "目标语言的详细描述"), typed("briefInfo", "body", "string", false, "目标语言的简介"), typed("newFeatures", "body", "string", false, "目标语言的新版本特性")}
+	case "publishing/language-info-delete":
+		return []Parameter{appQuery, typed("lang", "query", "string", true, "待删除的非默认语言"), typed("releaseType", "query", "integer", false, "应用发布方式")}
 	case "provisioning/provision-api-get-fingerprints", "provisioning/provision-api-getacl", "testing/test-api-get-test-grouplist":
 		return []Parameter{appHeader}
 	case "provisioning/provision-api-add-fingerprints", "provisioning/provision-api-delete-fingerprints":
@@ -38,7 +79,24 @@ func verifiedParameters(family, id string, inferred []Parameter) []Parameter {
 	case "provisioning/provision-api-delete-cent":
 		return []Parameter{stringsArray("certIds", true, 1, 100, "待删除的本次运行专用证书 ID 列表")}
 	case "provisioning/provision-api-apply-provision":
-		return []Parameter{typed("provisionName", "body", "string", true, "专用 Profile 名称"), typed("provisionType", "body", "integer", true, "1：调试；2：发布；3：In-house；6：指定设备"), typed("certId", "body", "string", true, "本次生成的专用证书 ID"), typed("appId", "body", "string", true, "专用测试应用 ID"), typed("deviceIdList", "body", "array", false, "真实设备 ID 列表，最多 4000 项"), typed("aclPermissionList", "body", "array", false, "已获审批的 ACL 列表，最多 1000 项")}
+		devices := stringsArray("deviceIdList", false, 0, 4000, "真实设备 ID 列表，最多 4000 项")
+		devices.ItemsMaxLength = 32
+		permissions := stringsArray("aclPermissionList", false, 0, 1000, "已获审批的 ACL 列表，最多 1000 项")
+		permissions.ItemsMaxLength = 256
+		return []Parameter{typed("provisionName", "body", "string", true, "专用 Profile 名称"), typed("provisionType", "body", "integer", true, "1：调试；2：发布；3：In-house；6：指定设备"), typed("certId", "body", "string", true, "本次生成的专用证书 ID"), typed("appId", "body", "string", true, "专用测试应用 ID"), devices, permissions}
+	case "provisioning/provision-api-applyacl":
+		model := "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-provision-api-data-applypermissioninfo-0000002469038756"
+		return []Parameter{appHeader, typed("attachment", "body", "string", false, "已上传附件的 objectId"), {Name: "aclPermissionList", In: "body", Type: "array", Required: true, ItemsType: "object", Description: "受限 ACL 申请列表；按官方请求示例展开为对象数组。", ItemsProperties: []Parameter{
+			{Name: "name", In: "body", Type: "string", Required: true, MaxLength: 256, SourceURL: model},
+			{Name: "reason", In: "body", Type: "string", Required: true, MaxLength: 256, SourceURL: model},
+		}}}
+	case "provisioning/provision-api-add-device":
+		model := "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-provision-api-data-adddeviceinfo-0000002236201314"
+		return []Parameter{{Name: "deviceList", In: "body", Type: "array", Required: true, ItemsType: "object", MaxItems: 1000, Description: "真实调试/测试设备信息列表，最多1000项。", ItemsProperties: []Parameter{
+			{Name: "deviceName", In: "body", Type: "string", Required: true, MaxLength: 100, SourceURL: model},
+			{Name: "udid", In: "body", Type: "string", Required: true, MaxLength: 64, SourceURL: model},
+			{Name: "deviceType", In: "body", Type: "integer", Required: true, Enum: []string{"1", "2", "4", "5", "8", "19"}, SourceURL: model},
+		}}}
 	case "provisioning/provision-api-delete-provision":
 		return []Parameter{typed("id", "query", "string", true, "本次创建并登记的专用 Profile ID")}
 	case "provisioning/provision-api-update-provision":
@@ -47,8 +105,27 @@ func verifiedParameters(family, id string, inferred []Parameter) []Parameter {
 		return []Parameter{appHeader}
 	case "domains/domain-api-get-domain":
 		return []Parameter{appHeader, p("category", "query", true, "Domain category")}
+	case "domains/domain-api-post-domain":
+		// 全量替换指定分类的域名；空数组可清空。不得把 category 放在 Body。
+		return []Parameter{appHeader, typed("category", "query", "string", true, "server：服务器域名；business：业务域名"), typed("domains", "body", "array", false, "全量域名列表，每项含 type 和 value；最多 3000 项")}
+	case "domains/domain-api-precheck":
+		return []Parameter{appHeader, typed("domain", "body", "object", false, "待校验的业务域名，type 必须为 webView；需提前部署校验文件")}
+	case "domains/domain-api-download-domain-config", "domains/domain-api-get-domain-config":
+		return []Parameter{appHeader}
 	case "testing/test-api-query-test-user":
 		return []Parameter{appHeader, p("groupId", "header", true, "Test group ID")}
+	case "testing/test-api-add-test-group-user":
+		return []Parameter{appHeader,
+			{Name: "groupId", In: "body", Type: "string", Required: true, MaxLength: 32, Description: "测试群组ID。"},
+			{Name: "hwAccount", In: "body", Type: "string", Required: true, MaxLength: 256, Description: "真实华为账号、邮箱或手机号；内部群组手机号格式0086手机号，外部群组为86-手机号。"},
+			{Name: "nickName", In: "body", Type: "string", MaxLength: 64, Description: "测试成员昵称。"},
+			{Name: "uid", In: "body", Type: "string", MaxLength: 128, Description: "联盟账号ID；内部群组添加成员必填，需先确认群组类型。"},
+		}
+	case "testing/test-api-delete-test-group-user":
+		return []Parameter{appHeader,
+			{Name: "groupId", In: "body", Type: "string", Required: true, MaxLength: 32, Description: "测试群组ID。"},
+			{Name: "deleteTesterIds", In: "body", Type: "array", Required: true, ItemsType: "string", ItemsMaxLength: 100, MaxItems: 100, Description: "真实测试成员ID列表；数组长度不超过100，每个ID最长100字符。"},
+		}
 	case "testing/test-api-add-test-group":
 		return []Parameter{appHeader, typed("groupName", "body", "string", true, "群组名称，最长 50 个字符"), typed("groupType", "body", "integer", false, "0：外部群组；1：内部群组（需要 AppTest）")}
 	case "testing/test-api-edit-test-group":
@@ -66,10 +143,16 @@ func verifiedParameters(family, id string, inferred []Parameter) []Parameter {
 		return []Parameter{appHeader, typed("invitationCodeId", "query", "string", true, "要删除的邀请码 ID；AppTest 邀请测试不支持此接口")}
 	case "testing/test-api-add-test-version":
 		return []Parameter{appQuery, typed("releaseType", "body", "integer", true, "HarmonyOS 测试发布方式，默认 6"), typed("testType", "body", "integer", true, "3：邀请测试；4：公开测试"), typed("testDesc", "body", "string", true, "测试版本描述，最长 50 字符"), typed("onshelfSelfDetect", "body", "integer", false, "0：不进行正式上架自检；1：进行自检")}
+	case "testing/test-api-add-test-package":
+		// file 是已经上传的 .app 文件元数据，不是把二进制文件直接放入此 JSON 请求。
+		return []Parameter{appQuery, typed("file", "body", "object", true, "文件信息，包含 fileName 和上传返回的 objectId；需随后轮询异步软件包解析"), typed("distributeMode", "body", "integer", false, "1：测试专区；2：应用市场")}
+	case "testing/test-api-modify-test-version":
+		// 已核对官方参数表，并在专用应用上读回草稿描述变更。
+		return []Parameter{appQuery, typed("versionId", "body", "string", true, "本次创建的测试草稿版本 ID；在架版本不可更新"), typed("pkgId", "body", "string", false, "成功编译的软件包 ID"), typed("languages", "body", "array", false, "版本语言信息，最多 100 项"), typed("deviceTypes", "body", "array", false, "设备类型，最多 6 项"), typed("distCountryList", "body", "string", false, "公开测试国家码，以英文逗号分隔"), typed("extInfo", "body", "object", false, "版本扩展信息"), typed("openTestInfo", "body", "object", false, "测试时间、描述与任务信息"), typed("packagePermissionIntroVideoList", "body", "array", false, "权限说明视频"), typed("versionVocReq", "body", "array", false, "公开测试已解决问题")}
 	case "testing/test-api-delete-test-version":
 		return []Parameter{appQuery, typed("versionId", "query", "string", true, "本次创建的测试草稿版本 ID")}
 	case "upload/upload-url-new":
-		return []Parameter{p("contentLength", "query", true, "Upload file length in bytes"), p("appId", "query", false, "Huawei application ID"), p("suffix", "query", false, "Upload file suffix"), p("fileName", "query", false, "Upload file name")}
+		return []Parameter{appQuery, typed("fileName", "query", "string", true, "包含后缀的原始文件名"), typed("contentLength", "query", "integer", true, "文件长度，单位字节"), typed("sha256", "query", "string", false, "文件内容 SHA256"), typed("releaseType", "query", "integer", false, "发布方式"), typed("chineseMainlandFlag", "query", "integer", false, "是否分发中国大陆；非中国大陆注册开发者必须设置")}
 	case "publishing/app-info-query":
 		return []Parameter{p("appId", "query", true, "Huawei application ID"), p("lang", "query", false, "Application information language")}
 	case "projects/queryservice":

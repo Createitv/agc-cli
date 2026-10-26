@@ -1,0 +1,291 @@
+{
+  "checkedAt": "2026-10-26",
+  "examples": [
+    {
+      "section": "请求示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-uploadfile-0000001549318457#section111611358426",
+      "text": "请求示例\nPUT /v0/testagc-02reg/test5.jpg\nclient_id: 84****32064\nproductId: 736430****461998\nContent-Type: application/json\nX-Agc-Trace-Id: 123\nX-Agc-File-Offset: 0\nX-Agc-File-Size: 12\nX-Agc-Sha256: 11\nAuthorization: Bearer ****\nUser-Agent: PostmanRuntime/7.6.0\nAccept: */*\nHost: ops-server-drcn.agcstorage.link\naccept-encoding: gzip, deflate\ncontent-length: 2536"
+    },
+    {
+      "section": "响应示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-uploadfile-0000001549318457#section4608111864818",
+      "text": "响应示例\nHTTP/1.1 200\nstatus: 200\nDate: Mon, 27 Mar 2023 03:23:25 GMT\nContent-Type: text/plain\nTransfer-Encoding: chunked\nConnection: keep-alive\nX-Agc-Trace-Id: 123\nServer: elb\n{\"uploadStatus\":\"finalize\",\"fileInfo\":{\"updateTime\":\"2023-03-27T03:23:24Z\",\"bucket\":\"testagc-02reg\",\"name\":\"test5.jpg\",\"storageType\":\"STANDARD\",\"createTime\":\"2023-03-27T03:23:24Z\",\"contentType\":\"application\\/octet-stream\",\"size\":2536,\"storageArea\":\"CN\"}}"
+    }
+  ],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-0000001054967271",
+      "title": "Server"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/restapi-0000001223619953",
+      "title": "REST API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/agcapi-obtain-token-project-0000001477336048",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/agcapi-obtain-token-project-0000001477336048",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-storage-getapicredentials-0000001498508514#section8727185210538",
+      "title": "创建API客户端"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-get-developerid-projectid-0000001166543063",
+      "title": "查询项目ID"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/agcapi-obtain-token-project-0000001477336048",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-fileinfo-0000001498838610",
+      "title": "FileInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/restapi-0000001223619953",
+      "title": "REST API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-getfile-0000001498998530",
+      "title": "下载文件"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-uploadfile-0000001549318457#section15408512141113",
+      "title": "功能介绍"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-uploadfile-0000001549318457#section17667171510253",
+      "title": "接口原型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-uploadfile-0000001549318457#section98801710132813",
+      "title": "请求参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-uploadfile-0000001549318457#section17216134314169",
+      "title": "Header"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-uploadfile-0000001549318457#section111611358426",
+      "title": "请求示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-uploadfile-0000001549318457#section1787523414439",
+      "title": "响应参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-uploadfile-0000001549318457#section052915616139",
+      "title": "Header"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-uploadfile-0000001549318457#section20105181721319",
+      "title": "Body"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-uploadfile-0000001549318457#section4608111864818",
+      "title": "响应示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-uploadfile-0000001549318457#section227853019496",
+      "title": "调用示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-uploadfile-0000001549318457#section15408512141113",
+      "text": "此接口用于上传文件。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-uploadfile-0000001549318457#section17216134314169",
+      "text": "单次请求所有的header数量不超过40个。"
+    }
+  ],
+  "renderedText": "API参考\n云存储\nServer\nREST API\n上传文件\n上传文件\n更新时间: 2026-10-22 14:56\n功能介绍\n\n此接口用于上传文件。\n\n接口原型\n\n承载协议\n\n\t\n\nHTTPS PUT\n\n\n\n\n接口方向\n\n\t\n\n开发者服务器->华为服务器\n\n\n\n\n接口URL\n\n\t\n\nhttps://{domain}/{bucket_name}/{object_name}\n\n注意\n{bucket_name}为当前存储实例名称，{object_name}为待上传的文件名称。\n{domain}为接口域名。\n中国站点的域名：ops-server-drcn.agcstorage.link/v0\n德国站点的域名：ops-server-dre.agcstorage.link/v0\n新加坡站点的域名：ops-server-dra.agcstorage.link/v0\n俄罗斯站点的域名：ops-server-drru.agcstorage.link/v0\n调用获取Token接口时使用的站点必须与本接口使用的站点保持一致。例如本接口使用的站点是德国，即接口域名为“ops-server-dre.agcstorage.link/v0”，则调用获取Token接口也必须使用德国站点，其接口域名需为“connect-api-dre.cloud.huawei.com”。\n\n\n\n数据格式\n\n\t\n\n请求：Content-Type: application/json\n\n响应：Content-Type: application/json\n\n请求参数\nHeader\n说明\n\n单次请求所有的header数量不超过40个。\n\n参数\n\n\t\n\n类型\n\n\t\n\n必选(M)/可选(O)\n\n\t\n\n说明\n\n\n\n\nclient_id\n\n\t\n\nString\n\n\t\n\nM\n\n\t\n\n客户端ID，获取方法参考创建API客户端。\n\n\n\n\nproductId\n\n\t\n\nString\n\n\t\n\nM\n\n\t\n\n项目ID，查询方法可参见查询项目ID。\n\n\n\n\nAuthorization\n\n\t\n\nString\n\n\t\n\nM\n\n\t\n\n认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。\n\n\n\n\nX-Agc-File-Size\n\n\t\n\nString\n\n\t\n\nO\n\n\t\n\n文件大小，断点续传时为必选。\n\n\n\n\nX-Agc-File-Offset\n\n\t\n\nString\n\n\t\n\nO\n\n\t\n\n文件偏移量，断点续传的起始位置非零时为必选。\n\n\n\n\nX-Agc-Sha256\n\n\t\n\nString\n\n\t\n\nO\n\n\t\n\n文件的SHA256值，断点续传时为必选。\n\n\n\n\nX-Agc-Content-Type\n\n\t\n\nString\n\n\t\n\nO\n\n\t\n\n文件类型。\n\n默认值：application/octet-stream\n\n\n\n\nX-Agc-Content-Disposition\n\n\t\n\nString\n\n\t\n\nO\n\n\t\n\n文件打开方式。\n\n\n\n\nX-Agc-Content-Encoding\n\n\t\n\nString\n\n\t\n\nO\n\n\t\n\nHTTP标准头部Content-Encoding。\n\n\n\n\nX-Agc-Cache-Control\n\n\t\n\nString\n\n\t\n\nO\n\n\t\n\nHTTP标准头部Cache-Control。\n\n\n\n\nX-Agc-Content-Language\n\n\t\n\nString\n\n\t\n\nO\n\n\t\n\nHTTP标准头部Content-Language。\n\n\n\n\nX-Agc-meta-*\n\n\t\n\nString\n\n\t\n\nO\n\n\t\n\n可以在请求中加入以“X-Agc-meta-”开头的消息头，用于加入自定义的元数据，以便对文件进行自定义管理。当用户获取此文件或查询此文件元数据时，加入的自定义元数据将会在返回消息的头部出现。\n\nX-Agc-meta-仅标记此header是传递元数据，并非元数据key的一部分。例如，您传入的是“X-Agc-meta-test: test metadata”，保存的数据实例为“test: test metadata”。\n\n说明\n\n元数据名称相同则覆盖。自定义的部署不区分大小写，最后记录均为小写的方式。\n\n\n\n\nX-Agc-Trace-Id\n\n\t\n\nString\n\n\t\n\nO\n\n\t\n\n单个文件请求的Traceid。可不填或者随机生成，用于日志打印跟踪。\n\n请求示例\nPUT /v0/testagc-02reg/test5.jpg\nclient_id: 84****32064\nproductId: 736430****461998\nContent-Type: application/json\nX-Agc-Trace-Id: 123\nX-Agc-File-Offset: 0\nX-Agc-File-Size: 12\nX-Agc-Sha256: 11\nAuthorization: Bearer ****\nUser-Agent: PostmanRuntime/7.6.0\nAccept: */*\nHost: ops-server-drcn.agcstorage.link\naccept-encoding: gzip, deflate\ncontent-length: 2536\n响应参数\nHeader\n\n参数\n\n\t\n\n类型\n\n\t\n\n必选(M)/可选(O)\n\n\t\n\n说明\n\n\n\n\nstatus\n\n\t\n\nInteger\n\n\t\n\nM\n\n\t\n\nHTTP响应码，200表示成功。\n\n\n\n\nX-Agc-Trace-Id\n\n\t\n\nString\n\n\t\n\nO\n\n\t\n\n单个文件请求的Traceid，与请求参数X-Agc-Trace-Id保持一致。\n\nBody\n\n参数\n\n\t\n\n类型\n\n\t\n\n必选(M)/可选(O)\n\n\t\n\n说明\n\n\n\n\nuploadStatus\n\n\t\n\nString\n\n\t\n\nM\n\n\t\n\n上传状态。\n\nresumable：断点续传\nfinalize：上传完成\n\n\n\nreceiveBytes\n\n\t\n\nLong\n\n\t\n\nO\n\n\t\n\n已上传字节。从0开始，仅支持顺序上传。文件未上传完毕时返回该字段。\n\n\n\n\nfileInfo\n\n\t\n\nFileInfo\n\n\t\n\nO\n\n\t\n\n文件的详细信息。\n\n响应示例\nHTTP/1.1 200\nstatus: 200\nDate: Mon, 27 Mar 2023 03:23:25 GMT\nContent-Type: text/plain\nTransfer-Encoding: chunked\nConnection: keep-alive\nX-Agc-Trace-Id: 123\nServer: elb\n{\"uploadStatus\":\"finalize\",\"fileInfo\":{\"updateTime\":\"2023-03-27T03:23:24Z\",\"bucket\":\"testagc-02reg\",\"name\":\"test5.jpg\",\"storageType\":\"STANDARD\",\"createTime\":\"2023-03-27T03:23:24Z\",\"contentType\":\"application\\/octet-stream\",\"size\":2536,\"storageArea\":\"CN\"}}\n调用示例\n// 获取Token公共类\n// TokenServiceTest .java\nimport com.alibaba.fastjson.JSON;\nimport com.alibaba.fastjson.JSONObject;\n\n\nimport org.apache.http.Consts;\nimport org.apache.http.HttpResponse;\nimport org.apache.http.HttpStatus;\nimport org.apache.http.client.methods.HttpPost;\nimport org.apache.http.entity.StringEntity;\nimport org.apache.http.impl.client.CloseableHttpClient;\nimport org.apache.http.impl.client.HttpClients;\n\n\nimport java.io.BufferedReader;\nimport java.io.IOException;\nimport java.io.InputStreamReader;\nimport java.nio.charset.Charset;\n\n\n/**\n * 获取accessToken\n *\n */\npublic class TokenServiceTest {\n    /**\n     * @param domain 域名\n     * @param clientId clientId\n     * @param clientSecret clientSecret\n     * @return accessToken\n     */\n    public static String getToken(String domain, String clientId, String clientSecret) {\n        String token = null;\n        CloseableHttpClient httpClient = HttpClients.createDefault();\n        HttpPost post = new HttpPost(domain + \"/oauth2/v1/token\");\n        try {\n            JSONObject keyString = new JSONObject();\n            keyString.put(\"client_id\", clientId);\n            keyString.put(\"client_secret\", clientSecret);\n            keyString.put(\"grant_type\", \"client_credentials\");\n\n\n            StringEntity entity = new StringEntity(keyString.toString(), Charset.forName(\"UTF-8\"));\n            entity.setContentEncoding(\"UTF-8\");\n            entity.setContentType(\"application/json\");\n            post.setEntity(entity);\n            HttpResponse response = httpClient.execute(post);\n            int statusCode = response.getStatusLine().getStatusCode();\n            if (statusCode == HttpStatus.SC_OK) {\n                BufferedReader br =\n                    new BufferedReader(new InputStreamReader(response.getEntity().getContent(), Consts.UTF_8));\n                String result = br.readLine();\n                JSONObject object = JSON.parseObject(result);\n                token = object.getString(\"access_token\");\n            }\n\n\n        } catch (Exception e) {\n            throw new RuntimeException(\"Get Token Exception\");\n        } finally {\n            post.releaseConnection();\n            try {\n                httpClient.close();\n            } catch (IOException e) {\n                throw new RuntimeException(\"Close httpClient Exception\");\n            }\n        }\n        return token;\n    }\n}\n\n\n// UploadObjectTest.java\nimport com.alibaba.fastjson.JSON;\nimport com.alibaba.fastjson.JSONObject;\n\n\nimport lombok.Builder;\nimport lombok.Getter;\nimport lombok.extern.slf4j.Slf4j;\n\n\nimport org.apache.commons.lang3.StringUtils;\nimport org.apache.http.Consts;\nimport org.apache.http.HttpStatus;\nimport org.apache.http.client.methods.CloseableHttpResponse;\nimport org.apache.http.client.methods.HttpPut;\nimport org.apache.http.client.utils.URIBuilder;\nimport org.apache.http.entity.ContentType;\nimport org.apache.http.entity.InputStreamEntity;\nimport org.apache.http.impl.client.CloseableHttpClient;\nimport org.apache.http.impl.client.HttpClients;\nimport org.junit.Ignore;\n\n\nimport java.io.BufferedReader;\nimport java.io.File;\nimport java.io.FileInputStream;\nimport java.io.IOException;\nimport java.io.InputStream;\nimport java.io.InputStreamReader;\nimport java.io.RandomAccessFile;\nimport java.security.MessageDigest;\n\n\nimport javax.xml.bind.DatatypeConverter;\n\n\n/**\n * 上传文件REST API示例代码\n */\n@Slf4j\n@Ignore\npublic class UploadObjectTest {\n    /**\n     * 上传文件\n     *\n     * @param storageUrl 云存储url\n     * @param param 上传文件接口入参\n     * @param offset 文件偏移量，普通上传置为-1即可。如果是分片上传，则需要填具体的值。\n     * @param fileSize 文件总大小\n     * @param inputStreamEntity 文件流\n     * @throws Exception 异常\n     */\n    public static void uploadObject(String storageUrl, UploadObjectParam param, long offset, long fileSize,\n        InputStreamEntity inputStreamEntity) throws Exception {\n        URIBuilder uriBuilder = new URIBuilder(storageUrl + param.getBucketName() + \"/\" + param.getObjectName());\n        HttpPut httpPut = new HttpPut(uriBuilder.build());\n        httpPut.setHeader(\"productId\", param.getProjectId());\n        httpPut.setHeader(\"client_id\", param.getClientId());\n        httpPut.setHeader(\"Authorization\", \"Bearer \" + param.getToken());\n        httpPut.setHeader(\"X-Agc-File-Size\", String.valueOf(fileSize));\n        if (StringUtils.isNotEmpty(param.getSha256())) {\n            // 文件的sha256，断点续传、分片上传时为必填\n            httpPut.setHeader(\"X-Agc-Sha256\", param.getSha256());\n        }\n        if (offset >= 0) {\n            // 文件偏移，，断点续传、分片上传时的起始位置非零时为必填\n            httpPut.setHeader(\"X-Agc-File-Offset\", String.valueOf(offset));\n        }\n        try (CloseableHttpClient httpClient = HttpClients.createDefault()) {\n            httpPut.setEntity(inputStreamEntity);\n            CloseableHttpResponse httpResponse = httpClient.execute(httpPut);\n            int statusCode = httpResponse.getStatusLine().getStatusCode();\n            if (statusCode == HttpStatus.SC_OK) {\n                BufferedReader br =\n                    new BufferedReader(new InputStreamReader(httpResponse.getEntity().getContent(), Consts.UTF_8));\n                String result = br.readLine();\n                JSONObject object = JSON.parseObject(result);\n                log.info(\"uploadObject result:{}\", object.toJSONString());\n                br.close();\n            }\n            httpResponse.close();\n        }\n    }\n\n\n    /**\n     * 分片上传\n     *\n     * @throws Exception 异常\n     */\n    public void chunkClient() throws Exception {\n        String clientToken = TokenServiceTest.getToken(\"https://connect-api.cloud.huawei.com/api/\",\n            \"84903XXXXXX32064\", \"00E5CCADB655891XXXXXXXXXXXX8CDCC83ACF22\");\n        // 分片的大小\n        int chunkSize = 1024 * 1024;\n\n\n        // 获取文件输入流\n        File file = new File(getClass().getClassLoader().getResource(\"run.log\").getFile());\n        // 获取文件总大小\n        long fileSize = file.length();\n        // 计算分片数量\n        int chunkCount = (int) Math.ceil((double) fileSize / chunkSize);\n\n\n        UploadObjectParam param = UploadObjectParam.builder()\n            .projectId(\"73643XXXXXX61998\")\n            .clientId(\"84903XXXXXX32064\")\n            .token(clientToken)\n            .bucketName(\"test-q36q0\")\n            .objectName(\"temp/run.log\")\n            .sha256(getSha256(file.getPath()))\n            .build();\n        // 创建一个RandomAccessFile用来读取文件\n        try (RandomAccessFile raf = new RandomAccessFile(file, \"r\")) {\n            // 逐个分片上传\n            for (int i = 0; i < chunkCount; i++) {\n                // 计算当前分片的起始位置和长度\n                long offset = i * chunkSize;\n                long length = Math.min(chunkSize, fileSize - offset);\n                // 构造请求实体，包含分片数据\n                InputStream inputStream = new InputStreamSegment(raf, offset, length);\n                InputStreamEntity entity = new InputStreamEntity(inputStream, length);\n                uploadObject(\"https://ops-server-drcn.agcstorage.link/v0/\", param, offset, file.length(), entity);\n            }\n        }\n    }\n\n\n    /**\n     * 普通文件上传\n     *\n     * @throws Exception\n     */\n    public void client() throws Exception {\n        String clientToken = TokenServiceTest.getToken(\"https://connect-api.cloud.huawei.com/api/\",\n            \"84903XXXXXX32064\", \"00E5CCADB655891XXXXXXXXXXXX8CDCC83ACF22\");\n        UploadObjectParam param = UploadObjectParam.builder()\n            .projectId(\"401697XXXXXX27846\")\n            .clientId(\"84412XXXXXX3648\")\n            .token(clientToken)\n            .bucketName(\"test-q36q0\")\n            .objectName(\"temp/hello.txt\")\n            .build();\n        File file = new File(getClass().getClassLoader().getResource(\"hello.txt\").getFile());\n        FileInputStream fis = new FileInputStream(file);\n        InputStreamEntity inputStreamEntity =\n            new InputStreamEntity(fis, file.length(), ContentType.APPLICATION_OCTET_STREAM);\n        uploadObject(\"https://ops-server-drcn.agcstorage.link/v0/\", param, -1, file.length(), inputStreamEntity);\n    }\n\n\n    // 获取文件的sha256值\n    private static String getSha256(String filePath) throws Exception {\n        FileInputStream fileInputStream = new FileInputStream(filePath);\n        MessageDigest messageDigest = MessageDigest.getInstance(\"SHA-256\");\n        byte[] buffer = new byte[1024];\n        int bytesRead = 0;\n        while ((bytesRead = fileInputStream.read(buffer)) != -1) {\n            messageDigest.update(buffer, 0, bytesRead);\n        }\n        return DatatypeConverter.printHexBinary(messageDigest.digest());\n    }\n\n\n    public static void main(String[] args) throws Exception {\n        // 文件上传\n        new UploadObjectTest().client();\n\n\n        // 分片上传\n        new UploadObjectTest().chunkClient();\n    }\n\n\n    @Builder\n    @Getter\n    static class UploadObjectParam {\n        // 项目ID\n        String projectId;\n\n\n        // 客户端ID\n        String clientId;\n\n\n        // clientToken\n        String token;\n\n\n        // 云存储实例名\n        String bucketName;\n\n\n        // 文件名，如果包含 '/' ，则认为是路径分隔符。如：temp/hello.jpg，则会将文件hello.jpg上传到对应存储实例的temp目录下。\n        String objectName;\n\n\n        // 文件的sha256，断点续传、分片上传时为必填\n        String sha256;\n    }\n\n\n    static class InputStreamSegment extends InputStream {\n        private RandomAccessFile raf;\n\n\n        private long offset;\n\n\n        private long length;\n\n\n        private long position;\n\n\n        public InputStreamSegment(RandomAccessFile raf, long offset, long length) {\n            this.raf = raf;\n            this.offset = offset;\n            this.length = length;\n            position = 0;\n        }\n\n\n        @Override\n        public int read() throws IOException {\n            if (position >= length) {\n                return -1;\n            }\n            raf.seek(offset + position);\n            int result = raf.read();\n            if (result >= 0) {\n                position++;\n            }\n            return result;\n        }\n\n\n        @Override\n        public int read(byte[] b, int off, int len) throws IOException {\n            if (position >= length) {\n                return -1;\n            }\n            raf.seek(offset + position);\n            int bytesToRead = (int) Math.min(len, length - position);\n            int bytesRead = raf.read(b, off, bytesToRead);\n            if (bytesRead >= 0) {\n                position += bytesRead;\n            }\n            return bytesRead;\n        }\n\n\n        @Override\n        public void close() throws IOException {\n        }\n    }\n}\n\n\nREST API\n下载文件\n意见反馈\n以上内容对您是否有帮助？\n意见反馈\n如果您有其他疑问，您也可以通过开发者社区问答频道来和我们联系探讨。\n社区提问AI 助手提问\n本文导读\n功能介绍\n接口原型\n请求参数\nHeader\n请求示例\n响应参数\nHeader\nBody\n响应示例\n调用示例\n简体中文\n华为开发者联盟 版权所有 ©2026\n问题反馈\n使用条款\n华为开发者联盟用户协议\n关于华为开发者联盟与隐私的声明\nCookies\n开源软件声明",
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-uploadfile-0000001549318457",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "承载协议",
+          "HTTPS PUT"
+        ],
+        [
+          "接口方向",
+          "开发者服务器->华为服务器"
+        ],
+        [
+          "接口URL",
+          "https://{domain}/{bucket_name}/{object_name} 注意 {bucket_name}为当前存储实例名称，{object_name}为待上传的文件名称。 {domain}为接口域名。 中国站点的域名：ops-server-drcn.agcstorage.link/v0 德国站点的域名：ops-server-dre.agcstorage.link/v0 新加坡站点的域名：ops-server-dra.agcstorage.link/v0 俄罗斯站点的域名：ops-server-drru.agcstorage.link/v0 调用获取Token接口时使用的站点必须与本接口使用的站点保持一致。例如本接口使用的站点是德国，即接口域名为“ops-server-dre.agcstorage.link/v0”，则调用获取Token接口也必须使用德国站点，其接口域名需为“connect-api-dre.cloud.huawei.com”。"
+        ],
+        [
+          "数据格式",
+          "请求：Content-Type: application/json 响应：Content-Type: application/json"
+        ]
+      ],
+      "section": "接口原型",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-uploadfile-0000001549318457#section17667171510253"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数",
+          "类型",
+          "必选(M)/可选(O)",
+          "说明"
+        ],
+        [
+          "client_id",
+          "String",
+          "M",
+          "客户端ID，获取方法参考创建API客户端。"
+        ],
+        [
+          "productId",
+          "String",
+          "M",
+          "项目ID，查询方法可参见查询项目ID。"
+        ],
+        [
+          "Authorization",
+          "String",
+          "M",
+          "认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。"
+        ],
+        [
+          "X-Agc-File-Size",
+          "String",
+          "O",
+          "文件大小，断点续传时为必选。"
+        ],
+        [
+          "X-Agc-File-Offset",
+          "String",
+          "O",
+          "文件偏移量，断点续传的起始位置非零时为必选。"
+        ],
+        [
+          "X-Agc-Sha256",
+          "String",
+          "O",
+          "文件的SHA256值，断点续传时为必选。"
+        ],
+        [
+          "X-Agc-Content-Type",
+          "String",
+          "O",
+          "文件类型。 默认值：application/octet-stream"
+        ],
+        [
+          "X-Agc-Content-Disposition",
+          "String",
+          "O",
+          "文件打开方式。"
+        ],
+        [
+          "X-Agc-Content-Encoding",
+          "String",
+          "O",
+          "HTTP标准头部Content-Encoding。"
+        ],
+        [
+          "X-Agc-Cache-Control",
+          "String",
+          "O",
+          "HTTP标准头部Cache-Control。"
+        ],
+        [
+          "X-Agc-Content-Language",
+          "String",
+          "O",
+          "HTTP标准头部Content-Language。"
+        ],
+        [
+          "X-Agc-meta-*",
+          "String",
+          "O",
+          "可以在请求中加入以“X-Agc-meta-”开头的消息头，用于加入自定义的元数据，以便对文件进行自定义管理。当用户获取此文件或查询此文件元数据时，加入的自定义元数据将会在返回消息的头部出现。 X-Agc-meta-仅标记此header是传递元数据，并非元数据key的一部分。例如，您传入的是“X-Agc-meta-test: test metadata”，保存的数据实例为“test: test metadata”。 说明 元数据名称相同则覆盖。自定义的部署不区分大小写，最后记录均为小写的方式。"
+        ],
+        [
+          "X-Agc-Trace-Id",
+          "String",
+          "O",
+          "单个文件请求的Traceid。可不填或者随机生成，用于日志打印跟踪。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-uploadfile-0000001549318457#section17216134314169"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数",
+          "类型",
+          "必选(M)/可选(O)",
+          "说明"
+        ],
+        [
+          "status",
+          "Integer",
+          "M",
+          "HTTP响应码，200表示成功。"
+        ],
+        [
+          "X-Agc-Trace-Id",
+          "String",
+          "O",
+          "单个文件请求的Traceid，与请求参数X-Agc-Trace-Id保持一致。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-uploadfile-0000001549318457#section052915616139"
+    },
+    {
+      "location": "body",
+      "rows": [
+        [
+          "参数",
+          "类型",
+          "必选(M)/可选(O)",
+          "说明"
+        ],
+        [
+          "uploadStatus",
+          "String",
+          "M",
+          "上传状态。 resumable：断点续传 finalize：上传完成"
+        ],
+        [
+          "receiveBytes",
+          "Long",
+          "O",
+          "已上传字节。从0开始，仅支持顺序上传。文件未上传完毕时返回该字段。"
+        ],
+        [
+          "fileInfo",
+          "FileInfo",
+          "O",
+          "文件的详细信息。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storage-restapi-uploadfile-0000001549318457#section20105181721319"
+    }
+  ],
+  "title": "上传文件",
+  "updatedAt": "2026-10-22 14:56",
+  "captureTool": "Computer Use; scripts/browser-capture-reference.mjs-compatible merged-cell capture"
+}

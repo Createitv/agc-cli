@@ -1,0 +1,32 @@
+{
+  "title": "Querying Your Developer ID and Project ID",
+  "sourceUrl": "https://developer.huawei.com/consumer/jp/doc/AppGallery-connect-Guides/agc-get-developerid-projectid-0000001166543063",
+  "status": "browser-read",
+  "tables": [],
+  "notes": [
+    {
+      "section": "文档说明",
+      "sourceUrl": "https://developer.huawei.com/consumer/jp/doc/AppGallery-connect-Guides/agc-get-developerid-projectid-0000001166543063",
+      "text": "To find you developer ID and project ID, perform the following steps:"
+    },
+    {
+      "section": "文档说明",
+      "sourceUrl": "https://developer.huawei.com/consumer/jp/doc/AppGallery-connect-Guides/agc-get-developerid-projectid-0000001166543063",
+      "text": "Sign in to AppGallery Connect and click Development and services."
+    },
+    {
+      "section": "文档说明",
+      "sourceUrl": "https://developer.huawei.com/consumer/jp/doc/AppGallery-connect-Guides/agc-get-developerid-projectid-0000001166543063",
+      "text": "Find your project from the project list and choose the app for which you need to query the developer ID or project ID."
+    },
+    {
+      "section": "文档说明",
+      "sourceUrl": "https://developer.huawei.com/consumer/jp/doc/AppGallery-connect-Guides/agc-get-developerid-projectid-0000001166543063",
+      "text": "Go to Project settings > General information and check the Developer ID and Project ID parameters."
+    }
+  ],
+  "examples": [],
+  "links": [],
+  "checkedAt": "2026-10-07T05:03:26.126Z",
+  "renderedText": "Querying Your Developer ID and Project ID\nLast updated: 2026-04-09 17:57\n\nTo find you developer ID and project ID, perform the following steps:\n\nSign in to AppGallery Connect and click Development and services.\nFind your project from the project list and choose the app for which you need to query the developer ID or project ID.\nGo to Project settings > General information and check the Developer ID and Project ID parameters.\n\nSend feedback\nWas this page helpful?\nSend feedback\nReach out to us through the community for any other questions.\nCommunity Q&AIntelligent Assistant\n©2025 HUAWEI Developers. All rights reserved.\n利用規約 \nHUAWEI Developerおよび個人情報保護に関する声明\nCookie\nCookieの設定\nOpen-Source Software Notice"
+}

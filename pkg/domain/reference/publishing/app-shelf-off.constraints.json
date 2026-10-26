@@ -1,0 +1,13 @@
+{
+  "query.appId": {
+    "maxLength": 32
+  },
+  "query.reason": {
+    "maxLength": 1024
+  },
+  "query.releaseType": {
+    "enum": [
+      "1"
+    ]
+  }
+}

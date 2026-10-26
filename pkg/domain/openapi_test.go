@@ -40,26 +40,25 @@ func TestOpenAPISpecCarriesHuaweiEndpointMetadata(t *testing.T) {
 	}
 }
 
-func TestOpenAPIExposesVerifiedHeaderContract(t *testing.T) {
+func TestOpenAPIExposesVerifiedTestingMemberContract(t *testing.T) {
 	ep, _ := EndpointByID("testing", "test-api-query-test-user")
 	props := invokeRequestSchemaProperties(ep)
 	headers := props["headers"].(map[string]any)
-	known, ok := headers["properties"].(map[string]any)
-	if !ok {
-		t.Fatal("headers has no documented properties")
-	}
-	if _, ok := known["groupId"]; !ok {
-		t.Fatal("missing groupId header")
-	}
 	required := headers["required"].([]string)
-	if len(required) != 2 || required[0] != "appId" || required[1] != "groupId" {
-		t.Fatalf("required headers = %v", required)
+	if len(required) != 1 || required[0] != "appId" {
+		t.Fatalf("wrong required headers: %v", required)
+	}
+	query := props["query"].(map[string]any)["properties"].(map[string]any)
+	for _, name := range []string{"appId", "groupId"} {
+		field, ok := query[name].(map[string]any)
+		if !ok || field["x-huawei-required"] != true {
+			t.Fatalf("missing required query field %s", name)
+		}
 	}
 	op := endpointOperation("invoke", ep, "Invoke endpoint", nil)
 	schema := op["requestBody"].(map[string]any)["content"].(map[string]any)["application/json"].(map[string]any)["schema"].(map[string]any)
-	containers := schema["required"].([]string)
-	if len(containers) != 1 || containers[0] != "headers" {
-		t.Fatalf("required containers = %v", containers)
+	if len(schema["allOf"].([]any)) != 2 {
+		t.Fatal("missing scalar/repeated required query alternatives")
 	}
 }
 

@@ -1,0 +1,35 @@
+[
+  {
+    "name": "requestId",
+    "in": "header",
+    "type": "string",
+    "required": true,
+    "description": "请求ID，最大长度128个字符，必须唯一。开发者自定义，用于鉴别是否是重复请求。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-deletefile-0000002328396228#section119494174419",
+    "maxLength": 128
+  },
+  {
+    "name": "devId",
+    "in": "path",
+    "type": "integer",
+    "required": true,
+    "description": "开发者ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-deletefile-0000002328396228#section6704618182019"
+  },
+  {
+    "name": "appId",
+    "in": "query",
+    "type": "string",
+    "required": true,
+    "description": "游戏APP ID，获取方法参考查询应用信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-deletefile-0000002328396228#section985411610234"
+  },
+  {
+    "name": "fileIds",
+    "in": "query",
+    "type": "string",
+    "required": false,
+    "description": "资源包文件ID列表，使用英文逗号分隔。取值范围：[1,500]。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-deletefile-0000002328396228#section985411610234"
+  }
+]

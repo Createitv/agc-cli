@@ -1,0 +1,117 @@
+{
+  "checkedAt": "2026-10-26",
+  "examples": [],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-0000001351815781",
+      "title": "REST API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-reauthenticate-0000001346828693",
+      "title": "账号重认证"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-auth-0000001055443186",
+      "title": "Server"
+    }
+  ],
+  "notes": [],
+  "renderedText": "API参考\n认证服务\nREST API\n错误码\n错误码\n更新时间: 2026-10-22 11:25\n\n错误码（errorCode）\n\n\t\n\n错误描述（errorMsg）\n\n\n\n\n0\n\n\t\n\n成功。\n\n\n\n\n203816961\n\n\t\n\n内部错误。\n\n\n\n\n203817219\n\n\t\n\n无效产品ID。\n\n\n\n\n203817221\n\n\t\n\nPROVIDER不能为空。\n\n\n\n\n203817223\n\n\t\n\nEMAIL格式校验失败。\n\n\n\n\n203817224\n\n\t\n\n手机号格式校验失败。\n\n\n\n\n203817730\n\n\t\n\n获取用户信息失败。\n\n\n\n\n203817988\n\n\t\n\n第三方认证方式关闭。\n\n\n\n\n203817989\n\n\t\n\n获取第三方信息失败。\n\n\n\n\n203818032\n\n\t\n\n用户未注册。\n\n\n\n\n203818034\n\n\t\n\n邮箱或者手机登录的时候鉴权信息不能为空。\n\n\n\n\n203818053\n\n\t\n\n验证码发送到达限制。\n\n\n\n\n203818054\n\n\t\n\n项目hash值不存在。\n\n\n\n\n203818069\n\n\t\n\n请求参数为空。\n\n\n\n\n203818080\n\n\t\n\n更新信息请求错误。\n\n\n\n\n203818129\n\n\t\n\n验证码格式错误。\n\n\n\n\n203818130\n\n\t\n\n用户已注册。\n\n\n\n\n203818135\n\n\t\n\n验证码和密码都为空。\n\n\n\n\n203818241\n\n\t\n\n发送消息失败。\n\n\n\n\n203818260\n\n\t\n\n自动创建用户错误。\n\n账号重认证\nServer\n意见反馈\n以上内容对您是否有帮助？\n意见反馈\n如果您有其他疑问，您也可以通过开发者社区问答频道来和我们联系探讨。\n社区提问AI 助手提问\n简体中文",
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-errorcode-0000001353626777",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "错误码（errorCode）",
+          "错误描述（errorMsg）"
+        ],
+        [
+          "0",
+          "成功。"
+        ],
+        [
+          "203816961",
+          "内部错误。"
+        ],
+        [
+          "203817219",
+          "无效产品ID。"
+        ],
+        [
+          "203817221",
+          "PROVIDER不能为空。"
+        ],
+        [
+          "203817223",
+          "EMAIL格式校验失败。"
+        ],
+        [
+          "203817224",
+          "手机号格式校验失败。"
+        ],
+        [
+          "203817730",
+          "获取用户信息失败。"
+        ],
+        [
+          "203817988",
+          "第三方认证方式关闭。"
+        ],
+        [
+          "203817989",
+          "获取第三方信息失败。"
+        ],
+        [
+          "203818032",
+          "用户未注册。"
+        ],
+        [
+          "203818034",
+          "邮箱或者手机登录的时候鉴权信息不能为空。"
+        ],
+        [
+          "203818053",
+          "验证码发送到达限制。"
+        ],
+        [
+          "203818054",
+          "项目hash值不存在。"
+        ],
+        [
+          "203818069",
+          "请求参数为空。"
+        ],
+        [
+          "203818080",
+          "更新信息请求错误。"
+        ],
+        [
+          "203818129",
+          "验证码格式错误。"
+        ],
+        [
+          "203818130",
+          "用户已注册。"
+        ],
+        [
+          "203818135",
+          "验证码和密码都为空。"
+        ],
+        [
+          "203818241",
+          "发送消息失败。"
+        ],
+        [
+          "203818260",
+          "自动创建用户错误。"
+        ]
+      ],
+      "section": "",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-errorcode-0000001353626777"
+    }
+  ],
+  "title": "错误码",
+  "updatedAt": "2026-10-22 11:25"
+}

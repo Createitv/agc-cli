@@ -1,0 +1,31 @@
+[
+  {
+    "name": "appId",
+    "in": "header",
+    "type": "string",
+    "required": true,
+    "description": "应用ID，获取方法参考查看应用信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-post-test-notify-0000002236041538#section236517415165",
+    "maxLength": 32
+  },
+  {
+    "name": "groupId",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "测试群组ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-post-test-notify-0000002236041538#section141117691213",
+    "maxLength": 32
+  },
+  {
+    "name": "testerIds",
+    "in": "body",
+    "type": "array",
+    "required": true,
+    "description": "需要通知的测试用户ID。 数组长度不超过10000。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-post-test-notify-0000002236041538#section141117691213",
+    "itemsType": "string",
+    "itemsMaxLength": 32,
+    "maxItems": 10000
+  }
+]

@@ -1,0 +1,259 @@
+{
+  "examples": [],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pmapi-0000001158245053",
+      "title": "Project Management API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114",
+      "title": "使用入门"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114#section1785535363715",
+      "title": "通过Service Account方式获取授权"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114#section949717114392",
+      "title": "获取用户授权码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-appbriefinfo-0000001111845106",
+      "title": "获取应用简略信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryservice-0000001111845108#ZH-CN_TOPIC_0000001111845108__zh-cn_topic_0000001058910562_p16958125112238",
+      "title": "ServiceOrderAndApiStatus"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryappfingerprint-0000001158245077",
+      "title": "查询证书指纹和AppSecret"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryprojectdetail-0000001158365067",
+      "title": "查询项目详情及项目下的应用"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryservice-0000001111845108#section49483413",
+      "title": "功能介绍"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryservice-0000001111845108#section6932219103913",
+      "title": "接口原型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryservice-0000001111845108#section62398251",
+      "title": "请求参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryservice-0000001111845108#section236517415165",
+      "title": "Header"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryservice-0000001111845108#section886219295206",
+      "title": "Query"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryservice-0000001111845108#section4770825143714",
+      "title": "响应参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryservice-0000001111845108#section026332842518",
+      "title": "调用示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryservice-0000001111845108#section49483413",
+      "text": "此接口用于查询项目、应用开通的服务信息列表以及API的状态。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryservice-0000001111845108#section236517415165",
+      "text": "本接口支持使用Service Account方式和OAuth客户端方式，二者区别请参见使用入门。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryservice-0000001111845108#section236517415165",
+      "text": "Service Account方式："
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryservice-0000001111845108#section236517415165",
+      "text": "OAuth客户端方式："
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryservice-0000001111845108#section4770825143714",
+      "text": "ServiceOrderAndApiStatus"
+    }
+  ],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryservice-0000001111845108",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "承载协议",
+          "HTTPS GET"
+        ],
+        [
+          "接口方向",
+          "开发者服务器 -> 华为服务器"
+        ],
+        [
+          "接口URL",
+          "https://connect-api.cloud.huawei.com/api/cpms/project-service/v1/services/order-api"
+        ],
+        [
+          "数据格式",
+          "请求：Content-Type: application/json 响应：Content-Type: application/json"
+        ]
+      ],
+      "section": "接口原型",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryservice-0000001111845108#section6932219103913"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "Authorization",
+          "M",
+          "String",
+          "认证信息，格式为“Authorization: Bearer ${JWT}”。JWT为通过Service Account方式获取授权中获取的鉴权令牌。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryservice-0000001111845108#section236517415165"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "oauth2Token",
+          "M",
+          "String",
+          "认证信息，传入获取用户授权码中获取的Access Token。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryservice-0000001111845108#section236517415165"
+    },
+    {
+      "location": "query",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "projectId",
+          "M",
+          "String",
+          "应用所在的项目ID，可以通过获取应用简略信息接口获取。"
+        ],
+        [
+          "appID",
+          "M",
+          "Integer",
+          "应用ID。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryservice-0000001111845108#section886219295206"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "siteId",
+          "M",
+          "String",
+          "区域位置信息，当前取值为： SG：新加坡站点 DE：德国站点 RU：俄罗斯站点 CN：中国站点"
+        ],
+        [
+          "serviceInfoList",
+          "M",
+          "ServiceOrderAndApiStatus[]",
+          "服务信息列表，包含所有服务的开通状态以及API开通状态。"
+        ],
+        [
+          "ret",
+          "M",
+          "String",
+          "包含返回码及描述信息的JSON字符串，格式为{\"code\":retcode, \"msg\": \"description\"}，retcode为返回码，description为返回码描述信息。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryservice-0000001111845108#section4770825143714"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "serviceName",
+          "String",
+          "服务名称。"
+        ],
+        [
+          "serviceStatus",
+          "Integer",
+          "开通类型，取值范围： 0：正常开通 1：取消开通 2：恢复开通 3：无需在AppGallery Connect上开通"
+        ],
+        [
+          "serviceDisplayName",
+          "String",
+          "AppGallery Connect展示的服务名称，包含中文和英文名称的JSON格式，例如{\"CN\":\"认证服务\",\"EN\":\"Auth Service\"}"
+        ],
+        [
+          "apiName",
+          "String",
+          "API的名称。"
+        ],
+        [
+          "apiStatus",
+          "Integer",
+          "API的开通状态。 0：关闭 1：开通"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryservice-0000001111845108#section4770825143714"
+    }
+  ],
+  "title": "查询服务开通状态",
+  "updatedAt": "2026-03-11 09:18",
+  "checkedAt": "2026-10-07T02:56:38.722Z",
+  "family": "projects",
+  "endpoint": "queryservice"
+}

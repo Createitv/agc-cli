@@ -1,0 +1,300 @@
+{
+  "title": "create-plan",
+  "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+  "checkedAt": "2026-10-26",
+  "status": "vendor-source-reviewed",
+  "package": "@hw-agconnect/agc-cli",
+  "version": "1.12.0",
+  "sourceFiles": [
+    {
+      "packagePath": "commands/serverlessModel/api/admApi.js",
+      "sha256": "b309e6bcebcdb15a4ba2852221a46c89771a5f41b9b3be6e745f7a8bcec2f796",
+      "source": "import path from\"path\";import crypto from\"crypto\";import{doRequestWithRetry}from\"../util/requestUtil.js\";import{newSLSError}from\"../errors.js\";const retry=3;function newPlanName(e){let t=e.storage.globalGet(\"projectId\"),a=e.storage.globalGet(\"teamId\"),r=crypto.createHash(\"md5\");return r.update(\"plan-\"+a+\"-\"+t+\"-\"),r.digest(\"hex\")+\"-\"+(new Date).getTime()+\"-\"+crypto.randomBytes(4).toString(\"hex\")}async function searchApi(e,t){let a={url:`${e.storage.getTeamBaseUrl()}/api/adm/v1/applications/search`,method:\"GET\",params:{appName:t}},r=checkResult(await doRequestWithRetry(e,a,3));return 0===r.length?{}:r[0]}async function addApi(e,t){let a={url:`${e.storage.getTeamBaseUrl()}/api/adm/v1/applications`,method:\"POST\",data:t};return checkResult(await doRequestWithRetry(e,a,3))}async function addPlan(e,t,a){const r=`${e.storage.getTeamBaseUrl()}/api/adm/v1/applications/${t}/plans`;let s=JSON.parse(JSON.stringify(a));s.name=newPlanName(e,path.basename(process.cwd()));let o={url:r,method:\"POST\",data:s};return checkResult(await doRequestWithRetry(e,o,3))}async function getPlan(e,t){let a={url:`${e.storage.getTeamBaseUrl()}/api/adm/v1/applications/plans/${t}`,method:\"GET\"};return checkResult(await doRequestWithRetry(e,a,3))}async function setPlan(e,t,a){let r={url:`${e.storage.getTeamBaseUrl()}/api/adm/v1/applications/${t}/plans/${a}`,method:\"PUT\"};return checkResult(await doRequestWithRetry(e,r,3))}function checkResult(e){if(0===e.status)return e.data;throw newSLSError(`Do request error, error message is '${e.message}'`)}export{searchApi,addApi,addPlan,setPlan,getPlan};"
+    },
+    {
+      "packagePath": "commands/serverlessModel/validator/templateJSON.js",
+      "sha256": "caa4e0edf4e003b3336b31f9ccbeff0eb7438cf94c6d7d7ee482ce7becd95068",
+      "source": "import{newSLSError}from\"../errors.js\";import{CloudFunctionValidator}from\"./cloudFunctionValidator.js\";import{getErrorMessage}from\"../errors.js\";function validateTemplateJSON(e){let r=[];for(let o of e.components)switch(o.type){case\"Huawei::AGC::CloudFunctions\":{if(-1!==r.indexOf(o.name))throw newSLSError(`CloudFunction name:${o.name} must not be repeated.`);r.push(o.name);let e=new CloudFunctionValidator(o);try{e.validate()}catch(e){throw newSLSError(`Resource error, resource type: 'Huawei::AGC::CloudFunctions', resource name: ${o.name}. ${getErrorMessage(e)}`)}break}default:throw newSLSError(`Resource type invalid, valid type contains 'Huawei::AGC::CloudFunctions', the resource:${o.type} is invalid`)}}export{validateTemplateJSON};"
+    },
+    {
+      "packagePath": "commands/serverlessModel/validator/cloudFunctionValidator.js",
+      "sha256": "a807c6aaed86997722d5d8109d13a540b27682978b416b10a6ed416955c554d1",
+      "source": "import fs from\"fs\";import path from\"path\";import{isEmpty,isInteger,isString,isArray}from\"../util/judgeUtil.js\";import{judgeZipFile}from\"../util/fsUtil.js\";import{newSLSError,getErrorMessage}from\"../errors.js\";import{MSG_CONSTANTS}from\"../constants.js\";import{CloudFunctionCronTriggerValidator}from\"./cronTriggerValidator.js\";import{CloudFunctionHttpTriggerValidator}from\"./httpTriggerValidator.js\";function ValidateCodeUri(r,e){for(let o of r.components){if(isEmpty(o.properties.codeUri))throw newSLSError(`Resource error, resource type: 'Huawei::AGC::CloudFunctions', resource name: ${o.name}. ${MSG_CONSTANTS.ARG_ERR_FUNCTION_CODE_PATH_EMPTY}`);if(!isString(o.properties.codeUri))throw newSLSError(`Resource error, resource type: 'Huawei::AGC::CloudFunctions', resource name: ${o.name}. ${MSG_CONSTANTS.ARG_ERR_FUNCTION_CODE_PATH_TYPE_ILLEGAL}`);let r=o.properties.codeUri;if(path.isAbsolute(r)||(r=path.join(e,r)),!fs.existsSync(r))throw newSLSError(`Resource error, resource type: 'Huawei::AGC::CloudFunctions', resource name: ${o.name}. ${MSG_CONSTANTS.ARG_ERR_FUNCTION_CODE_PATH_UNEXIST}`);if(fs.statSync(r).size>=314572800)throw newSLSError(`Resource error, resource type: 'Huawei::AGC::CloudFunctions', resource name: ${o.name}. ${MSG_CONSTANTS.ARG_ERR_FUNCTION_CODE_SIZE_TOO_LARGE}`)}}function ValidateCodeUriInDeployPhase(r,e){for(let o of r.components){if(isEmpty(o.properties.codeUri))throw newSLSError(`Resource error, resource type: 'Huawei::AGC::CloudFunctions', resource name: ${o.name}. ${MSG_CONSTANTS.ARG_ERR_FUNCTION_CODE_PATH_EMPTY}`);if(!isString(o.properties.codeUri))throw newSLSError(`Resource error, resource type: 'Huawei::AGC::CloudFunctions', resource name: ${o.name}. ${MSG_CONSTANTS.ARG_ERR_FUNCTION_CODE_PATH_TYPE_ILLEGAL}`);let r=o.properties.codeUri;if(path.isAbsolute(r)||(r=path.join(e,r)),!fs.existsSync(r))throw newSLSError(`Resource error, resource type: 'Huawei::AGC::CloudFunctions', resource name: ${o.name}. ${MSG_CONSTANTS.ARG_ERR_FUNCTION_CODE_PATH_UNEXIST}`);try{judgeZipFile(r)}catch(r){throw newSLSError(`Resource error, resource type: 'Huawei::AGC::CloudFunctions', resource name: ${o.name}.${getErrorMessage(r)}`)}}}class CloudFunctionValidator{constructor(r){this.resource=r}validate(){if(validateFunctionName(this.resource.name),validateDescription(this.resource.properties.description),validateMemory(this.resource.properties.memorySize),validateRuntime(this.resource.properties.runtime),validateTimeout(this.resource.properties.timeout),validateLayers(this.resource.properties.layers),validateFunctionHandle(this.resource.properties.handler),\"java1.8\"!==this.resource.properties.runtime&&validateNoJavaHandler(this.resource.properties.handler),validateEnvironment(this.resource.properties.env),validateInstanceConcurrency(this.resource.properties.instanceConcurrency),validateAliasName(this.resource.properties.alias),void 0===this.resource.properties.events)return;if(!isArray(this.resource.properties.events))throw newSLSError(\"Properties events error. Events type must be array.\");let r=[];for(let e of this.resource.properties.events){if(-1!==r.indexOf(e.name))throw newSLSError(\"Properties event parameter error. Trigger name must not be repeated.\");switch(r.push(e.name),e.type){case\"http\":new CloudFunctionHttpTriggerValidator(e).validate();break;case\"cron\":new CloudFunctionCronTriggerValidator(e).validate();break;default:throw newSLSError(\"Properties event parameter error. The trigger type not supported.\")}}}}function validateFunctionName(r){if(isEmpty(r))throw newSLSError(MSG_CONSTANTS.ARG_ERR_FUNCTION_NAME_EMPTY);if(!isString(r))throw newSLSError(MSG_CONSTANTS.ARG_ERR_FUNCTION_NAME_TYPE_ILLEGAL);if(r.length<2)throw newSLSError(MSG_CONSTANTS.ARG_ERR_FUNCTION_NAME_LENTH_SHORT);if(r.length>16)throw newSLSError(MSG_CONSTANTS.ARG_ERR_FUNCTION_NAME_LENTH_LONGER);if(!new RegExp(\"^[a-z][a-z0-9-]*[a-z0-9]$\").test(r))throw newSLSError(MSG_CONSTANTS.ARG_ERR_FUNCTION_NAME_ILLEGAL)}function validateDescription(r){if(void 0!==r){if(!isString(r))throw newSLSError(MSG_CONSTANTS.ARG_ERR_DESCRIPTION_ILLEGAL);if(getStringWidth(r)>64)throw newSLSError(MSG_CONSTANTS.ARG_ERR_DESCRIPTION_LONGER)}}const memories=[500,1e3,2e3,4e3];function validateMemory(r){if(isEmpty(r))throw newSLSError(MSG_CONSTANTS.ARG_ERR_MEMORY_EMPTY);if(!isInteger(r))throw newSLSError(MSG_CONSTANTS.ARG_ERR_MEMORY_TYPE_ILLEGAL);if(-1===memories.indexOf(r))throw newSLSError(MSG_CONSTANTS.ARG_ERR_MEMORY_VALUE_NOT_SUPPORTED)}const runtimes=[\"nodejs14.x\",\"nodejs10.15.2\"];function validateRuntime(r){if(isEmpty(r))throw newSLSError(MSG_CONSTANTS.ARG_ERR_RUNTIME_EMPTY);if(-1===runtimes.indexOf(r))throw newSLSError(MSG_CONSTANTS.ARG_ERR_RUNTIME_ILLEGAL)}function validateTimeout(r){if(isEmpty(r))throw newSLSError(MSG_CONSTANTS.ARG_ERR_TIMEOUT_EMPTY);if(!isInteger(r))throw newSLSError(MSG_CONSTANTS.ARG_ERR_TIMEOUT_TYPE_ILLEGAL);if(r<1||r>1800)throw newSLSError(MSG_CONSTANTS.ARG_ERR_TIMEOUT_VALUE_NOT_SUPPORTED)}function validateLayers(r){if(void 0!==r){if(!isArray(r))throw newSLSError(MSG_CONSTANTS.ARG_ERR_LAYER_ILLEGAL);for(let e of r)if(!isString(e))throw newSLSError(MSG_CONSTANTS.ARG_ERR_LAYER_VALUE_TYPE_ILLEGAL);if(r.length>5)throw newSLSError(MSG_CONSTANTS.ARG_ERR_LAYER_TOO_MANY)}}function validateNoJavaHandler(r){if(isEmpty(r))throw newSLSError(MSG_CONSTANTS.ARG_ERR_HANDLER_TYPE_EMPTY);if(!isString(r))throw newSLSError(MSG_CONSTANTS.ARG_ERR_HANDLER_TYPE_ILLEGAL);if(!new RegExp(\"^[A-Za-z0-9-_]*\\\\.[A-Za-z0-9-_]*$\").test(r))throw newSLSError(MSG_CONSTANTS.ARG_ERR_HANDLER_TYPE_REGEX_ILLEGAL);if(r.length>64)throw newSLSError(MSG_CONSTANTS.ARG_ERR_HANDLER_TYPE_LONGER)}function validateInstanceConcurrency(r){if(isEmpty(r))throw newSLSError(MSG_CONSTANTS.ARG_ERR_INSTANCE_CONCURRENCY_EMPTY);if(!isInteger(r))throw newSLSError(MSG_CONSTANTS.ARG_ERR_INSTANCE_CONCURRENCY_TYPE_ILLEGAL);if(r<1||r>1e3)throw newSLSError(MSG_CONSTANTS.ARG_ERR_INSTANCE_CONCURRENCY_VALUE_NOT_SUPPORTED)}function validateAliasName(r){if(void 0===r)return;if(isEmpty(r))throw newSLSError(MSG_CONSTANTS.ARG_ERR_ALIAS_EMPTY);if(!isString(r))throw newSLSError(MSG_CONSTANTS.ARG_ERR_ALIAS_TYPE_ILLEGAL);if(r.length<2)throw newSLSError(MSG_CONSTANTS.ARG_ERR_ALIAS_LENTH_SHORT);if(r.length>16)throw newSLSError(MSG_CONSTANTS.ARG_ERR_ALIAS_LENTH_LONGER);if(!new RegExp(\"^[a-z][a-z0-9-]*[a-z0-9]$\").test(r))throw newSLSError(MSG_CONSTANTS.ARG_ERR_ALIAS_ILLEGAL)}function validateFunctionHandle(r){if(isEmpty(r))throw newSLSError(MSG_CONSTANTS.ARG_ERR_HANDLER_TYPE_EMPTY);if(!isString(r))throw newSLSError(MSG_CONSTANTS.ARG_ERR_HANDLER_TYPE_ILLEGAL);if(!new RegExp(\"^[A-Za-z0-9-_]*\\\\.[A-Za-z0-9-_]*$\").test(r))throw newSLSError(MSG_CONSTANTS.ARG_ERR_HANDLER_TYPE_REGEX_ILLEGAL);if(r.length>64)throw newSLSError(MSG_CONSTANTS.ARG_ERR_HANDLER_TYPE_LONGER)}function validateEnvironment(r){if(void 0!==r){if(!isArray(r))throw newSLSError(MSG_CONSTANTS.ARG_ERR_ENVIRONMENT_ILLEGAL);for(let e of r){if(isEmpty(e.name))throw newSLSError(MSG_CONSTANTS.ARG_ERR_ENVIRONMENT_KEY_EMPTY);if(!isString(e.name))throw newSLSError(MSG_CONSTANTS.ARG_ERR_ENVIRONMENT_KEY_TYPE_ILLEGAL);if(isEmpty(e.value))throw newSLSError(MSG_CONSTANTS.ARG_ERR_ENVIRONMENT_VALUE_EMPTY);if(!isString(e.value))throw newSLSError(MSG_CONSTANTS.ARG_ERR_ENVIRONMENT_VALUE_TYPE_ILLEGAL);let r=e.name,o=e.value;if(r.length>64)throw newSLSError(MSG_CONSTANTS.ARG_ERR_ENVIRONMENT_KEY_LONGER);if(!new RegExp(\"^[-._a-zA-Z][-._a-zA-Z0-9]*$\").test(r))throw newSLSError(MSG_CONSTANTS.ARG_ERR_ENVIRONMENT_KEY_ILLEGAL);if(o.length>2048)throw newSLSError(MSG_CONSTANTS.ARG_ERR_ENVIRONMENT_VALUE_LONGER)}}}function getStringWidth(r){let e=0;for(let o=0;o<r.length;o++){let t=r.charCodeAt(o);e+=t>=0&&t<=128?1:2}return e}export{CloudFunctionValidator,ValidateCodeUri,ValidateCodeUriInDeployPhase};"
+    },
+    {
+      "packagePath": "commands/serverlessModel/validator/httpTriggerValidator.js",
+      "sha256": "5f24abf7b41669aadfeac97ce78468a055cd6206efdf9ac35976efe09b5f513d",
+      "source": "import{newSLSError}from\"../errors.js\";import{MSG_CONSTANTS}from\"../constants.js\";import{isEmpty,isString}from\"../util/judgeUtil.js\";class CloudFunctionHttpTriggerValidator{constructor(r){this.resource=r}validate(){validateName(this.resource.name),validateHTTPTriggerAuthType(this.resource.properties.authType),validateHTTPTriggerEnableUrlDecode(this.resource.properties.enableUrlDecode)}}function validateName(r){if(isEmpty(r))throw newSLSError(MSG_CONSTANTS.ARG_ERR_TRIGGER_NAME_EMPTY);if(!isString(r))throw newSLSError(MSG_CONSTANTS.ARG_ERR_TRIGGER_NAME_TYPE_ILLEGAL);if(r.length<2)throw newSLSError(MSG_CONSTANTS.ARG_ERR_TRIGGER_NAME_LENTH_SHORT);if(r.length>32)throw newSLSError(MSG_CONSTANTS.ARG_ERR_TRIGGER_NAME_LENTH_LONGER);if(!new RegExp(\"^[a-z][a-zA-Z0-9-]*[a-zA-Z0-9]$\").test(r))throw newSLSError(MSG_CONSTANTS.ARG_ERR_TRIGGER_NAME_ILLEGAL)}const HttpTriggerAuthTypeList=[\"apigw-client\",\"cloudgw-client\"];function validateHTTPTriggerAuthType(r){if(isEmpty(r))throw newSLSError(MSG_CONSTANTS.ARG_ERR_HTTP_TRIGGER_AUTH_TYPE_EMPTY);if(-1===HttpTriggerAuthTypeList.indexOf(r))throw newSLSError(MSG_CONSTANTS.ARG_ERR_HTTP_TRIGGER_AUTH_TYPE_ILLEGAL)}function validateHTTPTriggerEnableUrlDecode(r){if(isEmpty(r))throw newSLSError(MSG_CONSTANTS.ARG_ERR_HTTP_TRIGGER_ENABLE_URL_DECODE_EMPTY);if(\"boolean\"!=typeof r)throw newSLSError(MSG_CONSTANTS.ARG_ERR_HTTP_TRIGGER_ENABLE_URL_DECODE_ILLEGAL)}export{CloudFunctionHttpTriggerValidator};"
+    },
+    {
+      "packagePath": "commands/serverlessModel/validator/cronTriggerValidator.js",
+      "sha256": "ff5ace40c811f4aade2a4f28a0bea20dc7fbf6d7f421129aad1a60580c440da4",
+      "source": "import{newSLSError}from\"../errors.js\";import{MSG_CONSTANTS}from\"../constants.js\";import{isEmpty,isString}from\"../util/judgeUtil.js\";import{validateTypeEveryExpression,validateTypeMinutesHourDayMonthWeekExpression}from\"../../cloudfunction/option/cronExpressionValidator.js\";class CloudFunctionCronTriggerValidator{constructor(r){this.resource=r}validate(){validateName(this.resource.name),validateSchedule(this.resource.properties.schedule),validatePayload(this.resource.properties.input)}}function validateName(r){if(isEmpty(r))throw newSLSError(MSG_CONSTANTS.ARG_ERR_TRIGGER_NAME_EMPTY);if(!isString(r))throw newSLSError(MSG_CONSTANTS.ARG_ERR_TRIGGER_NAME_TYPE_ILLEGAL);if(r.length<2)throw newSLSError(MSG_CONSTANTS.ARG_ERR_TRIGGER_NAME_LENTH_SHORT);if(r.length>32)throw newSLSError(MSG_CONSTANTS.ARG_ERR_TRIGGER_NAME_LENTH_LONGER);if(!new RegExp(\"^[a-z][a-zA-Z0-9-]*[a-zA-Z0-9]$\").test(r))throw newSLSError(MSG_CONSTANTS.ARG_ERR_TRIGGER_NAME_ILLEGAL)}function validateSchedule(r){if(isEmpty(r))throw newSLSError(MSG_CONSTANTS.ARG_ERR_SCHEDULE_EMPTY);if(!isString(r))throw newSLSError(MSG_CONSTANTS.ARG_ERR_SCHEDULE_TYPE_ILLEGAL);if(!validateTypeEveryExpression(r)&&!validateTypeMinutesHourDayMonthWeekExpression(r))throw newSLSError(MSG_CONSTANTS.ARG_ERR_SCHEDULE_ILLEGAL)}function validatePayload(r){if(isEmpty(r))throw newSLSError(MSG_CONSTANTS.ARG_ERR_INPUT_EMPTY);if(!isString(r))throw newSLSError(MSG_CONSTANTS.ARG_ERR_INPUT_ILLEGAL);try{JSON.parse(r)}catch(r){throw newSLSError(MSG_CONSTANTS.ARG_ERR_INPUT_ILLEGAL)}}export{CloudFunctionCronTriggerValidator};"
+    },
+    {
+      "packagePath": "modules/request/edge.js",
+      "sha256": "6a2890b78c14efe687c13810ec7aa1ed8d1c512d4e946c66ebb517f93a16782f",
+      "source": "import axios from\"axios\";import https from\"https\";import fs from\"fs\";import session from\"../session/index.js\";import{isObject,getHDDate}from\"../../util/helper.js\";import storage from\"../storage/index.js\";import Logger from\"../../util/logger.js\";import path from\"path\";import{getDirName}from\"../util/dir.js\";const logger=new Logger(\"Edge\"),edgeRequest=axios.create({withCredentials:!0,httpsAgent:new https.Agent({rejectUnauthorized:!1})});function setEdgeHeaders(e={}){const t={};if(!isObject(e))return t;for(let s in e)e[s]&&(t[s]=e[s]);return t}function createUserAgent(){const e=getDirName(import.meta.url),t=JSON.parse(fs.readFileSync(path.join(e,\"../../package.json\"),\"utf8\"));return`agc-cli-tool/${t.version} (${t.platform})`}const onConfig=async e=>{if(!await session.isSessionValid())return logger.warn(\"Run the agcli login command to sign in the user first.\"),e;e.headers[\"User-Agent\"]=createUserAgent(),e.headers[\"X-HD-DATE\"]=getHDDate();const{uid:t,accessToken:s}=session.getToken(),r=storage.getProjectId(),o=setEdgeHeaders({uid:t,oauth2Token:s,teamId:storage.getTeamId(),productId:r});return Object.assign(e.headers,o),e},onError=e=>Promise.reject(e);edgeRequest.interceptors.request.use(onConfig,onError),edgeRequest.interceptors.response.use((e=>200===e.status?e.data:Promise.reject(e)),(e=>Promise.reject(e)));const edgeRequestWithRawResponse=axios.create({httpsAgent:new https.Agent({rejectUnauthorized:!1})});edgeRequestWithRawResponse.interceptors.request.use(onConfig,onError),edgeRequestWithRawResponse.interceptors.response.use((e=>200===e.status?{data:e.data,headers:e.headers}:Promise.reject(e)),(e=>Promise.reject(e)));export{edgeRequest,edgeRequestWithRawResponse,setEdgeHeaders,createUserAgent};"
+    }
+  ],
+  "notes": [
+    "SAM CloudFunctions application transport, not deployment of the console gallery templates. codeUri is a pre-uploaded bucket/object key. Creation/application acceptance does not prove ready state; search/get-plan must be read back."
+  ],
+  "reviewedPages": [
+    {
+      "captureTool": "Computer Use; merged-cell capture compatible with scripts/browser-capture-reference.mjs",
+      "checkedAt": "2026-10-26",
+      "examples": [],
+      "links": [
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-serverless-manage_template-0000001241426200",
+          "title": "管理模板"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-serverless-develop_template-0000001285586137",
+          "title": "Serverless模板开发"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-serverless-introduction-0000001241424796#section328615414477",
+          "title": "主要功能"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-serverless-introduction-0000001241424796#section18868181854719",
+          "title": "使用流程"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+          "title": "华为开发者联盟用户协议"
+        }
+      ],
+      "notes": [
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-serverless-introduction-0000001241424796",
+          "text": "HarmonyOS 开发者中心（简称开发者中心）Serverless模板是基于Serverless服务构建的场景化解决方案，提供了应用生态常见场景的代码实现。开发者可将所需能力快速部署和集成到自己的应用中，有效降低开发门槛，提高交付效率。"
+        }
+      ],
+      "renderedText": "指南\nServerless模板\n业务介绍\n业务介绍\n更新时间: 2026-10-20 16:24\n\nHarmonyOS 开发者中心（简称开发者中心）Serverless模板是基于Serverless服务构建的场景化解决方案，提供了应用生态常见场景的代码实现。开发者可将所需能力快速部署和集成到自己的应用中，有效降低开发门槛，提高交付效率。\n\n主要功能\n\n主要功能\n\n\t\n\n功能描述\n\n\n\n\n构建丰富的Serverless能力\n\n\t\n\n基于Serverless服务构建，可一键部署到Serverless环境。实现丰富的场景化能力，提供应用生态常见场景的代码实现。\n\n\n\n\n简化开发与运维\n\n\t\n\n快速集成到应用或直接使用，免除大量端侧开发与运维工作。支持一键部署、快速集成、弹性伸缩、免运维，助力应用开发者快速集成和交付相关能力。\n\n使用流程\n\n序号\n\n\t\n\n步骤\n\n\t\n\n详情\n\n\n\n\n1\n\n\t\n\n部署Serverless模板\n\n\t\n\n您需要将Serverless模板部署到需要使用模板的项目中，详情请参见对应模板的“部署模板”章节。\n\n\n\n\n2\n\n\t\n\n管理Serverless模板\n\n\t\n\n您可以对已部署模板进行管理，包括升级版本、重试部署等，详情请参见管理模板章节。\n\n\n\n\n3\n\n\t\n\n使用Serverless模板\n\n\t\n\n您可以根据模板中的使用指导使用模板。\n\nServerless模板开发\n意见反馈\n以上内容对您是否有帮助？\n意见反馈\n如果您有其他疑问，您也可以通过开发者社区问答频道来和我们联系探讨。\n社区提问AI 助手提问\n本文导读\n主要功能\n使用流程\n简体中文\n华为开发者联盟 版权所有 ©2026\n问题反馈\n使用条款\n华为开发者联盟用户协议\n关于华为开发者联盟与隐私的声明\nCookies\n开源软件声明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-serverless-introduction-0000001241424796",
+      "status": "browser-read",
+      "tables": [
+        {
+          "location": "",
+          "rows": [
+            [
+              "主要功能",
+              "功能描述"
+            ],
+            [
+              "构建丰富的Serverless能力",
+              "基于Serverless服务构建，可一键部署到Serverless环境。实现丰富的场景化能力，提供应用生态常见场景的代码实现。"
+            ],
+            [
+              "简化开发与运维",
+              "快速集成到应用或直接使用，免除大量端侧开发与运维工作。支持一键部署、快速集成、弹性伸缩、免运维，助力应用开发者快速集成和交付相关能力。"
+            ]
+          ],
+          "section": "主要功能",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-serverless-introduction-0000001241424796#section328615414477"
+        },
+        {
+          "location": "",
+          "rows": [
+            [
+              "序号",
+              "步骤",
+              "详情"
+            ],
+            [
+              "1",
+              "部署Serverless模板",
+              "您需要将Serverless模板部署到需要使用模板的项目中，详情请参见对应模板的“部署模板”章节。"
+            ],
+            [
+              "2",
+              "管理Serverless模板",
+              "您可以对已部署模板进行管理，包括升级版本、重试部署等，详情请参见管理模板章节。"
+            ],
+            [
+              "3",
+              "使用Serverless模板",
+              "您可以根据模板中的使用指导使用模板。"
+            ]
+          ],
+          "section": "使用流程",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-serverless-introduction-0000001241424796#section18868181854719"
+        }
+      ],
+      "title": "业务介绍"
+    },
+    {
+      "captureTool": "Computer Use; merged-cell capture compatible with scripts/browser-capture-reference.mjs",
+      "checkedAt": "2026-10-26",
+      "examples": [],
+      "links": [
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-serverless-lottery-0000001285625973",
+          "title": "抽奖活动模板"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-serverless-imgcrop-0000001269535810",
+          "title": "图片尺寸调整模板"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-serverless-clearuser-0000001318455685",
+          "title": "用户数据删除模板"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-serverless-maxrow-0000001269535814",
+          "title": "数据库记录数限制模板"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-serverless-shortenurl-0000001270513938",
+          "title": "短URL生成模板"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-serverless-leaderboards-0000001322811985",
+          "title": "游戏排行榜模板"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-serverless-introduction-0000001241424796",
+          "title": "业务介绍"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-serverless-lottery-0000001285625973",
+          "title": "抽奖活动模板"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+          "title": "华为开发者联盟用户协议"
+        }
+      ],
+      "notes": [
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-serverless-develop_template-0000001285586137",
+          "text": "抽奖活动模板"
+        },
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-serverless-develop_template-0000001285586137",
+          "text": "图片尺寸调整模板"
+        },
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-serverless-develop_template-0000001285586137",
+          "text": "用户数据删除模板"
+        },
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-serverless-develop_template-0000001285586137",
+          "text": "数据库记录数限制模板"
+        },
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-serverless-develop_template-0000001285586137",
+          "text": "短URL生成模板"
+        },
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-serverless-develop_template-0000001285586137",
+          "text": "游戏排行榜模板"
+        }
+      ],
+      "renderedText": "指南\nServerless模板\nServerless模板开发\nServerless模板开发\n更新时间: 2025-08-13 09:38\n抽奖活动模板\n\n图片尺寸调整模板\n\n用户数据删除模板\n\n数据库记录数限制模板\n\n短URL生成模板\n\n游戏排行榜模板\n\n业务介绍\n抽奖活动模板\n意见反馈\n以上内容对您是否有帮助？\n意见反馈\n如果您有其他疑问，您也可以通过开发者社区问答频道来和我们联系探讨。\n社区提问AI 助手提问\n简体中文\n华为开发者联盟 版权所有 ©2026\n问题反馈\n使用条款\n华为开发者联盟用户协议\n关于华为开发者联盟与隐私的声明\nCookies\n开源软件声明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-serverless-develop_template-0000001285586137",
+      "status": "browser-read",
+      "tables": [],
+      "title": "Serverless模板开发"
+    },
+    {
+      "captureTool": "Computer Use; merged-cell capture compatible with scripts/browser-capture-reference.mjs",
+      "checkedAt": "2026-10-26",
+      "examples": [],
+      "links": [
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-serverless-leaderboards-restrict-0000001272332252",
+          "title": "使用限制"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-serverless-use_template-0000001320585441",
+          "title": "使用模板"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-serverless-manage_template-0000001241426200#section1283521354713",
+          "title": "升级版本"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-serverless-manage_template-0000001241426200#section15379101918387",
+          "title": "重试部署"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+          "title": "华为开发者联盟用户协议"
+        }
+      ],
+      "notes": [
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-serverless-manage_template-0000001241426200",
+          "text": "当模板发布新版本时，还可以选择升级模板。"
+        },
+        {
+          "section": "升级版本",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-serverless-manage_template-0000001241426200#section1283521354713",
+          "text": "当Serverless模板有新版本上架时，您可以在已经部署的模板列表中升级模板。"
+        },
+        {
+          "section": "升级版本",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-serverless-manage_template-0000001241426200#section1283521354713",
+          "text": "登录HarmonyOS 开发者中心，进入“应用管理”页面。"
+        },
+        {
+          "section": "升级版本",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-serverless-manage_template-0000001241426200#section1283521354713",
+          "text": "在左上角的应用列表中点击“切换至项目”，选择需要升级Serverless模板的项目。"
+        },
+        {
+          "section": "升级版本",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-serverless-manage_template-0000001241426200#section1283521354713",
+          "text": "选择“开放能力配置 > Serverless模板”，点击可升级模板右侧的“升级”。\n说明\n\n仅在模板发布新版本时，才可以进行升级操作。"
+        },
+        {
+          "section": "升级版本",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-serverless-manage_template-0000001241426200#section1283521354713",
+          "text": "仅在模板发布新版本时，才可以进行升级操作。"
+        },
+        {
+          "section": "升级版本",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-serverless-manage_template-0000001241426200#section1283521354713",
+          "text": "查看新版本模板的版本说明，确认后点击“下一步”。"
+        },
+        {
+          "section": "升级版本",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-serverless-manage_template-0000001241426200#section1283521354713",
+          "text": "配置该Serverless服务需要的参数，配置完成后点击“下一步”。"
+        },
+        {
+          "section": "升级版本",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-serverless-manage_template-0000001241426200#section1283521354713",
+          "text": "在升级版本页面，点击“开始升级”。"
+        },
+        {
+          "section": "升级版本",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-serverless-manage_template-0000001241426200#section1283521354713",
+          "text": "如升级失败，您可在页面点击“重新部署”。多次重新部署仍失败时，可点击“反馈问题”，填写问题详情并提交后等待运维人员处理，处理周期一般在1个工作日内。"
+        },
+        {
+          "section": "重试部署",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-serverless-manage_template-0000001241426200#section15379101918387",
+          "text": "当Serverless部署失败后，操作列会出现“部署”操作，您可点击重试部署。"
+        }
+      ],
+      "renderedText": "指南\nServerless模板\n管理模板\n管理模板\n更新时间: 2026-10-20 16:24\n\n当模板发布新版本时，还可以选择升级模板。\n\n升级版本\n\n当Serverless模板有新版本上架时，您可以在已经部署的模板列表中升级模板。\n\n登录HarmonyOS 开发者中心，进入“应用管理”页面。\n在左上角的应用列表中点击“切换至项目”，选择需要升级Serverless模板的项目。\n选择“开放能力配置 > Serverless模板”，点击可升级模板右侧的“升级”。\n说明\n\n仅在模板发布新版本时，才可以进行升级操作。\n\n查看新版本模板的版本说明，确认后点击“下一步”。\n\n配置该Serverless服务需要的参数，配置完成后点击“下一步”。\n\n在升级版本页面，点击“开始升级”。\n\n注意\n\n如升级失败，您可在页面点击“重新部署”。多次重新部署仍失败时，可点击“反馈问题”，填写问题详情并提交后等待运维人员处理，处理周期一般在1个工作日内。\n\n重试部署\n\n当Serverless部署失败后，操作列会出现“部署”操作，您可点击重试部署。\n\n使用限制\n使用模板\n意见反馈\n以上内容对您是否有帮助？\n意见反馈\n如果您有其他疑问，您也可以通过开发者社区问答频道来和我们联系探讨。\n社区提问AI 助手提问\n本文导读\n升级版本\n重试部署\n简体中文\n华为开发者联盟 版权所有 ©2026\n问题反馈\n使用条款\n华为开发者联盟用户协议\n关于华为开发者联盟与隐私的声明\nCookies\n开源软件声明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-serverless-manage_template-0000001241426200",
+      "status": "browser-read",
+      "tables": [],
+      "title": "管理模板"
+    }
+  ]
+}

@@ -1,0 +1,255 @@
+{
+  "checkedAt": "2026-10-26",
+  "examples": [
+    {
+      "section": "请求示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadversion-0000001211707813#section2382162510250",
+      "text": "请求示例\ncurl --location --request PUT 'https://content***********.com/hosting_HostVersion_904_9/23/v3/M3qacR6QTt27PLe47x4FAA/test1.zip' \\\n--header 'Authorization: AWS4-HMAC-SHA256 Credential=I06FN**********************_request, SignedHeaders=content-length;content-type;host;user-agent;x-amz-client-request-id;x-amz-content-sha256;x-amz-date, Signature=6faf12cf49a84e536e884677a6c2d43206bb2cea5dbe4be2f8eca93624c80ff7' \\\n--header 'x-amz-content-sha256: 20a390d44f078e805de31c2108a0b3b77384e50469396adfc9e6500b22a18e8b' \\\n--header 'x-amz-client-request-id: MaU70G-8S62Y-ZtCuMKDjQ' \\\n--header 'x-amz-date: 20210824T061826Z' \\\n--header 'Host: content***********.com' \\\n--header 'Content-Type: application/zip' \\\n--header 'connection: close' \\\n--data-binary '@/C:/Users/Desktop/hosting/test1.zip'"
+    },
+    {
+      "section": "响应示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadversion-0000001211707813#section69231586289",
+      "text": "响应示例\n成功示例\nHTTPS/1.1 200 OK\n失败示例\nHTTPS/1.1 403 Forbidden\n\n\n<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><Error><Code>RequestTimeTooSkewed</Code><Message>The difference between the request time and the current time is too large.</Message><RequestId>0000017C7CCDB5B7804FB8999087250B</RequestId><HostId>b2mYGM1RhdcyhPNXOpuOSYVonBRXWAowp5FlInLyRzUOf9pJq1g02DoSkcewFIKF</HostId><MaxAllowedSkewMilliseconds>900000</MaxAllowedSkewMilliseconds><RequestTime>20210824T061826Z</RequestTime><ServerTime>2021-10-14T03:17:08.663Z</ServerTime></Error>"
+    }
+  ],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-restapi-0000001150409957",
+      "title": "RESTful API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-version-0000001260142907",
+      "title": "管理版本"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadurl-0000001166347942",
+      "title": "获取上传地址"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadversion-0000001211707813#ZH-CN_TOPIC_0000002743192178__table8419125694713",
+      "title": "请求头"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadurl-0000001166347942#ZH-CN_TOPIC_0000002772871311__table13671116153911",
+      "title": "uploadInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadurl-0000001166347942",
+      "title": "获取版本压缩包上传地址"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadurl-0000001166347942",
+      "title": "获取版本压缩包上传地址"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadurl-0000001166347942",
+      "title": "获取版本压缩包上传地址"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadurl-0000001166347942",
+      "title": "获取版本压缩包上传地址"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadurl-0000001166347942",
+      "title": "获取版本压缩包上传地址"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadurl-0000001166347942",
+      "title": "获取版本压缩包上传地址"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadurl-0000001166347942",
+      "title": "获取版本压缩包上传地址"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-archivedversion-0000001211826385",
+      "title": "归档版本"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadversion-0000001211707813#section15494260",
+      "title": "功能介绍"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadversion-0000001211707813#section5230614",
+      "title": "使用约束"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadversion-0000001211707813#section6932219103913",
+      "title": "接口原型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadversion-0000001211707813#section55021827",
+      "title": "请求参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadversion-0000001211707813#section236517415165",
+      "title": "Header"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadversion-0000001211707813#section17512144171520",
+      "title": "Body"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadversion-0000001211707813#section2382162510250",
+      "title": "请求示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadversion-0000001211707813#section25434396",
+      "title": "响应参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadversion-0000001211707813#section69231586289",
+      "title": "响应示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadversion-0000001211707813#section1867336204918",
+      "title": "成功示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadversion-0000001211707813#section97741350154917",
+      "title": "失败示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadversion-0000001211707813#section15494260",
+      "text": "通过获取上传地址的响应请求地址、请求方法、请求头信息，上传版本压缩包至云托管。"
+    },
+    {
+      "section": "使用约束",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadversion-0000001211707813#section5230614",
+      "text": "在获取上传地址时响应的请求头中，“Authorization”参数的token有效期为30分钟。"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadversion-0000001211707813#section25434396",
+      "text": "成功上传后会返回 “200 OK HTTPS” 响应，无响应体。"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadversion-0000001211707813#section25434396",
+      "text": "上传失败响应内容："
+    }
+  ],
+  "renderedText": "API参考\n云托管\nRESTful API\n管理版本\n上传版本压缩包\n上传版本压缩包\n更新时间: 2026-10-23 16:56\n功能介绍\n\n通过获取上传地址的响应请求地址、请求方法、请求头信息，上传版本压缩包至云托管。\n\n使用约束\n\n在获取上传地址时响应的请求头中，“Authorization”参数的token有效期为30分钟。\n\n接口原型\n\n承载协议\n\n\t\n\nHTTPS PUT\n\n\n\n\n接口方向\n\n\t\n\n开发者服务器 -> 华为服务器\n\n\n\n\n接口URL\n\n\t\n\n${uploadInfo.url}\n\n\n\n\n数据格式\n\n\t\n\n请求：Content-Type: application/json\n\n响应：Content-Type: application/json\n\n请求参数\nHeader\n\n参数名称\n\n\t\n\n必选(M)/可选(O)\n\n\t\n\n类型\n\n\t\n\n参数说明\n\n\n\n\nAuthorization\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n\n校验信息，对应获取版本压缩包上传地址接口返回的headers参数中的Authorization。\n\n\n\n\nx-amz-content-sha256\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n\n文件对象内容的SHA256哈希值，对应获取版本压缩包上传地址接口返回的headers参数中的x-amz-content-sha256。\n\n\n\n\nx-amz-client-request-id\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n\n文件上传的唯一标识，对应获取版本压缩包上传地址接口返回的headers参数中的x-amz-client-request-id。\n\n\n\n\nx-amz-date\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n\n文件上传地址生成的时间，对应获取版本压缩包上传地址接口返回的headers参数中的x-amz-date。\n\n\n\n\nHost\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n\n上传服务器地址，对应获取版本压缩包上传地址接口返回的headers参数中的Host。\n\n\n\n\nContent-Type\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n\n对象内容的类型，对应获取版本压缩包上传地址接口返回的headers参数中的Content-Type。\n\nBody\n\n参数名称\n\n\t\n\n必选(M)/可选(O)\n\n\t\n\n类型\n\n\t\n\n参数说明\n\n\n\n\n${file}\n\n\t\n\nM\n\n\t\n\nBinary\n\n\t\n\n增量版本文件。\n\n请求示例\ncurl --location --request PUT 'https://content***********.com/hosting_HostVersion_904_9/23/v3/M3qacR6QTt27PLe47x4FAA/test1.zip' \\\n--header 'Authorization: AWS4-HMAC-SHA256 Credential=I06FN**********************_request, SignedHeaders=content-length;content-type;host;user-agent;x-amz-client-request-id;x-amz-content-sha256;x-amz-date, Signature=6faf12cf49a84e536e884677a6c2d43206bb2cea5dbe4be2f8eca93624c80ff7' \\\n--header 'x-amz-content-sha256: 20a390d44f078e805de31c2108a0b3b77384e50469396adfc9e6500b22a18e8b' \\\n--header 'x-amz-client-request-id: MaU70G-8S62Y-ZtCuMKDjQ' \\\n--header 'x-amz-date: 20210824T061826Z' \\\n--header 'Host: content***********.com' \\\n--header 'Content-Type: application/zip' \\\n--header 'connection: close' \\\n--data-binary '@/C:/Users/Desktop/hosting/test1.zip'\n响应参数\n\n成功上传后会返回 “200 OK HTTPS” 响应，无响应体。\n\n上传失败响应内容：\n\n类型\n\n\t\n\n必选(M)/可选(O)\n\n\t\n\n参数说明\n\n\n\n\nxml\n\n\t\n\nO\n\n\t\n\n上传失败的描述。\n\n响应示例\n成功示例\nHTTPS/1.1 200 OK\n失败示例\nHTTPS/1.1 403 Forbidden\n\n\n<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><Error><Code>RequestTimeTooSkewed</Code><Message>The difference between the request time and the current time is too large.</Message><RequestId>0000017C7CCDB5B7804FB8999087250B</RequestId><HostId>b2mYGM1RhdcyhPNXOpuOSYVonBRXWAowp5FlInLyRzUOf9pJq1g02DoSkcewFIKF</HostId><MaxAllowedSkewMilliseconds>900000</MaxAllowedSkewMilliseconds><RequestTime>20210824T061826Z</RequestTime><ServerTime>2021-10-14T03:17:08.663Z</ServerTime></Error>\n获取版本压缩包上传地址\n归档版本\n意见反馈\n以上内容对您是否有帮助？\n意见反馈\n如果您有其他疑问，您也可以通过开发者社区问答频道来和我们联系探讨。\n社区提问AI 助手提问\n本文导读\n功能介绍\n使用约束\n接口原型\n请求参数\nHeader\nBody\n请求示例\n响应参数\n响应示例\n成功示例\n失败示例\n简体中文\n华为开发者联盟 版权所有 ©2026\n问题反馈\n使用条款\n华为开发者联盟用户协议\n关于华为开发者联盟与隐私的声明\nCookies\n开源软件声明",
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadversion-0000001211707813",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "承载协议",
+          "HTTPS PUT"
+        ],
+        [
+          "接口方向",
+          "开发者服务器 -> 华为服务器"
+        ],
+        [
+          "接口URL",
+          "${uploadInfo.url}"
+        ],
+        [
+          "数据格式",
+          "请求：Content-Type: application/json 响应：Content-Type: application/json"
+        ]
+      ],
+      "section": "接口原型",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadversion-0000001211707813#section6932219103913"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "Authorization",
+          "M",
+          "String",
+          "校验信息，对应获取版本压缩包上传地址接口返回的headers参数中的Authorization。"
+        ],
+        [
+          "x-amz-content-sha256",
+          "M",
+          "String",
+          "文件对象内容的SHA256哈希值，对应获取版本压缩包上传地址接口返回的headers参数中的x-amz-content-sha256。"
+        ],
+        [
+          "x-amz-client-request-id",
+          "M",
+          "String",
+          "文件上传的唯一标识，对应获取版本压缩包上传地址接口返回的headers参数中的x-amz-client-request-id。"
+        ],
+        [
+          "x-amz-date",
+          "M",
+          "String",
+          "文件上传地址生成的时间，对应获取版本压缩包上传地址接口返回的headers参数中的x-amz-date。"
+        ],
+        [
+          "Host",
+          "M",
+          "String",
+          "上传服务器地址，对应获取版本压缩包上传地址接口返回的headers参数中的Host。"
+        ],
+        [
+          "Content-Type",
+          "M",
+          "String",
+          "对象内容的类型，对应获取版本压缩包上传地址接口返回的headers参数中的Content-Type。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadversion-0000001211707813#section236517415165"
+    },
+    {
+      "location": "body",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "${file}",
+          "M",
+          "Binary",
+          "增量版本文件。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadversion-0000001211707813#section17512144171520"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "类型",
+          "必选(M)/可选(O)",
+          "参数说明"
+        ],
+        [
+          "xml",
+          "O",
+          "上传失败的描述。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-uploadversion-0000001211707813#section25434396"
+    }
+  ],
+  "title": "上传版本压缩包",
+  "updatedAt": "2026-10-23 16:56",
+  "captureTool": "Computer Use; scripts/browser-capture-reference.mjs-compatible merged-cell capture"
+}

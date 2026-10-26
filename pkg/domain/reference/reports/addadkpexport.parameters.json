@@ -1,0 +1,63 @@
+[
+  {
+    "name": "appId",
+    "in": "path",
+    "type": "string",
+    "required": true,
+    "description": "应用ID，获取方法参考查询应用信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-addadkpexport-0000001111845102#section1250171775311"
+  },
+  {
+    "name": "language",
+    "in": "query",
+    "type": "string",
+    "required": true,
+    "description": "查询语言，报表title会根据不同语言来展现，只支持简体中文（zh-CN），美式英文（en-US），俄文（ru-RU）。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-addadkpexport-0000001111845102#section886219295206",
+    "enum": [
+      "zh-CN",
+      "en-US",
+      "ru-RU"
+    ]
+  },
+  {
+    "name": "startTime",
+    "in": "query",
+    "type": "string",
+    "required": true,
+    "description": "查询开始时间，UTC时间，格式为YYYYMMDD。startTime和endTime之间不超过180天。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-addadkpexport-0000001111845102#section886219295206"
+  },
+  {
+    "name": "endTime",
+    "in": "query",
+    "type": "string",
+    "required": true,
+    "description": "查询结束时间，UTC时间，格式为YYYYMMDD。startTime和endTime之间不超过180天。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-addadkpexport-0000001111845102#section886219295206"
+  },
+  {
+    "name": "userTag",
+    "in": "query",
+    "type": "integer",
+    "required": false,
+    "description": "基于账号还是设备查询。 取值范围： 0: 账号 1: 设备 默认值：1",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-addadkpexport-0000001111845102#section886219295206",
+    "enum": [
+      "0",
+      "1"
+    ]
+  },
+  {
+    "name": "exportType",
+    "in": "query",
+    "type": "string",
+    "required": false,
+    "description": "导出文件类型。 取值范围： CSV：导出CSV文件格式 EXCEL：导出Excel文件格式 默认值：CSV",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-addadkpexport-0000001111845102#section886219295206",
+    "enum": [
+      "CSV",
+      "EXCEL"
+    ]
+  }
+]

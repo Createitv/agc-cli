@@ -1,0 +1,20 @@
+[
+  {
+    "name": "teamId",
+    "in": "header",
+    "type": "string",
+    "required": false,
+    "description": "开发者所在团队的团队ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-delete-provision-0000002236201310#section1323714041015",
+    "maxLength": 64
+  },
+  {
+    "name": "id",
+    "in": "query",
+    "type": "string",
+    "required": true,
+    "description": "待删除Profile的ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-delete-provision-0000002236201310#section16551174881019",
+    "maxLength": 32
+  }
+]

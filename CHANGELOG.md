@@ -4,6 +4,13 @@
 
 User-visible changes are listed here. Published binaries and versions are available in [GitHub Releases](https://github.com/Createitv/agc-cli/releases).
 
+## [0.3.2] - 2026-10-26
+
+- Add reviewed cloud development management, schema, cache, function resources and create-only SAM deployment.
+- Expand local contract validation, offline documentation discovery and regression coverage.
+- Preserve account identity, Agent Skills installation and package publication workflows.
+- Live Huawei write operations remain unverified; documented unsupported operations remain explicit.
+
 ## Unreleased
 
 ### Added

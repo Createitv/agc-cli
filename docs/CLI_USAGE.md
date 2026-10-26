@@ -217,6 +217,10 @@ agc endpoints --pretty
 
 包含数组、对象、数字或布尔值的请求请使用 `--body`。dry-run 不展示完整 headers/body，也不校验全部华为业务字段；发送前需要自行核对请求文件、权限和官方协议。
 
+## 现行 Publishing API 命令
+
+通过 `agc endpoints --family publishing` 查询接口，并使用 `--docs --pretty` 阅读参数契约。
+
 ## 应用发布流程
 
 发布通常涉及：**查询应用 → 上传文件 → 更新应用文件信息 → 完善资料 → 提交审核 → 查询远程状态**。

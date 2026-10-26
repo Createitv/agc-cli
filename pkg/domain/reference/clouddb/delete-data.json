@@ -1,0 +1,789 @@
+{
+  "checkedAt": "2026-10-26",
+  "examples": [],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-rest-0000001446447626",
+      "title": "REST API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section129653168386",
+      "title": "SchemaField"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section18502104612500",
+      "title": "获取客户端API授权"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-obtaintoken-rest-0000001446607602",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-get-developerid-projectid-0000001166543063",
+      "title": "查询项目ID"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-signin-rest-0000001496447669#section101441919542",
+      "title": "响应参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section19632115714018",
+      "title": "MsgInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section177593293713",
+      "title": "ClientInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section18342205718374",
+      "title": "Schema"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section7855744143812",
+      "title": "OperatorData"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#ZH-CN_TOPIC_0000002764927381__li89603794812",
+      "title": "导出对象类型步骤4"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section129653168386",
+      "title": "SchemaField"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section156861057163820",
+      "title": "Field"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1176810453917",
+      "title": "FieldValue"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section129653168386",
+      "title": "SchemaField"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section19632115714018",
+      "title": "MsgInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1851916379417",
+      "title": "ResponseInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section06631914426",
+      "title": "UpdateResponseMessage"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706",
+      "title": "更新数据"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-error-code-rest-0000001454149360",
+      "title": "错误码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section2891171218402",
+      "title": "功能介绍"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section133291219184112",
+      "title": "接口原型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1957882116421",
+      "title": "请求参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1664165216352",
+      "title": "Query"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section664671343615",
+      "title": "Header"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1719674619367",
+      "title": "Body"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section177593293713",
+      "title": "ClientInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section18342205718374",
+      "title": "Schema"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section129653168386",
+      "title": "SchemaField"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section7855744143812",
+      "title": "OperatorData"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section156861057163820",
+      "title": "Field"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1176810453917",
+      "title": "FieldValue"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1421455220168",
+      "title": "响应参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section19632115714018",
+      "title": "MsgInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1851916379417",
+      "title": "ResponseInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section06631914426",
+      "title": "UpdateResponseMessage"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section2891171218402",
+      "text": "该接口用于用户删除数据，根据您传入对象主键删除相应的数据，不会比对该对象其他属性与存储的数据是否一致，删除操作需要设置naturalbase_deleted字段为true，具体请参见SchemaField字段设置。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1176810453917",
+      "text": "删除数据时，删除字段的数据类型与SchemaField中的参数类型需保持一致。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1176810453917",
+      "text": "请求示例"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1176810453917",
+      "text": "POST agc/apigw/clouddb/clouddbservice/sync/upsert?_v=4 content-type: application/json client_id: 74************40 Authorization: Bearer *** productId: 99************83 access_token: *** host: connect-drcn.dbankcloud.cn { \"msgInfo\": { \"type\": 3, \"opStore\": { \"storeName\": \"cloudDBZone\" } }, \"clientInfo\": { \"appVer\": 1 }, \"schemas\": [ { \"n\": \"StudentInfo\", \"fs\": [ { \"n\": \"id\", \"t\": \"TYPE_INT32\" }, { \"n\": \"naturalbase_version\", \"t\": \"TYPE_LONG\" }, { \"n\": \"naturalbase_deleted\", \"t\": \"TYPE_BOOLEAN\" } ] } ], \"opData\": [ { \"os\": [ { \"fs\": [ { \"i\": 1 }, { \"l\": null }, { \"bl\": true } ] } ], \"t\": 1 } ] }"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1176810453917",
+      "text": "POST agc/apigw/clouddb/clouddbservice/sync/upsert?_v=4"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1176810453917",
+      "text": "content-type: application/json"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1176810453917",
+      "text": "client_id: 74************40"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1176810453917",
+      "text": "Authorization: Bearer ***"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1176810453917",
+      "text": "productId: 99************83"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1176810453917",
+      "text": "access_token: ***"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1176810453917",
+      "text": "host: connect-drcn.dbankcloud.cn"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1176810453917",
+      "text": "{"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1176810453917",
+      "text": "\"msgInfo\": {"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1176810453917",
+      "text": "\"type\": 3,"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1176810453917",
+      "text": "\"opStore\": {"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1176810453917",
+      "text": "\"storeName\": \"cloudDBZone\""
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1176810453917",
+      "text": "}"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1176810453917",
+      "text": "},"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1176810453917",
+      "text": "\"clientInfo\": {"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1176810453917",
+      "text": "\"appVer\": 1"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1176810453917",
+      "text": "\"schemas\": ["
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1176810453917",
+      "text": "\"n\": \"StudentInfo\","
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1176810453917",
+      "text": "\"fs\": ["
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1176810453917",
+      "text": "\"n\": \"id\","
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1176810453917",
+      "text": "\"t\": \"TYPE_INT32\""
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1176810453917",
+      "text": "\"n\": \"naturalbase_version\","
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1176810453917",
+      "text": "\"t\": \"TYPE_LONG\""
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1176810453917",
+      "text": "\"n\": \"naturalbase_deleted\","
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1176810453917",
+      "text": "\"t\": \"TYPE_BOOLEAN\""
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1176810453917",
+      "text": "]"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1176810453917",
+      "text": "],"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1176810453917",
+      "text": "\"opData\": ["
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1176810453917",
+      "text": "\"os\": ["
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1176810453917",
+      "text": "\"i\": 1"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1176810453917",
+      "text": "\"l\": null"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1176810453917",
+      "text": "\"bl\": true"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1176810453917",
+      "text": "\"t\": 1"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section06631914426",
+      "text": "响应示例"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section06631914426",
+      "text": "{ \"msgInfo\": { \"id\": \"1\", \"type\": 3, \"opStore\": { \"storeName\": \"string\" } }, \"resInfo\": {}, \"updateResMsg\": { \"successRecCount\": 1 } }"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section06631914426",
+      "text": "\"id\": \"1\","
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section06631914426",
+      "text": "\"storeName\": \"string\""
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section06631914426",
+      "text": "\"resInfo\": {},"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section06631914426",
+      "text": "\"updateResMsg\": {"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section06631914426",
+      "text": "\"successRecCount\": 1"
+    }
+  ],
+  "renderedText": "API参考\n云数据库 for Object\nREST API\n删除数据\n删除数据\n更新时间: 2026-10-22 11:41\n功能介绍\n\n该接口用于用户删除数据，根据您传入对象主键删除相应的数据，不会比对该对象其他属性与存储的数据是否一致，删除操作需要设置naturalbase_deleted字段为true，具体请参见SchemaField字段设置。\n\n接口原型\n\n承载协议\n\n\t\n\nHTTPS POST\n\n\n\n\n接口方向\n\n\t\n\n应用客户端 -> CloudDB服务器\n\n\n\n\n接口URL\n\n\t\n\nhttps://connect-drcn.dbankcloud.cn/agc/apigw/clouddb/clouddbservice/sync/upsert\n\n\n\n\n数据格式\n\n\t\n\n请求：Content-Type: application/json\n\n响应：Content-Type: application/json\n\n请求参数\nQuery\n\n参数名称\n\n\t\n\n必选(M)/可选(O)\n\n\t\n\n参数类型\n\n\t\n\n参数说明\n\n\n\n\n_v\n\n\t\n\nM\n\n\t\n\ninteger\n\n\t\n\n数据版本类型，入参需为“4”表示protobuf v2 版本类型的json字符串。\n\nHeader\n\n参数名称\n\n\t\n\n必选(M)/可选(O)\n\n\t\n\n参数类型\n\n\t\n\n参数说明\n\n\n\n\nclient_id\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n\n客户端ID，即获取客户端API授权中的“Client ID”。\n\n\n\n\nAuthorization\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n\n认证信息，格式为“Authorization: Bearer ${authorization_token}”。\n\nauthorization_token为获取Token中获取的access_token。\n\n\n\nproductId\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n\n项目ID，查询方法可参见查询项目ID。\n\n\n\n\naccess_token\n\n\t\n\nO\n\n\t\n\nString\n\n\t\n\n认证凭据。用户登录成功后，在登录接口的响应参数“accessToken”中获取。该值为空时，则表示匿名账号登录。\n\nBody\n\n参数名称\n\n\t\n\n必选（M）/可选（O）\n\n\t\n\n参数类型\n\n\t\n\n参数说明\n\n\n\n\nmsgInfo\n\n\t\n\nM\n\n\t\n\nMsgInfo\n\n\t\n\n消息的基本信息，具体请参见MsgInfo。\n\n\n\n\nclientInfo\n\n\t\n\nM\n\n\t\n\nClientInfo\n\n\t\n\n客户端的基本信息，具体请参见ClientInfo。\n\n\n\n\nschemas\n\n\t\n\nM\n\n\t\n\nList<Schema>\n\n\t\n\n对象类型信息。\n\n\n\n\nopData\n\n\t\n\nM\n\n\t\n\nList<OperatorData>\n\n\t\n\n更新数据的对象信息。\n\nClientInfo\n\n参数名称\n\n\t\n\n必选（M）/可选（O）\n\n\t\n\n参数类型\n\n\t\n\n参数说明\n\n\n\n\nappVer\n\n\t\n\nM\n\n\t\n\ninteger\n\n\t\n\n对象类型对应的版本号，获取请参考导出对象类型步骤4中的版本号。\n\nSchema\n\n参数名称\n\n\t\n\n必选（M）/可选（O）\n\n\t\n\n参数类型\n\n\t\n\n参数说明\n\n\n\n\nn\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n\n对象类型名称。\n\n\n\n\nfs\n\n\t\n\nM\n\n\t\n\nList<SchemaField>\n\n\t\n\n字段名称。删除字段时，该对象必须属于同一个对象类型，且只能传入一个SchemaField。\n\nSchemaField\n\n参数名称\n\n\t\n\n必选（M）/可选（O）\n\n\t\n\n参数类型\n\n\t\n\n参数说明\n\n\n\n\nn\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n字段名。删除操作时必须有如下两个字段，并遵循相关约束：\nlong类型的naturalbase_version字段：该字段不生效，可设置为任意值。\nboolean类型的naturalbase_deleted字段：需设置为固定值“true”。\n\n\n\nt\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n\n字段类型，取值包含如下字段类型：\n\n1：TYPE_BOOLEAN，布尔类型。\n2：TYPE_BYTE，byte类型。\n3：TYPE_SHORT，short类型。\n4：TYPE_INT32，int类型。\n5：TYPE_LONG，long类型。\n6：TYPE_FLOAT，float类型。\n7：TYPE_DOUBLE，double类型。\n8：TYPE_BYTE_ARRAY，byte数组类型。\n9：TYPE_STRING，String类型。\n10：TYPE_DATE，date类型。\n11：TYPE_TEXT，文本类型。\n12：TYPE_AUTO_INCREMENT_INT，int自增类型。\n13：TYPE_AUTO_INCREMENT_LONG，long自增类型。\nOperatorData\n\n参数名称\n\n\t\n\n必选（M）/可选（O）\n\n\t\n\n参数类型\n\n\t\n\n参数说明\n\n\n\n\nos\n\n\t\n\nM\n\n\t\n\nList<Field>\n\n\t\n\n操作对象信息。该对象必须属于同一个对象类型，且仅支持传入一个Field。\n\n\n\n\nt\n\n\t\n\nM\n\n\t\n\ninteger\n\n\t\n\n删除操作类型，入参为“1”。\n\nField\n\n参数名称\n\n\t\n\n必选（M）/可选（O）\n\n\t\n\n参数类型\n\n\t\n\n参数说明\n\n\n\n\nfs\n\n\t\n\nM\n\n\t\n\nList<FieldValue>\n\n\t\n\n单条对象信息。\n\n说明\n\n删除操作中包含主键、naturalbase_deleted的字段固定设置值为true。\n\nFieldValue\n说明\n\n删除数据时，删除字段的数据类型与SchemaField中的参数类型需保持一致。\n\n参数名称\n\n\t\n\n必选（M）/可选（O）\n\n\t\n\n参数类型\n\n\t\n\n参数说明\n\n\n\n\nn\n\n\t\n\nO\n\n\t\n\nboolean\n\n\t\n\n是否设置为null\n\n\n\n\nbl\n\n\t\n\nO\n\n\t\n\nboolean\n\n\t\n\nboolean类型值\n\n\n\n\nb\n\n\t\n\nO\n\n\t\n\nbyte\n\n\t\n\nbyte类型值\n\n\n\n\nst\n\n\t\n\nO\n\n\t\n\nshort\n\n\t\n\nshort类型值\n\n\n\n\ni\n\n\t\n\nO\n\n\t\n\nint\n\n\t\n\nint类型值\n\n\n\n\nl\n\n\t\n\nO\n\n\t\n\nlong\n\n\t\n\nlong类型值\n\n\n\n\nf\n\n\t\n\nO\n\n\t\n\nfloat\n\n\t\n\nfloat类型值\n\n\n\n\nd\n\n\t\n\nO\n\n\t\n\ndouble\n\n\t\n\ndouble类型值\n\n\n\n\nba\n\n\t\n\nO\n\n\t\n\nbyteArray\n\n\t\n\nbyteArray类型值\n\n\n\n\ns\n\n\t\n\nO\n\n\t\n\nString\n\n\t\n\nString类型值\n\n请求示例\n\n预定义一个存储区(cloudDBZone)、对象类型StudentInfo(id integer primary key, name string, age integer);\nPOST agc/apigw/clouddb/clouddbservice/sync/upsert?_v=4\ncontent-type: application/json\nclient_id: 74************40\nAuthorization: Bearer ***\nproductId: 99************83\naccess_token: ***\nhost: connect-drcn.dbankcloud.cn\n{\n  \"msgInfo\": {\n    \"type\": 3,\n    \"opStore\": {\n      \"storeName\": \"cloudDBZone\"\n    }\n  },\n  \"clientInfo\": {\n    \"appVer\": 1\n  },\n  \"schemas\": [\n    {\n      \"n\": \"StudentInfo\",\n      \"fs\": [\n        {\n          \"n\": \"id\",\n          \"t\": \"TYPE_INT32\"\n        },\n        {\n          \"n\": \"naturalbase_version\",\n          \"t\": \"TYPE_LONG\"\n        },\n        {\n          \"n\": \"naturalbase_deleted\",\n          \"t\": \"TYPE_BOOLEAN\"\n        }\n      ]\n    }\n  ],\n  \"opData\": [\n    {\n      \"os\": [\n        {\n          \"fs\": [\n            {\n              \"i\": 1\n            },\n            {\n              \"l\": null\n            },\n            {\n              \"bl\": true\n            }\n          ]\n        }\n      ],\n      \"t\": 1\n    }\n  ]\n}\n响应参数\n\n参数名称\n\n\t\n\n必选（M）/可选（O）\n\n\t\n\n参数类型\n\n\t\n\n参数说明\n\n\n\n\nmsgInfo\n\n\t\n\nO\n\n\t\n\nMsgInfo\n\n\t\n\n返回消息的基本信息。\n\n\n\n\nresInfo\n\n\t\n\nO\n\n\t\n\nResponseInfo\n\n\t\n\n返回响应的基本状态信息。\n\n\n\n\nupdateResMsg\n\n\t\n\nO\n\n\t\n\nUpdateResponseMessage\n\n\t\n\n返回响应的更新信息。\n\nMsgInfo\n\n参数名称\n\n\t\n\n必选（M）/可选（O）\n\n\t\n\n参数类型\n\n\t\n\n参数说明\n\n\n\n\ntype\n\n\t\n\nM\n\n\t\n\ninteger\n\n\t\n\n更新请求，入参需为“3”。\n\n“3”：更新数据或删除数据请求。\n“5”：查询数据请求。\n\n\n\nopStore\n\n\t\n\nM\n\n\t\n\nJson\n\n\t\n\nJSON字符串。格式为{\"storeName\": \"cloudDBZone\"}。\n\ncloudDBZone为存储区名。\nResponseInfo\n\n参数名称\n\n\t\n\n必选（M）/可选（O）\n\n\t\n\n参数类型\n\n\t\n\n参数说明\n\n\n\n\nresCode\n\n\t\n\nO\n\n\t\n\ninteger\n\n\t\n\n响应状态码。\n\n\n\n\nresInfo\n\n\t\n\nO\n\n\t\n\nString\n\n\t\n\n响应描述信息。\n\nUpdateResponseMessage\n\n参数名称\n\n\t\n\n必选（M）/可选（O）\n\n\t\n\n参数类型\n\n\t\n\n参数说明\n\n\n\n\nsuccessRecCount\n\n\t\n\nO\n\n\t\n\ninteger\n\n\t\n\n成功更新条数。\n\n响应示例\n\n{\n    \"msgInfo\": {\n        \"id\": \"1\",\n        \"type\": 3,\n        \"opStore\": {\n            \"storeName\": \"string\"\n        }\n    },\n    \"resInfo\": {},\n    \"updateResMsg\": {\n        \"successRecCount\": 1\n    }\n}\n更新数据\n错误码\n意见反馈\n以上内容对您是否有帮助？\n意见反馈\n如果您有其他疑问，您也可以通过开发者社区问答频道来和我们联系探讨。\n社区提问AI 助手提问\n本文导读\n功能介绍\n接口原型\n请求参数\nQuery\nHeader\nBody\nClientInfo\nSchema\nSchemaField\nOperatorData\nField\nFieldValue\n响应参数\nMsgInfo\nResponseInfo\nUpdateResponseMessage\n简体中文\n华为开发者联盟 版权所有 ©2026\n问题反馈\n使用条款\n华为开发者联盟用户协议\n关于华为开发者联盟与隐私的声明\nCookies\n开源软件声明",
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "承载协议",
+          "HTTPS POST"
+        ],
+        [
+          "接口方向",
+          "应用客户端 -> CloudDB服务器"
+        ],
+        [
+          "接口URL",
+          "https://connect-drcn.dbankcloud.cn/agc/apigw/clouddb/clouddbservice/sync/upsert"
+        ],
+        [
+          "数据格式",
+          "请求：Content-Type: application/json 响应：Content-Type: application/json"
+        ]
+      ],
+      "section": "接口原型",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section133291219184112"
+    },
+    {
+      "location": "query",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "参数类型",
+          "参数说明"
+        ],
+        [
+          "_v",
+          "M",
+          "integer",
+          "数据版本类型，入参需为“4”表示protobuf v2 版本类型的json字符串。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1664165216352"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "参数类型",
+          "参数说明"
+        ],
+        [
+          "client_id",
+          "M",
+          "String",
+          "客户端ID，即获取客户端API授权中的“Client ID”。"
+        ],
+        [
+          "Authorization",
+          "M",
+          "String",
+          "认证信息，格式为“Authorization: Bearer ${authorization_token}”。 authorization_token为获取Token中获取的access_token。"
+        ],
+        [
+          "productId",
+          "M",
+          "String",
+          "项目ID，查询方法可参见查询项目ID。"
+        ],
+        [
+          "access_token",
+          "O",
+          "String",
+          "认证凭据。用户登录成功后，在登录接口的响应参数“accessToken”中获取。该值为空时，则表示匿名账号登录。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section664671343615"
+    },
+    {
+      "location": "body",
+      "rows": [
+        [
+          "参数名称",
+          "必选（M）/可选（O）",
+          "参数类型",
+          "参数说明"
+        ],
+        [
+          "msgInfo",
+          "M",
+          "MsgInfo",
+          "消息的基本信息，具体请参见MsgInfo。"
+        ],
+        [
+          "clientInfo",
+          "M",
+          "ClientInfo",
+          "客户端的基本信息，具体请参见ClientInfo。"
+        ],
+        [
+          "schemas",
+          "M",
+          "List<Schema>",
+          "对象类型信息。"
+        ],
+        [
+          "opData",
+          "M",
+          "List<OperatorData>",
+          "更新数据的对象信息。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1719674619367"
+    },
+    {
+      "location": "body",
+      "rows": [
+        [
+          "参数名称",
+          "必选（M）/可选（O）",
+          "参数类型",
+          "参数说明"
+        ],
+        [
+          "appVer",
+          "M",
+          "integer",
+          "对象类型对应的版本号，获取请参考导出对象类型步骤4中的版本号。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section177593293713"
+    },
+    {
+      "location": "body",
+      "rows": [
+        [
+          "参数名称",
+          "必选（M）/可选（O）",
+          "参数类型",
+          "参数说明"
+        ],
+        [
+          "n",
+          "M",
+          "String",
+          "对象类型名称。"
+        ],
+        [
+          "fs",
+          "M",
+          "List<SchemaField>",
+          "字段名称。删除字段时，该对象必须属于同一个对象类型，且只能传入一个SchemaField。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section18342205718374"
+    },
+    {
+      "location": "body",
+      "rows": [
+        [
+          "参数名称",
+          "必选（M）/可选（O）",
+          "参数类型",
+          "参数说明"
+        ],
+        [
+          "n",
+          "M",
+          "String",
+          "字段名。删除操作时必须有如下两个字段，并遵循相关约束： long类型的naturalbase_version字段：该字段不生效，可设置为任意值。 boolean类型的naturalbase_deleted字段：需设置为固定值“true”。"
+        ],
+        [
+          "t",
+          "M",
+          "String",
+          "字段类型，取值包含如下字段类型： 1：TYPE_BOOLEAN，布尔类型。 2：TYPE_BYTE，byte类型。 3：TYPE_SHORT，short类型。 4：TYPE_INT32，int类型。 5：TYPE_LONG，long类型。 6：TYPE_FLOAT，float类型。 7：TYPE_DOUBLE，double类型。 8：TYPE_BYTE_ARRAY，byte数组类型。 9：TYPE_STRING，String类型。 10：TYPE_DATE，date类型。 11：TYPE_TEXT，文本类型。 12：TYPE_AUTO_INCREMENT_INT，int自增类型。 13：TYPE_AUTO_INCREMENT_LONG，long自增类型。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section129653168386"
+    },
+    {
+      "location": "body",
+      "rows": [
+        [
+          "参数名称",
+          "必选（M）/可选（O）",
+          "参数类型",
+          "参数说明"
+        ],
+        [
+          "os",
+          "M",
+          "List<Field>",
+          "操作对象信息。该对象必须属于同一个对象类型，且仅支持传入一个Field。"
+        ],
+        [
+          "t",
+          "M",
+          "integer",
+          "删除操作类型，入参为“1”。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section7855744143812"
+    },
+    {
+      "location": "body",
+      "rows": [
+        [
+          "参数名称",
+          "必选（M）/可选（O）",
+          "参数类型",
+          "参数说明"
+        ],
+        [
+          "fs",
+          "M",
+          "List<FieldValue>",
+          "单条对象信息。 说明 删除操作中包含主键、naturalbase_deleted的字段固定设置值为true。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section156861057163820"
+    },
+    {
+      "location": "body",
+      "rows": [
+        [
+          "参数名称",
+          "必选（M）/可选（O）",
+          "参数类型",
+          "参数说明"
+        ],
+        [
+          "n",
+          "O",
+          "boolean",
+          "是否设置为null"
+        ],
+        [
+          "bl",
+          "O",
+          "boolean",
+          "boolean类型值"
+        ],
+        [
+          "b",
+          "O",
+          "byte",
+          "byte类型值"
+        ],
+        [
+          "st",
+          "O",
+          "short",
+          "short类型值"
+        ],
+        [
+          "i",
+          "O",
+          "int",
+          "int类型值"
+        ],
+        [
+          "l",
+          "O",
+          "long",
+          "long类型值"
+        ],
+        [
+          "f",
+          "O",
+          "float",
+          "float类型值"
+        ],
+        [
+          "d",
+          "O",
+          "double",
+          "double类型值"
+        ],
+        [
+          "ba",
+          "O",
+          "byteArray",
+          "byteArray类型值"
+        ],
+        [
+          "s",
+          "O",
+          "String",
+          "String类型值"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1176810453917"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选（M）/可选（O）",
+          "参数类型",
+          "参数说明"
+        ],
+        [
+          "msgInfo",
+          "O",
+          "MsgInfo",
+          "返回消息的基本信息。"
+        ],
+        [
+          "resInfo",
+          "O",
+          "ResponseInfo",
+          "返回响应的基本状态信息。"
+        ],
+        [
+          "updateResMsg",
+          "O",
+          "UpdateResponseMessage",
+          "返回响应的更新信息。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1421455220168"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选（M）/可选（O）",
+          "参数类型",
+          "参数说明"
+        ],
+        [
+          "type",
+          "M",
+          "integer",
+          "更新请求，入参需为“3”。 “3”：更新数据或删除数据请求。 “5”：查询数据请求。"
+        ],
+        [
+          "opStore",
+          "M",
+          "Json",
+          "JSON字符串。格式为{\"storeName\": \"cloudDBZone\"}。 cloudDBZone为存储区名。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section19632115714018"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选（M）/可选（O）",
+          "参数类型",
+          "参数说明"
+        ],
+        [
+          "resCode",
+          "O",
+          "integer",
+          "响应状态码。"
+        ],
+        [
+          "resInfo",
+          "O",
+          "String",
+          "响应描述信息。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section1851916379417"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选（M）/可选（O）",
+          "参数类型",
+          "参数说明"
+        ],
+        [
+          "successRecCount",
+          "O",
+          "integer",
+          "成功更新条数。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-delete-data-rest-0000001449956714#section06631914426"
+    }
+  ],
+  "title": "删除数据",
+  "updatedAt": "2026-10-22 11:41",
+  "captureTool": "Computer Use; scripts/browser-capture-reference.mjs-compatible merged-cell capture",
+  "unresolvedRules": [
+    "opStore is labelled Json/JSON字符串 in the table, but request examples use an object. The adapter uses the explicit example object; queryCond remains an encoded JSON string. SchemaField.t descriptions enumerate numeric codes while write examples use TYPE_* strings. Delete Schema.fs says one item but its example contains three; no conflicting one-item cap is imposed. FieldValue.ba is labelled byteArray without a wire example; preserve caller JSON rather than guessing base64 or array."
+  ]
+}

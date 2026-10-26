@@ -1,0 +1,67 @@
+[
+  {
+    "name": "requestId",
+    "in": "header",
+    "type": "string",
+    "required": true,
+    "description": "请求ID，最大长度64个字符，必须唯一。开发者自定义，用于鉴别是否是重复请求。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-reviewreply-0000001162548117#section62259187482",
+    "maxLength": 64
+  },
+  {
+    "name": "lang",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "语言（例：zh_CN），由语言（采用ISO-639-1标准）和国家/地区代码（参考国家码）中间加下划线\"_\"组成。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-reviewreply-0000001162548117#section739714276488"
+  },
+  {
+    "name": "appId",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "应用ID，获取方法参考查询应用信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-reviewreply-0000001162548117#section739714276488"
+  },
+  {
+    "name": "reviewId",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "评论ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-reviewreply-0000001162548117#section739714276488"
+  },
+  {
+    "name": "devReplyContent",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "回复内容。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-reviewreply-0000001162548117#section739714276488"
+  },
+  {
+    "name": "countryCode",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "ISO标准国家码，取值请参考国家码。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-reviewreply-0000001162548117#section739714276488"
+  },
+  {
+    "name": "toReplyId",
+    "in": "body",
+    "type": "string",
+    "required": false,
+    "description": "回复ID（非必传参数，传递这个参数说明回复的是用户的回复）。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-reviewreply-0000001162548117#section739714276488"
+  },
+  {
+    "name": "updateReplyId",
+    "in": "body",
+    "type": "string",
+    "required": false,
+    "description": "回复ID（非必传参数，传递这个参数说明是对回复的修改）。 toReplyId和updateReplyId不能同时传递。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-reviewreply-0000001162548117#section739714276488"
+  }
+]

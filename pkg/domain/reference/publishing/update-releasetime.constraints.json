@@ -1,0 +1,13 @@
+{
+  "body.changeType": {
+    "enum": [
+      "2",
+      "3"
+    ]
+  },
+  "body.releaseType": {
+    "enum": [
+      "1"
+    ]
+  }
+}

@@ -1,0 +1,61 @@
+[
+  {
+    "id": "oauth-team",
+    "kind": "required_with",
+    "field": "header.teamId",
+    "fields": [
+      "header.oauth2Token"
+    ],
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section236517415165",
+    "message": "OAuth authorization requires its selected teamId.",
+    "suggestion": "Supply the selected OAuth team ID in the teamId header."
+  },
+  {
+    "id": "conditional-price",
+    "kind": "required_if",
+    "field": "body.price",
+    "when": {
+      "field": "body.isFree",
+      "equals": "0"
+    },
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section17512144171520",
+    "message": "price is required when isFree=0.",
+    "suggestion": "Supply price for the selected application settings."
+  },
+  {
+    "id": "conditional-priceDetail",
+    "kind": "required_if",
+    "field": "body.priceDetail",
+    "when": {
+      "field": "body.isFree",
+      "equals": "0"
+    },
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section17512144171520",
+    "message": "priceDetail is required when isFree=0.",
+    "suggestion": "Supply priceDetail for the selected application settings."
+  },
+  {
+    "id": "conditional-registeredEntity",
+    "kind": "required_if",
+    "field": "body.registeredEntity",
+    "when": {
+      "field": "body.registeredDclType",
+      "equals": "0"
+    },
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section17512144171520",
+    "message": "registeredEntity is required when registeredDclType=0.",
+    "suggestion": "Supply registeredEntity for the selected application settings."
+  },
+  {
+    "id": "conditional-registeredEntityName",
+    "kind": "required_if",
+    "field": "body.registeredEntityName",
+    "when": {
+      "field": "body.registeredDclType",
+      "equals": "0"
+    },
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section17512144171520",
+    "message": "registeredEntityName is required when registeredDclType=0.",
+    "suggestion": "Supply registeredEntityName for the selected application settings."
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "name": "teamId",
+    "in": "header",
+    "type": "string",
+    "required": false,
+    "description": "开发者所在团队的团队ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-apply-provision-0000002271000689#section1323714041015",
+    "maxLength": 64
+  },
+  {
+    "name": "provisionName",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "Profile名称。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-apply-provision-0000002271000689#section16551174881019",
+    "maxLength": 256
+  },
+  {
+    "name": "provisionType",
+    "in": "body",
+    "type": "integer",
+    "required": true,
+    "description": "Profile类型。 取值范围： 1：调试 2：发布 3：In-house发布 6：指定设备发布",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-apply-provision-0000002271000689#section16551174881019",
+    "enum": [
+      "1",
+      "2",
+      "3",
+      "6"
+    ]
+  },
+  {
+    "name": "certId",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "证书ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-apply-provision-0000002271000689#section16551174881019",
+    "maxLength": 32
+  },
+  {
+    "name": "appId",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "应用ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-apply-provision-0000002271000689#section16551174881019",
+    "maxLength": 20
+  },
+  {
+    "name": "deviceIdList",
+    "in": "body",
+    "type": "array",
+    "required": false,
+    "description": "调试/测试设备ID列表。 可通过查询设备列表接口获取。 数组长度不超过4000。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-apply-provision-0000002271000689#section16551174881019",
+    "itemsType": "string",
+    "itemsMaxLength": 32,
+    "maxItems": 4000
+  },
+  {
+    "name": "aclPermissionList",
+    "in": "body",
+    "type": "array",
+    "required": false,
+    "description": "受限ACL权限列表。 数组长度不超过1000。 说明 仅支持受限ACL权限已审核通过的应用使用，申请方式可参见申请受限ACL权限。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-apply-provision-0000002271000689#section16551174881019",
+    "itemsType": "string",
+    "itemsMaxLength": 256,
+    "maxItems": 1000
+  }
+]

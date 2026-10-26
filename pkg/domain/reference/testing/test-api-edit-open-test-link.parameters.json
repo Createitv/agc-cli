@@ -1,0 +1,39 @@
+[
+  {
+    "name": "teamId",
+    "in": "header",
+    "type": "string",
+    "required": false,
+    "description": "开发者所在团队的团队ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-edit-open-test-link-0000002634718666#section15707195611112",
+    "maxLength": 64
+  },
+  {
+    "name": "groupId",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "群组ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-edit-open-test-link-0000002634718666#section6641436115716"
+  },
+  {
+    "name": "limit",
+    "in": "body",
+    "type": "integer",
+    "required": false,
+    "description": "允许通过此公开链接加入群的数量限制，传null表示不限制。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-edit-open-test-link-0000002634718666#section6641436115716"
+  },
+  {
+    "name": "status",
+    "in": "body",
+    "type": "integer",
+    "required": true,
+    "description": "链接状态。 取值范围： 1：生效 2：失效",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-edit-open-test-link-0000002634718666#section6641436115716",
+    "enum": [
+      "1",
+      "2"
+    ]
+  }
+]

@@ -1,0 +1,537 @@
+{
+  "examples": [
+    {
+      "section": "请求示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-scores-0000001985465938#section1168614731019",
+      "text": "请求示例\nPOST {接口url} \nHost: xxx \nContent-Type: application/json \nheaders:\nappId: 165***568\ntimestamp: 1729479182505\nnonce: ABC***123\nsign： cnVub29i5Y********cndlcXI=\n{ \n    \"appId\": \"165***568\", \n    \"userId\": \"978273948ASKJHAK362\",\n    \"userIdType\": 4, \n    \"serverId\": \"123456\",\n    \"roleId\": \"4563971\", \n    \"tag\": \"1\",\n    \"pageNo\": 1,\n    \"pageSize\": 20\n    \"lang\": \"zh_CN\"    \n}"
+    },
+    {
+      "section": "响应示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-scores-0000001985465938#section239825451012",
+      "text": "响应示例\nHTTP/1.1 200 OK \nContent-Type: application/json;charset=UTF-8\n{\n    \"result\": 0,\n    \"card\": {\n        \"title\": \"最近对局\",\n        \"data\": {\n            \"hasNext\": false,\n            \"records\": [\n                {\n                    \"profile\": \"第1名\",\n                    \"tagName\": \"团战模式\",\n                    \"result\": \"6/2/4\",\n                    \"hero\": {\n                        \"name\": \"角色名1\",\n                        \"idx\": \"角色图片索引1\"\n                    },\n                    \"mvp\": {\n                        \"name\": \"mvp资源名称\",\n                        \"idx\": \"mvp资源图片索引\"\n                    },\n                    \"battleTime\": 1716970989687,\n                    \"achievements\": [\n                        {\n                            \"name\": \"五杀\",\n                            \"idx\": \"五杀图片索引\"\n                        },\n                        {\n                            \"name\": \"超神\",\n                            \"idx\": \"超神图片索引\"\n                        }\n                    ]\n                }\n            ]\n        }\n    }\n}"
+    }
+  ],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-playing-api-0000001985465934",
+      "title": "在玩服务"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/distribution/app/agc-help-appinfo-0000001100014694",
+      "title": "查看应用基本信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/get-public-key-0000001050164350",
+      "title": "获取验签公钥"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-summary-0000002022225249#section205561419163916",
+      "title": "验签机制"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/distribution/app/agc-help-appinfo-0000001100014694",
+      "title": "查看应用基本信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-scores-0000001985465938#ZH-CN_TOPIC_0000001985465938__zh-cn_topic_0000001937309441_p1617824193011",
+      "title": "战绩卡片信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-scores-0000001985465938#ZH-CN_TOPIC_0000001985465938__zh-cn_topic_0000001937309441_p26732703020",
+      "title": "BattleRecordCard"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-scores-0000001985465938#ZH-CN_TOPIC_0000001985465938__zh-cn_topic_0000001937309441_p43721152163812",
+      "title": "lang"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-scores-0000001985465938#ZH-CN_TOPIC_0000001985465938__zh-cn_topic_0000001937309441_p748751611719",
+      "title": "BattleRecordCardData"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-scores-0000001985465938#ZH-CN_TOPIC_0000001985465938__zh-cn_topic_0000001937309441_p32140253327",
+      "title": "BattleRecord"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-scores-0000001985465938#ZH-CN_TOPIC_0000001985465938__zh-cn_topic_0000001937309441_p1654914113312",
+      "title": "GameResource"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-scores-0000001985465938#ZH-CN_TOPIC_0000001985465938__zh-cn_topic_0000001937309441_p1654914113312",
+      "title": "GameResource"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-scores-0000001985465938#ZH-CN_TOPIC_0000001985465938__zh-cn_topic_0000001937309441_p1654914113312",
+      "title": "GameResource"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/query-game-info-0000001050164346",
+      "title": "查询游戏服务信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-label-0000001985625670",
+      "title": "查询战绩筛选标签"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-asset-summary-0000002022105729",
+      "title": "查询资产概要"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-scores-0000001985465938#section19331230181011",
+      "title": "功能介绍"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-scores-0000001985465938#section8751936131014",
+      "title": "接口原型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-scores-0000001985465938#section133671740131017",
+      "title": "请求参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-scores-0000001985465938#section8202184551317",
+      "title": "Body参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-scores-0000001985465938#section1168614731019",
+      "title": "请求示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-scores-0000001985465938#section4102155161010",
+      "title": "响应参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-scores-0000001985465938#section239825451012",
+      "title": "响应示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-scores-0000001985465938#section205561419163916",
+      "title": "验签机制"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-scores-0000001985465938#section19331230181011",
+      "text": "华为游戏服务器调用此接口分页查询玩家在玩游戏的战绩数据，并将信息展示在游戏中心的“在玩”页面上。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-scores-0000001985465938#section133671740131017",
+      "text": "Header参数"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-scores-0000001985465938#section4102155161010",
+      "text": "BattleRecordCard"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-scores-0000001985465938#section4102155161010",
+      "text": "BattleRecordCardData"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-scores-0000001985465938#section4102155161010",
+      "text": "BattleRecord"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-scores-0000001985465938#section4102155161010",
+      "text": "GameResource"
+    },
+    {
+      "section": "验签机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-scores-0000001985465938#section205561419163916",
+      "text": "将Header参数中的appId、timestamp、nonce字段依次拼接成一个待验签的字符串。"
+    },
+    {
+      "section": "验签机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-scores-0000001985465938#section205561419163916",
+      "text": "对待验签字符串使用SHA256WithRSA/PSS算法进行签名。"
+    },
+    {
+      "section": "验签机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-scores-0000001985465938#section205561419163916",
+      "text": "将签名后的字符串经过Base64编码，得到的字符串与sign字段中的签名字符串进行一致性验证。 说明 游戏公钥在开通游戏服务后生成，查询方法参见查询游戏服务信息。"
+    },
+    {
+      "section": "验签机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-scores-0000001985465938#section205561419163916",
+      "text": "游戏公钥在开通游戏服务后生成，查询方法参见查询游戏服务信息。"
+    },
+    {
+      "section": "验签机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-scores-0000001985465938#section205561419163916",
+      "text": "Java示例代码如下："
+    },
+    {
+      "section": "验签机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-scores-0000001985465938#section205561419163916",
+      "text": "// 从Header中取出appId，timestamp，nonce，拼接成待签名的字符串"
+    },
+    {
+      "section": "验签机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-scores-0000001985465938#section205561419163916",
+      "text": "String rawStr = appId + timestamp + nonce;"
+    },
+    {
+      "section": "验签机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-scores-0000001985465938#section205561419163916",
+      "text": "// 获取验签公钥，具体实现方法由开发者自行决定，此处仅为接口示例"
+    },
+    {
+      "section": "验签机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-scores-0000001985465938#section205561419163916",
+      "text": "String publicKey = \"xxxxxxxxx\";"
+    },
+    {
+      "section": "验签机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-scores-0000001985465938#section205561419163916",
+      "text": "// 验签，BouncyCastleProvider的创建较耗费性能，建议写成单例"
+    },
+    {
+      "section": "验签机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-scores-0000001985465938#section205561419163916",
+      "text": "byte[] keyBytes = Base64.decodeBase64(publicKey.getBytes(StandardCharsets.UTF_8));"
+    },
+    {
+      "section": "验签机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-scores-0000001985465938#section205561419163916",
+      "text": "PKCS8EncodedKeySpec pkcs8KeySpec = new PKCS8EncodedKeySpec(keyBytes);"
+    },
+    {
+      "section": "验签机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-scores-0000001985465938#section205561419163916",
+      "text": "KeyFactory keyFactory = KeyFactory.getInstance(\"RSA\");"
+    },
+    {
+      "section": "验签机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-scores-0000001985465938#section205561419163916",
+      "text": "PublicKey publicK = keyFactory.generatePublic(pkcs8KeySpec);"
+    },
+    {
+      "section": "验签机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-scores-0000001985465938#section205561419163916",
+      "text": "Signature signature = Signature.getInstance(\"SHA256withRSA/PSS\", new BouncyCastleProvider());"
+    },
+    {
+      "section": "验签机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-scores-0000001985465938#section205561419163916",
+      "text": "signature.initVerify(key);"
+    },
+    {
+      "section": "验签机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-scores-0000001985465938#section205561419163916",
+      "text": "signature.update(rawStr.getBytes(StandardCharsets.UTF_8));"
+    },
+    {
+      "section": "验签机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-scores-0000001985465938#section205561419163916",
+      "text": "signature.verify(Base64.decodeBase64(sign)); // sign是Header中的字段，即请求时传递的签名"
+    }
+  ],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-scores-0000001985465938",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "承载协议",
+          "HTTPS POST"
+        ],
+        [
+          "接口方向",
+          "华为游戏服务器 -> 开发者服务器"
+        ],
+        [
+          "性能指标",
+          "TPS>500"
+        ],
+        [
+          "最大响应时间",
+          "<500ms"
+        ],
+        [
+          "接口URL",
+          "URL由华为运营联系您获取。"
+        ],
+        [
+          "数据格式",
+          "请求：Content-Type: application/json 响应：Content-Type: application/json"
+        ]
+      ],
+      "section": "接口原型",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-scores-0000001985465938#section8751936131014"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数",
+          "是否必选",
+          "类型",
+          "说明"
+        ],
+        [
+          "appId",
+          "是",
+          "String(32)",
+          "游戏在AppGallery Connect中生成的APP ID，获取方法请参见查看应用基本信息。"
+        ],
+        [
+          "timestamp",
+          "是",
+          "String(32)",
+          "当前时间的时间戳，即距离GMT时间1970年1月1号0时0分0秒所差的毫秒数。"
+        ],
+        [
+          "nonce",
+          "是",
+          "String(64)",
+          "随机字符串。"
+        ],
+        [
+          "sign",
+          "是",
+          "String(1024)",
+          "华为服务器在发送请求时的签名字符串，生成步骤如下： 将Header参数中的appId、timestamp、nonce字段依次拼接成一个待签名的字符串。 对待签名字符串使用SHA256WithRSA/PSS算法进行签名。 将签名后的字符串经过Base64编码，得到的字符串即为签名字符串。 您需要获取验签公钥，并根据加密算法使用公钥对签名字符串进行验签，验签方法参见验签机制。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-scores-0000001985465938#section133671740131017"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数",
+          "是否必选",
+          "类型",
+          "说明"
+        ],
+        [
+          "appId",
+          "是",
+          "String(32)",
+          "游戏在AppGallery Connect中生成的APP ID，获取方法请参见查看应用基本信息。"
+        ],
+        [
+          "userId",
+          "是",
+          "String(256)",
+          "华为账号登录游戏后生成的玩家标识。"
+        ],
+        [
+          "userIdType",
+          "是",
+          "Integer",
+          "玩家标识类型： 1：playerId 2：openId 3：unionId 4：gamePlayerId 5：teamPlayerId 6：thirdOpenId"
+        ],
+        [
+          "serverId",
+          "否",
+          "String(32)",
+          "区服ID。"
+        ],
+        [
+          "roleId",
+          "否",
+          "String(32)",
+          "角色ID。"
+        ],
+        [
+          "tag",
+          "否",
+          "String(32)",
+          "分类标签值。"
+        ],
+        [
+          "pageNo",
+          "是",
+          "Integer",
+          "页码。起始页码为1。"
+        ],
+        [
+          "pageSize",
+          "是",
+          "Integer",
+          "每页数量，默认20个，最大100个。"
+        ],
+        [
+          "lang",
+          "是",
+          "String(20)",
+          "语言，用于获取不同语言的战绩卡片信息，至少需要支持zh_CN（中文）和en_US（英文）。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-scores-0000001985465938#section8202184551317"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数",
+          "是否必选",
+          "类型",
+          "说明"
+        ],
+        [
+          "result",
+          "是",
+          "Integer",
+          "操作结果。 0：表示成功 1：验签失败 2：超时 3：业务信息错误 31：游戏号不存在 94：系统错误 95：IO错误 96：错误的url 97：错误的响应 98：参数错误 99：其他错误"
+        ],
+        [
+          "card",
+          "否",
+          "BattleRecordCard",
+          "战绩卡片信息，语言版本应与请求参数中的lang参数指定的一致。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-scores-0000001985465938#section4102155161010"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "是否必选",
+          "参数类型",
+          "描述"
+        ],
+        [
+          "title",
+          "是",
+          "String(16)",
+          "战绩卡片标题，例“最近30天对局”。"
+        ],
+        [
+          "data",
+          "否",
+          "BattleRecordCardData",
+          "战绩卡片数据。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-scores-0000001985465938#section4102155161010"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "是否必选",
+          "参数类型",
+          "描述"
+        ],
+        [
+          "hasNext",
+          "是",
+          "Boolean",
+          "是否还有下一页。 true：是 false：否"
+        ],
+        [
+          "records",
+          "否",
+          "List<BattleRecord>",
+          "战绩数据。要求按照倒序时间返回战绩数据，且最多返回100组战绩数据。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-scores-0000001985465938#section4102155161010"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "是否必选",
+          "参数类型",
+          "描述"
+        ],
+        [
+          "profile",
+          "是",
+          "String(16)",
+          "战局概要信息，例如：“胜利”、“第一名”。"
+        ],
+        [
+          "tagName",
+          "否",
+          "String(16)",
+          "战局标签，例如：“团战模式”。"
+        ],
+        [
+          "result",
+          "否",
+          "String(64)",
+          "战局成绩，例如：“6/2/4”，“3298932丨103杀”。"
+        ],
+        [
+          "hero",
+          "是",
+          "GameResource",
+          "英雄、皮肤或角色的图片资源。"
+        ],
+        [
+          "mvp",
+          "否",
+          "GameResource",
+          "MVP图片资源。"
+        ],
+        [
+          "battleTime",
+          "是",
+          "Long",
+          "游戏战局毫秒级时间戳。"
+        ],
+        [
+          "achievements",
+          "否",
+          "List<GameResource>",
+          "游戏成就图片资源，最多返回10张成就图片。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-scores-0000001985465938#section4102155161010"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "是否必选",
+          "参数类型",
+          "描述"
+        ],
+        [
+          "name",
+          "是",
+          "String(32)",
+          "资源名称。"
+        ],
+        [
+          "idx",
+          "是",
+          "String(128)",
+          "资源索引。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-scores-0000001985465938#section4102155161010"
+    }
+  ],
+  "title": "分页查询玩家战绩",
+  "updatedAt": "2025-08-06 18:02",
+  "checkedAt": "2026-10-07T02:59:57.386Z",
+  "family": "gameplay",
+  "endpoint": "scores"
+}

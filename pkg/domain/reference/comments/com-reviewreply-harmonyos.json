@@ -1,0 +1,228 @@
+{
+  "examples": [
+    {
+      "section": "请求示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-reviewreply-harmonyos-0000002471053974#ZH-CN_TOPIC_0000002471053974__title661mcpsimp",
+      "text": "请求示例\nPOST https://connect-api.cloud.huawei.com/api/marketing-api/v2/reviews/manage/dev/reviews \nclient_id: ***  \nAuthorization: Bearer *** \nContent-Type: application/json  \n{ \n  \"lang\": \"zh\", \n  \"appId\": \"11111\", \n  \"reviewId\": \"9f43c56228854d66a65921938199c0ce\", \n  \"devReplyContent\": \"Reply content......\", \n  \"countryCode\": \"CN\" \n}"
+    },
+    {
+      "section": "响应示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-reviewreply-harmonyos-0000002471053974#ZH-CN_TOPIC_0000002471053974__title701mcpsimp",
+      "text": "响应示例\n{ \n  \"rtnCode\": 0, \n  \"rtnDesc\": \"string\" \n}"
+    }
+  ],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/platform-introduction-0000002306078829#section4713137951",
+      "title": "授权"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain_token-0000001158365043",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain_token-0000001158365043",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114#section103mcpsimp",
+      "title": "创建API客户端"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain_token-0000001158365043",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-reviewreply-harmonyos-0000002471053974#ZH-CN_TOPIC_0000002471053974__title492mcpsimp",
+      "title": "功能介绍"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-reviewreply-harmonyos-0000002471053974#ZH-CN_TOPIC_0000002471053974__title495mcpsimp",
+      "title": "使用约束"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-reviewreply-harmonyos-0000002471053974#ZH-CN_TOPIC_0000002471053974__title501mcpsimp",
+      "title": "接口原型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-reviewreply-harmonyos-0000002471053974#ZH-CN_TOPIC_0000002471053974__title540mcpsimp",
+      "title": "请求参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-reviewreply-harmonyos-0000002471053974#ZH-CN_TOPIC_0000002471053974__title542mcpsimp",
+      "title": "Body"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-reviewreply-harmonyos-0000002471053974#ZH-CN_TOPIC_0000002471053974__title622mcpsimp",
+      "title": "Header"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-reviewreply-harmonyos-0000002471053974#ZH-CN_TOPIC_0000002471053974__title661mcpsimp",
+      "title": "请求示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-reviewreply-harmonyos-0000002471053974#ZH-CN_TOPIC_0000002471053974__title664mcpsimp",
+      "title": "响应参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-reviewreply-harmonyos-0000002471053974#ZH-CN_TOPIC_0000002471053974__title701mcpsimp",
+      "title": "响应示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-reviewreply-harmonyos-0000002471053974#ZH-CN_TOPIC_0000002471053974__title704mcpsimp",
+      "title": "调用示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-reviewreply-harmonyos-0000002471053974#ZH-CN_TOPIC_0000002471053974__title492mcpsimp",
+      "text": "开发者在自己的鸿蒙应用下回复用户的评论，并支持继续回复用户的回复。"
+    },
+    {
+      "section": "使用约束",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-reviewreply-harmonyos-0000002471053974#ZH-CN_TOPIC_0000002471053974__title495mcpsimp",
+      "text": "接口调用者已进行过应用推广引擎平台账户登录操作。"
+    },
+    {
+      "section": "使用约束",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-reviewreply-harmonyos-0000002471053974#ZH-CN_TOPIC_0000002471053974__title495mcpsimp",
+      "text": "接口调用者的角色：账号持有者以及经账号持有者授权了“管理评论”或“查看评论”的团队成员角色。"
+    }
+  ],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-reviewreply-harmonyos-0000002471053974",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "承载协议",
+          "HTTPS POST"
+        ],
+        [
+          "接口方向",
+          "开发者服务器->应用市场服务端"
+        ],
+        [
+          "接口URL",
+          "https://{domain}/api/marketing-api/v2/reviews/manage/dev/reviews 中国站点的domain：connect-api.cloud.huawei.com 德国站点的domain：connect-api-dre.cloud.huawei.com 新加坡站点的domain：connect-api-dra.cloud.huawei.com 俄罗斯站点的domain：connect-api-drru.cloud.huawei.com 注意 调用获取Token接口时使用的域名必须与本接口域名保持一致，例如本接口使用“connect-api-dre.cloud.huawei.com”，则调用获取Token接口必须使用“https://connect-api-dre.cloud.huawei.com/api/oauth2/v1/token”。"
+        ],
+        [
+          "数据格式",
+          "请求消息：Content-Type: application/json 响应消息：Content-Type: application/json"
+        ]
+      ],
+      "section": "接口原型",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-reviewreply-harmonyos-0000002471053974#ZH-CN_TOPIC_0000002471053974__title501mcpsimp"
+    },
+    {
+      "location": "body",
+      "rows": [
+        [
+          "参数",
+          "必选(M)/可选(O)",
+          "类型",
+          "描述"
+        ],
+        [
+          "lang",
+          "M",
+          "String",
+          "语言，支持： zh：中文 en：英文 bo：藏语 ug：维吾尔语"
+        ],
+        [
+          "appId",
+          "M",
+          "String",
+          "应用ID。"
+        ],
+        [
+          "reviewId",
+          "M",
+          "Long",
+          "评论ID。"
+        ],
+        [
+          "devReplyContent",
+          "M",
+          "String",
+          "回复内容。"
+        ],
+        [
+          "countryCode",
+          "M",
+          "String",
+          "ISO标准国家码。"
+        ],
+        [
+          "toReplyId",
+          "O",
+          "String",
+          "回复ID。 说明 非必传参数，传递这个参数说明回复的是用户的回复。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-reviewreply-harmonyos-0000002471053974#ZH-CN_TOPIC_0000002471053974__title542mcpsimp"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数",
+          "必选(M)/可选(O)",
+          "类型",
+          "描述"
+        ],
+        [
+          "client_id",
+          "M",
+          "String",
+          "客户端ID，获取方法参考创建API客户端。"
+        ],
+        [
+          "Authorization",
+          "M",
+          "String",
+          "认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-reviewreply-harmonyos-0000002471053974#ZH-CN_TOPIC_0000002471053974__title622mcpsimp"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数",
+          "必选(M)/可选(O)",
+          "类型",
+          "描述"
+        ],
+        [
+          "rtnCode",
+          "M",
+          "Integer",
+          "返回码。"
+        ],
+        [
+          "rtnDesc",
+          "M",
+          "String",
+          "返回码描述信息。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-reviewreply-harmonyos-0000002471053974#ZH-CN_TOPIC_0000002471053974__title664mcpsimp"
+    }
+  ],
+  "title": "回复评论和回复",
+  "updatedAt": "2026-07-30 11:38",
+  "checkedAt": "2026-10-07T02:57:15.378Z",
+  "family": "comments",
+  "endpoint": "com-reviewreply-harmonyos"
+}

@@ -1,0 +1,44 @@
+[
+  {
+    "name": "userId",
+    "in": "body",
+    "required": true,
+    "type": "string",
+    "description": "华为账号登录游戏后生成的玩家标识。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section1764512695513",
+    "maxLength": 256
+  },
+  {
+    "name": "userIdType",
+    "in": "body",
+    "required": true,
+    "type": "integer",
+    "description": "玩家标识类型： 1：playerId 2：openId 3：unionId 4：gamePlayerId 5：teamPlayerId 6：thirdUserId 说明 userId和userIdType配套使用，userId是值，userIdType是类型。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section1764512695513",
+    "enum": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "name": "ts",
+    "in": "body",
+    "required": true,
+    "type": "integer",
+    "description": "当前时间（单位为：milliseconds），由System.currentTimeMillis()获取。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section1764512695513"
+  },
+  {
+    "name": "sign",
+    "in": "body",
+    "required": true,
+    "type": "string",
+    "description": "RSA签名（使用游戏服务公钥进行验签，待验签内容生成方法见签名机制）。 签名算法SHA256WithRSA/PSS。 注意 考虑到自选参数格式多样化，本参数在\"utf-8\" urlencode后发送。 Java中request的getParameter()方法会隐含进行urldecode。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377#section1764512695513",
+    "maxLength": 8192
+  }
+]

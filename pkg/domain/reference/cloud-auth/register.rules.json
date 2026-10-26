@@ -1,0 +1,24 @@
+[
+  {
+    "id": "account_identity",
+    "kind": "at_least_one",
+    "fields": [
+      "body.phone",
+      "body.email"
+    ],
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-register-0000001346709109",
+    "message": "Supply a phone or email identity.",
+    "suggestion": "Provide phone with country code, or email."
+  },
+  {
+    "id": "phone_verify_code",
+    "kind": "required_with",
+    "field": "body.verifyCode",
+    "fields": [
+      "body.phone"
+    ],
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-register-0000001346709109",
+    "message": "Phone registration requires verifyCode.",
+    "suggestion": "Obtain a test verification code before registering."
+  }
+]

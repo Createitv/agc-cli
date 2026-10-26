@@ -1,0 +1,3649 @@
+[
+  {
+    "id": "execute-command",
+    "familyId": "cache",
+    "name": "execute-command",
+    "description": "Reviewed native management transport; explicit user session required. ",
+    "method": "POST",
+    "path": "/agc/edge/scs/scs-service/v1/eval",
+    "command": "agc cache execute-command",
+    "authentication": "agcli-management-cookie",
+    "direction": "developer-to-huawei",
+    "status": "registered",
+    "source": "Huawei official AGCLI 1.12.0 source; not a public REST specification",
+    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+    "parameters": [
+      {
+        "name": "command",
+        "in": "body",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "maxLength": 4096
+      }
+    ],
+    "documentation": {
+      "title": "execute-command",
+      "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+      "checkedAt": "2026-10-26",
+      "status": "vendor-source-reviewed",
+      "readCommand": "agc cache execute-command --docs --pretty"
+    },
+    "officialSlug": "agcli-1.12.0-execute-command"
+  },
+  {
+    "id": "connection-info",
+    "familyId": "cache",
+    "name": "connection-info",
+    "description": "Reviewed native management transport; explicit user session required. projectId header comes from session.",
+    "method": "GET",
+    "path": "/agc/edge/scs/scs-service/v1/cache-invoke-address",
+    "command": "agc cache connection-info",
+    "authentication": "agcli-management-cookie",
+    "direction": "developer-to-huawei",
+    "status": "registered",
+    "source": "Huawei official AGCLI 1.12.0 source; not a public REST specification",
+    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+    "parameters": [],
+    "documentation": {
+      "title": "connection-info",
+      "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+      "checkedAt": "2026-10-26",
+      "status": "vendor-source-reviewed",
+      "readCommand": "agc cache connection-info --docs --pretty"
+    },
+    "officialSlug": "agcli-1.12.0-connection-info"
+  },
+  {
+    "id": "usage",
+    "familyId": "cache",
+    "name": "usage",
+    "description": "Reviewed native management transport; explicit user session required. Epoch timestamps are milliseconds; interval at most three days, per source cmd/infoUsageStatistics.js.",
+    "method": "POST",
+    "path": "/agc/edge/spms/v1/query/metric/scs-metric",
+    "command": "agc cache usage",
+    "authentication": "agcli-management-cookie",
+    "direction": "developer-to-huawei",
+    "status": "registered",
+    "source": "Huawei official AGCLI 1.12.0 source; not a public REST specification",
+    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+    "parameters": [
+      {
+        "name": "views",
+        "in": "query",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "enum": [
+          "query_cache_metric_trend"
+        ]
+      },
+      {
+        "name": "startTime",
+        "in": "query",
+        "type": "integer",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "minimum": 12960000,
+        "maximum": 2158876800000
+      },
+      {
+        "name": "endTime",
+        "in": "query",
+        "type": "integer",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "minimum": 12960000,
+        "maximum": 2158876800000
+      }
+    ],
+    "documentation": {
+      "title": "usage",
+      "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+      "checkedAt": "2026-10-26",
+      "status": "vendor-source-reviewed",
+      "readCommand": "agc cache usage --docs --pretty"
+    },
+    "officialSlug": "agcli-1.12.0-usage"
+  },
+  {
+    "id": "enable-service",
+    "familyId": "cache",
+    "name": "enable-service",
+    "description": "Reviewed native management transport; explicit user session required. Does not configure a password or prove the service is ready.",
+    "method": "POST",
+    "path": "/agc/edge/cpms/project-service/v1/services/order",
+    "command": "agc cache enable-service",
+    "authentication": "agcli-management-cookie",
+    "direction": "developer-to-huawei",
+    "status": "registered",
+    "source": "Huawei official AGCLI 1.12.0 source; not a public REST specification",
+    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+    "parameters": [
+      {
+        "name": "projectId",
+        "in": "query",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+      },
+      {
+        "name": "serviceName",
+        "in": "body",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "enum": [
+          "cloudCache"
+        ]
+      }
+    ],
+    "documentation": {
+      "title": "enable-service",
+      "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+      "checkedAt": "2026-10-26",
+      "status": "vendor-source-reviewed",
+      "readCommand": "agc cache enable-service --docs --pretty"
+    },
+    "officialSlug": "agcli-1.12.0-enable-service"
+  },
+  {
+    "id": "set-password",
+    "familyId": "cache",
+    "name": "set-password",
+    "description": "Reviewed native management transport; explicit user session required. Password is write-only; resetting a used cache password can disrupt applications.",
+    "method": "POST",
+    "path": "/agc/edge/scs/scs-service/v1/cache-password",
+    "command": "agc cache set-password",
+    "authentication": "agcli-management-cookie",
+    "direction": "developer-to-huawei",
+    "status": "registered",
+    "source": "Huawei official AGCLI 1.12.0 source; not a public REST specification",
+    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+    "parameters": [
+      {
+        "name": "password",
+        "in": "body",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "minLength": 8,
+        "maxLength": 32
+      }
+    ],
+    "documentation": {
+      "title": "set-password",
+      "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+      "checkedAt": "2026-10-26",
+      "status": "vendor-source-reviewed",
+      "readCommand": "agc cache set-password --docs --pretty"
+    },
+    "officialSlug": "agcli-1.12.0-set-password"
+  },
+  {
+    "id": "reset-password",
+    "familyId": "cache",
+    "name": "reset-password",
+    "description": "Reviewed native management transport; explicit user session required. Password is write-only; resetting a used cache password can disrupt applications.",
+    "method": "PUT",
+    "path": "/agc/edge/scs/scs-service/v1/cache-password",
+    "command": "agc cache reset-password",
+    "authentication": "agcli-management-cookie",
+    "direction": "developer-to-huawei",
+    "status": "registered",
+    "source": "Huawei official AGCLI 1.12.0 source; not a public REST specification",
+    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+    "parameters": [
+      {
+        "name": "password",
+        "in": "body",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "minLength": 8,
+        "maxLength": 32
+      }
+    ],
+    "documentation": {
+      "title": "reset-password",
+      "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+      "checkedAt": "2026-10-26",
+      "status": "vendor-source-reviewed",
+      "readCommand": "agc cache reset-password --docs --pretty"
+    },
+    "officialSlug": "agcli-1.12.0-reset-password"
+  },
+  {
+    "id": "schema-versions",
+    "familyId": "clouddb",
+    "name": "schema-versions",
+    "description": "Reviewed native management transport; explicit user session required. ",
+    "method": "GET",
+    "path": "/agc/edge/clouddb/clouddbservice/v1/schemaVersion",
+    "command": "agc clouddb schema-versions",
+    "authentication": "agcli-management-cookie",
+    "direction": "developer-to-huawei",
+    "status": "registered",
+    "source": "Huawei official AGCLI 1.12.0 source; not a public REST specification",
+    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+    "parameters": [],
+    "documentation": {
+      "title": "schema-versions",
+      "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+      "checkedAt": "2026-10-26",
+      "status": "vendor-source-reviewed",
+      "readCommand": "agc clouddb schema-versions --docs --pretty"
+    },
+    "officialSlug": "agcli-1.12.0-schema-versions"
+  },
+  {
+    "id": "get-object-type",
+    "familyId": "clouddb",
+    "name": "get-object-type",
+    "description": "Reviewed native management transport; explicit user session required. ",
+    "method": "GET",
+    "path": "/agc/edge/clouddb/clouddbservice/v1/objectType",
+    "command": "agc clouddb get-object-type",
+    "authentication": "agcli-management-cookie",
+    "direction": "developer-to-huawei",
+    "status": "registered",
+    "source": "Huawei official AGCLI 1.12.0 source; not a public REST specification",
+    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+    "parameters": [
+      {
+        "name": "schemaVersion",
+        "in": "query",
+        "type": "integer",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+      },
+      {
+        "name": "objectTypeName",
+        "in": "query",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "pattern": "^[A-Za-z](?:[A-Za-z0-9_]{0,28}[A-Za-z0-9])?$"
+      }
+    ],
+    "documentation": {
+      "title": "get-object-type",
+      "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+      "checkedAt": "2026-10-26",
+      "status": "vendor-source-reviewed",
+      "readCommand": "agc clouddb get-object-type --docs --pretty"
+    },
+    "officialSlug": "agcli-1.12.0-get-object-type"
+  },
+  {
+    "id": "create-object-type",
+    "familyId": "clouddb",
+    "name": "create-object-type",
+    "description": "Reviewed native management transport; explicit user session required. Creation is asynchronous; query process-status and independently read back schema before reporting completion.",
+    "method": "POST",
+    "path": "/agc/edge/clouddb/clouddbservice/v1/objectType",
+    "command": "agc clouddb create-object-type",
+    "authentication": "agcli-management-cookie",
+    "direction": "developer-to-huawei",
+    "status": "registered",
+    "source": "Huawei official AGCLI 1.12.0 source; not a public REST specification",
+    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+    "parameters": [
+      {
+        "name": "objectType",
+        "in": "body",
+        "type": "object",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "properties": [
+          {
+            "name": "objectTypeName",
+            "in": "body",
+            "type": "string",
+            "required": true,
+            "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+            "pattern": "^[A-Za-z](?:[A-Za-z0-9_]{0,28}[A-Za-z0-9])?$",
+            "maxLength": 30
+          },
+          {
+            "name": "fields",
+            "in": "body",
+            "type": "array",
+            "required": true,
+            "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+            "itemsType": "object",
+            "itemsProperties": [
+              {
+                "name": "fieldName",
+                "in": "body",
+                "type": "string",
+                "required": true,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                "pattern": "^[A-Za-z](?:[A-Za-z0-9_]{0,28}[A-Za-z0-9])?$",
+                "maxLength": 30
+              },
+              {
+                "name": "fieldType",
+                "in": "body",
+                "type": "string",
+                "required": true,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                "enum": [
+                  "String",
+                  "Boolean",
+                  "Byte",
+                  "Short",
+                  "Integer",
+                  "Long",
+                  "Float",
+                  "Double",
+                  "ByteArray",
+                  "Text",
+                  "Date",
+                  "IntAutoIncrement",
+                  "LongAutoIncrement"
+                ]
+              },
+              {
+                "name": "belongPrimaryKey",
+                "in": "body",
+                "type": "boolean",
+                "required": false,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+              },
+              {
+                "name": "notNull",
+                "in": "body",
+                "type": "boolean",
+                "required": false,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+              },
+              {
+                "name": "isNeedEncrypt",
+                "in": "body",
+                "type": "boolean",
+                "required": false,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+              },
+              {
+                "name": "isSensitive",
+                "in": "body",
+                "type": "boolean",
+                "required": false,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+              },
+              {
+                "name": "defaultValue",
+                "in": "body",
+                "type": "",
+                "required": false,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+              }
+            ],
+            "minItems": 1
+          },
+          {
+            "name": "indexes",
+            "in": "body",
+            "type": "array",
+            "required": false,
+            "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+            "itemsType": "object",
+            "itemsProperties": [
+              {
+                "name": "indexName",
+                "in": "body",
+                "type": "string",
+                "required": true,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                "pattern": "^[A-Za-z][A-Za-z0-9_]{0,29}$"
+              },
+              {
+                "name": "indexList",
+                "in": "body",
+                "type": "array",
+                "required": true,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                "itemsType": "object",
+                "itemsProperties": [
+                  {
+                    "name": "fieldName",
+                    "in": "body",
+                    "type": "string",
+                    "required": true,
+                    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+                  },
+                  {
+                    "name": "sortType",
+                    "in": "body",
+                    "type": "string",
+                    "required": true,
+                    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                    "enum": [
+                      "ASC",
+                      "DESC"
+                    ]
+                  }
+                ],
+                "minItems": 1,
+                "maxItems": 5
+              }
+            ],
+            "maxItems": 16
+          },
+          {
+            "name": "permissions",
+            "in": "body",
+            "type": "array",
+            "required": false,
+            "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+            "itemsType": "object",
+            "itemsProperties": [
+              {
+                "name": "role",
+                "in": "body",
+                "type": "string",
+                "required": true,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                "enum": [
+                  "World",
+                  "Authenticated",
+                  "Creator",
+                  "Administrator"
+                ]
+              },
+              {
+                "name": "rights",
+                "in": "body",
+                "type": "array",
+                "required": false,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                "itemsType": "string",
+                "itemsEnum": [
+                  "Read",
+                  "Upsert",
+                  "Delete"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "documentation": {
+      "title": "create-object-type",
+      "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+      "checkedAt": "2026-10-26",
+      "status": "vendor-source-reviewed",
+      "readCommand": "agc clouddb create-object-type --docs --pretty"
+    },
+    "officialSlug": "agcli-1.12.0-create-object-type"
+  },
+  {
+    "id": "update-object-type",
+    "familyId": "clouddb",
+    "name": "update-object-type",
+    "description": "Reviewed native management transport; explicit user session required. originObjectType must be the exact prior definition; this is not a patch or a migration of existing data.",
+    "method": "PUT",
+    "path": "/agc/edge/clouddb/clouddbservice/v1/objectType",
+    "command": "agc clouddb update-object-type",
+    "authentication": "agcli-management-cookie",
+    "direction": "developer-to-huawei",
+    "status": "registered",
+    "source": "Huawei official AGCLI 1.12.0 source; not a public REST specification",
+    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+    "parameters": [
+      {
+        "name": "objectType",
+        "in": "body",
+        "type": "object",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "properties": [
+          {
+            "name": "objectTypeName",
+            "in": "body",
+            "type": "string",
+            "required": true,
+            "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+            "pattern": "^[A-Za-z](?:[A-Za-z0-9_]{0,28}[A-Za-z0-9])?$",
+            "maxLength": 30
+          },
+          {
+            "name": "fields",
+            "in": "body",
+            "type": "array",
+            "required": true,
+            "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+            "itemsType": "object",
+            "itemsProperties": [
+              {
+                "name": "fieldName",
+                "in": "body",
+                "type": "string",
+                "required": true,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                "pattern": "^[A-Za-z](?:[A-Za-z0-9_]{0,28}[A-Za-z0-9])?$",
+                "maxLength": 30
+              },
+              {
+                "name": "fieldType",
+                "in": "body",
+                "type": "string",
+                "required": true,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                "enum": [
+                  "String",
+                  "Boolean",
+                  "Byte",
+                  "Short",
+                  "Integer",
+                  "Long",
+                  "Float",
+                  "Double",
+                  "ByteArray",
+                  "Text",
+                  "Date",
+                  "IntAutoIncrement",
+                  "LongAutoIncrement"
+                ]
+              },
+              {
+                "name": "belongPrimaryKey",
+                "in": "body",
+                "type": "boolean",
+                "required": false,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+              },
+              {
+                "name": "notNull",
+                "in": "body",
+                "type": "boolean",
+                "required": false,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+              },
+              {
+                "name": "isNeedEncrypt",
+                "in": "body",
+                "type": "boolean",
+                "required": false,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+              },
+              {
+                "name": "isSensitive",
+                "in": "body",
+                "type": "boolean",
+                "required": false,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+              },
+              {
+                "name": "defaultValue",
+                "in": "body",
+                "type": "",
+                "required": false,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+              }
+            ],
+            "minItems": 1
+          },
+          {
+            "name": "indexes",
+            "in": "body",
+            "type": "array",
+            "required": false,
+            "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+            "itemsType": "object",
+            "itemsProperties": [
+              {
+                "name": "indexName",
+                "in": "body",
+                "type": "string",
+                "required": true,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                "pattern": "^[A-Za-z][A-Za-z0-9_]{0,29}$"
+              },
+              {
+                "name": "indexList",
+                "in": "body",
+                "type": "array",
+                "required": true,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                "itemsType": "object",
+                "itemsProperties": [
+                  {
+                    "name": "fieldName",
+                    "in": "body",
+                    "type": "string",
+                    "required": true,
+                    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+                  },
+                  {
+                    "name": "sortType",
+                    "in": "body",
+                    "type": "string",
+                    "required": true,
+                    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                    "enum": [
+                      "ASC",
+                      "DESC"
+                    ]
+                  }
+                ],
+                "minItems": 1,
+                "maxItems": 5
+              }
+            ],
+            "maxItems": 16
+          },
+          {
+            "name": "permissions",
+            "in": "body",
+            "type": "array",
+            "required": false,
+            "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+            "itemsType": "object",
+            "itemsProperties": [
+              {
+                "name": "role",
+                "in": "body",
+                "type": "string",
+                "required": true,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                "enum": [
+                  "World",
+                  "Authenticated",
+                  "Creator",
+                  "Administrator"
+                ]
+              },
+              {
+                "name": "rights",
+                "in": "body",
+                "type": "array",
+                "required": false,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                "itemsType": "string",
+                "itemsEnum": [
+                  "Read",
+                  "Upsert",
+                  "Delete"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "originObjectType",
+        "in": "body",
+        "type": "object",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "properties": [
+          {
+            "name": "objectTypeName",
+            "in": "body",
+            "type": "string",
+            "required": true,
+            "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+            "pattern": "^[A-Za-z](?:[A-Za-z0-9_]{0,28}[A-Za-z0-9])?$",
+            "maxLength": 30
+          },
+          {
+            "name": "fields",
+            "in": "body",
+            "type": "array",
+            "required": true,
+            "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+            "itemsType": "object",
+            "itemsProperties": [
+              {
+                "name": "fieldName",
+                "in": "body",
+                "type": "string",
+                "required": true,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                "pattern": "^[A-Za-z](?:[A-Za-z0-9_]{0,28}[A-Za-z0-9])?$",
+                "maxLength": 30
+              },
+              {
+                "name": "fieldType",
+                "in": "body",
+                "type": "string",
+                "required": true,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                "enum": [
+                  "String",
+                  "Boolean",
+                  "Byte",
+                  "Short",
+                  "Integer",
+                  "Long",
+                  "Float",
+                  "Double",
+                  "ByteArray",
+                  "Text",
+                  "Date",
+                  "IntAutoIncrement",
+                  "LongAutoIncrement"
+                ]
+              },
+              {
+                "name": "belongPrimaryKey",
+                "in": "body",
+                "type": "boolean",
+                "required": false,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+              },
+              {
+                "name": "notNull",
+                "in": "body",
+                "type": "boolean",
+                "required": false,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+              },
+              {
+                "name": "isNeedEncrypt",
+                "in": "body",
+                "type": "boolean",
+                "required": false,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+              },
+              {
+                "name": "isSensitive",
+                "in": "body",
+                "type": "boolean",
+                "required": false,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+              },
+              {
+                "name": "defaultValue",
+                "in": "body",
+                "type": "",
+                "required": false,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+              }
+            ],
+            "minItems": 1
+          },
+          {
+            "name": "indexes",
+            "in": "body",
+            "type": "array",
+            "required": false,
+            "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+            "itemsType": "object",
+            "itemsProperties": [
+              {
+                "name": "indexName",
+                "in": "body",
+                "type": "string",
+                "required": true,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                "pattern": "^[A-Za-z][A-Za-z0-9_]{0,29}$"
+              },
+              {
+                "name": "indexList",
+                "in": "body",
+                "type": "array",
+                "required": true,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                "itemsType": "object",
+                "itemsProperties": [
+                  {
+                    "name": "fieldName",
+                    "in": "body",
+                    "type": "string",
+                    "required": true,
+                    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+                  },
+                  {
+                    "name": "sortType",
+                    "in": "body",
+                    "type": "string",
+                    "required": true,
+                    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                    "enum": [
+                      "ASC",
+                      "DESC"
+                    ]
+                  }
+                ],
+                "minItems": 1,
+                "maxItems": 5
+              }
+            ],
+            "maxItems": 16
+          },
+          {
+            "name": "permissions",
+            "in": "body",
+            "type": "array",
+            "required": false,
+            "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+            "itemsType": "object",
+            "itemsProperties": [
+              {
+                "name": "role",
+                "in": "body",
+                "type": "string",
+                "required": true,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                "enum": [
+                  "World",
+                  "Authenticated",
+                  "Creator",
+                  "Administrator"
+                ]
+              },
+              {
+                "name": "rights",
+                "in": "body",
+                "type": "array",
+                "required": false,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                "itemsType": "string",
+                "itemsEnum": [
+                  "Read",
+                  "Upsert",
+                  "Delete"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "documentation": {
+      "title": "update-object-type",
+      "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+      "checkedAt": "2026-10-26",
+      "status": "vendor-source-reviewed",
+      "readCommand": "agc clouddb update-object-type --docs --pretty"
+    },
+    "officialSlug": "agcli-1.12.0-update-object-type"
+  },
+  {
+    "id": "delete-object-type",
+    "familyId": "clouddb",
+    "name": "delete-object-type",
+    "description": "Reviewed native management transport; explicit user session required. ",
+    "method": "DELETE",
+    "path": "/agc/edge/clouddb/clouddbservice/v1/objectType",
+    "command": "agc clouddb delete-object-type",
+    "authentication": "agcli-management-cookie",
+    "direction": "developer-to-huawei",
+    "status": "registered",
+    "source": "Huawei official AGCLI 1.12.0 source; not a public REST specification",
+    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+    "parameters": [
+      {
+        "name": "objectTypeName",
+        "in": "body",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "pattern": "^[A-Za-z](?:[A-Za-z0-9_]{0,28}[A-Za-z0-9])?$"
+      }
+    ],
+    "documentation": {
+      "title": "delete-object-type",
+      "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+      "checkedAt": "2026-10-26",
+      "status": "vendor-source-reviewed",
+      "readCommand": "agc clouddb delete-object-type --docs --pretty"
+    },
+    "officialSlug": "agcli-1.12.0-delete-object-type"
+  },
+  {
+    "id": "import-object-types",
+    "familyId": "clouddb",
+    "name": "import-object-types",
+    "description": "Reviewed native management transport; explicit user session required. Raw JSON document, not a JSON string wrapper; only new object types may be imported; local size limit 20MB.",
+    "method": "POST",
+    "path": "/agc/edge/clouddb/clouddbservice/v1/importObjectType",
+    "command": "agc clouddb import-object-types",
+    "authentication": "agcli-management-cookie",
+    "direction": "developer-to-huawei",
+    "status": "registered",
+    "source": "Huawei official AGCLI 1.12.0 source; not a public REST specification",
+    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+    "parameters": [
+      {
+        "name": "schemaVersion",
+        "in": "body",
+        "type": "integer",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+      },
+      {
+        "name": "objectTypes",
+        "in": "body",
+        "type": "array",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "itemsType": "object",
+        "itemsProperties": [
+          {
+            "name": "objectTypeName",
+            "in": "body",
+            "type": "string",
+            "required": true,
+            "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+            "pattern": "^[A-Za-z](?:[A-Za-z0-9_]{0,28}[A-Za-z0-9])?$",
+            "maxLength": 30
+          },
+          {
+            "name": "fields",
+            "in": "body",
+            "type": "array",
+            "required": true,
+            "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+            "itemsType": "object",
+            "itemsProperties": [
+              {
+                "name": "fieldName",
+                "in": "body",
+                "type": "string",
+                "required": true,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                "pattern": "^[A-Za-z](?:[A-Za-z0-9_]{0,28}[A-Za-z0-9])?$",
+                "maxLength": 30
+              },
+              {
+                "name": "fieldType",
+                "in": "body",
+                "type": "string",
+                "required": true,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                "enum": [
+                  "String",
+                  "Boolean",
+                  "Byte",
+                  "Short",
+                  "Integer",
+                  "Long",
+                  "Float",
+                  "Double",
+                  "ByteArray",
+                  "Text",
+                  "Date",
+                  "IntAutoIncrement",
+                  "LongAutoIncrement"
+                ]
+              },
+              {
+                "name": "belongPrimaryKey",
+                "in": "body",
+                "type": "boolean",
+                "required": false,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+              },
+              {
+                "name": "notNull",
+                "in": "body",
+                "type": "boolean",
+                "required": false,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+              },
+              {
+                "name": "isNeedEncrypt",
+                "in": "body",
+                "type": "boolean",
+                "required": false,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+              },
+              {
+                "name": "isSensitive",
+                "in": "body",
+                "type": "boolean",
+                "required": false,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+              },
+              {
+                "name": "defaultValue",
+                "in": "body",
+                "type": "",
+                "required": false,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+              }
+            ],
+            "minItems": 1
+          },
+          {
+            "name": "indexes",
+            "in": "body",
+            "type": "array",
+            "required": false,
+            "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+            "itemsType": "object",
+            "itemsProperties": [
+              {
+                "name": "indexName",
+                "in": "body",
+                "type": "string",
+                "required": true,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                "pattern": "^[A-Za-z][A-Za-z0-9_]{0,29}$"
+              },
+              {
+                "name": "indexList",
+                "in": "body",
+                "type": "array",
+                "required": true,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                "itemsType": "object",
+                "itemsProperties": [
+                  {
+                    "name": "fieldName",
+                    "in": "body",
+                    "type": "string",
+                    "required": true,
+                    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+                  },
+                  {
+                    "name": "sortType",
+                    "in": "body",
+                    "type": "string",
+                    "required": true,
+                    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                    "enum": [
+                      "ASC",
+                      "DESC"
+                    ]
+                  }
+                ],
+                "minItems": 1,
+                "maxItems": 5
+              }
+            ],
+            "maxItems": 16
+          }
+        ],
+        "minItems": 1
+      },
+      {
+        "name": "permissions",
+        "in": "body",
+        "type": "array",
+        "required": false,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "itemsType": "object",
+        "itemsProperties": [
+          {
+            "name": "objectTypeName",
+            "in": "body",
+            "type": "string",
+            "required": true,
+            "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+          },
+          {
+            "name": "permissions",
+            "in": "body",
+            "type": "array",
+            "required": true,
+            "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+            "itemsType": "object",
+            "itemsProperties": [
+              {
+                "name": "role",
+                "in": "body",
+                "type": "string",
+                "required": true,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                "enum": [
+                  "World",
+                  "Authenticated",
+                  "Creator",
+                  "Administrator"
+                ]
+              },
+              {
+                "name": "rights",
+                "in": "body",
+                "type": "array",
+                "required": false,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                "itemsType": "string",
+                "itemsEnum": [
+                  "Read",
+                  "Upsert",
+                  "Delete"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "documentation": {
+      "title": "import-object-types",
+      "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+      "checkedAt": "2026-10-26",
+      "status": "vendor-source-reviewed",
+      "readCommand": "agc clouddb import-object-types --docs --pretty"
+    },
+    "requestContentType": "application/x-www-form-urlencoded",
+    "officialSlug": "agcli-1.12.0-import-object-types"
+  },
+  {
+    "id": "export-object-types",
+    "familyId": "clouddb",
+    "name": "export-object-types",
+    "description": "Reviewed native management transport; explicit user session required. Non-JSON formats return source-encoded Base64; no local extraction or execution.",
+    "method": "POST",
+    "path": "/agc/edge/clouddb/clouddbservice/v1/exportObjectType",
+    "command": "agc clouddb export-object-types",
+    "authentication": "agcli-management-cookie",
+    "direction": "developer-to-huawei",
+    "status": "registered",
+    "source": "Huawei official AGCLI 1.12.0 source; not a public REST specification",
+    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+    "parameters": [
+      {
+        "name": "schemaVersion",
+        "in": "body",
+        "type": "integer",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+      },
+      {
+        "name": "type",
+        "in": "body",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "enum": [
+          "json",
+          "js",
+          "java",
+          "objective-c"
+        ]
+      },
+      {
+        "name": "jsFileType",
+        "in": "body",
+        "type": "string",
+        "required": false,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+      },
+      {
+        "name": "javaFileType",
+        "in": "body",
+        "type": "string",
+        "required": false,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+      },
+      {
+        "name": "packageName",
+        "in": "body",
+        "type": "string",
+        "required": false,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "maxLength": 1024
+      }
+    ],
+    "documentation": {
+      "title": "export-object-types",
+      "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+      "checkedAt": "2026-10-26",
+      "status": "vendor-source-reviewed",
+      "readCommand": "agc clouddb export-object-types --docs --pretty"
+    },
+    "officialSlug": "agcli-1.12.0-export-object-types"
+  },
+  {
+    "id": "list-zones",
+    "familyId": "clouddb",
+    "name": "list-zones",
+    "description": "Reviewed native management transport; explicit user session required. ",
+    "method": "GET",
+    "path": "/agc/edge/clouddb/clouddbservice/v1/naturalStore",
+    "command": "agc clouddb list-zones",
+    "authentication": "agcli-management-cookie",
+    "direction": "developer-to-huawei",
+    "status": "registered",
+    "source": "Huawei official AGCLI 1.12.0 source; not a public REST specification",
+    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+    "parameters": [],
+    "documentation": {
+      "title": "list-zones",
+      "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+      "checkedAt": "2026-10-26",
+      "status": "vendor-source-reviewed",
+      "readCommand": "agc clouddb list-zones --docs --pretty"
+    },
+    "officialSlug": "agcli-1.12.0-list-zones"
+  },
+  {
+    "id": "create-zone",
+    "familyId": "clouddb",
+    "name": "create-zone",
+    "description": "Reviewed native management transport; explicit user session required. ",
+    "method": "POST",
+    "path": "/agc/edge/clouddb/clouddbservice/v1/naturalStore",
+    "command": "agc clouddb create-zone",
+    "authentication": "agcli-management-cookie",
+    "direction": "developer-to-huawei",
+    "status": "registered",
+    "source": "Huawei official AGCLI 1.12.0 source; not a public REST specification",
+    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+    "parameters": [
+      {
+        "name": "cloudDBZoneName",
+        "in": "body",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "maxLength": 20,
+        "pattern": "^[A-Za-z][A-Za-z0-9]{0,19}$"
+      }
+    ],
+    "documentation": {
+      "title": "create-zone",
+      "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+      "checkedAt": "2026-10-26",
+      "status": "vendor-source-reviewed",
+      "readCommand": "agc clouddb create-zone --docs --pretty"
+    },
+    "officialSlug": "agcli-1.12.0-create-zone"
+  },
+  {
+    "id": "delete-zone",
+    "familyId": "clouddb",
+    "name": "delete-zone",
+    "description": "Reviewed native management transport; explicit user session required. ",
+    "method": "DELETE",
+    "path": "/agc/edge/clouddb/clouddbservice/v1/naturalStore",
+    "command": "agc clouddb delete-zone",
+    "authentication": "agcli-management-cookie",
+    "direction": "developer-to-huawei",
+    "status": "registered",
+    "source": "Huawei official AGCLI 1.12.0 source; not a public REST specification",
+    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+    "parameters": [
+      {
+        "name": "cloudDBZoneName",
+        "in": "body",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "maxLength": 20,
+        "pattern": "^[A-Za-z][A-Za-z0-9]{0,19}$"
+      }
+    ],
+    "documentation": {
+      "title": "delete-zone",
+      "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+      "checkedAt": "2026-10-26",
+      "status": "vendor-source-reviewed",
+      "readCommand": "agc clouddb delete-zone --docs --pretty"
+    },
+    "officialSlug": "agcli-1.12.0-delete-zone"
+  },
+  {
+    "id": "process-status",
+    "familyId": "clouddb",
+    "name": "process-status",
+    "description": "Reviewed native management transport; explicit user session required. ",
+    "method": "POST",
+    "path": "/agc/edge/clouddb/clouddbservice/v1/processPercentage",
+    "command": "agc clouddb process-status",
+    "authentication": "agcli-management-cookie",
+    "direction": "developer-to-huawei",
+    "status": "registered",
+    "source": "Huawei official AGCLI 1.12.0 source; not a public REST specification",
+    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+    "parameters": [
+      {
+        "name": "processId",
+        "in": "body",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+      }
+    ],
+    "documentation": {
+      "title": "process-status",
+      "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+      "checkedAt": "2026-10-26",
+      "status": "vendor-source-reviewed",
+      "readCommand": "agc clouddb process-status --docs --pretty"
+    },
+    "officialSlug": "agcli-1.12.0-process-status"
+  },
+  {
+    "id": "get-alias",
+    "familyId": "functions",
+    "name": "get-alias",
+    "description": "Reviewed native management transport; explicit user session required. ",
+    "method": "GET",
+    "path": "/api/wisefunction/serverless/v1/functions/{functionName}/aliases/{aliasName}",
+    "command": "agc functions get-alias",
+    "authentication": "agcli-management-oauth",
+    "direction": "developer-to-huawei",
+    "status": "registered",
+    "source": "Huawei official AGCLI 1.12.0 source; not a public REST specification",
+    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+    "parameters": [
+      {
+        "name": "functionName",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "pattern": "^[a-z][a-z0-9-]{0,30}[a-z0-9]$"
+      },
+      {
+        "name": "aliasName",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "pattern": "^[a-z][a-z0-9-]{0,14}[a-z0-9]$"
+      }
+    ],
+    "documentation": {
+      "title": "get-alias",
+      "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+      "checkedAt": "2026-10-26",
+      "status": "vendor-source-reviewed",
+      "readCommand": "agc functions get-alias --docs --pretty"
+    },
+    "officialSlug": "agcli-1.12.0-get-alias"
+  },
+  {
+    "id": "delete-alias",
+    "familyId": "functions",
+    "name": "delete-alias",
+    "description": "Reviewed native management transport; explicit user session required. ",
+    "method": "DELETE",
+    "path": "/api/wisefunction/serverless/v1/functions/{functionName}/aliases/{aliasName}",
+    "command": "agc functions delete-alias",
+    "authentication": "agcli-management-oauth",
+    "direction": "developer-to-huawei",
+    "status": "registered",
+    "source": "Huawei official AGCLI 1.12.0 source; not a public REST specification",
+    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+    "parameters": [
+      {
+        "name": "functionName",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "pattern": "^[a-z][a-z0-9-]{0,30}[a-z0-9]$"
+      },
+      {
+        "name": "aliasName",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "pattern": "^[a-z][a-z0-9-]{0,14}[a-z0-9]$"
+      }
+    ],
+    "documentation": {
+      "title": "delete-alias",
+      "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+      "checkedAt": "2026-10-26",
+      "status": "vendor-source-reviewed",
+      "readCommand": "agc functions delete-alias --docs --pretty"
+    },
+    "officialSlug": "agcli-1.12.0-delete-alias"
+  },
+  {
+    "id": "list-aliases",
+    "familyId": "functions",
+    "name": "list-aliases",
+    "description": "Reviewed native management transport; explicit user session required. ",
+    "method": "GET",
+    "path": "/api/wisefunction/serverless/v1/functions/{functionName}/aliases",
+    "command": "agc functions list-aliases",
+    "authentication": "agcli-management-oauth",
+    "direction": "developer-to-huawei",
+    "status": "registered",
+    "source": "Huawei official AGCLI 1.12.0 source; not a public REST specification",
+    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+    "parameters": [
+      {
+        "name": "functionName",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "pattern": "^[a-z][a-z0-9-]{0,30}[a-z0-9]$"
+      },
+      {
+        "name": "functionVersion",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+      },
+      {
+        "name": "pageSize",
+        "in": "query",
+        "type": "integer",
+        "required": false,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "minimum": 1,
+        "maximum": 1000
+      },
+      {
+        "name": "pageIndex",
+        "in": "query",
+        "type": "integer",
+        "required": false,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "minimum": 1
+      }
+    ],
+    "documentation": {
+      "title": "list-aliases",
+      "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+      "checkedAt": "2026-10-26",
+      "status": "vendor-source-reviewed",
+      "readCommand": "agc functions list-aliases --docs --pretty"
+    },
+    "officialSlug": "agcli-1.12.0-list-aliases"
+  },
+  {
+    "id": "create-alias",
+    "familyId": "functions",
+    "name": "create-alias",
+    "description": "Reviewed native management transport; explicit user session required. Provide one or two explicit version weights totaling 100; no implicit selection of latest published version.",
+    "method": "POST",
+    "path": "/api/wisefunction/serverless/v1/functions/{functionName}/aliases",
+    "command": "agc functions create-alias",
+    "authentication": "agcli-management-oauth",
+    "direction": "developer-to-huawei",
+    "status": "registered",
+    "source": "Huawei official AGCLI 1.12.0 source; not a public REST specification",
+    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+    "parameters": [
+      {
+        "name": "functionName",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "pattern": "^[a-z][a-z0-9-]{0,30}[a-z0-9]$"
+      },
+      {
+        "name": "name",
+        "in": "body",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "pattern": "^[a-z][a-z0-9-]{0,14}[a-z0-9]$"
+      },
+      {
+        "name": "functionVersion",
+        "in": "body",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+      },
+      {
+        "name": "description",
+        "in": "body",
+        "type": "string",
+        "required": false,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "maxLength": 64
+      },
+      {
+        "name": "routingConfig",
+        "in": "body",
+        "type": "object",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "properties": [],
+        "additionalProperties": {
+          "name": "weight",
+          "in": "body",
+          "type": "integer",
+          "required": true,
+          "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "propertyNamesPattern": "^(\\$latest|[1-9][0-9]{0,2}|1000)$",
+        "minProperties": 1,
+        "maxProperties": 2,
+        "description": "One or two version weights totaling 100; explicit complete routing required by this CLI."
+      }
+    ],
+    "documentation": {
+      "title": "create-alias",
+      "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+      "checkedAt": "2026-10-26",
+      "status": "vendor-source-reviewed",
+      "readCommand": "agc functions create-alias --docs --pretty"
+    },
+    "officialSlug": "agcli-1.12.0-create-alias"
+  },
+  {
+    "id": "update-alias",
+    "familyId": "functions",
+    "name": "update-alias",
+    "description": "Reviewed native management transport; explicit user session required. Read get-alias first and provide revisionId plus the full intended routing configuration.",
+    "method": "PUT",
+    "path": "/api/wisefunction/serverless/v1/functions/{functionName}/aliases/{aliasName}",
+    "command": "agc functions update-alias",
+    "authentication": "agcli-management-oauth",
+    "direction": "developer-to-huawei",
+    "status": "registered",
+    "source": "Huawei official AGCLI 1.12.0 source; not a public REST specification",
+    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+    "parameters": [
+      {
+        "name": "functionName",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "pattern": "^[a-z][a-z0-9-]{0,30}[a-z0-9]$"
+      },
+      {
+        "name": "aliasName",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "pattern": "^[a-z][a-z0-9-]{0,14}[a-z0-9]$"
+      },
+      {
+        "name": "functionVersion",
+        "in": "body",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+      },
+      {
+        "name": "revisionId",
+        "in": "body",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+      },
+      {
+        "name": "description",
+        "in": "body",
+        "type": "string",
+        "required": false,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "maxLength": 64
+      },
+      {
+        "name": "routingConfig",
+        "in": "body",
+        "type": "object",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "properties": [],
+        "additionalProperties": {
+          "name": "weight",
+          "in": "body",
+          "type": "integer",
+          "required": true,
+          "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "propertyNamesPattern": "^(\\$latest|[1-9][0-9]{0,2}|1000)$",
+        "minProperties": 1,
+        "maxProperties": 2,
+        "description": "One or two version weights totaling 100; explicit complete routing required by this CLI."
+      }
+    ],
+    "documentation": {
+      "title": "update-alias",
+      "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+      "checkedAt": "2026-10-26",
+      "status": "vendor-source-reviewed",
+      "readCommand": "agc functions update-alias --docs --pretty"
+    },
+    "officialSlug": "agcli-1.12.0-update-alias"
+  },
+  {
+    "id": "create-http-trigger",
+    "familyId": "functions",
+    "name": "create-http-trigger",
+    "description": "Reviewed native management transport; explicit user session required. funcId is obtained from query-function-version and must include the intended qualifier; create policy separately if required.",
+    "method": "POST",
+    "path": "/api/wisefunction/serverless/v1/trigger",
+    "command": "agc functions create-http-trigger",
+    "authentication": "agcli-management-oauth",
+    "direction": "developer-to-huawei",
+    "status": "registered",
+    "source": "Huawei official AGCLI 1.12.0 source; not a public REST specification",
+    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+    "parameters": [
+      {
+        "name": "funcId",
+        "in": "body",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+      },
+      {
+        "name": "mode",
+        "in": "body",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "enum": [
+          "NO_PATH"
+        ]
+      },
+      {
+        "name": "authFlag",
+        "in": "body",
+        "type": "boolean",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+      },
+      {
+        "name": "authAlgor",
+        "in": "body",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "enum": [
+          "HDA-SYSTEM"
+        ]
+      },
+      {
+        "name": "authType",
+        "in": "body",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "enum": [
+          "apigw-client",
+          "cloudgw-client",
+          "internal-auth"
+        ]
+      },
+      {
+        "name": "enableUrlDecode",
+        "in": "body",
+        "type": "boolean",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+      }
+    ],
+    "documentation": {
+      "title": "create-http-trigger",
+      "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+      "checkedAt": "2026-10-26",
+      "status": "vendor-source-reviewed",
+      "readCommand": "agc functions create-http-trigger --docs --pretty"
+    },
+    "officialSlug": "agcli-1.12.0-create-http-trigger"
+  },
+  {
+    "id": "create-cron-trigger",
+    "familyId": "functions",
+    "name": "create-cron-trigger",
+    "description": "Reviewed native management transport; explicit user session required. Default AGCLI create switch is false; an explicit triggerSwitch is required. Current guide says switch cannot be changed later, unlike AGCLI update; cloud support is unverified.",
+    "method": "POST",
+    "path": "/api/wisefunction/serverless/v1/triggers",
+    "command": "agc functions create-cron-trigger",
+    "authentication": "agcli-management-oauth",
+    "direction": "developer-to-huawei",
+    "status": "registered",
+    "source": "Huawei official AGCLI 1.12.0 source; not a public REST specification",
+    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+    "parameters": [
+      {
+        "name": "funcId",
+        "in": "body",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+      },
+      {
+        "name": "triggerType",
+        "in": "body",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "enum": [
+          "Cron"
+        ]
+      },
+      {
+        "name": "triggerMode",
+        "in": "body",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "enum": [
+          "Sync",
+          "ASync"
+        ]
+      },
+      {
+        "name": "triggerSwitch",
+        "in": "body",
+        "type": "boolean",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+      },
+      {
+        "name": "spec",
+        "in": "body",
+        "type": "object",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "properties": [
+          {
+            "name": "schedule",
+            "in": "body",
+            "type": "string",
+            "required": true,
+            "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+          },
+          {
+            "name": "payload",
+            "in": "body",
+            "type": "",
+            "required": false,
+            "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+          }
+        ]
+      }
+    ],
+    "documentation": {
+      "title": "create-cron-trigger",
+      "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+      "checkedAt": "2026-10-26",
+      "status": "vendor-source-reviewed",
+      "readCommand": "agc functions create-cron-trigger --docs --pretty"
+    },
+    "officialSlug": "agcli-1.12.0-create-cron-trigger"
+  },
+  {
+    "id": "get-http-trigger",
+    "familyId": "functions",
+    "name": "get-http-trigger",
+    "description": "Reviewed native management transport; explicit user session required. ",
+    "method": "GET",
+    "path": "/api/wisefunction/serverless/v1/trigger/{triggerId}",
+    "command": "agc functions get-http-trigger",
+    "authentication": "agcli-management-oauth",
+    "direction": "developer-to-huawei",
+    "status": "registered",
+    "source": "Huawei official AGCLI 1.12.0 source; not a public REST specification",
+    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+    "parameters": [
+      {
+        "name": "triggerId",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+      }
+    ],
+    "documentation": {
+      "title": "get-http-trigger",
+      "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+      "checkedAt": "2026-10-26",
+      "status": "vendor-source-reviewed",
+      "readCommand": "agc functions get-http-trigger --docs --pretty"
+    },
+    "officialSlug": "agcli-1.12.0-get-http-trigger"
+  },
+  {
+    "id": "delete-http-trigger",
+    "familyId": "functions",
+    "name": "delete-http-trigger",
+    "description": "Reviewed native management transport; explicit user session required. ",
+    "method": "DELETE",
+    "path": "/api/wisefunction/serverless/v1/trigger/{triggerId}",
+    "command": "agc functions delete-http-trigger",
+    "authentication": "agcli-management-oauth",
+    "direction": "developer-to-huawei",
+    "status": "registered",
+    "source": "Huawei official AGCLI 1.12.0 source; not a public REST specification",
+    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+    "parameters": [
+      {
+        "name": "triggerId",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+      }
+    ],
+    "documentation": {
+      "title": "delete-http-trigger",
+      "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+      "checkedAt": "2026-10-26",
+      "status": "vendor-source-reviewed",
+      "readCommand": "agc functions delete-http-trigger --docs --pretty"
+    },
+    "officialSlug": "agcli-1.12.0-delete-http-trigger"
+  },
+  {
+    "id": "list-http-triggers",
+    "familyId": "functions",
+    "name": "list-http-triggers",
+    "description": "Reviewed native management transport; explicit user session required. Listing path is also reviewed in boundary/triggerService.js. Endpoint list uses exact funcId, no automatic qualifier discovery.",
+    "method": "GET",
+    "path": "/api/wisefunction/serverless/v1/trigger/list/{funcId}",
+    "command": "agc functions list-http-triggers",
+    "authentication": "agcli-management-oauth",
+    "direction": "developer-to-huawei",
+    "status": "registered",
+    "source": "Huawei official AGCLI 1.12.0 source; not a public REST specification",
+    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+    "parameters": [
+      {
+        "name": "funcId",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+      },
+      {
+        "name": "pageSize",
+        "in": "query",
+        "type": "integer",
+        "required": false,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "minimum": 1,
+        "maximum": 1000
+      },
+      {
+        "name": "pageIndex",
+        "in": "query",
+        "type": "integer",
+        "required": false,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "minimum": 1
+      }
+    ],
+    "documentation": {
+      "title": "list-http-triggers",
+      "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+      "checkedAt": "2026-10-26",
+      "status": "vendor-source-reviewed",
+      "readCommand": "agc functions list-http-triggers --docs --pretty"
+    },
+    "officialSlug": "agcli-1.12.0-list-http-triggers"
+  },
+  {
+    "id": "get-trigger",
+    "familyId": "functions",
+    "name": "get-trigger",
+    "description": "Reviewed native management transport; explicit user session required. ",
+    "method": "GET",
+    "path": "/api/wisefunction/serverless/v1/triggers/{triggerId}",
+    "command": "agc functions get-trigger",
+    "authentication": "agcli-management-oauth",
+    "direction": "developer-to-huawei",
+    "status": "registered",
+    "source": "Huawei official AGCLI 1.12.0 source; not a public REST specification",
+    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+    "parameters": [
+      {
+        "name": "triggerId",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+      }
+    ],
+    "documentation": {
+      "title": "get-trigger",
+      "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+      "checkedAt": "2026-10-26",
+      "status": "vendor-source-reviewed",
+      "readCommand": "agc functions get-trigger --docs --pretty"
+    },
+    "officialSlug": "agcli-1.12.0-get-trigger"
+  },
+  {
+    "id": "delete-trigger",
+    "familyId": "functions",
+    "name": "delete-trigger",
+    "description": "Reviewed native management transport; explicit user session required. ",
+    "method": "DELETE",
+    "path": "/api/wisefunction/serverless/v1/triggers/{triggerId}",
+    "command": "agc functions delete-trigger",
+    "authentication": "agcli-management-oauth",
+    "direction": "developer-to-huawei",
+    "status": "registered",
+    "source": "Huawei official AGCLI 1.12.0 source; not a public REST specification",
+    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+    "parameters": [
+      {
+        "name": "triggerId",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+      }
+    ],
+    "documentation": {
+      "title": "delete-trigger",
+      "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+      "checkedAt": "2026-10-26",
+      "status": "vendor-source-reviewed",
+      "readCommand": "agc functions delete-trigger --docs --pretty"
+    },
+    "officialSlug": "agcli-1.12.0-delete-trigger"
+  },
+  {
+    "id": "list-triggers",
+    "familyId": "functions",
+    "name": "list-triggers",
+    "description": "Reviewed native management transport; explicit user session required. Listing path is also reviewed in boundary/triggerService.js. Endpoint list uses exact funcId, no automatic qualifier discovery.",
+    "method": "GET",
+    "path": "/api/wisefunction/serverless/v1/triggers/list/{funcId}",
+    "command": "agc functions list-triggers",
+    "authentication": "agcli-management-oauth",
+    "direction": "developer-to-huawei",
+    "status": "registered",
+    "source": "Huawei official AGCLI 1.12.0 source; not a public REST specification",
+    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+    "parameters": [
+      {
+        "name": "funcId",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+      },
+      {
+        "name": "pageSize",
+        "in": "query",
+        "type": "integer",
+        "required": false,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "minimum": 1,
+        "maximum": 1000
+      },
+      {
+        "name": "pageIndex",
+        "in": "query",
+        "type": "integer",
+        "required": false,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "minimum": 1
+      }
+    ],
+    "documentation": {
+      "title": "list-triggers",
+      "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+      "checkedAt": "2026-10-26",
+      "status": "vendor-source-reviewed",
+      "readCommand": "agc functions list-triggers --docs --pretty"
+    },
+    "officialSlug": "agcli-1.12.0-list-triggers"
+  },
+  {
+    "id": "update-cron-trigger",
+    "familyId": "functions",
+    "name": "update-cron-trigger",
+    "description": "Reviewed native management transport; explicit user session required. Read get-trigger first; preserve funcId, spec, triggerMode and revisionId.",
+    "method": "PUT",
+    "path": "/api/wisefunction/serverless/v1/triggers/{triggerId}",
+    "command": "agc functions update-cron-trigger",
+    "authentication": "agcli-management-oauth",
+    "direction": "developer-to-huawei",
+    "status": "registered",
+    "source": "Huawei official AGCLI 1.12.0 source; not a public REST specification",
+    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+    "parameters": [
+      {
+        "name": "triggerId",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+      },
+      {
+        "name": "funcId",
+        "in": "body",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+      },
+      {
+        "name": "triggerMode",
+        "in": "body",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "enum": [
+          "Sync",
+          "ASync"
+        ]
+      },
+      {
+        "name": "triggerSwitch",
+        "in": "body",
+        "type": "boolean",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+      },
+      {
+        "name": "spec",
+        "in": "body",
+        "type": "object",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "properties": [
+          {
+            "name": "schedule",
+            "in": "body",
+            "type": "string",
+            "required": true,
+            "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+          },
+          {
+            "name": "payload",
+            "in": "body",
+            "type": "",
+            "required": false,
+            "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+          }
+        ]
+      },
+      {
+        "name": "revisionId",
+        "in": "body",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+      }
+    ],
+    "documentation": {
+      "title": "update-cron-trigger",
+      "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+      "checkedAt": "2026-10-26",
+      "status": "vendor-source-reviewed",
+      "readCommand": "agc functions update-cron-trigger --docs --pretty"
+    },
+    "officialSlug": "agcli-1.12.0-update-cron-trigger"
+  },
+  {
+    "id": "get-function-policy",
+    "familyId": "functions",
+    "name": "get-function-policy",
+    "description": "Reviewed native management transport; explicit user session required. ",
+    "method": "GET",
+    "path": "/api/wisefunction/serverless/v1/functions/{functionName}/policy",
+    "command": "agc functions get-function-policy",
+    "authentication": "agcli-management-oauth",
+    "direction": "developer-to-huawei",
+    "status": "registered",
+    "source": "Huawei official AGCLI 1.12.0 source; not a public REST specification",
+    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+    "parameters": [
+      {
+        "name": "functionName",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "pattern": "^[a-z][a-z0-9-]{0,30}[a-z0-9]$"
+      },
+      {
+        "name": "qualifier",
+        "in": "query",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+      }
+    ],
+    "documentation": {
+      "title": "get-function-policy",
+      "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+      "checkedAt": "2026-10-26",
+      "status": "vendor-source-reviewed",
+      "readCommand": "agc functions get-function-policy --docs --pretty"
+    },
+    "officialSlug": "agcli-1.12.0-get-function-policy"
+  },
+  {
+    "id": "create-function-policy",
+    "familyId": "functions",
+    "name": "create-function-policy",
+    "description": "Reviewed native management transport; explicit user session required. Read policy first; no automatic grants or silent retries.",
+    "method": "POST",
+    "path": "/api/wisefunction/serverless/v1/functions/{functionName}/policy",
+    "command": "agc functions create-function-policy",
+    "authentication": "agcli-management-oauth",
+    "direction": "developer-to-huawei",
+    "status": "registered",
+    "source": "Huawei official AGCLI 1.12.0 source; not a public REST specification",
+    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+    "parameters": [
+      {
+        "name": "functionName",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "pattern": "^[a-z][a-z0-9-]{0,30}[a-z0-9]$"
+      },
+      {
+        "name": "qualifier",
+        "in": "query",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+      },
+      {
+        "name": "effect",
+        "in": "body",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "enum": [
+          "Allow"
+        ]
+      },
+      {
+        "name": "action",
+        "in": "body",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "enum": [
+          "InvokeFunction"
+        ]
+      },
+      {
+        "name": "sourceProvider",
+        "in": "body",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+      },
+      {
+        "name": "sourceId",
+        "in": "body",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+      },
+      {
+        "name": "revisionId",
+        "in": "body",
+        "type": "string",
+        "required": false,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+      }
+    ],
+    "documentation": {
+      "title": "create-function-policy",
+      "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+      "checkedAt": "2026-10-26",
+      "status": "vendor-source-reviewed",
+      "readCommand": "agc functions create-function-policy --docs --pretty"
+    },
+    "officialSlug": "agcli-1.12.0-create-function-policy"
+  },
+  {
+    "id": "list-layers",
+    "familyId": "functions",
+    "name": "list-layers",
+    "description": "Reviewed native management transport; explicit user session required. ",
+    "method": "GET",
+    "path": "/api/wisefunction/serverless/v1/layers",
+    "command": "agc functions list-layers",
+    "authentication": "agcli-management-oauth",
+    "direction": "developer-to-huawei",
+    "status": "registered",
+    "source": "Huawei official AGCLI 1.12.0 source; not a public REST specification",
+    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+    "parameters": [
+      {
+        "name": "layerName",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+      },
+      {
+        "name": "ownerFlag",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "enum": [
+          "all",
+          "self",
+          "other"
+        ]
+      },
+      {
+        "name": "compatibleRuntime",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+      },
+      {
+        "name": "pageSize",
+        "in": "query",
+        "type": "integer",
+        "required": false,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "minimum": 1,
+        "maximum": 1000
+      },
+      {
+        "name": "pageIndex",
+        "in": "query",
+        "type": "integer",
+        "required": false,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "minimum": 1
+      }
+    ],
+    "documentation": {
+      "title": "list-layers",
+      "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+      "checkedAt": "2026-10-26",
+      "status": "vendor-source-reviewed",
+      "readCommand": "agc functions list-layers --docs --pretty"
+    },
+    "officialSlug": "agcli-1.12.0-list-layers"
+  },
+  {
+    "id": "list-layer-versions",
+    "familyId": "functions",
+    "name": "list-layer-versions",
+    "description": "Reviewed native management transport; explicit user session required. ",
+    "method": "GET",
+    "path": "/api/wisefunction/serverless/v1/layers/{layerName}/versions",
+    "command": "agc functions list-layer-versions",
+    "authentication": "agcli-management-oauth",
+    "direction": "developer-to-huawei",
+    "status": "registered",
+    "source": "Huawei official AGCLI 1.12.0 source; not a public REST specification",
+    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+    "parameters": [
+      {
+        "name": "layerName",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "pattern": "^[a-z][a-z0-9-]{0,30}[a-z0-9]$"
+      },
+      {
+        "name": "compatibleRuntime",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+      },
+      {
+        "name": "pageSize",
+        "in": "query",
+        "type": "integer",
+        "required": false,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "minimum": 1,
+        "maximum": 1000
+      },
+      {
+        "name": "pageIndex",
+        "in": "query",
+        "type": "integer",
+        "required": false,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "minimum": 1
+      }
+    ],
+    "documentation": {
+      "title": "list-layer-versions",
+      "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+      "checkedAt": "2026-10-26",
+      "status": "vendor-source-reviewed",
+      "readCommand": "agc functions list-layer-versions --docs --pretty"
+    },
+    "officialSlug": "agcli-1.12.0-list-layer-versions"
+  },
+  {
+    "id": "get-layer-version",
+    "familyId": "functions",
+    "name": "get-layer-version",
+    "description": "Reviewed native management transport; explicit user session required. ",
+    "method": "GET",
+    "path": "/api/wisefunction/serverless/v1/layers/{layerName}/versions/{layerVersion}",
+    "command": "agc functions get-layer-version",
+    "authentication": "agcli-management-oauth",
+    "direction": "developer-to-huawei",
+    "status": "registered",
+    "source": "Huawei official AGCLI 1.12.0 source; not a public REST specification",
+    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+    "parameters": [
+      {
+        "name": "layerName",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "pattern": "^[a-z][a-z0-9-]{0,30}[a-z0-9]$"
+      },
+      {
+        "name": "layerVersion",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "pattern": "^[1-9][0-9]*$"
+      }
+    ],
+    "documentation": {
+      "title": "get-layer-version",
+      "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+      "checkedAt": "2026-10-26",
+      "status": "vendor-source-reviewed",
+      "readCommand": "agc functions get-layer-version --docs --pretty"
+    },
+    "officialSlug": "agcli-1.12.0-get-layer-version"
+  },
+  {
+    "id": "create-layer-version",
+    "familyId": "functions",
+    "name": "create-layer-version",
+    "description": "Reviewed native management transport; explicit user session required. zipFile contains Base64 ZIP bytes; validate compressed/decompressed limits and entry count before authorization. Layer name creates the initial version or appends a version. AGCLI 1.12.0 local ZIP validation caps files below 50MiB; this direct API adapter uses the current browser-reviewed guide limits of 150MiB compressed, 300MiB expanded and 30000 entries. This difference and modern runtime wire values still require cloud verification.",
+    "method": "POST",
+    "path": "/api/wisefunction/serverless/v1/layers/{layerName}/versions",
+    "command": "agc functions create-layer-version",
+    "authentication": "agcli-management-oauth",
+    "direction": "developer-to-huawei",
+    "status": "registered",
+    "source": "Huawei official AGCLI 1.12.0 source; not a public REST specification",
+    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+    "parameters": [
+      {
+        "name": "layerName",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "pattern": "^[a-z][a-z0-9-]{0,30}[a-z0-9]$"
+      },
+      {
+        "name": "compatibleRuntimes",
+        "in": "body",
+        "type": "array",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "itemsType": "string",
+        "minItems": 1,
+        "itemsEnum": [
+          "nodejs14.x",
+          "java1.8",
+          "python3",
+          "custom-runtime"
+        ]
+      },
+      {
+        "name": "sharedScope",
+        "in": "body",
+        "type": "integer",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "enum": [
+          "0",
+          "1"
+        ]
+      },
+      {
+        "name": "zipFile",
+        "in": "body",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "format": "byte"
+      },
+      {
+        "name": "description",
+        "in": "body",
+        "type": "string",
+        "required": false,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "maxLength": 1024
+      },
+      {
+        "name": "licenseInfo",
+        "in": "body",
+        "type": "string",
+        "required": false,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "maxLength": 64
+      }
+    ],
+    "documentation": {
+      "title": "create-layer-version",
+      "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+      "checkedAt": "2026-10-26",
+      "status": "vendor-source-reviewed",
+      "readCommand": "agc functions create-layer-version --docs --pretty"
+    },
+    "officialSlug": "agcli-1.12.0-create-layer-version"
+  },
+  {
+    "id": "search-applications",
+    "familyId": "templates",
+    "name": "search-applications",
+    "description": "Reviewed native management transport; explicit user session required. SAM CloudFunctions application transport, not deployment of the console gallery templates. codeUri is a pre-uploaded bucket/object key. Creation/application acceptance does not prove ready state; search/get-plan must be read back.",
+    "method": "GET",
+    "path": "/api/adm/v1/applications/search",
+    "command": "agc templates search-applications",
+    "authentication": "agcli-management-oauth",
+    "direction": "developer-to-huawei",
+    "status": "registered",
+    "source": "Huawei official AGCLI 1.12.0 source; not a public REST specification",
+    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+    "parameters": [
+      {
+        "name": "appName",
+        "in": "query",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+      }
+    ],
+    "documentation": {
+      "title": "search-applications",
+      "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+      "checkedAt": "2026-10-26",
+      "status": "vendor-source-reviewed",
+      "readCommand": "agc templates search-applications --docs --pretty"
+    },
+    "officialSlug": "agcli-1.12.0-search-applications"
+  },
+  {
+    "id": "create-application",
+    "familyId": "templates",
+    "name": "create-application",
+    "description": "Reviewed native management transport; explicit user session required. SAM CloudFunctions application transport, not deployment of the console gallery templates. codeUri is a pre-uploaded bucket/object key. Creation/application acceptance does not prove ready state; search/get-plan must be read back.",
+    "method": "POST",
+    "path": "/api/adm/v1/applications",
+    "command": "agc templates create-application",
+    "authentication": "agcli-management-oauth",
+    "direction": "developer-to-huawei",
+    "status": "registered",
+    "source": "Huawei official AGCLI 1.12.0 source; not a public REST specification",
+    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+    "parameters": [
+      {
+        "name": "name",
+        "in": "body",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+      },
+      {
+        "name": "components",
+        "in": "body",
+        "type": "array",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "itemsType": "object",
+        "itemsProperties": [
+          {
+            "name": "name",
+            "in": "body",
+            "type": "string",
+            "required": true,
+            "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+            "pattern": "^[a-z][a-z0-9-]{0,30}[a-z0-9]$"
+          },
+          {
+            "name": "type",
+            "in": "body",
+            "type": "string",
+            "required": true,
+            "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+            "enum": [
+              "Huawei::AGC::CloudFunctions"
+            ]
+          },
+          {
+            "name": "properties",
+            "in": "body",
+            "type": "object",
+            "required": true,
+            "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+            "properties": [
+              {
+                "name": "codeUri",
+                "in": "body",
+                "type": "string",
+                "required": true,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+              },
+              {
+                "name": "runtime",
+                "in": "body",
+                "type": "string",
+                "required": true,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+              },
+              {
+                "name": "memorySize",
+                "in": "body",
+                "type": "integer",
+                "required": true,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                "enum": [
+                  "500",
+                  "1000",
+                  "2000",
+                  "4000"
+                ]
+              },
+              {
+                "name": "timeout",
+                "in": "body",
+                "type": "integer",
+                "required": true,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                "minimum": 1,
+                "maximum": 1800
+              },
+              {
+                "name": "handler",
+                "in": "body",
+                "type": "string",
+                "required": true,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                "maxLength": 64,
+                "pattern": "^[A-Za-z0-9_-]*\\.[A-Za-z0-9_-]*$"
+              },
+              {
+                "name": "instanceConcurrency",
+                "in": "body",
+                "type": "integer",
+                "required": true,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                "minimum": 1,
+                "maximum": 1000
+              },
+              {
+                "name": "description",
+                "in": "body",
+                "type": "string",
+                "required": false,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                "maxLength": 64,
+                "description": "Vendor display width <=64; non-ASCII UTF-16 units count twice."
+              },
+              {
+                "name": "layers",
+                "in": "body",
+                "type": "array",
+                "required": false,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                "itemsType": "string",
+                "maxItems": 5
+              },
+              {
+                "name": "env",
+                "in": "body",
+                "type": "array",
+                "required": false,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                "itemsType": "object",
+                "itemsProperties": [
+                  {
+                    "name": "name",
+                    "in": "body",
+                    "type": "string",
+                    "required": true,
+                    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                    "maxLength": 64,
+                    "pattern": "^[-._a-zA-Z][-._a-zA-Z0-9]*$"
+                  },
+                  {
+                    "name": "value",
+                    "in": "body",
+                    "type": "string",
+                    "required": true,
+                    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                    "maxLength": 2048
+                  }
+                ]
+              },
+              {
+                "name": "alias",
+                "in": "body",
+                "type": "string",
+                "required": false,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                "pattern": "^[a-z][a-z0-9-]{0,14}[a-z0-9]$"
+              },
+              {
+                "name": "events",
+                "in": "body",
+                "type": "array",
+                "required": false,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                "itemsType": "object",
+                "itemsProperties": [
+                  {
+                    "name": "name",
+                    "in": "body",
+                    "type": "string",
+                    "required": true,
+                    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                    "pattern": "^[a-z][a-zA-Z0-9-]{0,30}[a-zA-Z0-9]$"
+                  },
+                  {
+                    "name": "type",
+                    "in": "body",
+                    "type": "string",
+                    "required": true,
+                    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                    "enum": [
+                      "http",
+                      "cron"
+                    ]
+                  },
+                  {
+                    "name": "properties",
+                    "in": "body",
+                    "type": "object",
+                    "required": true,
+                    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                    "properties": [
+                      {
+                        "name": "authType",
+                        "in": "body",
+                        "type": "string",
+                        "required": false,
+                        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                        "enum": [
+                          "apigw-client",
+                          "cloudgw-client"
+                        ]
+                      },
+                      {
+                        "name": "enableUrlDecode",
+                        "in": "body",
+                        "type": "boolean",
+                        "required": false,
+                        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+                      },
+                      {
+                        "name": "schedule",
+                        "in": "body",
+                        "type": "string",
+                        "required": false,
+                        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+                      },
+                      {
+                        "name": "input",
+                        "in": "body",
+                        "type": "string",
+                        "required": false,
+                        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                        "encodedJson": {
+                          "name": "value",
+                          "in": "body",
+                          "type": "",
+                          "required": false,
+                          "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "itemsRules": [
+                  {
+                    "id": "sam-http-authType",
+                    "kind": "required_if",
+                    "field": "body.properties.authType",
+                    "when": {
+                      "field": "body.type",
+                      "equals": "http"
+                    },
+                    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                    "message": "SAM http events require properties.authType",
+                    "suggestion": "Supply the conditional event property using the source-defined type."
+                  },
+                  {
+                    "id": "sam-http-enableUrlDecode",
+                    "kind": "required_if",
+                    "field": "body.properties.enableUrlDecode",
+                    "when": {
+                      "field": "body.type",
+                      "equals": "http"
+                    },
+                    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                    "message": "SAM http events require properties.enableUrlDecode",
+                    "suggestion": "Supply the conditional event property using the source-defined type."
+                  },
+                  {
+                    "id": "sam-cron-schedule",
+                    "kind": "required_if",
+                    "field": "body.properties.schedule",
+                    "when": {
+                      "field": "body.type",
+                      "equals": "cron"
+                    },
+                    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                    "message": "SAM cron events require properties.schedule",
+                    "suggestion": "Supply the conditional event property using the source-defined type."
+                  },
+                  {
+                    "id": "sam-cron-input",
+                    "kind": "required_if",
+                    "field": "body.properties.input",
+                    "when": {
+                      "field": "body.type",
+                      "equals": "cron"
+                    },
+                    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                    "message": "SAM cron events require properties.input",
+                    "suggestion": "Supply the conditional event property using the source-defined type."
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "minItems": 1
+      }
+    ],
+    "documentation": {
+      "title": "create-application",
+      "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+      "checkedAt": "2026-10-26",
+      "status": "vendor-source-reviewed",
+      "readCommand": "agc templates create-application --docs --pretty"
+    },
+    "officialSlug": "agcli-1.12.0-create-application"
+  },
+  {
+    "id": "create-plan",
+    "familyId": "templates",
+    "name": "create-plan",
+    "description": "Reviewed native management transport; explicit user session required. SAM CloudFunctions application transport, not deployment of the console gallery templates. codeUri is a pre-uploaded bucket/object key. Creation/application acceptance does not prove ready state; search/get-plan must be read back.",
+    "method": "POST",
+    "path": "/api/adm/v1/applications/{applicationId}/plans",
+    "command": "agc templates create-plan",
+    "authentication": "agcli-management-oauth",
+    "direction": "developer-to-huawei",
+    "status": "registered",
+    "source": "Huawei official AGCLI 1.12.0 source; not a public REST specification",
+    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+    "parameters": [
+      {
+        "name": "applicationId",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+      },
+      {
+        "name": "name",
+        "in": "body",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+      },
+      {
+        "name": "components",
+        "in": "body",
+        "type": "array",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "itemsType": "object",
+        "itemsProperties": [
+          {
+            "name": "name",
+            "in": "body",
+            "type": "string",
+            "required": true,
+            "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+            "pattern": "^[a-z][a-z0-9-]{0,30}[a-z0-9]$"
+          },
+          {
+            "name": "type",
+            "in": "body",
+            "type": "string",
+            "required": true,
+            "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+            "enum": [
+              "Huawei::AGC::CloudFunctions"
+            ]
+          },
+          {
+            "name": "properties",
+            "in": "body",
+            "type": "object",
+            "required": true,
+            "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+            "properties": [
+              {
+                "name": "codeUri",
+                "in": "body",
+                "type": "string",
+                "required": true,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+              },
+              {
+                "name": "runtime",
+                "in": "body",
+                "type": "string",
+                "required": true,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+              },
+              {
+                "name": "memorySize",
+                "in": "body",
+                "type": "integer",
+                "required": true,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                "enum": [
+                  "500",
+                  "1000",
+                  "2000",
+                  "4000"
+                ]
+              },
+              {
+                "name": "timeout",
+                "in": "body",
+                "type": "integer",
+                "required": true,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                "minimum": 1,
+                "maximum": 1800
+              },
+              {
+                "name": "handler",
+                "in": "body",
+                "type": "string",
+                "required": true,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                "maxLength": 64,
+                "pattern": "^[A-Za-z0-9_-]*\\.[A-Za-z0-9_-]*$"
+              },
+              {
+                "name": "instanceConcurrency",
+                "in": "body",
+                "type": "integer",
+                "required": true,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                "minimum": 1,
+                "maximum": 1000
+              },
+              {
+                "name": "description",
+                "in": "body",
+                "type": "string",
+                "required": false,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                "maxLength": 64,
+                "description": "Vendor display width <=64; non-ASCII UTF-16 units count twice."
+              },
+              {
+                "name": "layers",
+                "in": "body",
+                "type": "array",
+                "required": false,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                "itemsType": "string",
+                "maxItems": 5
+              },
+              {
+                "name": "env",
+                "in": "body",
+                "type": "array",
+                "required": false,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                "itemsType": "object",
+                "itemsProperties": [
+                  {
+                    "name": "name",
+                    "in": "body",
+                    "type": "string",
+                    "required": true,
+                    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                    "maxLength": 64,
+                    "pattern": "^[-._a-zA-Z][-._a-zA-Z0-9]*$"
+                  },
+                  {
+                    "name": "value",
+                    "in": "body",
+                    "type": "string",
+                    "required": true,
+                    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                    "maxLength": 2048
+                  }
+                ]
+              },
+              {
+                "name": "alias",
+                "in": "body",
+                "type": "string",
+                "required": false,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                "pattern": "^[a-z][a-z0-9-]{0,14}[a-z0-9]$"
+              },
+              {
+                "name": "events",
+                "in": "body",
+                "type": "array",
+                "required": false,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                "itemsType": "object",
+                "itemsProperties": [
+                  {
+                    "name": "name",
+                    "in": "body",
+                    "type": "string",
+                    "required": true,
+                    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                    "pattern": "^[a-z][a-zA-Z0-9-]{0,30}[a-zA-Z0-9]$"
+                  },
+                  {
+                    "name": "type",
+                    "in": "body",
+                    "type": "string",
+                    "required": true,
+                    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                    "enum": [
+                      "http",
+                      "cron"
+                    ]
+                  },
+                  {
+                    "name": "properties",
+                    "in": "body",
+                    "type": "object",
+                    "required": true,
+                    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                    "properties": [
+                      {
+                        "name": "authType",
+                        "in": "body",
+                        "type": "string",
+                        "required": false,
+                        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                        "enum": [
+                          "apigw-client",
+                          "cloudgw-client"
+                        ]
+                      },
+                      {
+                        "name": "enableUrlDecode",
+                        "in": "body",
+                        "type": "boolean",
+                        "required": false,
+                        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+                      },
+                      {
+                        "name": "schedule",
+                        "in": "body",
+                        "type": "string",
+                        "required": false,
+                        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+                      },
+                      {
+                        "name": "input",
+                        "in": "body",
+                        "type": "string",
+                        "required": false,
+                        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                        "encodedJson": {
+                          "name": "value",
+                          "in": "body",
+                          "type": "",
+                          "required": false,
+                          "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "itemsRules": [
+                  {
+                    "id": "sam-http-authType",
+                    "kind": "required_if",
+                    "field": "body.properties.authType",
+                    "when": {
+                      "field": "body.type",
+                      "equals": "http"
+                    },
+                    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                    "message": "SAM http events require properties.authType",
+                    "suggestion": "Supply the conditional event property using the source-defined type."
+                  },
+                  {
+                    "id": "sam-http-enableUrlDecode",
+                    "kind": "required_if",
+                    "field": "body.properties.enableUrlDecode",
+                    "when": {
+                      "field": "body.type",
+                      "equals": "http"
+                    },
+                    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                    "message": "SAM http events require properties.enableUrlDecode",
+                    "suggestion": "Supply the conditional event property using the source-defined type."
+                  },
+                  {
+                    "id": "sam-cron-schedule",
+                    "kind": "required_if",
+                    "field": "body.properties.schedule",
+                    "when": {
+                      "field": "body.type",
+                      "equals": "cron"
+                    },
+                    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                    "message": "SAM cron events require properties.schedule",
+                    "suggestion": "Supply the conditional event property using the source-defined type."
+                  },
+                  {
+                    "id": "sam-cron-input",
+                    "kind": "required_if",
+                    "field": "body.properties.input",
+                    "when": {
+                      "field": "body.type",
+                      "equals": "cron"
+                    },
+                    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                    "message": "SAM cron events require properties.input",
+                    "suggestion": "Supply the conditional event property using the source-defined type."
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "minItems": 1
+      }
+    ],
+    "documentation": {
+      "title": "create-plan",
+      "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+      "checkedAt": "2026-10-26",
+      "status": "vendor-source-reviewed",
+      "readCommand": "agc templates create-plan --docs --pretty"
+    },
+    "officialSlug": "agcli-1.12.0-create-plan"
+  },
+  {
+    "id": "get-plan",
+    "familyId": "templates",
+    "name": "get-plan",
+    "description": "Reviewed native management transport; explicit user session required. SAM CloudFunctions application transport, not deployment of the console gallery templates. codeUri is a pre-uploaded bucket/object key. Creation/application acceptance does not prove ready state; search/get-plan must be read back.",
+    "method": "GET",
+    "path": "/api/adm/v1/applications/plans/{planId}",
+    "command": "agc templates get-plan",
+    "authentication": "agcli-management-oauth",
+    "direction": "developer-to-huawei",
+    "status": "registered",
+    "source": "Huawei official AGCLI 1.12.0 source; not a public REST specification",
+    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+    "parameters": [
+      {
+        "name": "planId",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+      }
+    ],
+    "documentation": {
+      "title": "get-plan",
+      "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+      "checkedAt": "2026-10-26",
+      "status": "vendor-source-reviewed",
+      "readCommand": "agc templates get-plan --docs --pretty"
+    },
+    "officialSlug": "agcli-1.12.0-get-plan"
+  },
+  {
+    "id": "apply-plan",
+    "familyId": "templates",
+    "name": "apply-plan",
+    "description": "Reviewed native management transport; explicit user session required. SAM CloudFunctions application transport, not deployment of the console gallery templates. codeUri is a pre-uploaded bucket/object key. Creation/application acceptance does not prove ready state; search/get-plan must be read back.",
+    "method": "PUT",
+    "path": "/api/adm/v1/applications/{applicationId}/plans/{planId}",
+    "command": "agc templates apply-plan",
+    "authentication": "agcli-management-oauth",
+    "direction": "developer-to-huawei",
+    "status": "registered",
+    "source": "Huawei official AGCLI 1.12.0 source; not a public REST specification",
+    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+    "parameters": [
+      {
+        "name": "applicationId",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+      },
+      {
+        "name": "planId",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+      }
+    ],
+    "documentation": {
+      "title": "apply-plan",
+      "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+      "checkedAt": "2026-10-26",
+      "status": "vendor-source-reviewed",
+      "readCommand": "agc templates apply-plan --docs --pretty"
+    },
+    "officialSlug": "agcli-1.12.0-apply-plan"
+  },
+  {
+    "id": "deploy",
+    "familyId": "templates",
+    "name": "deploy",
+    "description": "Reviewed native management transport; explicit user session required. Create-only SAM deployment: validate every local codeUri ZIP, search exact application name, upload code, create application, then independently query readiness. Existing applications are refused; use explicit create-plan/get-plan/apply-plan for updates. Local-only storageInstance and waitForReady are not sent to ADM. Uploaded artifacts may be retained after failure. Not a console gallery deployment.",
+    "method": "POST",
+    "path": "native:templates/deploy",
+    "command": "agc templates deploy",
+    "authentication": "agcli-management-oauth",
+    "direction": "native-workflow",
+    "status": "registered",
+    "source": "Huawei official AGCLI 1.12.0 source; not a public REST specification",
+    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+    "parameters": [
+      {
+        "name": "name",
+        "in": "body",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+      },
+      {
+        "name": "components",
+        "in": "body",
+        "type": "array",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+        "itemsType": "object",
+        "itemsProperties": [
+          {
+            "name": "name",
+            "in": "body",
+            "type": "string",
+            "required": true,
+            "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+            "pattern": "^[a-z][a-z0-9-]{0,30}[a-z0-9]$"
+          },
+          {
+            "name": "type",
+            "in": "body",
+            "type": "string",
+            "required": true,
+            "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+            "enum": [
+              "Huawei::AGC::CloudFunctions"
+            ]
+          },
+          {
+            "name": "properties",
+            "in": "body",
+            "type": "object",
+            "required": true,
+            "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+            "properties": [
+              {
+                "name": "codeUri",
+                "in": "body",
+                "type": "string",
+                "required": true,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+              },
+              {
+                "name": "runtime",
+                "in": "body",
+                "type": "string",
+                "required": true,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+              },
+              {
+                "name": "memorySize",
+                "in": "body",
+                "type": "integer",
+                "required": true,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                "enum": [
+                  "500",
+                  "1000",
+                  "2000",
+                  "4000"
+                ]
+              },
+              {
+                "name": "timeout",
+                "in": "body",
+                "type": "integer",
+                "required": true,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                "minimum": 1,
+                "maximum": 1800
+              },
+              {
+                "name": "handler",
+                "in": "body",
+                "type": "string",
+                "required": true,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                "maxLength": 64,
+                "pattern": "^[A-Za-z0-9_-]*\\.[A-Za-z0-9_-]*$"
+              },
+              {
+                "name": "instanceConcurrency",
+                "in": "body",
+                "type": "integer",
+                "required": true,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                "minimum": 1,
+                "maximum": 1000
+              },
+              {
+                "name": "description",
+                "in": "body",
+                "type": "string",
+                "required": false,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                "maxLength": 64,
+                "description": "Vendor display width <=64; non-ASCII UTF-16 units count twice."
+              },
+              {
+                "name": "layers",
+                "in": "body",
+                "type": "array",
+                "required": false,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                "itemsType": "string",
+                "maxItems": 5
+              },
+              {
+                "name": "env",
+                "in": "body",
+                "type": "array",
+                "required": false,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                "itemsType": "object",
+                "itemsProperties": [
+                  {
+                    "name": "name",
+                    "in": "body",
+                    "type": "string",
+                    "required": true,
+                    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                    "maxLength": 64,
+                    "pattern": "^[-._a-zA-Z][-._a-zA-Z0-9]*$"
+                  },
+                  {
+                    "name": "value",
+                    "in": "body",
+                    "type": "string",
+                    "required": true,
+                    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                    "maxLength": 2048
+                  }
+                ]
+              },
+              {
+                "name": "alias",
+                "in": "body",
+                "type": "string",
+                "required": false,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                "pattern": "^[a-z][a-z0-9-]{0,14}[a-z0-9]$"
+              },
+              {
+                "name": "events",
+                "in": "body",
+                "type": "array",
+                "required": false,
+                "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                "itemsType": "object",
+                "itemsProperties": [
+                  {
+                    "name": "name",
+                    "in": "body",
+                    "type": "string",
+                    "required": true,
+                    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                    "pattern": "^[a-z][a-zA-Z0-9-]{0,30}[a-zA-Z0-9]$"
+                  },
+                  {
+                    "name": "type",
+                    "in": "body",
+                    "type": "string",
+                    "required": true,
+                    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                    "enum": [
+                      "http",
+                      "cron"
+                    ]
+                  },
+                  {
+                    "name": "properties",
+                    "in": "body",
+                    "type": "object",
+                    "required": true,
+                    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                    "properties": [
+                      {
+                        "name": "authType",
+                        "in": "body",
+                        "type": "string",
+                        "required": false,
+                        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                        "enum": [
+                          "apigw-client",
+                          "cloudgw-client"
+                        ]
+                      },
+                      {
+                        "name": "enableUrlDecode",
+                        "in": "body",
+                        "type": "boolean",
+                        "required": false,
+                        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+                      },
+                      {
+                        "name": "schedule",
+                        "in": "body",
+                        "type": "string",
+                        "required": false,
+                        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+                      },
+                      {
+                        "name": "input",
+                        "in": "body",
+                        "type": "string",
+                        "required": false,
+                        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                        "encodedJson": {
+                          "name": "value",
+                          "in": "body",
+                          "type": "",
+                          "required": false,
+                          "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "itemsRules": [
+                  {
+                    "id": "sam-http-authType",
+                    "kind": "required_if",
+                    "field": "body.properties.authType",
+                    "when": {
+                      "field": "body.type",
+                      "equals": "http"
+                    },
+                    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                    "message": "SAM http events require properties.authType",
+                    "suggestion": "Supply the conditional event property using the source-defined type."
+                  },
+                  {
+                    "id": "sam-http-enableUrlDecode",
+                    "kind": "required_if",
+                    "field": "body.properties.enableUrlDecode",
+                    "when": {
+                      "field": "body.type",
+                      "equals": "http"
+                    },
+                    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                    "message": "SAM http events require properties.enableUrlDecode",
+                    "suggestion": "Supply the conditional event property using the source-defined type."
+                  },
+                  {
+                    "id": "sam-cron-schedule",
+                    "kind": "required_if",
+                    "field": "body.properties.schedule",
+                    "when": {
+                      "field": "body.type",
+                      "equals": "cron"
+                    },
+                    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                    "message": "SAM cron events require properties.schedule",
+                    "suggestion": "Supply the conditional event property using the source-defined type."
+                  },
+                  {
+                    "id": "sam-cron-input",
+                    "kind": "required_if",
+                    "field": "body.properties.input",
+                    "when": {
+                      "field": "body.type",
+                      "equals": "cron"
+                    },
+                    "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+                    "message": "SAM cron events require properties.input",
+                    "suggestion": "Supply the conditional event property using the source-defined type."
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "minItems": 1
+      },
+      {
+        "name": "storageInstance",
+        "in": "body",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+      },
+      {
+        "name": "waitForReady",
+        "in": "body",
+        "type": "boolean",
+        "required": false,
+        "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0"
+      }
+    ],
+    "documentation": {
+      "title": "deploy",
+      "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+      "checkedAt": "2026-10-26",
+      "status": "vendor-source-reviewed",
+      "readCommand": "agc templates deploy --docs --pretty"
+    },
+    "officialSlug": "agcli-1.12.0-deploy"
+  },
+  {
+    "id": "fetch-install",
+    "familyId": "prefetch",
+    "name": "fetch-install",
+    "method": "GET",
+    "path": "{callbackUrl}",
+    "command": "agc prefetch fetch-install",
+    "authentication": "callback-none",
+    "direction": "inbound-callback",
+    "status": "registered",
+    "source": "Huawei browser-reviewed developer server protocol",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev",
+    "parameters": [
+      {
+        "name": "callbackUrl",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev"
+      },
+      {
+        "name": "appId",
+        "in": "query",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev"
+      }
+    ],
+    "documentation": {
+      "title": "开发预加载资源接口",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev",
+      "checkedAt": "2026-10-26",
+      "status": "browser-read",
+      "readCommand": "agc prefetch fetch-install --docs --pretty"
+    },
+    "officialSlug": "cloudfoundation-prefetch-cloud-interdev"
+  },
+  {
+    "id": "fetch-periodic",
+    "familyId": "prefetch",
+    "name": "fetch-periodic",
+    "method": "GET",
+    "path": "{callbackUrl}",
+    "command": "agc prefetch fetch-periodic",
+    "authentication": "callback-none",
+    "direction": "inbound-callback",
+    "status": "registered",
+    "source": "Huawei browser-reviewed developer server protocol",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev",
+    "parameters": [
+      {
+        "name": "callbackUrl",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev"
+      },
+      {
+        "name": "appId",
+        "in": "query",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev"
+      },
+      {
+        "name": "token",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev",
+        "maxLength": 2048
+      },
+      {
+        "name": "params",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev",
+        "maxLength": 1024
+      }
+    ],
+    "documentation": {
+      "title": "开发预加载资源接口",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev",
+      "checkedAt": "2026-10-26",
+      "status": "browser-read",
+      "readCommand": "agc prefetch fetch-periodic --docs --pretty"
+    },
+    "officialSlug": "cloudfoundation-prefetch-cloud-interdev"
+  },
+  {
+    "id": "fetch-deferred",
+    "familyId": "prefetch",
+    "name": "fetch-deferred",
+    "method": "GET",
+    "path": "{callbackUrl}",
+    "command": "agc prefetch fetch-deferred",
+    "authentication": "callback-none",
+    "direction": "inbound-callback",
+    "status": "registered",
+    "source": "Huawei browser-reviewed developer server protocol",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev",
+    "parameters": [
+      {
+        "name": "callbackUrl",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev"
+      },
+      {
+        "name": "appId",
+        "in": "query",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev"
+      },
+      {
+        "name": "link",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev"
+      }
+    ],
+    "documentation": {
+      "title": "开发预加载资源接口",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-prefetch-cloud-interdev",
+      "checkedAt": "2026-10-26",
+      "status": "browser-read",
+      "readCommand": "agc prefetch fetch-deferred --docs --pretty"
+    },
+    "officialSlug": "cloudfoundation-prefetch-cloud-interdev"
+  },
+  {
+    "id": "device-getcache",
+    "familyId": "prefetch",
+    "name": "Debug periodic prefetch on an explicit device",
+    "method": "POST",
+    "path": "local:prefetch/device-getcache",
+    "command": "agc prefetch device-getcache",
+    "authentication": "local-device",
+    "direction": "local",
+    "status": "registered",
+    "source": "Huawei browser-reviewed hdc command",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug",
+    "parameters": [
+      {
+        "name": "bundleName",
+        "in": "body",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug",
+        "pattern": "^[A-Za-z][A-Za-z0-9_]*(?:\\.[A-Za-z][A-Za-z0-9_]*)+$"
+      },
+      {
+        "name": "deviceId",
+        "in": "body",
+        "type": "string",
+        "required": true,
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug",
+        "pattern": "^[A-Za-z0-9._:-]+$"
+      },
+      {
+        "name": "hdcPath",
+        "in": "body",
+        "type": "string",
+        "required": false,
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug"
+      }
+    ],
+    "documentation": {
+      "title": "调试周期性预加载",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/cloudfoundation-commandtool-debug",
+      "checkedAt": "2026-10-26",
+      "status": "browser-read",
+      "readCommand": "agc prefetch device-getcache --docs --pretty"
+    },
+    "officialSlug": "cloudfoundation-commandtool-debug"
+  }
+]

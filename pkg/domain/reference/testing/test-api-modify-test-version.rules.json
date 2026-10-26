@@ -1,0 +1,25 @@
+[
+  {
+    "id": "oauth-team",
+    "kind": "required_with",
+    "field": "header.teamId",
+    "fields": [
+      "header.oauth2Token"
+    ],
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-modify-test-version-0000002271160657#section15707195611112",
+    "message": "OAuth authorization requires its selected teamId.",
+    "suggestion": "Supply the selected OAuth team ID in the teamId header."
+  },
+  {
+    "id": "testing-ai-types",
+    "kind": "required_if",
+    "field": "body.extInfo.aiTypes",
+    "when": {
+      "field": "body.extInfo.isAiGenerate",
+      "equals": "1"
+    },
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-data-versionextinfo-0000002272455645",
+    "message": "AI-generated services require aiTypes.",
+    "suggestion": "Supply the documented AI service types in extInfo.aiTypes."
+  }
+]

@@ -1,0 +1,5 @@
+{
+  "header.appId": {
+    "maxLength": 32
+  }
+}

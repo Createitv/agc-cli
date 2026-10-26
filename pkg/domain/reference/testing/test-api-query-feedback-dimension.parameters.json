@@ -1,0 +1,72 @@
+[
+  {
+    "name": "appId",
+    "in": "header",
+    "type": "string",
+    "required": true,
+    "description": "应用ID，获取方法参考查看应用信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-query-feedback-dimension-0000002634878572#section513712243310",
+    "maxLength": 32
+  },
+  {
+    "name": "teamId",
+    "in": "header",
+    "type": "integer",
+    "required": false,
+    "description": "开发者所在团队的团队ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-query-feedback-dimension-0000002634878572#section513712243310"
+  },
+  {
+    "name": "startTime",
+    "in": "body",
+    "type": "integer",
+    "required": false,
+    "description": "开始时间。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-query-feedback-dimension-0000002634878572#section6641436115716"
+  },
+  {
+    "name": "endTime",
+    "in": "body",
+    "type": "integer",
+    "required": false,
+    "description": "结束时间。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-query-feedback-dimension-0000002634878572#section6641436115716"
+  },
+  {
+    "name": "appVersions",
+    "in": "body",
+    "type": "array",
+    "required": false,
+    "description": "应用版本。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-query-feedback-dimension-0000002634878572#section6641436115716",
+    "itemsType": "string",
+    "itemsMaxLength": 64
+  },
+  {
+    "name": "models",
+    "in": "body",
+    "type": "string",
+    "required": false,
+    "description": "模型。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-query-feedback-dimension-0000002634878572#section6641436115716",
+    "maxLength": 64
+  },
+  {
+    "name": "deviceVersions",
+    "in": "body",
+    "type": "string",
+    "required": false,
+    "description": "设备版本信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-query-feedback-dimension-0000002634878572#section6641436115716",
+    "maxLength": 64
+  },
+  {
+    "name": "machineTypes",
+    "in": "body",
+    "type": "string",
+    "required": false,
+    "description": "机器类型。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-query-feedback-dimension-0000002634878572#section6641436115716",
+    "maxLength": 64
+  }
+]

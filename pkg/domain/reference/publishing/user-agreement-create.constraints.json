@@ -1,0 +1,16 @@
+{
+  "header.appId": {
+    "maxLength": 32
+  },
+  "body.type": {
+    "enum": [
+      "2"
+    ]
+  },
+  "body.defaultLang": {
+    "maxLength": 20
+  },
+  "body.agreementInfos": {
+    "maxItems": 100
+  }
+}

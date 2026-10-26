@@ -1,0 +1,967 @@
+{
+  "title": "schema-versions",
+  "sourceUrl": "https://www.npmjs.com/package/@hw-agconnect/agc-cli/v/1.12.0",
+  "checkedAt": "2026-10-26",
+  "status": "vendor-source-reviewed",
+  "package": "@hw-agconnect/agc-cli",
+  "version": "1.12.0",
+  "sourceFiles": [
+    {
+      "packagePath": "commands/clouddb/util/constants.js",
+      "sha256": "25011c99703831640c6e5d6e849f82d439e77c44e46a150911088eaaa98981cc",
+      "source": "const SERVICES=Object.freeze({GET_SCHEME_VERSIONS:{path:\"/agc/edge/clouddb/clouddbservice/v1/schemaVersion\",method:\"GET\"},EXPORT_OBJECT_TYPE:{path:\"/agc/edge/clouddb/clouddbservice/v1/exportObjectType\",method:\"POST\"},GET_OBJECT_TYPE:{path:\"/agc/edge/clouddb/clouddbservice/v1/objectType\",method:\"GET\"},CREATE_OBJECT_TYPE:{path:\"/agc/edge/clouddb/clouddbservice/v1/objectType\",method:\"POST\"},MODIFY_OBJECT_TYPE:{path:\"/agc/edge/clouddb/clouddbservice/v1/objectType\",method:\"PUT\"},DELETE_OBJECT_TYPE:{path:\"/agc/edge/clouddb/clouddbservice/v1/objectType\",method:\"DELETE\"},VIEW_OBJECT_TYPE:{path:\"/api/clouddb/clouddbservice/v1/objectType\",method:\"GET\"},CREATE_ZONE:{path:\"/agc/edge/clouddb/clouddbservice/v1/naturalStore\",method:\"POST\"},PRODUCT_INFO:{path:\"/agc/edge/clouddb/clouddbservice/v1/trs/productInfo\",method:\"POST\"},LIST_ZONE:{path:\"/agc/edge/clouddb/clouddbservice/v1/naturalStore\",method:\"GET\"},DELETE_ZONE:{path:\"/agc/edge/clouddb/clouddbservice/v1/naturalStore\",method:\"DELETE\"},IMPORT_OBJECT_TYPE:{path:\"/agc/edge/clouddb/clouddbservice/v1/importObjectType\",method:\"POST\"},EXPORT_DATA_POST:{path:\"/agc/edge/clouddb/clouddbservice/v1/exportFile\",method:\"POST\"},EXPORT_DATA_EXIST:{path:\"/agc/edge/WiseCloudStorageService/agc-nsp-portal/storage/existService\",method:\"POST\"},LIST_FILES:{path:\"/agc/edge/WiseCloudStorageService/agc-nsp-portal/file/listFiles\",method:\"POST\"},IMPORT_DATA:{path:\"/agc/edge/clouddb/clouddbservice/v1/importFile\",method:\"POST\"},ADD_DATA:{path:\"/agc/edge/clouddb/clouddbservice/v1/object\",method:\"POST\"},MODIFY_DATA:{path:\"/agc/edge/clouddb/clouddbservice/v1/object\",method:\"POST\"},GET_RULES:{path:\"/agc/edge/clouddb/clouddbservice/v1/securityRules\",method:\"GET\"},DELETE_RULE:{path:\"/agc/edge/clouddb/clouddbservice/v1/securityRules\",method:\"DELETE\"},PUBLISH_RULE:{path:\"/agc/edge/clouddb/clouddbservice/v1/securityRules\",method:\"POST\"},VERIFY_RULE:{path:\"/api/clouddb/clouddbservice/v1/securityRules/verify\",method:\"POST\"},FETCH_USAGE:{path:\"/agc/edge/ass/subscribe-service/v1/subscriber/quota\",method:\"GET\"},PROCESS_PERCENTAGE:{path:\"/agc/edge/clouddb/clouddbservice/v1/processPercentage\",method:\"POST\"},QUERY_DATA:{path:\"/agc/edge/clouddb/clouddbservice/v2/objects/queries\",method:\"POST\"},DELETE_DATA:{path:\"/agc/edge/clouddb/clouddbservice/v1/object\",method:\"DELETE\"},MULTIPLE_DELETE_DATA:{path:\"/agc/edge/clouddb/clouddbservice/v3/syncObjects\",method:\"DELETE\"},MULTIPLE_UPDATE_DATA:{path:\"/api/clouddb/clouddbservice/v3/syncObjects\",method:\"POST\"},CLEAR_DATA:{path:\"/agc/edge/clouddb/clouddbservice/v1/allObjects\",method:\"DELETE\"}}),PROCESS_ID=\"processId\";export{SERVICES,PROCESS_ID};"
+    },
+    {
+      "packagePath": "commands/clouddb/model/PermissionRole.js",
+      "sha256": "50b65faca8924004dfe8df3715ecc0670cb686b88924eccc828b9bc32cb84e86",
+      "source": "export var PermissionRole;!function(r){r.World=\"World\",r.Authenticated=\"Authenticated\",r.Creator=\"Creator\",r.Administrator=\"Administrator\"}(PermissionRole||(PermissionRole={}));"
+    },
+    {
+      "packagePath": "commands/clouddb/model/PermissionRight.js",
+      "sha256": "4f6223939df6e5de3319b969134ab5d22d3a2f50dda57b498957d72e22269453",
+      "source": "export var PermissionRight;!function(e){e.Read=\"Read\",e.Upsert=\"Upsert\",e.Delete=\"Delete\"}(PermissionRight||(PermissionRight={}));"
+    },
+    {
+      "packagePath": "commands/clouddb/model/ObjectField.js",
+      "sha256": "65dbc188940a469bff93d6bdc03555d8ba8e9b0863ea009fc53c051f96ae126a",
+      "source": "import{ObjectFieldType}from\"./ObjectFieldType.js\";export class ObjectField{constructor(e,i){this.fieldName=e,this.fieldType=i,this.belongPrimaryKey=!1,this.notNull=!1,this.isNeedEncrypt=!1,this.isSensitive=!1,this.defaultValue=void 0}setPrimary(e){this.belongPrimaryKey=e,e&&(this.notNull=e,this.isNeedEncrypt=!1,this.isSensitive=!1,this.defaultValue=void 0)}setNotNull(e){this.notNull=e,e&&(this.isNeedEncrypt=!1,this.isSensitive=!1)}setEncrypted(e){this.isNeedEncrypt=e,e&&(this.notNull=!1,this.belongPrimaryKey=!1,this.isSensitive=!1,this.defaultValue=void 0)}setSensitive(e){this.isSensitive=e,e&&(this.notNull=!1,this.belongPrimaryKey=!1,this.isNeedEncrypt=!1,this.defaultValue=void 0)}canSetDefaultValue(){return!this.isNeedEncrypt&&!this.isSensitive&&!this.belongPrimaryKey&&this.fieldType!==ObjectFieldType.Date&&this.fieldType!==ObjectFieldType.LongAutoIncrement&&this.fieldType!==ObjectFieldType.IntAutoIncrement&&this.fieldType!==ObjectFieldType.ByteArray}}"
+    },
+    {
+      "packagePath": "commands/clouddb/model/ObjectIndexField.js",
+      "sha256": "c9449d37fe3e0cd340393ab04db0738ceefce4f18fd18a69160a0c05b7a53e73",
+      "source": "import{IndexFieldSortOrder}from\"./IndexFieldSortOrder.js\";export class ObjectIndexField{constructor(e){this.fieldName=e,this.sortType=IndexFieldSortOrder.ASC}}"
+    },
+    {
+      "packagePath": "commands/clouddb/cmd/createObject.js",
+      "sha256": "fbe3378a02fe562943096c33115d9f0964bc0410f0a9abcb02002a9224924f55",
+      "source": "import createObjectTypes from\"../api/createObjectTypes.js\";import{ObjectScheme}from\"../model/ObjectScheme.js\";import{checkDBServiceEnabled}from\"../util/validation.js\";import{objectIndexSelector}from\"../boundary/inquirer/ObjectIndexSelector.js\";import{ProcessService}from\"../boundary/ProcessService.js\";import{PROCESS_ID}from\"../util/constants.js\";import{checkIsLogin,checkSelectedProject}from\"../../common/util/validation.js\";import{OPTION,setMandatory}from\"../option/option.js\";async function createObject(e,t){try{validate(t);let c=new ObjectScheme;await objectIndexSelector(0,c);let a=await createObjectTypes(e,{objectType:{...c,objectTypeName:t.name}});if(void 0===a[PROCESS_ID])throw a;const o=await ProcessService.checkProcessFinished(e,a[PROCESS_ID]);if(!0===o.error)throw o.failedReason;SUCCESS(`The object named ${t.name} created successfully.`)}catch(e){ERROR(e.message||JSON.stringify(e))}}function validate(e){if(e.name.length>32)throw\"The zone name should contains maximum of 32 characters!\";if(!new RegExp(\"^[A-Za-z](?!sqlite)[A-Za-z0-9_]{0,30}[A-Za-z0-9]$\").test(e.name))throw\"Only digits, letters, and underscores () are allowed. The name must start with a letter but cannot start with sqlite or end with an underscore.\"}export default function main(e){return{cmd:\"create-object\",desc:\"Create a database object to Cloud DB.\",options:[setMandatory(OPTION.CloudDBObjectName.option)],addHelpText:[[\"after\",\"\\nExample:\\n  agcli db create-object --name person\"]],child:[],action:t=>createObject(e,t),beforeAction:async()=>{await checkIsLogin(e),await checkSelectedProject(e),await checkDBServiceEnabled(e)}}}"
+    },
+    {
+      "packagePath": "commands/clouddb/cmd/modifyObject.js",
+      "sha256": "508d2365190022b47dc9204ab51b17e926d1654d64b1b538ff24a6b97b494b19",
+      "source": "import{ObjectTypeService}from\"../boundary/ObjectTypeService.js\";import{objectIndexSelector}from\"../boundary/inquirer/ObjectIndexSelector.js\";import{checkDBServiceEnabled}from\"../util/validation.js\";import{ProcessService}from\"../boundary/ProcessService.js\";import modifyObjectTypes from\"../api/modifyObjectTypes.js\";import{PROCESS_ID}from\"../util/constants.js\";import{OPTION,setMandatory}from\"../option/option.js\";import{checkIsLogin,checkSelectedProject}from\"../../common/util/validation.js\";async function modifyObject(e,o){try{const t=await ObjectTypeService.getObjectScheme(e,o.name);if(void 0===t)return;const c={...t};await objectIndexSelector(0,t);let i=await modifyObjectTypes(e,{objectType:{...t,objectTypeName:o.name},originObjectType:c});if(void 0===i[PROCESS_ID])throw i;const r=await ProcessService.checkProcessFinished(e,i[PROCESS_ID]);if(!0===r.error)throw r.failedReason;SUCCESS(`The object named ${o.name} modified successfully.`)}catch(e){ERROR(e.message||JSON.stringify(e))}}export default function main(e){return{cmd:\"modify-object\",desc:\"Modify database object to Cloud DB.\",options:[setMandatory(OPTION.CloudDBObjectName.option)],addHelpText:[[\"after\",\"\\nExample:\\n  agcli db modify-object --name person\"]],child:[],action:o=>modifyObject(e,o),beforeAction:async()=>{await checkIsLogin(e),await checkSelectedProject(e),await checkDBServiceEnabled(e)}}}"
+    },
+    {
+      "packagePath": "commands/clouddb/cmd/createZone.js",
+      "sha256": "692da8c876d3f6aa76fc060e635355b5af45ad440aa5474387b8b5e3ade08071",
+      "source": "import{checkDBServiceEnabled}from\"../util/validation.js\";import{ZoneService}from\"../boundary/ZoneService.js\";import{ProcessService}from\"../boundary/ProcessService.js\";import{PROCESS_ID}from\"../util/constants.js\";import{checkIsLogin,checkSelectedProject}from\"../../common/util/validation.js\";import{OPTION,setMandatory}from\"../option/option.js\";async function createZone(e,o){try{validate(o);const t=await ZoneService.createZone(e,o);if(void 0===t[PROCESS_ID])throw t;const a=await ProcessService.checkProcessFinished(e,t[PROCESS_ID]);if(!0===a.error)throw new Error(a.failedReason);SUCCESS(`The zone named ${o.name} added successfully.`)}catch(e){ERROR(e.message||JSON.stringify(e))}}function validate(e){if(e.name.length>20)throw new Error(\"The zone name should contains maximum of 20 characters!\");if(!new RegExp(\"^[A-Za-z][A-Za-z0-9]{0,19}(?<!privatedefault)$\").test(e.name))throw new Error(\"Only digits and letters are allowed. The name must start with a letter. Do not use the following reserved database names: privatedefault.\")}export default function main(e){return{cmd:\"create-zone\",desc:\"Create a zone in Cloud DB.\",options:[setMandatory(OPTION.CloudDBZoneName.option)],addHelpText:[[\"after\",\"\\nExample:\\n  agcli db create-zone --name name\"]],child:[],action:o=>createZone(e,o),beforeAction:async()=>{await checkIsLogin(e),await checkSelectedProject(e),await checkDBServiceEnabled(e)}}}"
+    },
+    {
+      "packagePath": "commands/clouddb/cmd/deleteZone.js",
+      "sha256": "70d7fa910171cb340c7b9528836f0a8ca47f5b2afc7b28d97f3090cbaeb8d7b0",
+      "source": "import{checkDBServiceEnabled}from\"../util/validation.js\";import{ZoneService}from\"../boundary/ZoneService.js\";import{ProcessService}from\"../boundary/ProcessService.js\";import{PROCESS_ID}from\"../util/constants.js\";import{checkIsLogin,checkSelectedProject}from\"../../common/util/validation.js\";import{OPTION,setMandatory}from\"../option/option.js\";async function deleteZone(e,o){validate(o);try{let t=await ZoneService.deleteZone(e,o);if(void 0===t[PROCESS_ID])throw t;const n=await ProcessService.checkProcessFinished(e,t[PROCESS_ID]);if(!0===n.error)throw n.failedReason;SUCCESS(`The zone named ${o.name} deleted successfully.`)}catch(e){ERROR(e.message||JSON.stringify(e))}}function validate(e){e.name.length>20&&ERROR(\"The zone name should contains maximum of 20 characters!\")}export default function main(e){return{cmd:\"delete-zone\",desc:\"Delete a zone from Cloud DB.\",options:[setMandatory(OPTION.CloudDBZoneName.option)],addHelpText:[[\"after\",\"\\nExample:\\n  agcli db delete-zone --name zoneName\"]],child:[],action:o=>deleteZone(e,o),beforeAction:async()=>{await checkIsLogin(e),await checkSelectedProject(e),await checkDBServiceEnabled(e)}}}"
+    },
+    {
+      "packagePath": "commands/clouddb/api/getSchemeVersions.js",
+      "sha256": "be6c97e63679a25e9f888c4edd8ddb5617cfb8978dd9eb7c3b2707d3c3cba5ee",
+      "source": "import{SERVICES}from\"../util/constants.js\";async function getSchemeVersions(e){return await e.RequestService.sendRequestWithCookie(e.storage.getProjectEdgeBaseUrl(),SERVICES.GET_SCHEME_VERSIONS)}export default getSchemeVersions;"
+    },
+    {
+      "packagePath": "modules/request/edge.js",
+      "sha256": "6a2890b78c14efe687c13810ec7aa1ed8d1c512d4e946c66ebb517f93a16782f",
+      "source": "import axios from\"axios\";import https from\"https\";import fs from\"fs\";import session from\"../session/index.js\";import{isObject,getHDDate}from\"../../util/helper.js\";import storage from\"../storage/index.js\";import Logger from\"../../util/logger.js\";import path from\"path\";import{getDirName}from\"../util/dir.js\";const logger=new Logger(\"Edge\"),edgeRequest=axios.create({withCredentials:!0,httpsAgent:new https.Agent({rejectUnauthorized:!1})});function setEdgeHeaders(e={}){const t={};if(!isObject(e))return t;for(let s in e)e[s]&&(t[s]=e[s]);return t}function createUserAgent(){const e=getDirName(import.meta.url),t=JSON.parse(fs.readFileSync(path.join(e,\"../../package.json\"),\"utf8\"));return`agc-cli-tool/${t.version} (${t.platform})`}const onConfig=async e=>{if(!await session.isSessionValid())return logger.warn(\"Run the agcli login command to sign in the user first.\"),e;e.headers[\"User-Agent\"]=createUserAgent(),e.headers[\"X-HD-DATE\"]=getHDDate();const{uid:t,accessToken:s}=session.getToken(),r=storage.getProjectId(),o=setEdgeHeaders({uid:t,oauth2Token:s,teamId:storage.getTeamId(),productId:r});return Object.assign(e.headers,o),e},onError=e=>Promise.reject(e);edgeRequest.interceptors.request.use(onConfig,onError),edgeRequest.interceptors.response.use((e=>200===e.status?e.data:Promise.reject(e)),(e=>Promise.reject(e)));const edgeRequestWithRawResponse=axios.create({httpsAgent:new https.Agent({rejectUnauthorized:!1})});edgeRequestWithRawResponse.interceptors.request.use(onConfig,onError),edgeRequestWithRawResponse.interceptors.response.use((e=>200===e.status?{data:e.data,headers:e.headers}:Promise.reject(e)),(e=>Promise.reject(e)));export{edgeRequest,edgeRequestWithRawResponse,setEdgeHeaders,createUserAgent};"
+    },
+    {
+      "packagePath": "modules/request/RequestService.js",
+      "sha256": "c066cb24b967096e36230dddcc83342a11aa9a41fcaaffa1546a5124d0e18aa6",
+      "source": "import storage from\"../storage/index.js\";import{edgeRequest}from\"./edge.js\";import{buildCloudError}from\"./Errors.js\";export class RequestService{static async sendRequest(r,e,t){try{return await edgeRequest({url:`${r}${e.path}`,method:e.method,data:t?.body,params:t?.query,headers:{...t?.headers}})}catch(r){return this.processNetWorkError(r)}}static async sendRequestWithCookie(r,e,t){try{return await edgeRequest({url:`${r}${e.path}`,method:e.method,data:t?.body,params:t?.query,headers:{...t?.headers,projectId:storage.getProjectId(),agcTeamId:storage.getTeamId(),Cookie:`authInfo=${storage.get(\"authInfo\")};csrfToken=${storage.get(\"csrfToken\")};`,\"X-HD-CSRF\":storage.get(\"csrfToken\")}})}catch(r){if(r&&r.response&&r.response.status&&404===r.response.status){const r=storage.get(\"region\");if(null!==r&&\"CN\"!==r)throw\"This service is only active in China region. Enter 'agcli project region select' to select a region.\"}throw this.processNetWorkError(r)}}static processNetWorkError(r){if(r&&r.response&&r.response.status){if(r.response.data&&r.response.data.info)return r.response.data.info;switch(r.response.status){case 401:return buildCloudError(\"ERR_SERVER_AUTH\");case 403:return buildCloudError(\"ERR_SERVER_PERMISSION\");case 404:return buildCloudError(\"ERR_SERVER_NOT_FOUND\");case 407:return buildCloudError(\"ERR_SERVER_SCOPE\");case 408:return buildCloudError(\"ERR_SERVER_TIMEOUT\");case 413:return buildCloudError(\"ERR_SERVER_REQUEST_ENTITY_TOO_LARGE\");case 502:return buildCloudError(\"ERR_SERVER_BAD_GATEWAY\");default:return buildCloudError(r)}}return\"ETIMEDOUT\"===r.code?buildCloudError(\"ERR_SERVER_TIMEOUT\"):buildCloudError(r)}}"
+    }
+  ],
+  "notes": [],
+  "reviewedPages": [
+    {
+      "captureTool": "Computer Use; merged-cell capture compatible with scripts/browser-capture-reference.mjs",
+      "checkedAt": "2026-10-26",
+      "examples": [],
+      "links": [
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-managingclouddb-0000001080815650",
+          "title": "管理数据库"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-aboutclouddb-0000001080975612#section13972247121",
+          "title": "权限管理"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-aboutclouddb-0000001080975612#section13972247121",
+          "title": "权限管理"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section3873193085413",
+          "title": "修改对象类型"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-managingclouddb-0000001080815650",
+          "title": "管理数据库"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-managingdata-0000001080975864",
+          "title": "管理数据"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section3873193085413",
+          "title": "修改对象类型"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section1558018208151",
+          "title": "导出对象类型"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section14234233178",
+          "title": "导入对象类型"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+          "title": "华为开发者联盟用户协议"
+        }
+      ],
+      "notes": [
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459",
+          "text": "您可基于HarmonyOS 开发者中心对云侧存储区中的对象类型进行管理，支持创建、修改、导出和导入对象类型。系统会自动设置对象类型的版本，版本即对象类型的版本信息。通过对象类型的版本管理，您可以实现应用的升级维护和持续迭代，以便给应用用户带来更好的体验。应用正式上线后，及后续应用版本升级时，仅支持新增对象类型、在已有对象类型中新增字段或者索引，升级后新版本完全包含老版本的数据。"
+        },
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459",
+          "text": "云数据库提供隐私或者敏感数据的全程加密管理能力，您可以在控制台通过将涉及用户隐私或敏感数据的字段设置为加密字段或敏感字段，即可开启针对该字段数据的全程加密管理。开启全程加密功能后，云数据库SDK会在端侧将该字段的数据进行加密，然后再以密文形式发送并存储到云侧，只有应用用户依据其输入的密码才能获取密钥信息并访问自己的加密数据，从而有效防止用户隐私或敏感信息在云侧被窃取或者被泄露。加密数据仅支持数据的创建者编辑或者查看。"
+        },
+        {
+          "section": "",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459",
+          "text": "HarmonyOS 开发者中心支持将创建的对象类型按照版本导出成为json格式、java格式、js格式或Objective-C格式文件。然后将该文件添加至本地开发环境中，并通过相应方法实现对象类型的定义和创建。在进行本地应用开发时，无需您再次创建对象类型。"
+        },
+        {
+          "section": "修改对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section3873193085413",
+          "text": "在HarmonyOS 开发者中心创建应用后，您可基于HarmonyOS 开发者中心创建或者修改对象类型。对象类型是用于存放对象的集合，用于存储应用产生的数据信息。"
+        },
+        {
+          "section": "修改对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section3873193085413",
+          "text": "由于当前端侧应用升级时，仅支持新增对象类型、在已有对象类型中新增字段或者索引。所以，应用正式上线后，不允许在HarmonyOS 开发者中心删除对象类型、字段或者索引，否则会导致端侧应用升级失败。"
+        },
+        {
+          "section": "修改对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section3873193085413",
+          "text": "应用正式上线后，不允许在已创建完成的对象类型中新增或者删除加密字段和敏感字段。如果您需要变更，可以重新创建对象类型，并重新设置加密字段和敏感字段。但是，新的对象类型将会无法继承原有对象类型的数据。因此，建议您在应用上线前的调测过程中，确认需要加密或敏感的字段，避免应用上线后加密字段和敏感字段的变更。同时，如果您开启了全程加密数据管理功能，我们建议您在端侧开启本地数据库加密，保障本地数据安全。"
+        },
+        {
+          "section": "修改对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section3873193085413",
+          "text": "当前仅Android、iOS、Web和快应用支持全程加密数据管理功能，后续会逐步开放其它平台。"
+        },
+        {
+          "section": "修改对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section3873193085413",
+          "text": "登录HarmonyOS 开发者中心，进入“应用管理”页面。"
+        },
+        {
+          "section": "修改对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section3873193085413",
+          "text": "点击左上角切换至项目控制台，在项目列表中点击需要配置云数据库的项目。"
+        },
+        {
+          "section": "修改对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section3873193085413",
+          "text": "左侧导航栏选择“开放能力配置 > 云数据库”，进入云数据库页面。"
+        },
+        {
+          "section": "修改对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section3873193085413",
+          "text": "在对象类型列表中的“操作”列，点击“修改”。"
+        },
+        {
+          "section": "修改对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section3873193085413",
+          "text": "输入“对象类型名”参数后，点击“下一步”。\n\n对象类型名，即对象类型的名称。输入要求具体如下：\n\n对象类型的名称长度必须大于或等于1个字符，小于或等于30个字符，只能包含以下3种类型，并且至少包含“字母”类型：\n字母（A-Z或a-z）\n数字（0-9）\n特殊字符：_\n对象类型名称必须以字母开头，以字母或者数字结尾。\n对象类型名称中不区分字母的大小写。\n对象类型名称不允许以“sqlite_”开头。\n对象类型名称不允许使用系统保留名称： naturalbase_metadata、objecttypeinfohelper、t_data_upgrade_info、t_index_schema、t_nstore_config、t_schema_negotiate_info、t_metadata_schema、t_nstore_permission、t_system_config。\n修改对象类型时，不允许修改对象类型名称。"
+        },
+        {
+          "section": "修改对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section3873193085413",
+          "text": "对象类型名，即对象类型的名称。输入要求具体如下："
+        },
+        {
+          "section": "修改对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section3873193085413",
+          "text": "对象类型的名称长度必须大于或等于1个字符，小于或等于30个字符，只能包含以下3种类型，并且至少包含“字母”类型：\n字母（A-Z或a-z）\n数字（0-9）\n特殊字符：_"
+        },
+        {
+          "section": "修改对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section3873193085413",
+          "text": "字母（A-Z或a-z）"
+        },
+        {
+          "section": "修改对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section3873193085413",
+          "text": "数字（0-9）"
+        },
+        {
+          "section": "修改对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section3873193085413",
+          "text": "特殊字符：_"
+        },
+        {
+          "section": "修改对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section3873193085413",
+          "text": "对象类型名称必须以字母开头，以字母或者数字结尾。"
+        },
+        {
+          "section": "修改对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section3873193085413",
+          "text": "对象类型名称中不区分字母的大小写。"
+        },
+        {
+          "section": "修改对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section3873193085413",
+          "text": "对象类型名称不允许以“sqlite_”开头。"
+        },
+        {
+          "section": "修改对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section3873193085413",
+          "text": "对象类型名称不允许使用系统保留名称： naturalbase_metadata、objecttypeinfohelper、t_data_upgrade_info、t_index_schema、t_nstore_config、t_schema_negotiate_info、t_metadata_schema、t_nstore_permission、t_system_config。"
+        },
+        {
+          "section": "修改对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section3873193085413",
+          "text": "修改对象类型时，不允许修改对象类型名称。"
+        },
+        {
+          "section": "修改对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section3873193085413",
+          "text": "点击“＋新增字段”，在该对象类型中添加字段，配置如下参数后，点击“下一步”。\n\n参数\n\n\t\n\n说明\n\n\n\n\n字段\n\n\t\n\n字段名称。\n\n输入要求具体如下：\n\n字段的名称长度必须大于或等于1个字符，小于或等于30个字符，只能包含以下3种类型，并且至少包含“字母”类型：\n字母（A-Z或a-z）\n数字（0-9）\n特殊字符：_\n字段名称必须以字母开头，以字母或者数字结尾。\n字段名称中不区分字母的大小写。\n每个对象类型，仅支持设置一种自增类型字段：IntAutoIncrement或LongAutoIncrement。\n修改对象类型时，不支持新增数据类型为IntAutoIncrement或LongAutoIncrement的字段，支持新增其它数据类型的字段。\n修改对象类型时，支持删除字段。\n字段名称不允许使用系统保留字段名称： naturalbase_version、naturalbase_deleted、naturalbase_operationtype、naturalbase_creator、naturalbase_accesstime、naturalbase_operationtime、naturalbase_syncstatus、naturalbase_changedfieldsbitmap、naturalbase_lastmodifier、cmin、cmax、xmin、xmax、ctid、oid、tableoid、xc_node_id、tablebucketid、rowid。\n\n\n\n类型\n\n\t\n\n字段的数据类型。\n\n当前支持的数据类型：String、Boolean、Byte、Short、Integer、Long、Float、Double、ByteArray、Text、Date、IntAutoIncrement和LongAutoIncrement。\n\n\n\n\n主键\n\n\t\n\n设置该字段是否为对象类型的主键。\n\n至少设置一个字段为主键。\n支持设置复合主键，由多个字段组合成为主键，一个复合主键包含的字段小于或等于5个，复合主键字段顺序与字段的顺序一致。\n数据类型为ByteArray、Text、Date、Double、Float和Boolean的字段不支持设置为主键。\n主键的值不允许更改。\n\n\n\n非空\n\n\t\n\n设置字段值是否为非空。\n\n数据类型为ByteArray和Date的字段不支持设置为非空。\n数据类型为IntAutoIncrement和LongAutoIncrement的字段默认为非空，且不允许更改。\n主键默认非空，且不允许更改。\n设置为非空的字段不支持加密和敏感。\n\n\n\n加密\n\n\t\n\n设置字段是否需要加密，开启全程加密数据管理功能。选择加密后，该字段对应的数据会加密存储在存储区中。\n\n主键字段不支持加密。\n加密的字段不支持设置为非空。\n加密的字段不支持设置为敏感字段。\n一个对象类型中包含的加密字段和敏感字段的总数需小于或等于5个。\n字段设置为加密后，不支持导出该字段的数据值。\n数据类型为ByteArray、Text、IntAutoIncrement和LongAutoIncrement的字段不支持加密。\n对象类型创建成功后，不支持修改加密属性。\n\n\n\n敏感\n\n\t\n\n设置字段是否为敏感字段，选择敏感后，该字段对应的数据会加密存储在存储区中。\n\n敏感字段不支持设置为主键。\n敏感字段不支持设置为非空。\n敏感字段不支持设置为加密。\n敏感字段不支持设置为默认值。\n对象类型创建成功后，不支持修改敏感属性。\n仅支持数据类型为Byte、Short、Integer、Long、Float、Double、String和Date的字段设置为敏感字段。\n敏感字段不支持设置为索引。\n一个对象类型中包含的加密字段和敏感字段的总数需小于或等于5个。\n\n\n\n默认值\n\n\t\n\n字段为非空时，必须设置默认值。\n\n主键不支持设置默认值。\n加密字段和敏感字段不支持设置默认值。\n数据类型为ByteArray、Date、IntAutoIncrement和LongAutoIncrement的字段不支持为其设置默认值。\n数据类型为Text的字段设置默认值时，默认值的长度小于或等于200个字符。"
+        },
+        {
+          "section": "修改对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section3873193085413",
+          "text": "点击“＋”新增索引，设置该对象类型的索引和索引详情。设置索引后，点击“下一步”。\n\n参数\n\n\t\n\n说明\n\n\n\n\n索引\n\n\t\n\n索引名称。\n\n输入要求具体如下：\n\n索引的名称长度必须大于或等于1个字符，小于或等于30个字符，只能包含以下3种类型，并且至少包含“字母”类型：\n字母（A-Z或a-z）\n数字（0-9）\n特殊字符：_\n索引名称必须以字母开头。\n索引名称中不区分字母的大小写。\n修改对象类型时，仅支持新增或者删除索引。当删除索引后，本次提交前不允许新增同名索引。\n每个对象类型可以设置小于或等于16个索引。\n数据类型为ByteArray和Text的字段不支持设置为索引。\n\n\n\n索引详情\n\n\t\n\n索引包含的字段和排序方式。\n\n支持设置组合索引，由多个字段组合成为索引，一个组合索引包含的字段小于或等于5个。\n点击“索引详情”列的“＋”，可以为索引增加更多的组成字段。\n支持索引按照升序或降序方式排序。"
+        },
+        {
+          "section": "修改对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section3873193085413",
+          "text": "设置各角色的权限，具体角色和权限请参见权限管理。"
+        },
+        {
+          "section": "修改对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section3873193085413",
+          "text": "设置权限后，点击“确定”。"
+        },
+        {
+          "section": "修改对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section3873193085413",
+          "text": "修改完成后返回对象类型列表中，可以查看已创建的对象类型。"
+        },
+        {
+          "section": "导出对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section1558018208151",
+          "text": "您可在HarmonyOS 开发者中心通过导出功能按照“版本”导出该版本所包含的对象类型定义。导出文件时，您可选导出文件格式，支持导出json格式、java格式、js格式或者Objective-C格式。"
+        },
+        {
+          "section": "导出对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section1558018208151",
+          "text": "json格式\n\n您可基于导出的json格式文件，在其内新增对象类型定义，但不支持修改原有的对象类型定义，通过导入功能将变更后的文件导入，可实现对象类型的新增，原有对象类型不会做更新处理。如果您在导出文件中既新增对象类型，又同时修改原有对象类型时，会导致导入失败。\n\n您在开发Web应用时，可直接将导出的json格式文件导入至本地开发环境，并通过相应方法实现对象类型的定义和创建，无需再次在本地创建对象类型。导出的json文件中，部分字段含义如下：\n\nschemaVersion：对象类型的版本。\npermissions：对访问用户根据不同的角色进行权限管理，“Role”共包含“Everyone（所有人）”、“Authenticated user（认证用户）”、“Data creator（数据创建者）”和“Administrator（管理员）”；权限共包含“query”、“upsert”和“delete”三种权限，详细请参见权限管理。不同的对象类型可以自定义其访问用户的权限。\nobjectTypeName：对象类型名称，创建对象类型时自定义。\nobjectTypes：该数组中包含创建对象类型时，定义的索引属性和字段属性。"
+        },
+        {
+          "section": "导出对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section1558018208151",
+          "text": "您可基于导出的json格式文件，在其内新增对象类型定义，但不支持修改原有的对象类型定义，通过导入功能将变更后的文件导入，可实现对象类型的新增，原有对象类型不会做更新处理。如果您在导出文件中既新增对象类型，又同时修改原有对象类型时，会导致导入失败。"
+        },
+        {
+          "section": "导出对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section1558018208151",
+          "text": "您在开发Web应用时，可直接将导出的json格式文件导入至本地开发环境，并通过相应方法实现对象类型的定义和创建，无需再次在本地创建对象类型。导出的json文件中，部分字段含义如下："
+        },
+        {
+          "section": "导出对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section1558018208151",
+          "text": "schemaVersion：对象类型的版本。"
+        },
+        {
+          "section": "导出对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section1558018208151",
+          "text": "permissions：对访问用户根据不同的角色进行权限管理，“Role”共包含“Everyone（所有人）”、“Authenticated user（认证用户）”、“Data creator（数据创建者）”和“Administrator（管理员）”；权限共包含“query”、“upsert”和“delete”三种权限，详细请参见权限管理。不同的对象类型可以自定义其访问用户的权限。"
+        },
+        {
+          "section": "导出对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section1558018208151",
+          "text": "objectTypeName：对象类型名称，创建对象类型时自定义。"
+        },
+        {
+          "section": "导出对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section1558018208151",
+          "text": "objectTypes：该数组中包含创建对象类型时，定义的索引属性和字段属性。"
+        },
+        {
+          "section": "导出对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section1558018208151",
+          "text": "java格式\n客户端\n\n您在开发Android应用和HarmonyOS(Java)应用时，可直接将导出的java格式文件导入至本地开发环境，并通过相应方法实现对象类型的定义和创建，无需再次在本地创建对象类型。\n\n导出的文件为文件压缩包，其内包含该版本下的全部对象类型定义文件和ObjectTypeInfoHelper文件。对象类型定义文件内容是各个对象类型的定义；ObjectTypeInfoHelper文件主要包含版本信息和对象类型信息，用于您在开发本地应用时实现对象类型的定义和创建。\n\n服务端\n\n您在使用Java开发服务端的服务时，可直接将导出的java格式文件导入至本地开发环境，无需再次在本地创建对象类型。\n\n导出的文件为文件压缩包，其内包含该版本下的全部对象类型定义文件，其内容是各个对象类型的定义，用于您在开发服务端的服务时实现对象类型的定义和创建。"
+        },
+        {
+          "section": "导出对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section1558018208151",
+          "text": "客户端\n\n您在开发Android应用和HarmonyOS(Java)应用时，可直接将导出的java格式文件导入至本地开发环境，并通过相应方法实现对象类型的定义和创建，无需再次在本地创建对象类型。\n\n导出的文件为文件压缩包，其内包含该版本下的全部对象类型定义文件和ObjectTypeInfoHelper文件。对象类型定义文件内容是各个对象类型的定义；ObjectTypeInfoHelper文件主要包含版本信息和对象类型信息，用于您在开发本地应用时实现对象类型的定义和创建。"
+        },
+        {
+          "section": "导出对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section1558018208151",
+          "text": "您在开发Android应用和HarmonyOS(Java)应用时，可直接将导出的java格式文件导入至本地开发环境，并通过相应方法实现对象类型的定义和创建，无需再次在本地创建对象类型。"
+        },
+        {
+          "section": "导出对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section1558018208151",
+          "text": "导出的文件为文件压缩包，其内包含该版本下的全部对象类型定义文件和ObjectTypeInfoHelper文件。对象类型定义文件内容是各个对象类型的定义；ObjectTypeInfoHelper文件主要包含版本信息和对象类型信息，用于您在开发本地应用时实现对象类型的定义和创建。"
+        },
+        {
+          "section": "导出对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section1558018208151",
+          "text": "服务端\n\n您在使用Java开发服务端的服务时，可直接将导出的java格式文件导入至本地开发环境，无需再次在本地创建对象类型。\n\n导出的文件为文件压缩包，其内包含该版本下的全部对象类型定义文件，其内容是各个对象类型的定义，用于您在开发服务端的服务时实现对象类型的定义和创建。"
+        },
+        {
+          "section": "导出对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section1558018208151",
+          "text": "您在使用Java开发服务端的服务时，可直接将导出的java格式文件导入至本地开发环境，无需再次在本地创建对象类型。"
+        },
+        {
+          "section": "导出对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section1558018208151",
+          "text": "导出的文件为文件压缩包，其内包含该版本下的全部对象类型定义文件，其内容是各个对象类型的定义，用于您在开发服务端的服务时实现对象类型的定义和创建。"
+        },
+        {
+          "section": "导出对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section1558018208151",
+          "text": "js格式\n客户端\n\n您在开发Web应用、快应用，小程序、小游戏、快游戏、HarmonyOS(ArkTS API 9及以上)应用时，可直接将导出的js格式文件导入至本地开发环境，并通过相应方法实现对象类型模型的定义。\n\n导出的文件为文件压缩包，其内包含该版本下的全部对象类型的模型文件，其内容是各个对象类型模型的定义，在应用进行对象管理时使用。\n\n服务端\n\n您在使用JavaScript开发服务端的服务时，可直接将导出的js格式文件导入至本地开发环境，无需再次在本地创建对象类型。\n\n导出的文件为文件压缩包，其内包含该版本下的全部对象类型定义文件，其内容是各个对象类型的定义，用于您在开发服务端的服务时实现对象类型的定义和创建。"
+        },
+        {
+          "section": "导出对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section1558018208151",
+          "text": "客户端\n\n您在开发Web应用、快应用，小程序、小游戏、快游戏、HarmonyOS(ArkTS API 9及以上)应用时，可直接将导出的js格式文件导入至本地开发环境，并通过相应方法实现对象类型模型的定义。\n\n导出的文件为文件压缩包，其内包含该版本下的全部对象类型的模型文件，其内容是各个对象类型模型的定义，在应用进行对象管理时使用。"
+        },
+        {
+          "section": "导出对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section1558018208151",
+          "text": "您在开发Web应用、快应用，小程序、小游戏、快游戏、HarmonyOS(ArkTS API 9及以上)应用时，可直接将导出的js格式文件导入至本地开发环境，并通过相应方法实现对象类型模型的定义。"
+        },
+        {
+          "section": "导出对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section1558018208151",
+          "text": "导出的文件为文件压缩包，其内包含该版本下的全部对象类型的模型文件，其内容是各个对象类型模型的定义，在应用进行对象管理时使用。"
+        },
+        {
+          "section": "导出对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section1558018208151",
+          "text": "服务端\n\n您在使用JavaScript开发服务端的服务时，可直接将导出的js格式文件导入至本地开发环境，无需再次在本地创建对象类型。\n\n导出的文件为文件压缩包，其内包含该版本下的全部对象类型定义文件，其内容是各个对象类型的定义，用于您在开发服务端的服务时实现对象类型的定义和创建。"
+        },
+        {
+          "section": "导出对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section1558018208151",
+          "text": "您在使用JavaScript开发服务端的服务时，可直接将导出的js格式文件导入至本地开发环境，无需再次在本地创建对象类型。"
+        },
+        {
+          "section": "导出对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section1558018208151",
+          "text": "导出的文件为文件压缩包，其内包含该版本下的全部对象类型定义文件，其内容是各个对象类型的定义，用于您在开发服务端的服务时实现对象类型的定义和创建。"
+        },
+        {
+          "section": "导出对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section1558018208151",
+          "text": "Objective-C格式\n\n您在开发iOS应用时，可直接将导出的Objective-C格式文件导入至本地开发环境，并通过相应方法实现对象类型的定义和创建，无需再次在本地创建对象类型。\n\n导出的文件为文件压缩包，其内包含该版本下的全部对象类型定义文件和AGCCloudDBObjectTypeInfoHelper文件。对象类型定义文件内容是各个对象类型的定义；AGCCloudDBObjectTypeInfoHelper文件主要包含版本信息和对象类型信息，用于您在开发本地应用时实现对象类型的定义和创建。"
+        },
+        {
+          "section": "导出对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section1558018208151",
+          "text": "您在开发iOS应用时，可直接将导出的Objective-C格式文件导入至本地开发环境，并通过相应方法实现对象类型的定义和创建，无需再次在本地创建对象类型。"
+        },
+        {
+          "section": "导出对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section1558018208151",
+          "text": "导出的文件为文件压缩包，其内包含该版本下的全部对象类型定义文件和AGCCloudDBObjectTypeInfoHelper文件。对象类型定义文件内容是各个对象类型的定义；AGCCloudDBObjectTypeInfoHelper文件主要包含版本信息和对象类型信息，用于您在开发本地应用时实现对象类型的定义和创建。"
+        },
+        {
+          "section": "导出对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section1558018208151",
+          "text": "导出对象类型时，支持按照历史版本或者最新版本进行导出，即导出指定版本中的指定或所有对象类型。"
+        },
+        {
+          "section": "导出对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section1558018208151",
+          "text": "历史版本，主要用于端侧判断当前应用升级使用的版本。不允许将修改后的历史版本再次导入。"
+        },
+        {
+          "section": "导出对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section1558018208151",
+          "text": "最新版本，用于升级当前版本中的对象类型，如新增对象类型，字段和索引。将修改后的文件导入，可实现对象类型版本的升级。"
+        },
+        {
+          "section": "导出对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section1558018208151",
+          "text": "不允许修改导出的js格式和Objective-C格式文件，否则会导致数据同步功能异常。"
+        },
+        {
+          "section": "导出对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section1558018208151",
+          "text": "具体操作步骤如下："
+        },
+        {
+          "section": "导出对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section1558018208151",
+          "text": "登录HarmonyOS 开发者中心，进入“应用管理”页面。"
+        },
+        {
+          "section": "导出对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section1558018208151",
+          "text": "点击左上角切换至项目控制台，在项目列表中点击需要配置云数据库的项目。"
+        },
+        {
+          "section": "导出对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section1558018208151",
+          "text": "左侧导航栏选择“开放能力配置 > 云数据库”，进入云数据库页面。"
+        },
+        {
+          "section": "导出对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section1558018208151",
+          "text": "（可选）在“版本”处选择版本号。\n\n未选择版本号时，会默认按照最新的版本导出对象类型。"
+        },
+        {
+          "section": "导出对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section1558018208151",
+          "text": "未选择版本号时，会默认按照最新的版本导出对象类型。"
+        },
+        {
+          "section": "导出对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section1558018208151",
+          "text": "选择需要导出的对象类型，点击“导出”。\n\n未选择对象类型时，会默认导出所有的对象类型。"
+        },
+        {
+          "section": "导出对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section1558018208151",
+          "text": "未选择对象类型时，会默认导出所有的对象类型。"
+        },
+        {
+          "section": "导出对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section1558018208151",
+          "text": "选择导出文件格式。\njson格式\njava格式\n选择使用场景。\n客户端：用于开发Android应用和HarmonyOS(Java)应用。\n服务端：用于开发Server端的服务。\n输入包名称，即java文件中的package名称。\n包名称长度不超过1024个字符，必须以字母或者下划线开头，只能包含以下3种类型：\n字母（A-Z或a-z）\n数字（0-9）\n特殊字符：_和.\njs格式\n\n选择使用场景。\n\n客户端：用于开发Web应用、快应用、快游戏、小程序、小游戏、HarmonyOS(ArkTS API 9及以上)应用。\n服务端：用于开发Server端的服务。\nObjective-C格式"
+        },
+        {
+          "section": "导出对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section1558018208151",
+          "text": "json格式"
+        },
+        {
+          "section": "导出对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section1558018208151",
+          "text": "java格式\n选择使用场景。\n客户端：用于开发Android应用和HarmonyOS(Java)应用。\n服务端：用于开发Server端的服务。\n输入包名称，即java文件中的package名称。\n包名称长度不超过1024个字符，必须以字母或者下划线开头，只能包含以下3种类型：\n字母（A-Z或a-z）\n数字（0-9）\n特殊字符：_和."
+        },
+        {
+          "section": "导出对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section1558018208151",
+          "text": "选择使用场景。\n客户端：用于开发Android应用和HarmonyOS(Java)应用。\n服务端：用于开发Server端的服务。"
+        },
+        {
+          "section": "导出对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section1558018208151",
+          "text": "客户端：用于开发Android应用和HarmonyOS(Java)应用。"
+        },
+        {
+          "section": "导出对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section1558018208151",
+          "text": "服务端：用于开发Server端的服务。"
+        },
+        {
+          "section": "导出对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section1558018208151",
+          "text": "输入包名称，即java文件中的package名称。\n包名称长度不超过1024个字符，必须以字母或者下划线开头，只能包含以下3种类型：\n字母（A-Z或a-z）\n数字（0-9）\n特殊字符：_和."
+        },
+        {
+          "section": "导出对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section1558018208151",
+          "text": "字母（A-Z或a-z）"
+        },
+        {
+          "section": "导出对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section1558018208151",
+          "text": "数字（0-9）"
+        },
+        {
+          "section": "导出对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section1558018208151",
+          "text": "特殊字符：_和."
+        },
+        {
+          "section": "导出对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section1558018208151",
+          "text": "js格式\n\n选择使用场景。\n\n客户端：用于开发Web应用、快应用、快游戏、小程序、小游戏、HarmonyOS(ArkTS API 9及以上)应用。\n服务端：用于开发Server端的服务。"
+        },
+        {
+          "section": "导出对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section1558018208151",
+          "text": "选择使用场景。"
+        },
+        {
+          "section": "导出对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section1558018208151",
+          "text": "客户端：用于开发Web应用、快应用、快游戏、小程序、小游戏、HarmonyOS(ArkTS API 9及以上)应用。"
+        },
+        {
+          "section": "导出对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section1558018208151",
+          "text": "服务端：用于开发Server端的服务。"
+        },
+        {
+          "section": "导出对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section1558018208151",
+          "text": "Objective-C格式"
+        },
+        {
+          "section": "导出对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section1558018208151",
+          "text": "点击“导出”。\n\n文件将会导出至本地，其内包含该版本中所有的对象类型。"
+        },
+        {
+          "section": "导出对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section1558018208151",
+          "text": "文件将会导出至本地，其内包含该版本中所有的对象类型。"
+        },
+        {
+          "section": "导入对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section14234233178",
+          "text": "您可以通过导入单个或者多个新增对象类型实现对象类型的创建。"
+        },
+        {
+          "section": "导入对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section14234233178",
+          "text": "创建或者修改对象类型及其属性参数时，规范要求请参见修改对象类型。"
+        },
+        {
+          "section": "导入对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section14234233178",
+          "text": "单个导入文件大小不超过20MB，如超过20MB，需要分成多个文件导入。"
+        },
+        {
+          "section": "导入对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section14234233178",
+          "text": "仅支持导入json格式文件，且导入的json文件需要保证格式完整。"
+        },
+        {
+          "section": "导入对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section14234233178",
+          "text": "导入对象类型时，仅支持新增对象类型，不支持通过导入功能修改对象类型。"
+        },
+        {
+          "section": "导入对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section14234233178",
+          "text": "登录HarmonyOS 开发者中心，进入“应用管理”页面。"
+        },
+        {
+          "section": "导入对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section14234233178",
+          "text": "点击左上角切换至项目控制台，在项目列表中点击需要配置云数据库的项目。"
+        },
+        {
+          "section": "导入对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section14234233178",
+          "text": "左侧导航栏选择“开放能力配置 > 云数据库”，进入云数据库页面。"
+        },
+        {
+          "section": "导入对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section14234233178",
+          "text": "点击“导入”，选择导入文件。"
+        },
+        {
+          "section": "导入对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section14234233178",
+          "text": "点击“确定”。\n\n导入文件后，返回对象类型列表中，可以查看导入后的对象类型。"
+        },
+        {
+          "section": "导入对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section14234233178",
+          "text": "导入文件后，返回对象类型列表中，可以查看导入后的对象类型。"
+        }
+      ],
+      "renderedText": "指南\n云数据库 for Object\n管理数据库\n管理对象类型\n管理对象类型\n更新时间: 2026-10-22 11:41\n\n您可基于HarmonyOS 开发者中心对云侧存储区中的对象类型进行管理，支持创建、修改、导出和导入对象类型。系统会自动设置对象类型的版本，版本即对象类型的版本信息。通过对象类型的版本管理，您可以实现应用的升级维护和持续迭代，以便给应用用户带来更好的体验。应用正式上线后，及后续应用版本升级时，仅支持新增对象类型、在已有对象类型中新增字段或者索引，升级后新版本完全包含老版本的数据。\n\n云数据库提供隐私或者敏感数据的全程加密管理能力，您可以在控制台通过将涉及用户隐私或敏感数据的字段设置为加密字段或敏感字段，即可开启针对该字段数据的全程加密管理。开启全程加密功能后，云数据库SDK会在端侧将该字段的数据进行加密，然后再以密文形式发送并存储到云侧，只有应用用户依据其输入的密码才能获取密钥信息并访问自己的加密数据，从而有效防止用户隐私或敏感信息在云侧被窃取或者被泄露。加密数据仅支持数据的创建者编辑或者查看。\n\nHarmonyOS 开发者中心支持将创建的对象类型按照版本导出成为json格式、java格式、js格式或Objective-C格式文件。然后将该文件添加至本地开发环境中，并通过相应方法实现对象类型的定义和创建。在进行本地应用开发时，无需您再次创建对象类型。\n\n修改对象类型\n\n在HarmonyOS 开发者中心创建应用后，您可基于HarmonyOS 开发者中心创建或者修改对象类型。对象类型是用于存放对象的集合，用于存储应用产生的数据信息。\n\n注意\n由于当前端侧应用升级时，仅支持新增对象类型、在已有对象类型中新增字段或者索引。所以，应用正式上线后，不允许在HarmonyOS 开发者中心删除对象类型、字段或者索引，否则会导致端侧应用升级失败。\n应用正式上线后，不允许在已创建完成的对象类型中新增或者删除加密字段和敏感字段。如果您需要变更，可以重新创建对象类型，并重新设置加密字段和敏感字段。但是，新的对象类型将会无法继承原有对象类型的数据。因此，建议您在应用上线前的调测过程中，确认需要加密或敏感的字段，避免应用上线后加密字段和敏感字段的变更。同时，如果您开启了全程加密数据管理功能，我们建议您在端侧开启本地数据库加密，保障本地数据安全。\n当前仅Android、iOS、Web和快应用支持全程加密数据管理功能，后续会逐步开放其它平台。\n登录HarmonyOS 开发者中心，进入“应用管理”页面。\n点击左上角切换至项目控制台，在项目列表中点击需要配置云数据库的项目。\n\n左侧导航栏选择“开放能力配置 > 云数据库”，进入云数据库页面。\n在对象类型列表中的“操作”列，点击“修改”。\n\n输入“对象类型名”参数后，点击“下一步”。\n\n对象类型名，即对象类型的名称。输入要求具体如下：\n\n对象类型的名称长度必须大于或等于1个字符，小于或等于30个字符，只能包含以下3种类型，并且至少包含“字母”类型：\n字母（A-Z或a-z）\n数字（0-9）\n特殊字符：_\n对象类型名称必须以字母开头，以字母或者数字结尾。\n对象类型名称中不区分字母的大小写。\n对象类型名称不允许以“sqlite_”开头。\n对象类型名称不允许使用系统保留名称： naturalbase_metadata、objecttypeinfohelper、t_data_upgrade_info、t_index_schema、t_nstore_config、t_schema_negotiate_info、t_metadata_schema、t_nstore_permission、t_system_config。\n修改对象类型时，不允许修改对象类型名称。\n点击“＋新增字段”，在该对象类型中添加字段，配置如下参数后，点击“下一步”。\n\n参数\n\n\t\n\n说明\n\n\n\n\n字段\n\n\t\n\n字段名称。\n\n输入要求具体如下：\n\n字段的名称长度必须大于或等于1个字符，小于或等于30个字符，只能包含以下3种类型，并且至少包含“字母”类型：\n字母（A-Z或a-z）\n数字（0-9）\n特殊字符：_\n字段名称必须以字母开头，以字母或者数字结尾。\n字段名称中不区分字母的大小写。\n每个对象类型，仅支持设置一种自增类型字段：IntAutoIncrement或LongAutoIncrement。\n修改对象类型时，不支持新增数据类型为IntAutoIncrement或LongAutoIncrement的字段，支持新增其它数据类型的字段。\n修改对象类型时，支持删除字段。\n字段名称不允许使用系统保留字段名称： naturalbase_version、naturalbase_deleted、naturalbase_operationtype、naturalbase_creator、naturalbase_accesstime、naturalbase_operationtime、naturalbase_syncstatus、naturalbase_changedfieldsbitmap、naturalbase_lastmodifier、cmin、cmax、xmin、xmax、ctid、oid、tableoid、xc_node_id、tablebucketid、rowid。\n\n\n\n类型\n\n\t\n\n字段的数据类型。\n\n当前支持的数据类型：String、Boolean、Byte、Short、Integer、Long、Float、Double、ByteArray、Text、Date、IntAutoIncrement和LongAutoIncrement。\n\n\n\n\n主键\n\n\t\n\n设置该字段是否为对象类型的主键。\n\n至少设置一个字段为主键。\n支持设置复合主键，由多个字段组合成为主键，一个复合主键包含的字段小于或等于5个，复合主键字段顺序与字段的顺序一致。\n数据类型为ByteArray、Text、Date、Double、Float和Boolean的字段不支持设置为主键。\n主键的值不允许更改。\n\n\n\n非空\n\n\t\n\n设置字段值是否为非空。\n\n数据类型为ByteArray和Date的字段不支持设置为非空。\n数据类型为IntAutoIncrement和LongAutoIncrement的字段默认为非空，且不允许更改。\n主键默认非空，且不允许更改。\n设置为非空的字段不支持加密和敏感。\n\n\n\n加密\n\n\t\n\n设置字段是否需要加密，开启全程加密数据管理功能。选择加密后，该字段对应的数据会加密存储在存储区中。\n\n主键字段不支持加密。\n加密的字段不支持设置为非空。\n加密的字段不支持设置为敏感字段。\n一个对象类型中包含的加密字段和敏感字段的总数需小于或等于5个。\n字段设置为加密后，不支持导出该字段的数据值。\n数据类型为ByteArray、Text、IntAutoIncrement和LongAutoIncrement的字段不支持加密。\n对象类型创建成功后，不支持修改加密属性。\n\n\n\n敏感\n\n\t\n\n设置字段是否为敏感字段，选择敏感后，该字段对应的数据会加密存储在存储区中。\n\n敏感字段不支持设置为主键。\n敏感字段不支持设置为非空。\n敏感字段不支持设置为加密。\n敏感字段不支持设置为默认值。\n对象类型创建成功后，不支持修改敏感属性。\n仅支持数据类型为Byte、Short、Integer、Long、Float、Double、String和Date的字段设置为敏感字段。\n敏感字段不支持设置为索引。\n一个对象类型中包含的加密字段和敏感字段的总数需小于或等于5个。\n\n\n\n默认值\n\n\t\n\n字段为非空时，必须设置默认值。\n\n主键不支持设置默认值。\n加密字段和敏感字段不支持设置默认值。\n数据类型为ByteArray、Date、IntAutoIncrement和LongAutoIncrement的字段不支持为其设置默认值。\n数据类型为Text的字段设置默认值时，默认值的长度小于或等于200个字符。\n点击“＋”新增索引，设置该对象类型的索引和索引详情。设置索引后，点击“下一步”。\n\n参数\n\n\t\n\n说明\n\n\n\n\n索引\n\n\t\n\n索引名称。\n\n输入要求具体如下：\n\n索引的名称长度必须大于或等于1个字符，小于或等于30个字符，只能包含以下3种类型，并且至少包含“字母”类型：\n字母（A-Z或a-z）\n数字（0-9）\n特殊字符：_\n索引名称必须以字母开头。\n索引名称中不区分字母的大小写。\n修改对象类型时，仅支持新增或者删除索引。当删除索引后，本次提交前不允许新增同名索引。\n每个对象类型可以设置小于或等于16个索引。\n数据类型为ByteArray和Text的字段不支持设置为索引。\n\n\n\n索引详情\n\n\t\n\n索引包含的字段和排序方式。\n\n支持设置组合索引，由多个字段组合成为索引，一个组合索引包含的字段小于或等于5个。\n点击“索引详情”列的“＋”，可以为索引增加更多的组成字段。\n支持索引按照升序或降序方式排序。\n设置各角色的权限，具体角色和权限请参见权限管理。\n设置权限后，点击“确定”。\n修改完成后返回对象类型列表中，可以查看已创建的对象类型。\n导出对象类型\n\n您可在HarmonyOS 开发者中心通过导出功能按照“版本”导出该版本所包含的对象类型定义。导出文件时，您可选导出文件格式，支持导出json格式、java格式、js格式或者Objective-C格式。\n\njson格式\n\n您可基于导出的json格式文件，在其内新增对象类型定义，但不支持修改原有的对象类型定义，通过导入功能将变更后的文件导入，可实现对象类型的新增，原有对象类型不会做更新处理。如果您在导出文件中既新增对象类型，又同时修改原有对象类型时，会导致导入失败。\n\n您在开发Web应用时，可直接将导出的json格式文件导入至本地开发环境，并通过相应方法实现对象类型的定义和创建，无需再次在本地创建对象类型。导出的json文件中，部分字段含义如下：\n\nschemaVersion：对象类型的版本。\npermissions：对访问用户根据不同的角色进行权限管理，“Role”共包含“Everyone（所有人）”、“Authenticated user（认证用户）”、“Data creator（数据创建者）”和“Administrator（管理员）”；权限共包含“query”、“upsert”和“delete”三种权限，详细请参见权限管理。不同的对象类型可以自定义其访问用户的权限。\nobjectTypeName：对象类型名称，创建对象类型时自定义。\nobjectTypes：该数组中包含创建对象类型时，定义的索引属性和字段属性。\njava格式\n客户端\n\n您在开发Android应用和HarmonyOS(Java)应用时，可直接将导出的java格式文件导入至本地开发环境，并通过相应方法实现对象类型的定义和创建，无需再次在本地创建对象类型。\n\n导出的文件为文件压缩包，其内包含该版本下的全部对象类型定义文件和ObjectTypeInfoHelper文件。对象类型定义文件内容是各个对象类型的定义；ObjectTypeInfoHelper文件主要包含版本信息和对象类型信息，用于您在开发本地应用时实现对象类型的定义和创建。\n\n服务端\n\n您在使用Java开发服务端的服务时，可直接将导出的java格式文件导入至本地开发环境，无需再次在本地创建对象类型。\n\n导出的文件为文件压缩包，其内包含该版本下的全部对象类型定义文件，其内容是各个对象类型的定义，用于您在开发服务端的服务时实现对象类型的定义和创建。\n\njs格式\n客户端\n\n您在开发Web应用、快应用，小程序、小游戏、快游戏、HarmonyOS(ArkTS API 9及以上)应用时，可直接将导出的js格式文件导入至本地开发环境，并通过相应方法实现对象类型模型的定义。\n\n导出的文件为文件压缩包，其内包含该版本下的全部对象类型的模型文件，其内容是各个对象类型模型的定义，在应用进行对象管理时使用。\n\n服务端\n\n您在使用JavaScript开发服务端的服务时，可直接将导出的js格式文件导入至本地开发环境，无需再次在本地创建对象类型。\n\n导出的文件为文件压缩包，其内包含该版本下的全部对象类型定义文件，其内容是各个对象类型的定义，用于您在开发服务端的服务时实现对象类型的定义和创建。\n\nObjective-C格式\n\n您在开发iOS应用时，可直接将导出的Objective-C格式文件导入至本地开发环境，并通过相应方法实现对象类型的定义和创建，无需再次在本地创建对象类型。\n\n导出的文件为文件压缩包，其内包含该版本下的全部对象类型定义文件和AGCCloudDBObjectTypeInfoHelper文件。对象类型定义文件内容是各个对象类型的定义；AGCCloudDBObjectTypeInfoHelper文件主要包含版本信息和对象类型信息，用于您在开发本地应用时实现对象类型的定义和创建。\n\n导出对象类型时，支持按照历史版本或者最新版本进行导出，即导出指定版本中的指定或所有对象类型。\n\n历史版本，主要用于端侧判断当前应用升级使用的版本。不允许将修改后的历史版本再次导入。\n最新版本，用于升级当前版本中的对象类型，如新增对象类型，字段和索引。将修改后的文件导入，可实现对象类型版本的升级。\n注意\n\n不允许修改导出的js格式和Objective-C格式文件，否则会导致数据同步功能异常。\n\n具体操作步骤如下：\n\n登录HarmonyOS 开发者中心，进入“应用管理”页面。\n点击左上角切换至项目控制台，在项目列表中点击需要配置云数据库的项目。\n\n左侧导航栏选择“开放能力配置 > 云数据库”，进入云数据库页面。\n（可选）在“版本”处选择版本号。\n\n未选择版本号时，会默认按照最新的版本导出对象类型。\n\n选择需要导出的对象类型，点击“导出”。\n\n未选择对象类型时，会默认导出所有的对象类型。\n\n选择导出文件格式。\njson格式\njava格式\n选择使用场景。\n客户端：用于开发Android应用和HarmonyOS(Java)应用。\n服务端：用于开发Server端的服务。\n输入包名称，即java文件中的package名称。\n包名称长度不超过1024个字符，必须以字母或者下划线开头，只能包含以下3种类型：\n字母（A-Z或a-z）\n数字（0-9）\n特殊字符：_和.\njs格式\n\n选择使用场景。\n\n客户端：用于开发Web应用、快应用、快游戏、小程序、小游戏、HarmonyOS(ArkTS API 9及以上)应用。\n服务端：用于开发Server端的服务。\nObjective-C格式\n点击“导出”。\n\n文件将会导出至本地，其内包含该版本中所有的对象类型。\n\n导入对象类型\n\n您可以通过导入单个或者多个新增对象类型实现对象类型的创建。\n\n注意\n创建或者修改对象类型及其属性参数时，规范要求请参见修改对象类型。\n单个导入文件大小不超过20MB，如超过20MB，需要分成多个文件导入。\n仅支持导入json格式文件，且导入的json文件需要保证格式完整。\n导入对象类型时，仅支持新增对象类型，不支持通过导入功能修改对象类型。\n登录HarmonyOS 开发者中心，进入“应用管理”页面。\n点击左上角切换至项目控制台，在项目列表中点击需要配置云数据库的项目。\n\n左侧导航栏选择“开放能力配置 > 云数据库”，进入云数据库页面。\n点击“导入”，选择导入文件。\n\n点击“确定”。\n\n导入文件后，返回对象类型列表中，可以查看导入后的对象类型。\n\n管理数据库\n管理数据\n意见反馈\n以上内容对您是否有帮助？\n意见反馈\n如果您有其他疑问，您也可以通过开发者社区问答频道来和我们联系探讨。\n社区提问AI 助手提问\n本文导读\n修改对象类型\n导出对象类型\n导入对象类型\n简体中文\n华为开发者联盟 版权所有 ©2026\n问题反馈\n使用条款\n华为开发者联盟用户协议\n关于华为开发者联盟与隐私的声明\nCookies\n开源软件声明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459",
+      "status": "browser-read",
+      "tables": [
+        {
+          "location": "",
+          "rows": [
+            [
+              "参数",
+              "说明"
+            ],
+            [
+              "字段",
+              "字段名称。 输入要求具体如下： 字段的名称长度必须大于或等于1个字符，小于或等于30个字符，只能包含以下3种类型，并且至少包含“字母”类型： 字母（A-Z或a-z） 数字（0-9） 特殊字符：_ 字段名称必须以字母开头，以字母或者数字结尾。 字段名称中不区分字母的大小写。 每个对象类型，仅支持设置一种自增类型字段：IntAutoIncrement或LongAutoIncrement。 修改对象类型时，不支持新增数据类型为IntAutoIncrement或LongAutoIncrement的字段，支持新增其它数据类型的字段。 修改对象类型时，支持删除字段。 字段名称不允许使用系统保留字段名称： naturalbase_version、naturalbase_deleted、naturalbase_operationtype、naturalbase_creator、naturalbase_accesstime、naturalbase_operationtime、naturalbase_syncstatus、naturalbase_changedfieldsbitmap、naturalbase_lastmodifier、cmin、cmax、xmin、xmax、ctid、oid、tableoid、xc_node_id、tablebucketid、rowid。"
+            ],
+            [
+              "类型",
+              "字段的数据类型。 当前支持的数据类型：String、Boolean、Byte、Short、Integer、Long、Float、Double、ByteArray、Text、Date、IntAutoIncrement和LongAutoIncrement。"
+            ],
+            [
+              "主键",
+              "设置该字段是否为对象类型的主键。 至少设置一个字段为主键。 支持设置复合主键，由多个字段组合成为主键，一个复合主键包含的字段小于或等于5个，复合主键字段顺序与字段的顺序一致。 数据类型为ByteArray、Text、Date、Double、Float和Boolean的字段不支持设置为主键。 主键的值不允许更改。"
+            ],
+            [
+              "非空",
+              "设置字段值是否为非空。 数据类型为ByteArray和Date的字段不支持设置为非空。 数据类型为IntAutoIncrement和LongAutoIncrement的字段默认为非空，且不允许更改。 主键默认非空，且不允许更改。 设置为非空的字段不支持加密和敏感。"
+            ],
+            [
+              "加密",
+              "设置字段是否需要加密，开启全程加密数据管理功能。选择加密后，该字段对应的数据会加密存储在存储区中。 主键字段不支持加密。 加密的字段不支持设置为非空。 加密的字段不支持设置为敏感字段。 一个对象类型中包含的加密字段和敏感字段的总数需小于或等于5个。 字段设置为加密后，不支持导出该字段的数据值。 数据类型为ByteArray、Text、IntAutoIncrement和LongAutoIncrement的字段不支持加密。 对象类型创建成功后，不支持修改加密属性。"
+            ],
+            [
+              "敏感",
+              "设置字段是否为敏感字段，选择敏感后，该字段对应的数据会加密存储在存储区中。 敏感字段不支持设置为主键。 敏感字段不支持设置为非空。 敏感字段不支持设置为加密。 敏感字段不支持设置为默认值。 对象类型创建成功后，不支持修改敏感属性。 仅支持数据类型为Byte、Short、Integer、Long、Float、Double、String和Date的字段设置为敏感字段。 敏感字段不支持设置为索引。 一个对象类型中包含的加密字段和敏感字段的总数需小于或等于5个。"
+            ],
+            [
+              "默认值",
+              "字段为非空时，必须设置默认值。 主键不支持设置默认值。 加密字段和敏感字段不支持设置默认值。 数据类型为ByteArray、Date、IntAutoIncrement和LongAutoIncrement的字段不支持为其设置默认值。 数据类型为Text的字段设置默认值时，默认值的长度小于或等于200个字符。"
+            ]
+          ],
+          "section": "修改对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section3873193085413"
+        },
+        {
+          "location": "",
+          "rows": [
+            [
+              "参数",
+              "说明"
+            ],
+            [
+              "索引",
+              "索引名称。 输入要求具体如下： 索引的名称长度必须大于或等于1个字符，小于或等于30个字符，只能包含以下3种类型，并且至少包含“字母”类型： 字母（A-Z或a-z） 数字（0-9） 特殊字符：_ 索引名称必须以字母开头。 索引名称中不区分字母的大小写。 修改对象类型时，仅支持新增或者删除索引。当删除索引后，本次提交前不允许新增同名索引。 每个对象类型可以设置小于或等于16个索引。 数据类型为ByteArray和Text的字段不支持设置为索引。"
+            ],
+            [
+              "索引详情",
+              "索引包含的字段和排序方式。 支持设置组合索引，由多个字段组合成为索引，一个组合索引包含的字段小于或等于5个。 点击“索引详情”列的“＋”，可以为索引增加更多的组成字段。 支持索引按照升序或降序方式排序。"
+            ]
+          ],
+          "section": "修改对象类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#section3873193085413"
+        }
+      ],
+      "title": "管理对象类型"
+    },
+    {
+      "captureTool": "Computer Use; merged-cell capture compatible with scripts/browser-capture-reference.mjs",
+      "checkedAt": "2026-10-26",
+      "examples": [],
+      "links": [
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-startfromhere-0000001569428721",
+          "title": "从这里开始"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-clouddbzonequery-0000001080569968#section674451616598",
+          "title": "CloudDBZoneQueryPolicy"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-clouddbzonequery-0000001490956316#section674451616598",
+          "title": "CloudDBZoneQueryPolicy"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-aboutclouddb-0000001080975612#ZH-CN_TOPIC_0000002735248088__zh-cn_topic_0000001080429120_table5159841103210",
+          "title": "权限配置表"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-startfromhere-0000001569428721",
+          "title": "从这里开始"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-createfirstclouddb-0000001569588629",
+          "title": "创建第一个数据库"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-aboutclouddb-0000001080975612#section141567855717",
+          "title": "概述"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-aboutclouddb-0000001080975612#section11041459175716",
+          "title": "数据模型"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-aboutclouddb-0000001080975612#section13455181316114",
+          "title": "数据类型"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-aboutclouddb-0000001080975612#section13972247121",
+          "title": "权限管理"
+        },
+        {
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+          "title": "华为开发者联盟用户协议"
+        }
+      ],
+      "notes": [
+        {
+          "section": "概述",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-aboutclouddb-0000001080975612#section141567855717",
+          "text": "云数据库的数据同步模式包括缓存模式和本地模式，数据同步以存储区为粒度进行设置。在开发应用时，您可以根据应用需求为每个存储区选择不同的数据同步模式。应用可以仅使用缓存模式或者本地模式，也可以同时使用缓存模式和本地模式。缓存模式和本地模式的具体信息如下："
+        },
+        {
+          "section": "概述",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-aboutclouddb-0000001080975612#section141567855717",
+          "text": "缓存模式\n\n在该模式下，您可实现数据的端云协同管理，实现端云、多端之间的数据同步。应用数据将储存在云侧，端侧数据是云侧数据的子集，如果允许持久化，云数据库支持将查询的结果自动缓存至端侧。缓存数据时，不会覆盖本地未同步完成的数据。"
+        },
+        {
+          "section": "概述",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-aboutclouddb-0000001080975612#section141567855717",
+          "text": "在该模式下，您可实现数据的端云协同管理，实现端云、多端之间的数据同步。应用数据将储存在云侧，端侧数据是云侧数据的子集，如果允许持久化，云数据库支持将查询的结果自动缓存至端侧。缓存数据时，不会覆盖本地未同步完成的数据。"
+        },
+        {
+          "section": "概述",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-aboutclouddb-0000001080975612#section141567855717",
+          "text": "本地模式\n\n在该模式下，用户仅可操作端侧所包含的本地数据，无法实现数据在端云、多端间的同步。目前Android应用和HarmonyOS(Java)支持配置仅使用本地模式。\n\nAndroid应用请参见CloudDBZoneQueryPolicy\nHarmonyOS(Java)请参见CloudDBZoneQueryPolicy"
+        },
+        {
+          "section": "概述",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-aboutclouddb-0000001080975612#section141567855717",
+          "text": "在该模式下，用户仅可操作端侧所包含的本地数据，无法实现数据在端云、多端间的同步。目前Android应用和HarmonyOS(Java)支持配置仅使用本地模式。"
+        },
+        {
+          "section": "概述",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-aboutclouddb-0000001080975612#section141567855717",
+          "text": "Android应用请参见CloudDBZoneQueryPolicy"
+        },
+        {
+          "section": "概述",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-aboutclouddb-0000001080975612#section141567855717",
+          "text": "HarmonyOS(Java)请参见CloudDBZoneQueryPolicy"
+        },
+        {
+          "section": "概述",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-aboutclouddb-0000001080975612#section141567855717",
+          "text": "基于云数据库的应用开发流程如下图所示。"
+        },
+        {
+          "section": "数据模型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-aboutclouddb-0000001080975612#section11041459175716",
+          "text": "云数据库是一款基于对象模型的数据库，采用存储区、对象类型和对象三级结构。在开发应用时，每个应用都会实例化一个云数据库实例，基于该实例，您可以创建多个存储区。"
+        },
+        {
+          "section": "数据模型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-aboutclouddb-0000001080975612#section11041459175716",
+          "text": "存储区（CloudDBZone）是一个独立的数据存储区域，多个数据存储区相互独立。每个存储区拥有完全相同的对象类型定义，您可以根据业务的需要自定义存储区中存储的对象。"
+        },
+        {
+          "section": "数据模型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-aboutclouddb-0000001080975612#section11041459175716",
+          "text": "对象类型（ObjectType）用于定义存储对象的集合，不同的对象类型对应的不同数据结构。每创建一个对象类型，云数据库会在每个存储区实例化一个与之结构相对应的对象类型，用于存储对应的数据。"
+        },
+        {
+          "section": "数据模型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-aboutclouddb-0000001080975612#section11041459175716",
+          "text": "对象（CloudDBZoneObject）是云数据库的基本操作单元，每一个对象，都是一条完整的数据记录。"
+        },
+        {
+          "section": "数据类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-aboutclouddb-0000001080975612#section13455181316114",
+          "text": "云数据库支持多种数据类型，如下表所示，描述了支持的各种数据类型及其排序说明。"
+        },
+        {
+          "section": "权限管理",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-aboutclouddb-0000001080975612#section13972247121",
+          "text": "云数据库支持对所有用户的访问进行鉴权，保障应用数据的安全。云侧访问云数据库的用户角色默认为管理员角色，即从HarmonyOS 开发者中心、云函数和Server端访问云数据库的角色，该角色默认拥有所有权限。端侧为应用程序运行端，端侧的数据操作有严格的安全规则限制，其数据的读写权限根据云侧权限配置表进行控制。"
+        },
+        {
+          "section": "权限管理",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-aboutclouddb-0000001080975612#section13972247121",
+          "text": "云数据库支持基于缓存模式和本地模式的应用开发，不同的模式下，数据的权限管理也不一致。"
+        },
+        {
+          "section": "权限管理",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-aboutclouddb-0000001080975612#section13972247121",
+          "text": "在缓存模式下，在端侧和云侧建立数据同步通道后，端侧会将云侧的权限管理表同步至端侧，端侧会按照该权限管理表对数据进行权限控制。"
+        },
+        {
+          "section": "权限管理",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-aboutclouddb-0000001080975612#section13972247121",
+          "text": "在本地模式下，端侧的数据操作不受云侧权限管理表的影响，端侧对其包含的数据具有全部的操作权限。"
+        },
+        {
+          "section": "权限管理",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-aboutclouddb-0000001080975612#section13972247121",
+          "text": "在缓存模式的如下场景，端侧用户的数据操作权限如下所示："
+        },
+        {
+          "section": "权限管理",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-aboutclouddb-0000001080975612#section13972247121",
+          "text": "用户安装应用后，端侧应用第一次和云侧建立同步通道之前，端侧用户无任何权限。在端侧应用从云侧获取到权限管理表之后，端侧用户权限按照权限配置表进行分配。"
+        },
+        {
+          "section": "权限管理",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-aboutclouddb-0000001080975612#section13972247121",
+          "text": "端侧用户因认证信息失效（如离线持续时间超过认证信息的有效时间）或者注销认证后，端侧用户的角色由“认证用户”转变为“所有人”，此时端侧用户所拥有的权限与“所有人”角色的权限一致。"
+        },
+        {
+          "section": "权限管理",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-aboutclouddb-0000001080975612#section13972247121",
+          "text": "云数据库定义了如下表所示角色和权限。"
+        },
+        {
+          "section": "权限管理",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-aboutclouddb-0000001080975612#section13972247121",
+          "text": "应用正式上线后，不允许修改权限配置表，否则会导致已发布版本权限异常。"
+        },
+        {
+          "section": "权限管理",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-aboutclouddb-0000001080975612#section13972247121",
+          "text": "应用正式上线后，不允许修改已创建对象类型的权限信息，否则会导致端云之间的数据同步失败。仅支持您在开发调试阶段，修改对象类型的权限信息。"
+        }
+      ],
+      "renderedText": "指南\n云数据库 for Object\n从这里开始\n数据库模型介绍\n数据库模型介绍\n更新时间: 2026-10-21 17:20\n概述\n\n云数据库的数据同步模式包括缓存模式和本地模式，数据同步以存储区为粒度进行设置。在开发应用时，您可以根据应用需求为每个存储区选择不同的数据同步模式。应用可以仅使用缓存模式或者本地模式，也可以同时使用缓存模式和本地模式。缓存模式和本地模式的具体信息如下：\n\n缓存模式\n\n在该模式下，您可实现数据的端云协同管理，实现端云、多端之间的数据同步。应用数据将储存在云侧，端侧数据是云侧数据的子集，如果允许持久化，云数据库支持将查询的结果自动缓存至端侧。缓存数据时，不会覆盖本地未同步完成的数据。\n\n本地模式\n\n在该模式下，用户仅可操作端侧所包含的本地数据，无法实现数据在端云、多端间的同步。目前Android应用和HarmonyOS(Java)支持配置仅使用本地模式。\n\nAndroid应用请参见CloudDBZoneQueryPolicy\nHarmonyOS(Java)请参见CloudDBZoneQueryPolicy\n\n基于云数据库的应用开发流程如下图所示。\n\n数据模型\n\n云数据库是一款基于对象模型的数据库，采用存储区、对象类型和对象三级结构。在开发应用时，每个应用都会实例化一个云数据库实例，基于该实例，您可以创建多个存储区。\n\n存储区（CloudDBZone）是一个独立的数据存储区域，多个数据存储区相互独立。每个存储区拥有完全相同的对象类型定义，您可以根据业务的需要自定义存储区中存储的对象。\n对象类型（ObjectType）用于定义存储对象的集合，不同的对象类型对应的不同数据结构。每创建一个对象类型，云数据库会在每个存储区实例化一个与之结构相对应的对象类型，用于存储对应的数据。\n对象（CloudDBZoneObject）是云数据库的基本操作单元，每一个对象，都是一条完整的数据记录。\n数据类型\n\n云数据库支持多种数据类型，如下表所示，描述了支持的各种数据类型及其排序说明。\n\n数据类型\n\n\t\n\n描述\n\n\t\n\n取值范围\n\n\t\n\n说明\n\n\t\n\n排序方式\n\n\n\n\nString\n\n\t\n\n字符串类型\n\n\t\n\n最大长度200\n\n\t\n\n如果字符串长度超过200，建议使用Text类型。\n\n\t\n\n采用 UTF-8 编码的字节顺序\n\n\n\n\nBoolean\n\n\t\n\n布尔类型\n\n\t\ntrue：真\nfalse：假\n\t\n\n-\n\n\t\n\nfalse < true\n\n\n\n\nByte\n\n\t\n\n单字节整型\n\n\t\n\n-128 ~ +127\n\n\t\n\n-\n\n\t\n\n数字顺序\n\n\n\n\nShort\n\n\t\n\n双字节整型\n\n\t\n\n-32,768 ~ +32,767\n\n\t\n\n-\n\n\n\n\nInteger\n\n\t\n\n四字节整型\n\n\t\n\n-2,147,483,648 ~ +2,147,483,647\n\n\t\n\n-\n\n\n\n\nLong\n\n\t\n\n八字节整型\n\n\t\n\n-9,223,372,036,854,775,808 ~ 9,223,372,036,854,775,807\n\n\t\n\n由于JavaScript不支持数据类型“Long”，Web SDK通过引入第三方开源组件实现支持数据类型“Long”的能力。“Long”类型的使用方法请参考https://github.com/dcodeIO/long.js。\n\n\n\n\nFloat\n\n\t\n\n单精度浮点数\n\n\t\n\n-3.40E+38 ~ +3.40E+38，6位十进制有效数字。\n\n\t\n\n-\n\n\n\n\nDouble\n\n\t\n\n双精度浮点数\n\n\t\n\n-1.79E+308 ~ +1.79E+308，15位十进制有效数字。\n\n\t\n\n-\n\n\n\n\nByteArray\n\n\t\n\n字节数组\n\n\t\n\n-\n\n\t\n\n一般用于文件类型的数据存储，如图片、文档和视频等。\n\n在端侧时，使用Android开发应用时，以byte[]表示为字节数组。\n\n\t\n\n采用 UTF-8 编码的字节顺序\n\n\n\n\nText\n\n\t\n\n文本类型\n\n\t\n\n-\n\n\t\n\n-\n\n\n\n\nDate\n\n\t\n\n日期类型\n\n\t\n\n-\n\n\t\n\n-\n\n\t\n\n时间顺序\n\n\n\n\nIntAutoIncrement\n\n\t\n\n自增类型，从1开始自增，Integer类型（四字节整型）。\n\n\t\n\n1~ 2,147,483,647\n\n\t\n\nAndroid、HarmonyOS(Java)和iOS不支持此数据类型。\n\n\t\n\n数字顺序\n\n\n\n\nLongAutoIncrement\n\n\t\n\n自增类型，从1开始自增，Long类型（八字节整型）。\n\n\t\n\n1~ 9,223,372,036,854,775,807\n\n\t\n\nAndroid、HarmonyOS(Java)和iOS不支持此数据类型。\n\n\t\n\n数字顺序\n\n权限管理\n\n云数据库支持对所有用户的访问进行鉴权，保障应用数据的安全。云侧访问云数据库的用户角色默认为管理员角色，即从HarmonyOS 开发者中心、云函数和Server端访问云数据库的角色，该角色默认拥有所有权限。端侧为应用程序运行端，端侧的数据操作有严格的安全规则限制，其数据的读写权限根据云侧权限配置表进行控制。\n\n云数据库支持基于缓存模式和本地模式的应用开发，不同的模式下，数据的权限管理也不一致。\n\n在缓存模式下，在端侧和云侧建立数据同步通道后，端侧会将云侧的权限管理表同步至端侧，端侧会按照该权限管理表对数据进行权限控制。\n在本地模式下，端侧的数据操作不受云侧权限管理表的影响，端侧对其包含的数据具有全部的操作权限。\n\n在缓存模式的如下场景，端侧用户的数据操作权限如下所示：\n\n用户安装应用后，端侧应用第一次和云侧建立同步通道之前，端侧用户无任何权限。在端侧应用从云侧获取到权限管理表之后，端侧用户权限按照权限配置表进行分配。\n端侧用户因认证信息失效（如离线持续时间超过认证信息的有效时间）或者注销认证后，端侧用户的角色由“认证用户”转变为“所有人”，此时端侧用户所拥有的权限与“所有人”角色的权限一致。\n\n云数据库定义了如下表所示角色和权限。\n\n注意\n应用正式上线后，不允许修改权限配置表，否则会导致已发布版本权限异常。\n应用正式上线后，不允许修改已创建对象类型的权限信息，否则会导致端云之间的数据同步失败。仅支持您在开发调试阶段，修改对象类型的权限信息。\n\n角色\n\n\t\n\nquery\n\n\t\n\nupsert\n\n\t\n\ndelete\n\n\t\n\n说明\n\n\n\n\n所有人\n\n\t\n\n✓\n\n\t\n\n✓\n\n\t\n\n✓\n\n\t\n\n代表所有用户，包含认证和非认证用户。\n\n该角色默认拥有query权限，可自定义配置upsert和delete权限。\n\n但是，不建议将upsert和delete权限配置给所有人角色。\n\n当对象类型中设置了加密字段之后，表示开启全程加密功能，此时所有人角色将不会拥有query、upsert和delete权限，且不允许修改。\n\n\n\n\n认证用户\n\n\t\n\n✓\n\n\t\n\n✓\n\n\t\n\n✓\n\n\t\n\n经过HarmonyOS 开发者中心登录认证的用户。\n\n该角色默认拥有query权限，可自定义配置upsert和delete权限。\n\n当对象类型中设置了加密字段之后，表示开启全程加密功能，此时认证用户角色将不会拥有query、upsert和delete权限，且不允许修改。\n\n\n\n\n数据创建者\n\n\t\n\n✓\n\n\t\n\n✓\n\n\t\n\n✓\n\n\t\n\n经过认证的数据创建用户。\n\n该角色默认拥有所有权限，且可自定义配置所有权限。\n\n每条数据都有其对应的数据创建人（即应用用户），每个数据创建者仅可以upsert或者delete自己创建的数据，不能upsert或者delete他人创建的数据。\n\n数据创建者的信息保存在数据记录的系统表中。\n\n\n\n\n管理员\n\n\t\n\n✓\n\n\t\n\n✓\n\n\t\n\n✓\n\n\t\n\n应用开发者，主要是指通过HarmonyOS 开发者中心或FaaS（Function as a Service，函数即服务）侧访问云数据库的角色。\n\n该角色默认拥有所有权限，且可自定义配置所有权限。\n\n管理员可以管理并配置其他角色的权限。\n\n从这里开始\n创建第一个数据库\n意见反馈\n以上内容对您是否有帮助？\n意见反馈\n如果您有其他疑问，您也可以通过开发者社区问答频道来和我们联系探讨。\n社区提问AI 助手提问\n本文导读\n概述\n数据模型\n数据类型\n权限管理\n简体中文\n华为开发者联盟 版权所有 ©2026\n问题反馈\n使用条款\n华为开发者联盟用户协议\n关于华为开发者联盟与隐私的声明\nCookies\n开源软件声明",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-aboutclouddb-0000001080975612",
+      "status": "browser-read",
+      "tables": [
+        {
+          "location": "",
+          "rows": [
+            [
+              "数据类型",
+              "描述",
+              "取值范围",
+              "说明",
+              "排序方式"
+            ],
+            [
+              "String",
+              "字符串类型",
+              "最大长度200",
+              "如果字符串长度超过200，建议使用Text类型。",
+              "采用 UTF-8 编码的字节顺序"
+            ],
+            [
+              "Boolean",
+              "布尔类型",
+              "true：真 false：假",
+              "-",
+              "false < true"
+            ],
+            [
+              "Byte",
+              "单字节整型",
+              "-128 ~ +127",
+              "-",
+              "数字顺序"
+            ],
+            [
+              "Short",
+              "双字节整型",
+              "-32,768 ~ +32,767",
+              "-",
+              "数字顺序"
+            ],
+            [
+              "Integer",
+              "四字节整型",
+              "-2,147,483,648 ~ +2,147,483,647",
+              "-",
+              "数字顺序"
+            ],
+            [
+              "Long",
+              "八字节整型",
+              "-9,223,372,036,854,775,808 ~ 9,223,372,036,854,775,807",
+              "由于JavaScript不支持数据类型“Long”，Web SDK通过引入第三方开源组件实现支持数据类型“Long”的能力。“Long”类型的使用方法请参考https://github.com/dcodeIO/long.js。",
+              "数字顺序"
+            ],
+            [
+              "Float",
+              "单精度浮点数",
+              "-3.40E+38 ~ +3.40E+38，6位十进制有效数字。",
+              "-",
+              "数字顺序"
+            ],
+            [
+              "Double",
+              "双精度浮点数",
+              "-1.79E+308 ~ +1.79E+308，15位十进制有效数字。",
+              "-",
+              "数字顺序"
+            ],
+            [
+              "ByteArray",
+              "字节数组",
+              "-",
+              "一般用于文件类型的数据存储，如图片、文档和视频等。 在端侧时，使用Android开发应用时，以byte[]表示为字节数组。",
+              "采用 UTF-8 编码的字节顺序"
+            ],
+            [
+              "Text",
+              "文本类型",
+              "-",
+              "-",
+              "采用 UTF-8 编码的字节顺序"
+            ],
+            [
+              "Date",
+              "日期类型",
+              "-",
+              "-",
+              "时间顺序"
+            ],
+            [
+              "IntAutoIncrement",
+              "自增类型，从1开始自增，Integer类型（四字节整型）。",
+              "1~ 2,147,483,647",
+              "Android、HarmonyOS(Java)和iOS不支持此数据类型。",
+              "数字顺序"
+            ],
+            [
+              "LongAutoIncrement",
+              "自增类型，从1开始自增，Long类型（八字节整型）。",
+              "1~ 9,223,372,036,854,775,807",
+              "Android、HarmonyOS(Java)和iOS不支持此数据类型。",
+              "数字顺序"
+            ]
+          ],
+          "section": "数据类型",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-aboutclouddb-0000001080975612#section13455181316114"
+        },
+        {
+          "location": "",
+          "rows": [
+            [
+              "角色",
+              "query",
+              "upsert",
+              "delete",
+              "说明"
+            ],
+            [
+              "所有人",
+              "✓",
+              "✓",
+              "✓",
+              "代表所有用户，包含认证和非认证用户。 该角色默认拥有query权限，可自定义配置upsert和delete权限。 但是，不建议将upsert和delete权限配置给所有人角色。 当对象类型中设置了加密字段之后，表示开启全程加密功能，此时所有人角色将不会拥有query、upsert和delete权限，且不允许修改。"
+            ],
+            [
+              "认证用户",
+              "✓",
+              "✓",
+              "✓",
+              "经过HarmonyOS 开发者中心登录认证的用户。 该角色默认拥有query权限，可自定义配置upsert和delete权限。 当对象类型中设置了加密字段之后，表示开启全程加密功能，此时认证用户角色将不会拥有query、upsert和delete权限，且不允许修改。"
+            ],
+            [
+              "数据创建者",
+              "✓",
+              "✓",
+              "✓",
+              "经过认证的数据创建用户。 该角色默认拥有所有权限，且可自定义配置所有权限。 每条数据都有其对应的数据创建人（即应用用户），每个数据创建者仅可以upsert或者delete自己创建的数据，不能upsert或者delete他人创建的数据。 数据创建者的信息保存在数据记录的系统表中。"
+            ],
+            [
+              "管理员",
+              "✓",
+              "✓",
+              "✓",
+              "应用开发者，主要是指通过HarmonyOS 开发者中心或FaaS（Function as a Service，函数即服务）侧访问云数据库的角色。 该角色默认拥有所有权限，且可自定义配置所有权限。 管理员可以管理并配置其他角色的权限。"
+            ]
+          ],
+          "section": "权限管理",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-aboutclouddb-0000001080975612#section13972247121"
+        }
+      ],
+      "title": "数据库模型介绍"
+    }
+  ]
+}

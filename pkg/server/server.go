@@ -5,12 +5,14 @@ import (
 	"crypto/sha256"
 	"crypto/subtle"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"net/http"
 	"strings"
 	"time"
 
 	"github.com/Createitv/agc-cli/pkg/agcapi"
+	"github.com/Createitv/agc-cli/pkg/cloudfunctions"
 	"github.com/Createitv/agc-cli/pkg/domain"
 )
 
@@ -139,14 +141,18 @@ func resourceEndpoints(w http.ResponseWriter, r *http.Request, segments []string
 }
 
 type invokeEndpointRequest struct {
-	BaseURL string            `json:"baseUrl,omitempty"`
-	Params  map[string]string `json:"params,omitempty"`
-	Query   map[string]string `json:"query,omitempty"`
-	Headers map[string]string `json:"headers,omitempty"`
-	Fields  map[string]string `json:"fields,omitempty"`
-	Body    json.RawMessage   `json:"body,omitempty"`
-	Token   string            `json:"token,omitempty"`
-	DryRun  *bool             `json:"dryRun,omitempty"`
+	SessionFile string              `json:"sessionFile,omitempty"`
+	ProjectID   string              `json:"projectId,omitempty"`
+	FilePath    string              `json:"filePath,omitempty"`
+	QueryValues map[string][]string `json:"queryValues,omitempty"`
+	BaseURL     string              `json:"baseUrl,omitempty"`
+	Params      map[string]string   `json:"params,omitempty"`
+	Query       map[string]string   `json:"query,omitempty"`
+	Headers     map[string]string   `json:"headers,omitempty"`
+	Fields      map[string]string   `json:"fields,omitempty"`
+	Body        json.RawMessage     `json:"body,omitempty"`
+	Token       string              `json:"token,omitempty"`
+	DryRun      *bool               `json:"dryRun,omitempty"`
 }
 
 func invokeEndpoint(w http.ResponseWriter, r *http.Request, familyID, endpointID string) {
@@ -159,11 +165,36 @@ func invokeEndpoint(w http.ResponseWriter, r *http.Request, familyID, endpointID
 		writeJSON(w, http.StatusNotFound, domain.ErrorEnvelope{Error: domain.ErrorDetail{Code: "not_found", Message: "unknown endpoint"}})
 		return
 	}
+	if endpoint.Authentication == "agcli-user-oauth" {
+		payload := domain.FunctionRequest{DryRun: true}
+		dec := json.NewDecoder(r.Body)
+		dec.DisallowUnknownFields()
+		if dec.Decode(&payload) != nil {
+			writeJSON(w, 400, domain.ErrorEnvelope{Error: domain.ErrorDetail{Code: "invalid_json", Message: "Invalid native function request"}})
+			return
+		}
+		result, err := (&cloudfunctions.Client{}).Execute(r.Context(), endpointID, payload)
+		if err != nil {
+			detail := cloudfunctions.Feedback(endpointID, err)
+			status := http.StatusBadGateway
+			if detail.Code == "invalid_request" {
+				status = http.StatusBadRequest
+			}
+			if detail.Code == "authentication_required" {
+				status = http.StatusUnauthorized
+			}
+			writeJSON(w, status, domain.ErrorEnvelope{Error: detail})
+			return
+		}
+		writeJSON(w, 200, domain.Envelope[cloudfunctions.Response]{Data: result})
+		return
+	}
 	var payload invokeEndpointRequest
 	if err := json.NewDecoder(r.Body).Decode(&payload); err != nil {
 		writeJSON(w, http.StatusBadRequest, domain.ErrorEnvelope{Error: domain.ErrorDetail{Code: "invalid_json", Message: "request body must be JSON", Details: err.Error()}})
 		return
 	}
+	payload.Query = agcapi.ScalarQuery(payload.Query, payload.QueryValues)
 	body, err := requestBody(payload)
 	if len(payload.Body) == 0 && len(payload.Fields) > 0 {
 		body, err = agcapi.MarshalEndpointFields(endpoint, payload.Fields)
@@ -174,6 +205,22 @@ func invokeEndpoint(w http.ResponseWriter, r *http.Request, familyID, endpointID
 	}
 	if err := validateInvokeParameters(endpoint, payload.Params, payload.Query, payload.Headers, payload.Fields, body); err != nil {
 		writeJSON(w, http.StatusBadRequest, domain.ErrorEnvelope{Error: domain.ErrorDetail{Code: "missing_parameter", Message: err.Error()}})
+		return
+	}
+	validationErr := agcapi.ValidateEndpointRequest(endpoint, payload.Query, payload.Headers, body, payload.QueryValues)
+	if validationErr == nil {
+		validationErr = agcapi.ValidateEndpointPathInput(endpoint, payload.Params)
+	}
+	if validationErr == nil {
+		validationErr = agcapi.ValidateEndpointFileInput(endpoint, payload.FilePath, payload.Headers)
+	}
+	if err := validationErr; err != nil {
+		detail := domain.ErrorDetail{Code: "invalid_request", Message: err.Error(), Endpoint: endpoint.FamilyID + "/" + endpoint.ID, SourceURL: endpoint.SourceURL, Suggestion: "Correct the fields using the documented requirements before retrying.", DocumentationCommand: endpoint.Command + " --docs --pretty"}
+		var invalid *agcapi.RequestValidationError
+		if errors.As(err, &invalid) {
+			detail.Violations = invalid.Violations
+		}
+		writeJSON(w, http.StatusBadRequest, domain.ErrorEnvelope{Error: detail})
 		return
 	}
 	if err := agcapi.ValidateEndpointBody(endpoint, body); err != nil {
@@ -187,16 +234,25 @@ func invokeEndpoint(w http.ResponseWriter, r *http.Request, familyID, endpointID
 	ctx, cancel := context.WithTimeout(r.Context(), 60*time.Second)
 	defer cancel()
 	resp, err := agcapi.InvokeEndpoint(ctx, nil, agcapi.InvokeRequest{
+		SessionFile: payload.SessionFile,
+		ProjectID:   payload.ProjectID,
+		FilePath:    payload.FilePath,
 		Endpoint:    endpoint,
 		BaseURL:     payload.BaseURL,
 		Params:      payload.Params,
 		Query:       payload.Query,
+		QueryValues: payload.QueryValues,
 		Headers:     payload.Headers,
 		Body:        body,
 		AccessToken: payload.Token,
 		DryRun:      dryRun,
 	})
 	if err != nil {
+		var invalid *agcapi.RequestValidationError
+		if errors.As(err, &invalid) {
+			writeJSON(w, 400, domain.ErrorEnvelope{Error: domain.ErrorDetail{Code: "invalid_request", Message: err.Error(), Endpoint: endpoint.FamilyID + "/" + endpoint.ID, SourceURL: endpoint.SourceURL, Violations: invalid.Violations, DocumentationCommand: endpoint.Command + " --docs --pretty", Suggestion: "Correct the affected field before invoking."}})
+			return
+		}
 		writeInvokeError(w, resp, err)
 		return
 	}
@@ -244,10 +300,13 @@ func validateInvokeParameters(endpoint domain.Endpoint, params, query, headers, 
 			}
 		case "body":
 			var object map[string]json.RawMessage
-			if json.Unmarshal(body, &object) != nil || len(object[parameter.Name]) == 0 || string(object[parameter.Name]) == "null" || string(object[parameter.Name]) == `""` {
+			if json.Unmarshal(body, &object) != nil || len(object[parameter.Name]) == 0 || string(object[parameter.Name]) == "null" || (!parameter.AllowEmpty && string(object[parameter.Name]) == `""`) {
 				return endpointParamError("fields", parameter.Name)
 			}
 		case "file":
+			if domain.IsServerlessFamily(endpoint.FamilyID) {
+				continue
+			} // validated through explicit filePath
 			if params[parameter.Name] == "" && fields[parameter.Name] == "" && len(body) == 0 {
 				return endpointParamError("fields", parameter.Name)
 			}
@@ -261,8 +320,13 @@ func endpointParamError(location, name string) error {
 }
 
 func writeInvokeError(w http.ResponseWriter, resp agcapi.InvokeResponse, err error) {
+	var authErr *agcapi.AuthenticationError
+	if errors.As(err, &authErr) {
+		writeJSON(w, 401, domain.ErrorEnvelope{Error: domain.ErrorDetail{Code: "authentication_failed", Message: authErr.Message}})
+		return
+	}
 	if agcErr, ok := err.(agcapi.AGCError); ok {
-		writeJSON(w, http.StatusBadGateway, domain.ErrorEnvelope{Error: domain.ErrorDetail{Code: agcErr.Code, Message: agcErr.Message, Details: resp.URL}})
+		writeJSON(w, http.StatusBadGateway, domain.ErrorEnvelope{Error: domain.ErrorDetail{Code: agcErr.Code, CodeField: agcErr.CodeField, ResultCodes: agcErr.ResultCodes, Message: agcErr.Message, Details: resp.URL}})
 		return
 	}
 	status := http.StatusBadGateway

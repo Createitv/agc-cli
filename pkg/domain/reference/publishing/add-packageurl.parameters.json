@@ -1,0 +1,80 @@
+[
+  {
+    "name": "teamId",
+    "in": "header",
+    "type": "string",
+    "required": false,
+    "description": "开发者所在团队的团队ID，可通过获取团队列表接口获取。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-add-packageurl-0000001158245065#section236517415165"
+  },
+  {
+    "name": "appId",
+    "in": "query",
+    "type": "string",
+    "required": true,
+    "description": "应用ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-add-packageurl-0000001158245065#section164139546428"
+  },
+  {
+    "name": "downloadUrl",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "由您自行提供的软件包下载地址。 APK：不超过4GB。 RPK：快应用不超过20MB，快游戏不超过30MB。 AAB：不超过150MB。 EXE（Windows应用）：不超过4GB。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-add-packageurl-0000001158245065#section15344132481910",
+    "maxLength": 256
+  },
+  {
+    "name": "downloadFileName",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "与downloadUrl配套的文件名，包括后缀。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-add-packageurl-0000001158245065#section15344132481910",
+    "maxLength": 64
+  },
+  {
+    "name": "callbackAddr",
+    "in": "body",
+    "type": "string",
+    "required": false,
+    "description": "回调地址，由您自行配置。软件包提交完成后由华为服务器调用回调结果通知接口通过该URL回调给您的开发者服务器。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-add-packageurl-0000001158245065#section15344132481910",
+    "maxLength": 256
+  },
+  {
+    "name": "requestId",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "您自定义请求字符串，必须唯一标识此请求。结果回调时会携带该字段。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-add-packageurl-0000001158245065#section15344132481910",
+    "maxLength": 64
+  },
+  {
+    "name": "versionName",
+    "in": "body",
+    "type": "string",
+    "required": false,
+    "description": "Windows应用的软件包版本号。 文件类型为exe软件包时必选。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-add-packageurl-0000001158245065#section15344132481910",
+    "maxLength": 255
+  },
+  {
+    "name": "displayName",
+    "in": "body",
+    "type": "string",
+    "required": false,
+    "description": "注册表显示名称，用于唯一标识Windows应用。 文件类型为exe软件包时必选。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-add-packageurl-0000001158245065#section15344132481910",
+    "maxLength": 255
+  },
+  {
+    "name": "packageType",
+    "in": "body",
+    "type": "integer",
+    "required": false,
+    "description": "软件包类型。 1：APK 2：RPK 8：EXE（Windows应用）",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-add-packageurl-0000001158245065#section15344132481910"
+  }
+]

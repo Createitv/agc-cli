@@ -1,0 +1,87 @@
+{
+  "checkedAt": "2026-10-26",
+  "examples": [],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-cloudfunction-0000001192993000",
+      "title": "Server"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-nodejs-0000001779998825",
+      "title": "Node.js"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-nodejs-package-0000001780038561",
+      "title": "@hw-agconnect/cloud-server"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/cloudfunction-nodejs-0000001733038596",
+      "title": "CloudFunction"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcfunctionexception-nodejs-0000001737077046",
+      "title": "AGCFunctionException"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/functionparams-nodejs-0000001733711318#section1470913322016",
+      "title": "Public Field Summary"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [],
+  "renderedText": "API参考\n云函数\nServer\nNode.js\n@hw-agconnect/cloud-server\nFunctionParams\nFunctionParams\n更新时间: 2024-08-14 08:38\n\nInterface Info\n\n\n\n\nexport interface FunctionParams\n\n函数相关参数类。\n\nPublic Field Summary\n\nName\n\n\t\n\nType\n\n\t\n\nDescription\n\n\n\n\nname\n\n\t\n\nstring\n\n\t\n\n必填，函数名称。\n\n\n\n\nversion\n\n\t\n\nstring\n\n\t\n\n可选，函数版本，默认值为\"$latest\"。\n\n\n\n\ntimeout\n\n\t\n\nnumber\n\n\t\n\n可选，函数运行超时时长，单位为ms，范围(0,55000]，默认值为55000。\n\n\n\n\ndata\n\n\t\n\nany\n\n\t\n\n可选，函数请求体。\n\nCloudFunction\nAGCFunctionException\n意见反馈\n以上内容对您是否有帮助？\n意见反馈\n如果您有其他疑问，您也可以通过开发者社区问答频道来和我们联系探讨。\n社区提问AI 助手提问\n本文导读\nPublic Field Summary\n简体中文\n华为开发者联盟 版权所有 ©2026\n问题反馈\n使用条款\n华为开发者联盟用户协议\n关于华为开发者联盟与隐私的声明\nCookies\n开源软件声明",
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/functionparams-nodejs-0000001733711318",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "Interface Info"
+        ],
+        [
+          "export interface FunctionParams 函数相关参数类。"
+        ]
+      ],
+      "section": "",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/functionparams-nodejs-0000001733711318"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "Name",
+          "Type",
+          "Description"
+        ],
+        [
+          "name",
+          "string",
+          "必填，函数名称。"
+        ],
+        [
+          "version",
+          "string",
+          "可选，函数版本，默认值为\"$latest\"。"
+        ],
+        [
+          "timeout",
+          "number",
+          "可选，函数运行超时时长，单位为ms，范围(0,55000]，默认值为55000。"
+        ],
+        [
+          "data",
+          "any",
+          "可选，函数请求体。"
+        ]
+      ],
+      "section": "Public Field Summary",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/functionparams-nodejs-0000001733711318#section1470913322016"
+    }
+  ],
+  "title": "FunctionParams",
+  "updatedAt": "2024-08-14 08:38"
+}

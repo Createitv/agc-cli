@@ -1,0 +1,179 @@
+{
+  "checkedAt": "2026-10-26",
+  "examples": [
+    {
+      "section": "请求示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-obtaintoken-0000001414202481#section624414128367",
+      "text": "请求示例\nPOST /agc/apigw/oauth2/v1/token\nHost: connect-drcn.dbankcloud.cn\nContent-Type: application/json\n{\n   \"useJwt\":0,\n   \"grant_type\":\"client_credentials\",\n   \"client_id\":\"26********20\",\n   \"client_secret\":\"************************\"\n}"
+    },
+    {
+      "section": "响应示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-obtaintoken-0000001414202481#section18524194122113",
+      "text": "响应示例\nHTTP/1.1 200 OK\nContent-Type: application/json; charset=utf-8\n{\n    \"access_token\": \"eyJhbGciOiJIUzU****************\",    \n    \"expires_in\": 172800\n}"
+    }
+  ],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-0000001351815781",
+      "title": "REST API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-client-apiauthorization-0000001453744605",
+      "title": "获取客户端API授权"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-client-apiauthorization-0000001453744605",
+      "title": "获取客户端API授权"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-0000001351815781",
+      "title": "REST API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-verifycode-0000001294228992",
+      "title": "验证码申请"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-obtaintoken-0000001414202481#section125771341635",
+      "title": "功能介绍"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-obtaintoken-0000001414202481#section6932219103913",
+      "title": "接口原型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-obtaintoken-0000001414202481#section128mcpsimp",
+      "title": "请求参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-obtaintoken-0000001414202481#section624414128367",
+      "title": "请求示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-obtaintoken-0000001414202481#section129mcpsimp",
+      "title": "响应参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-obtaintoken-0000001414202481#section18524194122113",
+      "title": "响应示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-obtaintoken-0000001414202481#section53163821",
+      "title": "调用示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-obtaintoken-0000001414202481#section125771341635",
+      "text": "在使用客户端REST API调用业务接口前，需要通过华为开放平台进行鉴权，并获取认证通过后的Token。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-obtaintoken-0000001414202481#section128mcpsimp",
+      "text": "请求参数以JSON格式传入，包含参数如下。"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-obtaintoken-0000001414202481#section129mcpsimp",
+      "text": "返回值为JSON格式的字符串，包含参数如下。"
+    }
+  ],
+  "renderedText": "API参考\n认证服务\nREST API\n获取Token\n获取Token\n更新时间: 2026-10-22 11:25\n功能介绍\n\n在使用客户端REST API调用业务接口前，需要通过华为开放平台进行鉴权，并获取认证通过后的Token。\n\n接口原型\n\n承载协议\n\n\t\n\nHTTPS POST\n\n\n\n\n接口方向\n\n\t\n\n应用客户端 -> 华为认证服务器\n\n\n\n\n接口URL\n\n\t\n\nhttps://connect-drcn.dbankcloud.cn/agc/apigw/oauth2/v1/token\n\n\n\n\n数据格式\n\n\t\n\n请求：Content-Type: application/json\n\n响应：Content-Type: application/json\n\n请求参数\n\n请求参数以JSON格式传入，包含参数如下。\n\n参数名称\n\n\t\n\n必选(M)/可选(O)\n\n\t\n\n数据类型\n\n\t\n\n参数说明\n\n\n\n\nuseJwt\n\n\t\n\nM\n\n\t\n\nInteger\n\n\t\n\n是否使用自有账号凭据JWT(Json Web Token)：\n\n1：使用JWT。\n0：不使用，默认为0。\n\n\n\ngrant_type\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n\n固定传入“client_credentials”。\n\n\n\n\nclient_id\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n\n客户端ID，即获取客户端API授权中的“Client ID”。\n\n\n\n\nclient_secret\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n\n客户端密钥，即获取客户端API授权中的“Client Secret”。\n\n请求示例\nPOST /agc/apigw/oauth2/v1/token\nHost: connect-drcn.dbankcloud.cn\nContent-Type: application/json\n{\n   \"useJwt\":0,\n   \"grant_type\":\"client_credentials\",\n   \"client_id\":\"26********20\",\n   \"client_secret\":\"************************\"\n}\n响应参数\n\n返回值为JSON格式的字符串，包含参数如下。\n\n参数名称\n\n\t\n\n必选(M)/可选(O)\n\n\t\n\n数据类型\n\n\t\n\n参数说明\n\n\n\n\naccess_token\n\n\t\n\nO\n\n\t\n\nString\n\n\t\n\n认证Token，用于API接口调用。\n\n此参数只在获取成功时返回。\n\n\n\n\nexpires_in\n\n\t\n\nO\n\n\t\n\nLong\n\n\t\n\naccess_token的有效期，单位为秒。您需要在过期时间到达时重新调用本接口获取新的access_token。\n\n有效期为48小时，如果在有效期内再次调用接口获取access_token时，新老access_token都是有效的。\n\n此参数只在获取成功时返回。\n\n响应示例\nHTTP/1.1 200 OK\nContent-Type: application/json; charset=utf-8\n{\n    \"access_token\": \"eyJhbGciOiJIUzU****************\",    \n    \"expires_in\": 172800\n}\n调用示例\n// 获取access_token\n    public static String getClientToken() throws IOException {\n        AccessTokenReq accessTokenReq = new AccessTokenReq()\n            .clientIdSet(CLIENT_ID)\n            .clientSecretSet(CLIENT_SECRET)\n            .grantTypeSet(\"client_credentials\")\n            .useJwtSet(0);\n        HttpClient client = HttpClients.createDefault();\n        HttpPost httpPost = new HttpPost(HOST + \"/agc/apigw/oauth2/v1/token\");\n        httpPost.setHeader(\"Accept\", \"*/*\");\n        httpPost.setHeader(\"Content-Type\", \"application/json\");\n        httpPost.setEntity(new StringEntity(JsonUtil.toJson(accessTokenReq), Charset.forName(\"UTF-8\")));\n        HttpResponse response = client.execute(httpPost);\n        return JSON.parseObject(IOUtils.toString(response.getEntity().getContent(), StandardCharsets.UTF_8),\n            AccessTokenRsp.class).getAccessToken();\n    }\nREST API\n验证码申请\n意见反馈\n以上内容对您是否有帮助？\n意见反馈\n如果您有其他疑问，您也可以通过开发者社区问答频道来和我们联系探讨。\n社区提问AI 助手提问\n本文导读\n功能介绍\n接口原型\n请求参数\n请求示例\n响应参数\n响应示例\n调用示例\n简体中文\n华为开发者联盟 版权所有 ©2026\n问题反馈\n使用条款\n华为开发者联盟用户协议\n关于华为开发者联盟与隐私的声明\nCookies\n开源软件声明",
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-obtaintoken-0000001414202481",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "承载协议",
+          "HTTPS POST"
+        ],
+        [
+          "接口方向",
+          "应用客户端 -> 华为认证服务器"
+        ],
+        [
+          "接口URL",
+          "https://connect-drcn.dbankcloud.cn/agc/apigw/oauth2/v1/token"
+        ],
+        [
+          "数据格式",
+          "请求：Content-Type: application/json 响应：Content-Type: application/json"
+        ]
+      ],
+      "section": "接口原型",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-obtaintoken-0000001414202481#section6932219103913"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "数据类型",
+          "参数说明"
+        ],
+        [
+          "useJwt",
+          "M",
+          "Integer",
+          "是否使用自有账号凭据JWT(Json Web Token)： 1：使用JWT。 0：不使用，默认为0。"
+        ],
+        [
+          "grant_type",
+          "M",
+          "String",
+          "固定传入“client_credentials”。"
+        ],
+        [
+          "client_id",
+          "M",
+          "String",
+          "客户端ID，即获取客户端API授权中的“Client ID”。"
+        ],
+        [
+          "client_secret",
+          "M",
+          "String",
+          "客户端密钥，即获取客户端API授权中的“Client Secret”。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-obtaintoken-0000001414202481#section128mcpsimp"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "数据类型",
+          "参数说明"
+        ],
+        [
+          "access_token",
+          "O",
+          "String",
+          "认证Token，用于API接口调用。 此参数只在获取成功时返回。"
+        ],
+        [
+          "expires_in",
+          "O",
+          "Long",
+          "access_token的有效期，单位为秒。您需要在过期时间到达时重新调用本接口获取新的access_token。 有效期为48小时，如果在有效期内再次调用接口获取access_token时，新老access_token都是有效的。 此参数只在获取成功时返回。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-obtaintoken-0000001414202481#section129mcpsimp"
+    }
+  ],
+  "title": "获取Token",
+  "updatedAt": "2026-10-22 11:25",
+  "captureTool": "Computer Use; scripts/browser-capture-reference.mjs-compatible merged-cell capture"
+}

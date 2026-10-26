@@ -1,0 +1,8 @@
+{
+  "header.appId": {
+    "maxLength": 32
+  },
+  "query.tagIds": {
+    "maxLength": 256
+  }
+}

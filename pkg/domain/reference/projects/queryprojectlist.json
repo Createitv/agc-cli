@@ -1,0 +1,450 @@
+{
+  "examples": [],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pmapi-0000001158245053",
+      "title": "Project Management API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114",
+      "title": "使用入门"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114#section1785535363715",
+      "title": "通过Service Account方式获取授权"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114#section949717114392",
+      "title": "获取用户授权码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryprojectlist-0000001111685220#ZH-CN_TOPIC_0000001111685220__zh-cn_topic_0000001060508129_p16958125112238",
+      "title": "Project"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryprojectlist-0000001111685220#ZH-CN_TOPIC_0000001111685220__zh-cn_topic_0000001060508129_p14226276613",
+      "title": "AppBriefInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryprojectlist-0000001111685220#ZH-CN_TOPIC_0000001111685220__p19821926104516",
+      "title": "DeviceTypeInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-reference-apptype-0000001158365069",
+      "title": "应用分类"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-reference-apptype-0000001158365069",
+      "title": "应用分类"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryprojectdetail-0000001158365067",
+      "title": "查询项目详情及项目下的应用"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pmapi-errorcode-0000001118183972",
+      "title": "错误码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryprojectlist-0000001111685220#section49483413",
+      "title": "功能介绍"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryprojectlist-0000001111685220#section6932219103913",
+      "title": "接口原型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryprojectlist-0000001111685220#section62398251",
+      "title": "请求参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryprojectlist-0000001111685220#section236517415165",
+      "title": "Header"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryprojectlist-0000001111685220#section886219295206",
+      "title": "Query"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryprojectlist-0000001111685220#section184281720125314",
+      "title": "响应参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryprojectlist-0000001111685220#section11563121420590",
+      "title": "调用示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryprojectlist-0000001111685220#section49483413",
+      "text": "此接口用于查询指定团队账号下的项目列表信息。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryprojectlist-0000001111685220#section236517415165",
+      "text": "本接口仅支持Service Account方式和OAuth客户端方式，二者区别请参见使用入门。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryprojectlist-0000001111685220#section236517415165",
+      "text": "Service Account方式："
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryprojectlist-0000001111685220#section236517415165",
+      "text": "OAuth客户端方式："
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryprojectlist-0000001111685220#section184281720125314",
+      "text": "GetProjectListRsp"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryprojectlist-0000001111685220#section184281720125314",
+      "text": "Project"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryprojectlist-0000001111685220#section184281720125314",
+      "text": "AppBriefInfo"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryprojectlist-0000001111685220#section184281720125314",
+      "text": "DeviceTypeInfo"
+    }
+  ],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryprojectlist-0000001111685220",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "承载协议",
+          "HTTPS GET"
+        ],
+        [
+          "接口方向",
+          "开发者服务器 -> 华为服务器"
+        ],
+        [
+          "接口URL",
+          "https://connect-api.cloud.huawei.com/api/project-service/v1/projects"
+        ],
+        [
+          "数据格式",
+          "请求：Content-Type: application/json 响应：Content-Type: application/json"
+        ]
+      ],
+      "section": "接口原型",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryprojectlist-0000001111685220#section6932219103913"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "Authorization",
+          "M",
+          "String",
+          "认证信息，格式为“Authorization: Bearer ${JWT}”。JWT为通过Service Account方式获取授权中获取的鉴权令牌。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryprojectlist-0000001111685220#section236517415165"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "oauth2Token",
+          "M",
+          "String",
+          "认证信息，传入获取用户授权码中获取的Access Token。"
+        ],
+        [
+          "teamId",
+          "M",
+          "String",
+          "需要查询的团队账号ID。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryprojectlist-0000001111685220#section236517415165"
+    },
+    {
+      "location": "query",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "fromPage",
+          "O",
+          "String",
+          "起始页，默认是1，表示从第1页开始查询。"
+        ],
+        [
+          "pageSize",
+          "O",
+          "String",
+          "每页查询的条数，默认值：100。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryprojectlist-0000001111685220#section886219295206"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "totalCount",
+          "M",
+          "Integer",
+          "项目的总个数。"
+        ],
+        [
+          "returnCount",
+          "M",
+          "Integer",
+          "返回的项目个数。"
+        ],
+        [
+          "projectList",
+          "O",
+          "List<Project>",
+          "项目列表信息。"
+        ],
+        [
+          "ret",
+          "M",
+          "String",
+          "包含返回码及描述信息的JSON字符串，格式为{\"code\":retcode, \"msg\": \"description\"}，retcode为返回码，description为返回码描述信息。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryprojectlist-0000001111685220#section184281720125314"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "projectId",
+          "O",
+          "String",
+          "项目ID。"
+        ],
+        [
+          "name",
+          "O",
+          "String",
+          "项目名称。"
+        ],
+        [
+          "description",
+          "O",
+          "String",
+          "项目描述。"
+        ],
+        [
+          "siteId",
+          "O",
+          "String",
+          "项目的数据存储位置。 SG：新加坡站点 DE：德国站点 RU：俄罗斯站点 CN：中国站点 如果项目未设置数据存储位置，则为空。"
+        ],
+        [
+          "teamId",
+          "O",
+          "String",
+          "项目归属的团队账号ID。"
+        ],
+        [
+          "appList",
+          "O",
+          "List<AppBriefInfo>",
+          "该项目下的应用列表信息。"
+        ],
+        [
+          "createTime",
+          "O",
+          "Integer",
+          "项目创建时间。"
+        ],
+        [
+          "updateTime",
+          "O",
+          "Integer",
+          "项目修改时间。"
+        ],
+        [
+          "accessTime",
+          "O",
+          "Integer",
+          "项目访问时间。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryprojectlist-0000001111685220#section184281720125314"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "appId",
+          "O",
+          "String",
+          "应用ID。"
+        ],
+        [
+          "appName",
+          "O",
+          "String",
+          "应用名称。"
+        ],
+        [
+          "appType",
+          "O",
+          "Integer",
+          "应用类型。 1：APK 2：RPK 3：WPK 4：EXE（云应用） 5：iOS应用 6：WEB应用"
+        ],
+        [
+          "deviceType",
+          "O",
+          "Integer",
+          "设备类型。 4：手机 5：平板 6：VR 7：手表 8：大屏 9：路由器 10：车机"
+        ],
+        [
+          "detailType",
+          "O",
+          "Integer",
+          "应用的详细类型。 1：移动应用 2：电视应用 4：路由器应用 8：VR应用 9：手表应用 19：手机快应用 23：电视快应用 27：车机应用 28：车机快应用 9998：iOS应用 9999：WEB应用"
+        ],
+        [
+          "appIcon",
+          "O",
+          "String",
+          "应用图标的URL地址。"
+        ],
+        [
+          "packageName",
+          "O",
+          "String",
+          "应用包名。"
+        ],
+        [
+          "hasPermission",
+          "O",
+          "Integer",
+          "当前开发者账号是否对应用有权限。 0：否 1：是"
+        ],
+        [
+          "deviceTypes",
+          "O",
+          "List<DeviceTypeInfo>",
+          "应用的设备类型，可支持多个设备。"
+        ],
+        [
+          "iosAppStoreId",
+          "O",
+          "String",
+          "应用在苹果APP Store上的ID，对iOS应用有效。"
+        ],
+        [
+          "iosTeamId",
+          "O",
+          "String",
+          "iOS团队ID，对iOS应用有效。"
+        ],
+        [
+          "parentType",
+          "O",
+          "Integer",
+          "应用的一级分类。 2：游戏 13：应用"
+        ],
+        [
+          "childType",
+          "O",
+          "String",
+          "应用的二级分类，详细请参见应用分类。"
+        ],
+        [
+          "grandChildType",
+          "O",
+          "String",
+          "应用的三级分类，详细请参见应用分类。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryprojectlist-0000001111685220#section184281720125314"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "deviceType",
+          "M",
+          "Integer",
+          "设备类型。 4：手机 6：VR 7：手表 8：大屏 9：路由器 10：车机"
+        ],
+        [
+          "appAdapters",
+          "M",
+          "String",
+          "适配设备类型，多个间逗号分隔。 1：荣耀立方（路由器） 4：手机 5：平板 6：VR 7：手表（智能表Android wear系统） 8：TV 9：路由器 11：儿童手表 12：智能手表 13：带屏音箱"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryprojectlist-0000001111685220#section184281720125314"
+    }
+  ],
+  "title": "查询项目列表",
+  "updatedAt": "2026-03-11 09:18",
+  "checkedAt": "2026-10-07T02:56:37.663Z",
+  "family": "projects",
+  "endpoint": "queryprojectlist"
+}

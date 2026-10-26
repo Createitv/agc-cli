@@ -1,0 +1,75 @@
+[
+  {
+    "name": "teamId",
+    "in": "header",
+    "type": "string",
+    "required": false,
+    "description": "开发者所在团队的团队ID，可通过获取团队列表接口获取。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-language-info-update-0000001158245057#section48771100566"
+  },
+  {
+    "name": "appId",
+    "in": "query",
+    "type": "string",
+    "required": true,
+    "description": "需要更新语言描述信息的应用ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-language-info-update-0000001158245057#section41341319578"
+  },
+  {
+    "name": "releaseType",
+    "in": "query",
+    "type": "integer",
+    "required": false,
+    "description": "应用发布方式。 取值范围： 1：全网 3：分阶段 默认值：1",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-language-info-update-0000001158245057#section41341319578",
+    "enum": [
+      "1",
+      "3"
+    ]
+  },
+  {
+    "name": "lang",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "语言种类，取值参见语言类型。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-language-info-update-0000001158245057#section13576204051611",
+    "maxLength": 64
+  },
+  {
+    "name": "appName",
+    "in": "body",
+    "type": "string",
+    "required": false,
+    "description": "对应语言的应用名称。新增一个语言种类时，此字段必选。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-language-info-update-0000001158245057#section13576204051611",
+    "maxLength": 64
+  },
+  {
+    "name": "appDesc",
+    "in": "body",
+    "type": "string",
+    "required": false,
+    "description": "对应语言的应用描述信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-language-info-update-0000001158245057#section13576204051611",
+    "maxLength": 8000
+  },
+  {
+    "name": "briefInfo",
+    "in": "body",
+    "type": "string",
+    "required": false,
+    "description": "对应语言的一句话简介。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-language-info-update-0000001158245057#section13576204051611",
+    "maxLength": 80
+  },
+  {
+    "name": "newFeatures",
+    "in": "body",
+    "type": "string",
+    "required": false,
+    "description": "对应语言的新版本简介。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-language-info-update-0000001158245057#section13576204051611",
+    "maxLength": 500
+  }
+]

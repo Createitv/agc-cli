@@ -1,0 +1,44 @@
+[
+  {
+    "name": "appId",
+    "in": "header",
+    "type": "string",
+    "required": true,
+    "description": "应用ID，获取方法参考查看应用信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-eligible-acl-0000002554975044#section236517415165",
+    "maxLength": 32
+  },
+  {
+    "name": "lang",
+    "in": "body",
+    "type": "string",
+    "required": false,
+    "description": "ACL权限的语言类型。 取值范围： zh：中文 en：英文 ru：俄语 默认值：zh",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-eligible-acl-0000002554975044#section16551174881019",
+    "maxLength": 10,
+    "enum": [
+      "zh",
+      "en",
+      "ru"
+    ]
+  },
+  {
+    "name": "start",
+    "in": "body",
+    "type": "integer",
+    "required": false,
+    "description": "起始页。 最小值：1，表示从第1页开始查询。 默认值：1",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-eligible-acl-0000002554975044#section16551174881019",
+    "minimum": 1
+  },
+  {
+    "name": "pageSize",
+    "in": "body",
+    "type": "integer",
+    "required": false,
+    "description": "每页返回条数。 取值范围：[1,1000] 默认值：10",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-eligible-acl-0000002554975044#section16551174881019",
+    "minimum": 1,
+    "maximum": 1000
+  }
+]

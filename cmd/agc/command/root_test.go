@@ -8,7 +8,7 @@ import (
 	"crypto/x509"
 	"encoding/json"
 	"encoding/pem"
-	"io"
+	"github.com/Createitv/agc-cli/internal/managementtest"
 	"net/http"
 	"net/http/httptest"
 	"os"
@@ -24,6 +24,7 @@ import (
 
 // Tests must never inherit a developer's real local credentials.
 func TestMain(m *testing.M) {
+	managementtest.ExitIfHDCStub()
 	for _, name := range []string{"AGC_PROFILE", "AGC_CLIENT_ID", "AGC_CLIENT_KEY", "AGC_CLIENT_SECRET", "AGC_SERVICE_ACCOUNT_FILE", "AGC_CREDENTIALS_PATH", "AGC_ACCESS_TOKEN", "AGC_OAUTH2_TOKEN", "AGC_SERVER_TOKEN"} {
 		if err := os.Unsetenv(name); err != nil {
 			os.Exit(1)
@@ -72,8 +73,8 @@ func TestCapabilitiesCommandReturnsAllFamilies(t *testing.T) {
 	if err := json.Unmarshal([]byte(out), &body); err != nil {
 		t.Fatal(err)
 	}
-	if len(body.Data) != 13 {
-		t.Fatalf("capabilities = %d, want 13", len(body.Data))
+	if len(body.Data) != 21 {
+		t.Fatalf("capabilities = %d, want 21", len(body.Data))
 	}
 }
 
@@ -115,45 +116,6 @@ func TestVersionCommand(t *testing.T) {
 	}
 	if !strings.Contains(out, `"version":"dev"`) {
 		t.Fatalf("output = %s", out)
-	}
-}
-
-func TestSkillsListDelegatesToSkillsInstaller(t *testing.T) {
-	original := runSkillsCLI
-	t.Cleanup(func() { runSkillsCLI = original })
-	var got []string
-	runSkillsCLI = func(_ context.Context, stdout, _ io.Writer, args ...string) error {
-		got = append([]string(nil), args...)
-		_, _ = io.WriteString(stdout, "agc-cli-usage\n")
-		return nil
-	}
-	out, err := execute("skills", "list")
-	if err != nil {
-		t.Fatal(err)
-	}
-	if strings.Join(got, " ") != "--yes skills add Createitv/agc-cli --list" {
-		t.Fatalf("installer args = %q", got)
-	}
-	if out != "agc-cli-usage\n" {
-		t.Fatalf("output = %q", out)
-	}
-}
-
-func TestSkillsInstallSelectsSkillAgentAndScope(t *testing.T) {
-	original := runSkillsCLI
-	t.Cleanup(func() { runSkillsCLI = original })
-	var got []string
-	runSkillsCLI = func(_ context.Context, _, _ io.Writer, args ...string) error {
-		got = append([]string(nil), args...)
-		return nil
-	}
-	_, err := execute("skills", "install", "--name", "agc-auth", "--agent", "codex", "--global")
-	if err != nil {
-		t.Fatal(err)
-	}
-	want := "--yes skills add Createitv/agc-cli --skill agc-auth --agent codex --global"
-	if strings.Join(got, " ") != want {
-		t.Fatalf("installer args = %q, want %q", got, want)
 	}
 }
 
@@ -205,6 +167,11 @@ func TestEndpointCommandShowsSpec(t *testing.T) {
 
 func TestEveryRegisteredEndpointCanDryRun(t *testing.T) {
 	for _, endpoint := range domain.AllEndpoints() {
+		if domain.IsServerlessFamily(endpoint.FamilyID) {
+			testServerlessOperationDryRun(t, endpoint)
+			continue
+		}
+
 		args := []string{endpoint.FamilyID, endpoint.ID, "--invoke", "--base-url", "https://example.com"}
 		for _, parameter := range endpoint.Parameters {
 			if !parameter.Required {
@@ -212,28 +179,47 @@ func TestEveryRegisteredEndpointCanDryRun(t *testing.T) {
 			}
 			switch parameter.In {
 			case "path":
-				value := "sample"
+				value := parameterFixture(parameter)
 				if parameter.Name == "callbackUrl" || parameter.Name == "uploadUrl" {
 					value = "https://callback.example.com/hook"
 				}
 				args = append(args, "--param", parameter.Name+"="+value)
 			case "query":
-				args = append(args, "--query", parameter.Name+"=sample")
+				args = append(args, "--query", parameter.Name+"="+parameterFixture(parameter))
 			case "header":
-				args = append(args, "--header", parameter.Name+"=sample")
-			case "body", "file":
-				value := "sample"
-				if parameter.Type == "integer" || parameter.Type == "number" {
-					value = "1"
+				args = append(args, "--header", parameter.Name+"="+parameterFixture(parameter))
+			case "file":
+				if endpoint.FamilyID == "pms" && endpoint.ID == "resourcemanage-harmonyosnext" {
+					file := filepath.Join(t.TempDir(), "fixture.png")
+					if err := os.WriteFile(file, []byte("offline-image"), 0600); err != nil {
+						t.Fatal(err)
+					}
+					args = append(args, "--file", file)
+					continue
 				}
-				if parameter.Type == "array" {
-					value = `["fixture"]`
-				}
-				if parameter.Type == "object" {
-					value = `{"key":"fixture"}`
-				}
+				args = append(args, "--field", parameter.Name+"="+parameterFixture(parameter))
+			case "body":
+				value := parameterFixture(parameter)
 				args = append(args, "--field", parameter.Name+"="+value)
 			}
+		}
+		if endpoint.DynamicBody != nil {
+			args = append(args, "--field", "additionalProp1="+parameterFixture(*endpoint.DynamicBody))
+		}
+		if endpoint.FamilyID == "resources" && endpoint.ID == "respackapi-queryfile" {
+			args = append(args, "--query", "versionId=1")
+		}
+		if endpoint.FamilyID == "projects" && endpoint.ID == "appbriefinfo" {
+			args = append(args, "--query", "packageNames=app.example.fixture")
+		}
+		if endpoint.FamilyID == "publishing" && endpoint.ID == "app-version-list" {
+			args = append(args, "--header", "appId=fixture")
+		}
+		if endpoint.FamilyID == "upload" && endpoint.ID == "obbfile-init" {
+			args = append(args, "--query", "fileType=1")
+		}
+		if endpoint.FamilyID == "publishing" && endpoint.ID == "app-create" {
+			args = append(args, "--field", "packageName=app.example.fixture")
 		}
 		out, err := execute(args...)
 		if err != nil {
@@ -305,8 +291,9 @@ func TestEndpointCommandWritesRawResponseToOutFile(t *testing.T) {
 		"--invoke",
 		"--dry-run=false",
 		"--param", "appId=123",
-		"--query", "from=2026-08-01",
-		"--query", "to=2026-08-11",
+		"--query", "language=en-US",
+		"--query", "startTime=20260801",
+		"--query", "endTime=20260811",
 		"--base-url", server.URL,
 		"--token", "token",
 		"--out", outFile,
@@ -333,7 +320,7 @@ func TestEndpointCommandRequiresCallbackURL(t *testing.T) {
 }
 
 func TestEndpointCommandAcceptsBodyFieldAndHeader(t *testing.T) {
-	out, err := execute("publishing", "add-packageurl", "--invoke", "--field", "appId=123", "--field", "packageUrl=https://example.com/app.app", "--header", "client_id=client", "--base-url", "https://example.com")
+	out, err := execute("publishing", "add-packageurl", "--invoke", "--query", "appId=123", "--field", "downloadUrl=https://example.com/app.apk", "--field", "downloadFileName=app.apk", "--field", "requestId=offline-fixture", "--header", "client_id=client", "--base-url", "https://example.com")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -379,57 +366,6 @@ func TestAuthLoginAndCheck(t *testing.T) {
 	}
 	if !strings.Contains(out, `"name":"prod"`) {
 		t.Fatalf("output = %s", out)
-	}
-}
-
-func TestAuthWhoAmIShowsActiveIdentityWithoutSecrets(t *testing.T) {
-	path := filepath.Join(t.TempDir(), "credentials.json")
-	if _, err := execute("auth", "login", "--client-id", "developer-client", "--client-key", "test-secret", "--name", "production", "--credentials-path", path); err != nil {
-		t.Fatal(err)
-	}
-	out, err := execute("auth", "whoami", "--credentials-path", path)
-	if err != nil {
-		t.Fatal(err)
-	}
-	if !strings.Contains(out, `"name":"production"`) || !strings.Contains(out, `"clientId":"developer-client"`) || !strings.Contains(out, `"teamLookup":"oauth-required"`) {
-		t.Fatalf("output = %s", out)
-	}
-	if strings.Contains(out, "test-secret") || strings.Contains(out, "clientKey") {
-		t.Fatal("whoami output exposes client key")
-	}
-}
-
-func TestAuthWhoAmIReadsOfficialOAuthTeamList(t *testing.T) {
-	t.Setenv("AGC_OAUTH2_TOKEN", "oauth-test-secret")
-	srv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		if r.URL.Path != "/api/ups/user-permission-service/v1/user-team-list" {
-			t.Errorf("path = %s", r.URL.Path)
-		}
-		if r.Header.Get("oauth2Token") != "oauth-test-secret" {
-			t.Error("missing OAuth team-list token")
-		}
-		w.Header().Set("Content-Type", "application/json")
-		w.Write([]byte(`{"ret":{"code":0,"msg":"success"},"teams":[{"teamId":"team-1","teamName":"Example Studio"}]}`))
-	}))
-	defer srv.Close()
-
-	out, err := execute("auth", "whoami", "--teams", "--base-url", srv.URL, "--credentials-path", filepath.Join(t.TempDir(), "missing.json"))
-	if err != nil {
-		t.Fatal(err)
-	}
-	if !strings.Contains(out, `"teamLookup":"verified"`) || !strings.Contains(out, `"teamName":"Example Studio"`) {
-		t.Fatalf("output = %s", out)
-	}
-	if strings.Contains(out, "oauth-test-secret") {
-		t.Fatal("whoami output exposes OAuth token")
-	}
-}
-
-func TestAuthWhoAmITeamsRequiresOAuthToken(t *testing.T) {
-	t.Setenv("AGC_OAUTH2_TOKEN", "")
-	_, err := execute("auth", "whoami", "--teams", "--credentials-path", filepath.Join(t.TempDir(), "missing.json"))
-	if err == nil || !strings.Contains(err.Error(), "AGC_OAUTH2_TOKEN") {
-		t.Fatalf("error = %v", err)
 	}
 }
 

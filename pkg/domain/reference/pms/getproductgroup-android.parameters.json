@@ -1,0 +1,43 @@
+[
+  {
+    "name": "appId",
+    "in": "header",
+    "type": "string",
+    "required": true,
+    "description": "应用ID，获取方法参考查询应用信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-getproductgroup-android-0000002171407009#section173002381406"
+  },
+  {
+    "name": "requestId",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "请求序列，开发者自定义唯一标识符。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-getproductgroup-android-0000002171407009#section98031331736",
+    "maxLength": 64
+  },
+  {
+    "name": "pageNum",
+    "in": "body",
+    "type": "integer",
+    "required": false,
+    "description": "起始页数，默认值：1。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-getproductgroup-android-0000002171407009#section98031331736"
+  },
+  {
+    "name": "pageSize",
+    "in": "body",
+    "type": "integer",
+    "required": false,
+    "description": "返回数据每页的条数， 默认是20。 取值范围：1~300",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-getproductgroup-android-0000002171407009#section98031331736"
+  },
+  {
+    "name": "orderBy",
+    "in": "body",
+    "type": "string",
+    "required": false,
+    "description": "按名称升序或者降序排序。配置JSON对象，key为属性名，value为排序规则。不传值时默认按照数据库中创建时间降序。 key取值范围为： name：订阅分组名称 createTime：创建时间 updateTime：更新时间 value取值desc降序或者asc升序 例如：按name降序，按createTime升序，则配置为{\"name\": \"desc\",\"createTime\": \"asc\"}",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-getproductgroup-android-0000002171407009#section98031331736"
+  }
+]

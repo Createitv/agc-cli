@@ -1,0 +1,13 @@
+[
+  {
+    "id": "app-identity",
+    "kind": "at_least_one",
+    "fields": [
+      "header.appId",
+      "body.packageName"
+    ],
+    "message": "appId 与 packageName 至少传一个。",
+    "suggestion": "添加 --header appId=应用ID 或 --field packageName=应用包名。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-query-brief-info-list-0000002236201254#section2357705386"
+  }
+]

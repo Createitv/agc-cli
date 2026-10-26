@@ -1,0 +1,289 @@
+{
+  "examples": [
+    {
+      "section": "请求示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchupdateproduct-harmonyosnext-0000002131508852#section19934722144316",
+      "text": "请求示例\n\n以API Client为例：\n\nPUT https://connect-api.cloud.huawei.com/api/pms/product-price-service/v2/manage/product/batchImportProducts \nContent-Type: application/json \nclient_id: *** \nAuthorization: Bearer *** \nappId: 1000001 \n \n{ \n    \"requestId\": \"string\", \n    \"products\": [{ \n        \"productNo\": \"4862300\", \n        \"status\": \"active\", \n        \"productName\": \"消耗性001\", \n        \"productDesc\": \"消耗性简介01\", \n        \"purchaseType\": \"auto_subscription\", \n        \"force\": 0, \n        \"defaultLocale\": \"zh_CN\", \n        \"defaultPriceInfo\": { \n            \"country\": \"CN\", \n            \"price\": \"55\", \n            \"currency\": \"CNY\" \n        }, \n        \"languages\": [{ \n            \"locale\": \"en_GB\", \n            \"productName\": \"消耗性01en_GB\", \n            \"productDesc\": \"消耗性简介01en_GB\" \n        }], \n        \"reviewResourceId\": \"22AA702C947A42A7AF059779D18E872A\",\n        \"reviewPath\": \"我的-会员中心-黄金会员\",\n        \"reviewNote\": \"新建商品\",\n        \"taxIncluded\": 1,\n        \"salesCountry\": [\n            \"LK\",\"TW\",\"TJ\",\"TH\",\"TR\",\"TM\",\"AE\",\"UZ\",\"VN\",\"YE\",\"MN\",\"MM\",\"NP\",\"OM\",\"PK\",\"PS\",\"PH\",\n            \"QA\",\"SA\",\"SG\",\"KZ\",\"KW\",\"KG\",\"LA\",\"LB\",\"MO\",\"MY\",\"MV\",\"CN\",\"CY\",\"GE\",\"HK\",\"ID\",\"IQ\",\n            \"IL\",\"JP\",\"JO\",\"AM\",\"AZ\",\"BH\",\"BD\",\"BN\",\"KH\",\"SL\",\"ZA\",\"TZ\",\"TG\",\"TN\",\"UG\",\"ZM\",\"ZW\",\n            \"MR\",\"MU\",\"YT\",\"MA\",\"MZ\",\"NA\",\"NE\",\"NG\",\"RE\",\"RW\",\"ST\",\"SN\",\"GM\",\"GH\",\"GN\",\"GW\",\"KE\",\n            \"LS\",\"LR\",\"LY\",\"MG\",\"MW\",\"ML\",\"KM\",\"CG\",\"CD\",\"CI\",\"DJ\",\"EG\",\"GQ\",\"ER\",\"SZ\",\"ET\",\"GA\",\n            \"DZ\",\"AO\",\"BJ\",\"BW\",\"BF\",\"CM\",\"CV\",\"CF\",\"TD\",\"PA\",\"PY\",\"PE\",\"PR\",\"LC\",\"TT\",\"UY\",\"VE\",\n            \"GD\",\"GP\",\"GT\",\"GY\",\"HT\",\"HN\",\"JM\",\"MX\",\"NI\",\"CA\",\"KY\",\"CL\",\"CO\",\"CR\",\"DO\",\"EC\",\"SV\",\n            \"GF\",\"AI\",\"AR\",\"AW\",\"BS\",\"BO\",\"BR\",\"VG\",\"SK\",\"SI\",\"ES\",\"SE\",\"CH\",\"UA\",\"GB\",\"VA\",\"MC\",\n            \"ME\",\"NL\",\"MK\",\"NO\",\"PL\",\"PT\",\"RO\",\"RU\",\"SM\",\"RS\",\"MT\",\"MD\",\"LI\",\"LT\",\"LU\",\"IT\",\"LV\",\n            \"HU\",\"IS\",\"IE\",\"FI\",\"FR\",\"DE\",\"GI\",\"GR\",\"GL\",\"BG\",\"HR\",\"CZ\",\"DK\",\"EE\",\"FO\",\"AL\",\"AD\",\n            \"AT\",\"BY\",\"BE\",\"BA\",\"AU\",\"CK\",\"FJ\",\"PF\", \"NR\",\"NZ\",\"PG\",\"SB\",\"TO\"\n        ],\n        \"autoAddSaleCountry\": 1,\n        \"prices\": [{ \n            \"country\": \"CN\", \n            \"price\": \"120\" \n        }], \n        \"promotion\": { \n            \"promotionId\": \"B04888F868440D288337A095B4862300\", \n            \"promotionTitle\": \"prom01\", \n            \"startDate\": 3164748860000, \n            \"endDate\": 3164748869889, \n            \"strategy\": \"introductory\", \n            \"price\": 50, \n            \"languages\": [{ \n                \"locale\": \"en_GB\", \n                \"title\": \"mei guo ming cheng\", \n                \"desc\": \"mei guo desc\" \n            }], \n            \"promotionPrice\": [{ \n                \"price\": 20, \n                \"country\": \"CN\" \n            }] \n        } \n    }, { \n        \"productNo\": \"4862301\", \n        \"status\": \"active\", \n        \"productName\": \"消耗性002\", \n        \"productDesc\": \"消耗性简介02\", \n        \"purchaseType\": \"auto_subscription\", \n        \"force\": 0, \n        \"defaultLocale\": \"zh_CN\", \n        \"defaultPriceInfo\": { \n            \"country\": \"CN\", \n            \"price\": \"60\", \n            \"currency\": \"CNY\" \n        }, \n        \"languages\": [{ \n            \"locale\": \"en_GB\", \n            \"productName\": \"消耗性02en_GB\", \n            \"productDesc\": \"消耗性简介02en_GB\" \n        }], \n        \"reviewResourceId\": \"22AA702C947A42A7AF059779D18E872B\",\n        \"reviewPath\": \"我的-会员中心-白金会员\",\n        \"reviewNote\": \"新建商品\",\n        \"taxIncluded\": 1,\n        \"salesCountry\": [\n            \"LK\",\"TW\",\"TJ\",\"TH\",\"TR\",\"TM\",\"AE\",\"UZ\",\"VN\",\"YE\",\"MN\",\"MM\",\"NP\",\"OM\",\"PK\",\"PS\",\"PH\",\n            \"QA\",\"SA\",\"SG\",\"KZ\",\"KW\",\"KG\",\"LA\",\"LB\",\"MO\",\"MY\",\"MV\",\"CN\",\"CY\",\"GE\",\"HK\",\"ID\",\"IQ\",\n            \"IL\",\"JP\",\"JO\",\"AM\",\"AZ\",\"BH\",\"BD\",\"BN\",\"KH\",\"SL\",\"ZA\",\"TZ\",\"TG\",\"TN\",\"UG\",\"ZM\",\"ZW\",\n            \"MR\",\"MU\",\"YT\",\"MA\",\"MZ\",\"NA\",\"NE\",\"NG\",\"RE\",\"RW\",\"ST\",\"SN\",\"GM\",\"GH\",\"GN\",\"GW\",\"KE\",\n            \"LS\",\"LR\",\"LY\",\"MG\",\"MW\",\"ML\",\"KM\",\"CG\",\"CD\",\"CI\",\"DJ\",\"EG\",\"GQ\",\"ER\",\"SZ\",\"ET\",\"GA\",\n            \"DZ\",\"AO\",\"BJ\",\"BW\",\"BF\",\"CM\",\"CV\",\"CF\",\"TD\",\"PA\",\"PY\",\"PE\",\"PR\",\"LC\",\"TT\",\"UY\",\"VE\",\n            \"GD\",\"GP\",\"GT\",\"GY\",\"HT\",\"HN\",\"JM\",\"MX\",\"NI\",\"CA\",\"KY\",\"CL\",\"CO\",\"CR\",\"DO\",\"EC\",\"SV\",\n            \"GF\",\"AI\",\"AR\",\"AW\",\"BS\",\"BO\",\"BR\",\"VG\",\"SK\",\"SI\",\"ES\",\"SE\",\"CH\",\"UA\",\"GB\",\"VA\",\"MC\",\n            \"ME\",\"NL\",\"MK\",\"NO\",\"PL\",\"PT\",\"RO\",\"RU\",\"SM\",\"RS\",\"MT\",\"MD\",\"LI\",\"LT\",\"LU\",\"IT\",\"LV\",\n            \"HU\",\"IS\",\"IE\",\"FI\",\"FR\",\"DE\",\"GI\",\"GR\",\"GL\",\"BG\",\"HR\",\"CZ\",\"DK\",\"EE\",\"FO\",\"AL\",\"AD\",\n            \"AT\",\"BY\",\"BE\",\"BA\",\"AU\",\"CK\",\"FJ\",\"PF\", \"NR\",\"NZ\",\"PG\",\"SB\",\"TO\"\n        ],\n        \"autoAddSaleCountry\": 1,\n        \"prices\": [{ \n            \"country\": \"CN\", \n            \"price\": \"200\" \n        }], \n        \"promotion\": { \n            \"promotionId\": \"B04888F868440D288337A095B4862301\", \n            \"promotionTitle\": \"prom02\", \n            \"startDate\": 3164748860000, \n            \"endDate\": 3164748869889, \n            \"strategy\": \"introductory\", \n            \"price\": 50, \n            \"languages\": [{ \n                \"locale\": \"en-US\", \n                \"title\": \"mei guo ming cheng\", \n                \"desc\": \"mei guo desc\" \n            }], \n            \"promotionPrice\": [{ \n                \"price\": 20, \n                \"country\": \"CN\" \n            }] \n        } \n    }] \n}"
+    },
+    {
+      "section": "响应示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchupdateproduct-harmonyosnext-0000002131508852#section1234915176137",
+      "text": "响应示例\n{\n    \"error\": {\n        \"errorCode\": 0,\n        \"errorMsg\": \"success\"\n    },\n    \"failedNumber\": 0,\n    \"resultInfo\": [],\n    \"successNumber\": 2\n}"
+    }
+  ],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pmsapi-0000001162548121",
+      "title": "PMS API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pmsapi-harmonyosnext-0000002166747989",
+      "title": "HarmonyOS 5.0及以上"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114",
+      "title": "使用入门"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114#section103mcpsimp",
+      "title": "创建API客户端"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain_token-0000001158365043",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/appgallery_queryappinfo",
+      "title": "查询应用信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114#section949717114392",
+      "title": "获取用户授权码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/appgallery_queryappinfo",
+      "title": "查询应用信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-pimportinfo-harmonyosnext-0000002166748629",
+      "title": "ProductImportInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-errorresult-harmonyosnext-0000002131350724",
+      "title": "ErrorResult"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-pierrorinfo-harmonyosnext-0000002166670161",
+      "title": "ProductImportErrorInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-updateproduct-harmonyosnext-0000002166670141",
+      "title": "更新商品信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchactproduct-harmonyosnext-0000002131350712",
+      "title": "批量激活商品"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchupdateproduct-harmonyosnext-0000002131508852#section8711909",
+      "title": "功能介绍"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchupdateproduct-harmonyosnext-0000002131508852#section5189239225",
+      "title": "使用约束"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchupdateproduct-harmonyosnext-0000002131508852#section2862142512223",
+      "title": "接口原型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchupdateproduct-harmonyosnext-0000002131508852#section482745132215",
+      "title": "请求参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchupdateproduct-harmonyosnext-0000002131508852#section167891815112",
+      "title": "Header"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchupdateproduct-harmonyosnext-0000002131508852#section13500173412311",
+      "title": "Body"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchupdateproduct-harmonyosnext-0000002131508852#section19934722144316",
+      "title": "请求示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchupdateproduct-harmonyosnext-0000002131508852#section49198053",
+      "title": "响应参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchupdateproduct-harmonyosnext-0000002131508852#section1234915176137",
+      "title": "响应示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchupdateproduct-harmonyosnext-0000002131508852#section77276431240",
+      "title": "调用示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchupdateproduct-harmonyosnext-0000002131508852#section8711909",
+      "text": "此接口用于批量更新商品定义信息，展示语言，商品价格，促销活动信息。"
+    },
+    {
+      "section": "使用约束",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchupdateproduct-harmonyosnext-0000002131508852#section5189239225",
+      "text": "接口调用者的角色：账号持有者、管理员、APP管理员、运营。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchupdateproduct-harmonyosnext-0000002131508852#section167891815112",
+      "text": "API Client和OAuth Client区别参见使用入门。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchupdateproduct-harmonyosnext-0000002131508852#section167891815112",
+      "text": "API Client方式"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchupdateproduct-harmonyosnext-0000002131508852#section167891815112",
+      "text": "OAuth Client方式"
+    }
+  ],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchupdateproduct-harmonyosnext-0000002131508852",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "承载协议",
+          "HTTPS PUT"
+        ],
+        [
+          "接口方向",
+          "开发者服务器->数字商品服务器"
+        ],
+        [
+          "接口URL",
+          "https://connect-api.cloud.huawei.com/api/pms/product-price-service/v2/manage/product/batchImportProducts"
+        ],
+        [
+          "数据格式",
+          "请求消息：Content-Type: application/json 响应消息：Content-Type: application/json"
+        ]
+      ],
+      "section": "接口原型",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchupdateproduct-harmonyosnext-0000002131508852#section2862142512223"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数",
+          "必选(M)/可选(O)",
+          "类型",
+          "描述"
+        ],
+        [
+          "client_id",
+          "M",
+          "String",
+          "客户端ID，获取方法参考创建API客户端。"
+        ],
+        [
+          "Authorization",
+          "M",
+          "String",
+          "认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。"
+        ],
+        [
+          "appId",
+          "M",
+          "String",
+          "应用ID，获取方法参考查询应用信息。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchupdateproduct-harmonyosnext-0000002131508852#section167891815112"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "oauth2Token",
+          "M",
+          "String",
+          "认证信息，传入获取用户授权码中获取的Access Token。"
+        ],
+        [
+          "appId",
+          "M",
+          "String",
+          "应用ID，获取方法参考查询应用信息。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchupdateproduct-harmonyosnext-0000002131508852#section167891815112"
+    },
+    {
+      "location": "body",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "requestId",
+          "M",
+          "String",
+          "请求序列ID，开发者自定义唯一标识符。"
+        ],
+        [
+          "products",
+          "M",
+          "List<ProductImportInfo>",
+          "商品列表信息。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchupdateproduct-harmonyosnext-0000002131508852#section13500173412311"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "error",
+          "M",
+          "ErrorResult",
+          "包含返回码及描述信息的JSON字符串。"
+        ],
+        [
+          "failedNumber",
+          "O",
+          "Integer",
+          "批量更新商品中的失败个数。"
+        ],
+        [
+          "successNumber",
+          "O",
+          "Integer",
+          "批量更新商品中的成功个数。"
+        ],
+        [
+          "resultInfo",
+          "O",
+          "List<ProductImportErrorInfo>",
+          "失败原因说明。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchupdateproduct-harmonyosnext-0000002131508852#section49198053"
+    }
+  ],
+  "title": "批量更新商品",
+  "updatedAt": "2025-08-06 18:02",
+  "checkedAt": "2026-10-07T02:58:20.551Z",
+  "family": "pms",
+  "endpoint": "batchupdateproduct-harmonyosnext"
+}

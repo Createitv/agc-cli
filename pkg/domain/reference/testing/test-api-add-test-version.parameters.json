@@ -1,0 +1,60 @@
+[
+  {
+    "name": "teamId",
+    "in": "header",
+    "type": "string",
+    "required": false,
+    "description": "开发者所在团队的团队ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-test-version-0000002236041526#section15707195611112",
+    "maxLength": 64
+  },
+  {
+    "name": "appId",
+    "in": "query",
+    "type": "string",
+    "required": true,
+    "description": "应用ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-test-version-0000002236041526#section6641436115716"
+  },
+  {
+    "name": "releaseType",
+    "in": "body",
+    "type": "integer",
+    "required": true,
+    "description": "HarmonyOS测试发布方式（API>=10）。 默认值：6",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-test-version-0000002236041526#section141117691213"
+  },
+  {
+    "name": "testType",
+    "in": "body",
+    "type": "integer",
+    "required": true,
+    "description": "测试类型。 取值范围： 3：HarmonyOS邀请测试。 4：HarmonyOS公开测试。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-test-version-0000002236041526#section141117691213",
+    "enum": [
+      "3",
+      "4"
+    ]
+  },
+  {
+    "name": "testDesc",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "测试版本描述。 最长50个字符。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-test-version-0000002236041526#section141117691213",
+    "maxLength": 50
+  },
+  {
+    "name": "onshelfSelfDetect",
+    "in": "body",
+    "type": "integer",
+    "required": false,
+    "description": "是否进行上架自检。 取值范围： 0：否。 1：是。 说明 选择“是”，将提交邀请测试并按照正式上架的审核要求自检，上架自检预计1天内完成。 选择“否”，将仅提交邀请测试审核，不进行正式上架自检。 上架自检不影响您邀请测试的上架结果。 一个应用有且仅支持存在一个上架自检中的任务，若存在上架自检中的任务时，再次创建邀请测试，该字段设置无效。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-add-test-version-0000002236041526#section141117691213",
+    "enum": [
+      "0",
+      "1"
+    ]
+  }
+]

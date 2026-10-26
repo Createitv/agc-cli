@@ -1,0 +1,63 @@
+[
+  {
+    "name": "Authorization",
+    "type": "string",
+    "required": false,
+    "description": "认证鉴权信息。 认证方式：Bearer token。 格式:“Authorization: Bearer ${access_token}”。 access_token为获取Token中获取的access_token。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-deletenvir-0000001217445648#section580816227139",
+    "in": "header"
+  },
+  {
+    "name": "productId",
+    "type": "string",
+    "required": true,
+    "description": "项目ID，获取方法参考查询开发者账号ID及项目ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-deletenvir-0000001217445648#section580816227139",
+    "in": "header"
+  },
+  {
+    "name": "requestid",
+    "type": "string",
+    "required": true,
+    "description": "自定义的请求字符串，必须唯一标识此请求。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-deletenvir-0000001217445648#section580816227139",
+    "in": "header"
+  },
+  {
+    "name": "client_id",
+    "type": "string",
+    "required": false,
+    "description": "客户端ID，获取方法参考创建API客户端。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-deletenvir-0000001217445648#section580816227139",
+    "in": "header"
+  },
+  {
+    "name": "service",
+    "type": "string",
+    "required": true,
+    "description": "API业务标识。固定值：hosting。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-deletenvir-0000001217445648#section580816227139",
+    "in": "header",
+    "enum": [
+      "hosting"
+    ]
+  },
+  {
+    "name": "siteId",
+    "type": "string",
+    "required": true,
+    "description": "站点ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-deletenvir-0000001217445648#section2809102219131",
+    "in": "body",
+    "maxLength": 64
+  },
+  {
+    "name": "environmentId",
+    "type": "string",
+    "required": true,
+    "description": "环境ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-cloudhost-deletenvir-0000001217445648#section2809102219131",
+    "in": "body",
+    "maxLength": 64
+  }
+]

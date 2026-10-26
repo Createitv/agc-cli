@@ -1,0 +1,34 @@
+[
+  {
+    "name": "productId",
+    "type": "string",
+    "required": true,
+    "description": "项目ID，查询方法可参见查询项目ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-export-0000001136180686#section1651855118124",
+    "in": "header"
+  },
+  {
+    "name": "Authorization",
+    "type": "string",
+    "required": false,
+    "description": "认证信息，格式为“Authorization: Bearer ${JWT}”。JWT为通过Service Account方式获取授权中获取的鉴权令牌。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-export-0000001136180686#section1651855118124",
+    "in": "header"
+  },
+  {
+    "name": "client_id",
+    "type": "string",
+    "required": false,
+    "description": "客户端ID，获取方法参考创建API客户端。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-export-0000001136180686#section1651855118124",
+    "in": "header"
+  },
+  {
+    "name": "block",
+    "type": "",
+    "required": false,
+    "description": "当前存储块号。不填默认是0。第1次调用时，block设置为0。服务端会返回totalBlock。后面采用循环调用，遍历导出block块里面的用户。 Documented String/example integer conflict; accepted without coercion.",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/server-rest-export-0000001136180686#section16294334331",
+    "in": "body"
+  }
+]

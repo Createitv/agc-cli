@@ -1,0 +1,24 @@
+[
+  {
+    "name": "appId",
+    "in": "header",
+    "type": "string",
+    "required": true,
+    "description": "应用ID，获取方法参考查看应用信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-domain-api-get-domain-0000002271000701#section236517415165",
+    "maxLength": 32
+  },
+  {
+    "name": "category",
+    "in": "query",
+    "type": "string",
+    "required": true,
+    "description": "域名分类。 取值范围： server：服务器域名 business：业务域名",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-domain-api-get-domain-0000002271000701#section886219295206",
+    "maxLength": 32,
+    "enum": [
+      "server",
+      "business"
+    ]
+  }
+]

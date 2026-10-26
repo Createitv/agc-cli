@@ -1,0 +1,900 @@
+{
+  "checkedAt": "2026-10-26",
+  "examples": [],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-rest-0000001446447626",
+      "title": "REST API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-restapi-0000001518509166#section18502104612500",
+      "title": "获取客户端API授权"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-obtaintoken-rest-0000001446607602",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-get-developerid-projectid-0000001166543063",
+      "title": "查询项目ID"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-signin-rest-0000001496447669#section101441919542",
+      "title": "响应参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section42449327218",
+      "title": "MsgInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section448214662111",
+      "title": "ClientInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section18423962213",
+      "title": "QueryRequestMessage"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes-0000001127675459#ZH-CN_TOPIC_0000002764927381__li89603794812",
+      "title": "导出对象类型步骤4"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section42449327218",
+      "title": "MsgInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section15813132391810",
+      "title": "ResponseInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section1032114611816",
+      "title": "Schema"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section32691439191911",
+      "title": "OperatorData"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section15908236202019",
+      "title": "QueryResponseMessage"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section4778145911810",
+      "title": "SchemaField"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section10292165113308",
+      "title": "Field"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section86139207207",
+      "title": "FieldValue"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section138011958202015",
+      "title": "AggregateQueryResult"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-signin-rest-0000001496447669",
+      "title": "用户登录"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706",
+      "title": "更新数据"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section2891171218402",
+      "title": "功能介绍"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section133291219184112",
+      "title": "接口原型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section1957882116421",
+      "title": "请求参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section88414213129",
+      "title": "Query"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section1191513141413",
+      "title": "Header"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section2069774871410",
+      "title": "Body"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section42449327218",
+      "title": "MsgInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section448214662111",
+      "title": "ClientInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section18423962213",
+      "title": "QueryRequestMessage"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section133978369500",
+      "title": "响应参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section15813132391810",
+      "title": "ResponseInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section1032114611816",
+      "title": "Schema"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section4778145911810",
+      "title": "SchemaField"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section32691439191911",
+      "title": "OperatorData"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section10292165113308",
+      "title": "Field"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section86139207207",
+      "title": "FieldValue"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section15908236202019",
+      "title": "QueryResponseMessage"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section138011958202015",
+      "title": "AggregateQueryResult"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section2891171218402",
+      "text": "该接口用于用户查询数据，云数据库提供了丰富的谓词查询，比如equalTo、notEqualTo、in等，通过单个或者多个链式过滤条件，您可以从云侧数据库查询到满足特定条件的对象，也可以通过限定查询返回数量谓词限定查询结果返回的数量，还可以支持聚合查询，例如查询平均值、最大值、最小值等。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section18423962213",
+      "text": "请求示例"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section18423962213",
+      "text": "POST agc/apigw/clouddb/clouddbservice/sync/query?_v=4 content-type: application/json client_id: 74************40 Authorization: Bearer *** productId: 24************51 access_token: ****** host: connect-drcn.dbankcloud.cn { \"msgInfo\": { \"type\": 5, \"opStore\": { \"storeName\": \"cloudDBZone\" } }, \"clientInfo\": { \"appVer\": 15 }, \"queryReqMsg\": { \"queryType\" : 0, \"queryTable\" : \"StudentInfo\", \"queryCond\" : \"{\\\"queryConditions\\\":[{\\\"conditionType\\\":\\\"EqualTo\\\",\\\"fieldName\\\":\\\"id\\\",\\\"value\\\":\\\"1\\\"},{\\\"conditionType\\\":\\\"Limit\\\",\\\"value\\\":{\\\"number\\\":10,\\\"offset\\\":0}}]}\" } }"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section18423962213",
+      "text": "POST agc/apigw/clouddb/clouddbservice/sync/query?_v=4"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section18423962213",
+      "text": "content-type: application/json"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section18423962213",
+      "text": "client_id: 74************40"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section18423962213",
+      "text": "Authorization: Bearer ***"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section18423962213",
+      "text": "productId: 24************51"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section18423962213",
+      "text": "access_token: ******"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section18423962213",
+      "text": "host: connect-drcn.dbankcloud.cn"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section18423962213",
+      "text": "{"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section18423962213",
+      "text": "\"msgInfo\": {"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section18423962213",
+      "text": "\"type\": 5,"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section18423962213",
+      "text": "\"opStore\": {"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section18423962213",
+      "text": "\"storeName\": \"cloudDBZone\""
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section18423962213",
+      "text": "}"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section18423962213",
+      "text": "},"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section18423962213",
+      "text": "\"clientInfo\": {"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section18423962213",
+      "text": "\"appVer\": 15"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section18423962213",
+      "text": "\"queryReqMsg\": {"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section18423962213",
+      "text": "\"queryType\" : 0,"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section18423962213",
+      "text": "\"queryTable\" : \"StudentInfo\","
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section18423962213",
+      "text": "\"queryCond\" : \"{\\\"queryConditions\\\":[{\\\"conditionType\\\":\\\"EqualTo\\\",\\\"fieldName\\\":\\\"id\\\",\\\"value\\\":\\\"1\\\"},{\\\"conditionType\\\":\\\"Limit\\\",\\\"value\\\":{\\\"number\\\":10,\\\"offset\\\":0}}]}\""
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section18423962213",
+      "text": "{ \"queryReqMsg\": { \"queryType\" : 1, \"queryTable\" : \"StudentInfo\", \"queryCond\" : \"{\\\"queryConditions\\\":[{\\\"conditionType\\\":\\\"Average\\\",\\\"fieldName\\\":\\\"age\\\"}]}\" } }"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section18423962213",
+      "text": "\"queryType\" : 1,"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section18423962213",
+      "text": "\"queryCond\" : \"{\\\"queryConditions\\\":[{\\\"conditionType\\\":\\\"Average\\\",\\\"fieldName\\\":\\\"age\\\"}]}\""
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section138011958202015",
+      "text": "响应示例"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section138011958202015",
+      "text": "{ \"msgInfo\": { \"type\": 5, \"opStore\": { \"storeName\": \"cloudDBZone\" } }, \"resInfo\": {}, \"schemas\": [ { \"n\": \"StudentInfo\", \"fs\": [ { \"n\": \"id\", \"t\": 4 }, { \"n\": \"name\", \"t\": 9 }, { \"n\": \"age\", \"t\": 4 }, { \"n\": \"naturalbase_creator\", \"t\": 9 }, { \"n\": \"naturalbase_version\", \"t\": 5 } ] } ], \"opData\": [ { \"os\": [ { \"fs\": [ { \"i\": 0 }, { \"s\": \"string\" }, { \"i\": \"0\" }, { \"s\": \"string\" }, { \"l\": \"0\" } ] } ] } ], \"queryResMsg\": { \"aggQueryRes\": { \"isNull\": true } } }"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section138011958202015",
+      "text": "\"resInfo\": {},"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section138011958202015",
+      "text": "\"schemas\": ["
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section138011958202015",
+      "text": "\"n\": \"StudentInfo\","
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section138011958202015",
+      "text": "\"fs\": ["
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section138011958202015",
+      "text": "\"n\": \"id\","
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section138011958202015",
+      "text": "\"t\": 4"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section138011958202015",
+      "text": "\"n\": \"name\","
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section138011958202015",
+      "text": "\"t\": 9"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section138011958202015",
+      "text": "\"n\": \"age\","
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section138011958202015",
+      "text": "\"n\": \"naturalbase_creator\","
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section138011958202015",
+      "text": "\"n\": \"naturalbase_version\","
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section138011958202015",
+      "text": "\"t\": 5"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section138011958202015",
+      "text": "]"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section138011958202015",
+      "text": "],"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section138011958202015",
+      "text": "\"opData\": ["
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section138011958202015",
+      "text": "\"os\": ["
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section138011958202015",
+      "text": "\"i\": 0"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section138011958202015",
+      "text": "\"s\": \"string\""
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section138011958202015",
+      "text": "\"i\": \"0\""
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section138011958202015",
+      "text": "\"l\": \"0\""
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section138011958202015",
+      "text": "\"queryResMsg\": {"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section138011958202015",
+      "text": "\"aggQueryRes\": {"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section138011958202015",
+      "text": "\"isNull\": true"
+    }
+  ],
+  "renderedText": "API参考\n云数据库 for Object\nREST API\n查询数据\n查询数据\n更新时间: 2026-10-22 11:41\n功能介绍\n\n该接口用于用户查询数据，云数据库提供了丰富的谓词查询，比如equalTo、notEqualTo、in等，通过单个或者多个链式过滤条件，您可以从云侧数据库查询到满足特定条件的对象，也可以通过限定查询返回数量谓词限定查询结果返回的数量，还可以支持聚合查询，例如查询平均值、最大值、最小值等。\n\n接口原型\n\n承载协议\n\n\t\n\nHTTPS POST\n\n\n\n\n接口方向\n\n\t\n\n应用客户端 -> CloudDB服务器\n\n\n\n\n接口URL\n\n\t\n\nhttps://connect-drcn.dbankcloud.cn/agc/apigw/clouddb/clouddbservice/sync/query\n\n\n\n\n数据格式\n\n\t\n\n请求：Content-Type: application/json\n\n响应：Content-Type: application/json\n\n请求参数\nQuery\n\n参数名称\n\n\t\n\n必选(M)/可选(O)\n\n\t\n\n参数类型\n\n\t\n\n参数说明\n\n\n\n\n_v\n\n\t\n\nM\n\n\t\n\ninteger\n\n\t\n\n数据版本类型，入参需为“4”表示protobuf v2 版本类型的json字符串。\n\nHeader\n\n参数名称\n\n\t\n\n必选(M)/可选(O)\n\n\t\n\n参数类型\n\n\t\n\n参数说明\n\n\n\n\nclient_id\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n\n客户端ID，获取方法参考获取客户端API授权。\n\n\n\n\nAuthorization\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n\n认证信息。格式为“Authorization: Bearer ${client_token}”。\n\nclient_token为获取Token中获取的access_token。\n\n\n\nproductId\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n\n项目ID，查询方法可参见查询项目ID。\n\n\n\n\naccess_token\n\n\t\n\nO\n\n\t\n\nString\n\n\t\n\n认证凭据。用户登录成功后，在登录接口的响应参数“accessToken”中获取。该值为空时，则表示匿名账号登录。\n\nBody\n\n参数名称\n\n\t\n\n必选（M）/可选（O）\n\n\t\n\n参数类型\n\n\t\n\n参数说明\n\n\n\n\nmsgInfo\n\n\t\n\nM\n\n\t\n\nMsgInfo\n\n\t\n\n消息的基本信息，具体请参见MsgInfo。\n\n\n\n\nclientInfo\n\n\t\n\nM\n\n\t\n\nClientInfo\n\n\t\n\n客户端的基本信息，具体请参见ClientInfo。\n\n\n\n\nqueryReqMsg\n\n\t\n\nM\n\n\t\n\nQueryRequestMessage\n\n\t\n\n查询请求的基本信息，具体请参见QueryRequestMessage。\n\nMsgInfo\n\n参数名称\n\n\t\n\n必选（M）/可选（O）\n\n\t\n\n参数类型\n\n\t\n\n参数说明\n\n\n\n\ntype\n\n\t\n\nM\n\n\t\n\ninteger\n\n\t\n\n查询请求。入参需为“5”。\n\n“3”：更新数据或删除数据请求。\n“5”：查询数据请求。\n\n\n\nopStore\n\n\t\n\nM\n\n\t\n\nJson\n\n\t\n\nJSON字符串。格式为{\"storeName\": \"cloudDBZone\"}。\n\ncloudDBZone为存储区名。\nClientInfo\n\n参数名称\n\n\t\n\n必选（M）/可选（O）\n\n\t\n\n参数类型\n\n\t\n\n参数说明\n\n\n\n\nappVer\n\n\t\n\nM\n\n\t\n\ninteger\n\n\t\n\n对象类型对应的版本号，获取请参考导出对象类型步骤4中的版本号。\n\nQueryRequestMessage\n\n参数名称\n\n\t\n\n必选（M）/可选（O）\n\n\t\n\n参数类型\n\n\t\n\n参数说明\n\n\n\n\nqueryType\n\n\t\n\nM\n\n\t\n\ninteger\n\n\t\n\n查询类型。涉及到的查询值类型如下：\n\n0：默认值，普通查询。\n1：AVG、Average，平均值查询。\n2：SUM，总和查询。\n3：MAX，最大值查询。\n4：MIN，最小值查询。\n5：COUNT，计数查询。\n\n\n\nqueryTable\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n\n查询的对象类型名称。\n\n\n\n\nqueryCond\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n\n查询条件。Json格式的字符串，例如：\"{\\\"queryConditions\\\":[{\\\"conditionType\\\":\\\"EqualTo\\\",\\\"fieldName\\\":\\\"id\\\",\\\"value\\\":\\\"3\\\"},{\\\"conditionType\\\":\\\"Limit\\\",\\\"value\\\":{\\\"number\\\":10,\\\"offset\\\":0}}]}\"\n\n说明\n\n当queryType不为0时，queryCond的conditionType参数必须设置为与queryType取值一致的查询条件，否则会导致接口返回错误。\n\n例如：queryType取值为2时，conditionType必须设置为SUM。\n\n请求示例\n\n预定义一个存储区(cloudDBZone)、对象类型StudentInfo(id integer primary key, name string, age integer);\nPOST agc/apigw/clouddb/clouddbservice/sync/query?_v=4\ncontent-type: application/json\nclient_id: 74************40\nAuthorization: Bearer ***\nproductId: 24************51\naccess_token: ******\nhost: connect-drcn.dbankcloud.cn\n{\n  \"msgInfo\": {\n    \"type\": 5,\n    \"opStore\": {\n      \"storeName\": \"cloudDBZone\"\n    }\n  },\n  \"clientInfo\": {\n    \"appVer\": 15\n  },\n  \"queryReqMsg\": {\n    \"queryType\" : 0,\n    \"queryTable\" : \"StudentInfo\",\n    \"queryCond\" : \"{\\\"queryConditions\\\":[{\\\"conditionType\\\":\\\"EqualTo\\\",\\\"fieldName\\\":\\\"id\\\",\\\"value\\\":\\\"1\\\"},{\\\"conditionType\\\":\\\"Limit\\\",\\\"value\\\":{\\\"number\\\":10,\\\"offset\\\":0}}]}\"\n  }\n}\n聚合查询QueryRequestMessage请求消息体示例\n{\n  \"queryReqMsg\": {\n    \"queryType\" : 1,\n    \"queryTable\" : \"StudentInfo\",\n    \"queryCond\" : \"{\\\"queryConditions\\\":[{\\\"conditionType\\\":\\\"Average\\\",\\\"fieldName\\\":\\\"age\\\"}]}\"\n  }\n}\n响应参数\n\n参数\n\n\t\n\n必选（M）/可选（O）\n\n\t\n\n参数类型\n\n\t\n\n描述\n\n\n\n\nmsgInfo\n\n\t\n\nO\n\n\t\n\nMsgInfo\n\n\t\n\n消息的基本信息，具体请参见MsgInfo。\n\n\n\n\nresInfo\n\n\t\n\nO\n\n\t\n\nResponseInfo\n\n\t\n\n返回响应的基本状态信息，具体请参见ResponseInfo。\n\n\n\n\nschemas\n\n\t\n\nO\n\n\t\n\nlist<Schema>\n\n\t\n\n对象类型基本信息，具体请见Schema。\n\n\n\n\nopData\n\n\t\n\nO\n\n\t\n\nlist<OperatorData>\n\n\t\n\n对象类型中数据信息，具体请见OperatorData。\n\n\n\n\nqueryResMsg\n\n\t\n\nO\n\n\t\n\nQueryResponseMessage\n\n\t\n\n聚合查询响应基本信息，具体请参见QueryResponseMessage。\n\nResponseInfo\n\n参数名称\n\n\t\n\n必选（M）/可选（O）\n\n\t\n\n参数类型\n\n\t\n\n参数说明\n\n\n\n\nresCode\n\n\t\n\nO\n\n\t\n\ninteger\n\n\t\n\n响应状态码。\n\n\n\n\nresInfo\n\n\t\n\nO\n\n\t\n\nString\n\n\t\n\n响应描述信息。\n\nSchema\n\n参数名称\n\n\t\n\n必选（M）/可选（O）\n\n\t\n\n参数类型\n\n\t\n\n参数说明\n\n\n\n\nn\n\n\t\n\nO\n\n\t\n\nString\n\n\t\n\n对象类型名称。\n\n\n\n\nfs\n\n\t\n\nO\n\n\t\n\nList<SchemaField>\n\n\t\n\n字段名称。\n\nSchemaField\n\n参数名称\n\n\t\n\n必选（M）/可选（O）\n\n\t\n\n参数类型\n\n\t\n\n参数说明\n\n\n\n\nn\n\n\t\n\nO\n\n\t\n\nString\n\n\t\n\n字段名信息。\n\n\n\n\nt\n\n\t\n\nO\n\n\t\n\nString\n\n\t\n\n字段类型，取值包含如下字段类型：\n\n1：TYPE_BOOLEAN，布尔类型。\n2：TYPE_BYTE，byte类型。\n3：TYPE_SHORT，short类型。\n4：TYPE_INT32，int类型。\n5：TYPE_LONG，long类型。\n6：TYPE_FLOAT，float类型。\n7：TYPE_DOUBLE，double类型。\n8：TYPE_BYTE_ARRAY，byte数组类型。\n9：TYPE_STRING，String类型。\n10：TYPE_DATE，date类型。\n11：TYPE_TEXT，文本类型。\n12：TYPE_AUTO_INCREMENT_INT，int自增类型。\n13：TYPE_AUTO_INCREMENT_LONG，long自增类型。\nOperatorData\n\n参数名称\n\n\t\n\n必选（M）/可选（O）\n\n\t\n\n参数类型\n\n\t\n\n参数说明\n\n\n\n\nos\n\n\t\n\nO\n\n\t\n\nList<Field>\n\n\t\n\n数据对象信息。\n\nField\n\n参数名称\n\n\t\n\n必选（M）/可选（O）\n\n\t\n\n参数类型\n\n\t\n\n参数说明\n\n\n\n\nfs\n\n\t\n\nO\n\n\t\n\nList<FieldValue>\n\n\t\n\n单条数据对象信息。\n\nFieldValue\n\n参数名称\n\n\t\n\n必选（M）/可选（O）\n\n\t\n\n参数类型\n\n\t\n\n参数说明\n\n\n\n\nn\n\n\t\n\nO\n\n\t\n\nboolean\n\n\t\n\n是否设置为null\n\n\n\n\nbl\n\n\t\n\nO\n\n\t\n\nboolean\n\n\t\n\nboolean类型值\n\n\n\n\nb\n\n\t\n\nO\n\n\t\n\nbyte\n\n\t\n\nbyte类型值\n\n\n\n\nst\n\n\t\n\nO\n\n\t\n\nshort\n\n\t\n\nshort类型值\n\n\n\n\ni\n\n\t\n\nO\n\n\t\n\nint\n\n\t\n\nint类型值\n\n\n\n\nl\n\n\t\n\nO\n\n\t\n\nlong\n\n\t\n\nlong类型值\n\n\n\n\nf\n\n\t\n\nO\n\n\t\n\nfloat\n\n\t\n\nfloat类型值\n\n\n\n\nd\n\n\t\n\nO\n\n\t\n\ndouble\n\n\t\n\ndouble类型值\n\n\n\n\nba\n\n\t\n\nO\n\n\t\n\nbyteArray\n\n\t\n\nbyteArray类型值\n\n\n\n\ns\n\n\t\n\nO\n\n\t\n\nString\n\n\t\n\nString类型值\n\nQueryResponseMessage\n\n参数名称\n\n\t\n\n必选（M）/可选（O）\n\n\t\n\n参数类型\n\n\t\n\n参数说明\n\n\n\n\nqueryType\n\n\t\n\nO\n\n\t\n\ninteger\n\n\t\n\n查询类型，涉及到的查询值类型如下：\n\n0：默认值，普通查询。\n1：AVG、Average，平均值查询。\n2：SUM，总和查询。\n3：MAX，最大值查询。\n4：MIN，最小值查询。\n5：COUNT，计数查询。\n\n\n\naggQueryRes\n\n\t\n\nO\n\n\t\n\nAggregateQueryResult\n\n\t\n\n聚合查询结果信息。\n\nAggregateQueryResult\n\n参数名称\n\n\t\n\n必选（M）/可选（O）\n\n\t\n\n参数类型\n\n\t\n\n参数说明\n\n\n\n\nisNull\n\n\t\n\nO\n\n\t\n\nboolean\n\n\t\n\n聚合查询结果是否为空。\n\n\n\n\nlongRes\n\n\t\n\nO\n\n\t\n\nlong\n\n\t\n\n字段类型为int、long的MAX、MIN、SUM查询结果或COUNT查询结果。\n\n\n\n\ndoubleRes\n\n\t\n\nO\n\n\t\n\ndouble\n\n\t\n\n字段类型为double的MAX、MIN、Average、SUM查询结果。\n\n响应示例\n\n{\n    \"msgInfo\": {\n        \"type\": 5,\n        \"opStore\": {\n            \"storeName\": \"cloudDBZone\"\n        }\n    },\n    \"resInfo\": {},\n    \"schemas\": [\n        {\n            \"n\": \"StudentInfo\",\n            \"fs\": [\n                {\n                    \"n\": \"id\",\n                    \"t\": 4\n                },\n                {\n                    \"n\": \"name\",\n                    \"t\": 9\n                },\n                {\n                    \"n\": \"age\",\n                    \"t\": 4\n                },\n                {\n                    \"n\": \"naturalbase_creator\",\n                    \"t\": 9\n                },\n                {\n                    \"n\": \"naturalbase_version\",\n                    \"t\": 5\n                }\n            ]\n        }\n    ],\n    \"opData\": [\n        {\n            \"os\": [\n                {\n                    \"fs\": [\n                        {\n                            \"i\": 0\n                        },\n                        {\n                            \"s\": \"string\"\n                        },\n                        {\n                            \"i\": \"0\"\n                        },\n                        {\n                            \"s\": \"string\"\n                        },\n                        {\n                            \"l\": \"0\"\n                        }\n                    ]\n                }\n            ]\n        }\n    ],\n    \"queryResMsg\": {\n        \"aggQueryRes\": {\n            \"isNull\": true\n        }\n    }\n}\n用户登录\n更新数据\n意见反馈\n以上内容对您是否有帮助？\n意见反馈\n如果您有其他疑问，您也可以通过开发者社区问答频道来和我们联系探讨。\n社区提问AI 助手提问\n本文导读\n功能介绍\n接口原型\n请求参数\nQuery\nHeader\nBody\nMsgInfo\nClientInfo\nQueryRequestMessage\n响应参数\nResponseInfo\nSchema\nSchemaField\nOperatorData\nField\nFieldValue\nQueryResponseMessage\nAggregateQueryResult\n简体中文\n华为开发者联盟 版权所有 ©2026\n问题反馈\n使用条款\n华为开发者联盟用户协议\n关于华为开发者联盟与隐私的声明\nCookies\n开源软件声明",
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "承载协议",
+          "HTTPS POST"
+        ],
+        [
+          "接口方向",
+          "应用客户端 -> CloudDB服务器"
+        ],
+        [
+          "接口URL",
+          "https://connect-drcn.dbankcloud.cn/agc/apigw/clouddb/clouddbservice/sync/query"
+        ],
+        [
+          "数据格式",
+          "请求：Content-Type: application/json 响应：Content-Type: application/json"
+        ]
+      ],
+      "section": "接口原型",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section133291219184112"
+    },
+    {
+      "location": "query",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "参数类型",
+          "参数说明"
+        ],
+        [
+          "_v",
+          "M",
+          "integer",
+          "数据版本类型，入参需为“4”表示protobuf v2 版本类型的json字符串。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section88414213129"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "参数类型",
+          "参数说明"
+        ],
+        [
+          "client_id",
+          "M",
+          "String",
+          "客户端ID，获取方法参考获取客户端API授权。"
+        ],
+        [
+          "Authorization",
+          "M",
+          "String",
+          "认证信息。格式为“Authorization: Bearer ${client_token}”。 client_token为获取Token中获取的access_token。"
+        ],
+        [
+          "productId",
+          "M",
+          "String",
+          "项目ID，查询方法可参见查询项目ID。"
+        ],
+        [
+          "access_token",
+          "O",
+          "String",
+          "认证凭据。用户登录成功后，在登录接口的响应参数“accessToken”中获取。该值为空时，则表示匿名账号登录。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section1191513141413"
+    },
+    {
+      "location": "body",
+      "rows": [
+        [
+          "参数名称",
+          "必选（M）/可选（O）",
+          "参数类型",
+          "参数说明"
+        ],
+        [
+          "msgInfo",
+          "M",
+          "MsgInfo",
+          "消息的基本信息，具体请参见MsgInfo。"
+        ],
+        [
+          "clientInfo",
+          "M",
+          "ClientInfo",
+          "客户端的基本信息，具体请参见ClientInfo。"
+        ],
+        [
+          "queryReqMsg",
+          "M",
+          "QueryRequestMessage",
+          "查询请求的基本信息，具体请参见QueryRequestMessage。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section2069774871410"
+    },
+    {
+      "location": "body",
+      "rows": [
+        [
+          "参数名称",
+          "必选（M）/可选（O）",
+          "参数类型",
+          "参数说明"
+        ],
+        [
+          "type",
+          "M",
+          "integer",
+          "查询请求。入参需为“5”。 “3”：更新数据或删除数据请求。 “5”：查询数据请求。"
+        ],
+        [
+          "opStore",
+          "M",
+          "Json",
+          "JSON字符串。格式为{\"storeName\": \"cloudDBZone\"}。 cloudDBZone为存储区名。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section42449327218"
+    },
+    {
+      "location": "body",
+      "rows": [
+        [
+          "参数名称",
+          "必选（M）/可选（O）",
+          "参数类型",
+          "参数说明"
+        ],
+        [
+          "appVer",
+          "M",
+          "integer",
+          "对象类型对应的版本号，获取请参考导出对象类型步骤4中的版本号。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section448214662111"
+    },
+    {
+      "location": "body",
+      "rows": [
+        [
+          "参数名称",
+          "必选（M）/可选（O）",
+          "参数类型",
+          "参数说明"
+        ],
+        [
+          "queryType",
+          "M",
+          "integer",
+          "查询类型。涉及到的查询值类型如下： 0：默认值，普通查询。 1：AVG、Average，平均值查询。 2：SUM，总和查询。 3：MAX，最大值查询。 4：MIN，最小值查询。 5：COUNT，计数查询。"
+        ],
+        [
+          "queryTable",
+          "M",
+          "String",
+          "查询的对象类型名称。"
+        ],
+        [
+          "queryCond",
+          "M",
+          "String",
+          "查询条件。Json格式的字符串，例如：\"{\\\"queryConditions\\\":[{\\\"conditionType\\\":\\\"EqualTo\\\",\\\"fieldName\\\":\\\"id\\\",\\\"value\\\":\\\"3\\\"},{\\\"conditionType\\\":\\\"Limit\\\",\\\"value\\\":{\\\"number\\\":10,\\\"offset\\\":0}}]}\" 说明 当queryType不为0时，queryCond的conditionType参数必须设置为与queryType取值一致的查询条件，否则会导致接口返回错误。 例如：queryType取值为2时，conditionType必须设置为SUM。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section18423962213"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数",
+          "必选（M）/可选（O）",
+          "参数类型",
+          "描述"
+        ],
+        [
+          "msgInfo",
+          "O",
+          "MsgInfo",
+          "消息的基本信息，具体请参见MsgInfo。"
+        ],
+        [
+          "resInfo",
+          "O",
+          "ResponseInfo",
+          "返回响应的基本状态信息，具体请参见ResponseInfo。"
+        ],
+        [
+          "schemas",
+          "O",
+          "list<Schema>",
+          "对象类型基本信息，具体请见Schema。"
+        ],
+        [
+          "opData",
+          "O",
+          "list<OperatorData>",
+          "对象类型中数据信息，具体请见OperatorData。"
+        ],
+        [
+          "queryResMsg",
+          "O",
+          "QueryResponseMessage",
+          "聚合查询响应基本信息，具体请参见QueryResponseMessage。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section133978369500"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选（M）/可选（O）",
+          "参数类型",
+          "参数说明"
+        ],
+        [
+          "resCode",
+          "O",
+          "integer",
+          "响应状态码。"
+        ],
+        [
+          "resInfo",
+          "O",
+          "String",
+          "响应描述信息。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section15813132391810"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选（M）/可选（O）",
+          "参数类型",
+          "参数说明"
+        ],
+        [
+          "n",
+          "O",
+          "String",
+          "对象类型名称。"
+        ],
+        [
+          "fs",
+          "O",
+          "List<SchemaField>",
+          "字段名称。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section1032114611816"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选（M）/可选（O）",
+          "参数类型",
+          "参数说明"
+        ],
+        [
+          "n",
+          "O",
+          "String",
+          "字段名信息。"
+        ],
+        [
+          "t",
+          "O",
+          "String",
+          "字段类型，取值包含如下字段类型： 1：TYPE_BOOLEAN，布尔类型。 2：TYPE_BYTE，byte类型。 3：TYPE_SHORT，short类型。 4：TYPE_INT32，int类型。 5：TYPE_LONG，long类型。 6：TYPE_FLOAT，float类型。 7：TYPE_DOUBLE，double类型。 8：TYPE_BYTE_ARRAY，byte数组类型。 9：TYPE_STRING，String类型。 10：TYPE_DATE，date类型。 11：TYPE_TEXT，文本类型。 12：TYPE_AUTO_INCREMENT_INT，int自增类型。 13：TYPE_AUTO_INCREMENT_LONG，long自增类型。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section4778145911810"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选（M）/可选（O）",
+          "参数类型",
+          "参数说明"
+        ],
+        [
+          "os",
+          "O",
+          "List<Field>",
+          "数据对象信息。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section32691439191911"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选（M）/可选（O）",
+          "参数类型",
+          "参数说明"
+        ],
+        [
+          "fs",
+          "O",
+          "List<FieldValue>",
+          "单条数据对象信息。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section10292165113308"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选（M）/可选（O）",
+          "参数类型",
+          "参数说明"
+        ],
+        [
+          "n",
+          "O",
+          "boolean",
+          "是否设置为null"
+        ],
+        [
+          "bl",
+          "O",
+          "boolean",
+          "boolean类型值"
+        ],
+        [
+          "b",
+          "O",
+          "byte",
+          "byte类型值"
+        ],
+        [
+          "st",
+          "O",
+          "short",
+          "short类型值"
+        ],
+        [
+          "i",
+          "O",
+          "int",
+          "int类型值"
+        ],
+        [
+          "l",
+          "O",
+          "long",
+          "long类型值"
+        ],
+        [
+          "f",
+          "O",
+          "float",
+          "float类型值"
+        ],
+        [
+          "d",
+          "O",
+          "double",
+          "double类型值"
+        ],
+        [
+          "ba",
+          "O",
+          "byteArray",
+          "byteArray类型值"
+        ],
+        [
+          "s",
+          "O",
+          "String",
+          "String类型值"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section86139207207"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选（M）/可选（O）",
+          "参数类型",
+          "参数说明"
+        ],
+        [
+          "queryType",
+          "O",
+          "integer",
+          "查询类型，涉及到的查询值类型如下： 0：默认值，普通查询。 1：AVG、Average，平均值查询。 2：SUM，总和查询。 3：MAX，最大值查询。 4：MIN，最小值查询。 5：COUNT，计数查询。"
+        ],
+        [
+          "aggQueryRes",
+          "O",
+          "AggregateQueryResult",
+          "聚合查询结果信息。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section15908236202019"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选（M）/可选（O）",
+          "参数类型",
+          "参数说明"
+        ],
+        [
+          "isNull",
+          "O",
+          "boolean",
+          "聚合查询结果是否为空。"
+        ],
+        [
+          "longRes",
+          "O",
+          "long",
+          "字段类型为int、long的MAX、MIN、SUM查询结果或COUNT查询结果。"
+        ],
+        [
+          "doubleRes",
+          "O",
+          "double",
+          "字段类型为double的MAX、MIN、Average、SUM查询结果。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-query-data-rest-0000001496647573#section138011958202015"
+    }
+  ],
+  "title": "查询数据",
+  "updatedAt": "2026-10-22 11:41",
+  "captureTool": "Computer Use; scripts/browser-capture-reference.mjs-compatible merged-cell capture",
+  "unresolvedRules": [
+    "opStore is labelled Json/JSON字符串 in the table, but request examples use an object. The adapter uses the explicit example object; queryCond remains an encoded JSON string. SchemaField.t descriptions enumerate numeric codes while write examples use TYPE_* strings. Delete Schema.fs says one item but its example contains three; no conflicting one-item cap is imposed. FieldValue.ba is labelled byteArray without a wire example; preserve caller JSON rather than guessing base64 or array."
+  ]
+}

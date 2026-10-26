@@ -1,0 +1,28 @@
+[
+  {
+    "name": "callbackUrl",
+    "in": "path",
+    "type": "string",
+    "required": true,
+    "description": "Developer HTTPS authentication callback URL",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-get-id-0000001296645276"
+  },
+  {
+    "name": "appId",
+    "type": "string",
+    "required": true,
+    "description": "应用ID，获取方法参考查看应用基本信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-get-id-0000001296645276#section128mcpsimp",
+    "in": "body",
+    "maxLength": 64
+  },
+  {
+    "name": "accessToken",
+    "type": "string",
+    "required": true,
+    "description": "玩家ID的认证凭据，来自于您调用函数接口时带的参数值。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agc-serverless-get-id-0000001296645276#section128mcpsimp",
+    "in": "body",
+    "maxLength": 2048
+  }
+]

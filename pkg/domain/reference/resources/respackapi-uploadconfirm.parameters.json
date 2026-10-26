@@ -1,0 +1,111 @@
+[
+  {
+    "name": "requestId",
+    "in": "header",
+    "type": "string",
+    "required": true,
+    "description": "请求ID，最大长度128个字符，必须唯一。开发者自定义，用于鉴别是否是重复请求。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadconfirm-0000002362394641#section119494174419",
+    "maxLength": 128
+  },
+  {
+    "name": "devId",
+    "in": "path",
+    "type": "integer",
+    "required": true,
+    "description": "开发者ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadconfirm-0000002362394641#section6704618182019"
+  },
+  {
+    "name": "appId",
+    "in": "body",
+    "type": "string",
+    "required": false,
+    "description": "游戏APP ID，获取方法参考查询应用信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadconfirm-0000002362394641#section985411610234"
+  },
+  {
+    "name": "fileId",
+    "in": "body",
+    "type": "integer",
+    "required": false,
+    "description": "文件ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadconfirm-0000002362394641#section985411610234"
+  },
+  {
+    "name": "uploadResult",
+    "in": "body",
+    "type": "integer",
+    "required": true,
+    "description": "上传结果： 0：成功 1：失败",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadconfirm-0000002362394641#section985411610234",
+    "enum": [
+      "0",
+      "1"
+    ]
+  },
+  {
+    "name": "versionId",
+    "in": "body",
+    "type": "integer",
+    "required": true,
+    "description": "资源包版本ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadconfirm-0000002362394641#section985411610234"
+  },
+  {
+    "name": "hotUpdateVersion",
+    "in": "body",
+    "type": "string",
+    "required": false,
+    "description": "资源包子版本号。最长128个字符。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadconfirm-0000002362394641#section985411610234",
+    "maxLength": 128
+  },
+  {
+    "name": "filePartConfirmInfos",
+    "in": "body",
+    "type": "array",
+    "required": false,
+    "description": "文件分片确认信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadconfirm-0000002362394641#section985411610234",
+    "itemsType": "object",
+    "itemsProperties": [
+      {
+        "name": "partNo",
+        "in": "body",
+        "type": "string",
+        "required": false,
+        "description": "分段序号。最大长度1024个字符。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadconfirm-0000002362394641#section985411610234",
+        "maxLength": 1024
+      },
+      {
+        "name": "partObjectId",
+        "in": "body",
+        "type": "string",
+        "required": false,
+        "description": "分段对象，大文件创建接口响应获取。最大长度2048个字符。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadconfirm-0000002362394641#section985411610234",
+        "maxLength": 2048
+      },
+      {
+        "name": "etag",
+        "in": "body",
+        "type": "string",
+        "required": false,
+        "description": "分段Etag，上传至OBS响应的header中获取。最大长度2048个字符。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadconfirm-0000002362394641#section985411610234",
+        "maxLength": 2048
+      },
+      {
+        "name": "xGoogleGeneration",
+        "in": "body",
+        "type": "string",
+        "required": false,
+        "description": "分段x_google_gengration，上传至OBS响应的header中获取。最大长度2048个字符。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadconfirm-0000002362394641#section985411610234",
+        "maxLength": 2048
+      }
+    ]
+  }
+]

@@ -1,0 +1,327 @@
+{
+  "examples": [
+    {
+      "section": "请求示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetpromotioninfo-harmonyosnext-0000002166670149#section19934722144316",
+      "text": "请求示例\n\n以API Client为例：\n\nPOST https://connect-api.cloud.huawei.com/api/pms/product-price-service/v2/manage/product/promotion/list\nContent-Type: application/json\nclient_id: ***\nAuthorization: Bearer ***\nappId: 1000001\n\n\n{\n    \"requestId\": \"123411111111\",\n    \"productNo\": \"testforpms715U157\",\n    \"strategy\": \"introductory\",\n    \"pageNum\": 1,\n    \"pageSize\": 10,\n        \"promotionType\": 1,\n        \"offerId\": \"123131ds\"\n}"
+    },
+    {
+      "section": "响应示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetpromotioninfo-harmonyosnext-0000002166670149#section54251026192717",
+      "text": "响应示例\n{ \n    \"error\": { \n        \"errorCode\": 0, \n        \"errorMsg\": null \n    }, \n    \"productPromotions\": [{ \n        \"createId\": \"wwh_xn\", \n        \"createTime\": \"2019-12-06 16:28:56\", \n        \"defaultLocale\": \"zh-CN\", \n        \"defaultTier\": \"TIER104\", \n        \"endDate\": 1975269862000, \n        \"numberOfUnits\": null, \n        \"periodUnit\": null, \n        \"productId\": \"9C1B4C23702341ACA3F51A9FA1B36BF0\", \n        \"promotionDesc\": \"default desc\", \n        \"promotionId\": \"26B62881C5204E7285EFE6E8A7CF9554\", \n        \"promotionTitle\": \"postman创建13535\", \n        \"startDate\": 1975010662000, \n        \"status\": 1, \n        \"promotionStatus\": \"active\", \n        \"strategy\": \"introductory\", \n        \"updateId\": null, \n        \"updateTime\": null, \n        \"promotionCountryCount\": 0, \n        \"promotionType\": 0 \n    }, { \n        \"createId\": \"wwh_xn\", \n        \"createTime\": \"2019-12-06 16:28:56\", \n        \"defaultLocale\": \"zh-CN\", \n        \"defaultTier\": \"TIER104\", \n        \"endDate\": 1975269862000, \n        \"numberOfUnits\": null, \n        \"periodUnit\": null, \n        \"productId\": \"9C1B4C23702341ACA3F51A9FA1B36BF0\", \n        \"promotionDesc\": \"default desc\", \n        \"promotionId\": \"26B62881C5204E7285EFE6E8A7CF9556\", \n        \"promotionTitle\": \"postman创建13535\", \n        \"startDate\": 1975010662000, \n        \"status\": 1, \n        \"promotionStatus\": \"active\", \n        \"strategy\": \"introductory\", \n        \"updateId\": null, \n        \"updateTime\": null, \n        \"promotionCountryCount\": 0, \n        \"promotionType\": 0 \n    }, { \n        \"createId\": \"wwh_xn\", \n        \"createTime\": \"2019-12-06 16:28:56\", \n        \"defaultLocale\": \"zh-CN\", \n        \"defaultTier\": \"TIER104\", \n        \"endDate\": 1975269862000, \n        \"numberOfUnits\": null, \n        \"periodUnit\": null, \n        \"productId\": \"9C1B4C23702341ACA3F51A9FA1B36BF0\", \n        \"promotionDesc\": \"default desc\", \n        \"promotionId\": \"26B62881C5204E7285EFE6E8A7CF9558\", \n        \"promotionTitle\": \"postman创建13535\", \n        \"startDate\": 1975010662000, \n        \"status\": 1, \n        \"promotionStatus\": \"active\", \n        \"strategy\": \"introductory\", \n        \"updateId\": null, \n        \"updateTime\": null, \n        \"promotionCountryCount\": 0, \n        \"promotionType\": 0 \n    }, { \n        \"createId\": \"wwh_xn\", \n        \"createTime\": \"2019-12-06 16:28:56\", \n        \"defaultLocale\": \"zh-CN\", \n        \"defaultTier\": \"TIER104\", \n        \"endDate\": 1975269862000, \n        \"numberOfUnits\": null, \n        \"periodUnit\": null, \n        \"productId\": \"9C1B4C23702341ACA3F51A9FA1B36BF0\", \n        \"promotionDesc\": \"default desc\", \n        \"promotionId\": \"26B62881C5204E7285EFE6E8A7CF9551\", \n        \"promotionTitle\": \"postman创建13535\", \n        \"startDate\": 1975010662000, \n        \"status\": 1, \n        \"promotionStatus\": \"active\", \n        \"strategy\": \"introductory\", \n        \"updateId\": null, \n        \"updateTime\": null, \n        \"promotionCountryCount\": 0, \n        \"promotionType\": 0 \n    }, { \n        \"createId\": \"wwh_xn\", \n        \"createTime\": \"2019-12-06 16:28:56\", \n        \"defaultLocale\": \"zh-CN\", \n        \"defaultTier\": \"TIER104\", \n        \"endDate\": 1975269862000, \n        \"numberOfUnits\": null, \n        \"periodUnit\": null, \n        \"productId\": \"9C1B4C23702341ACA3F51A9FA1B36BF0\", \n        \"promotionDesc\": \"default desc\", \n        \"promotionId\": \"26B62881C5204E7285EFE6E8A7CF9553\", \n        \"promotionTitle\": \"postman创建13535\", \n        \"startDate\": 1975010662000, \n        \"status\": 1, \n        \"promotionStatus\": \"active\", \n        \"strategy\": \"introductory\", \n        \"updateId\": null, \n        \"updateTime\": null, \n        \"promotionCountryCount\": 0, \n        \"promotionType\": 0  \n    }, { \n        \"createId\": \"wwh_xn\", \n        \"createTime\": \"2019-12-06 16:28:56\", \n        \"defaultLocale\": \"zh-CN\", \n        \"defaultTier\": \"TIER104\", \n        \"endDate\": 1975269862000, \n        \"numberOfUnits\": null, \n        \"periodUnit\": null, \n        \"productId\": \"9C1B4C23702341ACA3F51A9FA1B36BF0\", \n        \"promotionDesc\": \"default desc\", \n        \"promotionId\": \"26B62881C5204E7285EFE6E8A7CF9555\", \n        \"promotionTitle\": \"postman创建13535\", \n        \"startDate\": 1975010662000, \n        \"status\": 1, \n        \"promotionStatus\": \"active\", \n        \"strategy\": \"introductory\", \n        \"updateId\": null, \n        \"updateTime\": null, \n        \"promotionCountryCount\": 0, \n        \"promotionType\": 0  \n    }, { \n        \"createId\": \"wwh_xn\", \n        \"createTime\": \"2019-12-06 16:28:56\", \n        \"defaultLocale\": \"zh-CN\", \n        \"defaultTier\": \"TIER104\", \n        \"endDate\": 1975269862000, \n        \"numberOfUnits\": null, \n        \"periodUnit\": null, \n        \"productId\": \"9C1B4C23702341ACA3F51A9FA1B36BF0\", \n        \"promotionDesc\": \"default desc\", \n        \"promotionId\": \"26B62881C5204E7285EFE6E8A7CF9557\", \n        \"promotionTitle\": \"postman创建13535\", \n        \"startDate\": 1975010662000, \n        \"status\": 1, \n        \"promotionStatus\": \"active\", \n        \"strategy\": \"introductory\", \n        \"updateId\": null, \n        \"updateTime\": null, \n        \"promotionCountryCount\": 0, \n        \"promotionType\": 0  \n    }, { \n        \"createId\": \"wwh_xn\", \n        \"createTime\": \"2019-12-06 16:28:56\", \n        \"defaultLocale\": \"zh-CN\", \n        \"defaultTier\": \"TIER104\", \n        \"endDate\": 1975269862000, \n        \"numberOfUnits\": null, \n        \"periodUnit\": null, \n        \"productId\": \"9C1B4C23702341ACA3F51A9FA1B36BF0\", \n        \"promotionDesc\": \"default desc\", \n        \"promotionId\": \"26B62881C5204E7285EFE6E8A7CF9550\", \n        \"promotionTitle\": \"postman创建13535\", \n        \"startDate\": 1975010662000, \n        \"status\": 1, \n        \"promotionStatus\": \"active\", \n        \"strategy\": \"introductory\", \n        \"updateId\": null, \n        \"updateTime\": null, \n        \"promotionCountryCount\": 0, \n        \"promotionType\": 0  \n    }, { \n        \"createId\": \"wwh_xn\", \n        \"createTime\": \"2019-12-06 16:28:56\", \n        \"defaultLocale\": \"zh-CN\", \n        \"defaultTier\": \"TIER104\", \n        \"endDate\": 1975269862000, \n        \"numberOfUnits\": null, \n        \"periodUnit\": null, \n        \"productId\": \"9C1B4C23702341ACA3F51A9FA1B36BF0\", \n        \"promotionDesc\": \"default desc\", \n        \"promotionId\": \"26B62881C5204E7285EFE6E8A7CF9559\", \n        \"promotionTitle\": \"postman创建13535\", \n        \"startDate\": 1975010662000, \n        \"status\": 1, \n        \"promotionStatus\": \"active\", \n        \"strategy\": \"introductory\", \n        \"updateId\": null, \n        \"updateTime\": null, \n        \"promotionCountryCount\": 0, \n        \"promotionType\": 0  \n    }, { \n        \"createId\": \"wwh_xn\", \n        \"createTime\": \"2019-12-06 16:28:56\", \n        \"defaultLocale\": \"zh-CN\", \n        \"defaultTier\": \"TIER104\", \n        \"endDate\": 1975269862000, \n        \"numberOfUnits\": null, \n        \"periodUnit\": null, \n        \"productId\": \"9C1B4C23702341ACA3F51A9FA1B36BF0\", \n        \"promotionDesc\": \"default desc\", \n        \"promotionId\": \"26B62881C5204E7285EFE6E8A7CF9552\", \n        \"promotionTitle\": \"postman创建13535\", \n        \"startDate\": 1975010662000, \n        \"status\": 1, \n        \"promotionStatus\": \"active\", \n        \"strategy\": \"introductory\", \n        \"updateId\": null, \n        \"updateTime\": null, \n        \"promotionCountryCount\": 0, \n        \"promotionType\": 4,\n        \"betweenOffersNumOfUnits\": 5,\n        \"betweenOffersPeriodUnit\": \"M\"  \n    }], \n    \"totalNumber\": 10 \n}"
+    }
+  ],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pmsapi-0000001162548121",
+      "title": "PMS API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pmsapi-harmonyosnext-0000002166747989",
+      "title": "HarmonyOS 5.0及以上"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114",
+      "title": "使用入门"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114#section103mcpsimp",
+      "title": "创建API客户端"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain_token-0000001158365043",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/appgallery_queryappinfo",
+      "title": "查询应用信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114#section949717114392",
+      "title": "获取用户授权码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/appgallery_queryappinfo",
+      "title": "查询应用信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-errorresult-harmonyosnext-0000002131350724",
+      "title": "ErrorResult"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-ppromotion-harmonyosnext-0000002166670165",
+      "title": "ProductPromotions"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-getpromotioninfo-harmonyosnext-0000002166748617",
+      "title": "查询商品促销详情"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchactpromotion-harmonyosnext-0000002131508860",
+      "title": "批量上线商品促销活动"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetpromotioninfo-harmonyosnext-0000002166670149#section8711909",
+      "title": "功能介绍"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetpromotioninfo-harmonyosnext-0000002166670149#section5189239225",
+      "title": "使用约束"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetpromotioninfo-harmonyosnext-0000002166670149#section2862142512223",
+      "title": "接口原型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetpromotioninfo-harmonyosnext-0000002166670149#section482745132215",
+      "title": "请求参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetpromotioninfo-harmonyosnext-0000002166670149#section97101017212",
+      "title": "Header"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetpromotioninfo-harmonyosnext-0000002166670149#section1084310219419",
+      "title": "Body"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetpromotioninfo-harmonyosnext-0000002166670149#section19934722144316",
+      "title": "请求示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetpromotioninfo-harmonyosnext-0000002166670149#section49198053",
+      "title": "响应参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetpromotioninfo-harmonyosnext-0000002166670149#section54251026192717",
+      "title": "响应示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetpromotioninfo-harmonyosnext-0000002166670149#section77276431240",
+      "title": "调用示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetpromotioninfo-harmonyosnext-0000002166670149#section8711909",
+      "text": "此接口用于商品促销查询，支持多条件过滤。"
+    },
+    {
+      "section": "使用约束",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetpromotioninfo-harmonyosnext-0000002166670149#section5189239225",
+      "text": "接口调用者的角色：账号持有者、管理员、APP管理员、运营。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetpromotioninfo-harmonyosnext-0000002166670149#section97101017212",
+      "text": "API Client和OAuth Client区别参见使用入门。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetpromotioninfo-harmonyosnext-0000002166670149#section97101017212",
+      "text": "API Client方式"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetpromotioninfo-harmonyosnext-0000002166670149#section97101017212",
+      "text": "OAuth Client方式"
+    }
+  ],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetpromotioninfo-harmonyosnext-0000002166670149",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "承载协议",
+          "HTTPS POST"
+        ],
+        [
+          "接口方向",
+          "开发者服务器->数字商品服务器"
+        ],
+        [
+          "接口URL",
+          "https://connect-api.cloud.huawei.com/api/pms/product-price-service/v2/manage/product/promotion/list"
+        ],
+        [
+          "数据格式",
+          "请求消息：Content-Type: application/json 响应消息：Content-Type: application/json"
+        ]
+      ],
+      "section": "接口原型",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetpromotioninfo-harmonyosnext-0000002166670149#section2862142512223"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数",
+          "必选(M)/可选(O)",
+          "类型",
+          "描述"
+        ],
+        [
+          "client_id",
+          "M",
+          "String",
+          "客户端ID，获取方法参考创建API客户端。"
+        ],
+        [
+          "Authorization",
+          "M",
+          "String",
+          "认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。"
+        ],
+        [
+          "appId",
+          "M",
+          "String",
+          "应用ID，获取方法参考查询应用信息。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetpromotioninfo-harmonyosnext-0000002166670149#section97101017212"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "oauth2Token",
+          "M",
+          "String",
+          "认证信息，传入获取用户授权码中获取的Access Token。"
+        ],
+        [
+          "appId",
+          "M",
+          "String",
+          "应用ID，获取方法参考查询应用信息。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetpromotioninfo-harmonyosnext-0000002166670149#section97101017212"
+    },
+    {
+      "location": "body",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "requestId",
+          "M",
+          "String(64)",
+          "请求序列，开发者自定义唯一标识符。"
+        ],
+        [
+          "productNo",
+          "O",
+          "String",
+          "查询指定的商品的促销信息。"
+        ],
+        [
+          "promotionId",
+          "O",
+          "String",
+          "预留字段，暂不启用。"
+        ],
+        [
+          "strategy",
+          "O",
+          "String",
+          "策略类型： trial：免费（仅自动续期型商品支持） introductory：按周期扣费（仅自动续期型商品支持） pay-up-front：提前支付（仅自动续期型商品支持） single-promotion：单商品优惠（仅消耗型，非消耗型，非续期型商品支持）"
+        ],
+        [
+          "pageNum",
+          "O",
+          "Integer",
+          "请求查询的起始页码，默认值：1。"
+        ],
+        [
+          "pageSize",
+          "O",
+          "Integer",
+          "每页请求数目，默认每页20条，最大不能超过300。"
+        ],
+        [
+          "orderBy",
+          "O",
+          "String",
+          "按名称升序或者降序排序。配置JSON对象，key为属性名，value为排序规则。 key取值范围为： createTime：创建时间 updateTime：更新时间 status：促销进行状态 startDate：开始促销时间 endDate：结束促销时间 value取值desc降序或者asc升序 例如：按createTime升序，updateTime降序, 则配置为{\"createTime\": \"asc\",\"updateTime\": \"desc\"}"
+        ],
+        [
+          "filterBy",
+          "O",
+          "String",
+          "支持按促销状态和时间过滤。配置JSON对象，key为属性名，value为过滤的值。 key值范围如下： status：促销状态取值范围为 0：正在进行中的促销 1：未开始的促销 2：已结束的促销 例如：单选{\"status\":\"0\"}和多选{\"status\":[\"0\", \"1\"]} startDate：促销开始时间范围 例如：{\"startDate\":{\"1621843475000\":\"1631435475000\"}} endDate：促销结束时间范围 例如：{\"endDate\":{\"1621843475000\":\"1631435475000\"}} date：该时间范围内开始的促销、结束的促销和进行中的促销活动 例如：{\"date\":{\"1621843475000\":\"1631435475000\"}} key值可以包含上面的所有取值进行组合过滤，比如同时使用status和startDate过滤可以用下面的JSON： {\"status\":[ \"0\",\"1\"],\"startDate\":{\"1021843475000\":\"1631435475000\"}}"
+        ],
+        [
+          "promotionType",
+          "O",
+          "Integer",
+          "促销类型，默认值：0。 0：新用户促销 1：自定义人群促销 4：退订挽留促销"
+        ],
+        [
+          "offerId",
+          "O",
+          "String",
+          "优惠促销标识符，用于区分不同优惠促销，该ID当前商品下唯一，最大长度64个字符，需满足[0-9a-zA-Z]，仅在促销类型为自定义人群促销时支持。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetpromotioninfo-harmonyosnext-0000002166670149#section1084310219419"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "error",
+          "M",
+          "ErrorResult",
+          "包含返回码及描述信息的JSON字符串。"
+        ],
+        [
+          "totalNumber",
+          "M",
+          "Integer",
+          "查询出的商品促销总个数。"
+        ],
+        [
+          "productPromotions",
+          "O",
+          "List<ProductPromotions>",
+          "商品促销信息列表。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetpromotioninfo-harmonyosnext-0000002166670149#section49198053"
+    }
+  ],
+  "title": "按条件查询商品促销信息",
+  "updatedAt": "2025-11-21 13:50",
+  "checkedAt": "2026-10-07T02:58:27.712Z",
+  "family": "pms",
+  "endpoint": "bygetpromotioninfo-harmonyosnext"
+}

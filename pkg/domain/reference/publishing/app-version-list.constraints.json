@@ -1,0 +1,11 @@
+{
+  "header.appId": {
+    "maxLength": 32
+  },
+  "body.packageName": {
+    "maxLength": 128
+  },
+  "body.state": {
+    "maxLength": 64
+  }
+}

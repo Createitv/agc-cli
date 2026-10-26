@@ -1,0 +1,14 @@
+[
+  {
+    "id": "phased-release-description",
+    "kind": "required_if",
+    "field": "body.phasedReleaseDescription",
+    "when": {
+      "field": "body.releasePhase",
+      "equals": "3"
+    },
+    "message": "分阶段发布时必须提供 phasedReleaseDescription。",
+    "suggestion": "添加 --field phasedReleaseDescription=分阶段发布说明。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-app-submit-0000002271160585#section11431111271820"
+  }
+]

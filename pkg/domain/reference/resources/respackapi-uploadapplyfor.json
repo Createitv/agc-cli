@@ -1,0 +1,516 @@
+{
+  "examples": [
+    {
+      "section": "请求示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadapplyfor-0000002328236376#section175272026758",
+      "text": "请求示例\nPOST /api/games-background-assets-service/v1/open-gw/dev/12***3344/package-file/apply HTTP/1.1\nHost: connect-api.cloud.huawei.com\nclient_id: 41*****7168\nAuthorization: Bearer ******\nrequestId: *****\n{\n    \"appId\": \"12345678\",\n    \"versionId\": 99,\n    \"fileName\": \"Demo\",\n    \"fileSHA256\": \"06***d762\",\n    \"fileLength\": 100,\n    \"fileType\": 127,\n    \"filePartApplyInfo\": [\n      {\n        \"partNo\": \"23\",\n        \"fileSHA256\": \"06***d762\",\n        \"fileLength\": 100\n      }\n    ]\n  }"
+    },
+    {
+      "section": "响应示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadapplyfor-0000002328236376#section847941515100",
+      "text": "响应示例\n{\n    \"ret\": {\n        \"code\": 0,\n        \"msg\": \"success\"\n    },\n    \"data\": {\n        \"fileId\": \"1734842730388976000\",\n        \"uploadTime\": 0,\n        \"filePartUploadInfos\": [\n        {\n            \"partNo\": \"20\",\n            \"partObjectId\": \"string\",\n            \"uploadInfo\": {\n                \"uploadMethod\": \"POST\",\n                \"uploadUrl\": \"https://contentcenter-test-bj4-001.obs.dualstack.cn-north-4.mycloud.cn/GameCenter_resourcePackage_900_9/6f/v3/xxxx.mp4\",\n                \"uploadHeaders\": [\n                {\n                    \"key\": \"Content-Type\",\n                    \"value\": \"video/mp4\"\n                }\n              ]\n           }\n        }\n      ]\n   }\n}"
+    }
+  ],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-res-pkg-preload-0000002362394629",
+      "title": "资源包预下载"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114#section103mcpsimp",
+      "title": "创建API客户端"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain_token-0000001158365043",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadapplyfor-0000002328236376#ZH-CN_TOPIC_0000002328236376__li19444185912162",
+      "title": "GWOpUploadFileApplyReq"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/appgallery_queryappinfo",
+      "title": "查询应用信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadapplyfor-0000002328236376#ZH-CN_TOPIC_0000002328236376__li74031824101717",
+      "title": "GWFilePartApplyInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadapplyfor-0000002328236376#ZH-CN_TOPIC_0000002328236376__li1750915382310",
+      "title": "GbasRet"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadapplyfor-0000002328236376#ZH-CN_TOPIC_0000002328236376__li121095061719",
+      "title": "GWPackageUploadApplyInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-returncode-0000002328236396",
+      "title": "错误码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadapplyfor-0000002328236376#ZH-CN_TOPIC_0000002328236376__li13859181319182",
+      "title": "GWFilePartUploadInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadapplyfor-0000002328236376#ZH-CN_TOPIC_0000002328236376__li10194439181816",
+      "title": "GWPackageUploadInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadapplyfor-0000002328236376#ZH-CN_TOPIC_0000002328236376__li193391676196",
+      "title": "GWUploadHeader"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-addversion-0000002328396224",
+      "title": "新增资源包版本"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadconfirm-0000002362394641",
+      "title": "资源包文件上传确认"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadapplyfor-0000002328236376#section8711909",
+      "title": "功能介绍"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadapplyfor-0000002328236376#section6932219103913",
+      "title": "接口原型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadapplyfor-0000002328236376#section42749152",
+      "title": "请求参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadapplyfor-0000002328236376#section119494174419",
+      "title": "Header"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadapplyfor-0000002328236376#section6704618182019",
+      "title": "Path"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadapplyfor-0000002328236376#section985411610234",
+      "title": "Body"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadapplyfor-0000002328236376#section175272026758",
+      "title": "请求示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadapplyfor-0000002328236376#section49198053",
+      "title": "响应参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadapplyfor-0000002328236376#section847941515100",
+      "title": "响应示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadapplyfor-0000002328236376#section145575382294",
+      "title": "调用示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadapplyfor-0000002328236376#section8711909",
+      "text": "获取上传地址和必要参数，根据申请返回的信息完成文件上传。"
+    },
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadapplyfor-0000002328236376#section8711909",
+      "text": "若待上传的资源包文件超过5GB，需要分段上传文件。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadapplyfor-0000002328236376#section985411610234",
+      "text": "GWOpUploadFileApplyReq 参数名称 必选(M)/可选(O) 类型 参数说明 appId M String 游戏APP ID，获取方法参考查询应用信息。 versionId M Long 资源包版本ID。 fileName M String 应用包文件名称，最大长度为255个字符，且名称不能包含特殊字符（|）、（:）、（/）、（\\）、（*）、（?）、（\"）、（<）、（>）。 fileSHA256 M String 升级包文件SHA256值。 fileLength M Long 升级包文件大小（字节数）。 fileType M Int 升级包文件类型： 0：apk-resource filePartApplyInfo O List<GWFilePartApplyInfo> 分段上传信息，分段数取值[0,1000]。 要求待上传的资源包文件不能低于5MB。 若待上传的资源包文件超过5GB，建议分段上传文件。 GWFilePartApplyInfo 参数名称 必选(M)/可选(O) 类型 参数说明 partNo O String 分段序号。最大长度为1024个字符。 fileSHA256 O String 分段升级包文件SHA256值。 fileLength O Long 分段升级包文件大小（字节数）。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadapplyfor-0000002328236376#section985411610234",
+      "text": "GWFilePartApplyInfo 参数名称 必选(M)/可选(O) 类型 参数说明 partNo O String 分段序号。最大长度为1024个字符。 fileSHA256 O String 分段升级包文件SHA256值。 fileLength O Long 分段升级包文件大小（字节数）。"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadapplyfor-0000002328236376#section49198053",
+      "text": "GbasRet 参数名称 必选(M)/可选(O) 类型 参数说明 code O Int 返回码，请参见错误码。 msg O String 返回码描述信息。"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadapplyfor-0000002328236376#section49198053",
+      "text": "GWPackageUploadApplyInfo 参数名称 必选(M)/可选(O) 类型 参数说明 fileId O String 文件ID。 uploadTime O Long 上传时间。 filePartUploadInfos O List<GWFilePartUploadInfo> 升级文件信息。 GWFilePartUploadInfo 参数名称 必选(M)/可选(O) 类型 参数说明 partNo O String 文件分段序号。 partObjectId O String 分段对象。 uploadInfo O List<GWPackageUploadInfo> 上传信息。 GWPackageUploadInfo 参数名称 必选(M)/可选(O) 类型 参数说明 uploadMethod M String 上传http method。 uploadUrl M String 上传URL地址。 uploadHeaders M List<GWUploadHeader> 文件上传请求头列表。 GWUploadHeader 参数名称 必选(M)/可选(O) 类型 参数说明 key O String 键。 value O String 值。"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadapplyfor-0000002328236376#section49198053",
+      "text": "GWFilePartUploadInfo 参数名称 必选(M)/可选(O) 类型 参数说明 partNo O String 文件分段序号。 partObjectId O String 分段对象。 uploadInfo O List<GWPackageUploadInfo> 上传信息。 GWPackageUploadInfo 参数名称 必选(M)/可选(O) 类型 参数说明 uploadMethod M String 上传http method。 uploadUrl M String 上传URL地址。 uploadHeaders M List<GWUploadHeader> 文件上传请求头列表。 GWUploadHeader 参数名称 必选(M)/可选(O) 类型 参数说明 key O String 键。 value O String 值。"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadapplyfor-0000002328236376#section49198053",
+      "text": "GWPackageUploadInfo 参数名称 必选(M)/可选(O) 类型 参数说明 uploadMethod M String 上传http method。 uploadUrl M String 上传URL地址。 uploadHeaders M List<GWUploadHeader> 文件上传请求头列表。 GWUploadHeader 参数名称 必选(M)/可选(O) 类型 参数说明 key O String 键。 value O String 值。"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadapplyfor-0000002328236376#section49198053",
+      "text": "GWUploadHeader 参数名称 必选(M)/可选(O) 类型 参数说明 key O String 键。 value O String 值。"
+    }
+  ],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadapplyfor-0000002328236376",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "承载协议",
+          "HTTP POST"
+        ],
+        [
+          "接口方向",
+          "开发者服务器 ->华为服务器"
+        ],
+        [
+          "接口URL",
+          "https://connect-api.cloud.huawei.com/api/games-background-assets-service/v1/open-gw/dev/{devId}/package-file/apply"
+        ],
+        [
+          "数据格式",
+          "请求消息：Content-Type: application/json 响应消息：Content-Type: application/json"
+        ]
+      ],
+      "section": "接口原型",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadapplyfor-0000002328236376#section6932219103913"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "client_id",
+          "M",
+          "String",
+          "客户端ID，获取方法参考创建API客户端，其中“角色”支持勾选“APP管理员”、“管理员”、“运营”。"
+        ],
+        [
+          "Authorization",
+          "M",
+          "String",
+          "认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。"
+        ],
+        [
+          "requestId",
+          "M",
+          "String",
+          "请求ID，最大长度128个字符，必须唯一。开发者自定义，用于鉴别是否是重复请求。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadapplyfor-0000002328236376#section119494174419"
+    },
+    {
+      "location": "path",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "devId",
+          "M",
+          "Long",
+          "开发者ID。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadapplyfor-0000002328236376#section6704618182019"
+    },
+    {
+      "location": "body",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "uploadFileApplyReq",
+          "M",
+          "GWOpUploadFileApplyReq",
+          "上传文件请求体。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadapplyfor-0000002328236376#section985411610234"
+    },
+    {
+      "location": "body",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "appId",
+          "M",
+          "String",
+          "游戏APP ID，获取方法参考查询应用信息。"
+        ],
+        [
+          "versionId",
+          "M",
+          "Long",
+          "资源包版本ID。"
+        ],
+        [
+          "fileName",
+          "M",
+          "String",
+          "应用包文件名称，最大长度为255个字符，且名称不能包含特殊字符（|）、（:）、（/）、（\\）、（*）、（?）、（\"）、（<）、（>）。"
+        ],
+        [
+          "fileSHA256",
+          "M",
+          "String",
+          "升级包文件SHA256值。"
+        ],
+        [
+          "fileLength",
+          "M",
+          "Long",
+          "升级包文件大小（字节数）。"
+        ],
+        [
+          "fileType",
+          "M",
+          "Int",
+          "升级包文件类型： 0：apk-resource"
+        ],
+        [
+          "filePartApplyInfo",
+          "O",
+          "List<GWFilePartApplyInfo>",
+          "分段上传信息，分段数取值[0,1000]。 要求待上传的资源包文件不能低于5MB。 若待上传的资源包文件超过5GB，建议分段上传文件。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadapplyfor-0000002328236376#section985411610234"
+    },
+    {
+      "location": "body",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "partNo",
+          "O",
+          "String",
+          "分段序号。最大长度为1024个字符。"
+        ],
+        [
+          "fileSHA256",
+          "O",
+          "String",
+          "分段升级包文件SHA256值。"
+        ],
+        [
+          "fileLength",
+          "O",
+          "Long",
+          "分段升级包文件大小（字节数）。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadapplyfor-0000002328236376#section985411610234"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "ret",
+          "M",
+          "GbasRet",
+          "包含返回码及描述信息的JSON字符串，格式为{\"code\":retcode, \"msg\": \"description\"}，retcode为返回码，description为返回码描述信息。"
+        ],
+        [
+          "data",
+          "M",
+          "GWPackageUploadApplyInfo",
+          "文件上传返回体。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadapplyfor-0000002328236376#section49198053"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "code",
+          "O",
+          "Int",
+          "返回码，请参见错误码。"
+        ],
+        [
+          "msg",
+          "O",
+          "String",
+          "返回码描述信息。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadapplyfor-0000002328236376#section49198053"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "fileId",
+          "O",
+          "String",
+          "文件ID。"
+        ],
+        [
+          "uploadTime",
+          "O",
+          "Long",
+          "上传时间。"
+        ],
+        [
+          "filePartUploadInfos",
+          "O",
+          "List<GWFilePartUploadInfo>",
+          "升级文件信息。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadapplyfor-0000002328236376#section49198053"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "partNo",
+          "O",
+          "String",
+          "文件分段序号。"
+        ],
+        [
+          "partObjectId",
+          "O",
+          "String",
+          "分段对象。"
+        ],
+        [
+          "uploadInfo",
+          "O",
+          "List<GWPackageUploadInfo>",
+          "上传信息。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadapplyfor-0000002328236376#section49198053"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "uploadMethod",
+          "M",
+          "String",
+          "上传http method。"
+        ],
+        [
+          "uploadUrl",
+          "M",
+          "String",
+          "上传URL地址。"
+        ],
+        [
+          "uploadHeaders",
+          "M",
+          "List<GWUploadHeader>",
+          "文件上传请求头列表。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadapplyfor-0000002328236376#section49198053"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "key",
+          "O",
+          "String",
+          "键。"
+        ],
+        [
+          "value",
+          "O",
+          "String",
+          "值。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-uploadapplyfor-0000002328236376#section49198053"
+    }
+  ],
+  "title": "资源包文件上传申请",
+  "updatedAt": "2026-02-12 17:29",
+  "checkedAt": "2026-10-07T05:16:45.382Z"
+}

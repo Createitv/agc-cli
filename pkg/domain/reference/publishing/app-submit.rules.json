@@ -1,0 +1,61 @@
+[
+  {
+    "id": "oauth-team",
+    "kind": "required_with",
+    "field": "header.teamId",
+    "fields": [
+      "header.oauth2Token"
+    ],
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-submit-0000001158245061#section236517415165",
+    "message": "OAuth authorization requires its selected teamId.",
+    "suggestion": "Supply the selected OAuth team ID in the teamId header."
+  },
+  {
+    "id": "phased-phasedReleaseStartTime",
+    "kind": "required_if",
+    "field": "body.phasedReleaseStartTime",
+    "when": {
+      "field": "query.releaseType",
+      "equals": "3"
+    },
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-submit-0000001158245061#section11431111271820",
+    "message": "phasedReleaseStartTime is required for phased releaseType=3.",
+    "suggestion": "Supply this documented phased-release field or choose the intended release type."
+  },
+  {
+    "id": "phased-phasedReleaseEndTime",
+    "kind": "required_if",
+    "field": "body.phasedReleaseEndTime",
+    "when": {
+      "field": "query.releaseType",
+      "equals": "3"
+    },
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-submit-0000001158245061#section11431111271820",
+    "message": "phasedReleaseEndTime is required for phased releaseType=3.",
+    "suggestion": "Supply this documented phased-release field or choose the intended release type."
+  },
+  {
+    "id": "phased-phasedReleasePercent",
+    "kind": "required_if",
+    "field": "body.phasedReleasePercent",
+    "when": {
+      "field": "query.releaseType",
+      "equals": "3"
+    },
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-submit-0000001158245061#section11431111271820",
+    "message": "phasedReleasePercent is required for phased releaseType=3.",
+    "suggestion": "Supply this documented phased-release field or choose the intended release type."
+  },
+  {
+    "id": "phased-phasedReleaseDescription",
+    "kind": "required_if",
+    "field": "body.phasedReleaseDescription",
+    "when": {
+      "field": "query.releaseType",
+      "equals": "3"
+    },
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-submit-0000001158245061#section11431111271820",
+    "message": "phasedReleaseDescription is required for phased releaseType=3.",
+    "suggestion": "Supply this documented phased-release field or choose the intended release type."
+  }
+]

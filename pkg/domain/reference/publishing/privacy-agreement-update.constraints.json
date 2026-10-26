@@ -1,0 +1,14 @@
+{
+  "header.appId": {
+    "maxLength": 32
+  },
+  "body.id": {
+    "maxLength": 32
+  },
+  "body.defaultLang": {
+    "maxLength": 20
+  },
+  "body.agreementInfos": {
+    "maxItems": 100
+  }
+}

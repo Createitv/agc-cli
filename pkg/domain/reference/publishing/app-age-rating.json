@@ -1,0 +1,350 @@
+{
+  "examples": [
+    {
+      "section": "请求示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-post-app-age-rating-0000002236201262#section1067322214331",
+      "text": "请求示例\nPOST /api/publish/v2/app-age-rating HTTP/1.1\nHost: connect-api.cloud.huawei.com\nclient_id: 414*******68\nContent-Type: application/json\nAuthorization: Bearer ******\nappId: 1******57\n{\n  \"feedback\": \"{\\\"feedbackId\\\":\\\"\\\",\\\"questionnaireId\\\":\\\"xxx\\\",\\\"userId\\\":xxx\\,\\\"teamId\\\":xxx,\\\"teamName\\\":\\\"\\\",\\\"appId\\\":\\\"xxx\\\",\\\"recordId\\\":\\\"\\\",\\\"action\\\":\\\"submit\\\",\\\"extInfo\\\":\\\"\\\",\\\"agreePrivacy\\\":1,\\\"enrollAppIds\\\":\\\"xxx\\\",\\\"enrollAppNames\\\":\\\"\\\",\\\"status\\\":0,\\\"createTime\\\":,\\\"details\\\":[{\\\"questionId\\\":\\\"xxx\\\",\\\"questionNo\\\":1,\\\"optionId\\\":\\\"xxx\\\",\\\"optionNo\\\":2,\\\"valueType\\\":0},{\\\"xxx\\\"},{\\\"xxx\\\"}]}\",\n  \"expectedRating\": 1,\n  \"ratingRule\": 1,\n  \"childFlag\": 0\n}"
+    },
+    {
+      "section": "响应示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-post-app-age-rating-0000002236201262#section9801143143518",
+      "text": "响应示例\n{\n  \"ret\": {\n    \"code\": 0,\n    \"msg\": \"success\"\n  },\n  \"ratingResult\": 2,\n  \"prohibitedCountry\": [\n    \"RU\"\n  ],\n  \"otherRatingList\": [\n      {\n          \"gradeTypeId\": 7,\n          \"gradeTypeName\": \"ClassInd\",\n          \"ratingResult\": 1\n      }\n  ]\n}"
+    }
+  ],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter#section195981215284",
+      "title": "了解新版目录"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-open-ability-0000002235710238",
+      "title": "AGC开放能力"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-0000002236015554",
+      "title": "AppGallery Connect API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-reference-0000002271160565",
+      "title": "Publishing API参考"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-obtain-server-auth-0000002271134661#section1679462873111",
+      "title": "API客户端方式获取服务端授权"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-getting-started/agc-help-view-app-info-0000002282674569",
+      "title": "查看应用信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-post-app-age-rating-0000002236201262#ZH-CN_TOPIC_0000002236201262__zh-cn_topic_0000002208484113_p6282121175120",
+      "title": "feedback获取方式"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-connectret-0000002271160589",
+      "title": "ConnectRet"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-otherratingresult-0000002621935699",
+      "title": "OtherRatingResult"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-update-privacy-agreement-0000002328805169",
+      "title": "更新隐私政策协议"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-app-submit-0000002271160585",
+      "title": "提交发布"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-post-app-age-rating-0000002236201262#section992664711544",
+      "title": "功能介绍"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-post-app-age-rating-0000002236201262#section6932219103913",
+      "title": "接口原型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-post-app-age-rating-0000002236201262#section44860761",
+      "title": "请求参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-post-app-age-rating-0000002236201262#section236517415165",
+      "title": "Header"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-post-app-age-rating-0000002236201262#section23242264517",
+      "title": "Query"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-post-app-age-rating-0000002236201262#section2357705386",
+      "title": "Body"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-post-app-age-rating-0000002236201262#section1067322214331",
+      "title": "请求示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-post-app-age-rating-0000002236201262#section163825114565",
+      "title": "响应参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-post-app-age-rating-0000002236201262#section9801143143518",
+      "title": "响应示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-post-app-age-rating-0000002236201262#section992664711544",
+      "text": "此接口用于申请或修改HarmonyOS应用/元服务的年龄分级。"
+    },
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-post-app-age-rating-0000002236201262#section992664711544",
+      "text": "接口调用者的角色：账号持有者、管理员、APP管理员、运营。"
+    },
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-post-app-age-rating-0000002236201262#section992664711544",
+      "text": "调用本接口前需完成应用分类设置，明确是游戏类应用还是普通应用。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-post-app-age-rating-0000002236201262#section236517415165",
+      "text": "本接口请使用API客户端认证方式，请参见API客户端方式获取服务端授权获取客户端ID和access_token。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-post-app-age-rating-0000002236201262#section2357705386",
+      "text": "feedback获取方式"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-post-app-age-rating-0000002236201262#section2357705386",
+      "text": "该问卷为独立页面，需要开发者通过window.open()方法打开，并监听message事件获取问卷填写内容。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-post-app-age-rating-0000002236201262#section2357705386",
+      "text": "调用window.open()方法打开页面，代码如下： window.open(\"https://developer.huawei.com/consumer/cn/service/josp/agc/amp/ageRatingQuestionnaire.html#/?appType={appType}&lang={lang}\") 其中，appType和lang为参数变量。 appType可选值为app/game，app为应用年龄分级问卷，game为游戏年龄分级问卷。 lang可选值为cn/en/ru，cn为中文问卷，en为英文问卷，ru为俄文问卷。 说明 如果无法打开问卷，请先退出AppGallery Connect登录，然后重新访问该页面。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-post-app-age-rating-0000002236201262#section2357705386",
+      "text": "window.open(\"https://developer.huawei.com/consumer/cn/service/josp/agc/amp/ageRatingQuestionnaire.html#/?appType={appType}&lang={lang}\")"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-post-app-age-rating-0000002236201262#section2357705386",
+      "text": "其中，appType和lang为参数变量。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-post-app-age-rating-0000002236201262#section2357705386",
+      "text": "appType可选值为app/game，app为应用年龄分级问卷，game为游戏年龄分级问卷。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-post-app-age-rating-0000002236201262#section2357705386",
+      "text": "lang可选值为cn/en/ru，cn为中文问卷，en为英文问卷，ru为俄文问卷。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-post-app-age-rating-0000002236201262#section2357705386",
+      "text": "如果无法打开问卷，请先退出AppGallery Connect登录，然后重新访问该页面。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-post-app-age-rating-0000002236201262#section2357705386",
+      "text": "填写完问卷后点击提交，问卷页面会发起postMessage请求，调用方通过监听message事件获取问卷内容feedback，代码如下： window.addEventListener(\"message\", (event) => { console.log(event.data); //问卷内容feedback })"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-post-app-age-rating-0000002236201262#section2357705386",
+      "text": "window.addEventListener(\"message\", (event) => {"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-post-app-age-rating-0000002236201262#section2357705386",
+      "text": "console.log(event.data); //问卷内容feedback"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-post-app-age-rating-0000002236201262#section2357705386",
+      "text": "})"
+    }
+  ],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-post-app-age-rating-0000002236201262",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "承载协议",
+          "HTTPS POST"
+        ],
+        [
+          "接口方向",
+          "开发者服务器 -> 华为服务器"
+        ],
+        [
+          "接口URL",
+          "https://connect-api.cloud.huawei.com/api/publish/v2/app-age-rating"
+        ],
+        [
+          "数据格式",
+          "请求：Content-Type: application/json 响应：Content-Type: application/json"
+        ]
+      ],
+      "section": "接口原型",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-post-app-age-rating-0000002236201262#section6932219103913"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "client_id",
+          "M",
+          "String",
+          "客户端ID。"
+        ],
+        [
+          "Authorization",
+          "M",
+          "String",
+          "认证信息。 格式：Authorization: Bearer ${access_token}"
+        ],
+        [
+          "appId",
+          "M",
+          "String(32)",
+          "应用ID。 获取方法参考查看应用信息。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-post-app-age-rating-0000002236201262#section236517415165"
+    },
+    {
+      "location": "query",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "releaseType",
+          "O",
+          "Integer(32)",
+          "应用发布方式。 取值范围： 1：全网 默认值：1"
+        ],
+        [
+          "releasePhase",
+          "O",
+          "Integer(32)",
+          "分阶段发布标识。 取值范围： 0：全网 3：分阶段 默认值：0"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-post-app-age-rating-0000002236201262#section23242264517"
+    },
+    {
+      "location": "body",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "feedback",
+          "M",
+          "String(8192)",
+          "问卷内容。 说明 具体请参见feedback获取方式。"
+        ],
+        [
+          "expectedRating",
+          "O",
+          "Integer(32)",
+          "预期年龄分级。 取值范围： 1：巴西适用所有年龄段，中国区及其他区域年满3周岁 2：中国区年满8周岁，巴西年满10周岁，其他区域年满7周岁 3：巴西年满14周岁，中国区及其他区域年满12周岁 4：年满16周岁 5：年满18周岁"
+        ],
+        [
+          "ratingRule",
+          "O",
+          "Integer(32)",
+          "年龄分级生效规则。 取值范围： 0：以问卷内容评级结果为准。 1：当预期年龄分级expectedRating设置的值大于问卷评级结果中的年龄值时，以预期年龄分级为准，否则以问卷内容评级结果为准。"
+        ],
+        [
+          "childFlag",
+          "O",
+          "Integer(32)",
+          "应用是否仅面向儿童。 取值范围： 0：应用不仅面向儿童 1：应用仅面向儿童"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-post-app-age-rating-0000002236201262#section2357705386"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "ret",
+          "M",
+          "ConnectRet",
+          "包含返回码及描述信息的结果。"
+        ],
+        [
+          "ratingResult",
+          "O",
+          "Integer(32)",
+          "华为年龄分级标准的结果。 取值范围： -1：拒绝评级 1：年满3周岁 2：中国区年满8周岁，其他区域年满7周岁 3：年满12周岁 4：年满16周岁 5：年满18周岁"
+        ],
+        [
+          "rejectReason",
+          "O",
+          "List<String(32)>",
+          "拒绝评级的原因，返回不满足系统要求的问卷分类ID集合。 数组长度不超过50。 请根据该参数返回的ID找到对应的问卷分类，然后修改内容。 ID对应的问卷分类如下： 389265604458119891：暴力内容 389265604458119892：令人恐惧的内容 389265604458119893：性相关的内容 389265604458119894：不良语言 389265604458119895：受管制物品与活动 389265604458119896：模拟赌博、真实赌博或法定货币支付。 389265604458119897：法律与道德 389265604458119898：用户间交互 389265604458119899：用户信息收集 389265604458119900：其他 389265604458119901：金融类"
+        ],
+        [
+          "prohibitedCountry",
+          "O",
+          "List<String(5)>",
+          "评级成功时存在禁止发布的国家区域的国家码集合。 数组长度不超过300。"
+        ],
+        [
+          "otherRatingList",
+          "O",
+          "List<OtherRatingResult>",
+          "其他年龄分级标准的结果。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-post-app-age-rating-0000002236201262#section163825114565"
+    }
+  ],
+  "title": "申请年龄分级",
+  "updatedAt": "2026-06-25 19:52",
+  "checkedAt": "2026-10-07T04:57:45.706Z",
+  "family": "publishing",
+  "endpoint": "app-age-rating"
+}

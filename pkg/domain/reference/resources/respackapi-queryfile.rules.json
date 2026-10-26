@@ -1,0 +1,34 @@
+[
+  {
+    "id": "resource-file-id-count",
+    "kind": "csv_count",
+    "field": "query.fileIds",
+    "minItems": 1,
+    "maxItems": 500,
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-queryfile-0000002362274749#section985411610234",
+    "message": "fileIds requires 1 to 500 nonempty comma-separated file IDs.",
+    "suggestion": "Supply at most 500 file IDs separated by commas without empty entries, or select a versionId."
+  },
+  {
+    "id": "resource-file-identity",
+    "kind": "at_least_one",
+    "fields": [
+      "query.versionId",
+      "query.fileIds"
+    ],
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-queryfile-0000002362274749#section985411610234",
+    "message": "Supply versionId or fileIds to select resource files.",
+    "suggestion": "Provide the resource version ID or a comma-separated file ID list."
+  },
+  {
+    "id": "resource-file-identity-exclusive",
+    "kind": "at_most_one",
+    "fields": [
+      "query.versionId",
+      "query.fileIds"
+    ],
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-respackapi-queryfile-0000002362274749#section985411610234",
+    "message": "Select either versionId or fileIds, as documented.",
+    "suggestion": "Keep one resource-file selector and remove the other."
+  }
+]

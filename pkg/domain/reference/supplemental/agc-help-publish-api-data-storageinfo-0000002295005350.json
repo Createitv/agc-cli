@@ -1,0 +1,104 @@
+{
+  "examples": [],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter#section195981215284",
+      "title": "了解新版目录"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-open-ability-0000002235710238",
+      "title": "AGC开放能力"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-0000002236015554",
+      "title": "AppGallery Connect API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-reference-0000002271160565",
+      "title": "Publishing API参考"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-0000002236201266",
+      "title": "数据模型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-sceneitem-0000002294845634",
+      "title": "SceneItem"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-servicetypeinfo-0000002328805213",
+      "title": "ServiceTypeInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-subagreement-0000002328805241",
+      "title": "SubAgreement"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-storageinfo-0000002295005350",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "storagePeriod",
+          "O",
+          "String(512)",
+          "开发者对信息的存储期限。 取值范围： -1：表示最短期限。 其他取值表示由开发者填写。"
+        ],
+        [
+          "country",
+          "O",
+          "String(100)",
+          "服务器所在国家。 示例：中国境内"
+        ],
+        [
+          "isCrossBorder",
+          "O",
+          "boolean",
+          "是否跨境。 取值范围： true：表示跨境 false：表示未跨境"
+        ],
+        [
+          "crossBorderReason",
+          "O",
+          "String(500)",
+          "跨境处理原因。"
+        ],
+        [
+          "crossBorderReceiveName",
+          "O",
+          "String(100)",
+          "跨境接收方名称/姓名。"
+        ],
+        [
+          "crossBorderDeclarations",
+          "O",
+          "List<SceneItem>",
+          "跨境收集的信息。 数组长度不超过200。"
+        ],
+        [
+          "crossBorderCountry",
+          "O",
+          "String(100)",
+          "跨境之后存储的国家/地区。"
+        ]
+      ],
+      "section": "",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-data-storageinfo-0000002295005350"
+    }
+  ],
+  "title": "StorageInfo",
+  "updatedAt": "2026-06-25 19:52",
+  "checkedAt": "2026-10-07T04:54:15.365Z"
+}

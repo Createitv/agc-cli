@@ -54,7 +54,7 @@ const skillSourceURL = (skill: string) => `https://github.com/Createitv/agc-cli/
 const skillDownloadURL = (skill: string) => `https://raw.githubusercontent.com/Createitv/agc-cli/main/skills/${skill}/SKILL.md`;
 
 const fallbackCapabilities: Capability[] = [
-  { id: 'publishing', name: 'Publishing API', description: 'Release metadata, package state, submissions, review withdrawal, and release timing.', command: 'agc publishing', restPath: '/api/v1/publishing', status: 'registered', endpointCount: 14 },
+  { id: 'publishing', name: 'Publishing API', description: 'Release metadata, package state, submissions, review withdrawal, and release timing.', command: 'agc publishing', restPath: '/api/v1/publishing', status: 'registered', endpointCount: 42 },
   { id: 'upload', name: 'Upload Management', description: 'APP packages, icons, screenshots, videos, PDFs, and multipart binary uploads.', command: 'agc upload', restPath: '/api/v1/upload', status: 'registered', endpointCount: 6 },
   { id: 'provisioning', name: 'Provisioning', description: 'Certificates, profiles, ACLs, devices, and fingerprints for release workflows.', command: 'agc provisioning', restPath: '/api/v1/provisioning', status: 'registered', endpointCount: 17 },
   { id: 'domains', name: 'Domain Management', description: 'Inspect, precheck, download, and update atomic service domain configuration.', command: 'agc domains', restPath: '/api/v1/domains', status: 'registered', endpointCount: 5 },
@@ -67,7 +67,15 @@ const fallbackCapabilities: Capability[] = [
   { id: 'game-items', name: 'Game Item Mall', description: 'Inbound role query and order callbacks configured in AGC.', command: 'agc game-items', restPath: '/api/v1/game-items', status: 'registered', endpointCount: 2 },
   { id: 'resources', name: 'Resource Predownload', description: 'Coordinate resource package versions, files, upload confirmation, and publishing.', command: 'agc resources', restPath: '/api/v1/resources', status: 'registered', endpointCount: 8 },
   { id: 'cicd', name: 'CI/CD Platform', description: 'Connect local Hvigor builds to the same command surface.', command: 'agc cicd', restPath: '/api/v1/cicd', status: 'registered', endpointCount: 1 },
-];
+  { id: 'functions', name: 'Cloud Functions', description: 'Native function creation, code/config updates, publishing and invocation; explicit user OAuth session.', command: 'agc functions', restPath: '/api/v1/functions', status: 'registered', endpointCount: 9 },
+  { id: 'cloud-auth', name: 'Cloud Authentication', description: 'Application user sign-in and server user management; separate credential branches.', command: 'agc cloud-auth', restPath: '/api/v1/cloud-auth', status: 'registered', endpointCount: 17 },
+  { id: 'clouddb', name: 'Cloud DB for Object', description: 'Object data queries, writes and deletion using existing zones and schemas.', command: 'agc clouddb', restPath: '/api/v1/clouddb', status: 'registered', endpointCount: 5 },
+  { id: 'storage', name: 'Cloud Storage', description: 'File upload/download, metadata and listing with server REST.', command: 'agc storage', restPath: '/api/v1/storage', status: 'registered', endpointCount: 6 },
+  { id: 'hosting', name: 'Cloud Hosting', description: 'Website sites, environments, signed ZIP uploads, archive and release.', command: 'agc hosting', restPath: '/api/v1/hosting', status: 'registered', endpointCount: 16 },
+  { id: 'templates', name: 'Serverless Templates', description: 'Developer-hosted user authentication callbacks; no AGC bearer forwarding.', command: 'agc templates', restPath: '/api/v1/templates', status: 'registered', endpointCount: 2 },
+  { id: 'cache', name: 'Cloud Cache', description: 'Manage cache resources using an explicit management session.', command: 'agc cache', restPath: '/api/v1/cache', status: 'registered' },
+  { id: 'prefetch', name: 'Prefetch', description: 'Simulate developer callbacks and inspect an explicitly selected device.', command: 'agc prefetch', restPath: '/api/v1/prefetch', status: 'registered' },
+].map(capability => ({ ...capability, endpointCount: bundledEndpoints.filter(endpoint => endpoint.familyId === capability.id).length }));
 
 const capabilityTranslations: Record<Language, Record<string, { name: string; description: string }>> = {
   en: Object.fromEntries(fallbackCapabilities.map(({ id, name, description }) => [id, { name, description }])),
@@ -84,6 +92,14 @@ const capabilityTranslations: Record<Language, Record<string, { name: string; de
     gameplay: { name: '游戏联运', description: '处理游戏资源同步以及 AppGallery 游戏联运回调。' },
     'game-items': { name: '游戏道具商城', description: '处理在 AGC 中配置的角色查询与订单回调。' },
     resources: { name: '资源预下载', description: '协调资源包版本、文件上传、上传确认与发布。' },
+    functions: { name: '云函数', description: '创建、更新、发布、调用及版本查询，显式选择用户 OAuth 会话。' },
+    'cloud-auth': { name: '认证服务', description: '应用用户认证及服务端用户管理，与开发者登录分开。' },
+    clouddb: { name: '云数据库', description: '在已有存储区和对象类型中查询、更新和删除数据。' },
+    storage: { name: '云存储', description: '文件上传下载、元数据与文件列表。' },
+    hosting: { name: '云托管', description: '网站站点、环境、签名上传和版本归档发布。' },
+    templates: { name: 'Serverless 模板', description: 'SAM 模板创建部署及开发者认证回调。' },
+    cache: { name: '云缓存', description: '使用显式管理会话管理缓存资源。' },
+    prefetch: { name: '预加载', description: '模拟开发者回调并检查显式选择的设备。' },
     cicd: { name: 'CI/CD 平台', description: '把本地 Hvigor 构建接入同一套命令控制面。' },
   },
 };
@@ -98,7 +114,7 @@ const translations = {
       titleAccent: 'one red line.',
       body: 'A Go command center for discovering, dry-running, and invoking AppGallery Connect APIs—with stable JSON for people, CI, and coding agents.',
       start: 'Get started',
-      browse: 'Browse 156 interfaces',
+      browse: `Browse ${bundledEndpoints.length} interfaces`,
       families: 'API families',
       interfaces: 'registered interfaces',
       formats: 'output formats',
@@ -220,7 +236,7 @@ const translations = {
       titleAccent: '同一条红线前进。',
       body: '用一套 Go 命令发现、预演并调用 AppGallery Connect API，为开发者、CI 和 Coding Agent 提供稳定 JSON。',
       start: '快速开始',
-      browse: '浏览 156 个接口',
+      browse: `浏览 ${bundledEndpoints.length} 个接口`,
       families: 'API 家族',
       interfaces: '已注册接口',
       formats: '输出格式',
@@ -349,7 +365,7 @@ export function App({ renderLanguage, renderFamily }: { renderLanguage?: Languag
   const [installOpen, setInstallOpen] = useState(false);
   const [installPlatform, setInstallPlatform] = useState<InstallPlatform>('npm');
   const [capabilities, setCapabilities] = useState<Capability[]>(fallbackCapabilities);
-  const [endpointCount, setEndpointCount] = useState(156);
+  const [endpointCount, setEndpointCount] = useState(bundledEndpoints.length);
   const [endpoints, setEndpoints] = useState<Endpoint[]>(bundledEndpoints);
   const [mode, setMode] = useState<'demo' | 'live'>('demo');
   const [selected, setSelected] = useState(() => renderFamily ?? (typeof window !== 'undefined' ? familyFromPath(window.location.pathname) : undefined) ?? 'publishing');
@@ -413,7 +429,7 @@ export function App({ renderLanguage, renderFamily }: { renderLanguage?: Languag
           setEndpointCount(body.data.length);
         }
       })
-      .catch(() => setEndpointCount(156));
+      .catch(() => setEndpointCount(bundledEndpoints.length));
   }, []);
 
   useEffect(() => {
@@ -531,7 +547,7 @@ export function App({ renderLanguage, renderFamily }: { renderLanguage?: Languag
             <a className="secondary" href="#registry"><Layers3 size={18} /> {text.hero.browse}</a>
           </div>
           <div className="heroFacts" aria-label={text.hero.factsLabel}>
-            <span><strong>13</strong> {text.hero.families}</span>
+            <span><strong>{capabilities.length}</strong> {text.hero.families}</span>
             <span><strong>{endpointCount}</strong> {text.hero.interfaces}</span>
             <span><strong>3</strong> {text.hero.formats}</span>
           </div>

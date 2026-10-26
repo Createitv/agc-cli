@@ -1,0 +1,43 @@
+[
+  {
+    "name": "teamId",
+    "in": "header",
+    "type": "string",
+    "required": false,
+    "description": "开发者所在团队的团队ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-apply-cent-0000002236201302#section1323714041015",
+    "maxLength": 64
+  },
+  {
+    "name": "csr",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "证书的CSR。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-apply-cent-0000002236201302#section16551174881019",
+    "maxLength": 2048
+  },
+  {
+    "name": "certName",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "证书名称。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-apply-cent-0000002236201302#section16551174881019",
+    "maxLength": 100
+  },
+  {
+    "name": "certType",
+    "in": "body",
+    "type": "integer",
+    "required": true,
+    "description": "证书类型。 取值范围： 1：调试 2：发布 3：In-house发布 4：二进制证书（用于二进制程序签名） 说明 二进制证书目前为受限开放，如需体验可通过在线工单系统与我们联系。 工单“问题分类”请选择“AppGallery Connect > 证书、APP ID和Profile > 证书”，并在“问题描述”中提供如下信息： 企业名称与资质 应用名称及APP ID 应用的业务场景与用途 申请的证书类型：二进制证书",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-apply-cent-0000002236201302#section16551174881019",
+    "enum": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ]
+  }
+]

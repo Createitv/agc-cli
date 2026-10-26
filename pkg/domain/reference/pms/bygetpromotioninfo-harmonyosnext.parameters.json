@@ -1,0 +1,91 @@
+[
+  {
+    "name": "appId",
+    "in": "header",
+    "type": "string",
+    "required": true,
+    "description": "应用ID，获取方法参考查询应用信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetpromotioninfo-harmonyosnext-0000002166670149#section97101017212"
+  },
+  {
+    "name": "requestId",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "请求序列，开发者自定义唯一标识符。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetpromotioninfo-harmonyosnext-0000002166670149#section1084310219419",
+    "maxLength": 64
+  },
+  {
+    "name": "productNo",
+    "in": "body",
+    "type": "string",
+    "required": false,
+    "description": "查询指定的商品的促销信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetpromotioninfo-harmonyosnext-0000002166670149#section1084310219419"
+  },
+  {
+    "name": "promotionId",
+    "in": "body",
+    "type": "string",
+    "required": false,
+    "description": "预留字段，暂不启用。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetpromotioninfo-harmonyosnext-0000002166670149#section1084310219419"
+  },
+  {
+    "name": "strategy",
+    "in": "body",
+    "type": "string",
+    "required": false,
+    "description": "策略类型： trial：免费（仅自动续期型商品支持） introductory：按周期扣费（仅自动续期型商品支持） pay-up-front：提前支付（仅自动续期型商品支持） single-promotion：单商品优惠（仅消耗型，非消耗型，非续期型商品支持）",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetpromotioninfo-harmonyosnext-0000002166670149#section1084310219419"
+  },
+  {
+    "name": "pageNum",
+    "in": "body",
+    "type": "integer",
+    "required": false,
+    "description": "请求查询的起始页码，默认值：1。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetpromotioninfo-harmonyosnext-0000002166670149#section1084310219419"
+  },
+  {
+    "name": "pageSize",
+    "in": "body",
+    "type": "integer",
+    "required": false,
+    "description": "每页请求数目，默认每页20条，最大不能超过300。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetpromotioninfo-harmonyosnext-0000002166670149#section1084310219419"
+  },
+  {
+    "name": "orderBy",
+    "in": "body",
+    "type": "string",
+    "required": false,
+    "description": "按名称升序或者降序排序。配置JSON对象，key为属性名，value为排序规则。 key取值范围为： createTime：创建时间 updateTime：更新时间 status：促销进行状态 startDate：开始促销时间 endDate：结束促销时间 value取值desc降序或者asc升序 例如：按createTime升序，updateTime降序, 则配置为{\"createTime\": \"asc\",\"updateTime\": \"desc\"}",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetpromotioninfo-harmonyosnext-0000002166670149#section1084310219419"
+  },
+  {
+    "name": "filterBy",
+    "in": "body",
+    "type": "string",
+    "required": false,
+    "description": "支持按促销状态和时间过滤。配置JSON对象，key为属性名，value为过滤的值。 key值范围如下： status：促销状态取值范围为 0：正在进行中的促销 1：未开始的促销 2：已结束的促销 例如：单选{\"status\":\"0\"}和多选{\"status\":[\"0\", \"1\"]} startDate：促销开始时间范围 例如：{\"startDate\":{\"1621843475000\":\"1631435475000\"}} endDate：促销结束时间范围 例如：{\"endDate\":{\"1621843475000\":\"1631435475000\"}} date：该时间范围内开始的促销、结束的促销和进行中的促销活动 例如：{\"date\":{\"1621843475000\":\"1631435475000\"}} key值可以包含上面的所有取值进行组合过滤，比如同时使用status和startDate过滤可以用下面的JSON： {\"status\":[ \"0\",\"1\"],\"startDate\":{\"1021843475000\":\"1631435475000\"}}",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetpromotioninfo-harmonyosnext-0000002166670149#section1084310219419"
+  },
+  {
+    "name": "promotionType",
+    "in": "body",
+    "type": "integer",
+    "required": false,
+    "description": "促销类型，默认值：0。 0：新用户促销 1：自定义人群促销 4：退订挽留促销",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetpromotioninfo-harmonyosnext-0000002166670149#section1084310219419"
+  },
+  {
+    "name": "offerId",
+    "in": "body",
+    "type": "string",
+    "required": false,
+    "description": "优惠促销标识符，用于区分不同优惠促销，该ID当前商品下唯一，最大长度64个字符，需满足[0-9a-zA-Z]，仅在促销类型为自定义人群促销时支持。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetpromotioninfo-harmonyosnext-0000002166670149#section1084310219419"
+  }
+]

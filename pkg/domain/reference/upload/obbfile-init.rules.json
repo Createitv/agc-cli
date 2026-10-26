@@ -1,0 +1,39 @@
+[
+  {
+    "id": "obb-subtype-required",
+    "kind": "required_if",
+    "field": "query.obbType",
+    "when": {
+      "field": "query.fileType",
+      "equals": "2",
+      "default": "2"
+    },
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obbfile-init-0000001158365055#section12533340135616",
+    "message": "OBB 文件必须提供 obbType；省略 fileType 时默认为 OBB。",
+    "suggestion": "OBB 添加 --query obbType=1 或 2；HarmonyOS APP 明确添加 --query fileType=1。"
+  },
+  {
+    "id": "non-obb-subtype-forbidden-1",
+    "kind": "forbidden_if",
+    "field": "query.obbType",
+    "when": {
+      "field": "query.fileType",
+      "equals": "1"
+    },
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obbfile-init-0000001158365055#section12533340135616",
+    "message": "非 OBB 文件不能传入 obbType。",
+    "suggestion": "移除 --query obbType；保留正确的 fileType。"
+  },
+  {
+    "id": "non-obb-subtype-forbidden-3",
+    "kind": "forbidden_if",
+    "field": "query.obbType",
+    "when": {
+      "field": "query.fileType",
+      "equals": "3"
+    },
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obbfile-init-0000001158365055#section12533340135616",
+    "message": "非 OBB 文件不能传入 obbType。",
+    "suggestion": "移除 --query obbType；保留正确的 fileType。"
+  }
+]

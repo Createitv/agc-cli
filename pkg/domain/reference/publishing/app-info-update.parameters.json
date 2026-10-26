@@ -1,0 +1,322 @@
+[
+  {
+    "name": "teamId",
+    "in": "header",
+    "type": "string",
+    "required": false,
+    "description": "开发者所在团队的团队ID，可通过获取团队列表接口获取。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section236517415165"
+  },
+  {
+    "name": "releaseType",
+    "in": "query",
+    "type": "integer",
+    "required": false,
+    "description": "应用发布方式。 取值范围： 1：全网 3：分阶段 默认值：1",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section886219295206",
+    "enum": [
+      "1",
+      "3"
+    ]
+  },
+  {
+    "name": "appId",
+    "in": "query",
+    "type": "string",
+    "required": true,
+    "description": "需要更新的应用ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section886219295206"
+  },
+  {
+    "name": "defaultLang",
+    "in": "body",
+    "type": "string",
+    "required": false,
+    "description": "应用的默认语言，取值参见语言类型。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section17512144171520",
+    "maxLength": 64
+  },
+  {
+    "name": "childType",
+    "in": "body",
+    "type": "integer",
+    "required": false,
+    "description": "应用的二级分类，固定ID，取值参见应用游戏分类。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section17512144171520"
+  },
+  {
+    "name": "grandChildType",
+    "in": "body",
+    "type": "integer",
+    "required": false,
+    "description": "应用的三级分类，固定ID，取值参见应用游戏分类。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section17512144171520"
+  },
+  {
+    "name": "privacyPolicy",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "隐私声明地址。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section17512144171520",
+    "maxLength": 255
+  },
+  {
+    "name": "appNetType",
+    "in": "body",
+    "type": "integer",
+    "required": false,
+    "description": "应用联网类型。 取值范围： 1：单机 2：网游",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section17512144171520",
+    "enum": [
+      "1",
+      "2"
+    ]
+  },
+  {
+    "name": "isFree",
+    "in": "body",
+    "type": "integer",
+    "required": false,
+    "description": "应用付费类型。 取值范围： 1：免费 0：付费 如果isFree为1，price和priceDetail参数将无效。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section17512144171520",
+    "enum": [
+      "0",
+      "1"
+    ]
+  },
+  {
+    "name": "price",
+    "in": "body",
+    "type": "string",
+    "required": false,
+    "description": "应用价格，格式为{\"countryCode\":\"price\"}。countryCode为国家码，price为应用的价格。国家码列表请参见国家码，对应币种请参见ISO 4217标准。 AppGallery Connect会根据所在国家/地区的价格规则对最终价格做适当调整，具体规则请参见价格换算规则。 注意 当isFree为0时，此参数必选。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section17512144171520",
+    "maxLength": 256
+  },
+  {
+    "name": "priceDetail",
+    "in": "body",
+    "type": "string",
+    "required": false,
+    "description": "应用在不同国家或地区的价格，json数组格式，不同国家和地区之间使用逗号分隔，例如：[{\"country\":\"CN\",\"currency\":\"CNY\",\"price\":\"18.00\"},{{\"country\":\"DE\",\"currency\":\"EUR\",\"price\":\"2.50\"}}]。 其中，country为国家码，currency为国家码所对应的币种，price为应用价格。国家码列表请参见国家码，对应币种请参见ISO 4217标准。 AppGallery Connect会根据所在国家/地区的价格规则对最终价格做适当调整，具体规则请参见价格换算规则。 注意 当isFree为0时，此参数必选。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section17512144171520",
+    "maxLength": 8192
+  },
+  {
+    "name": "publishCountry",
+    "in": "body",
+    "type": "string",
+    "required": false,
+    "description": "应用发布国家的国家码，多个国家以英文逗号分隔，例如：“CN,DE,MC”。如果取值为“OTHER”，表示当AppGallery支持的国家或地区列表中新增某个国家或地区时，应用将自动分发到新增的国家和地区。国家码列表请参见国家码。 注意 取值不能只包含OTHER。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section17512144171520",
+    "maxLength": 2048
+  },
+  {
+    "name": "isAppForcedUpdate",
+    "in": "body",
+    "type": "integer",
+    "required": false,
+    "description": "应用是否强制升级。 取值范围： 0：不强制 1：强制",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section17512144171520",
+    "enum": [
+      "0",
+      "1"
+    ]
+  },
+  {
+    "name": "hispaceAutoDown",
+    "in": "body",
+    "type": "integer",
+    "required": false,
+    "description": "是否允许华为应用市场抓包。 取值范围： 0：不允许 1：允许",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section17512144171520",
+    "enum": [
+      "0",
+      "1"
+    ]
+  },
+  {
+    "name": "appTariffType",
+    "in": "body",
+    "type": "string",
+    "required": false,
+    "description": "应用内付费道具类型。 取值范围： 1：激活收费 2：道具收费 3：关卡收费 4：购买虚拟币 5：部分章节收费（图书阅读类） 6：其他的 7：课程收费 8：会员收费 支持设置多个，使用英文逗号分隔，例如“1,2,3”。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section17512144171520",
+    "maxLength": 16
+  },
+  {
+    "name": "publicationNumber",
+    "in": "body",
+    "type": "string",
+    "required": false,
+    "description": "版号信息。 此参数只支持游戏类应用。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section17512144171520",
+    "maxLength": 50
+  },
+  {
+    "name": "cultureRecordNumber",
+    "in": "body",
+    "type": "string",
+    "required": false,
+    "description": "文化部备案编号。 此参数只支持游戏类应用。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section17512144171520",
+    "maxLength": 50
+  },
+  {
+    "name": "developerWebsite",
+    "in": "body",
+    "type": "string",
+    "required": false,
+    "description": "开发者官网。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section17512144171520",
+    "maxLength": 255
+  },
+  {
+    "name": "familyShareTag",
+    "in": "body",
+    "type": "integer",
+    "required": false,
+    "description": "是否可以家庭共享。 取值范围： 0：不可以。 1：可以。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section17512144171520",
+    "enum": [
+      "0",
+      "1"
+    ]
+  },
+  {
+    "name": "deviceTypes",
+    "in": "body",
+    "type": "array",
+    "required": false,
+    "description": "设备类型信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section17512144171520",
+    "itemsType": "object",
+    "itemsProperties": [
+      {
+        "name": "deviceType",
+        "in": "body",
+        "type": "integer",
+        "required": true,
+        "description": "设备类型。 取值范围： 4：手机 6：VR 7：手表 8：大屏 9：路由器 10：车机",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section17512144171520",
+        "enum": [
+          "4",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ]
+      },
+      {
+        "name": "appAdapters",
+        "in": "body",
+        "type": "string",
+        "required": true,
+        "description": "适配设备类型，多个类型以英文逗号分隔。 取值范围： 1：荣耀立方（路由器） 4：手机 5：平板 6：VR 7：手表 8：大屏 9：路由器 11：儿童表 12：智能手表 13：带屏音响 15：Windows APK类型的软件包约束如下： 当deviceType为4时，appAdapters可选范围为：4，5，7（如果有7，4也必须选择）,15(受限开放，需要联系华为运营开通) 当deviceType为6时，appAdapters可选范围为：4, 5。 当deviceType为7时，appAdapters可选范围为：11，12。 当deviceType为8时，appAdapters可选范围为：1，3，8。 RPK类型的软件包约束如下： 当deviceType为4时，appAdapters可选范围为：4，5，15 注意 修改设备类型信息时此字段必选，否则传入deviceType后会此参数会被置为空。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section17512144171520"
+      }
+    ]
+  },
+  {
+    "name": "webGameFlag",
+    "in": "body",
+    "type": "integer",
+    "required": false,
+    "description": "该应用是否为网页游戏。 取值范围： 0：否 1：是 该参数仅在应用为手机RPK游戏，且设备类型信息中适配设备类型包含Windows（appAdapters取值包含15）时才会生效。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section17512144171520",
+    "enum": [
+      "0",
+      "1"
+    ]
+  },
+  {
+    "name": "privacyRightsUrl",
+    "in": "body",
+    "type": "string",
+    "required": false,
+    "description": "隐私权利网址，即关于您的用户实施其权利的网站地址，如用户删除、修改、导出其个人数据的入口。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section17512144171520",
+    "maxLength": 256
+  },
+  {
+    "name": "registeredDclType",
+    "in": "body",
+    "type": "integer",
+    "required": false,
+    "description": "APP类型信息。 取值范围： -1：清空APP类型信息 0：APP服务器在中国大陆 1：APP服务器不在中国大陆 2：APP为单机APP",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section17512144171520",
+    "enum": [
+      "-1",
+      "0",
+      "1",
+      "2"
+    ]
+  },
+  {
+    "name": "registeredIdType",
+    "in": "body",
+    "type": "integer",
+    "required": false,
+    "description": "主办单位类型。 取值范围： -1：清空数据（会联动清空registeredIdNumber的内容） 1：企业（社会信用代码） 2：个人（身份证号码） 3：机构（机构代码）",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section17512144171520",
+    "enum": [
+      "-1",
+      "1",
+      "2",
+      "3"
+    ]
+  },
+  {
+    "name": "registeredIdNumber",
+    "in": "body",
+    "type": "string",
+    "required": false,
+    "description": "主办单位证件号。 取值范围： registeredIdType为1时，对应统一社会信用代码 registeredIdType为2时，对应身份证号码 registeredIdType为3时，对应组织机构代码",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section17512144171520",
+    "maxLength": 64
+  },
+  {
+    "name": "registeredEntity",
+    "in": "body",
+    "type": "integer",
+    "required": false,
+    "description": "主办单位。 取值范围： 1：与开发者账号主体一致 2：与开发者账号主体不一致 说明 当registeredDclType值为0（APP服务器在中国大陆）时，该字段必填。若不填写或填写错误，会导致审核不通过。 若在版本提交时，该字段值选择“一致”，则主办单位名称和证件号，将直接复用开发者联盟注册账号信息。 若您提交的主办单位信息与联盟账号信息不一致，该字段值却选择了“一致”，则系统将自动判定为“不一致”，将会影响审核结果。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section17512144171520",
+    "enum": [
+      "1",
+      "2"
+    ]
+  },
+  {
+    "name": "registeredEntityName",
+    "in": "body",
+    "type": "string",
+    "required": false,
+    "description": "主办单位名称。 说明 当registeredDclType值为0（APP服务器在中国大陆）时，该字段必填。若不填写或填写错误，会导致审核不通过。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section17512144171520",
+    "maxLength": 1024
+  },
+  {
+    "name": "userAgreementUrl",
+    "in": "body",
+    "type": "string",
+    "required": false,
+    "description": "用户协议URL。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section17512144171520",
+    "maxLength": 512
+  },
+  {
+    "name": "encrypted",
+    "in": "body",
+    "type": "integer",
+    "required": false,
+    "description": "包是否加密。 取值范围： 0：否，表示不加密。 1：是，表示加密。 默认值：1",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-update-0000001111685198#section17512144171520",
+    "enum": [
+      "0",
+      "1"
+    ]
+  }
+]

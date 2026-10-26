@@ -1,0 +1,57 @@
+[
+  {
+    "name": "appId",
+    "in": "header",
+    "type": "string",
+    "required": true,
+    "description": "应用ID，获取方法参考查询应用信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resourcemanage-harmonyosnext-0000002131361792#section1146731320212"
+  },
+  {
+    "name": "requestId",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "请求序列。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resourcemanage-harmonyosnext-0000002131361792#section48988321545",
+    "maxLength": 64
+  },
+  {
+    "name": "file",
+    "in": "file",
+    "type": "file",
+    "required": true,
+    "description": "上传的文件。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resourcemanage-harmonyosnext-0000002131361792#section48988321545"
+  },
+  {
+    "name": "fileType",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "上传文件的类型，固定取值： 1：图片",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resourcemanage-harmonyosnext-0000002131361792#section48988321545",
+    "enum": [
+      "1"
+    ]
+  },
+  {
+    "name": "zoneId",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "上传区域的ID，固定取值： 1：中国区",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resourcemanage-harmonyosnext-0000002131361792#section48988321545",
+    "enum": [
+      "1"
+    ]
+  },
+  {
+    "name": "fileName",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "上传文件的名称。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resourcemanage-harmonyosnext-0000002131361792#section48988321545"
+  }
+]

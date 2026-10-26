@@ -1,0 +1,8 @@
+{
+  "query.appId": {
+    "maxLength": 32
+  },
+  "query.pkgIds": {
+    "maxLength": 500
+  }
+}

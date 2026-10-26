@@ -1,0 +1,271 @@
+[
+  {
+    "name": "client_id",
+    "type": "string",
+    "required": false,
+    "description": "客户端ID，即获取客户端API授权中的“Client ID”。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section1840608132312",
+    "in": "header"
+  },
+  {
+    "name": "Authorization",
+    "type": "string",
+    "required": false,
+    "description": "认证信息，格式为“Authorization: Bearer ${authorization_token}”。 authorization_token为获取Token中获取的access_token。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section1840608132312",
+    "in": "header"
+  },
+  {
+    "name": "productId",
+    "type": "string",
+    "required": true,
+    "description": "项目ID，查询方法可参见查询项目ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section1840608132312",
+    "in": "header"
+  },
+  {
+    "name": "access_token",
+    "type": "string",
+    "required": false,
+    "description": "认证凭据。用户登录成功后，在登录接口的响应参数“accessToken”中获取。该值为空时，则表示匿名账号登录。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section1840608132312",
+    "in": "header"
+  },
+  {
+    "name": "_v",
+    "type": "integer",
+    "required": true,
+    "description": "数据版本类型，入参需为“4”表示protobuf v2 版本类型的json字符串。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section1475695062212",
+    "in": "query",
+    "enum": [
+      "4"
+    ]
+  },
+  {
+    "name": "msgInfo",
+    "type": "object",
+    "required": true,
+    "description": "消息的基本信息，具体请参见MsgInfo。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section621613240231",
+    "in": "body",
+    "properties": [
+      {
+        "name": "type",
+        "type": "integer",
+        "required": true,
+        "description": "更新请求，入参需为“3”。 “3”：更新数据或删除数据请求。 “5”：查询数据请求。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section1295143742319",
+        "in": "body",
+        "enum": [
+          "3"
+        ]
+      },
+      {
+        "name": "opStore",
+        "type": "object",
+        "required": true,
+        "description": "JSON字符串。格式为{\"storeName\": \"cloudDBZone\"}。 cloudDBZone为存储区名。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section1295143742319",
+        "in": "body",
+        "properties": [
+          {
+            "name": "storeName",
+            "in": "body",
+            "type": "string",
+            "required": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "clientInfo",
+    "type": "object",
+    "required": true,
+    "description": "客户端的基本信息，具体请参见ClientInfo。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section621613240231",
+    "in": "body",
+    "properties": [
+      {
+        "name": "appVer",
+        "type": "integer",
+        "required": true,
+        "description": "对象类型对应的版本号，获取请参考导出对象类型步骤4中的版本号。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section10559951122313",
+        "in": "body"
+      }
+    ]
+  },
+  {
+    "name": "schemas",
+    "type": "array",
+    "required": true,
+    "description": "表对象信息，具体请参见Schema。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section621613240231",
+    "in": "body",
+    "itemsType": "object",
+    "itemsProperties": [
+      {
+        "name": "n",
+        "type": "string",
+        "required": true,
+        "description": "对象类型名称。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section1344310632417",
+        "in": "body"
+      },
+      {
+        "name": "fs",
+        "type": "array",
+        "required": true,
+        "description": "字段名称。更新字段时，该字段必须属于同一个对象类型，否则会导致更新失败。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section1344310632417",
+        "in": "body",
+        "itemsType": "object",
+        "itemsProperties": [
+          {
+            "name": "n",
+            "type": "string",
+            "required": true,
+            "description": "字段名。更新操作时必须有如下两个字段，并遵循如下约束： long类型的naturalbase_version字段：该字段不生效，可设置为任意值。 布尔类型的naturalbase_deleted字段：需设置为固定值“false”。",
+            "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section3658142019245",
+            "in": "body"
+          },
+          {
+            "name": "t",
+            "type": "string",
+            "required": true,
+            "description": "字段类型，取值包含如下字段类型： 1：TYPE_BOOLEAN，布尔类型。 2：TYPE_BYTE，byte类型。 3：TYPE_SHORT，short类型。 4：TYPE_INT32，int类型。 5：TYPE_LONG，long类型。 6：TYPE_FLOAT，float类型。 7：TYPE_DOUBLE，double类型。 8：TYPE_BYTE_ARRAY，byte数组类型。 9：TYPE_STRING，String类型。 10：TYPE_DATE，date类型。 11：TYPE_TEXT，文本类型。 12：TYPE_AUTO_INCREMENT_INT，int自增类型。 13：TYPE_AUTO_INCREMENT_LONG，long自增类型。",
+            "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section3658142019245",
+            "in": "body"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "opData",
+    "type": "array",
+    "required": true,
+    "description": "更新数据对象信息，具体请参见OperatorData。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section621613240231",
+    "in": "body",
+    "itemsType": "object",
+    "itemsProperties": [
+      {
+        "name": "os",
+        "type": "array",
+        "required": true,
+        "description": "操作对象信息。该对象必须属于同一个对象类型，且仅支持传入一个Field。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section090964114246",
+        "in": "body",
+        "itemsType": "object",
+        "itemsProperties": [
+          {
+            "name": "fs",
+            "type": "array",
+            "required": true,
+            "description": "单条对象信息。 说明 更新操作包含naturalbase_deleted的字段固定设置值为false。",
+            "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section101441056257",
+            "in": "body",
+            "itemsType": "object",
+            "itemsProperties": [
+              {
+                "name": "n",
+                "type": "boolean",
+                "required": false,
+                "description": "是否设置为null",
+                "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section153514306256",
+                "in": "body"
+              },
+              {
+                "name": "bl",
+                "type": "boolean",
+                "required": false,
+                "description": "boolean类型值",
+                "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section153514306256",
+                "in": "body"
+              },
+              {
+                "name": "b",
+                "type": "integer",
+                "required": false,
+                "description": "byte类型值",
+                "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section153514306256",
+                "in": "body"
+              },
+              {
+                "name": "st",
+                "type": "integer",
+                "required": false,
+                "description": "short类型值",
+                "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section153514306256",
+                "in": "body"
+              },
+              {
+                "name": "i",
+                "type": "integer",
+                "required": false,
+                "description": "int类型值",
+                "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section153514306256",
+                "in": "body"
+              },
+              {
+                "name": "l",
+                "type": "integer",
+                "required": false,
+                "description": "long类型值",
+                "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section153514306256",
+                "in": "body"
+              },
+              {
+                "name": "f",
+                "type": "number",
+                "required": false,
+                "description": "float类型值",
+                "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section153514306256",
+                "in": "body"
+              },
+              {
+                "name": "d",
+                "type": "number",
+                "required": false,
+                "description": "double类型值",
+                "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section153514306256",
+                "in": "body"
+              },
+              {
+                "name": "ba",
+                "type": "",
+                "required": false,
+                "description": "byteArray类型值",
+                "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section153514306256",
+                "in": "body"
+              },
+              {
+                "name": "s",
+                "type": "string",
+                "required": false,
+                "description": "String类型值",
+                "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section153514306256",
+                "in": "body"
+              }
+            ]
+          }
+        ],
+        "maxItems": 1
+      },
+      {
+        "name": "t",
+        "type": "integer",
+        "required": true,
+        "description": "更新操作类型，入参为“1”。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-update-data-rest-0000001446287706#section090964114246",
+        "in": "body",
+        "enum": [
+          "1"
+        ]
+      }
+    ]
+  }
+]

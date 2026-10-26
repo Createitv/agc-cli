@@ -1,0 +1,105 @@
+[
+  {
+    "name": "requestId",
+    "in": "body",
+    "required": true,
+    "type": "string",
+    "description": "请求标识。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-order-0000002321296666#section89871216101211",
+    "maxLength": 64
+  },
+  {
+    "name": "userId",
+    "in": "body",
+    "required": true,
+    "type": "string",
+    "description": "华为账号登录游戏后生成的玩家标识。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-order-0000002321296666#section89871216101211",
+    "maxLength": 256
+  },
+  {
+    "name": "userIdType",
+    "in": "body",
+    "required": true,
+    "type": "integer",
+    "description": "玩家标识类型： 1：playerId 2：openId 3：unionid 4：gamePlayerId 5：teamPlayerId 6：thirdUserId 说明 userId和userIdType配套使用，userId是值，userIdType是类型。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-order-0000002321296666#section89871216101211",
+    "enum": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "name": "zoneId",
+    "in": "body",
+    "required": true,
+    "type": "string",
+    "description": "游戏内区服ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-order-0000002321296666#section89871216101211",
+    "maxLength": 64
+  },
+  {
+    "name": "roleId",
+    "in": "body",
+    "required": true,
+    "type": "string",
+    "description": "游戏内角色ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-order-0000002321296666#section89871216101211",
+    "maxLength": 64
+  },
+  {
+    "name": "productId",
+    "in": "body",
+    "required": true,
+    "type": "string",
+    "description": "商品ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-order-0000002321296666#section89871216101211",
+    "maxLength": 64
+  },
+  {
+    "name": "price",
+    "in": "body",
+    "required": true,
+    "type": "integer",
+    "description": "商品价格，单位：分。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-order-0000002321296666#section89871216101211"
+  },
+  {
+    "name": "quantity",
+    "in": "body",
+    "required": true,
+    "type": "integer",
+    "description": "订购数量。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-order-0000002321296666#section89871216101211"
+  },
+  {
+    "name": "currency",
+    "in": "body",
+    "required": true,
+    "type": "string",
+    "description": "商品价格币种。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-order-0000002321296666#section89871216101211",
+    "maxLength": 4
+  },
+  {
+    "name": "ts",
+    "in": "body",
+    "required": true,
+    "type": "integer",
+    "description": "当前时间（单位为：milliseconds），由System.currentTimeMillis()获取。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-order-0000002321296666#section89871216101211"
+  },
+  {
+    "name": "sign",
+    "in": "body",
+    "required": true,
+    "type": "string",
+    "description": "RSA签名（使用游戏服务公钥进行验签，待验签内容生成方法见签名机制）。 签名算法为SHA256WithRSA/PSS。 注意 考虑到自选参数格式多样化，本参数在\"utf-8\" urlencode后发送。 Java中request的getParameter()方法会隐含进行urldecode。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-order-0000002321296666#section89871216101211",
+    "maxLength": 8192
+  }
+]

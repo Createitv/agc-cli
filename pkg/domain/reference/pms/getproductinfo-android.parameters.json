@@ -1,0 +1,26 @@
+[
+  {
+    "name": "productNo",
+    "in": "query",
+    "type": "string",
+    "required": true,
+    "description": "开发者自定义商品标识，和appId唯一确定一个商品。 必须以大小写字母或数字开头，并且只能由大小写字母 (A-Z,a-z)、数字 (0-9)、下划线 (_) 和句点 (.) 组成。同一个应用内商品标识不能重复。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-getproductinfo-android-0000002171288609#section1212175012015"
+  },
+  {
+    "name": "country",
+    "in": "query",
+    "type": "string",
+    "required": false,
+    "description": "将商品价格转为该国家的价格进行展示。 请参见国家/地区、语言、币种列表，例如US、CN。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-getproductinfo-android-0000002171288609#section1212175012015"
+  },
+  {
+    "name": "appId",
+    "in": "header",
+    "type": "string",
+    "required": true,
+    "description": "应用ID，获取方法参考查询应用信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-getproductinfo-android-0000002171288609#section12772174510012"
+  }
+]

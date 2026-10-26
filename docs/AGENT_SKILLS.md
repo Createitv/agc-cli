@@ -25,7 +25,7 @@ agc version
 通过 agc-cli 浏览并安装全部技能：
 
 ```bash
-agc skills list
+agc skills list --remote
 agc skills install --agent codex --global
 ```
 

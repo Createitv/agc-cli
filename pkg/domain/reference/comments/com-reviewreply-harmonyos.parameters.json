@@ -1,0 +1,57 @@
+[
+  {
+    "name": "lang",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "语言，支持： zh：中文 en：英文 bo：藏语 ug：维吾尔语",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-reviewreply-harmonyos-0000002471053974#ZH-CN_TOPIC_0000002471053974__title542mcpsimp",
+    "enum": [
+      "zh",
+      "en",
+      "bo",
+      "ug"
+    ]
+  },
+  {
+    "name": "appId",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "应用ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-reviewreply-harmonyos-0000002471053974#ZH-CN_TOPIC_0000002471053974__title542mcpsimp"
+  },
+  {
+    "name": "reviewId",
+    "in": "body",
+    "type": "integer",
+    "required": true,
+    "description": "评论ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-reviewreply-harmonyos-0000002471053974#ZH-CN_TOPIC_0000002471053974__title542mcpsimp",
+    "format": "int64"
+  },
+  {
+    "name": "devReplyContent",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "回复内容。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-reviewreply-harmonyos-0000002471053974#ZH-CN_TOPIC_0000002471053974__title542mcpsimp"
+  },
+  {
+    "name": "countryCode",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "ISO标准国家码。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-reviewreply-harmonyos-0000002471053974#ZH-CN_TOPIC_0000002471053974__title542mcpsimp"
+  },
+  {
+    "name": "toReplyId",
+    "in": "body",
+    "type": "string",
+    "required": false,
+    "description": "回复ID。 说明 非必传参数，传递这个参数说明回复的是用户的回复。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-reviewreply-harmonyos-0000002471053974#ZH-CN_TOPIC_0000002471053974__title542mcpsimp"
+  }
+]

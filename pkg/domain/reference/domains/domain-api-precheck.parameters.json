@@ -1,0 +1,42 @@
+[
+  {
+    "name": "appId",
+    "in": "header",
+    "type": "string",
+    "required": true,
+    "description": "应用ID，获取方法参考查看应用信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-domain-api-precheck-0000002295134522#section236517415165",
+    "maxLength": 32
+  },
+  {
+    "name": "domain",
+    "in": "body",
+    "type": "object",
+    "required": false,
+    "description": "业务域名信息。 说明 type必须设置为webView。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-domain-api-precheck-0000002295134522#section141117691213",
+    "properties": [
+      {
+        "name": "type",
+        "in": "body",
+        "type": "string",
+        "required": true,
+        "description": "域名类型。 取值范围： httpRequest：httpRequest服务器域名 upload：upload服务器域名 download：download服务器域名 webSocket：webSocket服务器域名 webView：webView业务域名",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-domain-api-data-domaininfo-0000002272582405",
+        "maxLength": 32,
+        "enum": [
+          "webView"
+        ]
+      },
+      {
+        "name": "value",
+        "in": "body",
+        "type": "string",
+        "required": true,
+        "description": "完整的域名。例如： https://huawei.com:8080",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-domain-api-data-domaininfo-0000002272582405",
+        "maxLength": 128
+      }
+    ]
+  }
+]

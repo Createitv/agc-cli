@@ -1,0 +1,35 @@
+[
+  {
+    "name": "reviewId",
+    "in": "path",
+    "type": "string",
+    "required": true,
+    "description": "评论ID，可从查询应用评论列表接口中获取。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-getreviewinfo-harmonyos-0000002504053839#ZH-CN_TOPIC_0000002504053839__title1271mcpsimp"
+  },
+  {
+    "name": "appId",
+    "in": "query",
+    "type": "string",
+    "required": true,
+    "description": "应用ID，获取方法参考查询应用信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-getreviewinfo-harmonyos-0000002504053839#ZH-CN_TOPIC_0000002504053839__title1301mcpsimp"
+  },
+  {
+    "name": "page",
+    "in": "query",
+    "type": "integer",
+    "required": false,
+    "description": "请求查询的页码，默认1。 例如，查询时page配置为2，limit配置为20，表示返回时每页显示20条评论数据，当前查询第2页。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-getreviewinfo-harmonyos-0000002504053839#ZH-CN_TOPIC_0000002504053839__title1301mcpsimp"
+  },
+  {
+    "name": "limit",
+    "in": "query",
+    "type": "integer",
+    "required": false,
+    "description": "每页请求数目，最大100条每页，默认20条。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-com-getreviewinfo-harmonyos-0000002504053839#ZH-CN_TOPIC_0000002504053839__title1301mcpsimp",
+    "maximum": 100
+  }
+]

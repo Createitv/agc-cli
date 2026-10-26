@@ -1,0 +1,11 @@
+[
+  {
+    "name": "appId",
+    "in": "header",
+    "type": "string",
+    "required": true,
+    "description": "应用ID，获取方法参考查看应用信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-domain-api-download-domain-config-0000002271160653#section236517415165",
+    "maxLength": 32
+  }
+]

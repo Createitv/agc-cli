@@ -1,0 +1,291 @@
+{
+  "examples": [
+    {
+      "section": "请求示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchdeactpromotion-harmonyosnext-0000002131350720#section19934722144316",
+      "text": "请求示例\n\n以API Client为例：\n\nPUT https://connect-api.cloud.huawei.com/api/pms/product-price-service/v2/manage/product/promotion/batchDeactive\nContent-Type: application/json\nclient_id: ***\nAuthorization: Bearer ***\nappId: 1000001\n\n\n{\n    \"requestId\": \"123234\",\n    \"promotions\": [\"2B04888F868440D288337A0954B37001\", \"2B04888F868440D288337A0954B37002\"]\n}"
+    },
+    {
+      "section": "响应示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchdeactpromotion-harmonyosnext-0000002131350720#section2884102017316",
+      "text": "响应示例\n{\n    \"error\": {\n        \"errorCode\": 0,\n        \"errorMsg\": \"Batch deactivate promotion success\"\n    },\n    \"failedNumber\": 0,\n    \"resultInfo\": [],\n    \"successNumber\": 2\n}"
+    }
+  ],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pmsapi-0000001162548121",
+      "title": "PMS API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pmsapi-harmonyosnext-0000002166747989",
+      "title": "HarmonyOS 5.0及以上"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114",
+      "title": "使用入门"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114#section103mcpsimp",
+      "title": "创建API客户端"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain_token-0000001158365043",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/appgallery_queryappinfo",
+      "title": "查询应用信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114#section949717114392",
+      "title": "获取用户授权码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/appgallery_queryappinfo",
+      "title": "查询应用信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-errorresult-harmonyosnext-0000002131350724",
+      "title": "ErrorResult"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-perrorinfo-harmonyosnext-0000002166748637",
+      "title": "PromotionErrorInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchactpromotion-harmonyosnext-0000002131508860",
+      "title": "批量上线商品促销活动"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basicapplication-harmonyosnext-0000002131519928",
+      "title": "查询关联APP已有商品类型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchdeactpromotion-harmonyosnext-0000002131350720#section8711909",
+      "title": "功能介绍"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchdeactpromotion-harmonyosnext-0000002131350720#section5189239225",
+      "title": "使用约束"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchdeactpromotion-harmonyosnext-0000002131350720#section2862142512223",
+      "title": "接口原型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchdeactpromotion-harmonyosnext-0000002131350720#section482745132215",
+      "title": "请求参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchdeactpromotion-harmonyosnext-0000002131350720#section1146731320212",
+      "title": "Header"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchdeactpromotion-harmonyosnext-0000002131350720#section48988321545",
+      "title": "Body"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchdeactpromotion-harmonyosnext-0000002131350720#section19934722144316",
+      "title": "请求示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchdeactpromotion-harmonyosnext-0000002131350720#section49198053",
+      "title": "响应参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchdeactpromotion-harmonyosnext-0000002131350720#section2884102017316",
+      "title": "响应示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchdeactpromotion-harmonyosnext-0000002131350720#section77276431240",
+      "title": "调用示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchdeactpromotion-harmonyosnext-0000002131350720#section8711909",
+      "text": "此接口用于批量下线商品促销活动。"
+    },
+    {
+      "section": "使用约束",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchdeactpromotion-harmonyosnext-0000002131350720#section5189239225",
+      "text": "接口调用者的角色：账号持有者、管理员、APP管理员、运营。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchdeactpromotion-harmonyosnext-0000002131350720#section1146731320212",
+      "text": "API Client和OAuth Client区别参见使用入门。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchdeactpromotion-harmonyosnext-0000002131350720#section1146731320212",
+      "text": "API Client方式"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchdeactpromotion-harmonyosnext-0000002131350720#section1146731320212",
+      "text": "OAuth Client方式"
+    }
+  ],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchdeactpromotion-harmonyosnext-0000002131350720",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "承载协议",
+          "HTTPS PUT"
+        ],
+        [
+          "接口方向",
+          "开发者服务器->数字商品服务器"
+        ],
+        [
+          "接口URL",
+          "https://connect-api.cloud.huawei.com/api/pms/product-price-service/v2/manage/product/promotion/batchDeactive"
+        ],
+        [
+          "数据格式",
+          "请求消息：Content-Type: application/json 响应消息：Content-Type: application/json"
+        ]
+      ],
+      "section": "接口原型",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchdeactpromotion-harmonyosnext-0000002131350720#section2862142512223"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数",
+          "必选(M)/可选(O)",
+          "类型",
+          "描述"
+        ],
+        [
+          "client_id",
+          "M",
+          "String",
+          "客户端ID，获取方法参考创建API客户端。"
+        ],
+        [
+          "Authorization",
+          "M",
+          "String",
+          "认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。"
+        ],
+        [
+          "appId",
+          "M",
+          "String",
+          "应用ID，获取方法参考查询应用信息。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchdeactpromotion-harmonyosnext-0000002131350720#section1146731320212"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "oauth2Token",
+          "M",
+          "String",
+          "认证信息，传入获取用户授权码中获取的Access Token。"
+        ],
+        [
+          "appId",
+          "M",
+          "String",
+          "应用ID，获取方法参考查询应用信息。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchdeactpromotion-harmonyosnext-0000002131350720#section1146731320212"
+    },
+    {
+      "location": "body",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "requestId",
+          "M",
+          "String(64)",
+          "请求序列。"
+        ],
+        [
+          "promotions",
+          "M",
+          "List<String>",
+          "商品促销ID列表，促销ID长度最大32字符，列表中不超过100个促销ID。"
+        ],
+        [
+          "immediateEnd",
+          "O",
+          "String(2)",
+          "值为1标识促销立即结束，更新促销结束时间，不传或者其它值不更新促销结束时间。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchdeactpromotion-harmonyosnext-0000002131350720#section48988321545"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "error",
+          "M",
+          "ErrorResult",
+          "包含返回码及描述信息的JSON字符串。"
+        ],
+        [
+          "failedNumber",
+          "M",
+          "Integer",
+          "批量消息中的失败个数。"
+        ],
+        [
+          "successNumber",
+          "M",
+          "Integer",
+          "批量消息中的成功个数。"
+        ],
+        [
+          "resultInfo",
+          "O",
+          "List<PromotionErrorInfo>",
+          "操作错误信息列表。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-batchdeactpromotion-harmonyosnext-0000002131350720#section49198053"
+    }
+  ],
+  "title": "批量下线商品促销活动",
+  "updatedAt": "2025-08-06 18:02",
+  "checkedAt": "2026-10-07T02:58:17.063Z",
+  "family": "pms",
+  "endpoint": "batchdeactpromotion-harmonyosnext"
+}

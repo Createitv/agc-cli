@@ -1,0 +1,20 @@
+[
+  {
+    "name": "appId",
+    "in": "query",
+    "type": "string",
+    "required": true,
+    "description": "应用ID，获取方法参考查看应用信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-get-detect-task-0000002525033189#section141117691213",
+    "maxLength": 32
+  },
+  {
+    "name": "versionId",
+    "in": "query",
+    "type": "string",
+    "required": true,
+    "description": "测试版本ID。 可从新建测试版本接口返回的versionId参数中获取。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-get-detect-task-0000002525033189#section141117691213",
+    "maxLength": 32
+  }
+]

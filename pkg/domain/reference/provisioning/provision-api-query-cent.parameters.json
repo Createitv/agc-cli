@@ -1,0 +1,37 @@
+[
+  {
+    "name": "teamId",
+    "in": "header",
+    "type": "string",
+    "required": false,
+    "description": "开发者所在团队的团队ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-query-cent-0000002271160629#section1323714041015",
+    "maxLength": 64
+  },
+  {
+    "name": "certType",
+    "in": "body",
+    "type": "integer",
+    "required": false,
+    "description": "证书类型。 取值范围： 1：调试 2：发布 3：In-house发布 4：二进制证书（用于二进制程序签名）",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-query-cent-0000002271160629#section16551174881019",
+    "enum": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ]
+  },
+  {
+    "name": "certIds",
+    "in": "body",
+    "type": "array",
+    "required": false,
+    "description": "证书ID列表。 数组长度为1~100。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-query-cent-0000002271160629#section16551174881019",
+    "itemsType": "string",
+    "itemsMaxLength": 32,
+    "minItems": 1,
+    "maxItems": 100
+  }
+]

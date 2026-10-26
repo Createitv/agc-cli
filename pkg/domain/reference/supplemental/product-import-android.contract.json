@@ -1,0 +1,362 @@
+{
+  "parameters": [
+    {
+      "name": "productNo",
+      "in": "body",
+      "type": "string",
+      "required": true,
+      "description": "开发者自定义商品标识，和appId唯一确定一个商品。 必须以大小写字母或数字开头，并且只能由大小写字母 (A-Z,a-z)、数字 (0-9)、下划线 (_) 和句点 (.) 组成。同一个应用内商品标识不能重复。 更新时不能修改。",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-pimportinfo-android-0000002135929344"
+    },
+    {
+      "name": "status",
+      "in": "body",
+      "type": "string",
+      "required": false,
+      "description": "商品状态，支持创建active和inactive状态的商品默认值：inactive。取值如下： active：上线 inactive：下线",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-pimportinfo-android-0000002135929344",
+      "enum": [
+        "active",
+        "inactive"
+      ]
+    },
+    {
+      "name": "productName",
+      "in": "body",
+      "type": "string",
+      "required": true,
+      "description": "商品名称，支持多语言配置，根据defaultLocale配置此处的商品名称。不支持特殊字符|。",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-pimportinfo-android-0000002135929344",
+      "maxLength": 55
+    },
+    {
+      "name": "productDesc",
+      "in": "body",
+      "type": "string",
+      "required": true,
+      "description": "默认商品描述信息。不支持特殊字符|。",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-pimportinfo-android-0000002135929344",
+      "maxLength": 100
+    },
+    {
+      "name": "purchaseType",
+      "in": "body",
+      "type": "string",
+      "required": true,
+      "description": "商品类型，取值范围： consumable：消耗型 auto_subscription：自动续期型 non_consumable：非消耗型 更新时不能修改。",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-pimportinfo-android-0000002135929344",
+      "enum": [
+        "consumable",
+        "auto_subscription",
+        "non_consumable"
+      ]
+    },
+    {
+      "name": "subGroupId",
+      "in": "body",
+      "type": "string",
+      "required": false,
+      "description": "订阅分组ID，purchaseType为auto_subscription时必须传入，依赖于已调用创建商品订阅分组信息接口创建订阅分组。更新时不能修改。",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-pimportinfo-android-0000002135929344"
+    },
+    {
+      "name": "subPeriod",
+      "in": "body",
+      "type": "string",
+      "required": false,
+      "description": "订购周期，purchaseType为auto_subscription时必须传入。更新时不能修改。",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-pimportinfo-android-0000002135929344"
+    },
+    {
+      "name": "subPeriodUnit",
+      "in": "body",
+      "type": "string",
+      "required": false,
+      "description": "订购周期单位，purchaseType为auto_subscription时必须传入。采用ISO 8601格式指定，取值范围： D：天 W：周 M：月 Y：年 可选值： 1周 1个月 2个月 3个月 6个月 1年 30天（上次订阅日期+30天） 31天（上次订阅日期+31天） 例如：订阅周期为2个月，则subPeriod=2， subPeriodUnit=M。 更新时不能修改。 说明 当前仅purchaseType为\"auto_subscription\"的自动续期型商品需要维护。",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-pimportinfo-android-0000002135929344",
+      "enum": [
+        "D",
+        "W",
+        "M",
+        "Y"
+      ]
+    },
+    {
+      "name": "force",
+      "in": "body",
+      "type": "integer",
+      "required": false,
+      "description": "自动续期型商品，价格变更之后，对于已订阅用户是否强制涨价。不传默认值：0。 0：不强制 1：强制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-pimportinfo-android-0000002135929344",
+      "enum": [
+        "0",
+        "1"
+      ]
+    },
+    {
+      "name": "defaultLocale",
+      "in": "body",
+      "type": "string",
+      "required": true,
+      "description": "默认语言环境，请参见国家/地区、语言、币种列表。 例如：zh_CN、en_US。",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-pimportinfo-android-0000002135929344"
+    },
+    {
+      "name": "defaultPriceInfo",
+      "in": "body",
+      "type": "object",
+      "required": false,
+      "description": "默认价格信息。如果未传入，则会默认设置此对象中的Country为CN，Currency为CNY。",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-pimportinfo-android-0000002135929344",
+      "properties": [
+        {
+          "name": "country",
+          "in": "body",
+          "type": "string",
+          "required": true,
+          "description": "国家码，具体请参见国家/地区、语言、币种列表，默认值CN。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-dppriceinfo-android-0000002171407033"
+        },
+        {
+          "name": "price",
+          "in": "body",
+          "type": "string",
+          "required": false,
+          "description": "商品原始价格，如果商品为上线状态，则此字段不能为空。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-dppriceinfo-android-0000002171407033"
+        },
+        {
+          "name": "currency",
+          "in": "body",
+          "type": "string",
+          "required": true,
+          "description": "用于支付的币种，请参见国家/地区、语言、币种列表。 例如：USD、CNY、MYR。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-dppriceinfo-android-0000002171407033"
+        }
+      ]
+    },
+    {
+      "name": "languages",
+      "in": "body",
+      "type": "array",
+      "required": false,
+      "description": "商品多语言信息。 如果未传值，则通过默认的productName、productDesc和defaultLocale构造。 如果传入了该列表，当列表内某一ProductLanguageInfo对象的locale的值等于当前ProductImportInfo内defaultLocale的值时，需保证该对象内productName和productDesc的值分别与当前ProductImportInfo内productName和productDesc的值一致。",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-pimportinfo-android-0000002135929344",
+      "itemsType": "object",
+      "itemsProperties": [
+        {
+          "name": "locale",
+          "in": "body",
+          "type": "string",
+          "required": true,
+          "description": "语言环境，请参考国家/地区、语言、币种列表。 例如：zh_CN、en_US。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-pdlanguageinfo-android-0000002171407041"
+        },
+        {
+          "name": "productName",
+          "in": "body",
+          "type": "string",
+          "required": true,
+          "description": "商品名称。不支持特殊字符|。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-pdlanguageinfo-android-0000002171407041",
+          "maxLength": 55
+        },
+        {
+          "name": "productDesc",
+          "in": "body",
+          "type": "string",
+          "required": true,
+          "description": "商品描述。不支持特殊字符|。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-pdlanguageinfo-android-0000002171407041",
+          "maxLength": 100
+        }
+      ]
+    },
+    {
+      "name": "prices",
+      "in": "body",
+      "type": "array",
+      "required": false,
+      "description": "自定义价格。如果传入了该列表，则必须传入DefaultProductPriceInfo对象中的price字段。 说明 更新场景时，仅更新该列表中的价格，不自动刷新其他国家价格。",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-pimportinfo-android-0000002135929344",
+      "itemsType": "object",
+      "itemsProperties": [
+        {
+          "name": "country",
+          "in": "body",
+          "type": "string",
+          "required": true,
+          "description": "国家码，请参见国家/地区、语言、币种列表，例如CN。 默认值CN。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-ppriceinfo-android-0000002171288645"
+        },
+        {
+          "name": "price",
+          "in": "body",
+          "type": "string",
+          "required": true,
+          "description": "定价，单位为分。 例如：1.99元此参数需要传入199。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-ppriceinfo-android-0000002171288645"
+        }
+      ]
+    },
+    {
+      "name": "promotion",
+      "in": "body",
+      "type": "object",
+      "required": false,
+      "description": "促销信息。",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-pimportinfo-android-0000002135929344",
+      "properties": [
+        {
+          "name": "promotionId",
+          "in": "body",
+          "type": "string",
+          "required": false,
+          "description": "优惠唯一ID，批量创建时不需要传入，更新时必传。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-promotioninfo-android-0000002136087440"
+        },
+        {
+          "name": "promotionTitle",
+          "in": "body",
+          "type": "string",
+          "required": true,
+          "description": "促销名称。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-promotioninfo-android-0000002136087440"
+        },
+        {
+          "name": "startDate",
+          "in": "body",
+          "type": "integer",
+          "required": true,
+          "description": "开始优惠时间，格式为毫秒单位的时间戳。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-promotioninfo-android-0000002136087440"
+        },
+        {
+          "name": "endDate",
+          "in": "body",
+          "type": "integer",
+          "required": false,
+          "description": "结束优惠时间，格式为毫秒单位的时间戳。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-promotioninfo-android-0000002136087440"
+        },
+        {
+          "name": "status",
+          "in": "body",
+          "type": "string",
+          "required": false,
+          "description": "促销状态，取值如下，默认值：inactive。 active：上线 inactive：下线",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-promotioninfo-android-0000002136087440"
+        },
+        {
+          "name": "strategy",
+          "in": "body",
+          "type": "string",
+          "required": true,
+          "description": "促销策略类型： trial：免费试用 说明 仅当关联商品的purchaseType为auto_subscription类型时支持配置trial。 introductory：按周期扣费",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-promotioninfo-android-0000002136087440"
+        },
+        {
+          "name": "price",
+          "in": "body",
+          "type": "string",
+          "required": false,
+          "description": "默认促销价格，单位为分，strategy取值为introductory时，必须传入。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-promotioninfo-android-0000002136087440"
+        },
+        {
+          "name": "numberOfUnits",
+          "in": "body",
+          "type": "integer",
+          "required": false,
+          "description": "优惠周期数。如优惠两个月，numberOfUnits=2， periodUnit=M",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-promotioninfo-android-0000002136087440"
+        },
+        {
+          "name": "periodUnit",
+          "in": "body",
+          "type": "string",
+          "required": false,
+          "description": "优惠周期单位： D：天 W：周 M：月 Y：年 可选值： 1周 1个月 2个月 3个月 6个月 1年 30天（上次订阅日期+30天） 31天（上次订阅日期+31天） 说明 当前仅purchaseType为\"auto_subscription\"的自动续期型商品需要维护。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-promotioninfo-android-0000002136087440"
+        },
+        {
+          "name": "languages",
+          "in": "body",
+          "type": "array",
+          "required": false,
+          "description": "各个国家的语言信息。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-promotioninfo-android-0000002136087440",
+          "itemsType": "object"
+        },
+        {
+          "name": "promotionPrice",
+          "in": "body",
+          "type": "array",
+          "required": true,
+          "description": "各个国家的自定义价格信息。",
+          "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-promotioninfo-android-0000002136087440",
+          "itemsType": "object"
+        }
+      ]
+    },
+    {
+      "name": "salesCountry",
+      "in": "body",
+      "type": "array",
+      "required": false,
+      "description": "销售国家/地区。",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-pimportinfo-android-0000002135929344",
+      "itemsType": "string"
+    },
+    {
+      "name": "autoAddSaleCountry",
+      "in": "body",
+      "type": "integer",
+      "required": false,
+      "description": "是否启用自动添加销售国家或地区，默认值：0。 1：是 0：否",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-pimportinfo-android-0000002135929344",
+      "enum": [
+        "0",
+        "1"
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "id": "subscription-subGroupId",
+      "kind": "required_if",
+      "field": "body.subGroupId",
+      "when": {
+        "field": "body.purchaseType",
+        "equals": "auto_subscription"
+      },
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-pimportinfo-android-0000002135929344",
+      "message": "subGroupId is required for auto_subscription",
+      "suggestion": "Supply subGroupId using the subscription group and period documented by ProductImportInfo."
+    },
+    {
+      "id": "subscription-subPeriod",
+      "kind": "required_if",
+      "field": "body.subPeriod",
+      "when": {
+        "field": "body.purchaseType",
+        "equals": "auto_subscription"
+      },
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-pimportinfo-android-0000002135929344",
+      "message": "subPeriod is required for auto_subscription",
+      "suggestion": "Supply subPeriod using the subscription group and period documented by ProductImportInfo."
+    },
+    {
+      "id": "subscription-subPeriodUnit",
+      "kind": "required_if",
+      "field": "body.subPeriodUnit",
+      "when": {
+        "field": "body.purchaseType",
+        "equals": "auto_subscription"
+      },
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-pimportinfo-android-0000002135929344",
+      "message": "subPeriodUnit is required for auto_subscription",
+      "suggestion": "Supply subPeriodUnit using the subscription group and period documented by ProductImportInfo."
+    }
+  ]
+}

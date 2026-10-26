@@ -1,0 +1,1279 @@
+{
+  "checkedAt": "2026-10-07T02:20:10.353Z",
+  "source": "Official Huawei documentation read through browser DOM",
+  "endpoints": [
+    {
+      "name": "创建APP ID",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-provision-api-create-appid-0000002526543939",
+      "method": "POST",
+      "path": "/api/publish/v3/app",
+      "parameters": [
+        {
+          "name": "projectId",
+          "in": "query",
+          "required": false,
+          "type": "String"
+        },
+        {
+          "name": "appName",
+          "in": "body",
+          "required": true,
+          "type": "String(64)"
+        },
+        {
+          "name": "packageName",
+          "in": "body",
+          "required": false,
+          "type": "String(128)"
+        },
+        {
+          "name": "parentType",
+          "in": "body",
+          "required": true,
+          "type": "Integer(32)",
+          "example": "13"
+        },
+        {
+          "name": "installationFree",
+          "in": "body",
+          "required": true,
+          "type": "Integer(32)",
+          "example": "1"
+        }
+      ],
+      "id": "app-create"
+    },
+    {
+      "name": "查询应用包名对应的appid",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-appid-list-0000002271000617",
+      "method": "GET",
+      "path": "/api/publish/v2/appid-list",
+      "parameters": [
+        {
+          "name": "packageName",
+          "in": "query",
+          "required": true,
+          "type": "String(4096)"
+        },
+        {
+          "name": "packageTypes",
+          "in": "query",
+          "required": false,
+          "type": "String(32)"
+        }
+      ],
+      "id": "appid-list"
+    },
+    {
+      "name": "查询团队账号下的成员角色列表",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-teamid-member-list-0000002679253743",
+      "method": "GET",
+      "path": "/api/publish/v3/members-role-list",
+      "parameters": [
+        {
+          "name": "fromPage",
+          "in": "query",
+          "required": true,
+          "type": "Integer"
+        },
+        {
+          "name": "pageSize",
+          "in": "query",
+          "required": true,
+          "type": "Integer"
+        },
+        {
+          "name": "languageCode",
+          "in": "query",
+          "required": true,
+          "type": "String(20)",
+          "example": "zh_cn"
+        }
+      ],
+      "id": "members-role-list"
+    },
+    {
+      "name": "查询应用信息",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-appinfo-query-0000002236041422",
+      "method": "GET",
+      "path": "/api/publish/v3/app-info",
+      "parameters": [
+        {
+          "name": "appId",
+          "in": "query",
+          "required": true,
+          "type": "String(32)"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "required": false,
+          "type": "String(16)"
+        },
+        {
+          "name": "releaseType",
+          "in": "query",
+          "required": false,
+          "type": "Integer",
+          "example": "1"
+        },
+        {
+          "name": "versionId",
+          "in": "query",
+          "required": false,
+          "type": "String"
+        }
+      ],
+      "id": "app-info-query-v3"
+    },
+    {
+      "name": "更新应用基本信息",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-appinfo-update-0000002236201246",
+      "method": "PUT",
+      "path": "/api/publish/v3/app-info",
+      "parameters": [
+        {
+          "name": "appId",
+          "in": "query",
+          "required": true,
+          "type": "String(32)"
+        },
+        {
+          "name": "releaseType",
+          "in": "query",
+          "required": false,
+          "type": "Integer(32)",
+          "example": "1"
+        },
+        {
+          "name": "releasePhase",
+          "in": "query",
+          "required": false,
+          "type": "Integer(32)",
+          "example": "0"
+        },
+        {
+          "name": "defaultLang",
+          "in": "body",
+          "required": false,
+          "type": "String(16)"
+        },
+        {
+          "name": "harmonyChildType",
+          "in": "body",
+          "required": false,
+          "type": "Integer(4)"
+        },
+        {
+          "name": "kindMainTag",
+          "in": "body",
+          "required": false,
+          "type": "Integer(4)"
+        },
+        {
+          "name": "kindSubTags",
+          "in": "body",
+          "required": false,
+          "type": "List<Integer>"
+        },
+        {
+          "name": "privacyPolicy",
+          "in": "body",
+          "required": false,
+          "type": "String(255)"
+        },
+        {
+          "name": "appNetType",
+          "in": "body",
+          "required": false,
+          "type": "Integer"
+        },
+        {
+          "name": "publishCountry",
+          "in": "body",
+          "required": true,
+          "type": "String(2048)"
+        },
+        {
+          "name": "appTariffType",
+          "in": "body",
+          "required": false,
+          "type": "String(16)"
+        },
+        {
+          "name": "publicationNumber",
+          "in": "body",
+          "required": false,
+          "type": "String(50)"
+        },
+        {
+          "name": "developerWebsite",
+          "in": "body",
+          "required": false,
+          "type": "String(255)"
+        },
+        {
+          "name": "customInfo",
+          "in": "body",
+          "required": false,
+          "type": "CustInfo"
+        },
+        {
+          "name": "deviceTypes",
+          "in": "body",
+          "required": false,
+          "type": "List<DeviceTypeInfo>"
+        },
+        {
+          "name": "privacyRightsUrl",
+          "in": "body",
+          "required": false,
+          "type": "String(256)"
+        },
+        {
+          "name": "registeredDclType",
+          "in": "body",
+          "required": false,
+          "type": "Integer(32)",
+          "example": "2"
+        },
+        {
+          "name": "registeredIdType",
+          "in": "body",
+          "required": false,
+          "type": "Integer(32)",
+          "example": "1"
+        },
+        {
+          "name": "registeredIdNumber",
+          "in": "body",
+          "required": false,
+          "type": "String(64)"
+        },
+        {
+          "name": "registeredEntity",
+          "in": "body",
+          "required": false,
+          "type": "Integer(32)",
+          "example": "1"
+        },
+        {
+          "name": "registeredEntityName",
+          "in": "body",
+          "required": false,
+          "type": "String(1024)"
+        },
+        {
+          "name": "privacyAgreementId",
+          "in": "body",
+          "required": false,
+          "type": "String(32)"
+        },
+        {
+          "name": "userAgreementUrl",
+          "in": "body",
+          "required": false,
+          "type": "String(512)"
+        },
+        {
+          "name": "userAgreementIds",
+          "in": "body",
+          "required": false,
+          "type": "List<String(32)>"
+        },
+        {
+          "name": "encrypted",
+          "in": "body",
+          "required": true,
+          "type": "Integer(32)"
+        },
+        {
+          "name": "isAiGenerate",
+          "in": "body",
+          "required": false,
+          "type": "Integer(32)",
+          "example": "0"
+        },
+        {
+          "name": "aiTypes",
+          "in": "body",
+          "required": false,
+          "type": "List<Integer(32)>"
+        },
+        {
+          "name": "testUserName",
+          "in": "body",
+          "required": false,
+          "type": "String(128)"
+        },
+        {
+          "name": "testUserPassword",
+          "in": "body",
+          "required": false,
+          "type": "String(128)"
+        },
+        {
+          "name": "appRemark",
+          "in": "body",
+          "required": false,
+          "type": "String(300)"
+        },
+        {
+          "name": "selfTestVideos",
+          "in": "body",
+          "required": false,
+          "type": "String(2000)"
+        },
+        {
+          "name": "appReviewPhoneInfo",
+          "in": "body",
+          "required": false,
+          "type": "AppReviewContact"
+        },
+        {
+          "name": "appReviewEmailInfo",
+          "in": "body",
+          "required": false,
+          "type": "AppReviewContact"
+        },
+        {
+          "name": "appReviewName",
+          "in": "body",
+          "required": false,
+          "type": "String(256)"
+        },
+        {
+          "name": "versionVocs",
+          "in": "body",
+          "required": false,
+          "type": "List<VersionVoc>"
+        }
+      ],
+      "id": "app-info-update-v3"
+    },
+    {
+      "name": "更新应用语言信息",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-language-info-update-0000002271160569",
+      "method": "PUT",
+      "path": "/api/publish/v3/app-language-info",
+      "parameters": [
+        {
+          "name": "appId",
+          "in": "query",
+          "required": true,
+          "type": "String"
+        },
+        {
+          "name": "releaseType",
+          "in": "query",
+          "required": false,
+          "type": "Integer(32)",
+          "example": "1"
+        },
+        {
+          "name": "releasePhase",
+          "in": "query",
+          "required": false,
+          "type": "Integer(32)",
+          "example": "0"
+        },
+        {
+          "name": "lang",
+          "in": "body",
+          "required": true,
+          "type": "String(8)"
+        },
+        {
+          "name": "appName",
+          "in": "body",
+          "required": false,
+          "type": "String(64)"
+        },
+        {
+          "name": "appDesc",
+          "in": "body",
+          "required": false,
+          "type": "String(8000)"
+        },
+        {
+          "name": "briefInfo",
+          "in": "body",
+          "required": false,
+          "type": "String(80)"
+        },
+        {
+          "name": "newFeatures",
+          "in": "body",
+          "required": false,
+          "type": "String(500)"
+        }
+      ],
+      "id": "language-info-update-v3"
+    },
+    {
+      "name": "删除应用语言信息",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-language-info-delete-0000002271000621",
+      "method": "DELETE",
+      "path": "/api/publish/v2/app-language-info",
+      "parameters": [
+        {
+          "name": "appId",
+          "in": "query",
+          "required": true,
+          "type": "String"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "required": true,
+          "type": "String"
+        },
+        {
+          "name": "releaseType",
+          "in": "query",
+          "required": false,
+          "type": "Integer",
+          "example": "1"
+        }
+      ],
+      "id": "language-info-delete"
+    },
+    {
+      "name": "更新应用文件信息",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-app-file-info-update-0000002236041430",
+      "method": "PUT",
+      "path": "/api/publish/v3/app-file-info",
+      "parameters": [
+        {
+          "name": "appId",
+          "in": "query",
+          "required": true,
+          "type": "String(32)"
+        },
+        {
+          "name": "releaseType",
+          "in": "query",
+          "required": false,
+          "type": "Integer(32)",
+          "example": "1"
+        },
+        {
+          "name": "releasePhase",
+          "in": "query",
+          "required": false,
+          "type": "Integer(32)",
+          "example": "0"
+        },
+        {
+          "name": "appIconList",
+          "in": "body",
+          "required": false,
+          "type": "List<LangFileInfo>"
+        },
+        {
+          "name": "screenShotList",
+          "in": "body",
+          "required": false,
+          "type": "List<LangFileInfo>"
+        },
+        {
+          "name": "introVideoList",
+          "in": "body",
+          "required": false,
+          "type": "List<LangFileInfo>"
+        },
+        {
+          "name": "rcmdVideoList",
+          "in": "body",
+          "required": false,
+          "type": "List<LangFileInfo>"
+        },
+        {
+          "name": "rcmdPicList",
+          "in": "body",
+          "required": false,
+          "type": "List<LangFileInfo>"
+        },
+        {
+          "name": "elecCertificate",
+          "in": "body",
+          "required": false,
+          "type": "String(512)"
+        },
+        {
+          "name": "certificateList",
+          "in": "body",
+          "required": false,
+          "type": "List<String(512)>"
+        },
+        {
+          "name": "publicationList",
+          "in": "body",
+          "required": false,
+          "type": "List<String(512)>"
+        },
+        {
+          "name": "packagePermissionIntroVideoList",
+          "in": "body",
+          "required": false,
+          "type": "List<PackagePermissionIntroVideo>"
+        },
+        {
+          "name": "otherCertificatesURL",
+          "in": "body",
+          "required": false,
+          "type": "String(512)"
+        },
+        {
+          "name": "updateScreenShotList",
+          "in": "body",
+          "required": false,
+          "type": "List<LangFileInfo>"
+        },
+        {
+          "name": "updateVideoList",
+          "in": "body",
+          "required": false,
+          "type": "List<LangFileInfo>"
+        }
+      ],
+      "id": "app-file-info-v3"
+    },
+    {
+      "name": "更新应用软件包信息",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-app-package-info-update-0000002236201250",
+      "method": "PUT",
+      "path": "/api/publish/v3/app-package-info",
+      "parameters": [
+        {
+          "name": "appId",
+          "in": "query",
+          "required": true,
+          "type": "String"
+        },
+        {
+          "name": "releaseType",
+          "in": "query",
+          "required": false,
+          "type": "Integer(32)",
+          "example": "1"
+        },
+        {
+          "name": "releasePhase",
+          "in": "query",
+          "required": false,
+          "type": "Integer(32)",
+          "example": "0"
+        },
+        {
+          "name": "fileName",
+          "in": "body",
+          "required": true,
+          "type": "String(255)"
+        },
+        {
+          "name": "objectId",
+          "in": "body",
+          "required": true,
+          "type": "String(512)"
+        }
+      ],
+      "id": "app-package-info-update"
+    },
+    {
+      "name": "更新版本上架时间",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-update-release-time-0000002271160573",
+      "method": "PUT",
+      "path": "/api/publish/v2/on-shelf-time",
+      "parameters": [
+        {
+          "name": "appId",
+          "in": "query",
+          "required": true,
+          "type": "String"
+        },
+        {
+          "name": "changeType",
+          "in": "body",
+          "required": true,
+          "type": "Integer",
+          "example": "2"
+        },
+        {
+          "name": "releaseTime",
+          "in": "body",
+          "required": true,
+          "type": "String"
+        },
+        {
+          "name": "releaseType",
+          "in": "body",
+          "required": true,
+          "type": "Integer",
+          "example": "1"
+        }
+      ],
+      "id": "update-releasetime"
+    },
+    {
+      "name": "更新分阶段发布",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-phased-release-0000002271000625",
+      "method": "PUT",
+      "path": "/api/publish/v2/version/phased-release",
+      "parameters": [
+        {
+          "name": "appId",
+          "in": "header",
+          "required": true,
+          "type": "String(32)"
+        },
+        {
+          "name": "versionId",
+          "in": "body",
+          "required": true,
+          "type": "String(32)"
+        },
+        {
+          "name": "releasePhase",
+          "in": "body",
+          "required": false,
+          "type": "Integer(32)",
+          "example": "3"
+        },
+        {
+          "name": "state",
+          "in": "body",
+          "required": false,
+          "type": "String(16)",
+          "example": "SUSPEND"
+        },
+        {
+          "name": "description",
+          "in": "body",
+          "required": false,
+          "type": "String(500)"
+        },
+        {
+          "name": "phaseDay",
+          "in": "body",
+          "required": false,
+          "type": "Integer(32)",
+          "example": "2"
+        }
+      ],
+      "id": "phased-release-update"
+    },
+    {
+      "name": "查询应用软件包信息",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-query-package-info-0000002328848469",
+      "method": "GET",
+      "path": "/api/publish/v2/app-package-info",
+      "parameters": [
+        {
+          "name": "appId",
+          "in": "header",
+          "required": true,
+          "type": "String(32)"
+        },
+        {
+          "name": "packageId",
+          "in": "query",
+          "required": true,
+          "type": "String(32)"
+        }
+      ],
+      "id": "app-package-info-query"
+    },
+    {
+      "name": "查询软件包编译状态",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-query-compile-status-0000002236041434",
+      "method": "GET",
+      "path": "/api/publish/v3/package/compile/status",
+      "parameters": [
+        {
+          "name": "appId",
+          "in": "query",
+          "required": true,
+          "type": "String(32)"
+        },
+        {
+          "name": "pkgIds",
+          "in": "query",
+          "required": true,
+          "type": "String(500)"
+        }
+      ],
+      "id": "package-compile-status-v3"
+    },
+    {
+      "name": "查询应用所有版本类型的版本列表",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-query-brief-info-list-0000002236201254",
+      "method": "POST",
+      "path": "/api/publish/v3/version/brief-info/list",
+      "parameters": [
+        {
+          "name": "appId",
+          "in": "header",
+          "required": false,
+          "type": "String(32)",
+          "note": "Official packageName remark allows appId OR packageName."
+        },
+        {
+          "name": "packageName",
+          "in": "body",
+          "required": false,
+          "type": "String(128)"
+        },
+        {
+          "name": "state",
+          "in": "body",
+          "required": false,
+          "type": "String(64)",
+          "example": "SUSPEND"
+        }
+      ],
+      "id": "app-version-list"
+    },
+    {
+      "name": "查询应用未处理的问题工单",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-post-app-version-voc-0000002495233986",
+      "method": "POST",
+      "path": "/api/publish/v1/app-voc/version-voc",
+      "parameters": [
+        {
+          "name": "appId",
+          "in": "header",
+          "required": true,
+          "type": "String(32)"
+        },
+        {
+          "name": "vocId",
+          "in": "body",
+          "required": false,
+          "type": "String(32)"
+        },
+        {
+          "name": "vocDesc",
+          "in": "body",
+          "required": false,
+          "type": "String(255)"
+        },
+        {
+          "name": "pageNo",
+          "in": "body",
+          "required": true,
+          "type": "Integer(32)"
+        },
+        {
+          "name": "pageSize",
+          "in": "body",
+          "required": true,
+          "type": "Integer(32)"
+        }
+      ],
+      "id": "app-version-voc"
+    },
+    {
+      "name": "查询需要上传的资质文件信息",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-query-tag-qual-dependent-0000002271160577",
+      "method": "GET",
+      "path": "/api/publish/v2/tag-qual-dependent",
+      "parameters": [],
+      "id": "tag-qual-dependent"
+    },
+    {
+      "name": "提交资质审核任务",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-post-qualification-review-0000002271000629",
+      "method": "POST",
+      "path": "/api/publish/v2/qualification-review-task",
+      "parameters": [
+        {
+          "name": "appId",
+          "in": "header",
+          "required": true,
+          "type": "String(32)"
+        },
+        {
+          "name": "tagQualInfos",
+          "in": "body",
+          "required": true,
+          "type": "List<TagQualInfo>"
+        }
+      ],
+      "id": "qualification-review-create"
+    },
+    {
+      "name": "查询资质审核任务详情",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-get-qualification-review-0000002236041438",
+      "method": "GET",
+      "path": "/api/publish/v2/qualification-review-task",
+      "parameters": [
+        {
+          "name": "appId",
+          "in": "header",
+          "required": true,
+          "type": "String(32)"
+        },
+        {
+          "name": "tagIds",
+          "in": "query",
+          "required": true,
+          "type": "String(256)"
+        }
+      ],
+      "id": "qualification-review-query"
+    },
+    {
+      "name": "修改资质审核任务",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-put-qualification-review-0000002422530746",
+      "method": "PUT",
+      "path": "/api/publish/v2/qualification-review-task",
+      "parameters": [
+        {
+          "name": "appId",
+          "in": "header",
+          "required": true,
+          "type": "String(32)"
+        },
+        {
+          "name": "tagQualInfos",
+          "in": "body",
+          "required": true,
+          "type": "List<TagQualInfo>"
+        }
+      ],
+      "id": "qualification-review-update"
+    },
+    {
+      "name": "撤销资质审核任务",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-cancel-qualification-review-0000002236201258",
+      "method": "PUT",
+      "path": "/api/publish/v2/qualification-review-task/cancel",
+      "parameters": [
+        {
+          "name": "appId",
+          "in": "header",
+          "required": true,
+          "type": "String(32)"
+        },
+        {
+          "name": "taskId",
+          "in": "body",
+          "required": true,
+          "type": "String(32)"
+        }
+      ],
+      "id": "qualification-review-cancel"
+    },
+    {
+      "name": "删除资质审核任务",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-delete-qualification-review-0000002526538788",
+      "method": "DELETE",
+      "path": "/api/publish/v2/qualification-review-task",
+      "parameters": [
+        {
+          "name": "appId",
+          "in": "header",
+          "required": true,
+          "type": "String(32)"
+        },
+        {
+          "name": "tagIds",
+          "in": "body",
+          "required": true,
+          "type": "List<String(64)>"
+        }
+      ],
+      "id": "qualification-review-delete"
+    },
+    {
+      "name": "新建用户协议",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-create-user-agreement-0000002271160581",
+      "method": "POST",
+      "path": "/api/publish/v2/agreement",
+      "parameters": [
+        {
+          "name": "appId",
+          "in": "header",
+          "required": true,
+          "type": "String(32)"
+        },
+        {
+          "name": "type",
+          "in": "body",
+          "required": true,
+          "type": "Integer(32)",
+          "example": "2"
+        },
+        {
+          "name": "defaultLang",
+          "in": "body",
+          "required": false,
+          "type": "String(20)"
+        },
+        {
+          "name": "agreementInfos",
+          "in": "body",
+          "required": false,
+          "type": "List<AgreementInfo>",
+          "note": "Official example and array-length description clarify the table type."
+        },
+        {
+          "name": "channel",
+          "in": "body",
+          "required": false,
+          "type": "Integer(32)"
+        }
+      ],
+      "id": "user-agreement-create"
+    },
+    {
+      "name": "查询用户协议列表",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-query-user-agreement-0000002236041442",
+      "method": "POST",
+      "path": "/api/publish/v2/agreement/list",
+      "parameters": [
+        {
+          "name": "appId",
+          "in": "header",
+          "required": true,
+          "type": "String(32)"
+        },
+        {
+          "name": "agreementIdList",
+          "in": "body",
+          "required": false,
+          "type": "List<String(64)>"
+        },
+        {
+          "name": "name",
+          "in": "body",
+          "required": true,
+          "type": "String(100)"
+        },
+        {
+          "name": "status",
+          "in": "body",
+          "required": false,
+          "type": "Integer(32)",
+          "example": "2"
+        },
+        {
+          "name": "type",
+          "in": "body",
+          "required": false,
+          "type": "Integer(32)",
+          "example": "2"
+        },
+        {
+          "name": "fromRecCount",
+          "in": "body",
+          "required": false,
+          "type": "Integer(32)"
+        },
+        {
+          "name": "maxReqCount",
+          "in": "body",
+          "required": false,
+          "type": "Integer"
+        }
+      ],
+      "id": "user-agreement-list"
+    },
+    {
+      "name": "更新用户协议",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-update-user-agreement-0000002294845626",
+      "method": "PUT",
+      "path": "/api/publish/v2/agreement",
+      "parameters": [
+        {
+          "name": "appId",
+          "in": "header",
+          "required": true,
+          "type": "String(32)"
+        },
+        {
+          "name": "id",
+          "in": "body",
+          "required": true,
+          "type": "String(32)"
+        },
+        {
+          "name": "defaultLang",
+          "in": "body",
+          "required": false,
+          "type": "String(20)"
+        },
+        {
+          "name": "agreementInfos",
+          "in": "body",
+          "required": false,
+          "type": "List<AgreementInfo>"
+        }
+      ],
+      "id": "user-agreement-update"
+    },
+    {
+      "name": "提交隐私政策协议",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-put-privacy-agreement-0000002271000633",
+      "method": "PUT",
+      "path": "/api/publish/v2/agreement/submit",
+      "parameters": [
+        {
+          "name": "appId",
+          "in": "header",
+          "required": true,
+          "type": "String(32)"
+        },
+        {
+          "name": "id",
+          "in": "body",
+          "required": true,
+          "type": "String(32)"
+        },
+        {
+          "name": "requireConfirm",
+          "in": "body",
+          "required": false,
+          "type": "Integer(32)"
+        }
+      ],
+      "id": "privacy-agreement-submit"
+    },
+    {
+      "name": "查询隐私政策协议列表",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-query-privacy-agreement-0000002328924925",
+      "method": "POST",
+      "path": "/api/publish/v2/agreement/list",
+      "parameters": [
+        {
+          "name": "appId",
+          "in": "header",
+          "required": true,
+          "type": "String(32)"
+        },
+        {
+          "name": "agreementIdList",
+          "in": "body",
+          "required": false,
+          "type": "List<String(64)>"
+        },
+        {
+          "name": "name",
+          "in": "body",
+          "required": true,
+          "type": "String(100)"
+        },
+        {
+          "name": "status",
+          "in": "body",
+          "required": false,
+          "type": "Integer(32)",
+          "example": "2"
+        },
+        {
+          "name": "type",
+          "in": "body",
+          "required": false,
+          "type": "Integer(32)",
+          "example": "1"
+        },
+        {
+          "name": "fromRecCount",
+          "in": "body",
+          "required": false,
+          "type": "Integer(32)"
+        },
+        {
+          "name": "maxReqCount",
+          "in": "body",
+          "required": false,
+          "type": "Integer"
+        }
+      ],
+      "id": "privacy-agreement-list"
+    },
+    {
+      "name": "更新隐私政策协议",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-update-privacy-agreement-0000002328805169",
+      "method": "PUT",
+      "path": "/api/publish/v2/agreement",
+      "parameters": [
+        {
+          "name": "appId",
+          "in": "header",
+          "required": true,
+          "type": "String(32)"
+        },
+        {
+          "name": "id",
+          "in": "body",
+          "required": true,
+          "type": "String(32)"
+        },
+        {
+          "name": "defaultLang",
+          "in": "body",
+          "required": false,
+          "type": "String(20)"
+        },
+        {
+          "name": "agreementInfos",
+          "in": "body",
+          "required": false,
+          "type": "List<AgreementInfo>"
+        }
+      ],
+      "id": "privacy-agreement-update"
+    },
+    {
+      "name": "申请年龄分级",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-post-app-age-rating-0000002236201262",
+      "method": "POST",
+      "path": "/api/publish/v2/app-age-rating",
+      "parameters": [
+        {
+          "name": "appId",
+          "in": "header",
+          "required": true,
+          "type": "String(32)"
+        },
+        {
+          "name": "releaseType",
+          "in": "query",
+          "required": false,
+          "type": "Integer(32)",
+          "example": "1"
+        },
+        {
+          "name": "releasePhase",
+          "in": "query",
+          "required": false,
+          "type": "Integer(32)",
+          "example": "0"
+        },
+        {
+          "name": "feedback",
+          "in": "body",
+          "required": true,
+          "type": "String(8192)"
+        },
+        {
+          "name": "expectedRating",
+          "in": "body",
+          "required": false,
+          "type": "Integer(32)"
+        },
+        {
+          "name": "ratingRule",
+          "in": "body",
+          "required": false,
+          "type": "Integer(32)"
+        },
+        {
+          "name": "childFlag",
+          "in": "body",
+          "required": false,
+          "type": "Integer(32)"
+        }
+      ],
+      "id": "app-age-rating"
+    },
+    {
+      "name": "提交发布",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-app-submit-0000002271160585",
+      "method": "POST",
+      "path": "/api/publish/v3/app-submit",
+      "parameters": [
+        {
+          "name": "appId",
+          "in": "query",
+          "required": true,
+          "type": "String(32)"
+        },
+        {
+          "name": "releaseTime",
+          "in": "body",
+          "required": false,
+          "type": "String(64)"
+        },
+        {
+          "name": "remark",
+          "in": "body",
+          "required": false,
+          "type": "String(300)"
+        },
+        {
+          "name": "releaseType",
+          "in": "body",
+          "required": false,
+          "type": "Integer(32)",
+          "example": "1"
+        },
+        {
+          "name": "releasePhase",
+          "in": "body",
+          "required": false,
+          "type": "Integer(32)",
+          "example": "0"
+        },
+        {
+          "name": "phasedReleaseDescription",
+          "in": "body",
+          "required": false,
+          "type": "String(500)"
+        }
+      ],
+      "id": "app-submit-v3"
+    },
+    {
+      "name": "撤销审核",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-on-shelf-cancel-0000002271000637",
+      "method": "PUT",
+      "path": "/api/publish/v3/version/on-shelf/cancel",
+      "parameters": [
+        {
+          "name": "appId",
+          "in": "header",
+          "required": true,
+          "type": "String(32)"
+        },
+        {
+          "name": "versionId",
+          "in": "body",
+          "required": true,
+          "type": "String"
+        }
+      ],
+      "id": "on-shelf-cancel"
+    },
+    {
+      "name": "下架应用",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-app-shelf-off-0000002236041450",
+      "method": "POST",
+      "path": "/api/publish/v2/app-shelf-off",
+      "parameters": [
+        {
+          "name": "appId",
+          "in": "query",
+          "required": true,
+          "type": "String(32)"
+        },
+        {
+          "name": "reason",
+          "in": "query",
+          "required": true,
+          "type": "String(1024)"
+        },
+        {
+          "name": "releaseType",
+          "in": "query",
+          "required": false,
+          "type": "Integer",
+          "example": "1"
+        }
+      ],
+      "id": "app-shelf-off"
+    }
+  ]
+}

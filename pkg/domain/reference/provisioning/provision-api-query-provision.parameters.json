@@ -1,0 +1,46 @@
+[
+  {
+    "name": "appId",
+    "in": "header",
+    "type": "string",
+    "required": true,
+    "description": "应用ID，获取方法参考查看应用信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-query-provision-0000002236041506#section1323714041015",
+    "maxLength": 32
+  },
+  {
+    "name": "provisionId",
+    "in": "header",
+    "type": "string",
+    "required": false,
+    "description": "Profile的ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-query-provision-0000002236041506#section1323714041015"
+  },
+  {
+    "name": "teamId",
+    "in": "header",
+    "type": "string",
+    "required": false,
+    "description": "开发者所在团队的团队ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-query-provision-0000002236041506#section1323714041015",
+    "maxLength": 64
+  },
+  {
+    "name": "fromRecCount",
+    "in": "query",
+    "type": "integer",
+    "required": false,
+    "description": "起始页数。 默认值：1",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-query-provision-0000002236041506#section16551174881019"
+  },
+  {
+    "name": "maxReqCount",
+    "in": "query",
+    "type": "integer",
+    "required": false,
+    "description": "每页返回条数。 取值范围：[1,100] 默认值：10",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-provision-api-query-provision-0000002236041506#section16551174881019",
+    "minimum": 1,
+    "maximum": 100
+  }
+]

@@ -1,0 +1,520 @@
+{
+  "examples": [
+    {
+      "section": "请求示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322#section109281921420",
+      "text": "请求示例\nPOST {接口url} \nHost: xxx \nContent-Type: application/json \nheaders:\nappId: 165***568\ntimestamp: 1729479182505\nnonce: ABC***123\nsign： cnVub29i5Y********cndlcXI=\n{ \n    \"appId\": \"165***568\", \n    \"userIds\": [\n        \"userId\": \"886***126\",\n        \"userIdType\": 4\n    ],\n    \"lang\": \"zh_CN\"\n}"
+    },
+    {
+      "section": "响应示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322#section12681228131415",
+      "text": "响应示例\n{\n    \"result\": 0,\n    \"players\": [\n        \"userId\": \"ABC***DEF\",\n        \"userIdType\": 4,\n        \"basicInfo\":{\n            \"id\": \"afafafgd\",\n            \"name\": \"nickname123\",\n            \"avatar\": \"https://abc.com/avatar\",\n            \"avatarType\": 2,\n            \"level\": {\n                \"name\": \"level5\"\n            },\n            \"avatarExt\": {\n                \"avatarUpdateTime\": 1729479182505\n            }\n        }\n    ]\n}"
+    }
+  ],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-playing-api-0000001985465934",
+      "title": "在玩服务"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/distribution/app/agc-help-appinfo-0000001100014694",
+      "title": "查看应用基本信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/get-public-key-0000001050164350",
+      "title": "获取验签公钥"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-summary-0000002022225249#section205561419163916",
+      "title": "验签机制"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/distribution/app/agc-help-appinfo-0000001100014694",
+      "title": "查看应用基本信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322#ZH-CN_TOPIC_0000002038975322__p17884430419",
+      "title": "UserId"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322#ZH-CN_TOPIC_0000002038975322__zh-cn_topic_0000001850302325_p031535817384",
+      "title": "玩家信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322#ZH-CN_TOPIC_0000002038975322__p9452154912104",
+      "title": "Player"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322#ZH-CN_TOPIC_0000002038975322__zh-cn_topic_0000001850302325_p43721152163812",
+      "title": "lang"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322#ZH-CN_TOPIC_0000002038975322__p168318367114",
+      "title": "PlayerInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322#ZH-CN_TOPIC_0000002038975322__zh-cn_topic_0000001850302325_p3525214107",
+      "title": "AvatarExt"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322#ZH-CN_TOPIC_0000002038975322__zh-cn_topic_0000001850302325_p32140253327",
+      "title": "GameLevel"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/query-game-info-0000001050164346",
+      "title": "查询游戏服务信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-playing-api-0000001985465934",
+      "title": "在玩服务"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-role-info-0000002075016173",
+      "title": "批量查询玩家角色信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322#section85026377136",
+      "title": "功能介绍"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322#section1994120406138",
+      "title": "接口原型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322#section78935915145",
+      "title": "请求参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322#section157181352024",
+      "title": "Header参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322#section54371514181416",
+      "title": "Body参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322#section109281921420",
+      "title": "请求示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322#section163602521415",
+      "title": "响应参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322#section12681228131415",
+      "title": "响应示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322#section205561419163916",
+      "title": "验签机制"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322#section85026377136",
+      "text": "华为游戏服务器调用此接口批量查询玩家基本信息，并将信息展示在游戏中心的“在玩”页面上。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322#section54371514181416",
+      "text": "UserId"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322#section163602521415",
+      "text": "Player"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322#section163602521415",
+      "text": "PlayerInfo"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322#section163602521415",
+      "text": "AvatarExt"
+    },
+    {
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322#section163602521415",
+      "text": "GameLevel"
+    },
+    {
+      "section": "验签机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322#section205561419163916",
+      "text": "将Header参数中的appId、timestamp、nonce字段依次拼接成一个待验签的字符串。"
+    },
+    {
+      "section": "验签机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322#section205561419163916",
+      "text": "对待验签字符串使用SHA256WithRSA/PSS算法进行签名。"
+    },
+    {
+      "section": "验签机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322#section205561419163916",
+      "text": "将签名后的字符串经过Base64编码，得到的字符串与sign字段中的签名字符串进行一致性验证。 说明 游戏公钥在开通游戏服务后生成，查询方法参见查询游戏服务信息。"
+    },
+    {
+      "section": "验签机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322#section205561419163916",
+      "text": "游戏公钥在开通游戏服务后生成，查询方法参见查询游戏服务信息。"
+    },
+    {
+      "section": "验签机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322#section205561419163916",
+      "text": "Java示例代码如下："
+    },
+    {
+      "section": "验签机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322#section205561419163916",
+      "text": "// 从Header中取出appId，timestamp，nonce，拼接成待签名的字符串"
+    },
+    {
+      "section": "验签机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322#section205561419163916",
+      "text": "String rawStr = appId + timestamp + nonce;"
+    },
+    {
+      "section": "验签机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322#section205561419163916",
+      "text": "// 获取验签公钥，具体实现方法由开发者自行决定，此处仅为接口示例"
+    },
+    {
+      "section": "验签机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322#section205561419163916",
+      "text": "String publicKey = \"xxxxxxxxx\";"
+    },
+    {
+      "section": "验签机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322#section205561419163916",
+      "text": "// 验签，BouncyCastleProvider的创建较耗费性能，建议写成单例"
+    },
+    {
+      "section": "验签机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322#section205561419163916",
+      "text": "byte[] keyBytes = Base64.decodeBase64(publicKey.getBytes(StandardCharsets.UTF_8));"
+    },
+    {
+      "section": "验签机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322#section205561419163916",
+      "text": "PKCS8EncodedKeySpec pkcs8KeySpec = new PKCS8EncodedKeySpec(keyBytes);"
+    },
+    {
+      "section": "验签机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322#section205561419163916",
+      "text": "KeyFactory keyFactory = KeyFactory.getInstance(\"RSA\");"
+    },
+    {
+      "section": "验签机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322#section205561419163916",
+      "text": "PublicKey publicK = keyFactory.generatePublic(pkcs8KeySpec);"
+    },
+    {
+      "section": "验签机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322#section205561419163916",
+      "text": "Signature signature = Signature.getInstance(\"SHA256withRSA/PSS\", new BouncyCastleProvider());"
+    },
+    {
+      "section": "验签机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322#section205561419163916",
+      "text": "signature.initVerify(key);"
+    },
+    {
+      "section": "验签机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322#section205561419163916",
+      "text": "signature.update(rawStr.getBytes(StandardCharsets.UTF_8));"
+    },
+    {
+      "section": "验签机制",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322#section205561419163916",
+      "text": "signature.verify(Base64.decodeBase64(sign)); // sign是Header中的字段，即请求时传递的签名"
+    }
+  ],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "承载协议",
+          "HTTPS POST"
+        ],
+        [
+          "接口方向",
+          "华为游戏服务器 -> 开发者服务器"
+        ],
+        [
+          "性能指标",
+          "TPS>500"
+        ],
+        [
+          "最大响应时间",
+          "<500ms"
+        ],
+        [
+          "接口URL",
+          "URL由华为运营联系您获取。"
+        ],
+        [
+          "数据格式",
+          "请求：Content-Type: application/json 响应：Content-Type: application/json"
+        ]
+      ],
+      "section": "接口原型",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322#section1994120406138"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数",
+          "是否必选",
+          "类型",
+          "说明"
+        ],
+        [
+          "appId",
+          "是",
+          "String(32)",
+          "游戏在AppGallery Connect中生成的APP ID，获取方法请参见查看应用基本信息。"
+        ],
+        [
+          "timestamp",
+          "是",
+          "String(32)",
+          "当前时间的时间戳，即距离GMT时间1970年1月1号0时0分0秒所差的毫秒数。"
+        ],
+        [
+          "nonce",
+          "是",
+          "String(64)",
+          "随机字符串。"
+        ],
+        [
+          "sign",
+          "是",
+          "String(1024)",
+          "华为服务器在发送请求时的签名字符串，生成步骤如下： 将Header参数中的appId、timestamp、nonce字段依次拼接成一个待签名的字符串。 对待签名字符串使用SHA256WithRSA/PSS算法进行签名。 将签名后的字符串经过Base64编码，得到的字符串即为签名字符串。 您需要获取验签公钥，并根据加密算法使用公钥对签名字符串进行验签，验签方法参见验签机制。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322#section157181352024"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数",
+          "是否必选",
+          "类型",
+          "说明"
+        ],
+        [
+          "appId",
+          "是",
+          "String(32)",
+          "游戏在AppGallery Connect中生成的APP ID，获取方法请参见查看应用基本信息。"
+        ],
+        [
+          "userIds",
+          "是",
+          "List<UserId>",
+          "玩家标识列表，最多返回20个玩家信息。"
+        ],
+        [
+          "lang",
+          "是",
+          "String(20)",
+          "语言，用于获取不同语言的玩家信息，至少需要支持zh_CN（中文）和en_US（英文）。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322#section54371514181416"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数",
+          "是否必选",
+          "类型",
+          "说明"
+        ],
+        [
+          "userId",
+          "是",
+          "String(256)",
+          "华为账号登录游戏后生成的玩家标识。"
+        ],
+        [
+          "userIdType",
+          "是",
+          "Integer",
+          "玩家标识类型： 1：playerId 2：openId 3：unionId 4：gamePlayerId 5：teamPlayerId 6：thirdOpenId"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322#section54371514181416"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数",
+          "是否必选",
+          "类型",
+          "说明"
+        ],
+        [
+          "result",
+          "是",
+          "Integer",
+          "操作结果： 0：表示成功 1：验签失败 2：超时 3：业务信息错误 31：游戏号不存在 94：系统错误 95：IO错误 96：错误的url 97：错误的响应 98：参数错误 99：其他错误"
+        ],
+        [
+          "players",
+          "否",
+          "List<Player>",
+          "玩家信息列表，最多返回20个玩家信息。语言版本应与请求参数中的lang参数指定的一致。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322#section163602521415"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数",
+          "是否必选",
+          "类型",
+          "说明"
+        ],
+        [
+          "userId",
+          "是",
+          "String(256)",
+          "华为账号登录游戏后生成的玩家标识。"
+        ],
+        [
+          "userIdType",
+          "是",
+          "Integer",
+          "玩家标识类型： playerId openId unionId gamePlayerId teamPlayerId thirdOpenId"
+        ],
+        [
+          "basicInfo",
+          "是",
+          "PlayerInfo",
+          "玩家基本信息。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322#section163602521415"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "是否必选",
+          "参数类型",
+          "描述"
+        ],
+        [
+          "id",
+          "是",
+          "String(256)",
+          "游戏生成的玩家ID。"
+        ],
+        [
+          "name",
+          "是",
+          "String(64)",
+          "游戏昵称。"
+        ],
+        [
+          "avatar",
+          "是",
+          "String(256)",
+          "头像的URL。头像图片支持jpg、jpeg、bmp、png格式，URL需要携带图片的后缀，并且图片地址需要https格式，例如https://test.abc.com/testPath/test.png。"
+        ],
+        [
+          "avatarExt",
+          "是",
+          "AvatarExt",
+          "头像的额外信息。"
+        ],
+        [
+          "level",
+          "否",
+          "GameLevel",
+          "游戏等级。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322#section163602521415"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "是否必选",
+          "参数类型",
+          "描述"
+        ],
+        [
+          "avatarUpdateTime",
+          "否",
+          "Long",
+          "头像更新时间戳，即距离GMT时间1970年1月1号0时0分0秒所差的毫秒数。"
+        ],
+        [
+          "avatarHash",
+          "否",
+          "String(64)",
+          "头像的SHA256值。 注意 avatarUpdateTime与avatarHash二选一，不可都为空。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322#section163602521415"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "是否必选",
+          "参数类型",
+          "描述"
+        ],
+        [
+          "idx",
+          "是",
+          "String(128)",
+          "游戏等级的图片资源索引，即上下架游戏资源时的上报值。"
+        ],
+        [
+          "name",
+          "是",
+          "String(32)",
+          "等级名称。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322#section163602521415"
+    }
+  ],
+  "title": "批量查询玩家基本信息",
+  "updatedAt": "2025-08-06 18:02",
+  "checkedAt": "2026-10-07T02:59:49.144Z",
+  "family": "gameplay",
+  "endpoint": "basic-info"
+}

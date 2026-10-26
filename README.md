@@ -85,3 +85,7 @@ agc publishing app-info-query --invoke --query appId=YOUR_APP_ID --query lang=zh
 ## 许可证
 
 [MIT](LICENSE)。
+
+## Cloud development management
+
+The CLI exposes 102 cloud-development operations, including reviewed management contracts. See [management usage and limitations](docs/SERVERLESS_MANAGEMENT.md). Huawei live write validation remains pending.

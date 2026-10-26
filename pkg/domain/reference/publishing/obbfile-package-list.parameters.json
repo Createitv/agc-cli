@@ -1,0 +1,34 @@
+[
+  {
+    "name": "teamId",
+    "in": "header",
+    "type": "string",
+    "required": false,
+    "description": "开发者所在团队的团队ID，可通过获取团队列表接口获取。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obbfile-package-list-0000001111685210#section236517415165"
+  },
+  {
+    "name": "appId",
+    "in": "query",
+    "type": "string",
+    "required": true,
+    "description": "应用ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obbfile-package-list-0000001111685210#section1087614283237"
+  },
+  {
+    "name": "fromRecCount",
+    "in": "query",
+    "type": "integer",
+    "required": false,
+    "description": "查询起始记录号。 默认值：1",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obbfile-package-list-0000001111685210#section1087614283237"
+  },
+  {
+    "name": "maxReqCount",
+    "in": "query",
+    "type": "integer",
+    "required": false,
+    "description": "请求查询的软件包数。 取值范围：最大为100 默认值：10",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obbfile-package-list-0000001111685210#section1087614283237"
+  }
+]

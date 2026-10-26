@@ -2,6 +2,10 @@ package domain
 
 var EndpointFamilies = map[string][]Endpoint{
 	"publishing": {
+		// 查询 HarmonyOS 软件包的异步解析结果；successStatus=0 才表示正常。
+		// 请求：GET /api/publish/v3/package/compile/status；调用方向：开发者调用华为服务端。
+		// 官方文档：https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-query-compile-status-0000002236041434
+		officialEndpoint("publishing", "package-compile-status-v3", "查询HarmonyOS软件包编译状态", "轮询专用 HarmonyOS 软件包解析结果，不把上传接受误认为解析成功。", "GET", "/api/publish/v3/package/compile/status", []string{}, "agc-help-publish-api-query-compile-status-0000002236041434", "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-query-compile-status-0000002236041434", "developer-to-huawei"),
 		// 创建专用 HarmonyOS 测试应用：省略 projectId 时由华为建立同名项目。
 		// 请求：POST /api/publish/v3/app；调用方向：开发者调用华为服务端。
 		// 官方文档：https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-provision-api-create-appid-0000002526543939
@@ -638,19 +642,19 @@ var EndpointFamilies = map[string][]Endpoint{
 		// 查询资产明细：华为游戏服务器调用此接口查询玩家在玩游戏的资产明细数据，并将信息展示在游戏中心的“在玩”页面上。
 		// 请求：POST {callbackUrl}；调用方向：华为调用开发者回调服务；本项目的请求构造不等于已实现回调接收与验签。
 		// 官方文档：https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-asset-details-0000002022225253
-		officialEndpoint("gameplay", "asset-details", "查询资产明细", "华为游戏服务器调用此接口查询玩家在玩游戏的资产明细数据，并将信息展示在游戏中心的“在玩”页面上。", "POST", "{callbackUrl}", []string{"callbackUrl", "callbackUrl"}, "agcapi-asset-details-0000002022225253", "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-asset-details-0000002022225253", "inbound-callback"),
+		officialEndpoint("gameplay", "asset-details", "查询资产明细", "华为游戏服务器调用此接口查询玩家在玩游戏的资产明细数据，并将信息展示在游戏中心的“在玩”页面上。", "POST", "{callbackUrl}", []string{"callbackUrl"}, "agcapi-asset-details-0000002022225253", "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-asset-details-0000002022225253", "inbound-callback"),
 		// 查询资产概要：华为游戏服务器调用此接口查询玩家在玩游戏的资产概要数据，并将信息展示在游戏中心的“在玩”页面上。
 		// 请求：POST {callbackUrl}；调用方向：华为调用开发者回调服务；本项目的请求构造不等于已实现回调接收与验签。
 		// 官方文档：https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-asset-summary-0000002022105729
-		officialEndpoint("gameplay", "asset-summary", "查询资产概要", "华为游戏服务器调用此接口查询玩家在玩游戏的资产概要数据，并将信息展示在游戏中心的“在玩”页面上。", "POST", "{callbackUrl}", []string{"callbackUrl", "callbackUrl"}, "agcapi-asset-summary-0000002022105729", "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-asset-summary-0000002022105729", "inbound-callback"),
+		officialEndpoint("gameplay", "asset-summary", "查询资产概要", "华为游戏服务器调用此接口查询玩家在玩游戏的资产概要数据，并将信息展示在游戏中心的“在玩”页面上。", "POST", "{callbackUrl}", []string{"callbackUrl"}, "agcapi-asset-summary-0000002022105729", "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-asset-summary-0000002022105729", "inbound-callback"),
 		// 批量查询玩家基本信息：华为游戏服务器调用此接口批量查询玩家基本信息，并将信息展示在游戏中心的“在玩”页面上。
 		// 请求：POST {callbackUrl}；调用方向：华为调用开发者回调服务；本项目的请求构造不等于已实现回调接收与验签。
 		// 官方文档：https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322
-		officialEndpoint("gameplay", "basic-info", "批量查询玩家基本信息", "华为游戏服务器调用此接口批量查询玩家基本信息，并将信息展示在游戏中心的“在玩”页面上。", "POST", "{callbackUrl}", []string{"callbackUrl", "callbackUrl"}, "agcapi-basic-info-0000002038975322", "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322", "inbound-callback"),
+		officialEndpoint("gameplay", "basic-info", "批量查询玩家基本信息", "华为游戏服务器调用此接口批量查询玩家基本信息，并将信息展示在游戏中心的“在玩”页面上。", "POST", "{callbackUrl}", []string{"callbackUrl"}, "agcapi-basic-info-0000002038975322", "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-basic-info-0000002038975322", "inbound-callback"),
 		// 查询战绩筛选标签：华为游戏服务器调用此接口查询玩家在玩游戏战绩的筛选标签，并将信息展示在游戏中心的“在玩”页面上。
 		// 请求：POST {callbackUrl}；调用方向：华为调用开发者回调服务；本项目的请求构造不等于已实现回调接收与验签。
 		// 官方文档：https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-label-0000001985625670
-		officialEndpoint("gameplay", "label", "查询战绩筛选标签", "华为游戏服务器调用此接口查询玩家在玩游戏战绩的筛选标签，并将信息展示在游戏中心的“在玩”页面上。", "POST", "{callbackUrl}", []string{"callbackUrl", "callbackUrl"}, "agcapi-label-0000001985625670", "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-label-0000001985625670", "inbound-callback"),
+		officialEndpoint("gameplay", "label", "查询战绩筛选标签", "华为游戏服务器调用此接口查询玩家在玩游戏战绩的筛选标签，并将信息展示在游戏中心的“在玩”页面上。", "POST", "{callbackUrl}", []string{"callbackUrl"}, "agcapi-label-0000001985625670", "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-label-0000001985625670", "inbound-callback"),
 		// 上传/下架游戏资源：开发者服务器调用此接口同步华为服务器的游戏资源，用于上传或下架“在玩”页面上的图片或视频。
 		// 请求：POST /gameservice/api/gbClientApi；调用方向：开发者调用华为服务端。
 		// 官方文档：https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-resources-0000002022105725
@@ -658,25 +662,25 @@ var EndpointFamilies = map[string][]Endpoint{
 		// 批量查询玩家角色信息：华为游戏服务器调用此接口批量查询玩家角色信息。
 		// 请求：POST {callbackUrl}；调用方向：华为调用开发者回调服务；本项目的请求构造不等于已实现回调接收与验签。
 		// 官方文档：https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-role-info-0000002075016173
-		officialEndpoint("gameplay", "role-info", "批量查询玩家角色信息", "华为游戏服务器调用此接口批量查询玩家角色信息。", "POST", "{callbackUrl}", []string{"callbackUrl", "callbackUrl"}, "agcapi-role-info-0000002075016173", "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-role-info-0000002075016173", "inbound-callback"),
+		officialEndpoint("gameplay", "role-info", "批量查询玩家角色信息", "华为游戏服务器调用此接口批量查询玩家角色信息。", "POST", "{callbackUrl}", []string{"callbackUrl"}, "agcapi-role-info-0000002075016173", "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-role-info-0000002075016173", "inbound-callback"),
 		// 分页查询玩家战绩：华为游戏服务器调用此接口分页查询玩家在玩游戏的战绩数据，并将信息展示在游戏中心的“在玩”页面上。
 		// 请求：POST {callbackUrl}；调用方向：华为调用开发者回调服务；本项目的请求构造不等于已实现回调接收与验签。
 		// 官方文档：https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-scores-0000001985465938
-		officialEndpoint("gameplay", "scores", "分页查询玩家战绩", "华为游戏服务器调用此接口分页查询玩家在玩游戏的战绩数据，并将信息展示在游戏中心的“在玩”页面上。", "POST", "{callbackUrl}", []string{"callbackUrl", "callbackUrl"}, "agcapi-scores-0000001985465938", "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-scores-0000001985465938", "inbound-callback"),
+		officialEndpoint("gameplay", "scores", "分页查询玩家战绩", "华为游戏服务器调用此接口分页查询玩家在玩游戏的战绩数据，并将信息展示在游戏中心的“在玩”页面上。", "POST", "{callbackUrl}", []string{"callbackUrl"}, "agcapi-scores-0000001985465938", "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-scores-0000001985465938", "inbound-callback"),
 		// 查询游戏概要信息：华为游戏服务器调用此接口查询玩家在玩游戏的概要数据，并将信息展示在游戏中心的“在玩”页面上。
 		// 请求：POST {callbackUrl}；调用方向：华为调用开发者回调服务；本项目的请求构造不等于已实现回调接收与验签。
 		// 官方文档：https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-summary-0000002022225249
-		officialEndpoint("gameplay", "summary", "查询游戏概要信息", "华为游戏服务器调用此接口查询玩家在玩游戏的概要数据，并将信息展示在游戏中心的“在玩”页面上。", "POST", "{callbackUrl}", []string{"callbackUrl", "callbackUrl"}, "agcapi-summary-0000002022225249", "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-summary-0000002022225249", "inbound-callback"),
+		officialEndpoint("gameplay", "summary", "查询游戏概要信息", "华为游戏服务器调用此接口查询玩家在玩游戏的概要数据，并将信息展示在游戏中心的“在玩”页面上。", "POST", "{callbackUrl}", []string{"callbackUrl"}, "agcapi-summary-0000002022225249", "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-summary-0000002022225249", "inbound-callback"),
 	},
 	"game-items": {
 		// 查询玩家区服角色：此接口用于查询玩家区服角色信息。
 		// 请求：POST {callbackUrl}；调用方向：华为调用开发者回调服务；本项目的请求构造不等于已实现回调接收与验签。
 		// 官方文档：https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377
-		officialEndpoint("game-items", "propapi-getroleinfo", "查询玩家区服角色", "此接口用于查询玩家区服角色信息。", "POST", "{callbackUrl}", []string{"callbackUrl", "callbackUrl"}, "agcapi-propapi-getroleinfo-0000002355255377", "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377", "inbound-callback"),
+		officialEndpoint("game-items", "propapi-getroleinfo", "查询玩家区服角色", "此接口用于查询玩家区服角色信息。", "POST", "{callbackUrl}", []string{"callbackUrl"}, "agcapi-propapi-getroleinfo-0000002355255377", "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-getroleinfo-0000002355255377", "inbound-callback"),
 		// 下单：下单
 		// 请求：POST {callbackUrl}；调用方向：华为调用开发者回调服务；本项目的请求构造不等于已实现回调接收与验签。
 		// 官方文档：https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-order-0000002321296666
-		officialEndpoint("game-items", "propapi-order", "下单", "下单", "POST", "{callbackUrl}", []string{"callbackUrl", "callbackUrl"}, "agcapi-propapi-order-0000002321296666", "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-order-0000002321296666", "inbound-callback"),
+		officialEndpoint("game-items", "propapi-order", "下单", "下单", "POST", "{callbackUrl}", []string{"callbackUrl"}, "agcapi-propapi-order-0000002321296666", "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-propapi-order-0000002321296666", "inbound-callback"),
 	},
 	"resources": {
 		// 新增资源包版本：创建“使用华为CDN”方式的资源包预下载任务。

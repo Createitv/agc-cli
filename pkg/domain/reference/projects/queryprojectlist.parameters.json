@@ -1,0 +1,26 @@
+[
+  {
+    "name": "teamId",
+    "in": "header",
+    "type": "string",
+    "required": false,
+    "description": "需要查询的团队账号ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryprojectlist-0000001111685220#section236517415165"
+  },
+  {
+    "name": "fromPage",
+    "in": "query",
+    "type": "string",
+    "required": false,
+    "description": "起始页，默认是1，表示从第1页开始查询。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryprojectlist-0000001111685220#section886219295206"
+  },
+  {
+    "name": "pageSize",
+    "in": "query",
+    "type": "string",
+    "required": false,
+    "description": "每页查询的条数，默认值：100。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryprojectlist-0000001111685220#section886219295206"
+  }
+]

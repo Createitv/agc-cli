@@ -1,0 +1,245 @@
+{
+  "checkedAt": "2026-10-26",
+  "examples": [
+    {
+      "section": "请求示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-modify-phone-email-0000001347069197#section198301541416",
+      "text": "请求示例\nPUT /agc/apigw/oauth2/third/v1/user-phone-email\nContent-Type: application/json\nproductId: 99************83\nclient_id: 680************560\nAuthorization: Bearer ***\naccess_token: eyJhbGciOiJIUzU****************\nHost: connect-drcn.dbankcloud.cn\n{\n    \"lang\": \"string\",\n    \"newPhone\": \"string\",\n    \"newEmail\": \"string\",\n    \"newVerifyCode\": \"string\"\n}"
+    },
+    {
+      "section": "响应示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-modify-phone-email-0000001347069197#section15776281927",
+      "text": "响应示例\n{\n    \"ret\": {\n        \"code\": 0,\n        \"msg\": \"string\"\n    }\n}"
+    }
+  ],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-0000001351815781",
+      "title": "REST API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-obtaintoken-0000001414202481",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-obtaintoken-0000001414202481",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-get-developerid-projectid-0000001166543063",
+      "title": "查询项目ID"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-obtain-client-apiauthorization-0000001453744605",
+      "title": "获取客户端API授权"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-obtaintoken-0000001414202481",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-signin-0000001294069348#section141867136564",
+      "title": "响应参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-errorcode-0000001353626777",
+      "title": "错误码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-usersigini-0000001346828685",
+      "title": "用户验证码登录"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-resetpwd-0000001293909500",
+      "title": "重置密码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-modify-phone-email-0000001347069197#section1855181220116",
+      "title": "功能介绍"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-modify-phone-email-0000001347069197#section24541218119",
+      "title": "接口原型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-modify-phone-email-0000001347069197#section176544275112",
+      "title": "请求参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-modify-phone-email-0000001347069197#section1454420327110",
+      "title": "Query"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-modify-phone-email-0000001347069197#section14358637816",
+      "title": "Header"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-modify-phone-email-0000001347069197#section1556604410117",
+      "title": "Body"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-modify-phone-email-0000001347069197#section198301541416",
+      "title": "请求示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-modify-phone-email-0000001347069197#section203741521128",
+      "title": "响应参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-modify-phone-email-0000001347069197#section15776281927",
+      "title": "响应示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-modify-phone-email-0000001347069197#section1251810241823",
+      "title": "调用示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-modify-phone-email-0000001347069197#section1855181220116",
+      "text": "此接口用于用户修改手机号码或者邮箱地址。"
+    }
+  ],
+  "renderedText": "API参考\n认证服务\nREST API\n修改手机号或邮箱地址\n修改手机号或邮箱地址\n更新时间: 2026-10-22 11:25\n功能介绍\n\n此接口用于用户修改手机号码或者邮箱地址。\n\n接口原型\n\n承载协议\n\n\t\n\nHTTPS PUT\n\n\n\n\n接口方向\n\n\t\n\n应用客户端 -> 华为认证服务器\n\n\n\n\n接口URL\n\n\t\n\nhttps://connect-drcn.dbankcloud.cn/agc/apigw/oauth2/third/v1/user-phone-email\n\n注意\n\n调用获取Token接口时使用的域名必须与本接口域名保持一致，例如本接口使用“connect-drcn.dbankcloud.cn”，则调用获取Token接口必须使用“https://connect-drcn.dbankcloud.cn/agc/apigw/oauth2/v1/token”。\n\n\n\n\n数据格式\n\n\t\n\n请求：Content-Type: application/json\n\n响应：Content-Type: application/json\n\n请求参数\nQuery\n\n参数名称\n\n\t\n\n必选(M)/可选(O)\n\n\t\n\n类型\n\n\t\n\n参数说明\n\n\n\n\nproductId\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n\n项目ID，查询方法可参见查询项目ID。\n\nHeader\n\n参数名称\n\n\t\n\n必选(M)/可选(O)\n\n\t\n\n类型\n\n\t\n\n参数说明\n\n\n\n\nclient_id\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n\n客户端ID，获取方法参考获取客户端API授权。\n\n\n\n\nAuthorization\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n\n认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。\n\n\n\n\naccess_token\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n\n认证凭据。用户登录成功后，在登录接口的响应参数“accessToken”中获取。\n\nBody\n\n参数名称\n\n\t\n\n必选（M）/可选（O）\n\n\t\n\n参数类型\n\n\t\n\n参数说明\n\n\n\n\nlang\n\n\t\n\nO\n\n\t\n\nString\n\n\t\n\n语言，格式为“zh_CN”。\n\n\n\n\nnewPhone\n\n\t\n\nO\n\n\t\n\nString\n\n\t\n\n新手机号。\n\n\n\n\nnewEmail\n\n\t\n\nO\n\n\t\n\nString\n\n\t\n\n新邮箱地址。\n\n新邮箱地址和新手机号必填一个且只能填一个，即一次只修改手机号或者只修改邮箱地址。\n\n\n\n\nnewVerifyCode\n\n\t\n\nM\n\n\t\n\nString\n\n\t\n\n新验证码。\n\n请求示例\nPUT /agc/apigw/oauth2/third/v1/user-phone-email\nContent-Type: application/json\nproductId: 99************83\nclient_id: 680************560\nAuthorization: Bearer ***\naccess_token: eyJhbGciOiJIUzU****************\nHost: connect-drcn.dbankcloud.cn\n{\n    \"lang\": \"string\",\n    \"newPhone\": \"string\",\n    \"newEmail\": \"string\",\n    \"newVerifyCode\": \"string\"\n}\n响应参数\n\n参数\n\n\t\n\n必选（M）/可选（O）\n\n\t\n\n参数类型\n\n\t\n\n描述\n\n\n\n\nret\n\n\t\n\nO\n\n\t\n\nString(100)\n\n\t\n\n包含返回码及描述信息的JSON字符串，格式为{\"code\":retcode, \"msg\": \"description\"}，retcode为返回码，description为返回码描述信息。返回码请参见错误码。\n\n响应示例\n{\n    \"ret\": {\n        \"code\": 0,\n        \"msg\": \"string\"\n    }\n}\n调用示例\nJava\n    /**\n     * 修改手机号\n     *\n     * @param token access_token 认证凭据\n     * @param clientId 客户端ID\n     * @param productId 项目ID\n     * @param accessToken\n     * @param newPhone 新手机号\n     * @return 接口结果\n     * @throws IOException 异常\n     */\n    public static AuthOperateRsp modifyPhoneOrEmail(String token, String clientId, String productId, String accessToken,\n        String newPhone) throws IOException {\n        UpdateUserPhoneEmailReq req =\n            new UpdateUserPhoneEmailReq()\n            .newPhoneSet(newPhone)\n            .newVerifyCodeSet(\"123456\")\n//            .newEmailSet(\"when modify email\")\n            .langSet(\"zh_CN\");\n\n\n        HttpClient client = HttpClients.createDefault();\n\n\n        HttpPut httpPut = new HttpPut(\"https://connect-drcn.dbankcloud.cn/agc/apigw/oauth2/third/v1/user-phone-email?productId=\" + productId);\n\n\n        httpPut.setEntity(new StringEntity(JSON.toJSONString(req), Charset.forName(\"UTF-8\")));\n\n\n        httpPut.setHeader(\"Accept\", \"application/json\");\n        httpPut.setHeader(\"Content-Type\", \"application/json;charset=utf-8\");\n        httpPut.setHeader(\"client_id\", clientId);\n        httpPut.setHeader(\"Authorization\", \"Bearer \" + token);\n        httpPut.setHeader(\"access_token\", accessToken);\n\n\n        HttpResponse response = client.execute(httpPut);\n\n\n        return JSON.parseObject(IOUtils.toString(response.getEntity().getContent(), StandardCharsets.UTF_8),\n            AuthOperateRsp.class);\n    }\n用户验证码登录\n重置密码\n意见反馈\n以上内容对您是否有帮助？\n意见反馈\n如果您有其他疑问，您也可以通过开发者社区问答频道来和我们联系探讨。\n社区提问AI 助手提问\n本文导读\n功能介绍\n接口原型\n请求参数\nQuery\nHeader\nBody\n请求示例\n响应参数\n响应示例\n调用示例\n简体中文\n华为开发者联盟 版权所有 ©2026\n问题反馈\n使用条款\n华为开发者联盟用户协议\n关于华为开发者联盟与隐私的声明\nCookies\n开源软件声明",
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-modify-phone-email-0000001347069197",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "承载协议",
+          "HTTPS PUT"
+        ],
+        [
+          "接口方向",
+          "应用客户端 -> 华为认证服务器"
+        ],
+        [
+          "接口URL",
+          "https://connect-drcn.dbankcloud.cn/agc/apigw/oauth2/third/v1/user-phone-email 注意 调用获取Token接口时使用的域名必须与本接口域名保持一致，例如本接口使用“connect-drcn.dbankcloud.cn”，则调用获取Token接口必须使用“https://connect-drcn.dbankcloud.cn/agc/apigw/oauth2/v1/token”。"
+        ],
+        [
+          "数据格式",
+          "请求：Content-Type: application/json 响应：Content-Type: application/json"
+        ]
+      ],
+      "section": "接口原型",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-modify-phone-email-0000001347069197#section24541218119"
+    },
+    {
+      "location": "query",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "productId",
+          "M",
+          "String",
+          "项目ID，查询方法可参见查询项目ID。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-modify-phone-email-0000001347069197#section1454420327110"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "client_id",
+          "M",
+          "String",
+          "客户端ID，获取方法参考获取客户端API授权。"
+        ],
+        [
+          "Authorization",
+          "M",
+          "String",
+          "认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。"
+        ],
+        [
+          "access_token",
+          "M",
+          "String",
+          "认证凭据。用户登录成功后，在登录接口的响应参数“accessToken”中获取。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-modify-phone-email-0000001347069197#section14358637816"
+    },
+    {
+      "location": "body",
+      "rows": [
+        [
+          "参数名称",
+          "必选（M）/可选（O）",
+          "参数类型",
+          "参数说明"
+        ],
+        [
+          "lang",
+          "O",
+          "String",
+          "语言，格式为“zh_CN”。"
+        ],
+        [
+          "newPhone",
+          "O",
+          "String",
+          "新手机号。"
+        ],
+        [
+          "newEmail",
+          "O",
+          "String",
+          "新邮箱地址。 新邮箱地址和新手机号必填一个且只能填一个，即一次只修改手机号或者只修改邮箱地址。"
+        ],
+        [
+          "newVerifyCode",
+          "M",
+          "String",
+          "新验证码。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-modify-phone-email-0000001347069197#section1556604410117"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数",
+          "必选（M）/可选（O）",
+          "参数类型",
+          "描述"
+        ],
+        [
+          "ret",
+          "O",
+          "String(100)",
+          "包含返回码及描述信息的JSON字符串，格式为{\"code\":retcode, \"msg\": \"description\"}，retcode为返回码，description为返回码描述信息。返回码请参见错误码。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/client-rest-auth-modify-phone-email-0000001347069197#section203741521128"
+    }
+  ],
+  "title": "修改手机号或邮箱地址",
+  "updatedAt": "2026-10-22 11:25",
+  "captureTool": "Computer Use; scripts/browser-capture-reference.mjs-compatible merged-cell capture"
+}

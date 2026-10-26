@@ -1,0 +1,43 @@
+[
+  {
+    "name": "delFeedBackInfos",
+    "in": "body",
+    "type": "array",
+    "required": true,
+    "description": "待删除问题反馈信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-deletefeedbackrequest-0000002671009673",
+    "itemsType": "object",
+    "itemsProperties": [
+      {
+        "name": "problemId",
+        "in": "body",
+        "type": "string",
+        "required": true,
+        "maxLength": 32,
+        "description": "问题ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-delfeedbackinfos-0000002641014324"
+      },
+      {
+        "name": "testerId",
+        "in": "body",
+        "type": "string",
+        "required": true,
+        "maxLength": 32,
+        "description": "测试用户ID。",
+        "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-delfeedbackinfos-0000002641014324"
+      }
+    ]
+  },
+  {
+    "name": "deleteMode",
+    "in": "body",
+    "type": "integer",
+    "required": true,
+    "description": "删除模式，1-仅删除反馈，2-删除反馈+测试用户。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-deletefeedbackrequest-0000002671009673",
+    "enum": [
+      "1",
+      "2"
+    ]
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "name": "teamId",
+    "in": "header",
+    "type": "string",
+    "required": false,
+    "description": "开发者所在团队的团队ID，可通过获取团队列表接口获取。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-query-0000001158365045#section236517415165"
+  },
+  {
+    "name": "appId",
+    "in": "query",
+    "type": "string",
+    "required": true,
+    "description": "需要查询的应用ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-query-0000001158365045#section420734618165"
+  },
+  {
+    "name": "lang",
+    "in": "query",
+    "type": "string",
+    "required": false,
+    "description": "需要查询的语言，取值参考语言类型。不传该参数则查询全部语言的应用信息。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-query-0000001158365045#section420734618165"
+  },
+  {
+    "name": "releaseType",
+    "in": "query",
+    "type": "integer",
+    "required": false,
+    "description": "应用发布方式。 取值范围： 1：全网 3：分阶段 默认值：1",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-app-info-query-0000001158365045#section420734618165",
+    "enum": [
+      "1",
+      "3"
+    ]
+  }
+]

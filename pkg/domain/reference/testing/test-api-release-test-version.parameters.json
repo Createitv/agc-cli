@@ -1,0 +1,56 @@
+[
+  {
+    "name": "teamId",
+    "in": "header",
+    "type": "string",
+    "required": false,
+    "description": "开发者所在团队的团队ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-release-test-version-0000002271000713#section15707195611112",
+    "maxLength": 64
+  },
+  {
+    "name": "appId",
+    "in": "query",
+    "type": "string",
+    "required": true,
+    "description": "应用ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-release-test-version-0000002271000713#section6641436115716"
+  },
+  {
+    "name": "versionId",
+    "in": "body",
+    "type": "string",
+    "required": true,
+    "description": "需要转为全网版本或者分阶段版本的测试版本ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-release-test-version-0000002271000713#section141117691213",
+    "maxLength": 32
+  },
+  {
+    "name": "releaseType",
+    "in": "body",
+    "type": "integer",
+    "required": true,
+    "description": "发布方式。 取值范围： 1：全网发布。 2：分阶段发布。 默认值：1",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-release-test-version-0000002271000713#section141117691213",
+    "enum": [
+      "1",
+      "2"
+    ]
+  },
+  {
+    "name": "releaseTime",
+    "in": "body",
+    "type": "integer",
+    "required": false,
+    "description": "发布时间。 时间为毫秒数。 0，则表示立即上架。 非0，则表示指定时间上架，只对转全网生效。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-release-test-version-0000002271000713#section141117691213"
+  },
+  {
+    "name": "phasedReleaseInfo",
+    "in": "body",
+    "type": "object",
+    "required": false,
+    "description": "分阶段发布信息。 说明 releaseType为2时，该参数必填。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-release-test-version-0000002271000713#section141117691213"
+  }
+]

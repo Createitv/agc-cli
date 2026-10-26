@@ -1,0 +1,8 @@
+{
+  "query.packageName": {
+    "maxLength": 4096
+  },
+  "query.packageTypes": {
+    "maxLength": 32
+  }
+}

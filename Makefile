@@ -14,23 +14,30 @@ test:
 
 # 离线测试：不读取真实华为授权，不调用华为服务器。
 test-scripts:
+	python3 scripts/test_npm_package.py
+	node --test packaging/npm/test/agc.test.cjs
+	python3 scripts/test_coverage_isolation.py
 	python3 scripts/test_ci_report.py
 	python3 scripts/test_api_suite.py
 	python3 scripts/test_live_lifecycle.py
-	python3 scripts/test_npm_package.py
-	node --test packaging/npm/test/agc.test.cjs
+	python3 scripts/test_live_package.py
+	python3 scripts/test_certificate_fingerprint.py
+	python3 scripts/test_live_multipart.py
+	python3 scripts/test_goal_progress.py
+	python3 scripts/test_publishing_audit.py
+	python3 scripts/test_publishing_models.py
 
 # 每个注册接口验证真实本地 HTTP 收发，8 路并发。
 test-api-transport:
 	$(GO) test ./cmd/agc/command -run TestEveryEndpointHTTPTransport -count=1 -parallel=8
 
-coverage:
-	$(GO) test ./... -coverprofile=coverage.out
-	$(GO) tool cover -func=coverage.out
+COVERAGE_RUNNER := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))scripts/check-coverage.py
 
-coverage-check: coverage
-	@total=$$($(GO) tool cover -func=coverage.out | awk '/^total:/ { gsub("%","",$$3); print $$3 }'); \
-	awk -v total="$$total" -v min="$(COVERAGE_MIN)" 'BEGIN { if (total + 0 < min + 0) { printf("coverage %.1f%% is below %.1f%%\n", total, min); exit 1 } printf("coverage %.1f%% >= %.1f%%\n", total, min) }'
+coverage:
+	python3 "$(COVERAGE_RUNNER)" --go "$(GO)"
+
+coverage-check:
+	python3 "$(COVERAGE_RUNNER)" --go "$(GO)" --minimum "$(COVERAGE_MIN)"
 
 lint:
 	$(GO) vet ./...
@@ -40,6 +47,7 @@ web-install:
 
 web-test:
 	$(NPM) --prefix apps/web test -- --run
+	node --test scripts/test_browser_capture.mjs
 
 web-build:
 	$(NPM) --prefix apps/web run build

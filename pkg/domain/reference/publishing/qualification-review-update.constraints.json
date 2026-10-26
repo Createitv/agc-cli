@@ -1,0 +1,8 @@
+{
+  "header.appId": {
+    "maxLength": 32
+  },
+  "body.tagQualInfos": {
+    "maxItems": 5
+  }
+}

@@ -1,6 +1,9 @@
 import importlib.util
 import pathlib
 import unittest
+import tempfile
+import types
+from unittest.mock import patch
 
 spec = importlib.util.spec_from_file_location("live_lifecycle", pathlib.Path(__file__).with_name("live-lifecycle.py"))
 module = importlib.util.module_from_spec(spec)
@@ -8,6 +11,51 @@ spec.loader.exec_module(module)
 
 
 class LifecycleTests(unittest.TestCase):
+    def test_json_string_ret_preserves_code_without_embedded_private_data(self):
+        evidence = module.safe_evidence({"ret": '{"code":123,"msg":"PRIVATE account"}'})
+        self.assertEqual(evidence["businessCode"], 123)
+        self.assertNotIn("PRIVATE", str(evidence))
+        self.assertIsNone(module.safe_evidence({"ret": "invalid JSON"})["businessCode"])
+
+    def test_failure_records_code_origin_without_raw_response(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            args = types.SimpleNamespace(binary=pathlib.Path("offline-cli"), profile="default", app_id="dedicated", output_dir=pathlib.Path(tmp))
+            flow = module.Flow(args, "error-proof", "offline")
+            response = types.SimpleNamespace(returncode=1, stderr="agc endpoint returned HTTP 200 (2): denied", stdout='{"error":{"code":"2","codeField":"businessCode","resultCodes":{"rtnCode":"0","businessCode":"2"},"rawBody":{"invitationCode":"SECRET"}}}')
+            with patch.object(module.subprocess, "run", return_value=response):
+                with self.assertRaises(RuntimeError): flow.call("testing", "test-api-create-open-test-link")
+            step = flow.ledger["steps"][0]
+            self.assertEqual(step["codeField"], "businessCode")
+            self.assertEqual(step["resultCodes"], {"rtnCode": "0", "businessCode": "2"})
+            self.assertNotIn("SECRET", flow.output.read_text())
+
+    def test_json_only_failure_preserves_http_status_without_private_message(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            args = types.SimpleNamespace(binary=pathlib.Path("offline-cli"), profile="default", app_id="dedicated", output_dir=pathlib.Path(tmp))
+            flow = module.Flow(args, "json-error-proof", "offline")
+            response = types.SimpleNamespace(returncode=1, stderr="", stdout='{"error":{"code":"991","message":"agc endpoint returned HTTP 408 (991): PRIVATE", "codeField":"rtnCode","resultCodes":{"rtnCode":"991"}}}')
+            with patch.object(module.subprocess, "run", return_value=response):
+                with self.assertRaises(RuntimeError): flow.call("domains", "domain-api-precheck")
+            step = flow.ledger["steps"][0]
+            self.assertEqual(step.get("httpStatus"), 408)
+            self.assertEqual(step["status"], "http-error")
+            self.assertEqual(step["businessCode"], "991")
+            self.assertNotIn("PRIVATE", flow.output.read_text())
+
+    def test_step_can_select_and_record_separate_compile_profile(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            args = types.SimpleNamespace(binary=pathlib.Path("offline-cli"), profile="default", app_id="dedicated", output_dir=pathlib.Path(tmp))
+            flow = module.Flow(args, "profile-proof", "offline")
+            response = types.SimpleNamespace(returncode=0, stderr="", stdout='{"data":{"dryRun":false,"statusCode":200,"body":{"ret":{"code":0}}}}')
+            with patch.object(module.subprocess, "run", return_value=response) as run:
+                flow.call("publishing", "query-aabfile", query={"appId": "dedicated", "pkgIds": "owned-package"}, profile="api-client")
+            self.assertEqual(run.call_args.args[0][2], "api-client")
+            self.assertEqual(flow.ledger["steps"][0]["profile"], "api-client")
+            self.assertEqual(args.profile, "default")
+
+    def test_pms_success_uses_nested_error_result(self):
+        self.assertEqual(module.safe_evidence({"error": {"errorCode": 0}, "result": "owned-group-id"})["businessCode"], 0)
+
     def test_cleanup_refuses_resources_not_created_by_run(self):
         ledger = {"owned": {"groupId": "mine"}}
         self.assertTrue(module.is_owned(ledger, "groupId", "mine"))

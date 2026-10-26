@@ -1,0 +1,106 @@
+{
+  "examples": [],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter#section195981215284",
+      "title": "了解新版目录"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-open-ability-0000002235710238",
+      "title": "AGC开放能力"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-connect-api-0000002236015554",
+      "title": "AppGallery Connect API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-reference-0000002271000709",
+      "title": "Testing API参考"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-data-0000002237336484",
+      "title": "数据模型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-delfeedbackinfos-0000002641014324",
+      "title": "delFeedBackInfos"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-test-api-errorcode-0000002356508845",
+      "title": "错误码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-feedbacklistrequest-0000002671389861",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "startTime",
+          "O",
+          "Integer",
+          "时间戳，开始时间，不填默认近一年。"
+        ],
+        [
+          "endTime",
+          "O",
+          "Integer",
+          "时间戳，结束时间，不填默认近一年。"
+        ],
+        [
+          "appVersions",
+          "O",
+          "List<String(64)>",
+          "应用版本。"
+        ],
+        [
+          "models",
+          "O",
+          "List<String(64)>",
+          "模型。"
+        ],
+        [
+          "deviceVersions",
+          "O",
+          "List<String(64)>",
+          "设备版本。"
+        ],
+        [
+          "machineTypes",
+          "O",
+          "List<String(64)>",
+          "机器类型。"
+        ],
+        [
+          "currentPage",
+          "O",
+          "Integer",
+          "当前页。"
+        ],
+        [
+          "pageSize",
+          "O",
+          "Integer",
+          "每页数量。"
+        ]
+      ],
+      "section": "",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/doccenter-submission/agc-help-publish-api-feedbacklistrequest-0000002671389861"
+    }
+  ],
+  "title": "feedbackListRequest",
+  "updatedAt": "2026-08-11 10:20",
+  "checkedAt": "2026-10-07T03:55:34.726Z"
+}

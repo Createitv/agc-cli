@@ -1,0 +1,34 @@
+[
+  {
+    "name": "oauth2Token",
+    "in": "header",
+    "type": "string",
+    "required": true,
+    "description": "认证信息，传入获取用户授权码中获取的Access Token。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryappfingerprint-0000001158245077#section236517415165"
+  },
+  {
+    "name": "uid",
+    "in": "header",
+    "type": "string",
+    "required": true,
+    "description": "开发者账号ID，可通过查询开发者账号ID查询。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryappfingerprint-0000001158245077#section236517415165"
+  },
+  {
+    "name": "teamId",
+    "in": "header",
+    "type": "string",
+    "required": true,
+    "description": "应用归属的团队账号ID，可以通过获取应用简略信息接口获取。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryappfingerprint-0000001158245077#section236517415165"
+  },
+  {
+    "name": "appId",
+    "in": "path",
+    "type": "string",
+    "required": true,
+    "description": "应用ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-queryappfingerprint-0000001158245077#section886219295206"
+  }
+]

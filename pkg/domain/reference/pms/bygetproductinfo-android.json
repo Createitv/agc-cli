@@ -1,0 +1,347 @@
+{
+  "examples": [
+    {
+      "section": "请求示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetproductinfo-android-0000002135929316#section19934722144316",
+      "text": "请求示例\n\n以API Client为例：\n\nPOST https://connect-api.cloud.huawei.com/api/pms/product-price-service/v1/manage/product/list\nContent-Type: application/json\nclient_id: ***\nAuthorization: Bearer ***\nappId: 1000001\n\n\n{\n    \"country\": \"CN\",\n    \"requestId\": \"123411111111\",\n    \"productName\": \"创建商品定义信息\",\n    \"pageNum\": 1,\n    \"pageSize\": 10\n}"
+    },
+    {
+      "section": "响应示例",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetproductinfo-android-0000002135929316#section1674723458",
+      "text": "响应示例\n{\n    \"error\": {\n        \"errorCode\": 0,\n        \"errorMsg\": null\n    },\n    \"products\": [{\n        \"country\": \"US\",\n        \"currency\": \"CNY\",\n        \"defaultLocale\": \"th_TH\",\n        \"defaultTier\": \"TIER106\",\n        \"developerId\": \"wwh_xn\",\n        \"groupId\": null,\n        \"id\": \"9C1B4C23702341ACA3F51A9FA1B36BF0\",\n        \"isPromotion\": 0,\n        \"localPrice\": null,\n        \"numberOfUnits\": null,\n        \"periodUnit\": null,\n        \"price\": \"600\",\n        \"purchaseType\": \"consumable\",\n        \"productDesc\": \"N88395Y6Z6VL70I4B6S2Z6L68DGW3\",\n        \"productName\": \"创建商品定义信息0\",\n        \"productNo\": \"/manage/product0\",\n        \"resourceType\": 7,\n        \"status\": \"active\",\n        \"updateTime\": \"2016-09-23 10:56:24\"\n    }, {\n        \"country\": \"US\",\n        \"currency\": \"CNY\",\n        \"defaultLocale\": \"th_TH\",\n        \"defaultTier\": \"TIER106\",\n        \"developerId\": \"wwh_xn\",\n        \"groupId\": null,\n        \"id\": \"9C1B4C23702341ACA3F51A9FA1B36BF1\",\n        \"isPromotion\": 0,\n        \"localPrice\": null,\n        \"numberOfUnits\": null,\n        \"periodUnit\": null,\n        \"price\": \"600\",\n        \"purchaseType\": \"consumable\",\n        \"productDesc\": \"N88395Y6Z6VL70I4B6S2Z6L68DGW3\",\n        \"productName\": \"创建商品定义信息1\",\n        \"productNo\": \"/manage/product1\",\n        \"resourceType\": 7,\n        \"status\": \"active\",\n        \"updateTime\": \"2016-09-23 10:56:24\"\n    }, {\n        \"country\": \"US\",\n        \"currency\": \"CNY\",\n        \"defaultLocale\": \"th_TH\",\n        \"defaultTier\": \"TIER106\",\n        \"developerId\": \"wwh_xn\",\n        \"groupId\": null,\n        \"id\": \"9C1B4C23702341ACA3F51A9FA1B36BF2\",\n        \"isPromotion\": 0,\n        \"localPrice\": null,\n        \"numberOfUnits\": null,\n        \"periodUnit\": null,\n        \"price\": \"600\",\n        \"purchaseType\": \"consumable\",\n        \"productDesc\": \"N88395Y6Z6VL70I4B6S2Z6L68DGW3\",\n        \"productName\": \"创建商品定义信息2\",\n        \"productNo\": \"/manage/product2\",\n        \"resourceType\": 7,\n        \"status\": \"active\",\n        \"updateTime\": \"2016-09-23 10:56:24\"\n    }, {\n        \"country\": \"US\",\n        \"currency\": \"CNY\",\n        \"defaultLocale\": \"th_TH\",\n        \"defaultTier\": \"TIER106\",\n        \"developerId\": \"wwh_xn\",\n        \"groupId\": null,\n        \"id\": \"9C1B4C23702341ACA3F51A9FA1B36BF3\",\n        \"isPromotion\": 0,\n        \"localPrice\": null,\n        \"numberOfUnits\": null,\n        \"periodUnit\": null,\n        \"price\": \"600\",\n        \"purchaseType\": \"consumable\",\n        \"productDesc\": \"N88395Y6Z6VL70I4B6S2Z6L68DGW3\",\n        \"productName\": \"创建商品定义信息3\",\n        \"productNo\": \"/manage/product3\",\n        \"resourceType\": 7,\n        \"status\": \"active\",\n        \"updateTime\": \"2016-09-23 10:56:24\"\n    }, {\n        \"country\": \"US\",\n        \"currency\": \"CNY\",\n        \"defaultLocale\": \"th_TH\",\n        \"defaultTier\": \"TIER106\",\n        \"developerId\": \"wwh_xn\",\n        \"groupId\": null,\n        \"id\": \"9C1B4C23702341ACA3F51A9FA1B36BF4\",\n        \"isPromotion\": 0,\n        \"localPrice\": null,\n        \"numberOfUnits\": null,\n        \"periodUnit\": null,\n        \"price\": \"600\",\n        \"purchaseType\": \"consumable\",\n        \"productDesc\": \"N88395Y6Z6VL70I4B6S2Z6L68DGW3\",\n        \"productName\": \"创建商品定义信息4\",\n        \"productNo\": \"/manage/product4\",\n        \"resourceType\": 7,\n        \"status\": \"active\",\n        \"updateTime\": \"2016-09-23 10:56:24\"\n    }, {\n        \"country\": \"US\",\n        \"currency\": \"CNY\",\n        \"defaultLocale\": \"th_TH\",\n        \"defaultTier\": \"TIER106\",\n        \"developerId\": \"wwh_xn\",\n        \"groupId\": null,\n        \"id\": \"9C1B4C23702341ACA3F51A9FA1B36BF5\",\n        \"isPromotion\": 0,\n        \"localPrice\": null,\n        \"numberOfUnits\": null,\n        \"periodUnit\": null,\n        \"price\": \"600\",\n        \"purchaseType\": \"consumable\",\n        \"productDesc\": \"N88395Y6Z6VL70I4B6S2Z6L68DGW3\",\n        \"productName\": \"创建商品定义信息5\",\n        \"productNo\": \"/manage/product5\",\n        \"resourceType\": 7,\n        \"status\": \"active\",\n        \"updateTime\": \"2016-09-23 10:56:24\"\n    }, {\n        \"country\": \"US\",\n        \"currency\": \"CNY\",\n        \"defaultLocale\": \"th_TH\",\n        \"defaultTier\": \"TIER106\",\n        \"developerId\": \"wwh_xn\",\n        \"groupId\": null,\n        \"id\": \"9C1B4C23702341ACA3F51A9FA1B36BF6\",\n        \"isPromotion\": 0,\n        \"localPrice\": null,\n        \"numberOfUnits\": null,\n        \"periodUnit\": null,\n        \"price\": \"600\",\n        \"purchaseType\": \"consumable\",\n        \"productDesc\": \"N88395Y6Z6VL70I4B6S2Z6L68DGW3\",\n        \"productName\": \"创建商品定义信息6\",\n        \"productNo\": \"/manage/product6\",\n        \"resourceType\": 7,\n        \"status\": \"active\",\n        \"updateTime\": \"2016-09-23 10:56:24\"\n    }, {\n        \"country\": \"US\",\n        \"currency\": \"CNY\",\n        \"defaultLocale\": \"th_TH\",\n        \"defaultTier\": \"TIER106\",\n        \"developerId\": \"wwh_xn\",\n        \"groupId\": null,\n        \"id\": \"9C1B4C23702341ACA3F51A9FA1B36BF7\",\n        \"isPromotion\": 0,\n        \"localPrice\": null,\n        \"numberOfUnits\": null,\n        \"periodUnit\": null,\n        \"price\": \"600\",\n        \"purchaseType\": \"consumable\",\n        \"productDesc\": \"N88395Y6Z6VL70I4B6S2Z6L68DGW3\",\n        \"productName\": \"创建商品定义信息7\",\n        \"productNo\": \"/manage/product7\",\n        \"resourceType\": 7,\n        \"status\": \"active\",\n        \"updateTime\": \"2016-09-23 10:56:24\"\n    }, {\n        \"country\": \"US\",\n        \"currency\": \"CNY\",\n        \"defaultLocale\": \"th_TH\",\n        \"defaultTier\": \"TIER106\",\n        \"developerId\": \"wwh_xn\",\n        \"groupId\": null,\n        \"id\": \"9C1B4C23702341ACA3F51A9FA1B36BF8\",\n        \"isPromotion\": 0,\n        \"localPrice\": null,\n        \"numberOfUnits\": null,\n        \"periodUnit\": null,\n        \"price\": \"600\",\n        \"purchaseType\": \"consumable\",\n        \"productDesc\": \"N88395Y6Z6VL70I4B6S2Z6L68DGW3\",\n        \"productName\": \"创建商品定义信息8\",\n        \"productNo\": \"/manage/product8\",\n        \"resourceType\": 7,\n        \"status\": \"active\",\n        \"updateTime\": \"2016-09-23 10:56:24\"\n    }, {\n        \"country\": \"US\",\n        \"currency\": \"CNY\",\n        \"defaultLocale\": \"th_TH\",\n        \"defaultTier\": \"TIER106\",\n        \"developerId\": \"wwh_xn\",\n        \"groupId\": null,\n        \"id\": \"9C1B4C23702341ACA3F51A9FA1B36BF9\",\n        \"isPromotion\": 0,\n        \"localPrice\": null,\n        \"numberOfUnits\": null,\n        \"periodUnit\": null,\n        \"price\": \"600\",\n        \"purchaseType\": \"consumable\",\n        \"productDesc\": \"N88395Y6Z6VL70I4B6S2Z6L68DGW3\",\n        \"productName\": \"创建商品定义信息9\",\n        \"productNo\": \"/manage/product9\",\n        \"resourceType\": 7,\n        \"status\": \"active\",\n        \"updateTime\": \"2016-09-23 10:56:24\"\n    }],\n    \"totalNumber\": 10\n}"
+    }
+  ],
+  "links": [
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pmsapi-0000001162548121",
+      "title": "PMS API"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pmsapi-android-0000002131508240",
+      "title": "HarmonyOS 3.1/4.0及以下、Android"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetproductinfo-harmonyosnext-0000002166748609",
+      "title": "HarmonyOS 5.0及以上 V2版本接口"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114",
+      "title": "使用入门"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114#section103mcpsimp",
+      "title": "创建API客户端"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain_token-0000001158365043",
+      "title": "获取Token"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/appgallery_queryappinfo",
+      "title": "查询应用信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114#section949717114392",
+      "title": "获取用户授权码"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/appgallery_queryappinfo",
+      "title": "查询应用信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/distribution/app/agc-help-supported-countries-overview-0000001146718725",
+      "title": "国家/地区、语言、币种列表"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-errorresult-android-0000002171288633",
+      "title": "ErrorResult"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-pdetailinfo-android-0000002136087428",
+      "title": "ProductDetailInfo"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-getproductinfo-android-0000002171288609",
+      "title": "查询商品详情"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-updateproduct-android-0000002136087404",
+      "title": "更新商品信息"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetproductinfo-android-0000002135929316#section8711909",
+      "title": "功能介绍"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetproductinfo-android-0000002135929316#section5189239225",
+      "title": "使用约束"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetproductinfo-android-0000002135929316#section2862142512223",
+      "title": "接口原型"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetproductinfo-android-0000002135929316#section482745132215",
+      "title": "请求参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetproductinfo-android-0000002135929316#section9925175016016",
+      "title": "Header"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetproductinfo-android-0000002135929316#section57323163316",
+      "title": "Body"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetproductinfo-android-0000002135929316#section19934722144316",
+      "title": "请求示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetproductinfo-android-0000002135929316#section49198053",
+      "title": "响应参数"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetproductinfo-android-0000002135929316#section1674723458",
+      "title": "响应示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetproductinfo-android-0000002135929316#section77276431240",
+      "title": "调用示例"
+    },
+    {
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/start/useragreement-0000001494912825",
+      "title": "华为开发者联盟用户协议"
+    }
+  ],
+  "notes": [
+    {
+      "section": "功能介绍",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetproductinfo-android-0000002135929316#section8711909",
+      "text": "此接口用于商品查询，支持多条件过滤，根据productNo和AppId唯一查询一个商品信息。"
+    },
+    {
+      "section": "使用约束",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetproductinfo-android-0000002135929316#section5189239225",
+      "text": "接口调用者的角色：账号持有者、管理员、APP管理员、运营。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetproductinfo-android-0000002135929316#section9925175016016",
+      "text": "API Client和OAuth Client区别参见使用入门。"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetproductinfo-android-0000002135929316#section9925175016016",
+      "text": "API Client方式"
+    },
+    {
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetproductinfo-android-0000002135929316#section9925175016016",
+      "text": "OAuth Client方式"
+    }
+  ],
+  "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetproductinfo-android-0000002135929316",
+  "status": "browser-read",
+  "tables": [
+    {
+      "location": "",
+      "rows": [
+        [
+          "承载协议",
+          "HTTPS POST"
+        ],
+        [
+          "接口方向",
+          "开发者服务器->数字商品服务器"
+        ],
+        [
+          "接口URL",
+          "https://connect-api.cloud.huawei.com/api/pms/product-price-service/v1/manage/product/list"
+        ],
+        [
+          "数据格式",
+          "请求消息：Content-Type: application/json 响应消息：Content-Type: application/json"
+        ]
+      ],
+      "section": "接口原型",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetproductinfo-android-0000002135929316#section2862142512223"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数",
+          "必选(M)/可选(O)",
+          "类型",
+          "描述"
+        ],
+        [
+          "client_id",
+          "M",
+          "String",
+          "客户端ID，获取方法参考创建API客户端。"
+        ],
+        [
+          "Authorization",
+          "M",
+          "String",
+          "认证信息，格式为“Authorization: Bearer ${access_token}”。access_token为获取Token中获取的access_token。"
+        ],
+        [
+          "appId",
+          "M",
+          "String",
+          "应用ID，获取方法参考查询应用信息。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetproductinfo-android-0000002135929316#section9925175016016"
+    },
+    {
+      "location": "header",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "oauth2Token",
+          "M",
+          "String",
+          "认证信息，传入获取用户授权码中获取的Access Token。"
+        ],
+        [
+          "appId",
+          "M",
+          "String",
+          "应用ID，获取方法参考查询应用信息。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetproductinfo-android-0000002135929316#section9925175016016"
+    },
+    {
+      "location": "body",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "requestId",
+          "M",
+          "String(64)",
+          "请求序列，开发者自定义唯一标识符。"
+        ],
+        [
+          "productNo",
+          "O",
+          "String",
+          "查询应用内指定商品标识的商品，如果不传值默认查询所有应用内商品。支持多个商品标识过滤查询，使用英文逗号分隔。"
+        ],
+        [
+          "productName",
+          "O",
+          "String(55)",
+          "待查询的商品名称，支持按关键字模糊查询。不支持特殊字符|。"
+        ],
+        [
+          "purchaseType",
+          "O",
+          "String",
+          "如果查多种商品类型，使用英文逗号分隔，取值如下： consumable：消耗型 auto_subscription：自动续期型 non_consumable：非消耗型"
+        ],
+        [
+          "status",
+          "O",
+          "String",
+          "如果查多种商品状态，使用英文逗号分隔，取值如下： active：在线 inactive：下线 delete：删除"
+        ],
+        [
+          "orderBy",
+          "O",
+          "String",
+          "按名称升序或者降序排序。配置JSON对象，key为属性名，value为排序规则。不传值时默认按照数据库中创建时间降序。 key取值范围为： price：价格 updateTime：更新时间 value取值desc降序或者asc升序 例如：按价格price升序，更新时间updateTime降序, 则配置为{\"price\": \"asc\",\"updateTime\": \"desc\"}"
+        ],
+        [
+          "beginTime",
+          "O",
+          "String",
+          "商品更新开始时间，格式为：yyyy-MM-dd HH:mm:ss。"
+        ],
+        [
+          "endTime",
+          "O",
+          "String",
+          "商品更新结束时间，格式为：yyyy-MM-dd HH:mm:ss。 beginTime和endTime设置后可以查询出updateTime在此时间段内的商品。"
+        ],
+        [
+          "pageNum",
+          "O",
+          "Integer",
+          "请求查询的起始页码，默认值：1。"
+        ],
+        [
+          "pageSize",
+          "O",
+          "Integer",
+          "每页请求数目，默认每页20条，最大不能超过300。"
+        ],
+        [
+          "country",
+          "M",
+          "String",
+          "将商品价格转为该国家的价格进行展示。 请参见国家/地区、语言、币种列表，例如US、CN。"
+        ],
+        [
+          "groupId",
+          "O",
+          "String",
+          "订阅组ID，如果不为空，则仅查询该组下商品。"
+        ]
+      ],
+      "section": "请求参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetproductinfo-android-0000002135929316#section57323163316"
+    },
+    {
+      "location": "",
+      "rows": [
+        [
+          "参数名称",
+          "必选(M)/可选(O)",
+          "类型",
+          "参数说明"
+        ],
+        [
+          "error",
+          "M",
+          "ErrorResult",
+          "包含返回码及描述信息的JSON字符串。"
+        ],
+        [
+          "totalNumber",
+          "M",
+          "Integer",
+          "查询出的商品总个数。"
+        ],
+        [
+          "products",
+          "M",
+          "List<ProductDetailInfo>",
+          "商品列表信息。"
+        ]
+      ],
+      "section": "响应参数",
+      "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-bygetproductinfo-android-0000002135929316#section49198053"
+    }
+  ],
+  "title": "按条件查询商品信息",
+  "updatedAt": "2025-11-21 13:50",
+  "checkedAt": "2026-10-07T02:58:21.986Z",
+  "family": "pms",
+  "endpoint": "bygetproductinfo-android"
+}

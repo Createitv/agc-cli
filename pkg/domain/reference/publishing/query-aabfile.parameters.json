@@ -1,0 +1,26 @@
+[
+  {
+    "name": "teamId",
+    "in": "header",
+    "type": "string",
+    "required": false,
+    "description": "开发者所在团队的团队ID，可通过获取团队列表接口获取。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-query-aabfile-0000001111685206#section236517415165"
+  },
+  {
+    "name": "appId",
+    "in": "query",
+    "type": "string",
+    "required": true,
+    "description": "应用ID。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-query-aabfile-0000001111685206#section165302018915"
+  },
+  {
+    "name": "pkgIds",
+    "in": "query",
+    "type": "string",
+    "required": true,
+    "description": "待查询的软件包id，多个id之间用逗号分隔。 对应查询软件包列表接口返回的pkgVersion参数。",
+    "sourceUrl": "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-query-aabfile-0000001111685206#section165302018915"
+  }
+]
